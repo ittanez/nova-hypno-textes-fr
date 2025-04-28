@@ -73,7 +73,13 @@ const SessionProcess = () => {
             style={{ borderLeftWidth: '3px' }}
           >
             {steps.map((step, index) => (
-              <div key={index} className="step mb-12 relative opacity-0 transform -translate-x-12 transition-all duration-600">
+              <div 
+                key={index} 
+                className="step mb-12 relative opacity-0 transform -translate-x-12 transition-all duration-600"
+                style={{
+                  transition: 'all 0.6s ease-out'
+                }}
+              >
                 <div className="absolute -left-[10px] top-0 w-3 h-3 rounded-full bg-nova-blue border-2 border-white"></div>
                 <div className="absolute -left-14 -top-1 w-6 h-6 text-nova-blue">
                   <step.Icon size={24} stroke="#005f73" />
@@ -87,12 +93,16 @@ const SessionProcess = () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .step.visible {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      `}</style>
+      
+      {/* Add global styles for animation via style element without the jsx attribute */}
+      <style>
+        {`
+          .step.visible {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        `}
+      </style>
     </section>
   );
 };
