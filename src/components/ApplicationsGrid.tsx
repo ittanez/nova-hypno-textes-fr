@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwich, GanttChart, Flower } from 'lucide-react';
+import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwich, GanttChart } from 'lucide-react';
 
 const applications = [
   {
@@ -25,7 +24,7 @@ const applications = [
   },
   {
     title: 'Dépendances',
-    description: "Qu'il s'agisse d'addictions comportementales ou de dépendances chimiques, l'hypnose permet de modifier les schémas mentaux à l'origine de la dépendance.",
+    description: "Qu'il s'agisse de dépendances comportementales ou de dépendances chimiques, l'hypnose permet de modifier les schémas mentaux à l'origine de la dépendance.",
     icon: CigaretteOff
   },
   {
@@ -40,18 +39,13 @@ const applications = [
   },
   {
     title: 'Troubles du comportement alimentaire',
-    description: "Boulimie, anorexie, compulsions alimentaires... L'hypnothérapie permet de comprendre les origines de ces troubles et de retrouver une alimentation équilibrée.",
+    description: "Boulimie, anorexie, compulsions alimentaires... L'hypnothérapie aide à comprendre les causes de ces troubles et favorise le retour à une alimentation équilibrée.",
     icon: Sandwich
   },
   {
     title: 'Stress',
     description: "Hyper-réactivité, fatigue, maux de tête : l'hypnose apprend à lâcher prise sur les tensions et à retrouver calme intérieur et sérénité.",
     icon: GanttChart
-  },
-  {
-    title: 'Deuil',
-    description: "Accompagnement du travail de deuil grâce aux ressources de l'inconscient, pour avancer dans son processus de reconstruction personnelle.",
-    icon: Flower
   },
 ];
 

@@ -1,28 +1,63 @@
 
-import React from 'react';
-import { ClipboardList, BookOpen, Sparkles, Smile } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Check, Target, Clock, Sunrise, Sun, FileText } from 'lucide-react';
 
 const SessionProcess = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    const steps = timelineRef.current?.querySelectorAll('.step');
+    steps?.forEach((step) => {
+      observer.observe(step);
+    });
+    
+    return () => {
+      steps?.forEach((step) => {
+        observer.unobserve(step);
+      });
+    };
+  }, []);
+  
   const steps = [
     {
-      title: "L'anamnèse",
-      description: "Tout d'abord, une séance d'hypnose Ericksonienne débute par un entretien préalable appelé \"anamnèse\". Cet entretien permet d'identifier vos problèmes et difficultés. Ensemble, nous définissons ensuite vos objectifs pour la séance.",
-      icon: ClipboardList
+      title: "Accueil et échange",
+      description: "Prise de contact, écoute de vos attentes et objectifs.",
+      Icon: Check
     },
     {
-      title: "Explication de l'hypnose",
-      description: "Ensuite, je vous explique en détail le fonctionnement de l'hypnose Ericksonienne. Vous comprendrez alors comment vivre cet état de conscience modifiée. Cette relaxation physique et mentale profonde servira à travailler sur vos problèmes.",
-      icon: BookOpen
+      title: "Définition de l'objectif thérapeutique",
+      description: "Clarification de votre intention de changement.",
+      Icon: Target
     },
     {
-      title: "La phase d'hypnose",
-      description: "Après avoir créé un contexte accueillant et explicité le processus, je mets en œuvre la technique hypnothérapeutique que j'ai spécialement adaptée à votre situation. Pendant cette phase, vous utilisez des exercices et des jeux d'imagination pour atteindre vos buts.",
-      icon: Sparkles
+      title: "Induction hypnotique",
+      description: "Installation progressive de l'état hypnotique.",
+      Icon: Clock
     },
     {
-      title: "Fin de la séance",
-      description: "Enfin, vous êtes invité à revenir doucement à la fin de la séance et à faire part de vos ressentis et des changements dans vos sensations pendant la séance. Nous discutons également des prochains objectifs à atteindre.",
-      icon: Smile
+      title: "Phase thérapeutique",
+      description: "Travail en profondeur sur l'inconscient avec suggestions adaptées.",
+      Icon: Sunrise
+    },
+    {
+      title: "Réveil progressif",
+      description: "Retour naturel à l'état d'éveil, avec intégration des changements.",
+      Icon: Sun
+    },
+    {
+      title: "Temps d'échange final",
+      description: "Partage de votre ressenti et conseils pour prolonger les bienfaits.",
+      Icon: FileText
     }
   ];
 
@@ -31,37 +66,33 @@ const SessionProcess = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-center text-nova-blue-dark mb-16">Déroulement d'une séance d'hypnose Ericksonienne</h2>
         
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Vertical timeline line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-nova-blue"></div>
-            
+        <div className="max-w-3xl mx-auto">
+          <div 
+            ref={timelineRef}
+            className="relative flex flex-col border-l-3 border-nova-blue pl-8 my-8"
+            style={{ borderLeftWidth: '3px' }}
+          >
             {steps.map((step, index) => (
-              <div key={index} className="mb-12 md:mb-24 relative">
-                <div className={`md:flex ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  {/* Timeline circle marker */}
-                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-12 h-12 rounded-full border-4 border-nova-blue bg-white shadow-lg z-10 flex items-center justify-center">
-                    {React.createElement(step.icon, { size: 24, className: "text-nova-blue" })}
-                  </div>
-                  
-                  {/* Content box */}
-                  <div className={`md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                      <div className="flex items-center mb-4">
-                        <div className="md:hidden bg-nova-blue rounded-full p-2 mr-3">
-                          {React.createElement(step.icon, { size: 18, className: "text-white" })}
-                        </div>
-                        <h3 className="text-nova-blue-dark text-xl font-semibold">{step.title}</h3>
-                      </div>
-                      <p className="text-gray-700">{step.description}</p>
-                    </div>
-                  </div>
+              <div key={index} className="step mb-12 relative opacity-0 transform -translate-x-12 transition-all duration-600">
+                <div className="absolute -left-[10px] top-0 w-3 h-3 rounded-full bg-nova-blue border-2 border-white"></div>
+                <div className="absolute -left-14 -top-1 w-6 h-6 text-nova-blue">
+                  <step.Icon size={24} stroke="#005f73" />
+                </div>
+                <div className="content">
+                  <h3 className="m-0 mb-2 text-xl font-semibold text-nova-blue-dark">{step.title}</h3>
+                  <p className="m-0 text-gray-600">{step.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .step.visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      `}</style>
     </section>
   );
 };

@@ -27,7 +27,7 @@ const Header = () => {
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
     { name: 'Séances', href: '#sessions' },
-    { name: 'Hypno-Balades', href: '#walks' },
+    { name: 'Hypno-Balades', href: 'https://hypno-balade.novahypnose.fr', external: true },
     { name: 'FAQ', href: '#faq' },
     { name: 'Tarifs', href: '#pricing' },
     { name: 'Contact', href: '#contact' }
@@ -53,6 +53,8 @@ const Header = () => {
               <a 
                 key={link.name}
                 href={link.href}
+                target={link.external ? "_blank" : ""}
+                rel={link.external ? "noopener noreferrer" : ""}
                 className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
               >
                 {link.name}
@@ -80,6 +82,8 @@ const Header = () => {
                 <a 
                   key={link.name}
                   href={link.href}
+                  target={link.external ? "_blank" : ""}
+                  rel={link.external ? "noopener noreferrer" : ""}
                   className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
                   onClick={toggleMobileMenu}
                 >

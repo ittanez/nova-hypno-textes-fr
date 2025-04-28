@@ -6,7 +6,6 @@ import About from '../components/About';
 import ApplicationsGrid from '../components/ApplicationsGrid';
 import SelfHypnosis from '../components/SelfHypnosis';
 import SessionProcess from '../components/SessionProcess';
-import HypnoWalks from '../components/HypnoWalks';
 import Faq from '../components/Faq';
 import Testimonials from '../components/testimonials/Testimonials';
 import Pricing from '../components/Pricing';
@@ -64,7 +63,6 @@ const Index = () => {
         <ApplicationsGrid />
         <SelfHypnosis />
         <SessionProcess />
-        <HypnoWalks />
         <Testimonials />
         <Faq />
         <Pricing />

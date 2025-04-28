@@ -62,6 +62,17 @@ const SelfHypnosis = () => {
               </div>
             ))}
           </div>
+          
+          <div className="mt-12 flex justify-center">
+            <a 
+              href="https://harmonia.novahypnose.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-nova-green text-white rounded-lg shadow-lg hover:bg-nova-green-dark transition-colors text-center"
+            >
+              Participer à la Journée Auto-Hypnose pour Réduire le Stress
+            </a>
+          </div>
         </div>
       </div>
     </section>

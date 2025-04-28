@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Heart } from 'lucide-react';
+import { Button } from './ui/button';
 
 const About = () => {
   return (
@@ -46,30 +47,14 @@ const About = () => {
                 Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients. Il ne s'agit jamais d'imposer un changement, mais d'éveiller ce qui est déjà en vous, prêt à émerger.
               </p>
               
-              <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center">
-                <a 
-                  href="https://hypno-balade.novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 bg-nova-green text-white rounded-lg hover:bg-nova-green-dark transition-colors text-center"
-                >
-                  Découvrir les Hypno-balades
-                </a>
-                <a 
-                  href="https://harmonia.novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 border-2 border-nova-blue text-nova-blue rounded-lg hover:bg-nova-blue hover:text-white transition-colors text-center"
-                >
-                  Explorer l'auto-hypnose
-                </a>
+              <div className="mt-6 flex justify-center">
                 <a 
                   href="https://hypnokick.novahypnose.fr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 bg-white border-2 border-nova-neutral-dark text-nova-neutral-dark rounded-lg hover:bg-nova-neutral-dark hover:text-white transition-colors text-center"
+                  className="px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-center"
                 >
-                  Suis-je hypnotisable ?
+                  Découvrir mes approches et ressources
                 </a>
               </div>
             </div>
