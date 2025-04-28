@@ -51,7 +51,7 @@ const Index = () => {
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Découvrez l'hypnothérapie avec Alain Zenatti. Confiance en soi, gestion du stress, phobies, sommeil et plus encore. Cabinet à Paris et téléconsultation.');
+      metaDescription.setAttribute("content", "Découvrez l'hypnothérapie avec Alain Zenatti. Confiance en soi, gestion du stress, phobies, sommeil et plus encore. Cabinet à Paris et téléconsultation.");
     }
   }, []);
 
