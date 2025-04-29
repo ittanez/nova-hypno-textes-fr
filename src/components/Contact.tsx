@@ -12,7 +12,7 @@ const Contact = () => {
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img 
               src="http://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp"
-              alt="Une séance d'hypnothérapie avec Alain Zenatti" 
+              alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
               className="w-full h-auto"
               loading="lazy"
             />
@@ -76,7 +76,8 @@ const Contact = () => {
                   allowFullScreen 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Cabinet d'Alain Zenatti"
+                  title="Cabinet d'hypnothérapie d'Alain Zenatti à Paris"
+                  aria-label="Carte montrant l'emplacement du cabinet d'hypnothérapie au 16 Rue Saint-Antoine, 75004 Paris"
                 ></iframe>
               </div>
             </div>
@@ -87,6 +88,7 @@ const Contact = () => {
                 <a 
                   href="tel:0649358089" 
                   className="px-6 py-3 bg-nova-blue text-white rounded-md shadow hover:bg-nova-blue-dark transition-colors flex items-center justify-center"
+                  aria-label="Appeler Alain Zenatti, hypnothérapeute à Paris"
                 >
                   <Phone size={18} className="mr-2" />
                   Appeler
@@ -94,6 +96,7 @@ const Contact = () => {
                 <a 
                   href="mailto:contact@novahypnose.fr" 
                   className="px-6 py-3 border-2 border-nova-blue text-nova-blue rounded-md hover:bg-nova-blue hover:text-white transition-colors flex items-center justify-center"
+                  aria-label="Envoyer un email à Alain Zenatti, hypnothérapeute à Paris"
                 >
                   <Mail size={18} className="mr-2" />
                   Envoyer un email

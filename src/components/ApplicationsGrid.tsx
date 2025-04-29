@@ -78,7 +78,7 @@ const ApplicationsGrid = () => {
               >
                 <div className="flex items-center mb-4">
                   <div className="bg-nova-blue-light p-3 rounded-full mr-4">
-                    <Icon size={24} className="text-nova-blue-dark" />
+                    <Icon size={24} className="text-nova-blue-dark" aria-hidden="true" />
                   </div>
                   <h3 className="text-xl font-semibold text-nova-blue-dark">{app.title}</h3>
                 </div>

@@ -27,16 +27,7 @@ const About = () => {
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="http://novahypnose.fr/wp-content/uploads/2023/12/alain-zenatti-lexperience-dun-hypnotherapeute-parisien.webp" 
-                alt="Alain Zenatti, Hypnothérapeute Paris" 
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-            
-            <div className="rounded-xl overflow-hidden shadow-lg">
-              <img 
-                src="http://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp"
-                alt="Une séance d'hypnothérapie avec Alain Zenatti" 
+                alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="lazy"
               />

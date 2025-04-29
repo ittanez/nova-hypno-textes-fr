@@ -5,8 +5,8 @@ import { ChevronDown } from 'lucide-react';
 const Hero = () => {
   return (
     <section id="intro" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb')] bg-cover bg-center opacity-20"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark/80 via-nova-blue/60 to-nova-green-light/40"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb')] bg-cover bg-center opacity-20" aria-hidden="true" role="img" alt="Fond d'image décoratif pour la section d'introduction"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark/80 via-nova-blue/60 to-nova-green-light/40" aria-hidden="true"></div>
       
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
@@ -24,12 +24,14 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
+              aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris"
             >
               Prendre rendez-vous
             </a>
             <a 
               href="#applications" 
               className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold"
+              aria-label="Découvrir les applications de l'hypnose"
             >
               Découvrir les applications
             </a>
@@ -38,7 +40,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-10 w-full flex justify-center animate-bounce">
-        <a href="#about" aria-label="Défiler vers le bas">
+        <a href="#about" aria-label="Défiler vers la section à propos">
           <ChevronDown size={40} className="text-white" />
         </a>
       </div>
