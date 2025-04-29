@@ -94,15 +94,14 @@ const SessionProcess = () => {
         </div>
       </div>
       
-      {/* Add global styles for animation via style element without the jsx attribute */}
-      <style>
-        {`
+      <style dangerouslySetInnerHTML={{
+        __html: `
           .step.visible {
             opacity: 1;
             transform: translateX(0);
           }
-        `}
-      </style>
+        `
+      }} />
     </section>
   );
 };

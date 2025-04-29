@@ -1,64 +1,91 @@
 
 import React from 'react';
-import { CreditCard, Check, AlertCircle } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const Pricing = () => {
   return (
     <section id="pricing" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12">Tarifs et conditions</h2>
+        <h2 className="text-center text-nova-blue-dark mb-12">Tarifs des séances d'hypnothérapie</h2>
         
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-nova-neutral p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Modalités de Paiement</h3>
-              <div className="flex items-center mb-4">
-                <CreditCard className="text-nova-blue mr-3" size={20} />
-                <p>Chèques, espèces, carte bancaire (cabinet)</p>
-              </div>
-              <div className="flex items-center">
-                <CreditCard className="text-nova-blue mr-3" size={20} />
-                <p>Carte bancaire (téléconsultations)</p>
-              </div>
-              
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Remarques importantes</h3>
-                <div className="flex items-start mb-4">
-                  <AlertCircle className="text-nova-blue mt-1 mr-3 flex-shrink-0" size={20} />
-                  <p>Pas de consultations pour enfants et mineurs.</p>
-                </div>
-                <div className="flex items-start">
-                  <AlertCircle className="text-nova-blue mt-1 mr-3 flex-shrink-0" size={20} />
-                  <p>Politique d'annulation : Annulation ou report ≥ 48 heures avant le rendez-vous (facturation quelle que soit la nature)</p>
-                </div>
-              </div>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-nova-blue-dark p-6 text-center">
+              <h3 className="text-2xl font-bold text-white">Séances Individuelles</h3>
+              <p className="text-nova-blue-light opacity-90">Durée : 1h30 (première séance) / 1h (suivantes)</p>
             </div>
             
-            <div className="bg-nova-blue-light bg-opacity-20 p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Mutuelles</h3>
-              <p className="mb-4">
-                En France, l'hypnothérapie est remboursée par certaines mutuelles. Les remboursements varient en fonction des mutuelles et des contrats souscrits.
-              </p>
-              <p className="mb-4">
-                Pour savoir si votre mutuelle rembourse l'hypnothérapie, il est recommandé de contacter votre mutuelle directement.
-              </p>
-              <p className="font-semibold mb-2">Exemples de remboursements possibles :</p>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <Check className="text-nova-green mt-1 mr-2 flex-shrink-0" size={18} />
-                  <p>Remboursement à 100% du tarif de base de l'hypnothérapie, dans la limite d'un certain nombre de séances par an.</p>
+            <div className="p-8">
+              <ul className="space-y-4">
+                <li className="flex items-center">
+                  <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
+                  <span><strong>Cabinet (Paris Bastille) :</strong> 90 €</span>
                 </li>
-                <li className="flex items-start">
-                  <Check className="text-nova-green mt-1 mr-2 flex-shrink-0" size={18} />
-                  <p>Remboursement à 25% du tarif de base de l'hypnothérapie, dans la limite d'un certain nombre de séances par an.</p>
+                <li className="flex items-center">
+                  <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
+                  <span><strong>Téléconsultation :</strong> 90 €</span>
                 </li>
-                <li className="flex items-start">
-                  <Check className="text-nova-green mt-1 mr-2 flex-shrink-0" size={18} />
-                  <p>Remboursement sous forme de forfait annuel, pour un certain nombre de séances.</p>
+                <li className="flex items-center">
+                  <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
+                  <span><strong>À Domicile :</strong> 140 € (Paris, Arrondissements 1, 2, 3, 4, 9, 10, 11)</span>
                 </li>
               </ul>
+              
+              <div className="mt-8 text-center">
+                <a 
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-nova-green text-white rounded-full hover:bg-nova-green-dark transition-colors"
+                >
+                  Réserver une séance
+                </a>
+              </div>
             </div>
           </div>
+          
+          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-nova-blue-dark p-6 text-center">
+              <h3 className="text-2xl font-bold text-white">Packs d'Hypnothérapie</h3>
+              <p className="text-nova-blue-light opacity-90">Validité : 6 mois</p>
+            </div>
+            
+            <div className="p-8">
+              <ul className="space-y-4">
+                <li className="flex items-center">
+                  <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
+                  <span><strong>Pack 3 séances :</strong> 85 €/séance → 255 € le pack</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
+                  <span><strong>Pack 5 séances :</strong> 80 €/séance → 400 € le pack</span>
+                </li>
+                <li className="flex items-center mt-6 bg-nova-blue bg-opacity-10 p-4 rounded-lg">
+                  <div>
+                    <p className="font-semibold text-nova-blue-dark">Économisez jusqu'à 50 € avec les packs</p>
+                    <p className="text-sm text-gray-600">Idéal pour un accompagnement sur la durée</p>
+                  </div>
+                </li>
+              </ul>
+              
+              <div className="mt-8 text-center">
+                <a 
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-nova-green text-white rounded-full hover:bg-nova-green-dark transition-colors"
+                >
+                  Réserver un pack
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-2xl mx-auto mt-12 bg-nova-blue-light bg-opacity-20 p-6 rounded-lg text-center">
+          <p className="text-lg text-nova-blue-dark">
+            Certaines mutuelles prennent en charge partiellement les séances d'hypnothérapie. N'hésitez pas à vous renseigner auprès de votre assurance.
+          </p>
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>
-            L'hypnose est une passerelle naturelle vers vos ressources profondes. Chez NovaHypnose, je vous accompagne dans un cadre sécurisant, pour vous aider à dépasser les obstacles intérieurs et retrouver confiance, équilibre et vitalité.
+            L'hypnose est une passerelle naturelle vers vos ressources profondes. Je vous accompagne dans un cadre serein, pour vous aider à dépasser les obstacles intérieurs et retrouver confiance, équilibre et vitalité.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.4s"}}>
@@ -28,10 +28,10 @@ const Hero = () => {
               Prendre rendez-vous
             </a>
             <a 
-              href="#about" 
+              href="#applications" 
               className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold"
             >
-              En savoir plus
+              Découvrir les applications
             </a>
           </div>
         </div>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +27,8 @@ const Header = () => {
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
     { name: 'Séances', href: '#sessions' },
-    { name: 'Hypno-Balades', href: 'https://hypno-balade.novahypnose.fr', external: true },
+    { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
+    { name: 'Témoignages', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Tarifs', href: '#pricing' },
     { name: 'Contact', href: '#contact' }
@@ -48,7 +49,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a 
                 key={link.name}
@@ -60,6 +61,27 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            
+            {/* Instagram Icon */}
+            <a 
+              href="https://www.instagram.com/novahypnose/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={24} />
+            </a>
+            
+            {/* Highlighted Appointment Button */}
+            <a 
+              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors ml-4"
+            >
+              Rendez-vous
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -90,6 +112,29 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
+              
+              <div className="flex items-center justify-between pt-2 border-t border-gray-200">
+                {/* Instagram Icon */}
+                <a 
+                  href="https://www.instagram.com/novahypnose/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={24} />
+                </a>
+                
+                {/* Appointment Button */}
+                <a 
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors"
+                >
+                  Rendez-vous
+                </a>
+              </div>
             </nav>
           </div>
         </div>

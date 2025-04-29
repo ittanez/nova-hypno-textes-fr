@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwich, GanttChart } from 'lucide-react';
 
@@ -24,7 +25,7 @@ const applications = [
   },
   {
     title: 'Dépendances',
-    description: "Qu'il s'agisse de dépendances comportementales ou de dépendances chimiques, l'hypnose permet de modifier les schémas mentaux à l'origine de la dépendance.",
+    description: "Qu'il s'agisse de dépendances comportementales ou chimiques, l'hypnose permet de modifier les schémas mentaux à l'origine de la dépendance.",
     icon: CigaretteOff
   },
   {
