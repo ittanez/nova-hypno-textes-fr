@@ -50,6 +50,10 @@ const Testimonials = () => {
     setActiveIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
   };
 
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
     <section id="testimonials" className="section-padding bg-nova-blue bg-opacity-5">
       <div className="container mx-auto px-4">
@@ -73,22 +77,12 @@ const Testimonials = () => {
           </div>
           
           <TestimonialControls 
+            activeIndex={activeIndex}
+            totalSlides={testimonials.length}
             onPrevious={handlePrevious} 
-            onNext={handleNext} 
+            onNext={handleNext}
+            onDotClick={handleDotClick}
           />
-          
-          <div className="mt-8 flex justify-center space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === activeIndex ? 'bg-nova-blue' : 'bg-gray-300'
-                }`}
-                aria-label={`Aller au témoignage ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
         
         <div className="mt-16 text-center">
