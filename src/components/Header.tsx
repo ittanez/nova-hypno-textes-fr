@@ -22,7 +22,6 @@ const Header = () => {
   };
 
   const navLinks = [
-    { name: 'Accueil', href: '#intro' },
     { name: 'À propos', href: '#about' },
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },

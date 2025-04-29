@@ -82,9 +82,40 @@ const Pricing = () => {
           </div>
         </div>
         
+        <div className="max-w-3xl mx-auto mt-10">
+          <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Avantages des packs</h3>
+            <p className="text-gray-700 mb-4">
+              Les packs de séances d'hypnothérapie présentent plusieurs avantages par rapport à des séances isolées, notamment un coût avantageux, un engagement à long terme et un plan de traitement structuré. Ces avantages financiers et le cadre structuré peuvent être particulièrement utiles dans le cas des trois applications de l'hypnothérapie qui ont montré les taux de réussite les plus élevés : l'estime de soi - confiance en soi, les phobies et l'anxiété.
+            </p>
+          </div>
+          
+          <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Modalités de Paiement</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Chèque, espèces, carte bancaire (cabinet)</li>
+              <li>Carte bancaire (téléconsultations)</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Remarques importantes</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li>Pas de consultations pour enfants et mineurs</li>
+            </ul>
+          </div>
+          
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Politique d'annulation</h3>
+            <p className="text-gray-700">
+              Annulation ou report ≥ 48 heures avant le rendez-vous (facturation quelle que soit la raison)
+            </p>
+          </div>
+        </div>
+        
         <div className="max-w-2xl mx-auto mt-12 bg-nova-blue-light bg-opacity-20 p-6 rounded-lg text-center">
           <p className="text-lg text-nova-blue-dark">
-            Certaines mutuelles prennent en charge partiellement les séances d'hypnothérapie. N'hésitez pas à vous renseigner auprès de votre assurance.
+            Certaines mutuelles prennent en charge partiellement les séances d'hypnothérapie. N'hésitez pas à vous renseigner auprès de votre mutuelle directement.
           </p>
         </div>
       </div>

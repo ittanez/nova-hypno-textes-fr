@@ -92,7 +92,7 @@ const Testimonials = () => {
                 <Star key={i} size={24} className="text-yellow-400 fill-current" />
               ))}
             </div>
-            <span className="text-lg font-medium">Note moyenne de 5/5 basée sur plus de 40 avis</span>
+            <span className="text-lg font-medium">Note moyenne de 5/5 sur Google My Business & la plateforme Resalib</span>
           </div>
         </div>
       </div>

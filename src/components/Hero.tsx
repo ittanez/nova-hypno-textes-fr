@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
-            Et si vous retrouviez le chemin de votre mieux-être intérieur, guidé avec respect, écoute et bienveillance ?
+            Un accompagnement où chaque émotion est entendue, et chaque blocage devient une opportunité de changement.
           </h1>
           
           <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>
-            L'hypnose est une passerelle naturelle vers vos ressources profondes. Je vous accompagne dans un cadre serein, pour vous aider à dépasser les obstacles intérieurs et retrouver confiance, équilibre et vitalité.
+            Hypnose ericksonienne et auto-hypnose à Paris : une approche respectueuse et sur mesure, pour mobiliser les ressources profondes de votre inconscient et favoriser un mieux-être durable.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.4s"}}>

@@ -8,6 +8,17 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-center text-nova-blue-dark mb-12">Informations de contact</h2>
         
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <img 
+              src="http://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp"
+              alt="Une séance d'hypnothérapie avec Alain Zenatti" 
+              className="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        
         <div className="max-w-4xl mx-auto">
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <h3 className="text-xl font-bold text-nova-blue-dark mb-6 text-center">Alain Zenatti Hypnothérapeute Paris</h3>

@@ -4,19 +4,29 @@ import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwic
 
 const applications = [
   {
-    title: 'Confiance en soi',
-    description: "L'hypnothérapie peut vous aider à renforcer votre estime personnelle, à vous accepter tel que vous êtes et à développer votre assertivité.",
+    title: 'Gestion du stress et des émotions',
+    description: "Apprendre à accueillir ce qui vous traverse sans être débordé. L'hypnose permet d'installer un espace de recul intérieur, pour retrouver stabilité, calme et sécurité émotionnelle.",
+    icon: GanttChart
+  },
+  {
+    title: 'Amélioration du sommeil',
+    description: "En calmant les pensées envahissantes, en apaisant le système nerveux et en reconditionnant les automatismes du sommeil, l'hypnose aide à retrouver un endormissement plus naturel et réparateur.",
+    icon: Moon
+  },
+  {
+    title: 'Renforcement de la confiance en soi',
+    description: "Vous reconnecter à vos capacités, redéfinir votre regard sur vous-même, oser prendre votre place avec assurance. L'inconscient devient ici un soutien puissant pour se réapproprier sa valeur.",
     icon: Heart
   },
   {
-    title: 'Troubles Anxieux',
-    description: "L'anxiété excessive peut nuire à votre qualité de vie. L'hypnose permet de réguler les réactions anxieuses et de retrouver calme et sérénité.",
-    icon: Brain
+    title: 'Libération des blocages et peurs',
+    description: "Phobies, peur du jugement, frein au changement : l'hypnose offre un accès indirect mais efficace aux racines émotionnelles du blocage, et permet de les transformer en nouvelles perceptions.",
+    icon: Frown
   },
   {
-    title: 'Phobies, peurs',
-    description: "Vous souffrez de phobie spécifique ou de peurs envahissantes ? Grâce à l'hypnose, affrontez vos craintes irrationnelles et retrouvez la liberté d'esprit.",
-    icon: Frown
+    title: 'Préparation mentale',
+    description: "Que ce soit pour une prise de parole, un examen, une étape de vie ou un changement professionnel, l'hypnose peut vous aider à mobiliser calme, clarté et engagement au moment juste.",
+    icon: Brain
   },
   {
     title: 'Douleurs, Allergies',
@@ -29,24 +39,14 @@ const applications = [
     icon: CigaretteOff
   },
   {
-    title: 'Sommeil',
-    description: "Insomnies, cauchemars, sommeil agité ? L'hypnothérapie apaise et agit sur les blocages psychologiques et émotionnels.",
-    icon: Moon
-  },
-  {
-    title: 'Émotions',
-    description: "Colère, tristesse, peur... L'hypnose aide à mieux gérer ses émotions et à transformer ses réactions pour plus de sérénité au quotidien.",
-    icon: Smile
-  },
-  {
     title: 'Troubles du comportement alimentaire',
     description: "Boulimie, anorexie, compulsions alimentaires... L'hypnothérapie aide à comprendre les causes de ces troubles et favorise le retour à une alimentation équilibrée.",
     icon: Sandwich
   },
   {
-    title: 'Stress',
-    description: "Hyper-réactivité, fatigue, maux de tête : l'hypnose apprend à lâcher prise sur les tensions et à retrouver calme intérieur et sérénité.",
-    icon: GanttChart
+    title: 'Émotions',
+    description: "Colère, tristesse, peur... L'hypnose aide à mieux gérer ses émotions et à transformer ses réactions pour plus de sérénité au quotidien.",
+    icon: Smile
   },
 ];
 
@@ -54,7 +54,20 @@ const ApplicationsGrid = () => {
   return (
     <section id="applications" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-16">Applications thérapeutiques de l'hypnose</h2>
+        <h2 className="text-center text-nova-blue-dark mb-6">Apaiser, transformer, réactiver ce qui est prêt en vous</h2>
+        
+        <div className="max-w-4xl mx-auto mb-16">
+          <p className="text-center text-lg">
+            L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients qui influencent notre manière de penser, de réagir, de vivre.
+          </p>
+          <p className="text-center text-lg mt-4">
+            En travaillant avec votre inconscient, nous n'imposons rien : nous l'invitons à mobiliser ses propres ressources pour restaurer l'équilibre, alléger les tensions et soutenir vos capacités d'adaptation et de changement.
+          </p>
+          <p className="text-center text-lg mt-4">
+            Chaque accompagnement s'adapte à votre réalité. Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
+          </p>
+        </div>
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {applications.map((app, index) => {
             const Icon = app.icon;

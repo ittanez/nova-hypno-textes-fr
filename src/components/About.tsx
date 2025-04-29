@@ -46,19 +46,28 @@ const About = () => {
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
               <p className="mb-6">
-                Formé aux approches d'hypnose ericksonienne et d'auto-hypnose, je suis profondément convaincu que chacun porte en lui les clés de sa transformation.
+                Je suis Alain Zenatti, hypnothérapeute certifié à Paris, spécialisé en hypnose ericksonienne et en auto-hypnose.
+                Formé aux approches intégratives et humanistes de l'hypnose, je suis profondément convaincu que chacun porte en lui les clés de sa propre évolution. J'ai choisi de proposer, un espace d'accompagnement où le respect, l'écoute et la personnalisation sont au cœur de chaque séance.
               </p>
               
               <p className="mb-6">
-                À travers NovaHypnose, mon souhait est d'offrir un accompagnement respectueux, humain et individualisé. Chaque personne qui franchit la porte de mon cabinet est accueillie sans jugement, dans un espace de parole et d'exploration intérieure sécurisé.
+                Chaque personne que je reçois est accueillie dans sa singularité, sans jugement, avec attention. Qu'il s'agisse d'un stress persistant, d'un blocage émotionnel, d'un manque de confiance, ou simplement d'un besoin de réorientation intérieure, mon rôle n'est pas de vous diriger, mais de vous accompagner dans un dialogue respectueux avec votre inconscient.
               </p>
               
               <p className="mb-6">
-                Mon approche repose sur l'idée que l'hypnose n'est pas une magie extérieure, mais un éveil intérieur : une manière douce et profonde de dialoguer avec l'inconscient pour activer vos ressources naturelles, apaiser vos émotions et favoriser vos élans de vie.
+                Je pratique l'hypnose ericksonienne, c'est-à-dire profondément adaptative, souple, respectueuse de votre rythme intérieur. Elle s'appuie sur une relation de confiance, sur des suggestions métaphoriques, des images symboliques, ou encore des protocoles personnalisés. Elle n'agit pas sur vous, mais avec vous.
               </p>
               
               <p className="mb-6">
-                Que votre objectif soit de mieux gérer votre stress, d'améliorer votre sommeil, de renforcer votre confiance ou de traverser une période de changement, je vous propose un accompagnement sur mesure, dans le respect de votre rythme et de votre unicité.
+                L'inconscient est à mes yeux un allié, pas un obstacle. Il contient bien plus que des blocages ou des résistances : il est une source précieuse de ressources, de sagesse et de mémoire vivante, souvent ignorée par la conscience rationnelle. L'auto-hypnose, que j'enseigne également, prolonge ce lien et vous rend autonome dans votre parcours de mieux-être.
+              </p>
+              
+              <p className="mb-6">
+                Chaque séance est construite avec soin, dans un cadre sécurisant, ajusté à votre vécu, vos capacités du moment, vos aspirations. Ce n'est jamais une méthode appliquée mécaniquement, mais une co-construction subtile, où le corps, les émotions, les images mentales et l'écoute profonde se rejoignent.
+              </p>
+              
+              <p className="mb-6">
+                Je vous accompagne dans ce mouvement intérieur — celui qui ne force rien, mais qui facilite l'émergence d'un mieux-être authentique, durable et aligné avec qui vous êtes.
               </p>
             </div>
             

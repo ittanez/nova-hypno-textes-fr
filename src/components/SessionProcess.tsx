@@ -30,41 +30,38 @@ const SessionProcess = () => {
   
   const steps = [
     {
-      title: "Accueil et échange",
-      description: "Prise de contact, écoute de vos attentes et objectifs.",
+      title: "Temps d'échange",
+      description: "Nous commençons par un temps de parole. Vous y exprimez vos besoins, votre état du moment, vos attentes. Ce dialogue me permet de cerner ce qui se joue en vous, et de poser les bases d'un accompagnement personnalisé.",
       Icon: Check
     },
     {
-      title: "Définition de l'objectif thérapeutique",
-      description: "Clarification de votre intention de changement.",
+      title: "Induction hypnotique et travail ciblé",
+      description: "Je vous guide progressivement vers un état de conscience modifiée, naturel et sécurisé, qui facilite le dialogue avec votre monde intérieur. C'est dans cet état que nous mobilisons vos ressources inconscientes, à travers des suggestions, des métaphores, ou des protocoles adaptés à votre objectif.",
       Icon: Target
     },
     {
-      title: "Induction hypnotique",
-      description: "Installation progressive de l'état hypnotique.",
+      title: "Intégration et retour à l'état ordinaire",
+      description: "En fin de séance, nous prenons un moment pour revenir à l'état de veille, accueillir vos ressentis et poser les premiers ancrages du changement. Vous repartez avec une sensation d'apaisement, parfois une clarté nouvelle, souvent un début de transformation silencieuse mais réelle.",
       Icon: Clock
-    },
-    {
-      title: "Phase thérapeutique",
-      description: "Travail en profondeur sur l'inconscient avec suggestions adaptées.",
-      Icon: Sunrise
-    },
-    {
-      title: "Réveil progressif",
-      description: "Retour naturel à l'état d'éveil, avec intégration des changements.",
-      Icon: Sun
-    },
-    {
-      title: "Temps d'échange final",
-      description: "Partage de votre ressenti et conseils pour prolonger les bienfaits.",
-      Icon: FileText
     }
   ];
 
   return (
     <section id="sessions" className="section-padding bg-nova-blue-light bg-opacity-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-16">Déroulement d'une séance d'hypnose Ericksonienne</h2>
+        <h2 className="text-center text-nova-blue-dark mb-6">Un cadre sécurisant pour laisser émerger ce qui doit changer</h2>
+        
+        <div className="max-w-3xl mx-auto mb-12">
+          <p className="text-center">
+            Chaque séance est une rencontre. Une rencontre avec vous-même, mais dans un cadre guidé, respectueux, où rien n'est forcé et tout peut être entendu.
+          </p>
+          <p className="text-center mt-4">
+            Mon rôle est d'ouvrir un espace où votre inconscient peut s'exprimer librement, à son rythme, et où vous pouvez vous sentir en sécurité pour amorcer un changement en profondeur.
+          </p>
+          <p className="text-center mt-4 font-medium">
+            Voici comment se déroule une séance type :
+          </p>
+        </div>
         
         <div className="max-w-3xl mx-auto">
           <div 
@@ -91,6 +88,10 @@ const SessionProcess = () => {
               </div>
             ))}
           </div>
+          
+          <p className="text-center mt-8 text-nova-blue-dark font-medium">
+            Chaque séance est un pas. Un pas mesuré, respectueux, mais engagé vers un mieux-être durable et autonome.
+          </p>
         </div>
       </div>
       
