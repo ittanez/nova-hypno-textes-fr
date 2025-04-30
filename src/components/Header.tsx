@@ -29,10 +29,13 @@ const Header = () => {
 
   const mainNavLinks = [
     { name: 'À propos', href: '#about' },
+    { name: 'Témoignages', href: '#testimonials' },
+  ];
+
+  const pourQuoiLinks = [
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
-    { name: 'Témoignages', href: '#testimonials' },
   ];
 
   const infosPratiquesLinks = [
@@ -69,10 +72,32 @@ const Header = () => {
               </a>
             ))}
             
+            {/* Pour Quoi Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                Pour Quoi? <ChevronDown className="ml-1 h-4 w-4" />
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-nova-blue-dark transform scale-x-0 transition-transform group-hover:scale-x-100"></div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                {pourQuoiLinks.map((link) => (
+                  <DropdownMenuItem key={link.name} asChild>
+                    <a 
+                      href={link.href}
+                      target={link.external ? "_blank" : ""}
+                      rel={link.external ? "noopener noreferrer" : ""}
+                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             {/* Infos Pratiques Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                INFOS PRATIQUES <ChevronDown className="ml-1 h-4 w-4" />
+                Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-nova-blue-dark transform scale-x-0 transition-transform group-hover:scale-x-100"></div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
@@ -140,10 +165,31 @@ const Header = () => {
                 </a>
               ))}
               
+              {/* Pour Quoi Mobile Section */}
+              <div className="border-t border-gray-200 pt-2">
+                <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
+                  Pour Quoi? <ChevronDown className="ml-1 h-4 w-4" />
+                </p>
+                <div className="pl-4 space-y-2">
+                  {pourQuoiLinks.map((link) => (
+                    <a 
+                      key={link.name}
+                      href={link.href}
+                      target={link.external ? "_blank" : ""}
+                      rel={link.external ? "noopener noreferrer" : ""}
+                      className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              
               {/* Mobile Infos Pratiques Section */}
               <div className="border-t border-gray-200 pt-2">
                 <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
-                  INFOS PRATIQUES <ChevronDown className="ml-1 h-4 w-4" />
+                  Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
                 </p>
                 <div className="pl-4 space-y-2">
                   {infosPratiquesLinks.map((link) => (
