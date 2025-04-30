@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { 
@@ -7,6 +6,13 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
+
+// Define interface for navigation links
+interface NavLink {
+  name: string;
+  href: string;
+  external?: boolean;
+}
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,18 +33,18 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const mainNavLinks = [
+  const mainNavLinks: NavLink[] = [
     { name: 'À propos', href: '#about' },
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
-  const pourQuoiLinks = [
+  const pourQuoiLinks: NavLink[] = [
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
   ];
 
-  const infosPratiquesLinks = [
+  const infosPratiquesLinks: NavLink[] = [
     { name: 'Déroulement Des Séances', href: '#sessions' },
     { name: 'Tarifs', href: '#pricing' },
     { name: 'FAQ', href: '#faq' },
