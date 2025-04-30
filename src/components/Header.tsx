@@ -1,6 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Instagram } from 'lucide-react';
+import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -21,16 +27,18 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const navLinks = [
+  const mainNavLinks = [
     { name: 'À propos', href: '#about' },
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
-    { name: 'Séances', href: '#sessions' },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
     { name: 'Témoignages', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
+  ];
+
+  const infosPratiquesLinks = [
+    { name: 'Déroulement Des Séances', href: '#sessions' },
     { name: 'Tarifs', href: '#pricing' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'FAQ', href: '#faq' },
   ];
 
   return (
@@ -49,7 +57,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
+            {mainNavLinks.map((link) => (
               <a 
                 key={link.name}
                 href={link.href}
@@ -60,6 +68,26 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            
+            {/* Infos Pratiques Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                INFOS PRATIQUES <ChevronDown className="ml-1 h-4 w-4" />
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-nova-blue-dark transform scale-x-0 transition-transform group-hover:scale-x-100"></div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                {infosPratiquesLinks.map((link) => (
+                  <DropdownMenuItem key={link.name} asChild>
+                    <a 
+                      href={link.href}
+                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             {/* Instagram Icon */}
             <a 
@@ -99,7 +127,7 @@ const Header = () => {
         <div className="md:hidden bg-white shadow-lg absolute w-full">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
+              {mainNavLinks.map((link) => (
                 <a 
                   key={link.name}
                   href={link.href}
@@ -111,6 +139,25 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
+              
+              {/* Mobile Infos Pratiques Section */}
+              <div className="border-t border-gray-200 pt-2">
+                <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
+                  INFOS PRATIQUES <ChevronDown className="ml-1 h-4 w-4" />
+                </p>
+                <div className="pl-4 space-y-2">
+                  {infosPratiquesLinks.map((link) => (
+                    <a 
+                      key={link.name}
+                      href={link.href}
+                      className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
               
               <div className="flex items-center justify-between pt-2 border-t border-gray-200">
                 {/* Instagram Icon */}
