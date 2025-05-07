@@ -16,7 +16,7 @@ const Hero = () => {
           className="object-cover w-full h-full"
           width={1200}
           height={800}
-          fetchPriority="high"
+          loading="eager"
           decoding="async"
         />
       </div>

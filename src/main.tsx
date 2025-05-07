@@ -10,7 +10,7 @@ const loadNonCriticalResources = () => {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
-    script.fetchPriority = 'low';
+    script.setAttribute('fetchpriority', 'low');
     document.body.appendChild(script);
   };
   
@@ -19,7 +19,7 @@ const loadNonCriticalResources = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.fetchPriority = 'low';
+    link.setAttribute('fetchpriority', 'low');
     document.head.appendChild(link);
   };
   
@@ -32,10 +32,10 @@ const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
 
 // Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
-if ('requestIdleCallback' in window) {
+if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
   // Utiliser requestIdleCallback avec un délai maximal pour garantir l'exécution
   window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
-} else {
+} else if (typeof window !== 'undefined') {
   // Fallback qui attend que le contenu principal soit chargé
   window.addEventListener('load', () => {
     setTimeout(loadNonCriticalResources, 2000);

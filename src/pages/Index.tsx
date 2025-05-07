@@ -1,3 +1,4 @@
+
 import React, { useEffect, useCallback, useRef } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -79,7 +80,9 @@ const Index = () => {
       
       // Clean up
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('scroll', handleScroll);
+        }
         if (animationFrameIdRef.current) {
           cancelAnimationFrame(animationFrameIdRef.current);
         }
