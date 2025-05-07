@@ -67,15 +67,11 @@ export function useScrollAnimation() {
       animateElements();
       
       // Utilisation de l'événement passive pour améliorer les performances
-      if (typeof window !== 'undefined') {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-      }
+      window.addEventListener('scroll', handleScroll, { passive: true });
       
       // Clean up
       return () => {
-        if (typeof window !== 'undefined') {
-          window.removeEventListener('scroll', handleScroll);
-        }
+        window.removeEventListener('scroll', handleScroll);
         if (animationFrameIdRef.current) {
           cancelAnimationFrame(animationFrameIdRef.current);
         }
