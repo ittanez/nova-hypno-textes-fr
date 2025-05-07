@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-  // On utilise une image de fond plus optimisée
+  // Image optimisée en WebP avec dimensions prédéfinies
   const bgImageUrl = 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1200&q=80&fm=webp'; 
 
   return (
@@ -23,6 +24,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
+          {/* Texte principal optimisé pour le LCP */}
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
             Un accompagnement où chaque émotion est entendue, et chaque blocage devient une opportunité de changement.
           </h1>

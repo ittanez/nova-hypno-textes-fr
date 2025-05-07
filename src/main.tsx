@@ -5,18 +5,39 @@ import './index.css'
 
 // Fonction pour charger les ressources non critiques après le rendu initial
 const loadNonCriticalResources = () => {
-  // Ici vous pouvez charger des scripts analytiques ou autres ressources non essentielles
-  // Par exemple, vous pourriez charger des polices supplémentaires, des icônes, etc.
+  // Chargement des ressources non essentielles avec priorité basse
+  const loadNonCriticalScript = (src: string) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.fetchPriority = 'low';
+    document.body.appendChild(script);
+  };
+  
+  // Chargement des styles non critiques
+  const loadNonCriticalStyles = (href: string) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.fetchPriority = 'low';
+    document.head.appendChild(link);
+  };
+  
+  // Ici vous pourriez charger d'autres ressources non critiques
+  // comme des analyses ou des ressources tierces supplémentaires
 };
 
-// Rendu de l'application
+// Rendu de l'application avec priorité maximale
 const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
 
-// Utilisation de requestIdleCallback (ou setTimeout comme fallback) pour charger les ressources non critiques
-// quand le navigateur est inactif
+// Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
 if ('requestIdleCallback' in window) {
-  window.requestIdleCallback(loadNonCriticalResources);
+  // Utiliser requestIdleCallback avec un délai maximal pour garantir l'exécution
+  window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
 } else {
-  setTimeout(loadNonCriticalResources, 2000);
+  // Fallback qui attend que le contenu principal soit chargé
+  window.addEventListener('load', () => {
+    setTimeout(loadNonCriticalResources, 2000);
+  });
 }

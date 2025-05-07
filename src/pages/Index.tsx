@@ -1,5 +1,4 @@
-
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -15,35 +14,61 @@ import ScrollToTop from '../components/ScrollToTop';
 import FloatingButton from '../components/FloatingButton';
 
 const Index = () => {
-  // Optimisation de l'effet d'animation au scroll avec useCallback pour éviter les recréations inutiles
-  const animateElements = useCallback(() => {
-    if (typeof window === 'undefined') return;
+  // Optimisation avec useRef pour éviter les recréations inutiles de la fonction
+  const animationFrameIdRef = useRef<number | null>(null);
+  
+  // Optimisation de l'effet d'animation au scroll avec useCallback et Intersection Observer
+  const setupIntersectionObserver = useCallback(() => {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
     
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const windowHeight = window.innerHeight;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Arrêter d'observer une fois que l'élément est visible
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -100px 0px', threshold: 0.1 }
+    );
     
-    elements.forEach((element) => {
-      const elementPosition = element.getBoundingClientRect().top;
-      if (elementPosition < windowHeight - 100) {
-        element.classList.add('is-visible');
-      }
+    // Observer tous les éléments avec la classe animate-on-scroll
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
     });
+    
+    return observer;
   }, []);
   
   // Effect optimisé pour l'animation au scroll
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Utilisation de requestAnimationFrame pour optimiser les performances
-      let animationFrameId: number;
+    // Utiliser Intersection Observer si disponible
+    const observer = setupIntersectionObserver();
+    
+    // Fallback pour les navigateurs sans support d'Intersection Observer
+    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+      const animateElements = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const windowHeight = window.innerHeight;
+        
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          if (elementPosition < windowHeight - 100) {
+            element.classList.add('is-visible');
+          }
+        });
+      };
       
       const handleScroll = () => {
         // Annule l'animation précédente si elle existe
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
+        if (animationFrameIdRef.current) {
+          cancelAnimationFrame(animationFrameIdRef.current);
         }
         
         // Planifie l'animation pour le prochain frame
-        animationFrameId = requestAnimationFrame(animateElements);
+        animationFrameIdRef.current = requestAnimationFrame(animateElements);
       };
       
       // Run once on load
@@ -55,14 +80,21 @@ const Index = () => {
       // Clean up
       return () => {
         window.removeEventListener('scroll', handleScroll);
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
+        if (animationFrameIdRef.current) {
+          cancelAnimationFrame(animationFrameIdRef.current);
         }
       };
     }
-  }, [animateElements]);
+    
+    // Nettoyer l'observer si utilisé
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, [setupIntersectionObserver]);
   
-  // Update page title and description
+  // Update page title and description with optimized structured data
   useEffect(() => {
     document.title = 'NovaHypnose | Hypnothérapie à Paris avec Alain Zenatti, Maître Hypnologue';
     
