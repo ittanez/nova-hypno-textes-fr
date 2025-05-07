@@ -41,8 +41,7 @@ root.render(<App />);
     window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
   } else {
     // Fallback qui attend que le contenu principal soit chargé
-    const win = window;
-    win.addEventListener('load', () => {
+    window.addEventListener('load', () => {
       setTimeout(loadNonCriticalResources, 2000);
     });
   }

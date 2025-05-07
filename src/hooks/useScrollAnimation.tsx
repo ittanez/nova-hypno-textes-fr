@@ -36,11 +36,14 @@ export function useScrollAnimation() {
   
   // Effect optimisé pour l'animation au scroll
   useEffect(() => {
+    // Sortie anticipée si pas dans un navigateur
+    if (typeof window === 'undefined') return;
+    
     // Utiliser Intersection Observer si disponible
     const observer = setupIntersectionObserver();
     
     // Fallback pour les navigateurs sans support d'Intersection Observer
-    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+    if (!('IntersectionObserver' in window)) {
       const animateElements = () => {
         const elements = document.querySelectorAll('.animate-on-scroll');
         const windowHeight = window.innerHeight;
