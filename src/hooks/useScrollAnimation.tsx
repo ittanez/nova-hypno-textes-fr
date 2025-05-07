@@ -70,11 +70,13 @@ export function useScrollAnimation() {
       animateElements();
       
       // Utilisation de l'événement passive pour améliorer les performances
-      window.addEventListener('scroll', handleScroll, { passive: true });
+      // Ensure we're in a browser environment before adding event listeners
+      const win = window as Window;
+      win.addEventListener('scroll', handleScroll, { passive: true });
       
       // Clean up
       return () => {
-        window.removeEventListener('scroll', handleScroll);
+        win.removeEventListener('scroll', handleScroll);
         if (animationFrameIdRef.current) {
           cancelAnimationFrame(animationFrameIdRef.current);
         }

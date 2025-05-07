@@ -41,7 +41,9 @@ root.render(<App />);
     window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
   } else {
     // Fallback qui attend que le contenu principal soit chargé
-    window.addEventListener('load', () => {
+    // Type assertion to ensure TypeScript knows this is a Window object
+    const win = window as Window;
+    win.addEventListener('load', () => {
       setTimeout(loadNonCriticalResources, 2000);
     });
   }
