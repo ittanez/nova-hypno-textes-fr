@@ -3,9 +3,23 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
+  // On utilise une image de fond plus optimisée
+  const bgImageUrl = 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1200&q=80&fm=webp'; 
+
   return (
     <section id="intro" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb')] bg-cover bg-center opacity-20" aria-hidden="true"></div>
+      {/* Image d'arrière-plan avec dimensions explicites */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <img 
+          src={bgImageUrl} 
+          alt="" 
+          className="object-cover w-full h-full"
+          width={1200}
+          height={800}
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark/80 via-nova-blue/60 to-nova-green-light/40" aria-hidden="true"></div>
       
       <div className="container mx-auto px-4 py-24 relative z-10">

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -15,34 +15,52 @@ import ScrollToTop from '../components/ScrollToTop';
 import FloatingButton from '../components/FloatingButton';
 
 const Index = () => {
-  // Effect for the scroll animation
+  // Optimisation de l'effet d'animation au scroll avec useCallback pour éviter les recréations inutiles
+  const animateElements = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const windowHeight = window.innerHeight;
+    
+    elements.forEach((element) => {
+      const elementPosition = element.getBoundingClientRect().top;
+      if (elementPosition < windowHeight - 100) {
+        element.classList.add('is-visible');
+      }
+    });
+  }, []);
+  
+  // Effect optimisé pour l'animation au scroll
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const animateElements = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
+      // Utilisation de requestAnimationFrame pour optimiser les performances
+      let animationFrameId: number;
+      
+      const handleScroll = () => {
+        // Annule l'animation précédente si elle existe
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
         
-        elements.forEach((element) => {
-          const elementPosition = element.getBoundingClientRect().top;
-          const windowHeight = window.innerHeight;
-          
-          if (elementPosition < windowHeight - 100) {
-            element.classList.add('is-visible');
-          }
-        });
+        // Planifie l'animation pour le prochain frame
+        animationFrameId = requestAnimationFrame(animateElements);
       };
       
       // Run once on load
       animateElements();
       
-      // Add scroll event listener
-      window.addEventListener('scroll', animateElements);
+      // Utilisation de l'événement passive pour améliorer les performances
+      window.addEventListener('scroll', handleScroll, { passive: true });
       
       // Clean up
       return () => {
-        window.removeEventListener('scroll', animateElements);
+        window.removeEventListener('scroll', handleScroll);
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
       };
     }
-  }, []);
+  }, [animateElements]);
   
   // Update page title and description
   useEffect(() => {
