@@ -31,13 +31,18 @@ const loadNonCriticalResources = () => {
 const root = createRoot(document.getElementById("root")!);
 root.render(<App />);
 
-// Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
-if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-  // Utiliser requestIdleCallback avec un délai maximal pour garantir l'exécution
-  window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
-} else if (typeof window !== 'undefined') {
-  // Fallback qui attend que le contenu principal soit chargé
-  window.addEventListener('load', () => {
-    setTimeout(loadNonCriticalResources, 2000);
-  });
-}
+// Wrapped in an immediate function to avoid global scope pollution
+(function() {
+  if (typeof window === 'undefined') return;
+  
+  // Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
+  if ('requestIdleCallback' in window) {
+    // Utiliser requestIdleCallback avec un délai maximal pour garantir l'exécution
+    window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
+  } else {
+    // Fallback qui attend que le contenu principal soit chargé
+    window.addEventListener('load', () => {
+      setTimeout(loadNonCriticalResources, 2000);
+    });
+  }
+})();
