@@ -32,7 +32,7 @@ const About = () => {
                 loading="eager"
                 width="600"
                 height="800"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -117,6 +117,7 @@ const About = () => {
                   loading="lazy"
                   width="800"
                   height="533"
+                  fetchPriority="low"
                 />
               </div>
             </div>
