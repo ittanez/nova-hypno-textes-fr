@@ -26,10 +26,13 @@ const About = () => {
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="http://novahypnose.fr/wp-content/uploads/2023/12/alain-zenatti-lexperience-dun-hypnotherapeute-parisien.webp" 
+                src="/alain-zenatti-hypnotherapeute-paris.webp" 
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
-                loading="lazy"
+                loading="eager"
+                width="600"
+                height="800"
+                fetchpriority="high"
               />
             </div>
           </div>
@@ -104,6 +107,17 @@ const About = () => {
                 >
                   Suis-je hypnotisable ?
                 </a>
+              </div>
+              
+              <div className="mt-8">
+                <img 
+                  src="/seance-hypnotherapie-alain-zenatti-paris.webp" 
+                  alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
+                  className="w-full h-auto rounded-lg shadow-md"
+                  loading="lazy"
+                  width="800"
+                  height="533"
+                />
               </div>
             </div>
           </div>

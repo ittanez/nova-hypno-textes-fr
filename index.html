@@ -9,22 +9,26 @@
     <meta name="author" content="NovaHypnose" />
     <meta name="keywords" content="hypnothérapeute Paris, hypnose ericksonienne Paris, maître hypnologue Paris, séance hypnose Bastille, auto-hypnose formation, hypnothérapie anxiété, hypnothérapie sommeil, hypnothérapie confiance" />
 
+    <!-- Préconnexions pour les ressources tierces importantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.gpteng.co">
+    <link rel="preconnect" href="https://tools.luckyorange.com">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="NovaHypnose | Hypnothérapie à Paris avec Alain Zenatti" />
     <meta property="og:description" content="Découvrez l'hypnose ericksonienne avec Alain Zenatti. Confiance en soi, gestion du stress, phobies, sommeil et plus encore. Cabinet à Paris et téléconsultation." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://novahypnose.fr/wp-content/uploads/2023/12/alain-zenatti-lexperience-dun-hypnotherapeute-parisien.webp" />
+    <meta property="og:image" content="/alain-zenatti-hypnotherapeute-paris.webp" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@novahypnose" />
-    <meta name="twitter:image" content="https://novahypnose.fr/wp-content/uploads/2023/12/alain-zenatti-lexperience-dun-hypnotherapeute-parisien.webp" />
+    <meta name="twitter:image" content="/alain-zenatti-hypnotherapeute-paris.webp" />
     
     <link rel="icon" type="image/png" href="/favicon.ico" />
     
     <!-- Préchargement des polices optimisé -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Préchargement des polices principales pour améliorer le LCP -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
@@ -71,14 +75,14 @@
     <!-- Lucky Orange Tracking Code avec chargement différé -->
     <script defer src="https://tools.luckyorange.com/core/lo.js?site-id=856f311d"></script>
     
-    <!-- Canonical URL -->
+    <!-- Canonical URL avec HTTPS -->
     <link rel="canonical" href="https://novahypnose.fr/" />
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- Script non critique chargé avec priorité basse -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="low"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Script non critique chargé avec priorité basse et defer pour améliorer le LCP -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="low" defer></script>
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
