@@ -6,24 +6,75 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import MentionsLegales from "./pages/MentionsLegales";
+import BlogIndex from "./pages/blog/BlogIndex";
+import BlogPost from "./pages/blog/BlogPost";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminArticleEditor from "./pages/admin/AdminArticleEditor";
+import AdminCategories from "./pages/admin/AdminCategories";
+import AdminSubscribers from "./pages/admin/AdminSubscribers";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import BlogLayout from "./components/blog/BlogLayout";
+import AdminLayout from "./components/admin/AdminLayout";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
-          {/* Rediriger toutes les autres routes vers la page d'accueil */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Check if we're in development or the URL includes "blog-temp"
+  const isBlogAccessible = () => {
+    return import.meta.env.DEV || window.location.href.includes("blog-temp");
+  };
+
+  // Redirect HTTP to HTTPS in production
+  if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+    window.location.href = window.location.href.replace('http:', 'https:');
+  }
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            
+            {/* Blog routes - conditionally accessible */}
+            <Route path="/blog" element={<BlogLayout />}>
+              <Route index element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
+              <Route path=":slug" element={isBlogAccessible() ? <BlogPost /> : <Navigate to="/" replace />} />
+              <Route path="category/:category" element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
+              <Route path="tag/:tag" element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
+            </Route>
+            
+            {/* Blog temp routes - always accessible but not indexed */}
+            <Route path="/blog-temp" element={<BlogLayout />}>
+              <Route index element={<BlogIndex />} />
+              <Route path=":slug" element={<BlogPost />} />
+              <Route path="category/:category" element={<BlogIndex />} />
+              <Route path="tag/:tag" element={<BlogIndex />} />
+            </Route>
+            
+            {/* Admin routes - protected */}
+            <Route path="/admin-blog" element={<AdminLayout />}>
+              <Route index element={<AdminLogin />} />
+              <Route element={<PrivateRoute />}>
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="article/new" element={<AdminArticleEditor />} />
+                <Route path="article/edit/:id" element={<AdminArticleEditor />} />
+                <Route path="categories" element={<AdminCategories />} />
+                <Route path="subscribers" element={<AdminSubscribers />} />
+              </Route>
+            </Route>
+            
+            {/* Redirect all other routes to the home page */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

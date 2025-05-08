@@ -10,7 +10,7 @@ const loadNonCriticalResources = () => {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
-    script.setAttribute('fetchpriority', 'low');
+    script.setAttribute('fetchPriority', 'low');
     
     // Ajout des en-têtes de cache pour les ressources statiques
     const link = document.createElement('link');
@@ -26,12 +26,23 @@ const loadNonCriticalResources = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.setAttribute('fetchpriority', 'low');
+    link.setAttribute('fetchPriority', 'low');
     document.head.appendChild(link);
   };
   
-  // Ici vous pourriez charger d'autres ressources non critiques
-  // comme des analyses ou des ressources tierces supplémentaires
+  // Préconnexion aux domaines tiers
+  const addPreconnect = (url: string) => {
+    const link = document.createElement('link');
+    link.rel = 'preconnect';
+    link.href = url;
+    document.head.appendChild(link);
+  };
+  
+  // Ajouter les préconnexions
+  addPreconnect('https://cdn.gpteng.co');
+  addPreconnect('https://tools.luckyorange.com');
+  
+  // Chargement d'autres ressources non critiques
 };
 
 // Rendu de l'application avec priorité maximale
@@ -41,6 +52,11 @@ root.render(<App />);
 // Wrapped in an immediate function to avoid global scope pollution
 (function() {
   if (typeof window === 'undefined') return;
+  
+  // Redirection HTTP vers HTTPS
+  if (location.protocol === 'http:' && location.hostname !== 'localhost') {
+    window.location.href = window.location.href.replace('http:', 'https:');
+  }
   
   // Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
   if ('requestIdleCallback' in window) {
@@ -53,10 +69,5 @@ root.render(<App />);
     win.addEventListener('load', () => {
       setTimeout(loadNonCriticalResources, 2000);
     });
-  }
-  
-  // Redirection HTTP vers HTTPS
-  if (location.protocol === 'http:' && location.hostname !== 'localhost') {
-    window.location.href = window.location.href.replace('http:', 'https:');
   }
 })();
