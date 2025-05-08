@@ -1,91 +1,66 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Helmet } from 'react-helmet';
-import { LockKeyhole } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { useToast } from "@/components/ui/use-toast";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useToast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
-  username: z.string().min(1, { message: "Nom d'utilisateur requis" }),
-  password: z.string().min(6, { message: "Mot de passe requis (6 caractères minimum)" }),
+  email: z.string().email({ message: "Veuillez saisir une adresse email valide" }),
+  password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 6 caractères" }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 const AdminLogin = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
-  
-  // Check if already logged in
-  const isLoggedIn = localStorage.getItem('admin_token') !== null;
-  if (isLoggedIn) {
-    navigate('/admin-blog/dashboard');
-  }
-  
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
-      password: '',
-    },
+      email: "",
+      password: ""
+    }
   });
 
   const onSubmit = async (values: FormValues) => {
-    setIsLoading(true);
-    
+    setIsSubmitting(true);
     try {
-      // In a real app, this would be an API call to validate credentials
-      // For demo purposes, we'll use hardcoded credentials
-      if (values.username === 'admin' && values.password === 'password123') {
-        // Create a simple token (in a real app, use JWT or OAuth)
-        const mockToken = `mock-token-${Date.now()}`;
-        localStorage.setItem('admin_token', mockToken);
-        localStorage.setItem('admin_username', values.username);
-        
+      // In a real app, this would be an API call to verify credentials
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Mock admin login (email: admin@example.com, password: admin123)
+      if (values.email === 'admin@example.com' && values.password === 'admin123') {
+        localStorage.setItem('admin_token', 'mock_token_' + Date.now());
         toast({
           title: "Connexion réussie",
-          description: "Vous êtes maintenant connecté à l'interface d'administration.",
+          description: "Bienvenue dans l'administration du blog",
         });
-        
         navigate('/admin-blog/dashboard');
       } else {
         toast({
           title: "Échec de la connexion",
-          description: "Nom d'utilisateur ou mot de passe incorrect",
-          variant: "destructive",
+          description: "Email ou mot de passe incorrect",
+          variant: "destructive"
         });
       }
     } catch (error) {
       console.error('Login error:', error);
       toast({
         title: "Erreur de connexion",
-        description: "Une erreur est survenue lors de la connexion",
-        variant: "destructive",
+        description: "Une erreur s'est produite lors de la connexion",
+        variant: "destructive"
       });
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -93,38 +68,32 @@ const AdminLogin = () => {
     <>
       <Helmet>
         <title>Connexion Admin | NovaHypnose Blog</title>
-        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      
-      <div className="flex items-center justify-center min-h-[70vh] px-4">
-        <Card className="w-full max-w-md">
-          <CardHeader className="space-y-1 text-center">
-            <div className="flex justify-center mb-2">
-              <div className="bg-nova-blue-light p-3 rounded-full">
-                <LockKeyhole className="h-8 w-8 text-nova-blue" />
-              </div>
-            </div>
-            <CardTitle className="text-2xl">Admin NovaHypnose Blog</CardTitle>
-            <CardDescription>
-              Connectez-vous pour gérer votre blog
-            </CardDescription>
+
+      <div className="container max-w-lg mx-auto px-4 py-16">
+        <Card>
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-serif">Administration du Blog</CardTitle>
+            <CardDescription>Connectez-vous pour gérer vos articles</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          
+          <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Nom d'utilisateur</FormLabel>
+                      <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="admin" {...field} />
+                        <Input placeholder="admin@example.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+                
                 <FormField
                   control={form.control}
                   name="password"
@@ -132,28 +101,33 @@ const AdminLogin = () => {
                     <FormItem>
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••" {...field} />
+                        <Input type="password" placeholder="••••••••" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+                
                 <Button 
                   type="submit" 
-                  className="w-full bg-nova-blue hover:bg-nova-blue-dark"
-                  disabled={isLoading}
+                  className="w-full"
+                  disabled={isSubmitting}
                 >
-                  {isLoading ? 'Connexion en cours...' : 'Se connecter'}
+                  {isSubmitting ? (
+                    <>
+                      <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
+                      Connexion en cours...
+                    </>
+                  ) : (
+                    'Se connecter'
+                  )}
                 </Button>
               </form>
             </Form>
           </CardContent>
+          
           <CardFooter className="text-center text-sm text-muted-foreground">
-            <p className="w-full">
-              Pour les besoins de la démo, utilisez:
-              <br />
-              Identifiant: <strong>admin</strong> | Mot de passe: <strong>password123</strong>
-            </p>
+            <p>Identifiants de démo: admin@example.com / admin123</p>
           </CardFooter>
         </Card>
       </div>

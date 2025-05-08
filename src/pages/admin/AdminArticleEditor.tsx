@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Helmet } from 'react-helmet';
-import { ArrowLeft, Save, Image, Calendar } from 'lucide-react';
+import { ArrowLeft, Save, Image, Calendar, Sparkles } from 'lucide-react';
 import {
   Form,
   FormControl,
@@ -34,6 +34,8 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
+import ImageUploader from '@/components/admin/ImageUploader';
+import { generateSummaryAndKeywords } from '@/utils/aiUtils';
 
 // Define schema for form validation
 const formSchema = z.object({
@@ -66,6 +68,8 @@ const AdminArticleEditor = () => {
   const [loadingInitialData, setLoadingInitialData] = useState(isEditing);
   const [categories, setCategories] = useState<Category[]>([]);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [savedArticles, setSavedArticles] = useState<FormValues[]>([]);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -84,6 +88,12 @@ const AdminArticleEditor = () => {
   });
 
   useEffect(() => {
+    // Retrieve saved articles from localStorage
+    const storedArticles = localStorage.getItem('blog_articles');
+    if (storedArticles) {
+      setSavedArticles(JSON.parse(storedArticles));
+    }
+
     // Fetch categories for the dropdown
     // In a real app, this would be an API call
     const fetchCategories = async () => {
@@ -112,10 +122,14 @@ const AdminArticleEditor = () => {
         setLoadingInitialData(true);
         try {
           // In a real app, this would be an API call
-          // For demo purposes, we'll use mock data
-          await new Promise(resolve => setTimeout(resolve, 800));
+          // For demo purposes, we'll use localStorage
+          const articles = JSON.parse(localStorage.getItem('blog_articles') || '[]');
+          const article = articles.find((a: FormValues) => a.slug === id);
 
-          if (id === '1') {
+          if (article) {
+            form.reset(article);
+            setPreviewImage(article.imageUrl || null);
+          } else if (id === '1') {
             const articleData = {
               title: "L'hypnose ericksonienne et les mécanismes du changement",
               slug: 'hypnose-ericksonienne-mecanismes-changement',
@@ -182,6 +196,23 @@ const AdminArticleEditor = () => {
       // Simulate API delay
       await new Promise(resolve => setTimeout(resolve, 1000));
       
+      // Save to localStorage for demo purposes
+      const articles = JSON.parse(localStorage.getItem('blog_articles') || '[]');
+      
+      if (isEditing) {
+        // Update existing article
+        const updatedArticles = articles.map((article: FormValues) => 
+          article.slug === id ? values : article
+        );
+        localStorage.setItem('blog_articles', JSON.stringify(updatedArticles));
+      } else {
+        // Add new article
+        articles.push(values);
+        localStorage.setItem('blog_articles', JSON.stringify(articles));
+      }
+      
+      setSavedArticles(articles);
+      
       toast({
         title: isEditing ? 'Article mis à jour' : 'Article créé',
         description: isEditing 
@@ -216,6 +247,50 @@ const AdminArticleEditor = () => {
       .trim();
     
     form.setValue('slug', slug);
+  };
+
+  const handleGenerateAI = async () => {
+    const content = form.getValues('content');
+    
+    if (!content || content.length < 100) {
+      toast({
+        title: "Contenu insuffisant",
+        description: "Veuillez ajouter plus de contenu pour générer un résumé et des mots-clés.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setIsGenerating(true);
+    
+    try {
+      // In a real app, this would be an API call to an AI service
+      // For demo purposes, we'll use a simple function
+      const { excerpt, keywords } = generateSummaryAndKeywords(content);
+      
+      form.setValue('excerpt', excerpt);
+      form.setValue('keywords', keywords);
+      form.setValue('metaDescription', excerpt.substring(0, 155) + '...');
+      
+      toast({
+        title: "Génération réussie",
+        description: "Le résumé et les mots-clés ont été générés automatiquement"
+      });
+    } catch (error) {
+      console.error('Error generating AI content:', error);
+      toast({
+        title: "Erreur de génération",
+        description: "Impossible de générer le contenu automatiquement",
+        variant: "destructive"
+      });
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleImageUploaded = (imageUrl: string) => {
+    form.setValue('imageUrl', imageUrl);
+    setPreviewImage(imageUrl);
   };
 
   if (loadingInitialData) {
@@ -322,13 +397,28 @@ const AdminArticleEditor = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Résumé</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Un bref résumé de votre article (affiché sur la page d'accueil)"
-                              className="min-h-[80px]"
-                              {...field} 
-                            />
-                          </FormControl>
+                          <div className="flex gap-2">
+                            <FormControl className="flex-grow">
+                              <Textarea 
+                                placeholder="Un bref résumé de votre article (affiché sur la page d'accueil)"
+                                className="min-h-[80px]"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              className="self-start"
+                              onClick={handleGenerateAI}
+                              disabled={isGenerating}
+                            >
+                              {isGenerating ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
+                              ) : (
+                                <Sparkles className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
                           <FormDescription>
                             Un court extrait qui apparaîtra dans les listes d'articles
                           </FormDescription>
@@ -374,13 +464,28 @@ const AdminArticleEditor = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Méta description</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Une description concise de votre article (pour les moteurs de recherche)"
-                              className="min-h-[80px]"
-                              {...field} 
-                            />
-                          </FormControl>
+                          <div className="flex gap-2">
+                            <FormControl className="flex-grow">
+                              <Textarea 
+                                placeholder="Une description concise de votre article (pour les moteurs de recherche)"
+                                className="min-h-[80px]"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              className="self-start"
+                              onClick={handleGenerateAI}
+                              disabled={isGenerating}
+                            >
+                              {isGenerating ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
+                              ) : (
+                                <Sparkles className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
                           <FormDescription>
                             Limitée à 160 caractères, cette description apparaît dans les résultats de recherche
                           </FormDescription>
@@ -395,12 +500,26 @@ const AdminArticleEditor = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Mots-clés</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="hypnose, ericksonien, thérapie, etc."
-                              {...field}
-                            />
-                          </FormControl>
+                          <div className="flex gap-2">
+                            <FormControl className="flex-grow">
+                              <Input
+                                placeholder="hypnose, ericksonien, thérapie, etc."
+                                {...field}
+                              />
+                            </FormControl>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              onClick={handleGenerateAI}
+                              disabled={isGenerating}
+                            >
+                              {isGenerating ? (
+                                <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
+                              ) : (
+                                <Sparkles className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
                           <FormDescription>
                             Séparés par des virgules (ex: hypnose, thérapie, bien-être)
                           </FormDescription>
@@ -507,88 +626,13 @@ const AdminArticleEditor = () => {
               <CardHeader>
                 <CardTitle>Image principale</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <Form {...form}>
-                  <FormField
-                    control={form.control}
-                    name="imageUrl"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input
-                            placeholder="/chemin/vers/image.jpg"
-                            {...field}
-                            onChange={(e) => {
-                              field.onChange(e);
-                              setPreviewImage(e.target.value);
-                            }}
-                          />
-                        </FormControl>
-                        <FormDescription>
-                          URL de l'image principale (chemin complet)
-                        </FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </Form>
-                
-                {/* Image preview */}
-                <div className="mt-4 border rounded-md p-4 bg-muted/20">
-                  {previewImage ? (
-                    <div className="relative aspect-video">
-                      <img
-                        src={previewImage}
-                        alt="Aperçu de l'image"
-                        className="w-full h-full object-cover rounded"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-video flex items-center justify-center bg-muted rounded">
-                      <div className="text-center text-muted-foreground">
-                        <Image className="mx-auto h-10 w-10 opacity-50" />
-                        <p className="mt-2">Aucune image sélectionnée</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
+              <CardContent>
+                <ImageUploader 
+                  onImageUploaded={handleImageUploaded} 
+                  currentImage={previewImage}
+                />
               </CardContent>
             </Card>
-            
-            {/* <Card>
-              <CardHeader>
-                <CardTitle>Publication</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Form {...form}>
-                  <FormField
-                    control={form.control}
-                    name="status"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Statut</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Sélectionner un statut" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="draft">Brouillon</SelectItem>
-                            <SelectItem value="published">Publié</SelectItem>
-                            <SelectItem value="scheduled">Programmé</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </Form>
-              </CardContent>
-            </Card> */}
           </div>
         </div>
       </div>
