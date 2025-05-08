@@ -1,9 +1,8 @@
-
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Header from "../Header";
 import Footer from "../Footer";
 import BlogSidebar from "./BlogSidebar";
-import { Helmet } from "react-helmet";
 
 const BlogLayout = () => {
   const isTemporaryBlog = window.location.pathname.startsWith('/blog-temp');
