@@ -40,14 +40,53 @@ const BlogPost = () => {
   
   useEffect(() => {
     // In a real app, this would be an API call to fetch the article by slug
-    // For now, we'll use mock data
     const fetchArticle = async () => {
       setLoading(true);
       try {
+        console.log("Fetching article with slug:", slug);
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 800));
         
-        // For demo purposes, we'll create a single mock article
+        // First, try to find the article in localStorage
+        const storedArticles = localStorage.getItem('blog_articles');
+        if (storedArticles) {
+          const parsedArticles = JSON.parse(storedArticles);
+          const storedArticle = parsedArticles.find((article: any) => article.slug === slug);
+          
+          if (storedArticle) {
+            console.log("Found stored article:", storedArticle);
+            // Transform stored article to Article format
+            const mockArticle: Article = {
+              id: storedArticle.id || `stored-${Date.now()}`,
+              title: storedArticle.title,
+              slug: storedArticle.slug,
+              content: storedArticle.content || "<p>Contenu non disponible</p>",
+              author: "Alain Zenatti",
+              publishedAt: new Date().toISOString(),
+              readTime: "5 min",
+              imageUrl: storedArticle.imageUrl || "/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png",
+              categories: storedArticle.category ? [{
+                id: storedArticle.category,
+                name: getCategoryNameById(storedArticle.category),
+                slug: getCategorySlugById(storedArticle.category)
+              }] : [],
+              tags: storedArticle.tags ? storedArticle.tags.split(',').map((tag: string, i: number) => ({
+                id: `tag-${i}`,
+                name: tag.trim(),
+                slug: tag.trim().toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+              })) : [],
+              metaDescription: storedArticle.metaDescription || storedArticle.excerpt || "",
+              keywords: storedArticle.keywords ? storedArticle.keywords.split(',').map((k: string) => k.trim()) : [],
+              relatedArticles: []
+            };
+            
+            setArticle(mockArticle);
+            setLoading(false);
+            return;
+          }
+        }
+        
+        // For demo purposes, if not found in localStorage, use hardcoded mock data
         if (slug === "hypnose-ericksonienne-mecanismes-changement") {
           const mockArticle: Article = {
             id: "1",
@@ -142,7 +181,7 @@ const BlogPost = () => {
             id: "2",
             title: "Auto-hypnose : techniques simples pour améliorer votre sommeil",
             slug: "auto-hypnose-techniques-ameliorer-sommeil",
-            content: "<p>Contenu de l'article sur l'auto-hypnose et le sommeil...</p>",
+            content: `<h2>Qu'est-ce que l'auto-hypnose ?</h2><p>L'auto-hypnose est une technique qui permet d'induire soi-même un état hypnotique et de pratiquer des suggestions positives pour atteindre différents objectifs, notamment améliorer son sommeil.</p><p>Cette pratique, basée sur les mêmes principes que l'hypnose thérapeutique, vous donne l'autonomie nécessaire pour utiliser ces techniques bénéfiques quand vous en avez besoin.</p><h2>Pourquoi l'auto-hypnose est efficace pour le sommeil</h2><p>Les troubles du sommeil sont souvent liés au stress, à l'anxiété et à l'hyperactivité mentale. L'auto-hypnose agit précisément sur ces facteurs en :</p><ul><li>Réduisant l'activité du système nerveux sympathique (responsable de la réponse au stress)</li><li>Favorisant la production d'ondes cérébrales associées à la relaxation profonde</li><li>Réorientant l'attention loin des pensées perturbatrices</li><li>Renforçant les associations positives avec le sommeil</li></ul>`,
             author: "Alain Zenatti",
             publishedAt: "2023-10-28T09:30:00Z",
             readTime: "7 min",
@@ -155,8 +194,61 @@ const BlogPost = () => {
           };
           setArticle(mockArticle);
         } else {
-          // If slug doesn't match any known article, redirect to blog index
-          navigate(basePath);
+          console.log("Article not found in hardcoded samples, checking stored articles one more time...");
+          
+          // If we get here, it's not one of our hard-coded articles
+          const storedArticles = localStorage.getItem('blog_articles');
+          if (storedArticles) {
+            try {
+              const parsedArticles = JSON.parse(storedArticles);
+              console.log("All stored articles:", parsedArticles);
+              
+              const foundArticle = parsedArticles.find((article: any) => 
+                article.slug === slug
+              );
+              
+              if (foundArticle) {
+                console.log("Found article in second check:", foundArticle);
+                // Transform stored article to Article format
+                const transformedArticle: Article = {
+                  id: foundArticle.id || `stored-${Date.now()}`,
+                  title: foundArticle.title,
+                  slug: foundArticle.slug,
+                  content: foundArticle.content || "<p>Contenu non disponible</p>",
+                  author: "Alain Zenatti",
+                  publishedAt: new Date().toISOString(),
+                  readTime: "5 min",
+                  imageUrl: foundArticle.imageUrl || "/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png",
+                  categories: foundArticle.category ? [{
+                    id: foundArticle.category,
+                    name: getCategoryNameById(foundArticle.category),
+                    slug: getCategorySlugById(foundArticle.category)
+                  }] : [],
+                  tags: foundArticle.tags ? foundArticle.tags.split(',').map((tag: string, i: number) => ({
+                    id: `tag-${i}`,
+                    name: tag.trim(),
+                    slug: tag.trim().toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                  })) : [],
+                  metaDescription: foundArticle.metaDescription || foundArticle.excerpt || "",
+                  keywords: foundArticle.keywords ? foundArticle.keywords.split(',').map((k: string) => k.trim()) : [],
+                  relatedArticles: []
+                };
+                
+                setArticle(transformedArticle);
+              } else {
+                // If slug doesn't match any known article, redirect to blog index
+                console.log("No article found with slug:", slug);
+                navigate(basePath);
+              }
+            } catch (error) {
+              console.error("Error parsing stored articles:", error);
+              navigate(basePath);
+            }
+          } else {
+            // If no stored articles and no match in hard-coded, redirect to blog index
+            console.log("No stored articles found and slug doesn't match hardcoded articles");
+            navigate(basePath);
+          }
         }
       } catch (error) {
         console.error("Error fetching article:", error);
@@ -168,6 +260,30 @@ const BlogPost = () => {
     
     fetchArticle();
   }, [slug, navigate, basePath]);
+  
+  // Function to get category name by ID
+  const getCategoryNameById = (id: string): string => {
+    const categories = [
+      { id: '1', name: 'Hypnose Ericksonienne', slug: 'hypnose-ericksonienne' },
+      { id: '2', name: 'Auto-hypnose', slug: 'auto-hypnose' },
+      { id: '3', name: 'Gestion du stress', slug: 'gestion-du-stress' },
+    ];
+    
+    const category = categories.find(cat => cat.id === id);
+    return category ? category.name : 'Catégorie';
+  };
+  
+  // Function to get category slug by ID
+  const getCategorySlugById = (id: string): string => {
+    const categories = [
+      { id: '1', name: 'Hypnose Ericksonienne', slug: 'hypnose-ericksonienne' },
+      { id: '2', name: 'Auto-hypnose', slug: 'auto-hypnose' },
+      { id: '3', name: 'Gestion du stress', slug: 'gestion-du-stress' },
+    ];
+    
+    const category = categories.find(cat => cat.id === id);
+    return category ? category.slug : 'categorie';
+  };
   
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 
@@ -204,7 +320,7 @@ const BlogPost = () => {
       <Helmet>
         <title>{article.title} | NovaHypnose - Blog</title>
         <meta name="description" content={article.metaDescription} />
-        <meta name="keywords" content={article.keywords.join(", ")} />
+        <meta name="keywords" content={Array.isArray(article.keywords) ? article.keywords.join(", ") : article.keywords} />
         
         {/* Open Graph / Social Media */}
         <meta property="og:title" content={article.title} />
@@ -294,7 +410,7 @@ const BlogPost = () => {
         </div>
         
         {/* Related articles */}
-        {article.relatedArticles.length > 0 && (
+        {article.relatedArticles && article.relatedArticles.length > 0 && (
           <>
             <Separator className="my-8" />
             <div className="mb-8">

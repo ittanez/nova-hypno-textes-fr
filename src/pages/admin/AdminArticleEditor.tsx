@@ -88,10 +88,13 @@ const AdminArticleEditor = () => {
   });
 
   useEffect(() => {
+    console.log("AdminArticleEditor initialized, isEditing:", isEditing, "id:", id);
     // Retrieve saved articles from localStorage
     const storedArticles = localStorage.getItem('blog_articles');
     if (storedArticles) {
-      setSavedArticles(JSON.parse(storedArticles));
+      const parsedArticles = JSON.parse(storedArticles);
+      setSavedArticles(parsedArticles);
+      console.log("Retrieved stored articles:", parsedArticles);
     }
 
     // Fetch categories for the dropdown
@@ -124,12 +127,23 @@ const AdminArticleEditor = () => {
           // In a real app, this would be an API call
           // For demo purposes, we'll use localStorage
           const articles = JSON.parse(localStorage.getItem('blog_articles') || '[]');
-          const article = articles.find((a: FormValues) => a.slug === id);
+          console.log("Looking for article with id:", id);
+          console.log("All articles:", articles);
+          
+          // First try to find by slug (which could be used as id in URL)
+          let article = articles.find((a: FormValues) => a.slug === id);
+          
+          // If not found by slug, try by index
+          if (!article && !isNaN(Number(id))) {
+            article = articles[Number(id) - 1];
+          }
 
           if (article) {
+            console.log("Found article to edit:", article);
             form.reset(article);
             setPreviewImage(article.imageUrl || null);
           } else if (id === '1') {
+            // Fallback demo article
             const articleData = {
               title: "L'hypnose ericksonienne et les mécanismes du changement",
               slug: 'hypnose-ericksonienne-mecanismes-changement',
@@ -190,7 +204,6 @@ const AdminArticleEditor = () => {
   const onSubmit = async (values: FormValues) => {
     setIsLoading(true);
     try {
-      // In a real app, this would send data to an API
       console.log('Form values to submit:', values);
       
       // Simulate API delay
@@ -205,10 +218,14 @@ const AdminArticleEditor = () => {
           article.slug === id ? values : article
         );
         localStorage.setItem('blog_articles', JSON.stringify(updatedArticles));
+        console.log("Article updated:", values);
+        console.log("Updated articles array:", updatedArticles);
       } else {
         // Add new article
         articles.push(values);
         localStorage.setItem('blog_articles', JSON.stringify(articles));
+        console.log("New article added:", values);
+        console.log("Updated articles array:", articles);
       }
       
       setSavedArticles(articles);
@@ -241,6 +258,7 @@ const AdminArticleEditor = () => {
     // Create slug from title
     const slug = title
       .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
       .replace(/[^\w\s]/gi, '')  // Remove special chars
       .replace(/\s+/g, '-')      // Replace spaces with hyphens
       .replace(/-+/g, '-')       // Replace multiple hyphens with single hyphen
@@ -265,7 +283,7 @@ const AdminArticleEditor = () => {
     
     try {
       // In a real app, this would be an API call to an AI service
-      // For demo purposes, we'll use a simple function
+      // For demo purposes, we'll use our improved utility function
       const { excerpt, keywords } = generateSummaryAndKeywords(content);
       
       form.setValue('excerpt', excerpt);
@@ -580,6 +598,7 @@ const AdminArticleEditor = () => {
                         <Select 
                           onValueChange={field.onChange} 
                           defaultValue={field.value}
+                          value={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>

@@ -68,16 +68,20 @@ const BlogIndex = () => {
             id: `stored-${index}`,
             title: article.title,
             slug: article.slug,
-            excerpt: article.excerpt,
+            excerpt: article.excerpt || "Extrait de l'article non disponible",
             author: "Alain Zenatti",
             publishedAt: new Date().toISOString(),
             readTime: "5 min",
             imageUrl: article.imageUrl || "/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png",
-            categories: [{ id: article.category, name: "Catégorie", slug: "categorie" }],
+            categories: article.category ? [{ 
+              id: article.category, 
+              name: getCategoryNameById(article.category), 
+              slug: getCategorySlugById(article.category) 
+            }] : [],
             tags: article.tags ? article.tags.split(',').map((tag: string, i: number) => ({
               id: `tag-${i}`,
               name: tag.trim(),
-              slug: tag.trim().toLowerCase().replace(/\s+/g, '-')
+              slug: tag.trim().toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             })) : []
           }));
           
@@ -155,6 +159,30 @@ const BlogIndex = () => {
     
     fetchArticles();
   }, [category, tag, searchTerm, sortBy]);
+  
+  // Function to get category name by ID
+  const getCategoryNameById = (id: string): string => {
+    const categories = [
+      { id: '1', name: 'Hypnose Ericksonienne', slug: 'hypnose-ericksonienne' },
+      { id: '2', name: 'Auto-hypnose', slug: 'auto-hypnose' },
+      { id: '3', name: 'Gestion du stress', slug: 'gestion-du-stress' },
+    ];
+    
+    const category = categories.find(cat => cat.id === id);
+    return category ? category.name : 'Catégorie';
+  };
+  
+  // Function to get category slug by ID
+  const getCategorySlugById = (id: string): string => {
+    const categories = [
+      { id: '1', name: 'Hypnose Ericksonienne', slug: 'hypnose-ericksonienne' },
+      { id: '2', name: 'Auto-hypnose', slug: 'auto-hypnose' },
+      { id: '3', name: 'Gestion du stress', slug: 'gestion-du-stress' },
+    ];
+    
+    const category = categories.find(cat => cat.id === id);
+    return category ? category.slug : 'categorie';
+  };
   
   // Function to apply filters and search
   const applyFiltersAndSearch = (
