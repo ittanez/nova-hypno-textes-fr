@@ -143,8 +143,6 @@ export function useAuth() {
   };
 
   const setAdminRole = async (userId: string) => {
-    // Vérifier si l'utilisateur qui fait la demande est déjà un administrateur
-    // ou si c'est un cas spécial (par exemple, le premier utilisateur)
     try {
       // Vérifier si c'est le premier utilisateur qui s'inscrit
       const { count, error: countError } = await supabase
@@ -176,6 +174,39 @@ export function useAuth() {
     }
   };
 
+  const requestAdminAccess = async (fullName: string, reason: string) => {
+    if (!user) return { success: false, error: "Utilisateur non connecté" };
+    
+    try {
+      // Insérer les données dans la nouvelle table admin_requests
+      // Cette table est configurée dans la base de données via le script SQL
+      const { error } = await supabase.rpc('insert_admin_request', { 
+        full_name: fullName,
+        reason_text: reason
+      });
+      
+      if (error) {
+        console.error("Erreur RPC:", error);
+        // Fallback: essayer l'insertion directe
+        const insertResult = await supabase
+          .from('admin_requests')
+          .insert({
+            user_id: user.id,
+            user_email: user.email || '',
+            full_name: fullName,
+            reason: reason
+          });
+          
+        if (insertResult.error) throw insertResult.error;
+      }
+      
+      return { success: true };
+    } catch (error: any) {
+      console.error('Error requesting admin access:', error.message);
+      return { success: false, error: error.message };
+    }
+  };
+
   return {
     user,
     session,
@@ -185,5 +216,6 @@ export function useAuth() {
     signUp,
     signOut,
     setAdminRole,
+    requestAdminAccess,
   };
 }

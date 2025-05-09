@@ -18,12 +18,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/blog/useAuth';
 import AuthForm from '@/components/auth/AuthForm';
-import { supabase } from '@/integrations/supabase/client';
 import { Label } from '@/components/ui/label';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const { user, session, loading, isAdmin, setAdminRole } = useAuth();
+  const { user, session, loading, isAdmin, requestAdminAccess } = useAuth();
   const { toast } = useToast();
   const [authMessage, setAuthMessage] = useState<{ type: 'info' | 'warning' | 'error'; message: string } | null>(null);
   const [redirectAttempted, setRedirectAttempted] = useState(false);
@@ -70,37 +69,9 @@ const AdminLogin = () => {
     setIsSubmitting(true);
     
     try {
-      // Option 1: If the user is authorized to set their own admin role
-      if (typeof setAdminRole === 'function') {
-        const success = await setAdminRole(user.id);
-        
-        if (success) {
-          toast({
-            title: "Droits administrateur accordés",
-            description: "Vous avez maintenant accès au tableau de bord d'administration.",
-          });
-          
-          // Redirect to dashboard after a short delay
-          setTimeout(() => {
-            navigate('/admin-blog/dashboard', { replace: true });
-          }, 1000);
-        } else {
-          throw new Error("Impossible d'accorder les droits administrateur");
-        }
-      } 
-      // Option 2: Log the request for manual review by an existing admin
-      else {
-        // Enregistrer la demande dans une table de demandes ou envoyer un e-mail
-        const { error } = await supabase.from('admin_requests').insert({
-          user_id: user.id,
-          user_email: user.email,
-          full_name: fullName,
-          reason: reason,
-          status: 'pending'
-        });
-        
-        if (error) throw error;
-        
+      const { success, error } = await requestAdminAccess(fullName, reason);
+      
+      if (success) {
         toast({
           title: "Demande envoyée",
           description: "Votre demande de droits administrateur a été soumise et sera examinée prochainement.",
@@ -108,6 +79,8 @@ const AdminLogin = () => {
         
         setFullName('');
         setReason('');
+      } else {
+        throw new Error(error || "Échec de la demande");
       }
     } catch (error: any) {
       console.error("Admin request error:", error);
@@ -180,6 +153,7 @@ const AdminLogin = () => {
                       onChange={(e) => setFullName(e.target.value)} 
                       placeholder="Votre nom complet" 
                       required 
+                      autoComplete="name"
                     />
                   </div>
                   
