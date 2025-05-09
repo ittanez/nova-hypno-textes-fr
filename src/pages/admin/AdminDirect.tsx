@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '@/integrations/supabase/client';
@@ -25,11 +24,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from "@/components/ui/label";
+import { User } from '@supabase/supabase-js';
 
 // Define proper types for our component state
-type User = {
+type UserState = {
   id: string;
-  email: string;
+  email: string | null;
 } | null;
 
 type Article = {
@@ -82,7 +82,7 @@ type NewTag = {
 
 const AdminDirect = () => {
   const { toast } = useToast();
-  const [user, setUser] = useState<User>(null);
+  const [user, setUser] = useState<UserState>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [articles, setArticles] = useState<Article[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -122,7 +122,11 @@ const AdminDirect = () => {
         return;
       }
       
-      setUser(session.user);
+      // Correctly handle the User type from supabase
+      setUser({
+        id: session.user.id,
+        email: session.user.email
+      });
       
       // Vérifier si l'utilisateur est admin
       const { data, error } = await supabase
@@ -269,7 +273,7 @@ const AdminDirect = () => {
           featured: editingArticle.featured,
           categories: editingArticle.categories,
           tags: editingArticle.tags,
-          updated_at: new Date().toISOString() // FIX: Convert Date to ISO string
+          updated_at: new Date().toISOString() // Convert Date to ISO string
         })
         .eq('id', editingArticle.id);
       
@@ -464,7 +468,7 @@ const AdminDirect = () => {
   const formatDate = (dateString: string | undefined) => {
     if (!dateString) return 'N/A';
     
-    // FIX: Use correct DateTimeFormatOptions format
+    // Use correct DateTimeFormatOptions format
     const options: Intl.DateTimeFormatOptions = { 
       year: 'numeric', 
       month: 'short', 
@@ -512,7 +516,7 @@ const AdminDirect = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
             <h1 className="text-3xl font-serif font-bold">Administration directe</h1>
-            <p className="text-muted-foreground">Connecté en tant que {user.email}</p>
+            <p className="text-muted-foreground">Connecté en tant que {user?.email}</p>
           </div>
           
           <div className="mt-4 md:mt-0">
@@ -577,7 +581,7 @@ const AdminDirect = () => {
                   <div className="flex items-center space-x-2">
                     <Checkbox 
                       id="edit-published" 
-                      checked={!!editingArticle.published} // FIX: Convert to boolean with double negation
+                      checked={!!editingArticle.published} 
                       onCheckedChange={(checked) => 
                         setEditingArticle({...editingArticle, published: !!checked})
                       }
@@ -588,7 +592,7 @@ const AdminDirect = () => {
                   <div className="flex items-center space-x-2">
                     <Checkbox 
                       id="edit-featured" 
-                      checked={!!editingArticle.featured} // FIX: Convert to boolean with double negation
+                      checked={!!editingArticle.featured} 
                       onCheckedChange={(checked) => 
                         setEditingArticle({...editingArticle, featured: !!checked})
                       }
