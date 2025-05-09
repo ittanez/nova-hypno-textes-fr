@@ -1,17 +1,29 @@
 
 import { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useAuth } from '@/hooks/blog/useAuth';
 
 const AdminLayout = () => {
   const location = useLocation();
-  const { loading } = useAuth();
+  const navigate = useNavigate();
+  const { loading, session, isAdmin } = useAuth();
   
   useEffect(() => {
     // Log page navigation to help debug
-    console.log('AdminLayout rendered at path:', location.pathname);
-  }, [location.pathname]);
+    console.log('AdminLayout rendered at path:', location.pathname, { hasSession: !!session, isAdmin });
+    
+    // Only redirect on non-login pages when authentication is determined
+    if (!loading && location.pathname !== '/admin-blog') {
+      if (!session) {
+        console.log('AdminLayout - No session, redirecting to login');
+        navigate('/admin-blog', { replace: true });
+      } else if (location.pathname === '/admin-blog' && session && isAdmin) {
+        console.log('AdminLayout - Admin already logged in, redirecting to dashboard');
+        navigate('/admin-blog/dashboard', { replace: true });
+      }
+    }
+  }, [location.pathname, loading, session, isAdmin, navigate]);
   
   // Show minimal loading indicator while checking auth
   if (loading) {
@@ -29,7 +41,6 @@ const AdminLayout = () => {
     );
   }
   
-  // Ne faites aucune redirection ici, laissez PrivateRoute s'en charger
   return (
     <>
       <Helmet>

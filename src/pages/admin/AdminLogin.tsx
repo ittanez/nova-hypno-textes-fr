@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -11,27 +11,48 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useAuth } from '@/hooks/blog/useAuth';
 import AuthForm from '@/components/auth/AuthForm';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { user, session, loading, isAdmin } = useAuth();
-  const redirectAttempted = useRef(false);
+  const [authMessage, setAuthMessage] = useState<{ type: 'info' | 'warning' | 'error'; message: string } | null>(null);
+  const [redirectAttempted, setRedirectAttempted] = useState(false);
 
   useEffect(() => {
-    // Empêcher les tentatives multiples de redirection
-    if (loading || redirectAttempted.current) {
+    // Log auth state for debugging
+    console.log("AdminLogin - Auth state:", { 
+      hasUser: !!user, 
+      hasSession: !!session, 
+      isAdmin, 
+      loading,
+      redirectAttempted
+    });
+    
+    // Only attempt redirect when we have all information and not loading
+    if (loading) {
       return;
     }
     
-    if (user && session && isAdmin) {
+    if (user && session && isAdmin && !redirectAttempted) {
       console.log("User authenticated as admin, redirecting to dashboard");
-      redirectAttempted.current = true;
-      navigate('/admin-blog/dashboard', { replace: true });
+      setRedirectAttempted(true);
+      
+      // Use setTimeout to ensure state is updated before redirect
+      setTimeout(() => {
+        navigate('/admin-blog/dashboard', { replace: true });
+      }, 100);
+    } else if (user && session && !isAdmin && !redirectAttempted) {
+      setAuthMessage({
+        type: 'warning',
+        message: "Vous êtes connecté, mais vous n'avez pas les droits d'administrateur."
+      });
     }
-  }, [user, session, loading, isAdmin, navigate]);
+  }, [user, session, loading, isAdmin, navigate, redirectAttempted]);
 
+  // Prevent showing the login form briefly when already authenticated
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -54,6 +75,12 @@ const AdminLogin = () => {
             <p className="text-muted-foreground">Accès à l'administration du blog</p>
           </div>
           
+          {authMessage && (
+            <Alert className="mb-6" variant={authMessage.type === 'error' ? 'destructive' : 'default'}>
+              <AlertDescription>{authMessage.message}</AlertDescription>
+            </Alert>
+          )}
+          
           <Card>
             <CardHeader>
               <CardTitle>Authentification</CardTitle>
@@ -70,19 +97,40 @@ const AdminLogin = () => {
                 </TabsList>
                 
                 <TabsContent value="login">
-                  <AuthForm mode="login" />
+                  <AuthForm 
+                    mode="login" 
+                    onSuccess={() => {
+                      setAuthMessage({
+                        type: 'info',
+                        message: "Connexion réussie! Redirection en cours..."
+                      });
+                    }}
+                  />
                 </TabsContent>
                 
                 <TabsContent value="signup">
-                  <AuthForm mode="signup" />
+                  <AuthForm 
+                    mode="signup" 
+                    onSuccess={(requiresEmailConfirmation) => {
+                      setAuthMessage({
+                        type: 'info',
+                        message: requiresEmailConfirmation 
+                          ? "Inscription réussie! Veuillez vérifier votre email pour confirmer votre compte." 
+                          : "Inscription réussie! Vous pouvez maintenant vous connecter."
+                      });
+                    }}
+                  />
                 </TabsContent>
               </Tabs>
             </CardContent>
             
-            <CardFooter className="flex justify-center">
-              <p className="text-xs text-muted-foreground text-center">
+            <CardFooter className="flex flex-col items-center">
+              <p className="text-sm text-orange-600 font-semibold mb-2">
                 Pour l'environnement de développement, désactivez la vérification d'email 
                 dans les paramètres d'authentification Supabase
+              </p>
+              <p className="text-xs text-muted-foreground text-center">
+                Si vous ne recevez pas d'email de confirmation, contactez l'administrateur
               </p>
             </CardFooter>
           </Card>

@@ -46,6 +46,7 @@ export function useAuth() {
       (event, newSession) => {
         if (!isMounted) return;
         
+        console.log('Auth state changed:', event, !!newSession);
         setSession(newSession);
         setUser(newSession?.user ?? null);
 
@@ -65,6 +66,7 @@ export function useAuth() {
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
       if (!isMounted) return;
       
+      console.log('Initial session check:', !!currentSession);
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
       
@@ -83,6 +85,7 @@ export function useAuth() {
 
   const signIn = async (email: string, password: string) => {
     try {
+      setLoading(true);
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -90,15 +93,19 @@ export function useAuth() {
 
       if (error) throw error;
       
+      // No need to set user/session here, the onAuthStateChange will handle it
       return { success: true, data };
     } catch (error: any) {
       console.error('Error signing in:', error.message);
       return { success: false, error };
+    } finally {
+      setLoading(false);
     }
   };
 
   const signUp = async (email: string, password: string) => {
     try {
+      setLoading(true);
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -110,11 +117,14 @@ export function useAuth() {
     } catch (error: any) {
       console.error('Error signing up:', error.message);
       return { success: false, error };
+    } finally {
+      setLoading(false);
     }
   };
 
   const signOut = async () => {
     try {
+      setLoading(true);
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       
@@ -127,6 +137,8 @@ export function useAuth() {
     } catch (error: any) {
       console.error('Error signing out:', error.message);
       return { success: false, error };
+    } finally {
+      setLoading(false);
     }
   };
 

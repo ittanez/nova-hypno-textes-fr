@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -26,11 +25,11 @@ type FormValues = z.infer<typeof formSchema>;
 
 type AuthFormProps = {
   mode: 'login' | 'signup';
+  onSuccess?: (requiresEmailConfirmation?: boolean) => void;
 };
 
-export default function AuthForm({ mode }: AuthFormProps) {
+export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
   const { toast } = useToast();
-  const navigate = useNavigate();
   const { signIn, signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,11 +49,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
         const { success, error } = await signIn(values.email, values.password);
         
         if (success) {
+          console.log("Login successful, triggering onSuccess callback");
           toast({
             title: 'Connexion réussie',
             description: 'Vous êtes maintenant connecté',
           });
-          navigate('/admin-blog/dashboard', { replace: true });
+          
+          if (onSuccess) {
+            onSuccess();
+          }
         } else {
           toast({
             title: 'Erreur de connexion',
@@ -63,13 +66,21 @@ export default function AuthForm({ mode }: AuthFormProps) {
           });
         }
       } else {
-        const { success, error } = await signUp(values.email, values.password);
+        const { success, error, data } = await signUp(values.email, values.password);
+        
+        const requiresEmailConfirmation = data?.user?.identities?.[0]?.identity_data?.email_verified === false;
         
         if (success) {
           toast({
             title: 'Inscription réussie',
-            description: 'Veuillez vérifier votre email pour confirmer votre compte',
+            description: requiresEmailConfirmation 
+              ? 'Veuillez vérifier votre email pour confirmer votre compte'
+              : 'Votre compte a été créé',
           });
+          
+          if (onSuccess) {
+            onSuccess(requiresEmailConfirmation);
+          }
         } else {
           toast({
             title: "Erreur d'inscription",
