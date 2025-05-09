@@ -143,16 +143,33 @@ export function useAuth() {
   };
 
   const setAdminRole = async (userId: string) => {
-    if (!isAdmin) return false;
-    
+    // Vérifier si l'utilisateur qui fait la demande est déjà un administrateur
+    // ou si c'est un cas spécial (par exemple, le premier utilisateur)
     try {
-      const { error } = await supabase
+      // Vérifier si c'est le premier utilisateur qui s'inscrit
+      const { count, error: countError } = await supabase
         .from('user_roles')
-        .insert({ user_id: userId, role: 'admin' });
+        .select('*', { count: 'exact', head: true });
+        
+      if (countError) throw countError;
       
-      if (error) throw error;
+      const isFirstUser = count === 0;
       
-      return true;
+      // Si c'est le premier utilisateur ou si l'utilisateur est déjà admin
+      if (isFirstUser || isAdmin) {
+        const { error } = await supabase
+          .from('user_roles')
+          .insert({ user_id: userId, role: 'admin' });
+        
+        if (error) throw error;
+        
+        // Mettre à jour l'état local
+        setIsAdmin(true);
+        
+        return true;
+      }
+      
+      return false;
     } catch (error: any) {
       console.error('Error setting admin role:', error.message);
       return false;
