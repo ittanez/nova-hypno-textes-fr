@@ -213,7 +213,7 @@ const AdminDirect = () => {
           featured: editingArticle.featured,
           categories: editingArticle.categories,
           tags: editingArticle.tags,
-          updated_at: new Date()
+          updated_at: new Date().toISOString() // FIX: Convert Date to ISO string
         })
         .eq('id', editingArticle.id);
       
@@ -402,13 +402,15 @@ const AdminDirect = () => {
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
     
+    // FIX: Use correct DateTimeFormatOptions format
     const options = { 
       year: 'numeric', 
       month: 'short', 
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
-    };
+    } as Intl.DateTimeFormatOptions;
+    
     return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
 
@@ -513,9 +515,9 @@ const AdminDirect = () => {
                   <div className="flex items-center space-x-2">
                     <Checkbox 
                       id="edit-published" 
-                      checked={editingArticle.published}
+                      checked={!!editingArticle.published} // FIX: Convert to boolean with double negation
                       onCheckedChange={(checked) => 
-                        setEditingArticle({...editingArticle, published: checked})
+                        setEditingArticle({...editingArticle, published: !!checked})
                       }
                     />
                     <Label htmlFor="edit-published">Publié</Label>
@@ -524,9 +526,9 @@ const AdminDirect = () => {
                   <div className="flex items-center space-x-2">
                     <Checkbox 
                       id="edit-featured" 
-                      checked={editingArticle.featured}
+                      checked={!!editingArticle.featured} // FIX: Convert to boolean with double negation
                       onCheckedChange={(checked) => 
-                        setEditingArticle({...editingArticle, featured: checked})
+                        setEditingArticle({...editingArticle, featured: !!checked})
                       }
                     />
                     <Label htmlFor="edit-featured">Mis en avant</Label>
@@ -585,7 +587,7 @@ const AdminDirect = () => {
                     id="published" 
                     checked={newArticle.published}
                     onCheckedChange={(checked) => 
-                      setNewArticle({...newArticle, published: checked})
+                      setNewArticle({...newArticle, published: !!checked})
                     }
                   />
                   <Label htmlFor="published">Publié</Label>
@@ -596,7 +598,7 @@ const AdminDirect = () => {
                     id="featured" 
                     checked={newArticle.featured}
                     onCheckedChange={(checked) => 
-                      setNewArticle({...newArticle, featured: checked})
+                      setNewArticle({...newArticle, featured: !!checked})
                     }
                   />
                   <Label htmlFor="featured">Mis en avant</Label>
@@ -901,4 +903,3 @@ const AdminDirect = () => {
 };
 
 export default AdminDirect;
-
