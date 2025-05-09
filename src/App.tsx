@@ -16,6 +16,7 @@ import AdminSubscribers from "./pages/admin/AdminSubscribers";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
+import AdminDirect from "./pages/admin/AdminDirect"; // Import de la nouvelle page
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -67,6 +68,9 @@ const App = () => {
                 <Route path="subscribers" element={<AdminSubscribers />} />
               </Route>
             </Route>
+            
+            {/* Nouvelle route directe pour l'administration - sans layout ni protection par router */}
+            <Route path="/admin-direct" element={<AdminDirect />} />
             
             {/* Redirect all other routes to the home page */}
             <Route path="*" element={<Navigate to="/" replace />} />
