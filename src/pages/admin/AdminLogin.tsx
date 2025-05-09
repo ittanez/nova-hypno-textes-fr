@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -25,7 +24,6 @@ const AdminLogin = () => {
   const { user, session, loading, isAdmin, requestAdminAccess } = useAuth();
   const { toast } = useToast();
   const [authMessage, setAuthMessage] = useState<{ type: 'info' | 'warning' | 'error'; message: string } | null>(null);
-  const [redirectAttempted, setRedirectAttempted] = useState(false);
   const [fullName, setFullName] = useState('');
   const [reason, setReason] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,30 +34,27 @@ const AdminLogin = () => {
       hasUser: !!user, 
       hasSession: !!session, 
       isAdmin, 
-      loading,
-      redirectAttempted
+      loading
     });
     
     // Only attempt redirect when we have all information and not loading
-    if (loading) {
-      return;
-    }
-    
-    if (user && session && isAdmin && !redirectAttempted) {
+    if (!loading && user && session && isAdmin) {
       console.log("User authenticated as admin, redirecting to dashboard");
-      setRedirectAttempted(true);
-      
-      // Use setTimeout to ensure state is updated before redirect
-      setTimeout(() => {
+      // Use a small timeout to prevent immediate redirection that could cause a loop
+      const redirectTimer = setTimeout(() => {
         navigate('/admin-blog/dashboard', { replace: true });
-      }, 100);
-    } else if (user && session && !isAdmin && !redirectAttempted) {
+      }, 300);
+      
+      return () => clearTimeout(redirectTimer);
+    } 
+    
+    if (!loading && user && session && !isAdmin) {
       setAuthMessage({
         type: 'warning',
         message: "Vous êtes connecté, mais vous n'avez pas les droits d'administrateur."
       });
     }
-  }, [user, session, loading, isAdmin, navigate, redirectAttempted]);
+  }, [user, session, loading, isAdmin, navigate]);
   
   const handleAdminRequest = async (e: React.FormEvent) => {
     e.preventDefault();

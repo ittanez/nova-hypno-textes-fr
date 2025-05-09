@@ -14,11 +14,16 @@ const AdminLayout = () => {
     console.log('AdminLayout rendered at path:', location.pathname, { hasSession: !!session, isAdmin });
     
     // Only redirect on non-login pages when authentication is determined
-    if (!loading && location.pathname !== '/admin-blog') {
-      if (!session) {
+    if (!loading) {
+      // If no session, always redirect to login page
+      if (!session && location.pathname !== '/admin-blog') {
         console.log('AdminLayout - No session, redirecting to login');
         navigate('/admin-blog', { replace: true });
-      } else if (location.pathname === '/admin-blog' && session && isAdmin) {
+      }
+      
+      // If already logged in as admin and on the login page, redirect to dashboard
+      // We add the check for isAdmin to prevent redirect loops
+      if (session && isAdmin && location.pathname === '/admin-blog') {
         console.log('AdminLayout - Admin already logged in, redirecting to dashboard');
         navigate('/admin-blog/dashboard', { replace: true });
       }
