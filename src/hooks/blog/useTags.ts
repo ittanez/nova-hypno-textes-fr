@@ -36,7 +36,7 @@ export function useTags() {
     }
   };
 
-  const createTag = async (tag: Omit<Tag, 'id' | 'created_at'>) => {
+  const createTag = async (tag: { name: string; slug: string }) => {
     try {
       const { data, error } = await supabase
         .from('tags')
