@@ -20,7 +20,7 @@ const AdminLogin = () => {
   const redirectAttempted = useRef(false);
 
   useEffect(() => {
-    // Prevent multiple navigation attempts
+    // Empêcher les tentatives multiples de redirection
     if (loading || redirectAttempted.current) {
       return;
     }

@@ -54,7 +54,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
             title: 'Connexion réussie',
             description: 'Vous êtes maintenant connecté',
           });
-          navigate('/admin-blog/dashboard');
+          navigate('/admin-blog/dashboard', { replace: true });
         } else {
           toast({
             title: 'Erreur de connexion',
@@ -99,7 +99,12 @@ export default function AuthForm({ mode }: AuthFormProps) {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="votre@email.com" {...field} />
+                <Input 
+                  placeholder="votre@email.com" 
+                  {...field} 
+                  autoComplete={mode === 'login' ? 'username' : 'email'}
+                  type="email"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,7 +118,12 @@ export default function AuthForm({ mode }: AuthFormProps) {
             <FormItem>
               <FormLabel>Mot de passe</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="••••••••" {...field} />
+                <Input 
+                  type="password" 
+                  placeholder="••••••••" 
+                  {...field} 
+                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

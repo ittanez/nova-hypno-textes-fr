@@ -15,6 +15,32 @@ export function useAuth() {
     // Flag to prevent concurrent admin checks
     let isMounted = true;
     
+    const checkAdminStatus = async (userId: string) => {
+      try {
+        const { data, error } = await supabase
+          .from('user_roles')
+          .select('*')
+          .eq('user_id', userId)
+          .eq('role', 'admin')
+          .maybeSingle();
+
+        if (!isMounted) return;
+        
+        if (error) {
+          throw error;
+        }
+
+        setIsAdmin(!!data);
+      } catch (error) {
+        console.error('Error checking admin status:', error);
+        setIsAdmin(false);
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+    
     // Set up auth state listener first
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, newSession) => {
@@ -55,28 +81,6 @@ export function useAuth() {
     };
   }, []);
 
-  const checkAdminStatus = async (userId: string) => {
-    try {
-      const { data, error } = await supabase
-        .from('user_roles')
-        .select('*')
-        .eq('user_id', userId)
-        .eq('role', 'admin')
-        .maybeSingle();
-
-      if (error) {
-        throw error;
-      }
-
-      setIsAdmin(!!data);
-    } catch (error) {
-      console.error('Error checking admin status:', error);
-      setIsAdmin(false);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const signIn = async (email: string, password: string) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -89,11 +93,6 @@ export function useAuth() {
       return { success: true, data };
     } catch (error: any) {
       console.error('Error signing in:', error.message);
-      toast({
-        title: 'Erreur de connexion',
-        description: error.message,
-        variant: 'destructive',
-      });
       return { success: false, error };
     }
   };
@@ -107,19 +106,9 @@ export function useAuth() {
 
       if (error) throw error;
       
-      toast({
-        title: 'Inscription réussie',
-        description: 'Veuillez vérifier votre email pour confirmer votre compte.',
-      });
-      
       return { success: true, data };
     } catch (error: any) {
       console.error('Error signing up:', error.message);
-      toast({
-        title: 'Erreur d\'inscription',
-        description: error.message,
-        variant: 'destructive',
-      });
       return { success: false, error };
     }
   };
@@ -128,13 +117,16 @@ export function useAuth() {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
+      
+      // Réinitialiser l'état local après la déconnexion
+      setUser(null);
+      setSession(null);
+      setIsAdmin(false);
+      
+      return { success: true };
     } catch (error: any) {
       console.error('Error signing out:', error.message);
-      toast({
-        title: 'Erreur',
-        description: 'Impossible de se déconnecter',
-        variant: 'destructive',
-      });
+      return { success: false, error };
     }
   };
 

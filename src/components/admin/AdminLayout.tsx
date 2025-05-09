@@ -29,6 +29,7 @@ const AdminLayout = () => {
     );
   }
   
+  // Ne faites aucune redirection ici, laissez PrivateRoute s'en charger
   return (
     <>
       <Helmet>
