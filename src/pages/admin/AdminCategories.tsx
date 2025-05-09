@@ -53,30 +53,22 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { useToast } from '@/components/ui/use-toast';
-
-interface Category {
-  id: string;
-  name: string;
-  slug: string;
-  articleCount: number;
-}
-
-interface Tag {
-  id: string;
-  name: string;
-  slug: string;
-  articleCount: number;
-}
+import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/blog/useAuth';
+import { useCategories } from '@/hooks/blog/useCategories';
+import { useTags } from '@/hooks/blog/useTags';
+import { Category, Tag } from '@/types/blog';
 
 const categorySchema = z.object({
   name: z.string().min(1, { message: 'Le nom est requis' }),
   slug: z.string().min(1, { message: 'Le slug est requis' }),
+  description: z.string().optional(),
 });
 
 const tagSchema = z.object({
@@ -90,8 +82,10 @@ type TagFormValues = z.infer<typeof tagSchema>;
 const AdminCategories = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [tags, setTags] = useState<Tag[]>([]);
+  const { isAdmin } = useAuth();
+  const { categories, loading: categoriesLoading, createCategory, updateCategory, deleteCategory } = useCategories();
+  const { tags, loading: tagsLoading, createTag, updateTag, deleteTag } = useTags();
+  
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedTag, setSelectedTag] = useState<Tag | null>(null);
@@ -104,6 +98,7 @@ const AdminCategories = () => {
     defaultValues: {
       name: '',
       slug: '',
+      description: '',
     },
   });
 
@@ -116,43 +111,14 @@ const AdminCategories = () => {
   });
 
   useEffect(() => {
-    // In a real app, this would be an API call
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Mock data
-        const mockCategories: Category[] = [
-          { id: '1', name: 'Hypnose Ericksonienne', slug: 'hypnose-ericksonienne', articleCount: 5 },
-          { id: '2', name: 'Auto-hypnose', slug: 'auto-hypnose', articleCount: 3 },
-          { id: '3', name: 'Gestion du stress', slug: 'gestion-du-stress', articleCount: 2 },
-        ];
-        
-        const mockTags: Tag[] = [
-          { id: '1', name: 'Sommeil', slug: 'sommeil', articleCount: 4 },
-          { id: '2', name: 'Confiance en soi', slug: 'confiance-en-soi', articleCount: 3 },
-          { id: '3', name: 'Anxiété', slug: 'anxiete', articleCount: 2 },
-          { id: '4', name: 'Addictions', slug: 'addictions', articleCount: 1 },
-        ];
-        
-        setCategories(mockCategories);
-        setTags(mockTags);
-      } catch (error) {
-        console.error('Error fetching categories and tags:', error);
-        toast({
-          title: 'Erreur',
-          description: 'Impossible de charger les catégories et tags',
-          variant: 'destructive',
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    
-    fetchData();
-  }, [toast]);
+    if (!isAdmin) {
+      navigate('/admin-blog');
+      return;
+    }
+
+    // Once all data is loaded
+    setIsLoading(categoriesLoading || tagsLoading);
+  }, [categoriesLoading, tagsLoading, isAdmin]);
 
   const generateSlug = (name: string) => {
     if (!name) return '';
@@ -160,6 +126,7 @@ const AdminCategories = () => {
     // Create slug from name
     return name
       .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
       .replace(/[^\w\s]/gi, '')  // Remove special chars
       .replace(/\s+/g, '-')      // Replace spaces with hyphens
       .replace(/-+/g, '-')       // Replace multiple hyphens with single hyphen
@@ -171,6 +138,7 @@ const AdminCategories = () => {
     categoryForm.reset({
       name: category.name,
       slug: category.slug,
+      description: category.description,
     });
     setDialogType('edit');
     setIsOpen(true);
@@ -191,6 +159,7 @@ const AdminCategories = () => {
     categoryForm.reset({
       name: '',
       slug: '',
+      description: '',
     });
     setDialogType('add');
     setIsOpen(true);
@@ -207,14 +176,10 @@ const AdminCategories = () => {
   };
 
   const onSubmitCategory = async (values: CategoryFormValues) => {
-    // In a real app, this would be an API call
     try {
       if (dialogType === 'edit' && selectedCategory) {
         // Update existing category
-        const updatedCategories = categories.map(cat => 
-          cat.id === selectedCategory.id ? { ...cat, ...values } : cat
-        );
-        setCategories(updatedCategories);
+        await updateCategory(selectedCategory.id, values);
         
         toast({
           title: 'Succès',
@@ -222,14 +187,7 @@ const AdminCategories = () => {
         });
       } else {
         // Add new category
-        const newCategory: Category = {
-          id: `new-${Date.now()}`,
-          name: values.name,
-          slug: values.slug,
-          articleCount: 0,
-        };
-        
-        setCategories([...categories, newCategory]);
+        await createCategory(values);
         
         toast({
           title: 'Succès',
@@ -240,25 +198,21 @@ const AdminCategories = () => {
       // Close dialog and reset form
       setIsOpen(false);
       categoryForm.reset();
-    } catch (error) {
-      console.error('Error saving category:', error);
+    } catch (error: any) {
+      console.error('Error saving category:', error.message);
       toast({
         title: 'Erreur',
-        description: "Une erreur s'est produite",
+        description: `Une erreur s'est produite: ${error.message}`,
         variant: 'destructive',
       });
     }
   };
 
   const onSubmitTag = async (values: TagFormValues) => {
-    // In a real app, this would be an API call
     try {
       if (dialogType === 'edit' && selectedTag) {
         // Update existing tag
-        const updatedTags = tags.map(tag => 
-          tag.id === selectedTag.id ? { ...tag, ...values } : tag
-        );
-        setTags(updatedTags);
+        await updateTag(selectedTag.id, values);
         
         toast({
           title: 'Succès',
@@ -266,14 +220,7 @@ const AdminCategories = () => {
         });
       } else {
         // Add new tag
-        const newTag: Tag = {
-          id: `new-${Date.now()}`,
-          name: values.name,
-          slug: values.slug,
-          articleCount: 0,
-        };
-        
-        setTags([...tags, newTag]);
+        await createTag(values);
         
         toast({
           title: 'Succès',
@@ -284,34 +231,36 @@ const AdminCategories = () => {
       // Close dialog and reset form
       setIsOpen(false);
       tagForm.reset();
-    } catch (error) {
-      console.error('Error saving tag:', error);
+    } catch (error: any) {
+      console.error('Error saving tag:', error.message);
       toast({
         title: 'Erreur',
-        description: "Une erreur s'est produite",
+        description: `Une erreur s'est produite: ${error.message}`,
         variant: 'destructive',
       });
     }
   };
 
-  const handleDeleteCategory = (id: string) => {
-    // In a real app, this would be an API call
-    setCategories(categories.filter(cat => cat.id !== id));
+  const handleDeleteCategory = async (id: string) => {
+    const success = await deleteCategory(id);
     
-    toast({
-      title: 'Catégorie supprimée',
-      description: 'La catégorie a été supprimée avec succès',
-    });
+    if (success) {
+      toast({
+        title: 'Catégorie supprimée',
+        description: 'La catégorie a été supprimée avec succès',
+      });
+    }
   };
 
-  const handleDeleteTag = (id: string) => {
-    // In a real app, this would be an API call
-    setTags(tags.filter(tag => tag.id !== id));
+  const handleDeleteTag = async (id: string) => {
+    const success = await deleteTag(id);
     
-    toast({
-      title: 'Tag supprimé',
-      description: 'Le tag a été supprimé avec succès',
-    });
+    if (success) {
+      toast({
+        title: 'Tag supprimé',
+        description: 'Le tag a été supprimé avec succès',
+      });
+    }
   };
 
   return (
@@ -376,7 +325,6 @@ const AdminCategories = () => {
                       <TableRow>
                         <TableHead>Nom</TableHead>
                         <TableHead>Slug</TableHead>
-                        <TableHead>Articles</TableHead>
                         <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -385,7 +333,6 @@ const AdminCategories = () => {
                         <TableRow key={category.id}>
                           <TableCell className="font-medium">{category.name}</TableCell>
                           <TableCell className="font-mono text-sm">{category.slug}</TableCell>
-                          <TableCell>{category.articleCount}</TableCell>
                           <TableCell className="text-right">
                             <div className="flex justify-end space-x-2">
                               <Button 
@@ -401,7 +348,6 @@ const AdminCategories = () => {
                                   <Button 
                                     variant="ghost" 
                                     size="sm"
-                                    disabled={category.articleCount > 0}
                                   >
                                     <Trash2 className="h-4 w-4 text-red-500" />
                                   </Button>
@@ -514,6 +460,23 @@ const AdminCategories = () => {
                       )}
                     />
                     
+                    <FormField
+                      control={categoryForm.control}
+                      name="description"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Description (optionnel)</FormLabel>
+                          <FormControl>
+                            <Input 
+                              placeholder="Description de la catégorie"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
                     <DialogFooter>
                       <DialogClose asChild>
                         <Button type="button" variant="outline">
@@ -556,7 +519,6 @@ const AdminCategories = () => {
                       <TableRow>
                         <TableHead>Nom</TableHead>
                         <TableHead>Slug</TableHead>
-                        <TableHead>Articles</TableHead>
                         <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -565,7 +527,6 @@ const AdminCategories = () => {
                         <TableRow key={tag.id}>
                           <TableCell className="font-medium">{tag.name}</TableCell>
                           <TableCell className="font-mono text-sm">{tag.slug}</TableCell>
-                          <TableCell>{tag.articleCount}</TableCell>
                           <TableCell className="text-right">
                             <div className="flex justify-end space-x-2">
                               <Button 
@@ -581,7 +542,6 @@ const AdminCategories = () => {
                                   <Button 
                                     variant="ghost" 
                                     size="sm"
-                                    disabled={tag.articleCount > 0}
                                   >
                                     <Trash2 className="h-4 w-4 text-red-500" />
                                   </Button>

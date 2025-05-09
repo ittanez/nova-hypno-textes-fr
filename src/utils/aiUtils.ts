@@ -61,7 +61,7 @@ export const generateSummaryAndKeywords = (content: string): { excerpt: string, 
     keywordScores[keyword] = count + positionBonus;
   });
   
-  // Trier les mots-clés par score et prendre les 5 premiers
+  // Trier les mots-clés par score et prendre les 6 premiers
   const sortedKeywords = Object.entries(keywordScores)
     .filter(([_, score]) => score > 0)
     .sort((a, b) => b[1] - a[1])

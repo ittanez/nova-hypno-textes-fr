@@ -30,126 +30,38 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-
-interface Article {
-  id: string;
-  title: string;
-  slug: string;
-  status: 'published' | 'draft' | 'scheduled';
-  publishedAt: string | null;
-  updatedAt: string;
-}
-
-interface StatsData {
-  totalArticles: number;
-  publishedArticles: number;
-  draftArticles: number;
-  categories: number;
-  tags: number;
-  subscribers: number;
-}
+import { useAuth } from '@/hooks/blog/useAuth';
+import { useArticles } from '@/hooks/blog/useArticles';
+import { useCategories } from '@/hooks/blog/useCategories';
+import { useTags } from '@/hooks/blog/useTags';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [stats, setStats] = useState<StatsData>({
-    totalArticles: 0,
-    publishedArticles: 0,
-    draftArticles: 0,
-    categories: 0,
-    tags: 0,
-    subscribers: 0
-  });
+  const { user, isAdmin, signOut } = useAuth();
+  const { articles, loading: articlesLoading, deleteArticle } = useArticles();
+  const { categories, loading: categoriesLoading } = useCategories();
+  const { tags, loading: tagsLoading } = useTags();
+  
   const [isLoading, setIsLoading] = useState(true);
-  const username = localStorage.getItem('admin_username') || 'Admin';
+  const username = user?.email || 'Admin';
 
   useEffect(() => {
-    // In a real app, these would be API calls
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
-        // Mock articles data
-        const mockArticles: Article[] = [
-          {
-            id: '1',
-            title: "L'hypnose ericksonienne et les mécanismes du changement",
-            slug: 'hypnose-ericksonienne-mecanismes-changement',
-            status: 'published',
-            publishedAt: '2023-11-15T10:00:00Z',
-            updatedAt: '2023-11-15T10:00:00Z'
-          },
-          {
-            id: '2',
-            title: 'Auto-hypnose : techniques simples pour améliorer votre sommeil',
-            slug: 'auto-hypnose-techniques-ameliorer-sommeil',
-            status: 'published',
-            publishedAt: '2023-10-28T09:30:00Z',
-            updatedAt: '2023-10-28T09:30:00Z'
-          },
-          {
-            id: '3',
-            title: 'Comment l\'hypnothérapie aide à surmonter les phobies',
-            slug: 'hypnotherapie-aide-surmonter-phobies',
-            status: 'published',
-            publishedAt: '2023-10-10T14:15:00Z',
-            updatedAt: '2023-10-10T14:15:00Z'
-          },
-          {
-            id: '4',
-            title: 'Les techniques de visualisation en auto-hypnose',
-            slug: 'techniques-visualisation-auto-hypnose',
-            status: 'draft',
-            publishedAt: null,
-            updatedAt: '2023-11-20T11:30:00Z'
-          }
-        ];
-        
-        // Mock stats data
-        const mockStats: StatsData = {
-          totalArticles: mockArticles.length,
-          publishedArticles: mockArticles.filter(a => a.status === 'published').length,
-          draftArticles: mockArticles.filter(a => a.status === 'draft').length,
-          categories: 3,
-          tags: 5,
-          subscribers: 12
-        };
-        
-        setArticles(mockArticles);
-        setStats(mockStats);
-      } catch (error) {
-        console.error('Error fetching dashboard data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    
-    fetchData();
-  }, []);
+    if (!isAdmin) {
+      navigate('/admin-blog');
+      return;
+    }
 
-  const handleLogout = () => {
-    localStorage.removeItem('admin_token');
-    localStorage.removeItem('admin_username');
+    // Une fois que toutes les données sont chargées
+    setIsLoading(articlesLoading || categoriesLoading || tagsLoading);
+  }, [articlesLoading, categoriesLoading, tagsLoading, isAdmin]);
+
+  const handleLogout = async () => {
+    await signOut();
     navigate('/admin-blog');
   };
 
-  const handleDeleteArticle = (id: string) => {
-    // In a real app, this would be an API call
-    setArticles(articles.filter(article => article.id !== id));
-    
-    // Update stats
-    setStats({
-      ...stats,
-      totalArticles: stats.totalArticles - 1,
-      publishedArticles: articles.find(a => a.id === id)?.status === 'published'
-        ? stats.publishedArticles - 1
-        : stats.publishedArticles,
-      draftArticles: articles.find(a => a.id === id)?.status === 'draft'
-        ? stats.draftArticles - 1
-        : stats.draftArticles
-    });
+  const handleDeleteArticle = async (id: string) => {
+    await deleteArticle(id);
   };
 
   const formatDate = (dateString: string | null) => {
@@ -209,9 +121,9 @@ const AdminDashboard = () => {
                   <FileText className="h-5 w-5 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold">{stats.totalArticles}</p>
+                  <p className="text-3xl font-bold">{articles.length}</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    {stats.publishedArticles} publiés, {stats.draftArticles} brouillons
+                    {articles.filter(a => a.published).length} publiés, {articles.filter(a => !a.published).length} brouillons
                   </p>
                 </CardContent>
               </Card>
@@ -222,7 +134,7 @@ const AdminDashboard = () => {
                   <Folder className="h-5 w-5 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold">{stats.categories}</p>
+                  <p className="text-3xl font-bold">{categories.length}</p>
                   <p className="text-sm text-muted-foreground mt-1">
                     Catégories actives
                   </p>
@@ -231,13 +143,13 @@ const AdminDashboard = () => {
               
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-lg">Abonnés</CardTitle>
-                  <Users className="h-5 w-5 text-muted-foreground" />
+                  <CardTitle className="text-lg">Tags</CardTitle>
+                  <Tag className="h-5 w-5 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold">{stats.subscribers}</p>
+                  <p className="text-3xl font-bold">{tags.length}</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Personnes abonnées au blog
+                    Tags disponibles
                   </p>
                 </CardContent>
               </Card>
@@ -270,13 +182,13 @@ const AdminDashboard = () => {
               </Card>
               
               <Card className="hover:border-nova-blue transition-colors">
-                <Link to="/admin-blog/subscribers" className="block p-6">
+                <Link to="/admin-blog/dashboard" className="block p-6">
                   <div className="flex flex-col items-center text-center">
                     <div className="bg-nova-blue-light p-3 rounded-full mb-4">
                       <Users className="h-6 w-6 text-nova-blue" />
                     </div>
-                    <CardTitle className="text-xl mb-2">Abonnés</CardTitle>
-                    <CardDescription>Gérer votre liste d'abonnés aux notifications</CardDescription>
+                    <CardTitle className="text-xl mb-2">Médias</CardTitle>
+                    <CardDescription>Gérer vos images et fichiers médias</CardDescription>
                   </div>
                 </Link>
               </Card>
@@ -301,69 +213,74 @@ const AdminDashboard = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {articles.map((article) => (
-                      <TableRow key={article.id}>
-                        <TableCell className="font-medium max-w-[300px] truncate">
-                          {article.title}
-                        </TableCell>
-                        <TableCell>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            article.status === 'published'
-                              ? 'bg-green-100 text-green-800'
-                              : article.status === 'draft'
-                                ? 'bg-yellow-100 text-yellow-800'
-                                : 'bg-blue-100 text-blue-800'
-                          }`}>
-                            {article.status === 'published'
-                              ? 'Publié'
-                              : article.status === 'draft'
-                                ? 'Brouillon'
-                                : 'Programmé'}
-                          </span>
-                        </TableCell>
-                        <TableCell>
-                          {article.status === 'published' 
-                            ? formatDate(article.publishedAt) 
-                            : formatDate(article.updatedAt)}
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <div className="flex justify-end space-x-2">
-                            <Button 
-                              variant="ghost" 
-                              size="sm" 
-                              onClick={() => navigate(`/admin-blog/article/edit/${article.id}`)}
-                            >
-                              <Edit className="h-4 w-4" />
-                            </Button>
-                            
-                            <AlertDialog>
-                              <AlertDialogTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                  <Trash2 className="h-4 w-4 text-red-500" />
+                    {articles.length > 0 ? (
+                      articles
+                        .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+                        .slice(0, 10)
+                        .map((article) => (
+                          <TableRow key={article.id}>
+                            <TableCell className="font-medium max-w-[300px] truncate">
+                              {article.title}
+                            </TableCell>
+                            <TableCell>
+                              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                article.published
+                                  ? 'bg-green-100 text-green-800'
+                                  : 'bg-yellow-100 text-yellow-800'
+                              }`}>
+                                {article.published ? 'Publié' : 'Brouillon'}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              {article.published 
+                                ? formatDate(article.updated_at) 
+                                : formatDate(article.created_at)}
+                            </TableCell>
+                            <TableCell className="text-right">
+                              <div className="flex justify-end space-x-2">
+                                <Button 
+                                  variant="ghost" 
+                                  size="sm" 
+                                  onClick={() => navigate(`/admin-blog/article/edit/${article.id}`)}
+                                >
+                                  <Edit className="h-4 w-4" />
                                 </Button>
-                              </AlertDialogTrigger>
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>Confirmer la suppression</AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Annuler</AlertDialogCancel>
-                                  <AlertDialogAction 
-                                    onClick={() => handleDeleteArticle(article.id)}
-                                    className="bg-red-600 hover:bg-red-700"
-                                  >
-                                    Supprimer
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                          </div>
+                                
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button variant="ghost" size="sm">
+                                      <Trash2 className="h-4 w-4 text-red-500" />
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>Confirmer la suppression</AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>Annuler</AlertDialogCancel>
+                                      <AlertDialogAction 
+                                        onClick={() => handleDeleteArticle(article.id)}
+                                        className="bg-red-600 hover:bg-red-700"
+                                      >
+                                        Supprimer
+                                      </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))
+                    ) : (
+                      <TableRow>
+                        <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                          Aucun article trouvé. Créez votre premier article !
                         </TableCell>
                       </TableRow>
-                    ))}
+                    )}
                   </TableBody>
                 </Table>
               </CardContent>
@@ -374,8 +291,13 @@ const AdminDashboard = () => {
               <h3 className="text-lg font-medium mb-4">Liens rapides</h3>
               <div className="flex flex-wrap gap-4">
                 <Button variant="outline" asChild>
-                  <Link to="/blog-temp" target="_blank">
-                    Voir le blog (version temporaire)
+                  <Link to="/blog" target="_blank">
+                    Voir le blog
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild>
+                  <Link to="/admin-blog/categories">
+                    Gérer les catégories
                   </Link>
                 </Button>
               </div>

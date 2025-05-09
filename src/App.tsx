@@ -17,7 +17,15 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      retry: 1,
+    },
+  },
+});
 
 const App = () => {
   // Check if we're in development or the URL includes "blog-temp"
@@ -40,16 +48,8 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             
-            {/* Blog routes - conditionally accessible */}
+            {/* Blog routes */}
             <Route path="/blog" element={<BlogLayout />}>
-              <Route index element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
-              <Route path=":slug" element={isBlogAccessible() ? <BlogPost /> : <Navigate to="/" replace />} />
-              <Route path="category/:category" element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
-              <Route path="tag/:tag" element={isBlogAccessible() ? <BlogIndex /> : <Navigate to="/" replace />} />
-            </Route>
-            
-            {/* Blog temp routes - always accessible but not indexed */}
-            <Route path="/blog-temp" element={<BlogLayout />}>
               <Route index element={<BlogIndex />} />
               <Route path=":slug" element={<BlogPost />} />
               <Route path="category/:category" element={<BlogIndex />} />

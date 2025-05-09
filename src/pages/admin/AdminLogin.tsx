@@ -1,135 +1,84 @@
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useToast } from '@/components/ui/use-toast';
-
-const formSchema = z.object({
-  email: z.string().email({ message: "Veuillez saisir une adresse email valide" }),
-  password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 6 caractères" }),
-});
-
-type FormValues = z.infer<typeof formSchema>;
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { useAuth } from '@/hooks/blog/useAuth';
+import AuthForm from '@/components/auth/AuthForm';
 
 const AdminLogin = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const { user, session, loading } = useAuth();
 
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: "",
-      password: ""
+  useEffect(() => {
+    if (!loading && user && session) {
+      navigate('/admin-blog/dashboard');
     }
-  });
+  }, [user, session, loading, navigate]);
 
-  const onSubmit = async (values: FormValues) => {
-    setIsSubmitting(true);
-    try {
-      // In a real app, this would be an API call to verify credentials
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock admin login (email: admin@example.com, password: admin123)
-      if (values.email === 'admin@example.com' && values.password === 'admin123') {
-        localStorage.setItem('admin_token', 'mock_token_' + Date.now());
-        toast({
-          title: "Connexion réussie",
-          description: "Bienvenue dans l'administration du blog",
-        });
-        navigate('/admin-blog/dashboard');
-      } else {
-        toast({
-          title: "Échec de la connexion",
-          description: "Email ou mot de passe incorrect",
-          variant: "destructive"
-        });
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      toast({
-        title: "Erreur de connexion",
-        description: "Une erreur s'est produite lors de la connexion",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
     <>
       <Helmet>
-        <title>Connexion Admin | NovaHypnose Blog</title>
+        <title>Connexion | NovaHypnose Blog Admin</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-
-      <div className="container max-w-lg mx-auto px-4 py-16">
-        <Card>
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-serif">Administration du Blog</CardTitle>
-            <CardDescription>Connectez-vous pour gérer vos articles</CardDescription>
-          </CardHeader>
+      
+      <div className="flex flex-col min-h-screen items-center justify-center p-4 bg-gray-50">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-serif font-bold text-nova-blue">NovaHypnose</h1>
+            <p className="text-muted-foreground">Accès à l'administration du blog</p>
+          </div>
           
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="admin@example.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+          <Card>
+            <CardHeader>
+              <CardTitle>Authentification</CardTitle>
+              <CardDescription>
+                Connectez-vous ou créez un compte pour accéder au tableau de bord
+              </CardDescription>
+            </CardHeader>
+            
+            <CardContent>
+              <Tabs defaultValue="login">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="login">Connexion</TabsTrigger>
+                  <TabsTrigger value="signup">Inscription</TabsTrigger>
+                </TabsList>
                 
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Mot de passe</FormLabel>
-                      <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <TabsContent value="login">
+                  <AuthForm mode="login" />
+                </TabsContent>
                 
-                <Button 
-                  type="submit" 
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
-                      Connexion en cours...
-                    </>
-                  ) : (
-                    'Se connecter'
-                  )}
-                </Button>
-              </form>
-            </Form>
-          </CardContent>
-          
-          <CardFooter className="text-center text-sm text-muted-foreground">
-            <p>Identifiants de démo: admin@example.com / admin123</p>
-          </CardFooter>
-        </Card>
+                <TabsContent value="signup">
+                  <AuthForm mode="signup" />
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+            
+            <CardFooter className="flex justify-center">
+              <p className="text-xs text-muted-foreground text-center">
+                Pour l'environnement de développement, désactivez la vérification d'email 
+                dans les paramètres d'authentification Supabase
+              </p>
+            </CardFooter>
+          </Card>
+        </div>
       </div>
     </>
   );

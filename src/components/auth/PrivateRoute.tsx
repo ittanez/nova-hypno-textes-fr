@@ -1,27 +1,22 @@
 
 import { Navigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/blog/useAuth";
 
 const PrivateRoute = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  
-  useEffect(() => {
-    // Check for authentication status from localStorage
-    const checkAuth = () => {
-      const token = localStorage.getItem("admin_token");
-      setIsAuthenticated(!!token);
-    };
-    
-    checkAuth();
-  }, []);
+  const { isAdmin, loading } = useAuth();
   
   // Show nothing while checking authentication
-  if (isAuthenticated === null) {
-    return null;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+      </div>
+    );
   }
   
-  // If authenticated, render the child routes
-  if (isAuthenticated) {
+  // If authenticated as admin, render the child routes
+  if (isAdmin) {
     return <Outlet />;
   }
   
