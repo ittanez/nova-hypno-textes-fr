@@ -12,35 +12,45 @@ export function useAuth() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
+    // Flag to prevent concurrent admin checks
+    let isMounted = true;
+    
     // Set up auth state listener first
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, newSession) => {
+        if (!isMounted) return;
+        
         setSession(newSession);
         setUser(newSession?.user ?? null);
 
         // Check if user is admin (using setTimeout to avoid Supabase auth deadlock)
         if (newSession?.user) {
           setTimeout(() => {
-            checkAdminStatus(newSession.user.id);
+            if (isMounted) checkAdminStatus(newSession.user.id);
           }, 0);
         } else {
           setIsAdmin(false);
+          setLoading(false);
         }
       }
     );
 
     // Then check for existing session
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      if (!isMounted) return;
+      
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
       
       if (currentSession?.user) {
         checkAdminStatus(currentSession.user.id);
+      } else {
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => {
+      isMounted = false;
       subscription.unsubscribe();
     };
   }, []);
@@ -62,6 +72,8 @@ export function useAuth() {
     } catch (error) {
       console.error('Error checking admin status:', error);
       setIsAdmin(false);
+    } finally {
+      setLoading(false);
     }
   };
 

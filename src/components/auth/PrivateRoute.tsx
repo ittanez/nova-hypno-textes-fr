@@ -1,12 +1,11 @@
 
 import { Navigate, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/blog/useAuth";
 
 const PrivateRoute = () => {
   const { isAdmin, loading } = useAuth();
   
-  // Show nothing while checking authentication
+  // Show loading state while checking authentication
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -20,7 +19,7 @@ const PrivateRoute = () => {
     return <Outlet />;
   }
   
-  // If not authenticated, redirect to login
+  // If not authenticated, redirect to login exactly once
   return <Navigate to="/admin-blog" replace />;
 };
 

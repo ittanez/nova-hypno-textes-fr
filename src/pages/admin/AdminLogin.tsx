@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -16,13 +16,21 @@ import AuthForm from '@/components/auth/AuthForm';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const { user, session, loading } = useAuth();
+  const { user, session, loading, isAdmin } = useAuth();
+  const redirectAttempted = useRef(false);
 
   useEffect(() => {
-    if (!loading && user && session) {
-      navigate('/admin-blog/dashboard');
+    // Prevent multiple navigation attempts
+    if (loading || redirectAttempted.current) {
+      return;
     }
-  }, [user, session, loading, navigate]);
+    
+    if (user && session && isAdmin) {
+      console.log("User authenticated as admin, redirecting to dashboard");
+      redirectAttempted.current = true;
+      navigate('/admin-blog/dashboard', { replace: true });
+    }
+  }, [user, session, loading, isAdmin, navigate]);
 
   if (loading) {
     return (

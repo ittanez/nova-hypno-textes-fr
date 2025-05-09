@@ -1,31 +1,32 @@
 
-import { useEffect, useState } from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { useAuth } from '@/hooks/blog/useAuth';
 
 const AdminLayout = () => {
-  const navigate = useNavigate();
   const location = useLocation();
-  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+  const { loading } = useAuth();
   
   useEffect(() => {
-    // Check authentication status
-    const checkAuth = () => {
-      const token = localStorage.getItem('admin_token');
-      setIsAdmin(!!token);
-      
-      // If on login page and already authenticated, redirect to dashboard
-      if (token && location.pathname === '/admin-blog') {
-        navigate('/admin-blog/dashboard');
-      }
-    };
-    
-    checkAuth();
-  }, [location, navigate]);
+    // Log page navigation to help debug
+    console.log('AdminLayout rendered at path:', location.pathname);
+  }, [location.pathname]);
   
-  // Show nothing while checking authentication
-  if (isAdmin === null) {
-    return null;
+  // Show minimal loading indicator while checking auth
+  if (loading) {
+    return (
+      <>
+        <Helmet>
+          <title>Chargement... | NovaHypnose Blog</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        
+        <div className="min-h-screen bg-background flex items-center justify-center">
+          <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+        </div>
+      </>
+    );
   }
   
   return (
