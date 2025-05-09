@@ -16,7 +16,7 @@ import AdminSubscribers from "./pages/admin/AdminSubscribers";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
-import AdminDirect from "./pages/admin/AdminDirect"; // Import de la nouvelle page
+import AdminDirect from "./pages/admin/AdminDirect"; 
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -26,17 +26,71 @@ import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from "@/components/ui/label";
 
+// Define proper types for our component state
+type User = {
+  id: string;
+  email: string;
+} | null;
+
+type Article = {
+  id: string;
+  title: string;
+  content: string;
+  excerpt?: string;
+  published: boolean;
+  featured: boolean;
+  categories: string[];
+  tags: string[];
+  author?: string;
+  created_at?: string;
+  updated_at?: string;
+};
+
+type Category = {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+};
+
+type Tag = {
+  id: string;
+  name: string;
+  slug: string;
+};
+
+type NewArticle = {
+  title: string;
+  content: string;
+  excerpt: string;
+  published: boolean;
+  featured: boolean;
+  categories: string[];
+  tags: string[];
+};
+
+type NewCategory = {
+  name: string;
+  slug: string;
+  description: string;
+};
+
+type NewTag = {
+  name: string;
+  slug: string;
+};
+
 const AdminDirect = () => {
   const { toast } = useToast();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User>(null);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [articles, setArticles] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [tags, setTags] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
   const [loading, setLoading] = useState(true);
   const [tabValue, setTabValue] = useState('articles');
-  const [editingArticle, setEditingArticle] = useState(null);
-  const [newArticle, setNewArticle] = useState({
+  const [editingArticle, setEditingArticle] = useState<Article | null>(null);
+  const [newArticle, setNewArticle] = useState<NewArticle>({
     title: '',
     content: '',
     excerpt: '',
@@ -45,8 +99,8 @@ const AdminDirect = () => {
     categories: [],
     tags: []
   });
-  const [newCategory, setNewCategory] = useState({ name: '', slug: '', description: '' });
-  const [newTag, setNewTag] = useState({ name: '', slug: '' });
+  const [newCategory, setNewCategory] = useState<NewCategory>({ name: '', slug: '', description: '' });
+  const [newTag, setNewTag] = useState<NewTag>({ name: '', slug: '' });
 
   // Initialiser au chargement
   useEffect(() => {
@@ -165,7 +219,7 @@ const AdminDirect = () => {
   };
 
   // Suppression d'un article
-  const handleDeleteArticle = async (id) => {
+  const handleDeleteArticle = async (id: string) => {
     if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?")) return;
     
     try {
@@ -192,7 +246,7 @@ const AdminDirect = () => {
   };
 
   // Édition d'un article
-  const handleEditArticle = (article) => {
+  const handleEditArticle = (article: Article) => {
     setEditingArticle({
       ...article,
       categories: article.categories || [],
@@ -202,6 +256,8 @@ const AdminDirect = () => {
 
   // Sauvegarder un article édité
   const handleSaveArticle = async () => {
+    if (!editingArticle) return;
+
     try {
       const { error } = await supabase
         .from('articles')
@@ -258,21 +314,23 @@ const AdminDirect = () => {
       
       if (error) throw error;
       
-      setArticles([data[0], ...articles]);
-      setNewArticle({
-        title: '',
-        content: '',
-        excerpt: '',
-        published: false,
-        featured: false,
-        categories: [],
-        tags: []
-      });
-      
-      toast({
-        title: "Succès",
-        description: "Nouvel article créé",
-      });
+      if (data && data.length > 0) {
+        setArticles([data[0], ...articles]);
+        setNewArticle({
+          title: '',
+          content: '',
+          excerpt: '',
+          published: false,
+          featured: false,
+          categories: [],
+          tags: []
+        });
+        
+        toast({
+          title: "Succès",
+          description: "Nouvel article créé",
+        });
+      }
     } catch (error) {
       console.error("Erreur de création:", error);
       toast({
@@ -297,13 +355,15 @@ const AdminDirect = () => {
       
       if (error) throw error;
       
-      setCategories([...categories, data[0]]);
-      setNewCategory({ name: '', slug: '', description: '' });
-      
-      toast({
-        title: "Succès",
-        description: "Nouvelle catégorie créée",
-      });
+      if (data && data.length > 0) {
+        setCategories([...categories, data[0]]);
+        setNewCategory({ name: '', slug: '', description: '' });
+        
+        toast({
+          title: "Succès",
+          description: "Nouvelle catégorie créée",
+        });
+      }
     } catch (error) {
       console.error("Erreur de création:", error);
       toast({
@@ -327,13 +387,15 @@ const AdminDirect = () => {
       
       if (error) throw error;
       
-      setTags([...tags, data[0]]);
-      setNewTag({ name: '', slug: '' });
-      
-      toast({
-        title: "Succès",
-        description: "Nouveau tag créé",
-      });
+      if (data && data.length > 0) {
+        setTags([...tags, data[0]]);
+        setNewTag({ name: '', slug: '' });
+        
+        toast({
+          title: "Succès",
+          description: "Nouveau tag créé",
+        });
+      }
     } catch (error) {
       console.error("Erreur de création:", error);
       toast({
@@ -345,7 +407,7 @@ const AdminDirect = () => {
   };
 
   // Supprimer une catégorie
-  const handleDeleteCategory = async (id) => {
+  const handleDeleteCategory = async (id: string) => {
     if (!window.confirm("Êtes-vous sûr de vouloir supprimer cette catégorie ?")) return;
     
     try {
@@ -372,7 +434,7 @@ const AdminDirect = () => {
   };
 
   // Supprimer un tag
-  const handleDeleteTag = async (id) => {
+  const handleDeleteTag = async (id: string) => {
     if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce tag ?")) return;
     
     try {
@@ -399,17 +461,17 @@ const AdminDirect = () => {
   };
 
   // Formater la date
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string | undefined) => {
     if (!dateString) return 'N/A';
     
     // FIX: Use correct DateTimeFormatOptions format
-    const options = { 
+    const options: Intl.DateTimeFormatOptions = { 
       year: 'numeric', 
       month: 'short', 
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
-    } as Intl.DateTimeFormatOptions;
+    };
     
     return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
