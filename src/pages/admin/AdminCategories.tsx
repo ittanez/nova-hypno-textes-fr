@@ -1,12 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Helmet } from 'react-helmet';
-import { ArrowLeft, Plus, Edit, Trash2, Folder } from 'lucide-react';
-import { Icon as TagIcon } from 'lucide-react'; // Rename Tag to TagIcon to avoid collision
+import { ArrowLeft, Plus, Edit, Trash2, Folder, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -64,7 +62,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/blog/useAuth';
 import { useCategories } from '@/hooks/blog/useCategories';
 import { useTags } from '@/hooks/blog/useTags';
-import { Category, Tag } from '@/types/blog';
+import { Category, Tag as TagType } from '@/types/blog';
 
 const categorySchema = z.object({
   name: z.string().min(1, { message: 'Le nom est requis' }),
@@ -89,7 +87,7 @@ const AdminCategories = () => {
   
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-  const [selectedTag, setSelectedTag] = useState<Tag | null>(null);
+  const [selectedTag, setSelectedTag] = useState<TagType | null>(null);
   const [dialogType, setDialogType] = useState<'add' | 'edit'>('add');
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('categories');
@@ -145,7 +143,7 @@ const AdminCategories = () => {
     setIsOpen(true);
   };
 
-  const handleTagEdit = (tag: Tag) => {
+  const handleTagEdit = (tag: TagType) => {
     setSelectedTag(tag);
     tagForm.reset({
       name: tag.name,
@@ -306,7 +304,7 @@ const AdminCategories = () => {
               Catégories
             </TabsTrigger>
             <TabsTrigger value="tags" className="flex items-center">
-              <TagIcon className="mr-2 h-4 w-4" /> {/* Changed from Tag to TagIcon */}
+              <Tag className="mr-2 h-4 w-4" />
               Tags
             </TabsTrigger>
           </TabsList>
@@ -584,7 +582,7 @@ const AdminCategories = () => {
                   </Table>
                 ) : (
                   <div className="text-center py-8">
-                    <TagIcon className="mx-auto h-12 w-12 text-muted-foreground opacity-50" /> {/* Changed from Tag to TagIcon */}
+                    <Tag className="mx-auto h-12 w-12 text-muted-foreground opacity-50" />
                     <h3 className="mt-4 text-lg font-medium">Aucun tag</h3>
                     <p className="mt-1 text-sm text-muted-foreground">
                       Commencez par ajouter un tag à votre blog
