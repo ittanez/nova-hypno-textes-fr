@@ -178,27 +178,18 @@ export function useAuth() {
     if (!user) return { success: false, error: "Utilisateur non connecté" };
     
     try {
-      // Insérer les données dans la nouvelle table admin_requests
-      // Cette table est configurée dans la base de données via le script SQL
-      const { error } = await supabase.rpc('insert_admin_request', { 
-        full_name: fullName,
-        reason_text: reason
-      });
-      
-      if (error) {
-        console.error("Erreur RPC:", error);
-        // Fallback: essayer l'insertion directe
-        const insertResult = await supabase
-          .from('admin_requests')
-          .insert({
-            user_id: user.id,
-            user_email: user.email || '',
-            full_name: fullName,
-            reason: reason
-          });
-          
-        if (insertResult.error) throw insertResult.error;
-      }
+      // Instead of using the RPC function which causes TypeScript errors,
+      // we'll directly insert into the admin_requests table
+      const { error } = await supabase
+        .from('admin_requests')
+        .insert({
+          user_id: user.id,
+          user_email: user.email || '',
+          full_name: fullName,
+          reason: reason
+        });
+        
+      if (error) throw error;
       
       return { success: true };
     } catch (error: any) {
