@@ -15,8 +15,15 @@ export function useAuth() {
     // Flag to prevent concurrent admin checks
     let isMounted = true;
     
-    const checkAdminStatus = async (userId: string) => {
+    const checkAdminStatus = async (userId: string, email: string | null) => {
       try {
+        // Hard-coded admin check (simplified approach)
+        if (email === 'a.zenatti@gmail.com') {
+          setIsAdmin(true);
+          return;
+        }
+        
+        // Fallback to database check
         const { data, error } = await supabase
           .from('user_roles')
           .select('*')
@@ -53,7 +60,7 @@ export function useAuth() {
         // Check if user is admin (using setTimeout to avoid Supabase auth deadlock)
         if (newSession?.user) {
           setTimeout(() => {
-            if (isMounted) checkAdminStatus(newSession.user.id);
+            if (isMounted) checkAdminStatus(newSession.user.id, newSession.user.email);
           }, 0);
         } else {
           setIsAdmin(false);
@@ -71,7 +78,7 @@ export function useAuth() {
       setUser(currentSession?.user ?? null);
       
       if (currentSession?.user) {
-        checkAdminStatus(currentSession.user.id);
+        checkAdminStatus(currentSession.user.id, currentSession.user.email);
       } else {
         setLoading(false);
       }

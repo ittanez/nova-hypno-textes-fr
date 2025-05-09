@@ -17,6 +17,7 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDirect from "./pages/admin/AdminDirect"; 
+import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin"; // Import our new SimpleBlogAdmin component
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -69,8 +70,11 @@ const App = () => {
               </Route>
             </Route>
             
-            {/* Nouvelle route directe pour l'administration - sans layout ni protection par router */}
+            {/* Previous direct admin route */}
             <Route path="/admin-direct" element={<AdminDirect />} />
+            
+            {/* NEW simplified admin route - no layout, direct access */}
+            <Route path="/admin-simple" element={<SimpleBlogAdmin />} />
             
             {/* Redirect all other routes to the home page */}
             <Route path="*" element={<Navigate to="/" replace />} />
