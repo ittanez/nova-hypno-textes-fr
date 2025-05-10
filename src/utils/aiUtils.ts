@@ -1,9 +1,12 @@
 
-// Fonction fictive pour générer un résumé et des mots-clés
-export const generateSummaryAndKeywords = async (content: string) => {
+// Fonction pour générer un résumé et des mots-clés
+export const generateSummaryAndKeywords = async (content: string): Promise<{ excerpt: string; keywords: string[] }> => {
   try {
     // Ici, nous simulons une réponse d'API
     console.log("Génération de résumé et mots-clés pour le contenu:", content.slice(0, 100) + "...");
+    
+    // Simulons un délai pour imiter une vraie API
+    await new Promise(resolve => setTimeout(resolve, 1000));
     
     // Retourner un résultat factice
     return {

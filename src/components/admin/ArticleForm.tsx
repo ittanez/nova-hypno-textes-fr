@@ -103,16 +103,16 @@ export default function ArticleForm({
     setIsGenerating(true);
     
     try {
-      const { excerpt, keywords } = generateSummaryAndKeywords(content);
+      // Attendre la résolution de la promesse
+      const result = await generateSummaryAndKeywords(content);
       
-      // Set the excerpt
-      form.setValue('excerpt', excerpt);
+      // Maintenant nous pouvons accéder aux propriétés
+      form.setValue('excerpt', result.excerpt);
       
-      // Parse keywords into array and update tags
-      const keywordArray = keywords
-        .split(',')
-        .map(k => k.trim())
-        .filter(k => k);
+      // Assurons-nous que keywords est bien un tableau
+      const keywordArray = Array.isArray(result.keywords) 
+        ? result.keywords 
+        : [result.keywords].filter(Boolean);
         
       form.setValue('tags', keywordArray);
       
