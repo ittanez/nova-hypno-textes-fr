@@ -51,6 +51,7 @@ import {
   FileText
 } from 'lucide-react';
 import ArticleEditor from '@/components/admin/ArticleEditor';
+import { generateSummaryAndKeywords } from '@/utils/aiUtils';
 
 // Types pour notre interface
 type Article = {
@@ -927,9 +928,9 @@ const SimpleBlogAdmin = () => {
                                   onClick={() => toggleArticleStatus(article)}
                                 >
                                   {article.published ? (
-                                    <Eye className="h-4 w-4 text-gray-500" title="Mettre en brouillon" />
+                                    <Eye className="h-4 w-4 text-gray-500" aria-label="Mettre en brouillon" />
                                   ) : (
-                                    <Eye className="h-4 w-4 text-green-500" title="Publier" />
+                                    <Eye className="h-4 w-4 text-green-500" aria-label="Publier" />
                                   )}
                                 </Button>
                                 <Button 
