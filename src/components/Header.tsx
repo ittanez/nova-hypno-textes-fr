@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { 
@@ -36,7 +37,7 @@ const Header = () => {
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '#about' },
-    { name: 'Blog', href: '/blog' },
+    // Blog link removed from main navigation as requested
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
