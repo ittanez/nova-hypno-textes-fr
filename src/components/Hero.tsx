@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="absolute inset-0" aria-hidden="true">
         <img 
           src={bgImageUrl} 
-          alt="" 
+          alt="Séance d'hypnothérapie à Paris - cabinet d'hypnose"
           className="object-cover w-full h-full"
           width={1200}
           height={800}
@@ -24,9 +24,9 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Texte principal optimisé pour le LCP */}
+          {/* Texte principal optimisé pour le LCP avec H1 pour le SEO */}
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
-            Un accompagnement où chaque émotion est entendue, et chaque blocage devient une opportunité de changement.
+            Hypnothérapeute à Paris | Alain Zenatti - Spécialiste en Hypnose Ericksonienne
           </h1>
           
           <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>

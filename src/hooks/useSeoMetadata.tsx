@@ -6,12 +6,12 @@ import { useEffect } from 'react';
  */
 export function useSeoMetadata() {
   useEffect(() => {
-    document.title = 'NovaHypnose | Hypnothérapie à Paris avec Alain Zenatti, Maître Hypnologue';
+    document.title = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti';
     
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Découvrez l'hypnothérapie avec Alain Zenatti à Paris. Hypnose ericksonienne pour confiance en soi, gestion du stress, phobies, sommeil et plus. Cabinet à Bastille.");
+      metaDescription.setAttribute("content", "Retrouvez confiance et équilibre grâce à l'hypnose ericksonienne à Paris avec Alain Zenatti, hypnothérapeute certifié. Séances sur mesure près de Bastille.");
     }
 
     // Add the schema.org structured data for local business

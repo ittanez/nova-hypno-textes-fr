@@ -34,7 +34,9 @@ const Header = () => {
   };
 
   const mainNavLinks: NavLink[] = [
+    { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '#about' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
@@ -48,6 +50,7 @@ const Header = () => {
     { name: 'Déroulement Des Séances', href: '#sessions' },
     { name: 'Tarifs', href: '#pricing' },
     { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -59,7 +62,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <a href="#" className="font-serif text-2xl font-bold text-nova-blue-dark">
+            <a href="/" className="font-serif text-2xl font-bold text-nova-blue-dark">
               NovaHypnose
             </a>
           </div>
@@ -82,7 +85,6 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
                 Pour Quoi? <ChevronDown className="ml-1 h-4 w-4" />
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-nova-blue-dark transform scale-x-0 transition-transform group-hover:scale-x-100"></div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
                 {pourQuoiLinks.map((link) => (
@@ -104,7 +106,6 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
                 Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-nova-blue-dark transform scale-x-0 transition-transform group-hover:scale-x-100"></div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
                 {infosPratiquesLinks.map((link) => (
