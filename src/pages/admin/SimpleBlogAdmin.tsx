@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -218,13 +217,15 @@ const SimpleBlogAdmin = () => {
     }
 
     try {
-      const slug = currentArticle.slug || generateSlug(currentArticle.title);
+      const articleToSave = { ...currentArticle };
+      
+      // Générer le slug s'il n'existe pas
+      if (!articleToSave.slug && articleToSave.title) {
+        articleToSave.slug = generateSlug(articleToSave.title);
+      }
       
       if (editMode && currentArticle.id) {
-        const updated = await updateArticle(currentArticle.id, {
-          ...currentArticle,
-          slug
-        });
+        const updated = await updateArticle(currentArticle.id, articleToSave);
         
         if (updated) {
           toast({
@@ -233,10 +234,7 @@ const SimpleBlogAdmin = () => {
           });
         }
       } else {
-        const created = await createArticle({
-          ...currentArticle as any,
-          slug
-        });
+        const created = await createArticle(articleToSave as any);
         
         if (created) {
           toast({
@@ -469,9 +467,9 @@ const SimpleBlogAdmin = () => {
       if (result) {
         setCurrentArticle({
           ...currentArticle,
-          excerpt: result.summary,
-          tags: [...(currentArticle.tags || []), ...result.keywords.filter(k => 
-            !currentArticle.tags?.includes(k)
+          excerpt: result.excerpt,
+          tags: [...(currentArticle.tags || []), ...result.keywords.filter(keyword => 
+            !currentArticle.tags?.includes(keyword)
           )]
         });
         
@@ -529,7 +527,7 @@ const SimpleBlogAdmin = () => {
               }} 
               className="mb-4 flex items-center gap-2"
             >
-              <ArrowLeft className="h-4 w-4" aria-label="Retour" />
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               <span>Retour</span>
             </Button>
             
@@ -732,7 +730,7 @@ const SimpleBlogAdmin = () => {
                 <div className="overflow-x-auto">
                   {articles.length === 0 ? (
                     <div className="text-center py-12">
-                      <FileText className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+                      <FileText className="mx-auto h-12 w-12 text-muted-foreground mb-4" aria-hidden="true" />
                       <h3 className="text-lg font-medium mb-1">Aucun article</h3>
                       <p className="text-muted-foreground">Commencez à créer du contenu pour votre blog</p>
                     </div>

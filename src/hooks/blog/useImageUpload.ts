@@ -45,7 +45,7 @@ export function useImageUpload() {
       }
 
       // 4. Create entry in images table
-      const imageData = {
+      const imageData: any = {
         name: file.name,
         description: '',
         storage_path: filePath,
