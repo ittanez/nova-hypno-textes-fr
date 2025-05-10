@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
-import { Sparkles, Eye, Code } from 'lucide-react';
+import { Sparkles, Eye, Code, ImageIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { generateSummaryAndKeywords } from '@/utils/aiUtils';
+import ImageGallery from './ImageGallery';
 
 interface ArticleEditorProps {
   value: string;
@@ -24,6 +25,7 @@ export default function ArticleEditor({
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState<string>('write');
   const editorRef = useRef<HTMLTextAreaElement>(null);
+  const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
   
   const handleGenerateAI = () => {
     if (!value || value.length < 100) {
@@ -86,8 +88,8 @@ export default function ArticleEditor({
 </blockquote>`;
         break;
       case 'img':
-        replacement = `<img src="URL_DE_VOTRE_IMAGE" alt="${selectedText || 'Description de l\'image'}" />`;
-        break;
+        setImageGalleryOpen(true);
+        return;
       case 'a':
         replacement = `<a href="URL_DU_LIEN" target="_blank">${selectedText || 'Texte du lien'}</a>`;
         break;
@@ -108,6 +110,28 @@ export default function ArticleEditor({
     }, 0);
   };
 
+  const handleInsertImage = (imageUrl: string, altText?: string) => {
+    if (!editorRef.current) return;
+    
+    const imgHtml = `<img src="${imageUrl}" alt="${altText || ''}" class="img-fluid" />`;
+    
+    const start = editorRef.current.selectionStart;
+    const end = editorRef.current.selectionEnd;
+    const text = value;
+    
+    const newText = text.substring(0, start) + imgHtml + text.substring(end);
+    onChange(newText);
+    
+    // Focus back to editor after insertion
+    setTimeout(() => {
+      if (editorRef.current) {
+        editorRef.current.focus();
+        const newPosition = start + imgHtml.length;
+        editorRef.current.setSelectionRange(newPosition, newPosition);
+      }
+    }, 0);
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2 mb-2">
@@ -119,7 +143,15 @@ export default function ArticleEditor({
         <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('ul')}>Liste à puces</Button>
         <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('ol')}>Liste numérotée</Button>
         <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('blockquote')}>Citation</Button>
-        <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('img')}>Image</Button>
+        <Button 
+          type="button" 
+          variant="outline" 
+          size="sm" 
+          onClick={() => insertHTML('img')}
+          className="flex items-center gap-1"
+        >
+          <ImageIcon className="h-4 w-4" /> Image
+        </Button>
         <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('a')}>Lien</Button>
       </div>
 
@@ -189,6 +221,12 @@ export default function ArticleEditor({
           </div>
         </TabsContent>
       </Tabs>
+
+      <ImageGallery 
+        open={imageGalleryOpen} 
+        onOpenChange={setImageGalleryOpen} 
+        onSelectImage={handleInsertImage} 
+      />
     </div>
   );
 }

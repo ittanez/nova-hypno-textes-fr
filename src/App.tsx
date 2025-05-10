@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -29,7 +28,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+function App() {
   // Check if we're in development or the URL includes "blog-temp"
   const isBlogAccessible = () => {
     return import.meta.env.DEV || window.location.href.includes("blog-temp");
@@ -75,6 +74,7 @@ const App = () => {
             
             {/* NEW simplified admin route - no layout, direct access */}
             <Route path="/admin-simple" element={<SimpleBlogAdmin />} />
+            <Route path="/admin-simple/edit/:articleId" element={<SimpleBlogAdmin />} />
             
             {/* Redirect all other routes to the home page */}
             <Route path="*" element={<Navigate to="/" replace />} />
@@ -83,6 +83,6 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;

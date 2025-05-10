@@ -1,13 +1,32 @@
 
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { useArticles } from '@/hooks/blog/useArticles';
+import { useCategories } from '@/hooks/blog/useCategories';
+import { useTags } from '@/hooks/blog/useTags';
+import { useToast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from "@/components/ui/label";
+import { Checkbox } from '@/components/ui/checkbox';
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogDescription,
+  DialogFooter, 
+  DialogHeader, 
+  DialogTitle 
+} from '@/components/ui/dialog';
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@/components/ui/tabs';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Card,
   CardContent,
@@ -17,6 +36,12 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/components/ui/tabs';
+import {
   Table,
   TableBody,
   TableCell,
@@ -24,30 +49,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Calendar } from '@/components/ui/calendar';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { useToast } from '@/hooks/use-toast';
-import { format } from 'date-fns';
-import { fr } from 'date-fns/locale';
-import { 
-  CalendarIcon, 
-  Trash, 
-  Edit, 
-  Eye, 
-  Code, 
-  Pencil, 
-  Plus, 
-  Save, 
-  CircleX,
-  Sparkles,
+  Pencil,
+  Trash,
+  Eye,
+  Plus,
+  Check,
+  ArrowLeft,
   FileText
 } from 'lucide-react';
 import ArticleEditor from '@/components/admin/ArticleEditor';
@@ -57,17 +65,17 @@ import { generateSummaryAndKeywords } from '@/utils/aiUtils';
 type Article = {
   id: string;
   title: string;
+  slug?: string;
   content: string;
-  excerpt: string;
-  image_url?: string;
-  categories: string[];
-  tags: string[];
+  excerpt?: string;
   published: boolean;
   featured: boolean;
-  created_at: string;
-  updated_at: string;
+  categories: string[];
+  tags: string[];
   author?: string;
-  scheduled_for?: string;
+  created_at?: string;
+  updated_at?: string;
+  image_url?: string;
 };
 
 type Category = {
@@ -83,848 +91,686 @@ type Tag = {
   slug: string;
 };
 
-type AuthUser = {
-  id: string;
-  email: string | null;
+type ConfirmDialogState = {
+  isOpen: boolean;
+  title: string;
+  message: string;
+  confirmAction: () => void;
 };
 
 const SimpleBlogAdmin = () => {
   const { toast } = useToast();
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [tags, setTags] = useState<Tag[]>([]);
-  const [activeTab, setActiveTab] = useState('articles');
+  const navigate = useNavigate();
+  const { articleId } = useParams<{ articleId: string }>();
   
-  // États pour la gestion des articles
-  const [editingArticle, setEditingArticle] = useState<Article | null>(null);
-  const [showArticleForm, setShowArticleForm] = useState(false);
-  const [articleContent, setArticleContent] = useState('');
-  const [articleTitle, setArticleTitle] = useState('');
-  const [articleExcerpt, setArticleExcerpt] = useState('');
-  const [articleCategories, setArticleCategories] = useState<string[]>([]);
-  const [articleTags, setArticleTags] = useState<string[]>([]);
-  const [articlePublished, setArticlePublished] = useState(false);
-  const [articleFeatured, setArticleFeatured] = useState(false);
-  const [articleScheduledDate, setArticleScheduledDate] = useState<Date | undefined>(undefined);
-  const [isGeneratingAI, setIsGeneratingAI] = useState(false);
+  // Accéder aux hooks
+  const {
+    articles,
+    loading: articlesLoading,
+    fetchArticles,
+    createArticle,
+    updateArticle,
+    deleteArticle,
+    getArticle
+  } = useArticles();
   
-  // États pour la gestion des catégories et tags
-  const [newCategory, setNewCategory] = useState({ name: '', slug: '', description: '' });
-  const [newTag, setNewTag] = useState({ name: '', slug: '' });
+  const {
+    categories,
+    loading: categoriesLoading,
+    fetchCategories,
+    createCategory,
+    updateCategory,
+    deleteCategory
+  } = useCategories();
+  
+  const {
+    tags,
+    loading: tagsLoading,
+    fetchTags,
+    createTag,
+    updateTag,
+    deleteTag
+  } = useTags();
 
-  // Initialiser au chargement
+  // États pour l'interface
+  const [activeTab, setActiveTab] = useState('articles');
+  const [editMode, setEditMode] = useState(false);
+  const [currentArticle, setCurrentArticle] = useState<Partial<Article> | null>(null);
+  const [newCategory, setNewCategory] = useState<Partial<Category>>({ name: '', slug: '', description: '' });
+  const [newTag, setNewTag] = useState<Partial<Tag>>({ name: '', slug: '' });
+  const [generatingAI, setGeneratingAI] = useState(false);
+  const [confirmDialog, setConfirmDialog] = useState<ConfirmDialogState>({
+    isOpen: false,
+    title: '',
+    message: '',
+    confirmAction: () => {}
+  });
+
+  // Charger les données initiales
   useEffect(() => {
-    checkAuth();
-    loadData();
+    fetchArticles();
+    fetchCategories();
+    fetchTags();
   }, []);
 
-  // Vérifier l'authentification
-  const checkAuth = async () => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (!session) {
-        toast({
-          title: "Non autorisé",
-          description: "Vous devez vous connecter pour accéder à cette page",
-          variant: "destructive",
-        });
-        return;
-      }
-      
-      setUser({
-        id: session.user.id,
-        email: session.user.email
-      });
-      
-      // Vérifier si l'utilisateur est admin (a.zenatti@gmail.com)
-      if (session.user.email === 'a.zenatti@gmail.com') {
-        setIsAdmin(true);
-      } else {
-        toast({
-          title: "Accès refusé",
-          description: "Vous n'avez pas les droits d'administrateur",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      console.error("Erreur d'authentification:", error);
+  // Gérer la navigation vers l'édition d'un article spécifique
+  useEffect(() => {
+    if (articleId) {
+      loadArticleForEditing(articleId);
+      setEditMode(true);
+    }
+  }, [articleId]);
+
+  // Fonction pour charger un article à éditer
+  const loadArticleForEditing = async (id: string) => {
+    const article = await getArticle(id);
+    if (article) {
+      setCurrentArticle(article);
+      setActiveTab('editor');
+    } else {
       toast({
         title: "Erreur",
-        description: "Impossible de vérifier votre statut d'administrateur",
-        variant: "destructive",
+        description: "Article introuvable",
+        variant: "destructive"
       });
-    } finally {
-      setLoading(false);
+      navigate('/admin-simple');
     }
   };
 
-  // Charger les données
-  const loadData = async () => {
-    try {
-      setLoading(true);
-      
-      // Charger les articles
-      const { data: articlesData, error: articlesError } = await supabase
-        .from('articles')
-        .select('*')
-        .order('created_at', { ascending: false });
-      
-      if (articlesError) throw articlesError;
-      setArticles(articlesData || []);
-      
-      // Charger les catégories
-      const { data: categoriesData, error: categoriesError } = await supabase
-        .from('categories')
-        .select('*')
-        .order('name');
-      
-      if (categoriesError) throw categoriesError;
-      setCategories(categoriesData || []);
-      
-      // Charger les tags
-      const { data: tagsData, error: tagsError } = await supabase
-        .from('tags')
-        .select('*')
-        .order('name');
-      
-      if (tagsError) throw tagsError;
-      setTags(tagsData || []);
-    } catch (error) {
-      console.error("Erreur de chargement des données:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de charger les données",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Déconnexion
-  const handleLogout = async () => {
-    try {
-      await supabase.auth.signOut();
-      setUser(null);
-      setIsAdmin(false);
-      toast({
-        title: "Déconnecté",
-        description: "Vous avez été déconnecté avec succès",
-      });
-    } catch (error) {
-      console.error("Erreur de déconnexion:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de vous déconnecter",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Fonction pour générer un slug à partir d'un texte
-  const generateSlug = (text: string) => {
+  // Fonction pour générer le slug à partir d'un titre
+  const generateSlug = (text: string): string => {
     return text
       .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
       .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
   };
 
-  // Formater la date
-  const formatDate = (dateString: string | undefined) => {
-    if (!dateString) return 'N/A';
-    return format(new Date(dateString), 'd MMMM yyyy à HH:mm', { locale: fr });
+  // Fonctions pour la gestion des articles
+  const handleCreateArticle = () => {
+    setCurrentArticle({
+      title: '',
+      content: '',
+      excerpt: '',
+      published: false,
+      featured: false,
+      categories: [],
+      tags: []
+    });
+    setActiveTab('editor');
+    setEditMode(false);
   };
 
-  // Initialiser le formulaire pour un nouvel article
-  const initNewArticleForm = () => {
-    setEditingArticle(null);
-    setArticleTitle('');
-    setArticleContent('');
-    setArticleExcerpt('');
-    setArticleCategories([]);
-    setArticleTags([]);
-    setArticlePublished(false);
-    setArticleFeatured(false);
-    setArticleScheduledDate(undefined);
-    setShowArticleForm(true);
-  };
-
-  // Éditer un article existant
   const handleEditArticle = (article: Article) => {
-    setEditingArticle(article);
-    setArticleTitle(article.title);
-    setArticleContent(article.content);
-    setArticleExcerpt(article.excerpt || '');
-    setArticleCategories(article.categories || []);
-    setArticleTags(article.tags || []);
-    setArticlePublished(article.published || false);
-    setArticleFeatured(article.featured || false);
-    setArticleScheduledDate(article.scheduled_for ? new Date(article.scheduled_for) : undefined);
-    setShowArticleForm(true);
+    setCurrentArticle(article);
+    setActiveTab('editor');
+    setEditMode(true);
   };
 
-  // Sauvegarder un article (nouveau ou existant)
-  const handleSaveArticle = async (asDraft: boolean = false) => {
+  const handleSaveArticle = async () => {
+    if (!currentArticle?.title || !currentArticle?.content) {
+      toast({
+        title: "Données incomplètes",
+        description: "Le titre et le contenu sont requis",
+        variant: "destructive"
+      });
+      return;
+    }
+
     try {
-      const now = new Date().toISOString();
-      const isScheduled = articleScheduledDate && new Date(articleScheduledDate) > new Date();
+      const slug = currentArticle.slug || generateSlug(currentArticle.title);
       
-      // Déterminer le statut de publication
-      let isPublished = articlePublished;
-      if (asDraft) {
-        isPublished = false;
-      }
-      
-      const articleData = {
-        title: articleTitle,
-        content: articleContent,
-        excerpt: articleExcerpt,
-        categories: articleCategories,
-        tags: articleTags,
-        published: isScheduled ? false : isPublished,
-        featured: articleFeatured,
-        scheduled_for: isScheduled ? articleScheduledDate?.toISOString() : null,
-        updated_at: now,
-        author: user?.email || 'Admin'
-      };
-      
-      let result;
-      
-      if (editingArticle) {
-        // Mise à jour d'un article existant
-        const { data, error } = await supabase
-          .from('articles')
-          .update(articleData)
-          .eq('id', editingArticle.id)
-          .select();
-        
-        if (error) throw error;
-        result = data;
-        toast({
-          title: "Article mis à jour",
-          description: `L'article a été ${asDraft ? 'enregistré comme brouillon' : (isScheduled ? 'programmé' : 'mis à jour')}`
+      if (editMode && currentArticle.id) {
+        const updated = await updateArticle(currentArticle.id, {
+          ...currentArticle,
+          slug
         });
+        
+        if (updated) {
+          toast({
+            title: "Article mis à jour",
+            description: "L'article a été enregistré avec succès"
+          });
+        }
       } else {
-        // Création d'un nouvel article
-        const { data, error } = await supabase
-          .from('articles')
-          .insert({
-            ...articleData,
-            created_at: now
-          })
-          .select();
-        
-        if (error) throw error;
-        result = data;
-        toast({
-          title: "Article créé",
-          description: `L'article a été ${asDraft ? 'enregistré comme brouillon' : (isScheduled ? 'programmé' : 'créé')}`
+        const created = await createArticle({
+          ...currentArticle as any,
+          slug
         });
+        
+        if (created) {
+          toast({
+            title: "Article créé",
+            description: "L'article a été créé avec succès"
+          });
+        }
       }
       
-      // Recharger les articles et fermer le formulaire
-      await loadData();
-      setShowArticleForm(false);
-      
+      setCurrentArticle(null);
+      setActiveTab('articles');
+      fetchArticles(); // Rafraîchir la liste
     } catch (error) {
-      console.error("Erreur lors de l'enregistrement de l'article:", error);
+      console.error("Erreur lors de l'enregistrement:", error);
       toast({
         title: "Erreur",
-        description: "Impossible d'enregistrer l'article",
-        variant: "destructive",
+        description: "Une erreur s'est produite lors de l'enregistrement",
+        variant: "destructive"
       });
     }
   };
 
-  // Supprimer un article
+  const handleDeleteArticleConfirm = (article: Article) => {
+    setConfirmDialog({
+      isOpen: true,
+      title: "Supprimer l'article",
+      message: `Êtes-vous sûr de vouloir supprimer l'article "${article.title}" ? Cette action est irréversible.`,
+      confirmAction: () => handleDeleteArticle(article.id)
+    });
+  };
+
   const handleDeleteArticle = async (id: string) => {
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?")) return;
-    
     try {
-      const { error } = await supabase
-        .from('articles')
-        .delete()
-        .eq('id', id);
+      const success = await deleteArticle(id);
       
-      if (error) throw error;
-      
-      toast({
-        title: "Article supprimé",
-        description: "L'article a été supprimé avec succès"
-      });
-      
-      await loadData();
+      if (success) {
+        toast({
+          title: "Article supprimé",
+          description: "L'article a été supprimé avec succès"
+        });
+        fetchArticles(); // Rafraîchir la liste
+      }
     } catch (error) {
       console.error("Erreur lors de la suppression:", error);
       toast({
         title: "Erreur",
-        description: "Impossible de supprimer l'article",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Créer une nouvelle catégorie
-  const handleCreateCategory = async () => {
-    try {
-      // Générer un slug si non fourni
-      const slug = newCategory.slug || generateSlug(newCategory.name);
-      
-      const { data, error } = await supabase
-        .from('categories')
-        .insert({
-          name: newCategory.name,
-          slug: slug,
-          description: newCategory.description
-        })
-        .select();
-      
-      if (error) throw error;
-      
-      setNewCategory({ name: '', slug: '', description: '' });
-      toast({
-        title: "Catégorie créée",
-        description: "La nouvelle catégorie a été créée avec succès"
-      });
-      
-      await loadData();
-    } catch (error) {
-      console.error("Erreur lors de la création de la catégorie:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de créer la catégorie",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Créer un nouveau tag
-  const handleCreateTag = async () => {
-    try {
-      // Générer un slug si non fourni
-      const slug = newTag.slug || generateSlug(newTag.name);
-      
-      const { data, error } = await supabase
-        .from('tags')
-        .insert({
-          name: newTag.name,
-          slug: slug
-        })
-        .select();
-      
-      if (error) throw error;
-      
-      setNewTag({ name: '', slug: '' });
-      toast({
-        title: "Tag créé",
-        description: "Le nouveau tag a été créé avec succès"
-      });
-      
-      await loadData();
-    } catch (error) {
-      console.error("Erreur lors de la création du tag:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de créer le tag",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Supprimer une catégorie
-  const handleDeleteCategory = async (id: string) => {
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer cette catégorie ?")) return;
-    
-    try {
-      const { error } = await supabase
-        .from('categories')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-      
-      toast({
-        title: "Catégorie supprimée",
-        description: "La catégorie a été supprimée avec succès"
-      });
-      
-      await loadData();
-    } catch (error) {
-      console.error("Erreur lors de la suppression:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de supprimer la catégorie",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Supprimer un tag
-  const handleDeleteTag = async (id: string) => {
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce tag ?")) return;
-    
-    try {
-      const { error } = await supabase
-        .from('tags')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-      
-      toast({
-        title: "Tag supprimé",
-        description: "Le tag a été supprimé avec succès"
-      });
-      
-      await loadData();
-    } catch (error) {
-      console.error("Erreur lors de la suppression:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de supprimer le tag",
-        variant: "destructive",
-      });
-    }
-  };
-
-  // Gérer la génération automatique de résumé avec l'IA
-  const handleGenerateAI = async () => {
-    setIsGeneratingAI(true);
-    try {
-      const { excerpt, keywords } = await generateSummaryAndKeywords(articleContent);
-      setArticleExcerpt(excerpt);
-      
-      // Traiter les mots clés pour les transformer en tags
-      const keywordArray = keywords
-        .split(',')
-        .map(k => k.trim())
-        .filter(k => k);
-      
-      setArticleTags([...new Set([...articleTags, ...keywordArray])]);
-      
-      toast({
-        title: "Génération réussie",
-        description: "Le résumé et les mots-clés ont été générés automatiquement"
-      });
-    } catch (error) {
-      console.error("Erreur lors de la génération IA:", error);
-      toast({
-        title: "Erreur",
-        description: "Impossible de générer le résumé automatiquement",
-        variant: "destructive",
+        description: "Une erreur s'est produite lors de la suppression",
+        variant: "destructive"
       });
     } finally {
-      setIsGeneratingAI(false);
+      setConfirmDialog({...confirmDialog, isOpen: false});
     }
   };
 
-  // Basculer le statut publié/brouillon d'un article
   const toggleArticleStatus = async (article: Article) => {
     try {
-      const { error } = await supabase
-        .from('articles')
-        .update({
-          published: !article.published,
-          scheduled_for: null // Annuler toute programmation si présente
-        })
-        .eq('id', article.id);
-      
-      if (error) throw error;
-      
-      toast({
-        title: "Statut mis à jour",
-        description: `L'article est maintenant ${!article.published ? 'publié' : 'en brouillon'}`
+      const success = await updateArticle(article.id, {
+        published: !article.published
       });
       
-      await loadData();
+      if (success) {
+        toast({
+          title: article.published ? "Article dépublié" : "Article publié",
+          description: `L'article est maintenant ${article.published ? "en brouillon" : "publié"}`
+        });
+        fetchArticles(); // Rafraîchir la liste
+      }
     } catch (error) {
-      console.error("Erreur lors de la mise à jour du statut:", error);
+      console.error("Erreur lors du changement de statut:", error);
       toast({
         title: "Erreur",
-        description: "Impossible de mettre à jour le statut",
-        variant: "destructive",
+        description: "Une erreur s'est produite lors du changement de statut",
+        variant: "destructive"
       });
     }
   };
 
-  // Si chargement en cours
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
-      </div>
-    );
-  }
+  // Fonctions pour la gestion des catégories
+  const handleCreateCategory = async () => {
+    if (!newCategory.name) {
+      toast({
+        title: "Nom requis",
+        description: "Le nom de la catégorie est requis",
+        variant: "destructive"
+      });
+      return;
+    }
 
-  // Si utilisateur non authentifié ou non admin
-  if (!user || !isAdmin) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4">
-        <h1 className="text-2xl font-bold mb-4">Accès non autorisé</h1>
-        <p className="text-muted-foreground mb-6">
-          Vous devez être connecté avec des droits administrateur pour accéder à cette page.
-        </p>
-        <Button className="px-4 py-2" onClick={() => window.location.href = '/admin-blog'}>
-          Aller à la page de connexion
-        </Button>
-      </div>
-    );
-  }
+    try {
+      const slug = newCategory.slug || generateSlug(newCategory.name);
+      
+      const created = await createCategory({
+        name: newCategory.name,
+        slug,
+        description: newCategory.description
+      });
+      
+      if (created) {
+        toast({
+          title: "Catégorie créée",
+          description: "La catégorie a été créée avec succès"
+        });
+        setNewCategory({ name: '', slug: '', description: '' });
+      }
+    } catch (error) {
+      console.error("Erreur lors de la création:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la création de la catégorie",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleDeleteCategoryConfirm = (category: Category) => {
+    setConfirmDialog({
+      isOpen: true,
+      title: "Supprimer la catégorie",
+      message: `Êtes-vous sûr de vouloir supprimer la catégorie "${category.name}" ? Cette action est irréversible.`,
+      confirmAction: () => handleDeleteCategory(category.id)
+    });
+  };
+
+  const handleDeleteCategory = async (id: string) => {
+    try {
+      const success = await deleteCategory(id);
+      
+      if (success) {
+        toast({
+          title: "Catégorie supprimée",
+          description: "La catégorie a été supprimée avec succès"
+        });
+        fetchCategories(); // Rafraîchir la liste
+      }
+    } catch (error) {
+      console.error("Erreur lors de la suppression:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la suppression de la catégorie",
+        variant: "destructive"
+      });
+    } finally {
+      setConfirmDialog({...confirmDialog, isOpen: false});
+    }
+  };
+
+  // Fonctions pour la gestion des tags
+  const handleCreateTag = async () => {
+    if (!newTag.name) {
+      toast({
+        title: "Nom requis",
+        description: "Le nom du tag est requis",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    try {
+      const slug = newTag.slug || generateSlug(newTag.name);
+      
+      const created = await createTag({
+        name: newTag.name,
+        slug
+      });
+      
+      if (created) {
+        toast({
+          title: "Tag créé",
+          description: "Le tag a été créé avec succès"
+        });
+        setNewTag({ name: '', slug: '' });
+      }
+    } catch (error) {
+      console.error("Erreur lors de la création:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la création du tag",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleDeleteTagConfirm = (tag: Tag) => {
+    setConfirmDialog({
+      isOpen: true,
+      title: "Supprimer le tag",
+      message: `Êtes-vous sûr de vouloir supprimer le tag "${tag.name}" ? Cette action est irréversible.`,
+      confirmAction: () => handleDeleteTag(tag.id)
+    });
+  };
+
+  const handleDeleteTag = async (id: string) => {
+    try {
+      const success = await deleteTag(id);
+      
+      if (success) {
+        toast({
+          title: "Tag supprimé",
+          description: "Le tag a été supprimé avec succès"
+        });
+        fetchTags(); // Rafraîchir la liste
+      }
+    } catch (error) {
+      console.error("Erreur lors de la suppression:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la suppression du tag",
+        variant: "destructive"
+      });
+    } finally {
+      setConfirmDialog({...confirmDialog, isOpen: false});
+    }
+  };
+
+  // Fonction pour la génération AI
+  const handleGenerateAI = async () => {
+    if (!currentArticle?.content || currentArticle.content.length < 100) {
+      toast({
+        title: "Contenu insuffisant",
+        description: "Le contenu de l'article est insuffisant pour générer un résumé et des mots-clés",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setGeneratingAI(true);
+    try {
+      const result = await generateSummaryAndKeywords(currentArticle.content);
+      
+      if (result) {
+        setCurrentArticle({
+          ...currentArticle,
+          excerpt: result.summary,
+          tags: [...(currentArticle.tags || []), ...result.keywords.filter(k => 
+            !currentArticle.tags?.includes(k)
+          )]
+        });
+        
+        toast({
+          title: "Génération réussie",
+          description: "Le résumé et les mots-clés ont été générés avec succès"
+        });
+      }
+    } catch (error) {
+      console.error("Erreur lors de la génération:", error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite lors de la génération du résumé et des mots-clés",
+        variant: "destructive"
+      });
+    } finally {
+      setGeneratingAI(false);
+    }
+  };
+
+  // Formater la date pour l'affichage
+  const formatDate = (date: string | undefined): string => {
+    if (!date) return '-';
+    return new Date(date).toLocaleDateString('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
 
   return (
     <>
       <Helmet>
-        <title>Administration simplifiée | NovaHypnose Blog</title>
+        <title>Administration Simple du Blog | Nova Hypnose</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      
+
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-serif font-bold">Administration du Blog</h1>
-            <p className="text-muted-foreground">Connecté en tant que {user?.email}</p>
-          </div>
-          
-          <div className="flex mt-4 md:mt-0 space-x-2">
-            <Button variant="outline" onClick={() => window.location.href = '/'}>
-              Retour au site
+        <header className="mb-6">
+          <h1 className="text-3xl font-semibold">Administration du Blog</h1>
+          <p className="text-muted-foreground">Gérez facilement le contenu de votre blog</p>
+        </header>
+
+        {activeTab === 'editor' ? (
+          // Interface d'édition d'article
+          <div className="space-y-6">
+            <Button 
+              variant="outline" 
+              onClick={() => {
+                setActiveTab('articles');
+                setCurrentArticle(null);
+                navigate('/admin-simple');
+              }} 
+              className="mb-4 flex items-center gap-2"
+            >
+              <ArrowLeft className="h-4 w-4" aria-label="Retour" />
+              <span>Retour</span>
             </Button>
-            <Button variant="outline" onClick={handleLogout}>
-              Déconnexion
-            </Button>
-          </div>
-        </div>
-
-        {/* Formulaire d'article (s'affiche uniquement lorsque showArticleForm est vrai) */}
-        {showArticleForm && (
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>{editingArticle ? 'Modifier l\'article' : 'Nouvel article'}</CardTitle>
-              <CardDescription>
-                {editingArticle 
-                  ? 'Modifier les détails de l\'article existant' 
-                  : 'Créer un nouvel article pour le blog'}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Titre de l'article */}
-              <div>
-                <Label htmlFor="title">Titre</Label>
-                <Input 
-                  id="title"
-                  value={articleTitle}
-                  onChange={(e) => setArticleTitle(e.target.value)}
-                  className="mt-1"
-                  placeholder="Titre de l'article"
-                />
-              </div>
-
-              {/* Contenu avec éditeur HTML et aperçu */}
-              <div>
-                <Label>Contenu</Label>
-                <ArticleEditor
-                  value={articleContent}
-                  onChange={setArticleContent}
-                  onGenerateAI={handleGenerateAI}
-                  isGenerating={isGeneratingAI}
-                />
-              </div>
-
-              {/* Extrait/résumé */}
-              <div>
-                <Label htmlFor="excerpt">Extrait</Label>
-                <div className="flex space-x-2">
-                  <Textarea 
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>{editMode ? "Modifier l'article" : "Créer un article"}</CardTitle>
+                <CardDescription>
+                  {editMode ? "Modifiez les détails de votre article" : "Créez un nouvel article pour votre blog"}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="title">Titre</Label>
+                  <Input
+                    id="title"
+                    value={currentArticle?.title || ''}
+                    onChange={(e) => setCurrentArticle({...currentArticle!, title: e.target.value})}
+                    placeholder="Titre de l'article"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="slug">Slug (URL)</Label>
+                  <Input
+                    id="slug"
+                    value={currentArticle?.slug || ''}
+                    onChange={(e) => setCurrentArticle({...currentArticle!, slug: e.target.value})}
+                    placeholder="Généré automatiquement si laissé vide"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="excerpt">Résumé</Label>
+                  <Textarea
                     id="excerpt"
-                    value={articleExcerpt}
-                    onChange={(e) => setArticleExcerpt(e.target.value)}
-                    className="mt-1 flex-grow"
-                    placeholder="Court résumé de l'article"
+                    value={currentArticle?.excerpt || ''}
+                    onChange={(e) => setCurrentArticle({...currentArticle!, excerpt: e.target.value})}
+                    placeholder="Un court résumé de l'article"
                     rows={3}
                   />
-                  <Button 
-                    variant="outline" 
-                    className="mt-1" 
-                    onClick={handleGenerateAI}
-                    disabled={isGeneratingAI || !articleContent}
-                  >
-                    {isGeneratingAI ? (
-                      <div className="h-4 w-4 border-2 border-t-transparent rounded-full animate-spin"></div>
-                    ) : (
-                      <Sparkles className="h-4 w-4" />
-                    )}
-                  </Button>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Cet extrait sera affiché dans les listes d'articles
-                </p>
-              </div>
-
-              {/* Catégories (sélection multiple) */}
-              <div>
-                <Label>Catégorie</Label>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-2">
-                  {categories.map((category) => (
-                    <div 
-                      key={category.id}
-                      className={`
-                        px-3 py-2 border rounded-md cursor-pointer text-center
-                        ${articleCategories.includes(category.name) 
-                          ? 'bg-primary text-primary-foreground border-primary' 
-                          : 'bg-background text-muted-foreground border-input hover:bg-accent'}
-                      `}
-                      onClick={() => {
-                        if (articleCategories.includes(category.name)) {
-                          setArticleCategories(articleCategories.filter(c => c !== category.name));
-                        } else {
-                          setArticleCategories([...articleCategories, category.name]);
-                        }
+                
+                <div className="space-y-2">
+                  <Label>Contenu</Label>
+                  <ArticleEditor
+                    value={currentArticle?.content || ''}
+                    onChange={(value) => setCurrentArticle({...currentArticle!, content: value})}
+                    onGenerateAI={handleGenerateAI}
+                    isGenerating={generatingAI}
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="categories">Catégories</Label>
+                    <Select
+                      value={currentArticle?.categories?.[0] || ""}
+                      onValueChange={(value) => {
+                        setCurrentArticle({
+                          ...currentArticle!, 
+                          categories: value ? [value] : []
+                        });
                       }}
                     >
-                      {category.name}
-                    </div>
-                  ))}
-                </div>
-                {categories.length === 0 && (
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Aucune catégorie disponible. Créez-en une dans l'onglet "Catégories".
-                  </p>
-                )}
-              </div>
-
-              {/* Tags (sélection multiple) */}
-              <div>
-                <Label>Tags</Label>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {tags.map((tag) => (
-                    <div 
-                      key={tag.id}
-                      className={`
-                        px-3 py-1 rounded-full text-sm cursor-pointer
-                        ${articleTags.includes(tag.name) 
-                          ? 'bg-primary text-primary-foreground' 
-                          : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'}
-                      `}
-                      onClick={() => {
-                        if (articleTags.includes(tag.name)) {
-                          setArticleTags(articleTags.filter(t => t !== tag.name));
-                        } else {
-                          setArticleTags([...articleTags, tag.name]);
-                        }
-                      }}
-                    >
-                      {tag.name}
-                    </div>
-                  ))}
-                </div>
-                {tags.length === 0 && (
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Aucun tag disponible. Créez-en un dans l'onglet "Tags".
-                  </p>
-                )}
-              </div>
-
-              {/* Options de publication */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium">Options de publication</h3>
-                  
-                  {/* Checkbox pour Publié */}
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="published"
-                      checked={articlePublished}
-                      onChange={() => setArticlePublished(!articlePublished)}
-                      className="h-4 w-4 rounded border-gray-300"
-                    />
-                    <Label htmlFor="published">Publié</Label>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Sélectionner une catégorie" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {categories.map((cat) => (
+                          <SelectItem key={cat.id} value={cat.id}>
+                            {cat.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                   
-                  {/* Checkbox pour Mis en avant */}
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      id="featured"
-                      checked={articleFeatured}
-                      onChange={() => setArticleFeatured(!articleFeatured)}
-                      className="h-4 w-4 rounded border-gray-300"
-                    />
-                    <Label htmlFor="featured">Mis en avant</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="tags">Tags</Label>
+                    <div className="flex flex-wrap gap-2 p-2 border rounded-md min-h-[42px]">
+                      {currentArticle?.tags?.map((tagId) => {
+                        const tag = tags.find(t => t.id === tagId);
+                        return tag ? (
+                          <div 
+                            key={tag.id} 
+                            className="bg-muted text-sm px-3 py-1 rounded-full flex items-center gap-1"
+                          >
+                            {tag.name}
+                            <button 
+                              type="button"
+                              className="text-muted-foreground hover:text-destructive"
+                              onClick={() => {
+                                setCurrentArticle({
+                                  ...currentArticle!, 
+                                  tags: currentArticle.tags?.filter(t => t !== tag.id) || []
+                                });
+                              }}
+                            >
+                              &times;
+                            </button>
+                          </div>
+                        ) : null;
+                      })}
+                      
+                      {(currentArticle?.tags?.length || 0) === 0 && (
+                        <span className="text-muted-foreground text-sm">Aucun tag sélectionné</span>
+                      )}
+                    </div>
+                    <Select
+                      value=""
+                      onValueChange={(value) => {
+                        if (!value) return;
+                        if (!currentArticle?.tags?.includes(value)) {
+                          setCurrentArticle({
+                            ...currentArticle!, 
+                            tags: [...(currentArticle?.tags || []), value]
+                          });
+                        }
+                      }}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Ajouter un tag" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {tags.map((tag) => (
+                          <SelectItem key={tag.id} value={tag.id}>
+                            {tag.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
                 
-                {/* Programmation de publication */}
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium">Programmation</h3>
-                  <div className="flex flex-col space-y-2">
-                    <Label>Date de publication</Label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant="outline"
-                          className="w-full justify-start text-left font-normal"
-                        >
-                          <CalendarIcon className="mr-2 h-4 w-4" />
-                          {articleScheduledDate ? (
-                            format(articleScheduledDate, "PPP à HH:mm", { locale: fr })
-                          ) : (
-                            <span>Choisir une date</span>
-                          )}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0">
-                        <Calendar
-                          mode="single"
-                          selected={articleScheduledDate}
-                          onSelect={setArticleScheduledDate}
-                          initialFocus
-                        />
-                        {articleScheduledDate && (
-                          <div className="p-3 border-t">
-                            <Input
-                              type="time"
-                              value={articleScheduledDate ? format(articleScheduledDate, "HH:mm") : ""}
-                              onChange={(e) => {
-                                if (articleScheduledDate) {
-                                  const [hours, minutes] = e.target.value.split(':');
-                                  const newDate = new Date(articleScheduledDate);
-                                  newDate.setHours(parseInt(hours, 10), parseInt(minutes, 10));
-                                  setArticleScheduledDate(newDate);
-                                }
-                              }}
-                            />
-                          </div>
-                        )}
-                      </PopoverContent>
-                    </Popover>
-                    {articleScheduledDate && (
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        onClick={() => setArticleScheduledDate(undefined)}
-                      >
-                        <CircleX className="mr-1 h-4 w-4" /> Annuler la programmation
-                      </Button>
-                    )}
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="published"
+                      checked={currentArticle?.published || false}
+                      onCheckedChange={(checked) => 
+                        setCurrentArticle({...currentArticle!, published: !!checked})
+                      }
+                    />
+                    <Label htmlFor="published">Publier l'article</Label>
+                  </div>
+                  
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="featured"
+                      checked={currentArticle?.featured || false}
+                      onCheckedChange={(checked) => 
+                        setCurrentArticle({...currentArticle!, featured: !!checked})
+                      }
+                    />
+                    <Label htmlFor="featured">Article à la une</Label>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-            <CardFooter className="flex flex-wrap gap-2">
-              <Button 
-                variant="outline" 
-                onClick={() => handleSaveArticle(true)}
-              >
-                <Save className="mr-2 h-4 w-4" />
-                Enregistrer comme brouillon
-              </Button>
-              <Button 
-                onClick={() => handleSaveArticle(false)}
-              >
-                {articleScheduledDate && new Date(articleScheduledDate) > new Date() ? (
-                  <>
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    Programmer pour le {format(articleScheduledDate, "d MMMM à HH:mm", { locale: fr })}
-                  </>
-                ) : (
-                  <>
-                    <FileText className="mr-2 h-4 w-4" />
-                    {editingArticle ? "Mettre à jour" : "Publier"}
-                  </>
-                )}
-              </Button>
-              <Button 
-                variant="outline" 
-                className="ml-auto" 
-                onClick={() => setShowArticleForm(false)}
-              >
-                Annuler
-              </Button>
-            </CardFooter>
-          </Card>
-        )}
-        
-        {/* Navigation principale */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="articles">Articles</TabsTrigger>
-            <TabsTrigger value="categories">Catégories</TabsTrigger>
-            <TabsTrigger value="tags">Tags</TabsTrigger>
-          </TabsList>
-          
-          {/* ARTICLES */}
-          <TabsContent value="articles">
-            {!showArticleForm && (
+              </CardContent>
+              <CardFooter className="flex justify-end gap-4">
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    setActiveTab('articles');
+                    setCurrentArticle(null);
+                    navigate('/admin-simple');
+                  }}
+                >
+                  Annuler
+                </Button>
+                <Button onClick={handleSaveArticle}>
+                  {editMode ? "Mettre à jour" : "Créer"} l'article
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        ) : (
+          // Interface principale avec les onglets
+          <Tabs defaultValue="articles" value={activeTab} onValueChange={setActiveTab}>
+            <TabsList className="mb-6 grid grid-cols-3">
+              <TabsTrigger value="articles">Articles</TabsTrigger>
+              <TabsTrigger value="categories">Catégories</TabsTrigger>
+              <TabsTrigger value="tags">Tags</TabsTrigger>
+            </TabsList>
+            
+            {/* Onglet Articles */}
+            <TabsContent value="articles">
               <div className="mb-6 flex justify-between items-center">
-                <h2 className="text-2xl font-medium">Gestion des articles</h2>
-                <Button onClick={initNewArticleForm}>
-                  <Plus className="mr-2 h-4 w-4" />
-                  Nouvel article
+                <h2 className="text-2xl font-semibold">Liste des articles</h2>
+                <Button onClick={handleCreateArticle} className="flex items-center gap-2">
+                  <Plus className="h-4 w-4" />
+                  <span>Nouvel article</span>
                 </Button>
               </div>
-            )}
-            
-            {!showArticleForm && (
-              <Card>
-                <CardContent className="p-0">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-[300px]">Titre</TableHead>
-                        <TableHead>Statut</TableHead>
-                        <TableHead>Date</TableHead>
-                        <TableHead className="text-right">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {articles.length > 0 ? (
-                        articles.map((article) => (
+              
+              {articlesLoading ? (
+                <div className="flex justify-center py-12">
+                  <div className="h-10 w-10 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  {articles.length === 0 ? (
+                    <div className="text-center py-12">
+                      <FileText className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+                      <h3 className="text-lg font-medium mb-1">Aucun article</h3>
+                      <p className="text-muted-foreground">Commencez à créer du contenu pour votre blog</p>
+                    </div>
+                  ) : (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Titre</TableHead>
+                          <TableHead>Statut</TableHead>
+                          <TableHead>Date de création</TableHead>
+                          <TableHead className="w-[160px]">Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {articles.map((article) => (
                           <TableRow key={article.id}>
                             <TableCell className="font-medium">
                               {article.title}
                             </TableCell>
                             <TableCell>
-                              {article.scheduled_for && new Date(article.scheduled_for) > new Date() ? (
-                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                  Programmé
-                                </span>
-                              ) : article.published ? (
-                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                  Publié
-                                </span>
-                              ) : (
-                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                  Brouillon
-                                </span>
-                              )}
+                              <span 
+                                className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                                  article.published 
+                                    ? 'bg-green-100 text-green-800' 
+                                    : 'bg-amber-100 text-amber-800'
+                                }`}
+                              >
+                                {article.published ? 'Publié' : 'Brouillon'}
+                              </span>
                             </TableCell>
                             <TableCell>
-                              {article.scheduled_for && new Date(article.scheduled_for) > new Date()
-                                ? `Programmé pour le ${formatDate(article.scheduled_for)}`
-                                : formatDate(article.updated_at || article.created_at)}
+                              {formatDate(article.created_at)}
                             </TableCell>
-                            <TableCell className="text-right">
-                              <div className="flex justify-end space-x-2">
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm"
-                                  onClick={() => handleEditArticle(article)}
-                                >
-                                  <Pencil className="h-4 w-4" />
-                                </Button>
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm"
+                            <TableCell>
+                              <div className="flex gap-1">
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
                                   onClick={() => toggleArticleStatus(article)}
                                 >
                                   {article.published ? (
@@ -933,255 +779,275 @@ const SimpleBlogAdmin = () => {
                                     <Eye className="h-4 w-4 text-green-500" aria-label="Publier" />
                                   )}
                                 </Button>
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm"
-                                  className="text-red-500" 
-                                  onClick={() => handleDeleteArticle(article.id)}
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleEditArticle(article)}
+                                >
+                                  <Pencil className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  className="text-destructive"
+                                  onClick={() => handleDeleteArticleConfirm(article)}
                                 >
                                   <Trash className="h-4 w-4" />
                                 </Button>
                               </div>
                             </TableCell>
                           </TableRow>
-                        ))
+                        ))}
+                      </TableBody>
+                    </Table>
+                  )}
+                </div>
+              )}
+            </TabsContent>
+            
+            {/* Onglet Catégories */}
+            <TabsContent value="categories">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="md:col-span-1">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Nouvelle catégorie</CardTitle>
+                      <CardDescription>
+                        Créez une nouvelle catégorie pour organiser vos articles
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="cat-name">Nom</Label>
+                        <Input
+                          id="cat-name"
+                          value={newCategory.name || ''}
+                          onChange={(e) => setNewCategory({...newCategory, name: e.target.value})}
+                          placeholder="Nom de la catégorie"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="cat-slug">Slug (URL)</Label>
+                        <Input
+                          id="cat-slug"
+                          value={newCategory.slug || ''}
+                          onChange={(e) => setNewCategory({...newCategory, slug: e.target.value})}
+                          placeholder="Généré automatiquement si vide"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="cat-desc">Description</Label>
+                        <Textarea
+                          id="cat-desc"
+                          value={newCategory.description || ''}
+                          onChange={(e) => setNewCategory({...newCategory, description: e.target.value})}
+                          placeholder="Description de la catégorie (optionnel)"
+                          rows={3}
+                        />
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button 
+                        onClick={handleCreateCategory} 
+                        className="w-full"
+                        disabled={!newCategory.name}
+                      >
+                        <Plus className="h-4 w-4 mr-2" />
+                        Créer la catégorie
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+                
+                <div className="md:col-span-2">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Catégories ({categories.length})</CardTitle>
+                      <CardDescription>
+                        Gérez les catégories de votre blog
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {categoriesLoading ? (
+                        <div className="flex justify-center py-8">
+                          <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+                        </div>
                       ) : (
-                        <TableRow>
-                          <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
-                            Aucun article trouvé
-                          </TableCell>
-                        </TableRow>
+                        <>
+                          {categories.length === 0 ? (
+                            <div className="text-center py-8">
+                              <p className="text-muted-foreground">Aucune catégorie trouvée</p>
+                              <p className="text-sm text-muted-foreground">Créez votre première catégorie</p>
+                            </div>
+                          ) : (
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead>Nom</TableHead>
+                                  <TableHead>Slug</TableHead>
+                                  <TableHead className="w-[100px]">Actions</TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {categories.map((category) => (
+                                  <TableRow key={category.id}>
+                                    <TableCell className="font-medium">
+                                      {category.name}
+                                    </TableCell>
+                                    <TableCell>
+                                      {category.slug}
+                                    </TableCell>
+                                    <TableCell>
+                                      <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="text-destructive"
+                                        onClick={() => handleDeleteCategoryConfirm(category)}
+                                      >
+                                        <Trash className="h-4 w-4" />
+                                      </Button>
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          )}
+                        </>
                       )}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            )}
-          </TabsContent>
-          
-          {/* CATÉGORIES */}
-          <TabsContent value="categories">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Formulaire de création de catégorie */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Nouvelle catégorie</CardTitle>
-                  <CardDescription>
-                    Créer une nouvelle catégorie pour le blog
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <Label htmlFor="category-name">Nom</Label>
-                    <Input 
-                      id="category-name"
-                      value={newCategory.name} 
-                      onChange={(e) => setNewCategory({...newCategory, name: e.target.value})}
-                      className="mb-2"
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="category-slug">Slug (URL)</Label>
-                    <Input 
-                      id="category-slug"
-                      value={newCategory.slug} 
-                      onChange={(e) => setNewCategory({...newCategory, slug: e.target.value})}
-                      className="mb-2"
-                      placeholder="généré-automatiquement"
-                    />
-                    <p className="text-sm text-muted-foreground">
-                      Le slug est utilisé dans l'URL (ex: /blog/category/mon-slug)
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="category-description">Description</Label>
-                    <Textarea 
-                      id="category-description"
-                      value={newCategory.description} 
-                      onChange={(e) => setNewCategory({...newCategory, description: e.target.value})}
-                      className="mb-2"
-                      rows={3}
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button 
-                    onClick={handleCreateCategory} 
-                    disabled={!newCategory.name}
-                    className="w-full"
-                  >
-                    <Plus className="mr-2 h-4 w-4" />
-                    Créer la catégorie
-                  </Button>
-                </CardFooter>
-              </Card>
-              
-              {/* Liste des catégories */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Catégories ({categories.length})</CardTitle>
-                  <CardDescription>
-                    Gérer les catégories existantes
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Nom</TableHead>
-                        <TableHead>Slug</TableHead>
-                        <TableHead className="text-right">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {categories.length > 0 ? (
-                        categories.map((category) => (
-                          <TableRow key={category.id}>
-                            <TableCell className="font-medium">
-                              {category.name}
-                            </TableCell>
-                            <TableCell>{category.slug}</TableCell>
-                            <TableCell className="text-right">
-                              <Button 
-                                variant="ghost" 
-                                size="sm"
-                                className="text-red-500" 
-                                onClick={() => handleDeleteCategory(category.id)}
-                              >
-                                <Trash className="h-4 w-4" />
-                              </Button>
-                            </TableCell>
-                          </TableRow>
-                        ))
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </TabsContent>
+            
+            {/* Onglet Tags */}
+            <TabsContent value="tags">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="md:col-span-1">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Nouveau tag</CardTitle>
+                      <CardDescription>
+                        Créez un nouveau tag pour classifier vos articles
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="tag-name">Nom</Label>
+                        <Input
+                          id="tag-name"
+                          value={newTag.name || ''}
+                          onChange={(e) => setNewTag({...newTag, name: e.target.value})}
+                          placeholder="Nom du tag"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="tag-slug">Slug (URL)</Label>
+                        <Input
+                          id="tag-slug"
+                          value={newTag.slug || ''}
+                          onChange={(e) => setNewTag({...newTag, slug: e.target.value})}
+                          placeholder="Généré automatiquement si vide"
+                        />
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button 
+                        onClick={handleCreateTag} 
+                        className="w-full"
+                        disabled={!newTag.name}
+                      >
+                        <Plus className="h-4 w-4 mr-2" />
+                        Créer le tag
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+                
+                <div className="md:col-span-2">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Tags ({tags.length})</CardTitle>
+                      <CardDescription>
+                        Gérez les tags de votre blog
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {tagsLoading ? (
+                        <div className="flex justify-center py-8">
+                          <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+                        </div>
                       ) : (
-                        <TableRow>
-                          <TableCell colSpan={3} className="text-center py-8 text-muted-foreground">
-                            Aucune catégorie trouvée
-                          </TableCell>
-                        </TableRow>
+                        <>
+                          {tags.length === 0 ? (
+                            <div className="text-center py-8">
+                              <p className="text-muted-foreground">Aucun tag trouvé</p>
+                              <p className="text-sm text-muted-foreground">Créez votre premier tag</p>
+                            </div>
+                          ) : (
+                            <Table>
+                              <TableHeader>
+                                <TableRow>
+                                  <TableHead>Nom</TableHead>
+                                  <TableHead>Slug</TableHead>
+                                  <TableHead className="w-[100px]">Actions</TableHead>
+                                </TableRow>
+                              </TableHeader>
+                              <TableBody>
+                                {tags.map((tag) => (
+                                  <TableRow key={tag.id}>
+                                    <TableCell className="font-medium">
+                                      {tag.name}
+                                    </TableCell>
+                                    <TableCell>
+                                      {tag.slug}
+                                    </TableCell>
+                                    <TableCell>
+                                      <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className="text-destructive"
+                                        onClick={() => handleDeleteTagConfirm(tag)}
+                                      >
+                                        <Trash className="h-4 w-4" />
+                                      </Button>
+                                    </TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          )}
+                        </>
                       )}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
-          
-          {/* TAGS */}
-          <TabsContent value="tags">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Formulaire de création de tag */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Nouveau tag</CardTitle>
-                  <CardDescription>
-                    Créer un nouveau tag pour le blog
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <Label htmlFor="tag-name">Nom</Label>
-                    <Input 
-                      id="tag-name"
-                      value={newTag.name} 
-                      onChange={(e) => setNewTag({...newTag, name: e.target.value})}
-                      className="mb-2"
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="tag-slug">Slug (URL)</Label>
-                    <Input 
-                      id="tag-slug"
-                      value={newTag.slug} 
-                      onChange={(e) => setNewTag({...newTag, slug: e.target.value})}
-                      className="mb-2"
-                      placeholder="généré-automatiquement"
-                    />
-                    <p className="text-sm text-muted-foreground">
-                      Le slug est utilisé dans l'URL (ex: /blog/tag/mon-slug)
-                    </p>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button 
-                    onClick={handleCreateTag} 
-                    disabled={!newTag.name}
-                    className="w-full"
-                  >
-                    <Plus className="mr-2 h-4 w-4" />
-                    Créer le tag
-                  </Button>
-                </CardFooter>
-              </Card>
-              
-              {/* Liste des tags */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Tags ({tags.length})</CardTitle>
-                  <CardDescription>
-                    Gérer les tags existants
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Nom</TableHead>
-                        <TableHead>Slug</TableHead>
-                        <TableHead className="text-right">Actions</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {tags.length > 0 ? (
-                        tags.map((tag) => (
-                          <TableRow key={tag.id}>
-                            <TableCell className="font-medium">
-                              {tag.name}
-                            </TableCell>
-                            <TableCell>{tag.slug}</TableCell>
-                            <TableCell className="text-right">
-                              <Button 
-                                variant="ghost" 
-                                size="sm"
-                                className="text-red-500" 
-                                onClick={() => handleDeleteTag(tag.id)}
-                              >
-                                <Trash className="h-4 w-4" />
-                              </Button>
-                            </TableCell>
-                          </TableRow>
-                        ))
-                      ) : (
-                        <TableRow>
-                          <TableCell colSpan={3} className="text-center py-8 text-muted-foreground">
-                            Aucun tag trouvé
-                          </TableCell>
-                        </TableRow>
-                      )}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
-        </Tabs>
-        
-        {/* Liens utiles */}
-        <div className="mt-8">
-          <h3 className="text-lg font-medium mb-4">Liens rapides</h3>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="outline" onClick={() => window.open('/blog-temp', '_blank')}>
-              Voir le blog (version temporaire)
-            </Button>
-            <Button variant="outline" onClick={() => window.location.href = '/'}>
-              Retour au site principal
-            </Button>
-          </div>
-        </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
+        )}
       </div>
+
+      {/* Boîte de dialogue de confirmation */}
+      <Dialog open={confirmDialog.isOpen} onOpenChange={(open) => setConfirmDialog({...confirmDialog, isOpen: open})}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{confirmDialog.title}</DialogTitle>
+            <DialogDescription>{confirmDialog.message}</DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-4">
+            <Button variant="outline" onClick={() => setConfirmDialog({...confirmDialog, isOpen: false})}>
+              Annuler
+            </Button>
+            <Button variant="destructive" onClick={() => confirmDialog.confirmAction()}>
+              Supprimer
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
