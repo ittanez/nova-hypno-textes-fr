@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,7 @@ const BlogSidebar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { categories, loading: categoriesLoading } = useCategories();
   const { tags, loading: tagsLoading } = useTags();
-  const { articles, loading: loadingArticles } = useArticles();
+  const { articles, loading: loadingArticles, fetchArticles } = useArticles();
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();

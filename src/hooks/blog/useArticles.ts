@@ -21,14 +21,28 @@ export function useArticles() {
       // Make sure we're handling the data properly
       if (!data) return { article: null };
 
-      // Safely cast and transform the data
+      // Create a safe base article with required fields
+      const baseArticle: Article = {
+        ...data as any,
+        id: data.id,
+        title: data.title || '',
+        content: data.content || '',
+        created_at: data.created_at,
+        updated_at: data.updated_at || data.created_at,
+        slug: (data as any).slug || '',
+        status: (data as any).status || (data.published ? 'published' : 'draft')
+      };
+      
+      // Safely handle relations for ArticleWithRelations
       const articleWithRelations: ArticleWithRelations = {
-        ...data,
-        slug: data.slug || '',
-        status: data.published ? 'published' : 'draft',
-        // Handle the relations properly
-        categoryObjects: Array.isArray(data.categories) ? data.categories as Category[] : [],
-        tagObjects: Array.isArray(data.tags) ? data.tags as Tag[] : []
+        ...baseArticle,
+        // Handle the relations safely with type assertions when we know the structure
+        categoryObjects: Array.isArray(data.categories) 
+          ? (data.categories as unknown as Category[]) 
+          : [],
+        tagObjects: Array.isArray(data.tags) 
+          ? (data.tags as unknown as Tag[]) 
+          : []
       };
       
       return { article: articleWithRelations };
@@ -44,6 +58,10 @@ export function useArticles() {
       to: number;
     };
     filters?: Record<string, any>;
+    sort?: {
+      field: string;
+      direction: 'asc' | 'desc';
+    };
   }
   
   const fetchArticles = async (options: FetchOptions = {}) => {
@@ -53,9 +71,10 @@ export function useArticles() {
 
       let query = supabase.from('articles').select('*');
       
-      query = query.order('created_at', { 
-        ascending: false
-      });
+      // Apply default sorting or custom sorting if provided
+      const sortField = options.sort?.field || 'created_at';
+      const sortDirection = options.sort?.direction || 'desc';
+      query = query.order(sortField, { ascending: sortDirection === 'asc' });
 
       if (options.range) {
         const { from, to } = options.range;
@@ -63,11 +82,14 @@ export function useArticles() {
       }
 
       if (options.filters) {
-        Object.entries(options.filters).forEach(([key, value]) => {
-          if (value) {
+        // Use a safer approach to iterate over filters to avoid deep instantiation
+        const filterEntries = Object.entries(options.filters);
+        for (let i = 0; i < filterEntries.length; i++) {
+          const [key, value] = filterEntries[i];
+          if (value !== undefined && value !== null && value !== '') {
             query = query.eq(key, value);
           }
-        });
+        }
       }
 
       const { data, error } = await query;
@@ -76,12 +98,17 @@ export function useArticles() {
         throw error;
       }
 
-      // Ensure data is compatible with Article type by adding required fields if missing
+      // Ensure data is compatible with Article type by adding required fields
       const formattedArticles: Article[] = (data || []).map(item => {
         return {
           ...item,
-          slug: item.slug || '',
-          status: item.status || (item.published ? 'published' : 'draft')
+          id: item.id,
+          title: item.title || '',
+          content: item.content || '',
+          created_at: item.created_at,
+          updated_at: item.updated_at || item.created_at,
+          slug: (item as any).slug || '',
+          status: (item as any).status || (item.published ? 'published' : 'draft')
         } as Article;
       });
 
