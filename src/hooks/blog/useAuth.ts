@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
@@ -10,6 +9,9 @@ export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+
+  // For backward compatibility, alias loading as isLoading
+  const isLoading = loading;
 
   useEffect(() => {
     // Flag to prevent concurrent admin checks
@@ -209,6 +211,7 @@ export function useAuth() {
     user,
     session,
     loading,
+    isLoading, // Add this alias for backward compatibility
     isAdmin,
     signIn,
     signUp,

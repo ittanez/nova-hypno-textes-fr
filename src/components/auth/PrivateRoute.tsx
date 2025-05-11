@@ -1,9 +1,13 @@
 
 import { useEffect } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/blog/useAuth";
 
-const PrivateRoute = () => {
+interface PrivateRouteProps {
+  children: React.ReactNode;
+}
+
+const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const { isAdmin, loading, session } = useAuth();
   const navigate = useNavigate();
   
@@ -48,7 +52,7 @@ const PrivateRoute = () => {
   
   // If authenticated as admin, render the child routes
   console.log("PrivateRoute - Admin access granted");
-  return <Outlet />;
+  return <>{children}</>;
 };
 
 export default PrivateRoute;
