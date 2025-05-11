@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from "@/components/ui/input";
@@ -8,9 +9,9 @@ import { useCategories } from '@/hooks/blog/useCategories';
 import { useTags } from '@/hooks/blog/useTags';
 import { useArticles } from '@/hooks/blog/useArticles';
 
-const BlogSidebar = () => {
+const BlogSidebar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { categories, loading: categoriesLoading } = useCategories();
+  const { categories } = useCategories();
   const { tags, loading: tagsLoading } = useTags();
   const { articles, loading: loadingArticles } = useArticles({ sortBy: 'created_at', sortDirection: 'desc' });
   

@@ -26,17 +26,19 @@ const BlogIndex = () => {
   const { tags, loading: tagsLoading } = useTags();
   
   const [filters, setFilters] = useState<BlogFilters>({
-    category: undefined,
-    tag: undefined,
+    category: '',
+    tag: '',
     search: '',
-    // Remove sortBy and sortDirection from here if they're not in the BlogFilters interface
+    sortBy: 'created_at',
+    sortDirection: 'desc'
   });
   
   useEffect(() => {
     fetchArticles({
       category: filters.category,
       tag: filters.tag,
-      // Include sortBy and sortDirection in the options if they're supported by fetchArticles
+      sortBy: filters.sortBy,
+      sortDirection: filters.sortDirection,
     });
   }, [filters, fetchArticles]);
   
@@ -61,7 +63,6 @@ const BlogIndex = () => {
       .replace(/--+/g, '-');
   };
   
-  // Replace pagination related code with simpler approach
   const handlePageChange = (page: number) => {
     // Implement custom pagination logic if needed
     // Since useArticles doesn't have pagination support built-in
@@ -89,7 +90,6 @@ const BlogIndex = () => {
     }));
   };
   
-  // Update sorting related code to match your implementation
   const handleSortChange = (sortBy: string) => {
     // Implement custom sorting logic if needed
   };

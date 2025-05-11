@@ -1,7 +1,9 @@
-import { useState, useEffect, useNavigate } from 'react';
+
+import { useState, useEffect } from 'react';
 import { User, Session } from '@supabase/supabase-js';
+import { useNavigate } from 'react-router-dom'; // Fixed import
 import { supabaseBlog } from '@/integrations/supabase/blog-client';
-import { useToast } from '@chakra-ui/react';
+import { useToast } from '@/hooks/use-toast'; // Using our toast system
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -170,9 +172,8 @@ export function useAuth() {
       toast({
         title: 'Email envoyé',
         description: 'Un email de réinitialisation de mot de passe a été envoyé à votre adresse email.',
-        status: 'success',
+        variant: 'default',
         duration: 3000,
-        isClosable: true,
       });
       return { success: true };
     } catch (error: any) {
@@ -194,9 +195,8 @@ export function useAuth() {
       toast({
         title: 'Mot de passe réinitialisé',
         description: 'Votre mot de passe a été réinitialisé avec succès.',
-        status: 'success',
+        variant: 'default',
         duration: 3000,
-        isClosable: true,
       });
       return { success: true };
     } catch (error: any) {

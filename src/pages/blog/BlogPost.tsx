@@ -9,22 +9,22 @@ import { useArticles } from '@/hooks/blog/useArticles';
 import { Article } from '@/types/blog';
 
 const BlogPost = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { articleId } = useParams<{ articleId: string }>();
   const navigate = useNavigate();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
-  const { fetchArticleBySlug } = useArticles();
+  const { fetchArticleById } = useArticles();
 
   useEffect(() => {
     const fetchArticle = async () => {
       setLoading(true);
-      if (!slug) {
+      if (!articleId) {
         navigate('/blog');
         return;
       }
 
       try {
-        const { article: articleData } = await fetchArticleBySlug(slug);
+        const { article: articleData } = await fetchArticleById(articleId);
         
         if (articleData) {
           setArticle(articleData);
@@ -39,7 +39,7 @@ const BlogPost = () => {
     };
 
     fetchArticle();
-  }, [slug, navigate, fetchArticleBySlug]);
+  }, [articleId, navigate, fetchArticleById]);
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 
