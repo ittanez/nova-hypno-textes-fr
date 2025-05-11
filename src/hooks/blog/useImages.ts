@@ -74,11 +74,11 @@ export function useImages() {
       try {
         const img = new Image();
         img.src = URL.createObjectURL(file);
-        await new Promise((resolve) => {
+        await new Promise<void>((resolve) => {
           img.onload = () => {
             width = img.width;
             height = img.height;
-            resolve(null);
+            resolve();
           };
         });
       } catch (error) {
