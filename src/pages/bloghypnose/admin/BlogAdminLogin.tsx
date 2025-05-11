@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -18,56 +18,18 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useBlogAuth } from '@/hooks/bloghypnose/useBlogAuth';
 import { Label } from '@/components/ui/label';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-
-// Schéma de validation pour les formulaires d'authentification
-const formSchema = z.object({
-  email: z.string().email({ message: 'Email invalide' }),
-  password: z.string().min(6, { message: 'Le mot de passe doit contenir au moins 6 caractères' }),
-});
-
-const requestFormSchema = z.object({
-  fullName: z.string().min(3, { message: 'Veuillez entrer votre nom complet' }),
-  reason: z.string().min(20, { message: 'Veuillez fournir une raison détaillée (minimum 20 caractères)' }),
-});
-
-type FormValues = z.infer<typeof formSchema>;
-type RequestFormValues = z.infer<typeof requestFormSchema>;
 
 const BlogAdminLogin = () => {
   const navigate = useNavigate();
   const { user, session, loading, isAdmin, signIn, signUp, requestAdminAccess } = useBlogAuth();
   const { toast } = useToast();
   const [authMessage, setAuthMessage] = useState<{ type: 'info' | 'warning' | 'error'; message: string } | null>(null);
+  const [fullName, setFullName] = useState('');
+  const [reason, setReason] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Formulaire pour l'authentification
-  const authForm = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
-  // Formulaire pour la demande d'accès admin
-  const requestForm = useForm<RequestFormValues>({
-    resolver: zodResolver(requestFormSchema),
-    defaultValues: {
-      fullName: '',
-      reason: '',
-    },
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   useEffect(() => {
     // Journalisation pour le débogage
@@ -75,13 +37,13 @@ const BlogAdminLogin = () => {
       hasUser: !!user, 
       hasSession: !!session, 
       isAdmin, 
-      loading 
+      loading
     });
     
-    // Redirection uniquement lorsque toutes les informations sont disponibles
+    // Tentative de redirection uniquement lorsque toutes les informations sont disponibles
     if (!loading && user && session && isAdmin) {
       console.log("Utilisateur authentifié en tant qu'admin, redirection vers le tableau de bord");
-      // Léger délai pour éviter une redirection immédiate qui pourrait causer une boucle
+      // Utiliser un petit délai pour éviter une redirection immédiate qui pourrait causer une boucle
       const redirectTimer = setTimeout(() => {
         navigate('/bloghypnose-admin/dashboard', { replace: true });
       }, 300);
@@ -98,16 +60,27 @@ const BlogAdminLogin = () => {
   }, [user, session, loading, isAdmin, navigate]);
 
   // Gestion de la connexion
-  const handleLogin = async (values: FormValues) => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !password) {
+      toast({
+        title: "Champs requis",
+        description: "Veuillez remplir tous les champs",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      const { success, error } = await signIn(values.email, values.password);
+      const { success, error } = await signIn(email, password);
       
       if (success) {
-        setAuthMessage({
-          type: 'info',
-          message: "Connexion réussie! Vérification des droits d'accès..."
+        toast({
+          title: "Connexion réussie",
+          description: "Vous êtes maintenant connecté",
         });
       } else {
         throw new Error(error?.message || "Échec de la connexion");
@@ -115,13 +88,8 @@ const BlogAdminLogin = () => {
     } catch (error: any) {
       console.error("Erreur de connexion:", error);
       
-      setAuthMessage({
-        type: 'error',
-        message: error.message || "Une erreur est survenue lors de la connexion"
-      });
-      
       toast({
-        title: "Erreur de connexion",
+        title: "Erreur",
         description: error.message || "Une erreur est survenue lors de la connexion",
         variant: "destructive",
       });
@@ -131,25 +99,40 @@ const BlogAdminLogin = () => {
   };
 
   // Gestion de l'inscription
-  const handleSignup = async (values: FormValues) => {
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !password || !confirmPassword) {
+      toast({
+        title: "Champs requis",
+        description: "Veuillez remplir tous les champs",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (password !== confirmPassword) {
+      toast({
+        title: "Mots de passe différents",
+        description: "Les mots de passe ne correspondent pas",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     try {
-      const { success, error, data } = await signUp(values.email, values.password);
+      const { success, error } = await signUp(email, password);
       
       if (success) {
+        toast({
+          title: "Inscription réussie",
+          description: "Votre compte a été créé. Vous pouvez maintenant vous connecter.",
+        });
         setAuthMessage({
           type: 'info',
-          message: data?.session 
-            ? "Inscription réussie! Vous pouvez maintenant demander des droits administrateur." 
-            : "Inscription réussie! Veuillez vérifier votre email pour confirmer votre compte."
-        });
-        
-        toast({
-          title: "Compte créé",
-          description: data?.session 
-            ? "Vous pouvez maintenant demander des droits administrateur." 
-            : "Veuillez vérifier votre email pour confirmer votre compte.",
+          message: "Inscription réussie! Veuillez vérifier votre email pour confirmer votre compte."
         });
       } else {
         throw new Error(error?.message || "Échec de l'inscription");
@@ -157,13 +140,8 @@ const BlogAdminLogin = () => {
     } catch (error: any) {
       console.error("Erreur d'inscription:", error);
       
-      setAuthMessage({
-        type: 'error',
-        message: error.message || "Une erreur est survenue lors de l'inscription"
-      });
-      
       toast({
-        title: "Erreur d'inscription",
+        title: "Erreur",
         description: error.message || "Une erreur est survenue lors de l'inscription",
         variant: "destructive",
       });
@@ -172,14 +150,24 @@ const BlogAdminLogin = () => {
     }
   };
   
-  // Gestion de la demande d'accès administrateur
-  const handleAdminRequest = async (values: RequestFormValues) => {
+  const handleAdminRequest = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
     if (!user || !session) return;
+    
+    if (!fullName || !reason) {
+      toast({
+        title: "Champs requis",
+        description: "Veuillez remplir tous les champs",
+        variant: "destructive",
+      });
+      return;
+    }
     
     setIsSubmitting(true);
     
     try {
-      const { success, error } = await requestAdminAccess(values.fullName, values.reason);
+      const { success, error } = await requestAdminAccess(fullName, reason);
       
       if (success) {
         toast({
@@ -187,7 +175,8 @@ const BlogAdminLogin = () => {
           description: "Votre demande de droits administrateur a été soumise et sera examinée prochainement.",
         });
         
-        requestForm.reset();
+        setFullName('');
+        setReason('');
       } else {
         throw new Error(error || "Échec de la demande");
       }
@@ -204,7 +193,7 @@ const BlogAdminLogin = () => {
     }
   };
 
-  // Éviter d'afficher le formulaire de connexion brièvement lorsque déjà authentifié
+  // Éviter d'afficher brièvement le formulaire de connexion lorsque l'utilisateur est déjà authentifié
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -224,7 +213,7 @@ const BlogAdminLogin = () => {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-serif font-bold text-nova-blue">BlogHypnose</h1>
-            <p className="text-muted-foreground">Administration</p>
+            <p className="text-muted-foreground">Accès à l'administration du blog</p>
           </div>
           
           {authMessage && (
@@ -242,74 +231,60 @@ const BlogAdminLogin = () => {
                 </CardDescription>
               </CardHeader>
               
-              <Form {...requestForm}>
-                <form onSubmit={requestForm.handleSubmit(handleAdminRequest)}>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input 
-                        id="email" 
-                        value={user.email} 
-                        disabled 
-                        readOnly 
-                      />
-                    </div>
-                    
-                    <FormField
-                      control={requestForm.control}
-                      name="fullName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nom complet</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="Votre nom complet" 
-                              {...field} 
-                              autoComplete="name"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
+              <form onSubmit={handleAdminRequest}>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input 
+                      id="email" 
+                      value={user.email} 
+                      disabled 
+                      readOnly 
                     />
-                    
-                    <FormField
-                      control={requestForm.control}
-                      name="reason"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Raison de la demande</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Expliquez pourquoi vous avez besoin des droits administrateur..." 
-                              {...field} 
-                              rows={4}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </CardContent>
+                  </div>
                   
-                  <CardFooter>
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
-                          Envoi en cours...
-                        </>
-                      ) : (
-                        "Soumettre la demande"
-                      )}
-                    </Button>
-                  </CardFooter>
-                </form>
-              </Form>
+                  <div className="space-y-2">
+                    <Label htmlFor="fullName">Nom complet</Label>
+                    <Input 
+                      id="fullName" 
+                      value={fullName} 
+                      onChange={(e) => setFullName(e.target.value)} 
+                      placeholder="Votre nom complet" 
+                      required 
+                      autoComplete="name"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="reason">Raison de la demande</Label>
+                    <Textarea 
+                      id="reason" 
+                      value={reason} 
+                      onChange={(e) => setReason(e.target.value)} 
+                      placeholder="Expliquez pourquoi vous avez besoin des droits administrateur..." 
+                      required 
+                      rows={4}
+                    />
+                  </div>
+                </CardContent>
+                
+                <CardFooter>
+                  <Button 
+                    type="submit" 
+                    className="w-full" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      "Soumettre la demande"
+                    )}
+                  </Button>
+                </CardFooter>
+              </form>
             </Card>
           ) : !user || !session ? (
             <Card>
@@ -328,124 +303,103 @@ const BlogAdminLogin = () => {
                   </TabsList>
                   
                   <TabsContent value="login">
-                    <Form {...authForm}>
-                      <form onSubmit={authForm.handleSubmit(handleLogin)} className="space-y-4">
-                        <FormField
-                          control={authForm.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="votre@email.com" 
-                                  {...field} 
-                                  autoComplete="username"
-                                  type="email"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                    <form onSubmit={handleLogin} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="login-email">Email</Label>
+                        <Input 
+                          id="login-email" 
+                          type="email" 
+                          placeholder="votre@email.com" 
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
-                        
-                        <FormField
-                          control={authForm.control}
-                          name="password"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Mot de passe</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  type="password" 
-                                  placeholder="••••••••" 
-                                  {...field} 
-                                  autoComplete="current-password"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <Label htmlFor="login-password">Mot de passe</Label>
+                        </div>
+                        <Input 
+                          id="login-password" 
+                          type="password" 
+                          placeholder="••••••••" 
+                          required
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
-                        
-                        <Button 
-                          type="submit" 
-                          className="w-full" 
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
-                              Connexion en cours...
-                            </>
-                          ) : (
-                            "Se connecter"
-                          )}
-                        </Button>
-                      </form>
-                    </Form>
+                      </div>
+                      <Button type="submit" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
+                            Connexion...
+                          </>
+                        ) : (
+                          "Se connecter"
+                        )}
+                      </Button>
+                    </form>
                   </TabsContent>
                   
                   <TabsContent value="signup">
-                    <Form {...authForm}>
-                      <form onSubmit={authForm.handleSubmit(handleSignup)} className="space-y-4">
-                        <FormField
-                          control={authForm.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Email</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="votre@email.com" 
-                                  {...field} 
-                                  autoComplete="email"
-                                  type="email"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                    <form onSubmit={handleSignup} className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="signup-email">Email</Label>
+                        <Input 
+                          id="signup-email" 
+                          type="email" 
+                          placeholder="votre@email.com" 
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
-                        
-                        <FormField
-                          control={authForm.control}
-                          name="password"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Mot de passe</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  type="password" 
-                                  placeholder="••••••••" 
-                                  {...field} 
-                                  autoComplete="new-password"
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="signup-password">Mot de passe</Label>
+                        <Input 
+                          id="signup-password" 
+                          type="password" 
+                          placeholder="••••••••" 
+                          required
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
-                        
-                        <Button 
-                          type="submit" 
-                          className="w-full" 
-                          disabled={isSubmitting}
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
-                              Inscription en cours...
-                            </>
-                          ) : (
-                            "S'inscrire"
-                          )}
-                        </Button>
-                      </form>
-                    </Form>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="signup-confirm-password">Confirmer le mot de passe</Label>
+                        <Input 
+                          id="signup-confirm-password" 
+                          type="password" 
+                          placeholder="••••••••" 
+                          required
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                      </div>
+                      <Button type="submit" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
+                            Inscription...
+                          </>
+                        ) : (
+                          "S'inscrire"
+                        )}
+                      </Button>
+                    </form>
                   </TabsContent>
                 </Tabs>
               </CardContent>
+              
+              <CardFooter className="flex flex-col items-center">
+                <p className="text-sm text-orange-600 font-semibold mb-2">
+                  Pour l'environnement de développement, désactivez la vérification d'email 
+                  dans les paramètres d'authentification Supabase
+                </p>
+                <p className="text-xs text-muted-foreground text-center">
+                  Si vous ne recevez pas d'email de confirmation, contactez l'administrateur
+                </p>
+              </CardFooter>
             </Card>
           ) : null}
         </div>

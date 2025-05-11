@@ -1,30 +1,31 @@
 
-export interface Article {
-  id: string;
-  title: string;
-  content: string;
-  image_url?: string;
-  excerpt?: string;
-  author?: string;
-  categories: string[];
-  tags: string[];
-  published: boolean;
-  featured: boolean;
-  created_at: string;
-  updated_at: string;
-}
-
 export interface BlogImage {
   id: string;
   name: string;
-  description?: string;
+  url: string;
   storage_path: string;
   public_url: string;
-  width?: number;
-  height?: number;
   size?: number;
-  mime_type?: string;
-  uploaded_at: string;
+  created_at: string;
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt?: string;
+  author?: string;
+  status: 'published' | 'draft' | 'scheduled';
+  published_at?: string;
+  scheduled_for?: string;
+  created_at: string;
+  updated_at: string;
+  featured_image_url?: string;
+  categories?: string[];
+  tags?: string[];
+  view_count?: number;
+  is_featured?: boolean;
 }
 
 export interface Category {
@@ -32,7 +33,9 @@ export interface Category {
   name: string;
   slug: string;
   description?: string;
+  parent_id?: string;
   created_at: string;
+  updated_at: string;
 }
 
 export interface Tag {
@@ -40,27 +43,10 @@ export interface Tag {
   name: string;
   slug: string;
   created_at: string;
+  updated_at: string;
 }
 
-export interface UserRole {
-  id: string;
-  user_id: string;
-  role: string;
-  created_at: string;
-}
-
-export type SortDirection = 'desc' | 'asc';
-
-export interface BlogFilters {
-  category?: string;
-  tag?: string;
-  search?: string;
-  sortBy?: 'created_at' | 'title';
-  sortDirection?: SortDirection;
-}
-
-export interface PaginationState {
-  page: number;
-  pageSize: number;
-  total: number;
+export interface ArticleWithRelations extends Article {
+  categoryObjects?: Category[];
+  tagObjects?: Tag[];
 }

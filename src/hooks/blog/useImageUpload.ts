@@ -1,114 +1,95 @@
 
 import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { v4 as uuidv4 } from 'uuid';
+import { supabaseBlog } from '@/integrations/supabase/blog-client';
 import { BlogImage } from '@/types/blog';
 
 export function useImageUpload() {
-  const { toast } = useToast();
   const [uploading, setUploading] = useState(false);
 
   const uploadImage = async (file: File): Promise<BlogImage | null> => {
     try {
       setUploading(true);
-      
-      // 1. Valider le fichier
-      if (!file || !file.type.startsWith('image/')) {
-        toast({
-          title: "Erreur",
-          description: "Le fichier doit être une image",
-          variant: "destructive",
-        });
-        return null;
-      }
-      
-      // 2. Upload file to storage
-      const fileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '')}`;
-      const filePath = `${fileName}`;
-      
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('blog_images')
-        .upload(filePath, file);
-      
+
+      // Générer un nom de fichier unique
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${uuidv4()}.${fileExt}`;
+      const storagePath = `images/${fileName}`;
+
+      // Téléverser l'image vers le stockage Supabase
+      const { error: uploadError } = await supabaseBlog.storage
+        .from('bloghypnose')
+        .upload(storagePath, file);
+
       if (uploadError) {
-        console.error("Erreur d'upload:", uploadError);
         throw uploadError;
       }
 
-      // 3. Get public URL
-      const { data: urlData } = supabase.storage
-        .from('blog_images')
-        .getPublicUrl(filePath);
-      
-      if (!urlData || !urlData.publicUrl) {
-        throw new Error("Impossible d'obtenir l'URL publique");
+      // Obtenir l'URL publique
+      const { data: publicURL } = supabaseBlog.storage
+        .from('bloghypnose')
+        .getPublicUrl(storagePath);
+
+      if (!publicURL) {
+        throw new Error('Impossible d\'obtenir l\'URL publique');
       }
 
-      // 4. Create entry in images table
-      const imageData: any = {
-        name: file.name,
-        description: '',
-        storage_path: filePath,
-        public_url: urlData.publicUrl,
-        size: file.size,
-        mime_type: file.type,
-      };
-
-      // Si c'est une image, essayer d'obtenir les dimensions
-      if (file.type.startsWith('image/')) {
-        try {
-          const dimensions = await getImageDimensions(file);
-          imageData.width = dimensions.width;
-          imageData.height = dimensions.height;
-        } catch (err) {
-          console.warn("Impossible d'obtenir les dimensions de l'image:", err);
-        }
+      // Obtenir les métadonnées de l'image
+      let width, height;
+      try {
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        await new Promise((resolve) => {
+          img.onload = () => {
+            width = img.width;
+            height = img.height;
+            resolve(null);
+          };
+        });
+      } catch (error) {
+        console.warn('Impossible d\'obtenir les dimensions de l\'image:', error);
       }
 
-      const { data: imageRecord, error: dbError } = await supabase
-        .from('images')
-        .insert(imageData)
-        .select()
+      // Enregistrer les métadonnées de l'image dans la base de données
+      const { data, error: dbError } = await supabaseBlog
+        .from('bloghypnose_images')
+        .insert({
+          filename: file.name,
+          storage_path: storagePath,
+          public_url: publicURL.publicUrl,
+          alt_text: '', // À remplir plus tard
+          width,
+          height,
+          size_bytes: file.size,
+          mime_type: file.type,
+          uploaded_by_user_id: (await supabaseBlog.auth.getUser()).data.user?.id || '',
+        })
+        .select('*')
         .single();
 
-      if (dbError) throw dbError;
-      
-      toast({
-        title: "Succès",
-        description: "Image téléversée avec succès",
-      });
-      
-      return imageRecord as BlogImage;
-    } catch (error: any) {
-      console.error("Erreur lors du téléversement de l'image:", error.message);
-      toast({
-        title: "Erreur",
-        description: `Impossible de téléverser l'image: ${error.message}`,
-        variant: "destructive",
-      });
+      if (dbError) {
+        throw dbError;
+      }
+
+      return {
+        id: data.id,
+        name: data.filename,
+        url: data.public_url,
+        storage_path: data.storage_path,
+        public_url: data.public_url,
+        size: data.size_bytes,
+        created_at: data.created_at,
+      };
+    } catch (error) {
+      console.error('Erreur lors du téléversement de l\'image:', error);
       return null;
     } finally {
       setUploading(false);
     }
   };
 
-  // Fonction utilitaire pour obtenir les dimensions de l'image
-  const getImageDimensions = (file: File): Promise<{width: number, height: number}> => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => {
-        resolve({
-          width: img.width,
-          height: img.height
-        });
-      };
-      img.onerror = reject;
-      img.src = URL.createObjectURL(file);
-    });
-  };
-
   return {
     uploadImage,
-    uploading
+    uploading,
   };
 }
