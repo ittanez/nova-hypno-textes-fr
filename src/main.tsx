@@ -10,7 +10,7 @@ const loadNonCriticalResources = () => {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
-    script.setAttribute('fetchpriority', 'low');
+    script.setAttribute('fetchPriority', 'low');
     
     // Ajout des en-têtes de cache pour les ressources statiques
     const link = document.createElement('link');
@@ -26,7 +26,7 @@ const loadNonCriticalResources = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.setAttribute('fetchpriority', 'low');
+    link.setAttribute('fetchPriority', 'low');
     document.head.appendChild(link);
   };
   

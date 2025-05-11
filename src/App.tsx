@@ -1,4 +1,5 @@
 
+import React, { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -32,7 +33,7 @@ function App() {
   };
 
   // Redirect HTTP to HTTPS in production - using useEffect to avoid issues during hydration
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined' && 
         location.protocol === 'http:' && 
         location.hostname !== 'localhost') {
