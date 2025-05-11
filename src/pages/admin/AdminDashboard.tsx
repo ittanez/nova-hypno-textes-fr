@@ -1,309 +1,252 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Edit, Trash2, Plus, FileText, Folder, Tag, Users, LogOut } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/blog/useAuth';
-import { useArticles } from '@/hooks/blog/useArticles';
-import { useCategories } from '@/hooks/blog/useCategories';
-import { useTags } from '@/hooks/blog/useTags';
+import { LayoutDashboard, FileText, Tag, ListFilter, Plus, PlusSquare } from 'lucide-react';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const { user, isAdmin, signOut } = useAuth();
-  const { articles, loading: articlesLoading, deleteArticle } = useArticles();
-  const { categories, loading: categoriesLoading } = useCategories();
-  const { tags, loading: tagsLoading } = useTags();
-  
-  const [isLoading, setIsLoading] = useState(true);
-  const username = user?.email || 'Admin';
+  const { toast } = useToast();
+  const { isAdmin, isLoading } = useAuth();
+  const [stats, setStats] = useState({
+    totalArticles: 0,
+    publishedArticles: 0,
+    draftArticles: 0,
+    categoriesCount: 0,
+    tagsCount: 0,
+    recentActivity: []
+  });
 
   useEffect(() => {
-    if (!isAdmin) {
+    if (!isLoading && !isAdmin) {
+      toast({
+        title: "Accès non autorisé",
+        description: "Vous devez être administrateur pour accéder à cette page",
+        variant: "destructive"
+      });
       navigate('/admin-blog');
       return;
     }
 
-    // Une fois que toutes les données sont chargées
-    setIsLoading(articlesLoading || categoriesLoading || tagsLoading);
-  }, [articlesLoading, categoriesLoading, tagsLoading, isAdmin]);
+    const fetchStats = async () => {
+      try {
+        // Get articles stats
+        const { data: articles, error: articlesError } = await supabase
+          .from('articles')
+          .select('id, title, published, created_at')
+          .order('created_at', { ascending: false });
 
-  const handleLogout = async () => {
-    await signOut();
-    navigate('/admin-blog');
-  };
+        if (articlesError) throw articlesError;
 
-  const handleDeleteArticle = async (id: string) => {
-    await deleteArticle(id);
-  };
+        // Get categories count
+        const { count: categoriesCount, error: categoriesError } = await supabase
+          .from('categories')
+          .select('id', { count: 'exact', head: true });
 
-  const formatDate = (dateString: string | null) => {
-    if (!dateString) return 'N/A';
-    
-    const options: Intl.DateTimeFormatOptions = { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+        if (categoriesError) throw categoriesError;
+
+        // Get tags count
+        const { count: tagsCount, error: tagsError } = await supabase
+          .from('tags')
+          .select('id', { count: 'exact', head: true });
+
+        if (tagsError) throw tagsError;
+
+        // Calculate stats
+        const publishedArticles = articles ? articles.filter(a => a.published).length : 0;
+        const draftArticles = articles ? articles.filter(a => !a.published).length : 0;
+        
+        // Get recent activity (last 5 articles)
+        const recentActivity = articles ? articles.slice(0, 5).map(article => ({
+          id: article.id,
+          title: article.title,
+          status: article.published ? 'Publié' : 'Brouillon',
+          date: new Date(article.created_at).toLocaleDateString('fr-FR')
+        })) : [];
+
+        setStats({
+          totalArticles: articles ? articles.length : 0,
+          publishedArticles,
+          draftArticles,
+          categoriesCount: categoriesCount || 0,
+          tagsCount: tagsCount || 0,
+          recentActivity
+        });
+      } catch (error) {
+        console.error("Erreur lors de la récupération des statistiques:", error);
+        toast({
+          title: "Erreur",
+          description: "Impossible de récupérer les statistiques du blog",
+          variant: "destructive"
+        });
+      }
     };
-    return new Date(dateString).toLocaleDateString('fr-FR', options);
-  };
+
+    if (isAdmin) {
+      fetchStats();
+    }
+  }, [isAdmin, isLoading, navigate, toast]);
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto py-12 px-4">
+        <div className="flex flex-col items-center justify-center min-h-[300px]">
+          <div className="h-12 w-12 border-4 border-t-nova-blue rounded-full animate-spin"></div>
+          <p className="mt-4 text-muted-foreground">Chargement du tableau de bord...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
       <Helmet>
-        <title>Tableau de Bord | NovaHypnose Blog Admin</title>
+        <title>Tableau de bord | Administration NovaHypnose</title>
       </Helmet>
       
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
+      <div className="container mx-auto py-8 px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-serif font-bold">Tableau de Bord</h1>
-            <p className="text-muted-foreground">Bienvenue, {username}</p>
-          </div>
-          
-          <div className="flex mt-4 md:mt-0 space-x-2">
-            <Button asChild>
-              <Link to="/admin-blog/article/new" className="flex items-center">
-                <Plus className="mr-2 h-4 w-4" />
-                Nouvel Article
-              </Link>
-            </Button>
-            
-            <Button variant="outline" onClick={handleLogout} className="flex items-center">
-              <LogOut className="mr-2 h-4 w-4" />
-              Déconnexion
-            </Button>
+            <h1 className="text-3xl font-serif font-bold flex items-center">
+              <LayoutDashboard className="mr-2 h-8 w-8" />
+              Tableau de bord
+            </h1>
+            <p className="text-muted-foreground">Gérez votre blog et ses contenus</p>
           </div>
         </div>
         
-        {isLoading ? (
-          <div className="flex flex-col items-center justify-center min-h-[400px]">
-            <div className="h-12 w-12 border-4 border-t-nova-blue rounded-full animate-spin"></div>
-            <p className="mt-4 text-muted-foreground">Chargement du tableau de bord...</p>
+        {/* Actions rapides */}
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">Actions rapides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Button 
+              onClick={() => navigate('/admin-blog/new-article')}
+              className="h-auto py-6 flex flex-col items-center justify-center gap-2"
+            >
+              <PlusSquare className="h-6 w-6" />
+              <span>Créer un nouvel article</span>
+            </Button>
+            
+            <Button 
+              onClick={() => navigate('/admin-blog/articles')} 
+              variant="outline"
+              className="h-auto py-6 flex flex-col items-center justify-center gap-2"
+            >
+              <FileText className="h-6 w-6" />
+              <span>Gérer les articles</span>
+            </Button>
+            
+            <Button 
+              onClick={() => navigate('/admin-blog/categories')}
+              variant="outline"
+              className="h-auto py-6 flex flex-col items-center justify-center gap-2"
+            >
+              <ListFilter className="h-6 w-6" />
+              <span>Gérer les catégories</span>
+            </Button>
+            
+            <Button 
+              onClick={() => navigate('/admin-blog/tags')}
+              variant="outline"
+              className="h-auto py-6 flex flex-col items-center justify-center gap-2"
+            >
+              <Tag className="h-6 w-6" />
+              <span>Gérer les tags</span>
+            </Button>
           </div>
-        ) : (
-          <>
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-lg">Articles</CardTitle>
-                  <FileText className="h-5 w-5 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold">{articles.length}</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {articles.filter(a => a.published).length} publiés, {articles.filter(a => !a.published).length} brouillons
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-lg">Catégories</CardTitle>
-                  <Folder className="h-5 w-5 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold">{categories.length}</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Catégories actives
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-lg">Tags</CardTitle>
-                  <Tag className="h-5 w-5 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold">{tags.length}</p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Tags disponibles
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-            
-            {/* Navigation Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <Card className="hover:border-nova-blue transition-colors">
-                <Link to="/admin-blog/article/new" className="block p-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-nova-blue-light p-3 rounded-full mb-4">
-                      <Plus className="h-6 w-6 text-nova-blue" />
-                    </div>
-                    <CardTitle className="text-xl mb-2">Nouvel Article</CardTitle>
-                    <CardDescription>Créer et publier un nouvel article pour votre blog</CardDescription>
-                  </div>
-                </Link>
-              </Card>
-              
-              <Card className="hover:border-nova-blue transition-colors">
-                <Link to="/admin-blog/categories" className="block p-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-nova-blue-light p-3 rounded-full mb-4">
-                      <Folder className="h-6 w-6 text-nova-blue" />
-                    </div>
-                    <CardTitle className="text-xl mb-2">Catégories & Tags</CardTitle>
-                    <CardDescription>Gérer les catégories et étiquettes de votre blog</CardDescription>
-                  </div>
-                </Link>
-              </Card>
-              
-              <Card className="hover:border-nova-blue transition-colors">
-                <Link to="/admin-blog/dashboard" className="block p-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-nova-blue-light p-3 rounded-full mb-4">
-                      <Users className="h-6 w-6 text-nova-blue" />
-                    </div>
-                    <CardTitle className="text-xl mb-2">Médias</CardTitle>
-                    <CardDescription>Gérer vos images et fichiers médias</CardDescription>
-                  </div>
-                </Link>
-              </Card>
-            </div>
-            
-            {/* Recent Articles Table */}
+        </section>
+        
+        {/* Statistiques */}
+        <section className="mb-8">
+          <h2 className="text-xl font-semibold mb-4">Statistiques</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <Card>
-              <CardHeader>
-                <CardTitle>Articles Récents</CardTitle>
-                <CardDescription>
-                  Gérez vos derniers articles publiés ou en brouillon
-                </CardDescription>
+              <CardHeader className="py-4 px-5">
+                <CardTitle className="text-lg">Total articles</CardTitle>
               </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Titre</TableHead>
-                      <TableHead>Statut</TableHead>
-                      <TableHead>Date</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {articles.length > 0 ? (
-                      articles
-                        .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-                        .slice(0, 10)
-                        .map((article) => (
-                          <TableRow key={article.id}>
-                            <TableCell className="font-medium max-w-[300px] truncate">
-                              {article.title}
-                            </TableCell>
-                            <TableCell>
-                              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                article.published
-                                  ? 'bg-green-100 text-green-800'
-                                  : 'bg-yellow-100 text-yellow-800'
-                              }`}>
-                                {article.published ? 'Publié' : 'Brouillon'}
-                              </span>
-                            </TableCell>
-                            <TableCell>
-                              {article.published 
-                                ? formatDate(article.updated_at) 
-                                : formatDate(article.created_at)}
-                            </TableCell>
-                            <TableCell className="text-right">
-                              <div className="flex justify-end space-x-2">
-                                <Button 
-                                  variant="ghost" 
-                                  size="sm" 
-                                  onClick={() => navigate(`/admin-blog/article/edit/${article.id}`)}
-                                >
-                                  <Edit className="h-4 w-4" />
-                                </Button>
-                                
-                                <AlertDialog>
-                                  <AlertDialogTrigger asChild>
-                                    <Button variant="ghost" size="sm">
-                                      <Trash2 className="h-4 w-4 text-red-500" />
-                                    </Button>
-                                  </AlertDialogTrigger>
-                                  <AlertDialogContent>
-                                    <AlertDialogHeader>
-                                      <AlertDialogTitle>Confirmer la suppression</AlertDialogTitle>
-                                      <AlertDialogDescription>
-                                        Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.
-                                      </AlertDialogDescription>
-                                    </AlertDialogHeader>
-                                    <AlertDialogFooter>
-                                      <AlertDialogCancel>Annuler</AlertDialogCancel>
-                                      <AlertDialogAction 
-                                        onClick={() => handleDeleteArticle(article.id)}
-                                        className="bg-red-600 hover:bg-red-700"
-                                      >
-                                        Supprimer
-                                      </AlertDialogAction>
-                                    </AlertDialogFooter>
-                                  </AlertDialogContent>
-                                </AlertDialog>
-                              </div>
-                            </TableCell>
-                          </TableRow>
-                        ))
-                    ) : (
-                      <TableRow>
-                        <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
-                          Aucun article trouvé. Créez votre premier article !
-                        </TableCell>
-                      </TableRow>
-                    )}
-                  </TableBody>
-                </Table>
+              <CardContent className="pt-0 px-5 pb-4">
+                <p className="text-3xl font-bold">{stats.totalArticles}</p>
               </CardContent>
             </Card>
             
-            {/* External links */}
-            <div className="mt-8">
-              <h3 className="text-lg font-medium mb-4">Liens rapides</h3>
-              <div className="flex flex-wrap gap-4">
-                <Button variant="outline" asChild>
-                  <Link to="/blog" target="_blank">
-                    Voir le blog
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link to="/admin-blog/categories">
-                    Gérer les catégories
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </>
-        )}
+            <Card>
+              <CardHeader className="py-4 px-5">
+                <CardTitle className="text-lg">Articles publiés</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0 px-5 pb-4">
+                <p className="text-3xl font-bold text-green-600">{stats.publishedArticles}</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader className="py-4 px-5">
+                <CardTitle className="text-lg">Brouillons</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0 px-5 pb-4">
+                <p className="text-3xl font-bold text-amber-600">{stats.draftArticles}</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader className="py-4 px-5">
+                <CardTitle className="text-lg">Catégories</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0 px-5 pb-4">
+                <p className="text-3xl font-bold text-blue-600">{stats.categoriesCount}</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader className="py-4 px-5">
+                <CardTitle className="text-lg">Tags</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0 px-5 pb-4">
+                <p className="text-3xl font-bold text-purple-600">{stats.tagsCount}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+        
+        {/* Activité récente */}
+        <section>
+          <h2 className="text-xl font-semibold mb-4">Activité récente</h2>
+          <Card>
+            <CardHeader>
+              <CardTitle>Derniers articles</CardTitle>
+              <CardDescription>Les 5 derniers articles créés ou modifiés</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                {stats.recentActivity.length > 0 ? (
+                  stats.recentActivity.map((item: any) => (
+                    <li key={item.id} className="flex justify-between items-center border-b pb-2">
+                      <div>
+                        <p className="font-medium">{item.title}</p>
+                        <p className="text-sm text-muted-foreground">{item.date}</p>
+                      </div>
+                      <span className={`px-2 py-1 text-xs rounded-full ${
+                        item.status === 'Publié' 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-amber-100 text-amber-800'
+                      }`}>
+                        {item.status}
+                      </span>
+                    </li>
+                  ))
+                ) : (
+                  <li className="text-center py-4 text-muted-foreground">
+                    Aucune activité récente
+                  </li>
+                )}
+              </ul>
+            </CardContent>
+          </Card>
+        </section>
       </div>
     </>
   );

@@ -1,5 +1,9 @@
 
-// Fonction pour générer un résumé et des mots-clés
+/**
+ * Fonction pour générer un résumé et des mots-clés à partir d'un contenu
+ * @param content Contenu HTML de l'article
+ * @returns Promise contenant l'extrait et les mots-clés
+ */
 export const generateSummaryAndKeywords = async (content: string): Promise<{ excerpt: string; keywords: string[] }> => {
   try {
     // Ici, nous simulons une réponse d'API

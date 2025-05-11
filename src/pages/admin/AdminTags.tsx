@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Card,
   CardContent,
@@ -30,7 +29,7 @@ import {
   Edit,
   Trash2,
   Save,
-  ListFilter,
+  Tag,
   X,
 } from 'lucide-react';
 import {
@@ -45,26 +44,24 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-type Category = {
+type TagType = {
   id: string;
   name: string;
   slug: string;
-  description: string | null;
   created_at: string;
 };
 
 const initialFormState = {
   name: '',
   slug: '',
-  description: '',
 };
 
-const AdminCategories = () => {
+const AdminTags = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { isAdmin, isLoading } = useAuth();
 
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [tags, setTags] = useState<TagType[]>([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState(initialFormState);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -82,29 +79,29 @@ const AdminCategories = () => {
       return;
     }
 
-    const fetchCategories = async () => {
+    const fetchTags = async () => {
       setLoading(true);
       try {
         const { data, error } = await supabase
-          .from('categories')
+          .from('tags')
           .select('*')
           .order('name');
         
         if (error) throw error;
         
-        setCategories(data || []);
+        setTags(data || []);
         
-        // Récupérer le nombre d'articles par catégorie
+        // Récupérer le nombre d'articles par tag
         const { data: articles } = await supabase
           .from('articles')
-          .select('categories');
+          .select('tags');
         
         if (articles) {
           const counts: Record<string, number> = {};
           
           articles.forEach(article => {
-            if (article.categories) {
-              article.categories.forEach((slug: string) => {
+            if (article.tags) {
+              article.tags.forEach((slug: string) => {
                 counts[slug] = (counts[slug] || 0) + 1;
               });
             }
@@ -113,10 +110,10 @@ const AdminCategories = () => {
           setArticleCounts(counts);
         }
       } catch (error) {
-        console.error('Erreur lors du chargement des catégories:', error);
+        console.error('Erreur lors du chargement des tags:', error);
         toast({
           title: "Erreur",
-          description: "Impossible de charger les catégories",
+          description: "Impossible de charger les tags",
           variant: "destructive"
         });
       } finally {
@@ -125,7 +122,7 @@ const AdminCategories = () => {
     };
 
     if (isAdmin) {
-      fetchCategories();
+      fetchTags();
     }
   }, [isAdmin, isLoading, navigate, toast]);
 
@@ -149,7 +146,7 @@ const AdminCategories = () => {
     }));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -170,43 +167,41 @@ const AdminCategories = () => {
       if (editingId) {
         // Mise à jour
         const { error } = await supabase
-          .from('categories')
+          .from('tags')
           .update({
             name: formData.name,
-            slug: formData.slug,
-            description: formData.description || null
+            slug: formData.slug
           })
           .eq('id', editingId);
         
         if (error) throw error;
         
-        setCategories(categories.map(category => 
-          category.id === editingId ? { ...category, ...formData } : category
+        setTags(tags.map(tag => 
+          tag.id === editingId ? { ...tag, ...formData } : tag
         ));
         
         toast({
-          title: "Catégorie mise à jour",
-          description: "La catégorie a été modifiée avec succès"
+          title: "Tag mis à jour",
+          description: "Le tag a été modifié avec succès"
         });
       } else {
         // Création
         const { data, error } = await supabase
-          .from('categories')
+          .from('tags')
           .insert({
             name: formData.name,
-            slug: formData.slug,
-            description: formData.description || null
+            slug: formData.slug
           })
           .select();
         
         if (error) throw error;
         
         if (data && data.length > 0) {
-          setCategories([...categories, data[0]]);
+          setTags([...tags, data[0]]);
           
           toast({
-            title: "Catégorie créée",
-            description: "La catégorie a été créée avec succès"
+            title: "Tag créé",
+            description: "Le tag a été créé avec succès"
           });
         }
       }
@@ -217,41 +212,40 @@ const AdminCategories = () => {
       console.error('Erreur lors de l\'enregistrement:', error);
       toast({
         title: "Erreur",
-        description: error.message || "Impossible d'enregistrer la catégorie",
+        description: error.message || "Impossible d'enregistrer le tag",
         variant: "destructive"
       });
     }
   };
 
-  const handleEdit = (category: Category) => {
+  const handleEdit = (tag: TagType) => {
     setFormData({
-      name: category.name,
-      slug: category.slug,
-      description: category.description || ''
+      name: tag.name,
+      slug: tag.slug,
     });
-    setEditingId(category.id);
+    setEditingId(tag.id);
   };
 
   const handleDelete = async (id: string) => {
     try {
       const { error } = await supabase
-        .from('categories')
+        .from('tags')
         .delete()
         .eq('id', id);
       
       if (error) throw error;
       
-      setCategories(categories.filter(category => category.id !== id));
+      setTags(tags.filter(tag => tag.id !== id));
       
       toast({
-        title: "Catégorie supprimée",
-        description: "La catégorie a été supprimée avec succès"
+        title: "Tag supprimé",
+        description: "Le tag a été supprimé avec succès"
       });
     } catch (error) {
       console.error('Erreur lors de la suppression:', error);
       toast({
         title: "Erreur",
-        description: "Impossible de supprimer la catégorie",
+        description: "Impossible de supprimer le tag",
         variant: "destructive"
       });
     }
@@ -262,10 +256,9 @@ const AdminCategories = () => {
     setEditingId(null);
   };
 
-  const filteredCategories = categories.filter(category =>
-    category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    category.slug.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (category.description && category.description.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredTags = tags.filter(tag =>
+    tag.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    tag.slug.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (isLoading || loading) {
@@ -273,7 +266,7 @@ const AdminCategories = () => {
       <div className="container mx-auto py-12 px-4">
         <div className="flex flex-col items-center justify-center min-h-[300px]">
           <div className="h-12 w-12 border-4 border-t-nova-blue rounded-full animate-spin"></div>
-          <p className="mt-4 text-muted-foreground">Chargement des catégories...</p>
+          <p className="mt-4 text-muted-foreground">Chargement des tags...</p>
         </div>
       </div>
     );
@@ -282,7 +275,7 @@ const AdminCategories = () => {
   return (
     <>
       <Helmet>
-        <title>Gestion des catégories | Administration NovaHypnose</title>
+        <title>Gestion des tags | Administration NovaHypnose</title>
       </Helmet>
       
       <div className="container mx-auto py-8 px-4">
@@ -297,11 +290,11 @@ const AdminCategories = () => {
           </Button>
           <div>
             <h1 className="text-3xl font-serif font-bold flex items-center">
-              <ListFilter className="mr-2 h-8 w-8" />
-              Gestion des catégories
+              <Tag className="mr-2 h-8 w-8" />
+              Gestion des tags
             </h1>
             <p className="text-muted-foreground">
-              {categories.length} catégorie{categories.length > 1 ? 's' : ''}
+              {tags.length} tag{tags.length > 1 ? 's' : ''}
             </p>
           </div>
         </div>
@@ -311,11 +304,11 @@ const AdminCategories = () => {
           <Card className="lg:col-span-1">
             <form onSubmit={handleSubmit}>
               <CardHeader>
-                <CardTitle>{editingId ? 'Modifier la catégorie' : 'Ajouter une catégorie'}</CardTitle>
+                <CardTitle>{editingId ? 'Modifier le tag' : 'Ajouter un tag'}</CardTitle>
                 <CardDescription>
                   {editingId 
-                    ? 'Modifiez les détails de la catégorie existante.' 
-                    : 'Créez une nouvelle catégorie pour vos articles.'}
+                    ? 'Modifiez les détails du tag existant.' 
+                    : 'Créez un nouveau tag pour vos articles.'}
                 </CardDescription>
               </CardHeader>
               
@@ -329,7 +322,7 @@ const AdminCategories = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleNameChange}
-                    placeholder="Nom de la catégorie"
+                    placeholder="Nom du tag"
                     required
                   />
                 </div>
@@ -343,26 +336,12 @@ const AdminCategories = () => {
                     name="slug"
                     value={formData.slug}
                     onChange={handleInputChange}
-                    placeholder="slug-de-la-categorie"
+                    placeholder="slug-du-tag"
                     required
                   />
                   <p className="text-xs text-muted-foreground">
                     L'identifiant unique utilisé dans l'URL (généré automatiquement)
                   </p>
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="description" className="text-sm font-medium">
-                    Description
-                  </label>
-                  <Textarea
-                    id="description"
-                    name="description"
-                    value={formData.description}
-                    onChange={handleInputChange}
-                    placeholder="Description de la catégorie"
-                    rows={4}
-                  />
                 </div>
               </CardContent>
               
@@ -381,19 +360,19 @@ const AdminCategories = () => {
                 ) : (
                   <Button type="submit" className="w-full">
                     <Plus className="mr-2 h-4 w-4" />
-                    Ajouter la catégorie
+                    Ajouter le tag
                   </Button>
                 )}
               </CardFooter>
             </form>
           </Card>
           
-          {/* Liste des catégories */}
+          {/* Liste des tags */}
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
                 <div className="flex justify-between items-center">
-                  <CardTitle>Liste des catégories</CardTitle>
+                  <CardTitle>Liste des tags</CardTitle>
                   <Input
                     placeholder="Rechercher..."
                     value={searchTerm}
@@ -414,29 +393,24 @@ const AdminCategories = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {filteredCategories.length > 0 ? (
-                      filteredCategories.map(category => (
-                        <TableRow key={category.id}>
+                    {filteredTags.length > 0 ? (
+                      filteredTags.map(tag => (
+                        <TableRow key={tag.id}>
                           <TableCell className="font-medium">
-                            {category.name}
-                            {category.description && (
-                              <p className="text-xs text-muted-foreground mt-1 line-clamp-1">
-                                {category.description}
-                              </p>
-                            )}
+                            {tag.name}
                           </TableCell>
                           <TableCell className="text-muted-foreground">
-                            {category.slug}
+                            {tag.slug}
                           </TableCell>
                           <TableCell>
-                            {articleCounts[category.slug] || 0}
+                            {articleCounts[tag.slug] || 0}
                           </TableCell>
                           <TableCell className="text-right">
                             <div className="flex justify-end space-x-2">
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => handleEdit(category)}
+                                onClick={() => handleEdit(tag)}
                               >
                                 <Edit className="h-4 w-4" />
                                 <span className="sr-only">Modifier</span>
@@ -456,17 +430,17 @@ const AdminCategories = () => {
                                 <AlertDialogContent>
                                   <AlertDialogHeader>
                                     <AlertDialogTitle>
-                                      Êtes-vous sûr de vouloir supprimer cette catégorie?
+                                      Êtes-vous sûr de vouloir supprimer ce tag?
                                     </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                      La suppression de cette catégorie la retirera de tous les articles associés.
+                                      La suppression de ce tag le retirera de tous les articles associés.
                                       Cette action est irréversible.
                                     </AlertDialogDescription>
                                   </AlertDialogHeader>
                                   <AlertDialogFooter>
                                     <AlertDialogCancel>Annuler</AlertDialogCancel>
                                     <AlertDialogAction 
-                                      onClick={() => handleDelete(category.id)}
+                                      onClick={() => handleDelete(tag.id)}
                                       className="bg-red-600 hover:bg-red-700"
                                     >
                                       Supprimer
@@ -482,9 +456,9 @@ const AdminCategories = () => {
                       <TableRow>
                         <TableCell colSpan={4} className="text-center py-10 text-muted-foreground">
                           {searchTerm ? (
-                            <p>Aucune catégorie ne correspond à votre recherche</p>
+                            <p>Aucun tag ne correspond à votre recherche</p>
                           ) : (
-                            <p>Aucune catégorie n'a encore été créée</p>
+                            <p>Aucun tag n'a encore été créé</p>
                           )}
                         </TableCell>
                       </TableRow>
@@ -500,4 +474,4 @@ const AdminCategories = () => {
   );
 };
 
-export default AdminCategories;
+export default AdminTags;

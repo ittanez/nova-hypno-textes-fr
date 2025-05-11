@@ -6,12 +6,34 @@ import { useEffect } from 'react';
  */
 export function useSeoMetadata() {
   useEffect(() => {
-    document.title = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti';
+    document.title = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti, Maître en Hypnose Ericksonienne';
     
-    // Update meta description
+    // Update meta description with optimal length for SEO
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Retrouvez confiance et équilibre grâce à l'hypnose ericksonienne à Paris avec Alain Zenatti, hypnothérapeute certifié. Séances sur mesure près de Bastille.");
+      metaDescription.setAttribute("content", "Hypnothérapie à Paris avec Alain Zenatti, spécialiste en hypnose ericksonienne. Séances personnalisées pour stress, sommeil, confiance. Cabinet proche Bastille.");
+    }
+
+    // Add meta keywords for better SEO
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'hypnothérapeute Paris, hypnose ericksonienne, Alain Zenatti, séance hypnose, cabinet hypnothérapie, stress, sommeil, confiance en soi, phobies, Hypno-Balade, forêt de Senonches');
+
+    // Add favicon (avoiding modification of the read-only favicon.ico)
+    const existingFavicon = document.querySelector('link[rel="icon"]');
+    if (existingFavicon) {
+      existingFavicon.setAttribute('href', '/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png');
+      existingFavicon.setAttribute('type', 'image/png');
+    } else {
+      const newFavicon = document.createElement('link');
+      newFavicon.rel = 'icon';
+      newFavicon.href = '/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png';
+      newFavicon.type = 'image/png';
+      document.head.appendChild(newFavicon);
     }
 
     // Add the schema.org structured data for local business
@@ -75,6 +97,16 @@ export function useSeoMetadata() {
             },
             "price": "255",
             "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hypno-Balade en Forêt de Senonches",
+              "description": "Expérience d'hypnose en pleine nature pour une reconnexion profonde"
+            },
+            "price": "120",
+            "priceCurrency": "EUR"
           }
         ]
       },
@@ -99,13 +131,18 @@ export function useSeoMetadata() {
         "worstRating": "1"
       }
     });
+    
+    const existingScript = document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      document.head.removeChild(existingScript);
+    }
     document.head.appendChild(script);
     
     // Clean up
     return () => {
-      const existingScript = document.querySelector('script[type="application/ld+json"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
+      const scriptToRemove = document.querySelector('script[type="application/ld+json"]');
+      if (scriptToRemove) {
+        document.head.removeChild(scriptToRemove);
       }
     };
   }, []);
