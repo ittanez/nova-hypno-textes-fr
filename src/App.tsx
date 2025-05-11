@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,7 +17,7 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDirect from "./pages/admin/AdminDirect"; 
-import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin"; // Import our new SimpleBlogAdmin component
+import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -60,13 +61,31 @@ function App() {
             {/* Admin routes - protected */}
             <Route path="/admin-blog" element={<AdminLayout />}>
               <Route index element={<AdminLogin />} />
-              <Route element={<PrivateRoute />}>
-                <Route path="dashboard" element={<AdminDashboard />} />
-                <Route path="article/new" element={<AdminArticleEditor />} />
-                <Route path="article/edit/:id" element={<AdminArticleEditor />} />
-                <Route path="categories" element={<AdminCategories />} />
-                <Route path="subscribers" element={<AdminSubscribers />} />
-              </Route>
+              <Route path="dashboard" element={
+                <PrivateRoute>
+                  <AdminDashboard />
+                </PrivateRoute>
+              } />
+              <Route path="article/new" element={
+                <PrivateRoute>
+                  <AdminArticleEditor />
+                </PrivateRoute>
+              } />
+              <Route path="article/edit/:id" element={
+                <PrivateRoute>
+                  <AdminArticleEditor />
+                </PrivateRoute>
+              } />
+              <Route path="categories" element={
+                <PrivateRoute>
+                  <AdminCategories />
+                </PrivateRoute>
+              } />
+              <Route path="subscribers" element={
+                <PrivateRoute>
+                  <AdminSubscribers />
+                </PrivateRoute>
+              } />
             </Route>
             
             {/* Previous direct admin route */}
