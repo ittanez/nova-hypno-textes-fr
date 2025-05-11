@@ -14,16 +14,20 @@ export interface AuthState {
     password: string
   ) => Promise<
     | { success: boolean; data: { user: User; session: Session; weakPassword?: WeakPassword } | { message: string }; error?: undefined }
-    | { success: boolean; error: string; data?: undefined }
+    | { success: boolean; error: { message: string }; data?: undefined }
   >;
   signUp: (
     email: string,
     password: string
   ) => Promise<
     | { success: boolean; data: { user: User; session: Session | null }; error?: undefined }
-    | { success: boolean; error: string; data?: undefined }
+    | { success: boolean; error: { message: string }; data?: undefined }
   >;
   signOut: () => Promise<void>;
+  requestAdminAccess: (fullName: string, reason: string) => Promise<
+    | { success: boolean; error?: undefined }
+    | { success: boolean; error: string }
+  >;
 }
 
 export const useAuth = (): AuthState => {
@@ -94,7 +98,7 @@ export const useAuth = (): AuthState => {
       console.error('Login error:', error);
       return {
         success: false,
-        error: error.message || 'Une erreur est survenue lors de la connexion'
+        error: { message: error.message || 'Une erreur est survenue lors de la connexion' }
       };
     }
   };
@@ -119,7 +123,7 @@ export const useAuth = (): AuthState => {
       console.error('Signup error:', error);
       return {
         success: false,
-        error: error.message || 'Une erreur est survenue lors de l\'inscription'
+        error: { message: error.message || 'Une erreur est survenue lors de l\'inscription' }
       };
     }
   };
@@ -132,6 +136,32 @@ export const useAuth = (): AuthState => {
     }
   };
 
+  const requestAdminAccess = async (fullName: string, reason: string) => {
+    try {
+      if (!user) throw new Error('Vous devez être connecté pour demander des droits administrateur');
+
+      const { error } = await supabase
+        .from('admin_requests')
+        .insert({
+          user_id: user.id,
+          user_email: user.email,
+          full_name: fullName,
+          reason: reason,
+          status: 'pending'
+        });
+
+      if (error) throw error;
+
+      return { success: true };
+    } catch (error: any) {
+      console.error('Admin request error:', error);
+      return {
+        success: false,
+        error: error.message || 'Une erreur est survenue lors de la demande de droits administrateur'
+      };
+    }
+  };
+
   // Ajout de l'alias isLoading pour compatibilité
   return {
     user,
@@ -141,6 +171,7 @@ export const useAuth = (): AuthState => {
     isAdmin,
     signIn,
     signUp,
-    signOut
+    signOut,
+    requestAdminAccess
   };
 };
