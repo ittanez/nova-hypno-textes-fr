@@ -1,39 +1,26 @@
 
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Header from "../Header";
-import Footer from "../Footer";
-import BlogSidebar from "./BlogSidebar";
+import Header from '../Header';
+import Footer from '../Footer';
+import ScrollToTop from '../ScrollToTop';
 
 const BlogLayout = () => {
-  const isTemporaryBlog = window.location.pathname.startsWith('/blog-temp');
-  
   return (
     <>
       <Helmet>
-        {isTemporaryBlog && (
-          <meta name="robots" content="noindex, nofollow" />
-        )}
-        <link rel="preconnect" href="https://cdn.gpteng.co" />
-        <link rel="preconnect" href="https://tools.luckyorange.com" />
+        <title>Blog - NovaHypnose</title>
+        <meta name="description" content="Blog professionnel sur l'hypnose, la thérapie et le bien-être - NovaHypnose" />
       </Helmet>
       
       <Header />
       
-      <main className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8">
-              <Outlet />
-            </div>
-            
-            <div className="lg:col-span-4">
-              <BlogSidebar />
-            </div>
-          </div>
-        </div>
+      <main className="container mx-auto px-4 py-12 md:py-16">
+        <Outlet />
       </main>
       
+      <ScrollToTop />
       <Footer />
     </>
   );

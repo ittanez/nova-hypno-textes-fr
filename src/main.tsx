@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -47,7 +47,11 @@ const loadNonCriticalResources = () => {
 
 // Rendu de l'application avec priorité maximale
 const root = createRoot(document.getElementById("root")!);
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // Wrapped in an immediate function to avoid global scope pollution
 (function() {

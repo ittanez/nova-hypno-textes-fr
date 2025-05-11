@@ -9,14 +9,16 @@ interface ContentLayoutProps {
   children: React.ReactNode;
 }
 
-const ContentLayout: React.FC<ContentLayoutProps> = ({ children }) => {
+const ContentLayout = ({ children }: ContentLayoutProps) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
-      <Footer />
+      <main>
+        {children}
+      </main>
       <ScrollToTop />
       <FloatingButton />
+      <Footer />
     </>
   );
 };
