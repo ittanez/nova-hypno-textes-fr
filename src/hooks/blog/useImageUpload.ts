@@ -79,6 +79,8 @@ export function useImageUpload() {
         public_url: data.public_url,
         size: data.size_bytes,
         created_at: data.created_at,
+        width: data.width,
+        height: data.height
       };
     } catch (error) {
       console.error('Erreur lors du téléversement de l\'image:', error);

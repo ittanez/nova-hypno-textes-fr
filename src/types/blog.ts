@@ -7,6 +7,8 @@ export interface BlogImage {
   public_url: string;
   size?: number;
   created_at: string;
+  width?: number;
+  height?: number;
 }
 
 export interface Article {
@@ -26,6 +28,9 @@ export interface Article {
   tags?: string[];
   view_count?: number;
   is_featured?: boolean;
+  image_url?: string;
+  published?: boolean;
+  featured?: boolean;
 }
 
 export interface Category {
@@ -50,3 +55,12 @@ export interface ArticleWithRelations extends Article {
   categoryObjects?: Category[];
   tagObjects?: Tag[];
 }
+
+export interface BlogFilters {
+  category?: string;
+  tag?: string;
+  search?: string;
+  author?: string;
+}
+
+export type SortDirection = 'asc' | 'desc';
