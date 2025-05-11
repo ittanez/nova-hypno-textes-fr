@@ -43,7 +43,7 @@ const BlogIndex = () => {
         },
         sort: {
           field: filters.sortBy,
-          direction: filters.sortDirection
+          direction: filters.sortDirection as 'asc' | 'desc'
         }
       });
     };

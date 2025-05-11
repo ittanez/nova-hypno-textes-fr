@@ -52,6 +52,7 @@ export function useArticles() {
     }
   };
   
+  // Define FetchOptions interface explicitly to avoid infinite type instantiation
   interface FetchOptions {
     range?: {
       from: number;
@@ -99,7 +100,7 @@ export function useArticles() {
       }
 
       // Ensure data is compatible with Article type by adding required fields
-      const formattedArticles: Article[] = (data || []).map(item => {
+      const formattedArticles: Article[] = (data || []).map((item: any) => {
         return {
           ...item,
           id: item.id,
