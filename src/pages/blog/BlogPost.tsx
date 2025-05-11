@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -27,7 +28,12 @@ const BlogPost = () => {
         const { article: articleData } = await fetchArticleById(articleId);
         
         if (articleData) {
-          setArticle(articleData);
+          // Ensure the article has all required fields before setting it
+          setArticle({
+            ...articleData,
+            slug: articleData.slug || '',
+            status: articleData.status || 'published'
+          } as Article);
           setLoading(false);
         } else {
           navigate('/blog');
@@ -134,7 +140,7 @@ const BlogPost = () => {
             )}
             
             <div className="flex flex-wrap gap-1">
-              {article.categories.map((category, index) => (
+              {article.categories && article.categories.map((category, index) => (
                 <Link 
                   key={`category-${index}`}
                   to={`/blog/category/${getSlug(category)}`}

@@ -1,7 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/blog/useAuth';
 import { useArticles } from '@/hooks/blog/useArticles';
@@ -26,7 +26,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import {
   Form,
@@ -62,7 +61,7 @@ import { CalendarIcon } from "lucide-react"
 const SimpleBlogAdmin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { isAdmin, isLoading } = useAuth();
+  const { isAdmin, loading: isAuthLoading } = useAuth();
   const { fetchArticles, fetchArticleById, createArticle, updateArticle, deleteArticle } = useArticles();
   const { categories, fetchCategories } = useCategories();
   const { tags, fetchTags } = useTags();
@@ -76,7 +75,7 @@ const SimpleBlogAdmin = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (!isLoading && !isAdmin) {
+    if (!isAuthLoading && !isAdmin) {
       toast({
         title: "Accès non autorisé",
         description: "Vous devez être administrateur pour accéder à cette page",
@@ -88,8 +87,10 @@ const SimpleBlogAdmin = () => {
 
     const loadArticles = async () => {
       setLoading(true);
-      const { articles: fetchedArticles } = await fetchArticles();
-      setArticles(fetchedArticles || []);
+      const result = await fetchArticles();
+      if (result && result.articles) {
+        setArticles(result.articles);
+      }
       setLoading(false);
     };
 
@@ -98,7 +99,7 @@ const SimpleBlogAdmin = () => {
       fetchCategories();
       fetchTags();
     }
-  }, [isAdmin, isLoading, navigate, toast, fetchArticles, fetchCategories, fetchTags]);
+  }, [isAdmin, isAuthLoading, navigate, toast, fetchArticles, fetchCategories, fetchTags]);
 
   const handleCreateArticle = () => {
     setEditingArticle(null);
@@ -109,7 +110,12 @@ const SimpleBlogAdmin = () => {
     const { article } = await fetchArticleById(id);
   
     if (article) {
-      setEditingArticle(article);
+      // Ensure that article has all required fields
+      setEditingArticle({
+        ...article,
+        slug: article.slug || '',
+        status: article.status || 'draft'
+      } as Article);
       setShowArticleForm(true);
     } else {
       toast({
@@ -133,13 +139,18 @@ const SimpleBlogAdmin = () => {
         article.id === id ? { ...article, published: true } : article
       ));
   
-      // Update the article in the database
-      await updateArticle(id, { published: true });
+      // Update the article in the database with minimal required fields
+      const updatedData = await updateArticle(id, { 
+        published: true,
+        status: 'published'
+      });
   
       toast({
         title: "Article publié",
         description: "L'article a été publié avec succès.",
       });
+      
+      return updatedData;
     } catch (error: any) {
       console.error("Error publishing article:", error);
       toast({
@@ -151,6 +162,7 @@ const SimpleBlogAdmin = () => {
       setArticles(articles.map(article =>
         article.id === id ? { ...article, published: false } : article
       ));
+      return null;
     } finally {
       setIsPublishing(false);
     }
@@ -169,13 +181,18 @@ const SimpleBlogAdmin = () => {
         article.id === id ? { ...article, published: false } : article
       ));
   
-      // Update the article in the database
-      await updateArticle(id, { published: false });
+      // Update the article in the database with minimal required fields
+      const updatedData = await updateArticle(id, { 
+        published: false,
+        status: 'draft'
+      });
   
       toast({
         title: "Article retiré",
         description: "L'article a été retiré de la publication avec succès.",
       });
+      
+      return updatedData;
     } catch (error: any) {
       console.error("Error unpublishing article:", error);
       toast({
@@ -187,6 +204,7 @@ const SimpleBlogAdmin = () => {
       setArticles(articles.map(article =>
         article.id === id ? { ...article, published: true } : article
       ));
+      return null;
     } finally {
       setIsUnpublishing(false);
     }
@@ -215,7 +233,7 @@ const SimpleBlogAdmin = () => {
       // Revert the UI update in case of failure
       const { article: restoredArticle } = await fetchArticleById(id);
       if (restoredArticle) {
-        setArticles([...articles, restoredArticle]);
+        setArticles([...articles, restoredArticle as Article]);
       }
     } finally {
       setIsDeleting(false);
@@ -227,28 +245,49 @@ const SimpleBlogAdmin = () => {
     setEditingArticle(null);
   };
 
-  const handleArticleSubmit = async (data: any) => {
+  const handleArticleSubmit = async (formData: any) => {
     setLoading(true);
     try {
       if (editingArticle) {
         // Update existing article
-        await updateArticle(editingArticle.id, data);
-        setArticles(articles.map(article => article.id === editingArticle.id ? { ...article, ...data } : article));
-        toast({
-          title: "Article mis à jour",
-          description: "L'article a été mis à jour avec succès.",
+        const updatedArticle = await updateArticle(editingArticle.id, {
+          ...formData,
+          slug: formData.slug || (formData.title ? formData.title.toLowerCase().replace(/\s+/g, '-') : editingArticle.slug),
+          status: formData.published ? 'published' : 'draft'
         });
+        
+        if (updatedArticle) {
+          setArticles(articles.map(article => 
+            article.id === editingArticle.id ? updatedArticle as Article : article
+          ));
+          
+          toast({
+            title: "Article mis à jour",
+            description: "L'article a été mis à jour avec succès.",
+          });
+        }
       } else {
-        // Create new article
-        const { data: newArticle } = await createArticle(data);
+        // Create new article with required fields
+        const articleData = {
+          ...formData,
+          slug: formData.slug || (formData.title ? formData.title.toLowerCase().replace(/\s+/g, '-') : ''),
+          status: formData.published ? 'published' : 'draft',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        };
+        
+        const newArticle = await createArticle(articleData);
+        
         if (newArticle) {
-          setArticles([...articles, newArticle]);
+          setArticles([newArticle as Article, ...articles]);
+          
           toast({
             title: "Article créé",
             description: "L'article a été créé avec succès.",
           });
         }
       }
+      
       handleArticleFormClose();
     } catch (error: any) {
       console.error("Error submitting article:", error);
@@ -262,7 +301,7 @@ const SimpleBlogAdmin = () => {
     }
   };
 
-  if (isLoading) {
+  if (isAuthLoading) {
     return (
       <div className="container mx-auto py-12 px-4">
         <div className="flex flex-col items-center justify-center min-h-[300px]">

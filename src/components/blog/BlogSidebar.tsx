@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,9 +12,9 @@ import { useArticles } from '@/hooks/blog/useArticles';
 
 const BlogSidebar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { categories } = useCategories();
+  const { categories, loading: categoriesLoading } = useCategories();
   const { tags, loading: tagsLoading } = useTags();
-  const { articles, loading: loadingArticles } = useArticles({ sortBy: 'created_at', sortDirection: 'desc' });
+  const { articles, loading: loadingArticles } = useArticles();
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +64,7 @@ const BlogSidebar: React.FC = () => {
                 <span>{category.name}</span>
                 {/* Count would be dynamic in a real app */}
                 <span className="text-xs bg-muted rounded-full px-2 py-0.5">
-                  {articles.filter(a => a.categories.includes(category.name)).length}
+                  {articles.filter(a => a.categories?.includes(category.name)).length}
                 </span>
               </Link>
             ))

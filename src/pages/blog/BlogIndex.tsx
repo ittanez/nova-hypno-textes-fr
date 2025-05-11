@@ -1,10 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Separator } from '@/components/ui/separator';
-import { Calendar, User, Search, ChevronsDown } from 'lucide-react';
+import { Calendar, User, Search } from 'lucide-react';
 import { useArticles } from '@/hooks/blog/useArticles';
 import { useCategories } from '@/hooks/blog/useCategories';
 import { useTags } from '@/hooks/blog/useTags';
@@ -34,12 +34,21 @@ const BlogIndex = () => {
   });
   
   useEffect(() => {
-    fetchArticles({
-      category: filters.category,
-      tag: filters.tag,
-      sortBy: filters.sortBy,
-      sortDirection: filters.sortDirection,
-    });
+    const loadArticles = async () => {
+      await fetchArticles({
+        filters: {
+          category: filters.category,
+          tag: filters.tag,
+          search: filters.search,
+        },
+        sort: {
+          field: filters.sortBy,
+          direction: filters.sortDirection
+        }
+      });
+    };
+    
+    loadArticles();
   }, [filters, fetchArticles]);
   
   const formatDate = (dateString: string) => {
@@ -63,22 +72,22 @@ const BlogIndex = () => {
       .replace(/--+/g, '-');
   };
   
-  const handlePageChange = (page: number) => {
-    // Implement custom pagination logic if needed
-    // Since useArticles doesn't have pagination support built-in
+  const handlePageChange = () => {
+    // Implement custom pagination logic if needed in the future
+    // Since current implementation doesn't have pagination
   };
   
   const handleCategoryChange = (categoryId: string | undefined) => {
     setFilters(prevFilters => ({
       ...prevFilters,
-      category: categoryId,
+      category: categoryId || '',
     }));
   };
   
   const handleTagChange = (tagId: string | undefined) => {
     setFilters(prevFilters => ({
       ...prevFilters,
-      tag: tagId,
+      tag: tagId || '',
     }));
   };
   
@@ -91,7 +100,10 @@ const BlogIndex = () => {
   };
   
   const handleSortChange = (sortBy: string) => {
-    // Implement custom sorting logic if needed
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      sortBy: sortBy,
+    }));
   };
   
   return (
@@ -177,7 +189,7 @@ const BlogIndex = () => {
         ) : error ? (
           <div className="text-center py-12">
             <h2 className="text-2xl font-bold mb-4">Erreur</h2>
-            <p className="text-muted-foreground">{error}</p>
+            <p className="text-muted-foreground">{error.toString()}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -229,7 +241,7 @@ const BlogIndex = () => {
           <Button 
             variant="outline" 
             size="sm"
-            onClick={() => handlePageChange(1)}
+            onClick={handlePageChange}
             disabled={true}
           >
             Première page
@@ -238,7 +250,7 @@ const BlogIndex = () => {
           <Button 
             variant="outline" 
             size="sm"
-            onClick={() => handlePageChange(1)}
+            onClick={handlePageChange}
             disabled={true}
           >
             Page précédente
@@ -249,7 +261,7 @@ const BlogIndex = () => {
           <Button 
             variant="outline" 
             size="sm"
-            onClick={() => handlePageChange(1)}
+            onClick={handlePageChange}
             disabled={true}
           >
             Page suivante
@@ -258,7 +270,7 @@ const BlogIndex = () => {
           <Button 
             variant="outline" 
             size="sm"
-            onClick={() => handlePageChange(1)}
+            onClick={handlePageChange}
             disabled={true}
           >
             Dernière page

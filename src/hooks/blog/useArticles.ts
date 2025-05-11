@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Article } from '@/types/blog';
@@ -5,7 +6,7 @@ import { Article } from '@/types/blog';
 export function useArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchArticleById = async (id: string) => {
     try {
@@ -22,7 +23,7 @@ export function useArticles() {
           ...data,
           categoryObjects: data.categories,
           tagObjects: data.tags
-        } : null 
+        } as ArticleWithRelations : null 
       };
     } catch (error) {
       console.error('Error fetching article by ID:', error);
@@ -30,7 +31,7 @@ export function useArticles() {
     }
   };
   
-  const fetchArticles = async (options = {}) => {
+  const fetchArticles = async (options: any = {}) => {
     try {
       setLoading(true);
       setError(null);
@@ -60,20 +61,38 @@ export function useArticles() {
         throw error;
       }
 
-      setArticles(data || []);
+      // Ensure data is compatible with Article type by adding required fields if missing
+      const formattedArticles: Article[] = (data || []).map(item => ({
+        ...item,
+        slug: item.slug || '',
+        status: item.status || (item.published ? 'published' : 'draft')
+      })) as Article[];
+
+      setArticles(formattedArticles);
+      return { articles: formattedArticles };
     } catch (error: any) {
-      setError(error);
-      console.error("Error fetching articles:", error.message);
+      const errorMessage = error.message || 'An error occurred while fetching articles';
+      setError(errorMessage);
+      console.error("Error fetching articles:", errorMessage);
+      return { articles: [] };
     } finally {
       setLoading(false);
     }
   };
 
-  const createArticle = async (articleData: Article) => {
+  const getArticle = async (id: string) => {
+    return fetchArticleById(id);
+  };
+
+  const createArticle = async (articleData: Partial<Article>) => {
     try {
       const { data, error } = await supabase
         .from('articles')
-        .insert([articleData])
+        .insert([{
+          ...articleData,
+          slug: articleData.slug || generateSlug(articleData.title || ''),
+          status: articleData.status || 'draft'
+        }])
         .select()
         .single();
 
@@ -88,7 +107,7 @@ export function useArticles() {
     }
   };
 
-  const updateArticle = async (id: string, articleData: Article) => {
+  const updateArticle = async (id: string, articleData: Partial<Article>) => {
     try {
       const { data, error } = await supabase
         .from('articles')
@@ -126,14 +145,29 @@ export function useArticles() {
     }
   };
 
+  // Helper function to generate slugs from titles
+  const generateSlug = (title: string) => {
+    return title
+      .toString()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-');
+  };
+
   return {
     articles,
     loading,
     error,
     fetchArticles,
     fetchArticleById,
+    getArticle, // Add this function to fix SimpleBlogAdmin's errors
     createArticle,
     updateArticle,
     deleteArticle,
+    generateSlug
   };
 }
