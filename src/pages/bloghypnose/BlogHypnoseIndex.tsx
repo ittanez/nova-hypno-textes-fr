@@ -1,223 +1,286 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Calendar, ArrowRight } from 'lucide-react';
-import { format } from 'date-fns';
-import { fr } from 'date-fns/locale';
-import { supabase } from "@/integrations/supabase/client";
-import type { Article } from '@/types/blog';
+import { useBlogArticles, BlogArticle } from '@/hooks/bloghypnose/useBlogArticles';
+import ImageOptimized from '@/components/bloghypnose/ImageOptimized';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination';
+import { Card, CardContent } from '@/components/ui/card';
+import { Search } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 const BlogHypnoseIndex = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchParams] = useSearchParams();
-  const categoryFilter = searchParams.get('category');
-  const tagFilter = searchParams.get('tag');
-  const searchQuery = searchParams.get('q');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   
+  // Configurer les filtres avec le terme de recherche
+  const filters = debouncedSearch ? { search: debouncedSearch, status: 'published' as const } : { status: 'published' as const };
+  
+  // Utiliser le hook personnalisé pour récupérer les articles
+  const { 
+    articles, 
+    loading, 
+    pagination, 
+    changePage, 
+    getFeaturedArticles 
+  } = useBlogArticles(filters, { pageSize: 9 });
+  
+  const [featuredArticles, setFeaturedArticles] = useState<BlogArticle[]>([]);
+  const [loadingFeatured, setLoadingFeatured] = useState(true);
+  
+  // Effet pour débouncer la recherche
   useEffect(() => {
-    const fetchArticles = async () => {
-      setLoading(true);
-      try {
-        let query = supabase
-          .from('articles')
-          .select('*')
-          .eq('published', true)
-          .order('created_at', { ascending: false });
-          
-        if (categoryFilter) {
-          query = query.contains('categories', [categoryFilter]);
-        }
-        
-        if (tagFilter) {
-          query = query.contains('tags', [tagFilter]);
-        }
-        
-        if (searchQuery) {
-          query = query.or(`title.ilike.%${searchQuery}%,content.ilike.%${searchQuery}%`);
-        }
-        
-        const { data, error } = await query;
-        
-        if (error) throw error;
-        
-        setArticles(data as Article[]);
-      } catch (err: any) {
-        console.error("Erreur lors du chargement des articles:", err);
-        setError(err.message || "Une erreur est survenue lors du chargement des articles");
-      } finally {
-        setLoading(false);
-      }
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchQuery);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+  
+  // Charger les articles en vedette au chargement de la page
+  useEffect(() => {
+    const loadFeaturedArticles = async () => {
+      setLoadingFeatured(true);
+      const featured = await getFeaturedArticles(3);
+      setFeaturedArticles(featured);
+      setLoadingFeatured(false);
     };
     
-    fetchArticles();
-  }, [categoryFilter, tagFilter, searchQuery]);
+    loadFeaturedArticles();
+  }, []);
   
-  const renderFilters = () => {
-    let filterText = '';
-    
-    if (categoryFilter) {
-      filterText = `Catégorie: ${categoryFilter}`;
-    } else if (tagFilter) {
-      filterText = `Tag: ${tagFilter}`;
-    } else if (searchQuery) {
-      filterText = `Recherche: "${searchQuery}"`;
-    }
-    
-    return filterText ? (
-      <div className="mb-6">
-        <div className="flex items-center justify-between">
-          <div className="text-sm text-muted-foreground">
-            Filtres actifs: <span className="font-semibold">{filterText}</span>
-          </div>
-          <Link to="/bloghypnose">
-            <Button variant="outline" size="sm">
-              Effacer les filtres
-            </Button>
-          </Link>
-        </div>
-      </div>
-    ) : null;
+  // Formater la date pour l'affichage
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
-
+  
+  // Générer le nombre de pages pour la pagination
+  const totalPages = Math.ceil(pagination.total / pagination.pageSize);
+  const pageNumbers = [];
+  
+  // Limiter le nombre de pages affichées dans la pagination
+  const maxPageButtons = 5;
+  let startPage = Math.max(1, pagination.page - Math.floor(maxPageButtons / 2));
+  let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+  
+  if (endPage - startPage + 1 < maxPageButtons) {
+    startPage = Math.max(1, endPage - maxPageButtons + 1);
+  }
+  
+  for (let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
+  }
+  
   return (
     <>
       <Helmet>
-        <title>
-          {categoryFilter ? `Catégorie: ${categoryFilter} | ` : 
-           tagFilter ? `Tag: ${tagFilter} | ` : 
-           searchQuery ? `Recherche: ${searchQuery} | ` : ''}
-          BlogHypnose - NovaHypnose
-        </title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>BlogHypnose - Explorer l'hypnose et le bien-être</title>
+        <meta name="description" content="Découvrez des articles, conseils et techniques sur l'hypnose, la méditation et le développement personnel." />
       </Helmet>
       
-      <div className="space-y-8">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">
-            {categoryFilter ? `Articles dans la catégorie "${categoryFilter}"` : 
-             tagFilter ? `Articles avec le tag "${tagFilter}"` : 
-             searchQuery ? `Résultats de recherche pour "${searchQuery}"` : 
-             'Derniers articles'}
+      {/* En-tête avec recherche */}
+      <div className="mb-12">
+        <div className="max-w-4xl mx-auto text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            BlogHypnose
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Découvrez nos articles sur l'hypnose, la thérapie et le développement personnel
+          <p className="text-xl text-gray-600">
+            Explorer les chemins de l'hypnose, de la méditation et du bien-être
           </p>
         </div>
         
-        {renderFilters()}
-        
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <div className="h-10 w-10 border-4 border-t-nova-blue rounded-full animate-spin"></div>
-          </div>
-        ) : error ? (
-          <div className="text-center py-12">
-            <p className="text-red-500">{error}</p>
-            <Button 
-              variant="outline" 
-              onClick={() => window.location.reload()}
-              className="mt-4"
-            >
-              Réessayer
-            </Button>
-          </div>
-        ) : articles.length === 0 ? (
-          <div className="text-center py-12">
-            <h2 className="text-xl font-semibold mb-2">Aucun article trouvé</h2>
-            <p className="text-muted-foreground mb-6">
-              {categoryFilter || tagFilter || searchQuery ? 
-                "Essayez un autre filtre ou terme de recherche." : 
-                "Le blog sera bientôt rempli de contenu intéressant."}
-            </p>
-            
-            {(categoryFilter || tagFilter || searchQuery) && (
-              <Link to="/bloghypnose">
-                <Button>Voir tous les articles</Button>
-              </Link>
-            )}
-          </div>
-        ) : (
-          <div className="grid gap-6 md:gap-8">
-            {articles.map((article) => (
-              <Card key={article.id} className="overflow-hidden">
-                <div className="md:flex">
-                  {article.image_url && (
-                    <div className="md:w-1/3 h-56 md:h-auto">
-                      <img 
-                        src={article.image_url} 
-                        alt={article.title} 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
+        <div className="max-w-md mx-auto relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <Input
+            type="text"
+            placeholder="Rechercher un article..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-10 py-6"
+          />
+        </div>
+      </div>
+      
+      {/* Articles en vedette */}
+      {!debouncedSearch && (
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-6">Articles en vedette</h2>
+          
+          {loadingFeatured ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((_, index) => (
+                <Card key={`featured-skeleton-${index}`} className="h-80 animate-pulse">
+                  <div className="bg-gray-200 h-40"></div>
+                  <CardContent className="p-4">
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-full"></div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : featuredArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredArticles.map((article) => (
+                <Card key={article.id} className="overflow-hidden transition-all hover:shadow-lg">
+                  <Link to={`/bloghypnose/${article.slug}`} className="block">
+                    <div className="h-40 overflow-hidden">
+                      <ImageOptimized
+                        src={article.featured_image_url || '/placeholder.svg'}
+                        alt={article.title}
+                        className="w-full h-40 object-cover"
                       />
                     </div>
-                  )}
-                  
-                  <div className={`${article.image_url ? 'md:w-2/3' : 'w-full'}`}>
-                    <CardHeader>
-                      <div className="flex items-center text-sm text-muted-foreground mb-2">
-                        <Calendar className="h-4 w-4 mr-1" aria-hidden="true" />
-                        <time dateTime={article.created_at}>
-                          {format(new Date(article.created_at), 'dd MMMM yyyy', {locale: fr})}
-                        </time>
-                      </div>
-                      
-                      <CardTitle className="text-2xl">
-                        <Link 
-                          to={`/bloghypnose/article/${article.id}`}
-                          className="hover:text-nova-blue transition-colors"
-                        >
-                          {article.title}
-                        </Link>
-                      </CardTitle>
-                      
-                      <CardDescription className="line-clamp-2">
-                        {article.excerpt || article.content.replace(/<[^>]*>/g, '').slice(0, 160) + '...'}
-                      </CardDescription>
-                    </CardHeader>
-                    
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {article.categories?.map((category) => (
-                          <Link 
-                            key={category}
-                            to={`/bloghypnose?category=${encodeURIComponent(category)}`}
-                            className="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full transition-colors"
-                          >
-                            {category}
-                          </Link>
-                        ))}
-                      </div>
+                    <CardContent className="p-4">
+                      <h3 className="font-bold text-lg mb-2 line-clamp-2">{article.title}</h3>
+                      <p className="text-sm text-gray-500 mb-2">
+                        {formatDate(article.created_at)}
+                      </p>
+                      <p className="text-gray-600 text-sm line-clamp-3">
+                        {article.excerpt || article.content.substring(0, 120) + '...'}
+                      </p>
                     </CardContent>
-                    
-                    <CardFooter>
-                      <Link 
-                        to={`/bloghypnose/article/${article.id}`}
-                        className="inline-flex items-center text-sm font-medium text-nova-blue hover:underline"
-                      >
-                        Lire l'article complet
-                        <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
-                      </Link>
-                    </CardFooter>
-                  </div>
-                </div>
+                  </Link>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500">Aucun article en vedette disponible</p>
+          )}
+        </section>
+      )}
+      
+      {/* Liste des articles */}
+      <section>
+        <h2 className="text-2xl font-bold mb-6">
+          {debouncedSearch 
+            ? `Résultats pour "${debouncedSearch}" (${pagination.total})` 
+            : 'Articles récents'}
+        </h2>
+        
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <Card key={`skeleton-${index}`} className="h-80 animate-pulse">
+                <div className="bg-gray-200 h-40"></div>
+                <CardContent className="p-4">
+                  <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-1/2 mb-4"></div>
+                  <div className="h-4 bg-gray-200 rounded w-full mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded w-full"></div>
+                </CardContent>
               </Card>
             ))}
           </div>
+        ) : articles.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {articles.map((article) => (
+              <Card key={article.id} className="overflow-hidden transition-all hover:shadow-lg">
+                <Link to={`/bloghypnose/${article.slug}`} className="block">
+                  <div className="h-40 overflow-hidden">
+                    <ImageOptimized
+                      src={article.featured_image_url || '/placeholder.svg'}
+                      alt={article.title}
+                      className="w-full h-40 object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-bold text-lg mb-2 line-clamp-2">{article.title}</h3>
+                    <p className="text-sm text-gray-500 mb-2">
+                      {formatDate(article.created_at)}
+                    </p>
+                    <p className="text-gray-600 text-sm line-clamp-3">
+                      {article.excerpt || article.content.substring(0, 120) + '...'}
+                    </p>
+                  </CardContent>
+                </Link>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-500 mb-4">
+              {debouncedSearch 
+                ? `Aucun résultat trouvé pour "${debouncedSearch}"` 
+                : "Aucun article disponible pour le moment"}
+            </p>
+            {debouncedSearch && (
+              <p className="text-gray-600">
+                Essayez avec d'autres termes ou parcourez nos catégories
+              </p>
+            )}
+          </div>
         )}
-      </div>
+        
+        {/* Pagination */}
+        {!loading && articles.length > 0 && totalPages > 1 && (
+          <Pagination className="mt-8">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious 
+                  onClick={() => changePage(Math.max(1, pagination.page - 1))}
+                  className={pagination.page === 1 ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+              
+              {startPage > 1 && (
+                <>
+                  <PaginationItem>
+                    <PaginationLink onClick={() => changePage(1)}>1</PaginationLink>
+                  </PaginationItem>
+                  {startPage > 2 && (
+                    <PaginationItem>
+                      <span className="px-4">...</span>
+                    </PaginationItem>
+                  )}
+                </>
+              )}
+              
+              {pageNumbers.map((page) => (
+                <PaginationItem key={page}>
+                  <PaginationLink 
+                    isActive={page === pagination.page}
+                    onClick={() => changePage(page)}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              
+              {endPage < totalPages && (
+                <>
+                  {endPage < totalPages - 1 && (
+                    <PaginationItem>
+                      <span className="px-4">...</span>
+                    </PaginationItem>
+                  )}
+                  <PaginationItem>
+                    <PaginationLink onClick={() => changePage(totalPages)}>
+                      {totalPages}
+                    </PaginationLink>
+                  </PaginationItem>
+                </>
+              )}
+              
+              <PaginationItem>
+                <PaginationNext 
+                  onClick={() => changePage(Math.min(totalPages, pagination.page + 1))}
+                  className={pagination.page === totalPages ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        )}
+      </section>
     </>
   );
 };
