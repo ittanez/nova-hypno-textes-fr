@@ -36,6 +36,12 @@ export function useSeoMetadata() {
       document.head.appendChild(newFavicon);
     }
 
+    // Clean up existing schema.org script if present to avoid duplicates
+    const existingScript = document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      document.head.removeChild(existingScript);
+    }
+
     // Add the schema.org structured data for local business
     const script = document.createElement('script');
     script.type = 'application/ld+json';
@@ -132,10 +138,6 @@ export function useSeoMetadata() {
       }
     });
     
-    const existingScript = document.querySelector('script[type="application/ld+json"]');
-    if (existingScript) {
-      document.head.removeChild(existingScript);
-    }
     document.head.appendChild(script);
     
     // Clean up

@@ -18,6 +18,7 @@ const Hero = () => {
           height={800}
           loading="eager"
           decoding="async"
+          fetchpriority="high"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark/80 via-nova-blue/60 to-nova-green-light/40" aria-hidden="true"></div>

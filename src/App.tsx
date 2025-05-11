@@ -31,10 +31,14 @@ function App() {
     return import.meta.env.DEV || window.location.href.includes("blog-temp");
   };
 
-  // Redirect HTTP to HTTPS in production
-  if (location.protocol === 'http:' && location.hostname !== 'localhost') {
-    window.location.href = window.location.href.replace('http:', 'https:');
-  }
+  // Redirect HTTP to HTTPS in production - using useEffect to avoid issues during hydration
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && 
+        location.protocol === 'http:' && 
+        location.hostname !== 'localhost') {
+      window.location.href = window.location.href.replace('http:', 'https:');
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

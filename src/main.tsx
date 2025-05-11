@@ -10,7 +10,7 @@ const loadNonCriticalResources = () => {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
-    script.setAttribute('fetchPriority', 'low');
+    script.setAttribute('fetchpriority', 'low');
     
     // Ajout des en-têtes de cache pour les ressources statiques
     const link = document.createElement('link');
@@ -26,7 +26,7 @@ const loadNonCriticalResources = () => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.setAttribute('fetchPriority', 'low');
+    link.setAttribute('fetchpriority', 'low');
     document.head.appendChild(link);
   };
   
@@ -53,10 +53,7 @@ root.render(<App />);
 (function() {
   if (typeof window === 'undefined') return;
   
-  // Redirection HTTP vers HTTPS
-  if (location.protocol === 'http:' && location.hostname !== 'localhost') {
-    window.location.href = window.location.href.replace('http:', 'https:');
-  }
+  // Note: HTTP to HTTPS redirection is now handled in the App component only, not here
   
   // Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
   if ('requestIdleCallback' in window) {

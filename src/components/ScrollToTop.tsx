@@ -15,7 +15,7 @@ const ScrollToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
 
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
@@ -33,7 +33,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 bg-nova-blue text-white rounded-full shadow-lg hover:bg-nova-blue-dark transition-colors z-40"
+          className="fixed bottom-6 left-6 p-3 bg-nova-blue text-white rounded-full shadow-lg hover:bg-nova-blue-dark transition-colors z-40"
           aria-label="Retourner en haut de la page"
         >
           <ChevronUp size={24} />
