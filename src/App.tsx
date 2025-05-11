@@ -1,84 +1,71 @@
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useAuth } from "@/hooks/blog/useAuth";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
-import MentionsLegales from "./pages/MentionsLegales";
+
+import Index from "@/pages/Index";
+import MentionsLegales from "@/pages/MentionsLegales";
+import NotFound from "@/pages/NotFound";
+import ContentLayout from "./components/layout/ContentLayout";
+import BlogLayout from "./components/blog/BlogLayout";
+
+// Routes blog admin
+import AdminRoutes from "./integrations/routes/AdminRoutes";
+import BlogHypnoseRoutes from "./integrations/routes/BlogHypnoseRoutes";
+
+// Import des pages blog
 import BlogIndex from "./pages/blog/BlogIndex";
 import BlogPost from "./pages/blog/BlogPost";
-import AdminLogin from "./pages/admin/AdminLogin";
-import BlogLayout from "./components/blog/BlogLayout";
-import AdminLayout from "./components/admin/AdminLayout";
-import AdminDirect from "./pages/admin/AdminDirect"; 
-import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin";
-import adminRoutes from "./integrations/routes/AdminRoutes";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      retry: 1,
-    },
-  },
-});
+// Composant pour forcer HTTPS en production et faire les redirections
+function AppRedirects() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // En production seulement, rediriger HTTP vers HTTPS
+    if (
+      location.protocol === "http:" &&
+      !window.location.href.includes("localhost") &&
+      !window.location.href.includes("127.0.0.1")
+    ) {
+      window.location.replace(
+        `https://${window.location.hostname}${window.location.pathname}${window.location.search}`
+      );
+    }
+  }, [location]);
+  
+  return null;
+}
 
 function App() {
-  // Check if we're in development or the URL includes "blog-temp"
-  const isBlogAccessible = () => {
-    return import.meta.env.DEV || window.location.href.includes("blog-temp");
-  };
-
-  // Redirect HTTP to HTTPS in production - using useEffect to avoid issues during hydration
-  useEffect(() => {
-    if (typeof window !== 'undefined' && 
-        location.protocol === 'http:' && 
-        location.hostname !== 'localhost') {
-      window.location.href = window.location.href.replace('http:', 'https:');
-    }
-  }, []);
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
-            
-            {/* Blog routes */}
-            <Route path="/blog" element={<BlogLayout />}>
-              <Route index element={<BlogIndex />} />
-              <Route path=":slug" element={<BlogPost />} />
-              <Route path="category/:category" element={<BlogIndex />} />
-              <Route path="tag/:tag" element={<BlogIndex />} />
-            </Route>
-            
-            {/* Admin routes - protected */}
-            <Route path="/admin-blog" element={<AdminLayout />}>
-              <Route index element={<AdminLogin />} />
-              {/* Spread the admin routes array here instead of using the component */}
-              {adminRoutes}
-            </Route>
-            
-            {/* Previous direct admin route */}
-            <Route path="/admin-direct" element={<AdminDirect />} />
-            
-            {/* NEW simplified admin route - no layout, direct access */}
-            <Route path="/admin-simple" element={<SimpleBlogAdmin />} />
-            <Route path="/admin-simple/edit/:articleId" element={<SimpleBlogAdmin />} />
-            
-            {/* Redirect all other routes to the home page */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <AppRedirects />
+      
+      <Routes>
+        {/* Route principale */}
+        <Route path="/" element={<ContentLayout><Index /></ContentLayout>} />
+        <Route path="/mentions-legales" element={<ContentLayout><MentionsLegales /></ContentLayout>} />
+        
+        {/* Routes blog standard */}
+        <Route path="/blog" element={<BlogLayout />}>
+          <Route index element={<BlogIndex />} />
+          <Route path=":articleId" element={<BlogPost />} />
+        </Route>
+        
+        {/* Routes admin blog standard */}
+        {AdminRoutes}
+        
+        {/* Routes pour le nouveau BlogHypnose */}
+        {BlogHypnoseRoutes}
+        
+        {/* Route 404 */}
+        <Route path="*" element={<ContentLayout><NotFound /></ContentLayout>} />
+      </Routes>
+      
+      <Toaster />
+    </BrowserRouter>
   );
 }
 
