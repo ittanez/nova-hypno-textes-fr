@@ -61,6 +61,14 @@ export interface BlogFilters {
   tag?: string;
   search?: string;
   author?: string;
+  sortBy?: string;
+  sortDirection?: SortDirection;
 }
 
 export type SortDirection = 'asc' | 'desc';
+
+export interface BlogPagination {
+  page: number;
+  pageSize: number;
+  total: number;
+}

@@ -17,7 +17,7 @@ const AdminArticleEditor = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { isAdmin } = useAuth();
-  const { getArticle, createArticle, updateArticle } = useArticles();
+  const { fetchArticleById, createArticle, updateArticle } = useArticles();
   const { categories } = useCategories();
   const { tags } = useTags();
   
@@ -34,7 +34,7 @@ const AdminArticleEditor = () => {
     if (isEditing && id) {
       const fetchArticle = async () => {
         setLoading(true);
-        const articleData = await getArticle(id);
+        const { article: articleData } = await fetchArticleById(id);
         
         if (articleData) {
           setArticle(articleData);

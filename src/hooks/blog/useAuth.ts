@@ -1,13 +1,15 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useNavigate } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabaseBlog } from '@/integrations/supabase/blog-client';
+import { useToast } from '@chakra-ui/react';
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Configuration de l'écouteur d'événements d'authentification AVANT de vérifier la session
@@ -38,7 +40,7 @@ export function useAuth() {
         checkAdminRights(currentSession.user.id);
       } else {
         setIsAdmin(false);
-        setLoading(false);
+        setIsLoading(false);
       }
     });
 
@@ -64,7 +66,7 @@ export function useAuth() {
       console.error('Erreur lors de la vérification des droits admin:', error);
       setIsAdmin(false);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -160,14 +162,62 @@ export function useAuth() {
     }
   };
 
+  // Fonction pour demander un mot de passe oublié
+  const requestPasswordReset = async (email: string) => {
+    try {
+      const { error } = await supabaseBlog.auth.resetPasswordForEmail(email);
+      if (error) throw error;
+      toast({
+        title: 'Email envoyé',
+        description: 'Un email de réinitialisation de mot de passe a été envoyé à votre adresse email.',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        error: error.message || 'Erreur lors de la demande'
+      };
+    }
+  };
+
+  // Fonction de réinitialisation du mot de passe
+  const resetPassword = async (token: string, password: string) => {
+    try {
+      const { error } = await supabaseBlog.auth.updateUser({
+        password,
+        email: token
+      });
+      if (error) throw error;
+      toast({
+        title: 'Mot de passe réinitialisé',
+        description: 'Votre mot de passe a été réinitialisé avec succès.',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        error: error.message || 'Erreur lors de la réinitialisation'
+      };
+    }
+  };
+
   return {
     user,
     session,
-    loading,
+    isLoading,
+    loading: isLoading,
     isAdmin,
     signIn,
     signUp,
     signOut,
+    requestPasswordReset,
+    resetPassword,
     requestAdminAccess
   };
 }

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -14,7 +13,7 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
-  const { getArticle } = useArticles();
+  const { fetchArticleBySlug } = useArticles();
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -25,7 +24,7 @@ const BlogPost = () => {
       }
 
       try {
-        const articleData = await getArticle(slug);
+        const { article: articleData } = await fetchArticleBySlug(slug);
         
         if (articleData) {
           setArticle(articleData);
@@ -40,7 +39,7 @@ const BlogPost = () => {
     };
 
     fetchArticle();
-  }, [slug, navigate, getArticle]);
+  }, [slug, navigate, fetchArticleBySlug]);
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 

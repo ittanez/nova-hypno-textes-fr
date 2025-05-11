@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from "@/components/ui/input";
@@ -11,8 +10,8 @@ import { useArticles } from '@/hooks/blog/useArticles';
 
 const BlogSidebar = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { categories, loading: loadingCategories } = useCategories();
-  const { tags, loading: loadingTags } = useTags();
+  const { categories, loading: categoriesLoading } = useCategories();
+  const { tags, loading: tagsLoading } = useTags();
   const { articles, loading: loadingArticles } = useArticles({ sortBy: 'created_at', sortDirection: 'desc' });
   
   const handleSearch = (e: React.FormEvent) => {
@@ -47,7 +46,7 @@ const BlogSidebar = () => {
           <CardTitle className="text-lg">Catégories</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-2">
-          {loadingCategories ? (
+          {categoriesLoading ? (
             <div className="animate-pulse space-y-2">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="h-6 bg-muted rounded"></div>
@@ -116,7 +115,7 @@ const BlogSidebar = () => {
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
-            {loadingTags ? (
+            {tagsLoading ? (
               <div className="animate-pulse flex flex-wrap gap-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div key={i} className="h-7 w-16 bg-muted rounded-full"></div>

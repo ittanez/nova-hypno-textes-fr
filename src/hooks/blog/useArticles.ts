@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { supabaseBlog } from '@/integrations/supabase/blog-client';
 import { Article } from '@/types/blog';
@@ -39,7 +38,7 @@ export function useArticles() {
       }
 
       // Trier par date de publication ou de création
-      query = query.order('published_at', { ascending: false, nullsLast: true })
+      query = query.order('published_at', { ascending: false })
                    .order('created_at', { ascending: false });
 
       const { data, error } = await query;
@@ -110,6 +109,48 @@ export function useArticles() {
     } catch (err: any) {
       console.error('Erreur lors du chargement de l\'article:', err);
       return { article: null, error: err.message || 'Une erreur est survenue' };
+    }
+  };
+
+  const getArticle = async (id: string): Promise<Article | null> => {
+    try {
+      const { data, error } = await supabaseBlog
+        .from('bloghypnose_articles')
+        .select('*')
+        .eq('id', id)
+        .single();
+      
+      if (error) throw error;
+      
+      if (!data) return null;
+      
+      // Convert to Article type
+      const article: Article = {
+        id: data.id,
+        title: data.title,
+        slug: data.slug,
+        content: data.content,
+        excerpt: data.excerpt || undefined,
+        author: data.author || undefined,
+        status: data.status as 'published' | 'draft' | 'scheduled',
+        published_at: data.published_at || undefined,
+        scheduled_for: data.scheduled_for || undefined,
+        created_at: data.created_at,
+        updated_at: data.updated_at,
+        featured_image_url: data.featured_image_url || undefined,
+        is_featured: data.is_featured || false,
+        view_count: data.view_count,
+        published: data.status === 'published',
+        featured: data.is_featured || false,
+        image_url: data.featured_image_url,
+        categories: data.categories || [],
+        tags: data.tags || []
+      };
+      
+      return article;
+    } catch (err) {
+      console.error('Erreur lors du chargement de l\'article:', err);
+      return null;
     }
   };
 
@@ -244,6 +285,7 @@ export function useArticles() {
     createArticle,
     updateArticle,
     deleteArticle,
-    generateSlug
+    generateSlug,
+    getArticle
   };
 }

@@ -162,7 +162,8 @@ const SimpleBlogAdmin = () => {
 
   // Fonction pour charger un article à éditer
   const loadArticleForEditing = async (id: string) => {
-    const article = await getArticle(id);
+    // Use fetchArticleById instead of getArticle if that's what's available
+    const { article } = await fetchArticleById(id);
     if (article) {
       setCurrentArticle(article);
       setActiveTab('editor');
@@ -289,7 +290,7 @@ const SimpleBlogAdmin = () => {
     }
   };
 
-  const toggleArticleStatus = async (article: Article) => {
+  const toggleArticleStatus = async (article: any) => {
     try {
       const success = await updateArticle(article.id, {
         published: !article.published
