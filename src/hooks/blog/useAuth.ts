@@ -1,222 +1,146 @@
-import { useState, useEffect } from 'react';
-import { Session, User } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
 
-export function useAuth() {
-  const { toast } = useToast();
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import type { User, Session, WeakPassword } from '@supabase/supabase-js';
+
+export interface AuthState {
+  user: User | null;
+  session: Session | null;
+  loading: boolean;
+  isLoading: boolean; // Alias pour compatibilité
+  isAdmin: boolean;
+  signIn: (
+    email: string,
+    password: string
+  ) => Promise<
+    | { success: boolean; data: { user: User; session: Session; weakPassword?: WeakPassword } | { message: string }; error?: undefined }
+    | { success: boolean; error: string; data?: undefined }
+  >;
+  signUp: (
+    email: string,
+    password: string
+  ) => Promise<
+    | { success: boolean; data: { user: User; session: Session | null }; error?: undefined }
+    | { success: boolean; error: string; data?: undefined }
+  >;
+  signOut: () => Promise<void>;
+}
+
+export const useAuth = (): AuthState => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // For backward compatibility, alias loading as isLoading
-  const isLoading = loading;
-
   useEffect(() => {
-    // Flag to prevent concurrent admin checks
-    let isMounted = true;
-    
-    const checkAdminStatus = async (userId: string, email: string | null) => {
-      try {
-        // Hard-coded admin check (simplified approach)
-        if (email === 'a.zenatti@gmail.com') {
-          setIsAdmin(true);
-          return;
-        }
-        
-        // Fallback to database check
-        const { data, error } = await supabase
-          .from('user_roles')
-          .select('*')
-          .eq('user_id', userId)
-          .eq('role', 'admin')
-          .maybeSingle();
-
-        if (!isMounted) return;
-        
-        if (error) {
-          throw error;
-        }
-
-        setIsAdmin(!!data);
-      } catch (error) {
-        console.error('Error checking admin status:', error);
-        setIsAdmin(false);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-    
-    // Set up auth state listener first
+    // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, newSession) => {
-        if (!isMounted) return;
-        
-        console.log('Auth state changed:', event, !!newSession);
         setSession(newSession);
         setUser(newSession?.user ?? null);
-
-        // Check if user is admin (using setTimeout to avoid Supabase auth deadlock)
-        if (newSession?.user) {
-          setTimeout(() => {
-            if (isMounted) checkAdminStatus(newSession.user.id, newSession.user.email);
-          }, 0);
-        } else {
-          setIsAdmin(false);
-          setLoading(false);
-        }
+        checkAdmin(newSession?.user?.id);
       }
     );
 
-    // Then check for existing session
+    // THEN check for existing session
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
-      if (!isMounted) return;
-      
-      console.log('Initial session check:', !!currentSession);
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
-      
-      if (currentSession?.user) {
-        checkAdminStatus(currentSession.user.id, currentSession.user.email);
-      } else {
-        setLoading(false);
-      }
+      checkAdmin(currentSession?.user?.id);
+      setLoading(false);
     });
 
     return () => {
-      isMounted = false;
       subscription.unsubscribe();
     };
   }, []);
 
+  const checkAdmin = async (userId?: string) => {
+    if (!userId) {
+      setIsAdmin(false);
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase
+        .rpc('has_role', {
+          user_id: userId,
+          required_role: 'admin'
+        });
+
+      if (error) throw error;
+      setIsAdmin(!!data);
+    } catch (error) {
+      console.error('Error checking admin status:', error);
+      setIsAdmin(false);
+    }
+  };
+
   const signIn = async (email: string, password: string) => {
     try {
-      setLoading(true);
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
-        password,
+        password
       });
 
       if (error) throw error;
-      
-      // No need to set user/session here, the onAuthStateChange will handle it
-      return { success: true, data };
+
+      await checkAdmin(data.user?.id);
+      return {
+        success: true,
+        data: data
+      };
     } catch (error: any) {
-      console.error('Error signing in:', error.message);
-      return { success: false, error };
-    } finally {
-      setLoading(false);
+      console.error('Login error:', error);
+      return {
+        success: false,
+        error: error.message || 'Une erreur est survenue lors de la connexion'
+      };
     }
   };
 
   const signUp = async (email: string, password: string) => {
     try {
-      setLoading(true);
       const { data, error } = await supabase.auth.signUp({
         email,
-        password,
+        password
       });
 
       if (error) throw error;
-      
-      return { success: true, data };
+
+      return {
+        success: true,
+        data: {
+          user: data.user,
+          session: data.session
+        }
+      };
     } catch (error: any) {
-      console.error('Error signing up:', error.message);
-      return { success: false, error };
-    } finally {
-      setLoading(false);
+      console.error('Signup error:', error);
+      return {
+        success: false,
+        error: error.message || 'Une erreur est survenue lors de l\'inscription'
+      };
     }
   };
 
   const signOut = async () => {
     try {
-      setLoading(true);
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      
-      // Réinitialiser l'état local après la déconnexion
-      setUser(null);
-      setSession(null);
-      setIsAdmin(false);
-      
-      return { success: true };
-    } catch (error: any) {
-      console.error('Error signing out:', error.message);
-      return { success: false, error };
-    } finally {
-      setLoading(false);
+      await supabase.auth.signOut();
+    } catch (error) {
+      console.error('Signout error:', error);
     }
   };
 
-  const setAdminRole = async (userId: string) => {
-    try {
-      // Vérifier si c'est le premier utilisateur qui s'inscrit
-      const { count, error: countError } = await supabase
-        .from('user_roles')
-        .select('*', { count: 'exact', head: true });
-        
-      if (countError) throw countError;
-      
-      const isFirstUser = count === 0;
-      
-      // Si c'est le premier utilisateur ou si l'utilisateur est déjà admin
-      if (isFirstUser || isAdmin) {
-        const { error } = await supabase
-          .from('user_roles')
-          .insert({ user_id: userId, role: 'admin' });
-        
-        if (error) throw error;
-        
-        // Mettre à jour l'état local
-        setIsAdmin(true);
-        
-        return true;
-      }
-      
-      return false;
-    } catch (error: any) {
-      console.error('Error setting admin role:', error.message);
-      return false;
-    }
-  };
-
-  const requestAdminAccess = async (fullName: string, reason: string) => {
-    if (!user) return { success: false, error: "Utilisateur non connecté" };
-    
-    try {
-      // Instead of using the RPC function which causes TypeScript errors,
-      // we'll directly insert into the admin_requests table
-      const { error } = await supabase
-        .from('admin_requests')
-        .insert({
-          user_id: user.id,
-          user_email: user.email || '',
-          full_name: fullName,
-          reason: reason
-        });
-        
-      if (error) throw error;
-      
-      return { success: true };
-    } catch (error: any) {
-      console.error('Error requesting admin access:', error.message);
-      return { success: false, error: error.message };
-    }
-  };
-
+  // Ajout de l'alias isLoading pour compatibilité
   return {
     user,
     session,
     loading,
-    isLoading, // Add this alias for backward compatibility
+    isLoading: loading, // Alias pour compatibilité avec le code existant
     isAdmin,
     signIn,
     signUp,
-    signOut,
-    setAdminRole,
-    requestAdminAccess,
+    signOut
   };
-}
+};

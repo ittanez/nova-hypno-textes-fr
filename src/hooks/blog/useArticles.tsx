@@ -110,13 +110,12 @@ export const useArticles = () => {
       // Add updated_at timestamp
       articleData.updated_at = new Date().toISOString();
       
-      // Fix for the ambiguous column reference "user_id"
-      // Explicitly use the table alias to resolve ambiguity
+      // Use an alias to resolve the ambiguous column reference
       const { data, error } = await supabase
         .from('articles')
         .update(articleData)
         .eq('id', id)
-        .select('*, articles.id');
+        .select('*, articles.id as article_id');
       
       if (error) throw error;
       

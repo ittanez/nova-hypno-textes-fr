@@ -9,15 +9,11 @@ import MentionsLegales from "./pages/MentionsLegales";
 import BlogIndex from "./pages/blog/BlogIndex";
 import BlogPost from "./pages/blog/BlogPost";
 import AdminLogin from "./pages/admin/AdminLogin";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminArticleEditor from "./pages/admin/AdminArticleEditor";
-import AdminCategories from "./pages/admin/AdminCategories";
-import AdminSubscribers from "./pages/admin/AdminSubscribers";
-import PrivateRoute from "./components/auth/PrivateRoute";
 import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDirect from "./pages/admin/AdminDirect"; 
 import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin";
+import AdminRoutes from "./integrations/routes/AdminRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,31 +57,7 @@ function App() {
             {/* Admin routes - protected */}
             <Route path="/admin-blog" element={<AdminLayout />}>
               <Route index element={<AdminLogin />} />
-              <Route path="dashboard" element={
-                <PrivateRoute>
-                  <AdminDashboard />
-                </PrivateRoute>
-              } />
-              <Route path="article/new" element={
-                <PrivateRoute>
-                  <AdminArticleEditor />
-                </PrivateRoute>
-              } />
-              <Route path="article/edit/:id" element={
-                <PrivateRoute>
-                  <AdminArticleEditor />
-                </PrivateRoute>
-              } />
-              <Route path="categories" element={
-                <PrivateRoute>
-                  <AdminCategories />
-                </PrivateRoute>
-              } />
-              <Route path="subscribers" element={
-                <PrivateRoute>
-                  <AdminSubscribers />
-                </PrivateRoute>
-              } />
+              <AdminRoutes />
             </Route>
             
             {/* Previous direct admin route */}
