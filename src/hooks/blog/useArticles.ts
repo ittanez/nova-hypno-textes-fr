@@ -99,8 +99,20 @@ export function useArticles() {
         throw error;
       }
 
+      // Use explicit typing for the map function to avoid excessive type instantiation
+      type RawArticleData = {
+        id: string;
+        title?: string;
+        content?: string;
+        created_at: string;
+        updated_at?: string;
+        slug?: string;
+        published?: boolean;
+        [key: string]: any;
+      };
+
       // Ensure data is compatible with Article type by adding required fields
-      const formattedArticles: Article[] = (data || []).map((item: any) => {
+      const formattedArticles: Article[] = (data || []).map((item: RawArticleData) => {
         return {
           ...item,
           id: item.id,
@@ -108,8 +120,8 @@ export function useArticles() {
           content: item.content || '',
           created_at: item.created_at,
           updated_at: item.updated_at || item.created_at,
-          slug: (item as any).slug || '',
-          status: (item as any).status || (item.published ? 'published' : 'draft')
+          slug: item.slug || '',
+          status: item.status || (item.published ? 'published' : 'draft')
         } as Article;
       });
 
