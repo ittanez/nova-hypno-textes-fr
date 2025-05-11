@@ -1,7 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { Article, ArticleWithRelations } from '@/types/blog';
+import { Article, ArticleWithRelations, Category, Tag } from '@/types/blog';
 
 export function useArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -18,22 +18,35 @@ export function useArticles() {
         
       if (error) throw error;
       
-      return { 
-        article: data ? {
-          ...data,
-          slug: data.slug || '',
-          status: data.published ? 'published' : 'draft',
-          categoryObjects: data.categories,
-          tagObjects: data.tags
-        } as ArticleWithRelations : null 
+      // Make sure we're handling the data properly
+      if (!data) return { article: null };
+
+      // Safely cast and transform the data
+      const articleWithRelations: ArticleWithRelations = {
+        ...data,
+        slug: data.slug || '',
+        status: data.published ? 'published' : 'draft',
+        // Handle the relations properly
+        categoryObjects: Array.isArray(data.categories) ? data.categories as Category[] : [],
+        tagObjects: Array.isArray(data.tags) ? data.tags as Tag[] : []
       };
+      
+      return { article: articleWithRelations };
     } catch (error) {
       console.error('Error fetching article by ID:', error);
       return { article: null };
     }
   };
   
-  const fetchArticles = async (options: any = {}) => {
+  interface FetchOptions {
+    range?: {
+      from: number;
+      to: number;
+    };
+    filters?: Record<string, any>;
+  }
+  
+  const fetchArticles = async (options: FetchOptions = {}) => {
     try {
       setLoading(true);
       setError(null);
@@ -44,12 +57,12 @@ export function useArticles() {
         ascending: false
       });
 
-      if (options && options.range) {
+      if (options.range) {
         const { from, to } = options.range;
         query = query.range(from, to);
       }
 
-      if (options && options.filters) {
+      if (options.filters) {
         Object.entries(options.filters).forEach(([key, value]) => {
           if (value) {
             query = query.eq(key, value);
@@ -64,11 +77,13 @@ export function useArticles() {
       }
 
       // Ensure data is compatible with Article type by adding required fields if missing
-      const formattedArticles: Article[] = (data || []).map(item => ({
-        ...item,
-        slug: item.slug || '',
-        status: item.status || (item.published ? 'published' : 'draft')
-      })) as Article[];
+      const formattedArticles: Article[] = (data || []).map(item => {
+        return {
+          ...item,
+          slug: item.slug || '',
+          status: item.status || (item.published ? 'published' : 'draft')
+        } as Article;
+      });
 
       setArticles(formattedArticles);
       return { articles: formattedArticles };
