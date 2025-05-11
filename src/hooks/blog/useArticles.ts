@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { Article } from '@/types/blog';
+import { Article, ArticleWithRelations } from '@/types/blog';
 
 export function useArticles() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -21,6 +21,8 @@ export function useArticles() {
       return { 
         article: data ? {
           ...data,
+          slug: data.slug || '',
+          status: data.published ? 'published' : 'draft',
           categoryObjects: data.categories,
           tagObjects: data.tags
         } as ArticleWithRelations : null 
@@ -42,12 +44,12 @@ export function useArticles() {
         ascending: false
       });
 
-      if (options.range) {
+      if (options && options.range) {
         const { from, to } = options.range;
         query = query.range(from, to);
       }
 
-      if (options.filters) {
+      if (options && options.filters) {
         Object.entries(options.filters).forEach(([key, value]) => {
           if (value) {
             query = query.eq(key, value);
@@ -86,21 +88,25 @@ export function useArticles() {
 
   const createArticle = async (articleData: Partial<Article>) => {
     try {
+      // Ensure we have the required fields for the database schema
+      const dataToInsert = {
+        ...articleData,
+        title: articleData.title || '',
+        content: articleData.content || '',
+        slug: articleData.slug || generateSlug(articleData.title || ''),
+        status: articleData.status || 'draft'
+      };
+
       const { data, error } = await supabase
         .from('articles')
-        .insert([{
-          ...articleData,
-          slug: articleData.slug || generateSlug(articleData.title || ''),
-          status: articleData.status || 'draft'
-        }])
-        .select()
-        .single();
+        .insert([dataToInsert])
+        .select();
 
       if (error) {
         throw error;
       }
 
-      return data;
+      return data?.[0];
     } catch (error) {
       console.error("Error creating article:", error);
       throw error;
@@ -113,14 +119,13 @@ export function useArticles() {
         .from('articles')
         .update(articleData)
         .eq('id', id)
-        .select()
-        .single();
+        .select();
 
       if (error) {
         throw error;
       }
 
-      return data;
+      return data?.[0];
     } catch (error) {
       console.error("Error updating article:", error);
       throw error;
@@ -164,7 +169,7 @@ export function useArticles() {
     error,
     fetchArticles,
     fetchArticleById,
-    getArticle, // Add this function to fix SimpleBlogAdmin's errors
+    getArticle,
     createArticle,
     updateArticle,
     deleteArticle,
