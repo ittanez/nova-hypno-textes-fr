@@ -13,7 +13,7 @@ import BlogLayout from "./components/blog/BlogLayout";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDirect from "./pages/admin/AdminDirect"; 
 import SimpleBlogAdmin from "./pages/admin/SimpleBlogAdmin";
-import AdminRoutes from "./integrations/routes/AdminRoutes";
+import adminRoutes from "./integrations/routes/AdminRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -57,7 +57,8 @@ function App() {
             {/* Admin routes - protected */}
             <Route path="/admin-blog" element={<AdminLayout />}>
               <Route index element={<AdminLogin />} />
-              <AdminRoutes />
+              {/* Spread the admin routes array here instead of using the component */}
+              {adminRoutes}
             </Route>
             
             {/* Previous direct admin route */}
