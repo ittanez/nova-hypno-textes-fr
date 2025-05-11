@@ -82,57 +82,49 @@ export function useArticles() {
         query = query.range(from, to);
       }
 
+      // Simplify filter handling to avoid deep type nesting
       if (options.filters) {
-        // Approach that doesn't create deeply nested type instantiations
-        Object.keys(options.filters).forEach((key) => {
-          const value = options.filters?.[key];
+        const filterKeys = Object.keys(options.filters);
+        for (let i = 0; i < filterKeys.length; i++) {
+          const key = filterKeys[i];
+          const value = options.filters[key];
           if (value !== undefined && value !== null && value !== '') {
             query = query.eq(key, value);
           }
-        });
+        }
       }
 
-      // Type the response data explicitly to avoid deep type inference
+      // Execute the query
       const result = await query;
-      const data = result.data as Array<{
-        id: string;
-        title?: string;
-        content?: string;
-        created_at: string;
-        updated_at?: string;
-        slug?: string;
-        published?: boolean;
-        featured?: boolean;
-        excerpt?: string;
-        author?: string;
-        image_url?: string;
-        categories?: string[];
-        tags?: string[];
-        [key: string]: any;
-      }> | null;
-      const error = result.error;
-
-      if (error) {
-        throw error;
+      
+      // Handle error explicitly
+      if (result.error) {
+        throw result.error;
       }
+      
+      // Use type assertion to avoid deep type inference
+      const rawData = result.data as any[] || [];
 
-      // Map data to Article type with explicit typing
-      const formattedArticles: Article[] = (data || []).map((item) => ({
-        id: item.id,
-        title: item.title || '',
-        content: item.content || '',
-        created_at: item.created_at,
-        updated_at: item.updated_at || item.created_at,
-        slug: item.slug || '',
-        status: item.status || (item.published ? 'published' : 'draft'),
-        excerpt: item.excerpt,
-        author: item.author,
-        featured_image_url: item.image_url,
-        categories: item.categories,
-        tags: item.tags,
-        published: item.published,
-        featured: item.featured
-      } as Article));
+      // Map the raw data to our Article type with explicit construction
+      const formattedArticles: Article[] = rawData.map(item => {
+        const article: Article = {
+          id: item.id,
+          title: item.title || '',
+          content: item.content || '',
+          created_at: item.created_at,
+          updated_at: item.updated_at || item.created_at,
+          slug: item.slug || '',
+          status: item.status || (item.published ? 'published' : 'draft'),
+          excerpt: item.excerpt,
+          author: item.author,
+          featured_image_url: item.image_url,
+          categories: item.categories,
+          tags: item.tags,
+          published: item.published,
+          featured: item.featured
+        };
+        return article;
+      });
 
       setArticles(formattedArticles);
       return { articles: formattedArticles };
