@@ -209,7 +209,7 @@ export default function ArticleForm({
                           {isGenerating ? (
                             <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div>
                           ) : (
-                            <Sparkles className="h-4 w-4" />
+                            <Sparkles className="h-4 w-4" aria-hidden="true" />
                           )}
                         </Button>
                       </div>
@@ -420,7 +420,7 @@ export default function ArticleForm({
                 disabled={isPending}
                 onClick={form.handleSubmit((values) => onSubmit(values, false))}
               >
-                <Save className="mr-2 h-4 w-4" />
+                <Save className="mr-2 h-4 w-4" aria-hidden="true" />
                 Enregistrer comme brouillon
               </Button>
               
@@ -437,7 +437,7 @@ export default function ArticleForm({
                 {isPending ? (
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
                 ) : (
-                  <Sparkles className="mr-2 h-4 w-4" />
+                  <Sparkles className="mr-2 h-4 w-4" aria-hidden="true" />
                 )}
                 {isCreating ? "Publier l'article" : "Mettre à jour et publier"}
               </Button>

@@ -109,7 +109,7 @@ export default function MediaLibrary({ onImageSelect, buttonText = "Ouvrir la bi
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
-          <ImageIcon className="mr-2 h-4 w-4" />
+          <ImageIcon className="mr-2 h-4 w-4" aria-hidden="true" />
           {buttonText}
         </Button>
       </DialogTrigger>
@@ -135,7 +135,7 @@ export default function MediaLibrary({ onImageSelect, buttonText = "Ouvrir la bi
                 onClick={() => fetchImages()}
                 disabled={loading}
               >
-                <RefreshCcw className="h-4 w-4 mr-2" />
+                <RefreshCcw className="h-4 w-4 mr-2" aria-hidden="true" />
                 Rafraîchir
               </Button>
             </div>
@@ -168,7 +168,7 @@ export default function MediaLibrary({ onImageSelect, buttonText = "Ouvrir la bi
                               handleDelete(image);
                             }}
                           >
-                            <Trash2 className="h-3 w-3" />
+                            <Trash2 className="h-3 w-3" aria-hidden="true" />
                           </Button>
                         </div>
                       </div>
@@ -186,7 +186,7 @@ export default function MediaLibrary({ onImageSelect, buttonText = "Ouvrir la bi
               </ScrollArea>
             ) : (
               <div className="flex flex-col items-center justify-center h-[300px] text-center">
-                <ImageIcon className="h-16 w-16 text-muted-foreground opacity-30 mb-4" />
+                <ImageIcon className="h-16 w-16 text-muted-foreground opacity-30 mb-4" aria-hidden="true" />
                 <p className="text-muted-foreground">Aucune image trouvée. Téléversez votre première image.</p>
               </div>
             )}
@@ -255,12 +255,12 @@ export default function MediaLibrary({ onImageSelect, buttonText = "Ouvrir la bi
                 >
                   {uploading ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                       Téléversement en cours...
                     </>
                   ) : (
                     <>
-                      <Upload className="mr-2 h-4 w-4" />
+                      <Upload className="mr-2 h-4 w-4" aria-hidden="true" />
                       Téléverser l'image
                     </>
                   )}

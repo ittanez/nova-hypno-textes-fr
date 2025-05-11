@@ -78,7 +78,7 @@ export default function ImageGallery({ open, onOpenChange, onSelectImage }: Imag
               className="flex-1 cursor-pointer border-2 border-dashed p-4 text-center rounded-md hover:bg-muted transition-colors"
             >
               <div className="flex flex-col items-center gap-1">
-                <Upload className="h-6 w-6 text-muted-foreground" />
+                <Upload className="h-6 w-6 text-muted-foreground" aria-hidden="true" />
                 <span>Cliquez pour téléverser une image</span>
                 <span className="text-xs text-muted-foreground">JPG, PNG, GIF, WebP (max 10Mo)</span>
               </div>
@@ -102,7 +102,7 @@ export default function ImageGallery({ open, onOpenChange, onSelectImage }: Imag
           <>
             {images.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                <ImageIcon className="h-12 w-12 mx-auto mb-2 text-muted-foreground" />
+                <ImageIcon className="h-12 w-12 mx-auto mb-2 text-muted-foreground" aria-hidden="true" />
                 <p>Aucune image disponible</p>
                 <p className="text-sm">Téléversez votre première image</p>
               </div>
@@ -131,7 +131,7 @@ export default function ImageGallery({ open, onOpenChange, onSelectImage }: Imag
                           handleDeleteImage(image);
                         }}
                       >
-                        <Trash className="h-4 w-4" />
+                        <Trash className="h-4 w-4" aria-hidden="true" />
                       </Button>
                     </div>
                   </div>

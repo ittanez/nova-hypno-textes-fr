@@ -150,7 +150,7 @@ export default function ArticleEditor({
           onClick={() => insertHTML('img')}
           className="flex items-center gap-1"
         >
-          <ImageIcon className="h-4 w-4" /> Image
+          <ImageIcon className="h-4 w-4" aria-hidden="true" /> Image
         </Button>
         <Button type="button" variant="outline" size="sm" onClick={() => insertHTML('a')}>Lien</Button>
       </div>
@@ -158,15 +158,15 @@ export default function ArticleEditor({
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="write" className="flex items-center">
-            <Code className="h-4 w-4 mr-2" />
+            <Code className="h-4 w-4 mr-2" aria-hidden="true" />
             Éditeur HTML
           </TabsTrigger>
           <TabsTrigger value="preview" className="flex items-center">
-            <Eye className="h-4 w-4 mr-2" />
+            <Eye className="h-4 w-4 mr-2" aria-hidden="true" />
             Aperçu
           </TabsTrigger>
           <TabsTrigger value="generate" className="flex items-center">
-            <Sparkles className="h-4 w-4 mr-2" />
+            <Sparkles className="h-4 w-4 mr-2" aria-hidden="true" />
             Générer AI
           </TabsTrigger>
         </TabsList>
@@ -204,7 +204,7 @@ export default function ArticleEditor({
               {isGenerating ? (
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
               ) : (
-                <Sparkles className="h-4 w-4 mr-2" />
+                <Sparkles className="h-4 w-4 mr-2" aria-hidden="true" />
               )}
               Générer résumé et mots-clés
             </Button>

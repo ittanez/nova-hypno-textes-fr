@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Upload, ImagePlus } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { useImageUpload } from '@/hooks/blog/useImageUpload';
 
 interface ImageUploaderProps {
   onImageUploaded: (imageUrl: string) => void;
@@ -13,6 +14,7 @@ const ImageUploader = ({ onImageUploaded, currentImage }: ImageUploaderProps) =>
   const [isUploading, setIsUploading] = useState(false);
   const [preview, setPreview] = useState<string | null>(currentImage || null);
   const { toast } = useToast();
+  const { uploadImage } = useImageUpload();
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -41,23 +43,24 @@ const ImageUploader = ({ onImageUploaded, currentImage }: ImageUploaderProps) =>
     setIsUploading(true);
 
     try {
-      // Create a mock upload process (in a real app, this would be an API call)
-      // For demo purposes, we'll use FileReader to create a data URL
-      const reader = new FileReader();
+      // Créer une prévisualisation temporaire
+      const previewUrl = URL.createObjectURL(file);
+      setPreview(previewUrl);
       
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setPreview(result);
-        onImageUploaded(result);
+      // Utiliser le hook pour téléverser l'image
+      const uploadedImage = await uploadImage(file);
+      
+      if (uploadedImage) {
+        // Mise à jour avec l'URL réelle
+        setPreview(uploadedImage.public_url);
+        // Informer le parent de l'URL téléversée
+        onImageUploaded(uploadedImage.public_url);
         
-        setIsUploading(false);
         toast({
           title: "Image téléchargée",
           description: "L'image a été téléchargée avec succès",
         });
-      };
-      
-      reader.readAsDataURL(file);
+      }
     } catch (error) {
       console.error("Error uploading image:", error);
       toast({
@@ -65,6 +68,7 @@ const ImageUploader = ({ onImageUploaded, currentImage }: ImageUploaderProps) =>
         description: "Une erreur s'est produite lors du téléchargement de l'image",
         variant: "destructive"
       });
+    } finally {
       setIsUploading(false);
     }
   };
@@ -85,7 +89,7 @@ const ImageUploader = ({ onImageUploaded, currentImage }: ImageUploaderProps) =>
             </>
           ) : (
             <>
-              <Upload className="mr-2 h-4 w-4" />
+              <Upload className="mr-2 h-4 w-4" aria-hidden="true" />
               Télécharger une image
             </>
           )}
@@ -113,7 +117,7 @@ const ImageUploader = ({ onImageUploaded, currentImage }: ImageUploaderProps) =>
         ) : (
           <div className="aspect-video flex items-center justify-center bg-muted rounded">
             <div className="text-center text-muted-foreground">
-              <ImagePlus className="mx-auto h-10 w-10 opacity-50" />
+              <ImagePlus className="mx-auto h-10 w-10 opacity-50" aria-hidden="true" />
               <p className="mt-2">Aucune image sélectionnée</p>
             </div>
           </div>

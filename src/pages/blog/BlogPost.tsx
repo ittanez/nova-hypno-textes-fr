@@ -40,7 +40,7 @@ const BlogPost = () => {
     };
 
     fetchArticle();
-  }, [slug]);
+  }, [slug, navigate, getArticle]);
 
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 
@@ -71,6 +71,18 @@ const BlogPost = () => {
     );
   }
 
+  const getSlug = (text: string) => {
+    return text
+      .toString()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-');
+  };
+
   return (
     <>
       <Helmet>
@@ -79,6 +91,7 @@ const BlogPost = () => {
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt || article.content.replace(/<[^>]*>?/gm, '').substring(0, 160)} />
         {article.image_url && <meta property="og:image" content={article.image_url} />}
+        <link rel="canonical" href={`https://novahypnose.fr/blog/${getSlug(article.title)}`} />
       </Helmet>
 
       <article className="space-y-8">
@@ -86,7 +99,7 @@ const BlogPost = () => {
         <div>
           <Button variant="ghost" asChild className="pl-0 hover:pl-2 transition-all">
             <Link to="/blog" className="flex items-center text-muted-foreground">
-              <ChevronLeft className="mr-1 h-4 w-4" />
+              <ChevronLeft className="mr-1 h-4 w-4" aria-hidden="true" />
               Retour aux articles
             </Link>
           </Button>
@@ -110,13 +123,13 @@ const BlogPost = () => {
           
           <div className="flex flex-wrap gap-3 items-center text-sm text-muted-foreground mb-4">
             <div className="flex items-center">
-              <Calendar className="mr-1 h-4 w-4" />
+              <Calendar className="mr-1 h-4 w-4" aria-hidden="true" />
               <span>{formatDate(article.created_at)}</span>
             </div>
             
             {article.author && (
               <div className="flex items-center">
-                <User className="mr-1 h-4 w-4" />
+                <User className="mr-1 h-4 w-4" aria-hidden="true" />
                 <span>{article.author}</span>
               </div>
             )}
@@ -125,7 +138,7 @@ const BlogPost = () => {
               {article.categories.map((category, index) => (
                 <Link 
                   key={`category-${index}`}
-                  to={`/blog/category/${category}`}
+                  to={`/blog/category/${getSlug(category)}`}
                   className="bg-muted hover:bg-muted/80 rounded-full px-2.5 py-0.5 text-xs transition-colors"
                 >
                   {category}
@@ -156,7 +169,7 @@ const BlogPost = () => {
               {article.tags.map((tag, index) => (
                 <Link 
                   key={`tag-${index}`}
-                  to={`/blog/tag/${tag}`}
+                  to={`/blog/tag/${getSlug(tag)}`}
                   className="bg-muted hover:bg-muted/80 rounded-full px-3 py-1 text-sm transition-colors"
                 >
                   #{tag}
@@ -174,7 +187,7 @@ const BlogPost = () => {
         <div className="flex justify-between pt-4">
           <Button variant="outline" asChild>
             <Link to="/blog" className="flex items-center">
-              <ChevronLeft className="mr-2 h-4 w-4" />
+              <ChevronLeft className="mr-2 h-4 w-4" aria-hidden="true" />
               Tous les articles
             </Link>
           </Button>

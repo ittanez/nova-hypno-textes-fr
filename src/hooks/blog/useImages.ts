@@ -64,7 +64,7 @@ export function useImages(initialPagination?: Partial<PaginationState>) {
       }
 
       // 3. Create entry in images table
-      const imageData: Omit<BlogImage, 'id' | 'uploaded_at'> = {
+      const imageData: any = {
         name: name || file.name,
         description: description,
         storage_path: filePath,

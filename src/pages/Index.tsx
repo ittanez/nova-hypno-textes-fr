@@ -9,6 +9,7 @@ import Faq from '../components/Faq';
 import Testimonials from '../components/testimonials/Testimonials';
 import Pricing from '../components/Pricing';
 import Contact from '../components/Contact';
+import HypnoWalks from '../components/HypnoWalks';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
@@ -38,6 +39,15 @@ const SeoContent = () => {
         guider vers le changement souhaité. Les séances d'hypnose à Paris sont proposées en cabinet ou en téléconsultation, 
         pour s'adapter au mieux à vos contraintes. Réservez votre séance d'hypnothérapie dès maintenant.
       </p>
+      
+      <h3>Découvrez les Hypno-Balades en Forêt de Senonches</h3>
+      <p>
+        En plus des séances d'hypnothérapie classiques, NovaHypnose vous propose une expérience unique : les Hypno-Balades 
+        en Forêt de Senonches. Combinez les bienfaits de l'hypnose avec l'énergie revitalisante de la nature pour une 
+        reconnexion profonde à vous-même. Ces promenades guidées sous état d'hypnose légère vous permettent de vivre 
+        une expérience sensorielle enrichie tout en profitant des bienfaits reconnus de la forêt sur la santé mentale 
+        et physique.
+      </p>
     </div>
   );
 };
@@ -52,6 +62,7 @@ const Index = () => {
       <Hero />
       <About />
       <ApplicationsGrid />
+      <HypnoWalks />
       <SelfHypnosis />
       <SessionProcess />
       <Testimonials />
