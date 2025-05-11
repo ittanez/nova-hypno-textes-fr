@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import type { BlogDatabase } from './blog-types';
 
 // Configuration pour votre projet BlogHypnose
-// Remplacez ces valeurs par celles de votre nouveau projet Supabase
+// Ces valeurs doivent être remplacées par celles de votre projet Supabase
 const BLOG_SUPABASE_URL = "https://votre-projet-bloghypnose.supabase.co";
 const BLOG_SUPABASE_ANON_KEY = "votre-clé-anon-bloghypnose";
 
