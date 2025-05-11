@@ -25,7 +25,7 @@ function AppRedirects() {
   useEffect(() => {
     // En production seulement, rediriger HTTP vers HTTPS
     if (
-      location.protocol === "http:" &&
+      window.location.protocol === "http:" &&
       !window.location.href.includes("localhost") &&
       !window.location.href.includes("127.0.0.1")
     ) {
