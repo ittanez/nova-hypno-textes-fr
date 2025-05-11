@@ -17,9 +17,7 @@ const AdminRoutes = () => {
         path="/admin-blog/dashboard"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminDashboard />
-            </AdminLayout>
+            <AdminDashboard />
           </PrivateRoute>
         }
       />
@@ -27,9 +25,7 @@ const AdminRoutes = () => {
         path="/admin-blog/direct"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminDirect />
-            </AdminLayout>
+            <AdminDirect />
           </PrivateRoute>
         }
       />
@@ -37,9 +33,7 @@ const AdminRoutes = () => {
         path="/admin-blog/articles"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminArticlesList />
-            </AdminLayout>
+            <AdminArticlesList />
           </PrivateRoute>
         }
       />
@@ -47,9 +41,7 @@ const AdminRoutes = () => {
         path="/admin-blog/new-article"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminArticleEditor />
-            </AdminLayout>
+            <AdminArticleEditor />
           </PrivateRoute>
         }
       />
@@ -57,9 +49,7 @@ const AdminRoutes = () => {
         path="/admin-blog/edit-article/:id"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminArticleEditor />
-            </AdminLayout>
+            <AdminArticleEditor />
           </PrivateRoute>
         }
       />
@@ -67,9 +57,7 @@ const AdminRoutes = () => {
         path="/admin-blog/categories"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminCategories />
-            </AdminLayout>
+            <AdminCategories />
           </PrivateRoute>
         }
       />
@@ -77,9 +65,7 @@ const AdminRoutes = () => {
         path="/admin-blog/tags"
         element={
           <PrivateRoute>
-            <AdminLayout>
-              <AdminTags />
-            </AdminLayout>
+            <AdminTags />
           </PrivateRoute>
         }
       />
