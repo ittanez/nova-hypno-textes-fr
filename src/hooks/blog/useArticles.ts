@@ -83,24 +83,18 @@ export function useArticles() {
       }
 
       if (options.filters) {
-        // Use a safer approach to iterate over filters to avoid deep instantiation
-        const filterEntries = Object.entries(options.filters);
-        for (let i = 0; i < filterEntries.length; i++) {
-          const [key, value] = filterEntries[i];
+        // Approach that doesn't create deeply nested type instantiations
+        Object.keys(options.filters).forEach((key) => {
+          const value = options.filters?.[key];
           if (value !== undefined && value !== null && value !== '') {
             query = query.eq(key, value);
           }
-        }
+        });
       }
 
-      const { data, error } = await query;
-
-      if (error) {
-        throw error;
-      }
-
-      // Use explicit typing for the map function to avoid excessive type instantiation
-      type RawArticleData = {
+      // Type the response data explicitly to avoid deep type inference
+      const result = await query;
+      const data = result.data as Array<{
         id: string;
         title?: string;
         content?: string;
@@ -108,22 +102,37 @@ export function useArticles() {
         updated_at?: string;
         slug?: string;
         published?: boolean;
+        featured?: boolean;
+        excerpt?: string;
+        author?: string;
+        image_url?: string;
+        categories?: string[];
+        tags?: string[];
         [key: string]: any;
-      };
+      }> | null;
+      const error = result.error;
 
-      // Ensure data is compatible with Article type by adding required fields
-      const formattedArticles: Article[] = (data || []).map((item: RawArticleData) => {
-        return {
-          ...item,
-          id: item.id,
-          title: item.title || '',
-          content: item.content || '',
-          created_at: item.created_at,
-          updated_at: item.updated_at || item.created_at,
-          slug: item.slug || '',
-          status: item.status || (item.published ? 'published' : 'draft')
-        } as Article;
-      });
+      if (error) {
+        throw error;
+      }
+
+      // Map data to Article type with explicit typing
+      const formattedArticles: Article[] = (data || []).map((item) => ({
+        id: item.id,
+        title: item.title || '',
+        content: item.content || '',
+        created_at: item.created_at,
+        updated_at: item.updated_at || item.created_at,
+        slug: item.slug || '',
+        status: item.status || (item.published ? 'published' : 'draft'),
+        excerpt: item.excerpt,
+        author: item.author,
+        featured_image_url: item.image_url,
+        categories: item.categories,
+        tags: item.tags,
+        published: item.published,
+        featured: item.featured
+      } as Article));
 
       setArticles(formattedArticles);
       return { articles: formattedArticles };
