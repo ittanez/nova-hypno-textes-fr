@@ -1,244 +1,92 @@
 
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
-import AuthForm from '@/components/auth/AuthForm';
-import { Label } from '@/components/ui/label';
 
 const AdminLogin = () => {
-  const navigate = useNavigate();
-  const { user, session, loading, isAdmin, requestAdminAccess } = useAuth();
-  const { toast } = useToast();
-  const [authMessage, setAuthMessage] = useState<{ type: 'info' | 'warning' | 'error'; message: string } | null>(null);
-  const [fullName, setFullName] = useState('');
-  const [reason, setReason] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { login, isLoading } = useAuth();
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
-  useEffect(() => {
-    // Log auth state for debugging
-    console.log("AdminLogin - Auth state:", { 
-      hasUser: !!user, 
-      hasSession: !!session, 
-      isAdmin, 
-      loading
-    });
-    
-    // Only attempt redirect when we have all information and not loading
-    if (!loading && user && session && isAdmin) {
-      console.log("User authenticated as admin, redirecting to dashboard");
-      // Use a small timeout to prevent immediate redirection that could cause a loop
-      const redirectTimer = setTimeout(() => {
-        navigate('/admin-blog/dashboard', { replace: true });
-      }, 300);
-      
-      return () => clearTimeout(redirectTimer);
-    } 
-    
-    if (!loading && user && session && !isAdmin) {
-      setAuthMessage({
-        type: 'warning',
-        message: "Vous êtes connecté, mais vous n'avez pas les droits d'administrateur."
-      });
-    }
-  }, [user, session, loading, isAdmin, navigate]);
-  
-  const handleAdminRequest = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!user || !session) return;
-    
-    setIsSubmitting(true);
-    
-    try {
-      const { success, error } = await requestAdminAccess(fullName, reason);
-      
-      if (success) {
-        toast({
-          title: "Demande envoyée",
-          description: "Votre demande de droits administrateur a été soumise et sera examinée prochainement.",
-        });
-        
-        setFullName('');
-        setReason('');
-      } else {
-        throw new Error(error || "Échec de la demande");
-      }
-    } catch (error: any) {
-      console.error("Admin request error:", error);
-      
+    if (!email || !password) {
       toast({
         title: "Erreur",
-        description: error.message || "Une erreur est survenue lors de la demande de droits administrateur.",
+        description: "Veuillez remplir tous les champs",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
+      return;
+    }
+    
+    const { error } = await login(email, password);
+    
+    if (error) {
+      toast({
+        title: "Erreur de connexion",
+        description: "Identifiants invalides",
+        variant: "destructive",
+      });
     }
   };
-
-  // Prevent showing the login form briefly when already authenticated
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
-      </div>
-    );
-  }
 
   return (
     <>
       <Helmet>
-        <title>Connexion | NovaHypnose Blog Admin</title>
+        <title>Administration - Connexion | NovaHypnose Admin</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       
-      <div className="flex flex-col min-h-screen items-center justify-center p-4 bg-gray-50">
-        <div className="w-full max-w-md">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-serif font-bold text-nova-blue">NovaHypnose</h1>
-            <p className="text-muted-foreground">Accès à l'administration du blog</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold">NovaHypnose Admin</h1>
+            <p className="mt-2 text-gray-600">Connexion à l'interface d'administration</p>
           </div>
           
-          {authMessage && (
-            <Alert className="mb-6" variant={authMessage.type === 'error' ? 'destructive' : 'default'}>
-              <AlertDescription>{authMessage.message}</AlertDescription>
-            </Alert>
-          )}
-          
-          {user && session && !isAdmin ? (
-            <Card>
-              <CardHeader>
-                <CardTitle>Demande de droits administrateur</CardTitle>
-                <CardDescription>
-                  Veuillez remplir ce formulaire pour demander les droits d'administrateur
-                </CardDescription>
-              </CardHeader>
-              
-              <form onSubmit={handleAdminRequest}>
-                <CardContent className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
-                      id="email" 
-                      value={user.email} 
-                      disabled 
-                      readOnly 
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">Nom complet</Label>
-                    <Input 
-                      id="fullName" 
-                      value={fullName} 
-                      onChange={(e) => setFullName(e.target.value)} 
-                      placeholder="Votre nom complet" 
-                      required 
-                      autoComplete="name"
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="reason">Raison de la demande</Label>
-                    <Textarea 
-                      id="reason" 
-                      value={reason} 
-                      onChange={(e) => setReason(e.target.value)} 
-                      placeholder="Expliquez pourquoi vous avez besoin des droits administrateur..." 
-                      required 
-                      rows={4}
-                    />
-                  </div>
-                </CardContent>
-                
-                <CardFooter>
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
-                        Envoi en cours...
-                      </>
-                    ) : (
-                      "Soumettre la demande"
-                    )}
-                  </Button>
-                </CardFooter>
-              </form>
-            </Card>
-          ) : !user || !session ? (
-            <Card>
-              <CardHeader>
-                <CardTitle>Authentification</CardTitle>
-                <CardDescription>
-                  Connectez-vous ou créez un compte pour accéder au tableau de bord
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent>
-                <Tabs defaultValue="login">
-                  <TabsList className="grid w-full grid-cols-2 mb-6">
-                    <TabsTrigger value="login">Connexion</TabsTrigger>
-                    <TabsTrigger value="signup">Inscription</TabsTrigger>
-                  </TabsList>
-                  
-                  <TabsContent value="login">
-                    <AuthForm 
-                      mode="login" 
-                      onSuccess={() => {
-                        setAuthMessage({
-                          type: 'info',
-                          message: "Connexion réussie! Redirection en cours..."
-                        });
-                      }}
-                    />
-                  </TabsContent>
-                  
-                  <TabsContent value="signup">
-                    <AuthForm 
-                      mode="signup" 
-                      onSuccess={(requiresEmailConfirmation) => {
-                        setAuthMessage({
-                          type: 'info',
-                          message: requiresEmailConfirmation 
-                            ? "Inscription réussie! Veuillez vérifier votre email pour confirmer votre compte." 
-                            : "Inscription réussie! Vous pouvez maintenant vous connecter."
-                        });
-                      }}
-                    />
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-              
-              <CardFooter className="flex flex-col items-center">
-                <p className="text-sm text-orange-600 font-semibold mb-2">
-                  Pour l'environnement de développement, désactivez la vérification d'email 
-                  dans les paramètres d'authentification Supabase
-                </p>
-                <p className="text-xs text-muted-foreground text-center">
-                  Si vous ne recevez pas d'email de confirmation, contactez l'administrateur
-                </p>
-              </CardFooter>
-            </Card>
-          ) : null}
+          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                Adresse e-mail
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nova-blue focus:border-nova-blue"
+              />
+            </div>
+            
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                Mot de passe
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nova-blue focus:border-nova-blue"
+              />
+            </div>
+            
+            <div>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-nova-blue hover:bg-nova-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nova-blue disabled:bg-gray-300"
+              >
+                {isLoading ? 'Connexion en cours...' : 'Se connecter'}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>

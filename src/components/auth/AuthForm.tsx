@@ -1,202 +1,156 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
 
-// Enhanced password validation schema
-const formSchema = z.object({
-  email: z.string()
-    .email({ message: 'Email invalide' })
-    .min(5, { message: 'Email trop court' })
-    .max(255, { message: 'Email trop long' }),
-  password: z.string()
-    .min(8, { message: 'Le mot de passe doit contenir au moins 8 caractères' })
-    .max(100, { message: 'Le mot de passe est trop long' })
-    .regex(/[A-Z]/, { message: 'Le mot de passe doit contenir au moins une lettre majuscule' })
-    .regex(/[0-9]/, { message: 'Le mot de passe doit contenir au moins un chiffre' })
-});
+interface AuthFormProps {
+  type: 'login' | 'signup' | 'request';
+}
 
-type FormValues = z.infer<typeof formSchema>;
-
-type AuthFormProps = {
-  mode: 'login' | 'signup';
-  onSuccess?: (requiresEmailConfirmation?: boolean) => void;
-};
-
-export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
-  const { toast } = useToast();
-  const { signIn, signUp } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
-  const [attempts, setAttempts] = useState(0);
-  const [lockoutUntil, setLockoutUntil] = useState<Date | null>(null);
-
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
-  const onSubmit = async (values: FormValues) => {
-    // Check if the account is temporarily locked
-    if (lockoutUntil && new Date() < lockoutUntil) {
-      const timeLeft = Math.ceil((lockoutUntil.getTime() - new Date().getTime()) / 1000 / 60);
-      toast({
-        title: 'Compte temporairement bloqué',
-        description: `Trop de tentatives échouées. Réessayez dans ${timeLeft} minute${timeLeft > 1 ? 's' : ''}.`,
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setIsLoading(true);
-
+const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
+  const navigate = useNavigate();
+  const { login, signup, requestAdminAccess, isLoading } = useAuth();
+  
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [fullName, setFullName] = React.useState('');
+  const [reason, setReason] = React.useState('');
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
     try {
-      if (mode === 'login') {
-        const { success, error } = await signIn(values.email, values.password);
+      if (type === 'login') {
+        const { error } = await login(email, password);
+        if (error) throw error;
+      } else if (type === 'signup') {
+        const { error } = await signup(email, password);
+        if (error) throw error;
+      } else if (type === 'request') {
+        const { error } = await requestAdminAccess(fullName, reason);
+        if (error) throw error;
         
-        if (success) {
-          console.log("Login successful, triggering onSuccess callback");
-          toast({
-            title: 'Connexion réussie',
-            description: 'Vous êtes maintenant connecté',
-          });
-          
-          // Reset login attempts on successful login
-          setAttempts(0);
-          
-          if (onSuccess) {
-            onSuccess();
-          }
-        } else {
-          // Increment failed attempts
-          const newAttempts = attempts + 1;
-          setAttempts(newAttempts);
-          
-          // After 5 failed attempts, lock the account for 15 minutes
-          if (newAttempts >= 5) {
-            const lockoutTime = new Date();
-            lockoutTime.setMinutes(lockoutTime.getMinutes() + 15);
-            setLockoutUntil(lockoutTime);
-            
-            toast({
-              title: 'Compte temporairement bloqué',
-              description: 'Trop de tentatives échouées. Réessayez dans 15 minutes.',
-              variant: 'destructive',
-            });
-          } else {
-            toast({
-              title: 'Erreur de connexion',
-              description: error?.message || "Une erreur s'est produite lors de la connexion",
-              variant: 'destructive',
-            });
-          }
-        }
-      } else {
-        const { success, error, data } = await signUp(values.email, values.password);
+        toast({
+          title: "Demande envoyée",
+          description: "Votre demande d'accès administrateur a été envoyée avec succès.",
+        });
         
-        const requiresEmailConfirmation = data?.user?.identities?.[0]?.identity_data?.email_verified === false;
-        
-        if (success) {
-          toast({
-            title: 'Inscription réussie',
-            description: requiresEmailConfirmation 
-              ? 'Veuillez vérifier votre email pour confirmer votre compte'
-              : 'Votre compte a été créé',
-          });
-          
-          if (onSuccess) {
-            onSuccess(requiresEmailConfirmation);
-          }
-        } else {
-          toast({
-            title: "Erreur d'inscription",
-            description: error?.message || "Une erreur s'est produite lors de l'inscription",
-            variant: 'destructive',
-          });
-        }
+        setFullName('');
+        setReason('');
       }
     } catch (error: any) {
       toast({
-        title: 'Erreur',
-        description: error.message || 'Une erreur inattendue est survenue',
-        variant: 'destructive',
+        title: "Erreur",
+        description: error.message || "Une erreur est survenue",
+        variant: "destructive",
       });
-    } finally {
-      setIsLoading(false);
     }
   };
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="votre@email.com" 
-                  {...field} 
-                  autoComplete={mode === 'login' ? 'username' : 'email'}
-                  type="email"
-                  aria-autocomplete="both"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+  
+  if (type === 'request') {
+    return (
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label htmlFor="fullName" className="block text-sm font-medium">
+            Nom complet
+          </label>
+          <input
+            id="fullName"
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            className="mt-1 block w-full px-3 py-2 border rounded-md"
+            required
+          />
+        </div>
         
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Mot de passe</FormLabel>
-              <FormControl>
-                <Input 
-                  type="password" 
-                  placeholder="••••••••" 
-                  {...field} 
-                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div>
+          <label htmlFor="reason" className="block text-sm font-medium">
+            Motif de la demande
+          </label>
+          <textarea
+            id="reason"
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+            className="mt-1 block w-full px-3 py-2 border rounded-md"
+            rows={4}
+            required
+          />
+        </div>
         
-        <Button 
-          type="submit" 
-          className="w-full" 
-          disabled={isLoading || (lockoutUntil && new Date() < lockoutUntil)}
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
-          {isLoading ? (
-            <>
-              <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent mr-2"></div>
-              {mode === 'login' ? 'Connexion en cours...' : 'Inscription en cours...'}
-            </>
-          ) : (
-            mode === 'login' ? 'Se connecter' : "S'inscrire"
-          )}
-        </Button>
+          {isLoading ? 'Envoi...' : 'Envoyer la demande d\'accès'}
+        </button>
       </form>
-    </Form>
+    );
+  }
+  
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium">
+          Adresse e-mail
+        </label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border rounded-md"
+          required
+        />
+      </div>
+      
+      <div>
+        <label htmlFor="password" className="block text-sm font-medium">
+          Mot de passe
+        </label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 border rounded-md"
+          required
+        />
+      </div>
+      
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+      >
+        {isLoading
+          ? (type === 'login' ? 'Connexion...' : 'Inscription...')
+          : (type === 'login' ? 'Se connecter' : 'S\'inscrire')}
+      </button>
+      
+      {type === 'login' && (
+        <button
+          type="button"
+          onClick={() => navigate('/signup')}
+          className="w-full py-2 px-4 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200"
+        >
+          Créer un compte
+        </button>
+      )}
+      
+      {type === 'signup' && (
+        <button
+          type="button"
+          onClick={() => navigate('/login')}
+          className="w-full py-2 px-4 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200"
+        >
+          Déjà un compte ? Se connecter
+        </button>
+      )}
+    </form>
   );
-}
+};
+
+export default AuthForm;

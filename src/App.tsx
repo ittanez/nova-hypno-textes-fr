@@ -2,13 +2,14 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/hooks/useAuth";
 
 import Index from "@/pages/Index";
 import MentionsLegales from "@/pages/MentionsLegales";
 import ContentLayout from "./components/layout/ContentLayout";
-
-// Routes admin
-import AdminRoutes from "./integrations/routes/AdminRoutes";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDirect from "./pages/admin/AdminDirect";
 
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
@@ -39,23 +40,40 @@ function AppRedirects() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppRedirects />
-      
-      <Routes>
-        {/* Route principale */}
-        <Route path="/" element={<ContentLayout><Index /></ContentLayout>} />
-        <Route path="/mentions-legales" element={<ContentLayout><MentionsLegales /></ContentLayout>} />
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRedirects />
         
-        {/* Routes admin standard */}
-        {AdminRoutes}
+        <Routes>
+          {/* Route principale */}
+          <Route path="/" element={<ContentLayout><Index /></ContentLayout>} />
+          <Route path="/mentions-legales" element={<ContentLayout><MentionsLegales /></ContentLayout>} />
+          
+          {/* Routes admin */}
+          <Route
+            path="/admin-blog/dashboard"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin-blog/direct"
+            element={
+              <PrivateRoute>
+                <AdminDirect />
+              </PrivateRoute>
+            }
+          />
+          
+          {/* Au lieu d'une route 404, rediriger vers la page d'accueil */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
         
-        {/* Au lieu d'une route 404, rediriger vers la page d'accueil */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-      
-      <Toaster />
-    </BrowserRouter>
+        <Toaster />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
