@@ -47,5 +47,10 @@ export interface AdminRequestForm {
   reason: string;
 }
 
+// Add missing types to fix the errors
+export type Article = BlogPost;
+export type Category = BlogCategory;
+export type Tag = BlogTag;
+
 // Type alias for backward compatibility
 export type Image = BlogImage;

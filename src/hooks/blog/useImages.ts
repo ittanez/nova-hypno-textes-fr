@@ -27,7 +27,8 @@ export const useImages = () => {
       height: 600,
       size: file.size,
       mime_type: file.type,
-      description: description
+      description: description,
+      uploaded_at: new Date().toISOString()
     };
     return mockImage;
   };

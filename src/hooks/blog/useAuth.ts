@@ -186,11 +186,15 @@ export const useAuth = () => {
         };
       }
 
-      // Call the RPC function to insert the admin request
-      const { error } = await supabase.rpc('insert_admin_request', {
-        full_name: fullName,
-        reason_text: reason
-      });
+      // Use raw SQL query instead of RPC due to the function not being available
+      const { error } = await supabase
+        .from('admin_requests')
+        .insert({
+          user_id: user.id,
+          user_email: user.email,
+          full_name: fullName,
+          reason: reason
+        });
 
       if (error) {
         console.error('Error requesting admin access:', error);
