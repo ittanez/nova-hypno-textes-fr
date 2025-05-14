@@ -1,9 +1,0 @@
-
-import { Navigate } from 'react-router-dom';
-
-// Placeholder component that redirects to home page
-const BlogHypnoseAdminLogin = () => {
-  return <Navigate to="/" replace />;
-};
-
-export default BlogHypnoseAdminLogin;
