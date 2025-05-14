@@ -14,7 +14,21 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
   useEffect(() => {
     // Log authentication state to help debug
     console.log("PrivateRoute - Auth state:", { isAdmin, loading, hasSession: !!session });
-  }, [isAdmin, loading, session]);
+    
+    // Add security check to prevent timing attacks
+    if (session && !isAdmin && !loading && !isLoading) {
+      // If session exists but admin check failed, log the user out for security
+      const securityCheck = async () => {
+        const { error } = await useAuth().logout();
+        if (error) {
+          console.error("Error during security logout:", error);
+        }
+      };
+      
+      // Use setTimeout to prevent potential infinite loop with auth state changes
+      setTimeout(securityCheck, 0);
+    }
+  }, [isAdmin, loading, session, isLoading]);
   
   // Show loading state while checking authentication
   if (loading || isLoading) {

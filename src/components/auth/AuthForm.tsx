@@ -16,9 +16,17 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/blog/useAuth';
 
+// Enhanced password validation schema
 const formSchema = z.object({
-  email: z.string().email({ message: 'Email invalide' }),
-  password: z.string().min(6, { message: 'Le mot de passe doit contenir au moins 6 caractères' }),
+  email: z.string()
+    .email({ message: 'Email invalide' })
+    .min(5, { message: 'Email trop court' })
+    .max(255, { message: 'Email trop long' }),
+  password: z.string()
+    .min(8, { message: 'Le mot de passe doit contenir au moins 8 caractères' })
+    .max(100, { message: 'Le mot de passe est trop long' })
+    .regex(/[A-Z]/, { message: 'Le mot de passe doit contenir au moins une lettre majuscule' })
+    .regex(/[0-9]/, { message: 'Le mot de passe doit contenir au moins un chiffre' })
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -32,6 +40,8 @@ export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
   const { toast } = useToast();
   const { signIn, signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+  const [lockoutUntil, setLockoutUntil] = useState<Date | null>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -42,6 +52,17 @@ export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
   });
 
   const onSubmit = async (values: FormValues) => {
+    // Check if the account is temporarily locked
+    if (lockoutUntil && new Date() < lockoutUntil) {
+      const timeLeft = Math.ceil((lockoutUntil.getTime() - new Date().getTime()) / 1000 / 60);
+      toast({
+        title: 'Compte temporairement bloqué',
+        description: `Trop de tentatives échouées. Réessayez dans ${timeLeft} minute${timeLeft > 1 ? 's' : ''}.`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -55,15 +76,35 @@ export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
             description: 'Vous êtes maintenant connecté',
           });
           
+          // Reset login attempts on successful login
+          setAttempts(0);
+          
           if (onSuccess) {
             onSuccess();
           }
         } else {
-          toast({
-            title: 'Erreur de connexion',
-            description: error?.message || "Une erreur s'est produite lors de la connexion",
-            variant: 'destructive',
-          });
+          // Increment failed attempts
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
+          
+          // After 5 failed attempts, lock the account for 15 minutes
+          if (newAttempts >= 5) {
+            const lockoutTime = new Date();
+            lockoutTime.setMinutes(lockoutTime.getMinutes() + 15);
+            setLockoutUntil(lockoutTime);
+            
+            toast({
+              title: 'Compte temporairement bloqué',
+              description: 'Trop de tentatives échouées. Réessayez dans 15 minutes.',
+              variant: 'destructive',
+            });
+          } else {
+            toast({
+              title: 'Erreur de connexion',
+              description: error?.message || "Une erreur s'est produite lors de la connexion",
+              variant: 'destructive',
+            });
+          }
         }
       } else {
         const { success, error, data } = await signUp(values.email, values.password);
@@ -115,6 +156,7 @@ export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
                   {...field} 
                   autoComplete={mode === 'login' ? 'username' : 'email'}
                   type="email"
+                  aria-autocomplete="both"
                 />
               </FormControl>
               <FormMessage />
@@ -144,7 +186,7 @@ export default function AuthForm({ mode, onSuccess }: AuthFormProps) {
         <Button 
           type="submit" 
           className="w-full" 
-          disabled={isLoading}
+          disabled={isLoading || (lockoutUntil && new Date() < lockoutUntil)}
         >
           {isLoading ? (
             <>
