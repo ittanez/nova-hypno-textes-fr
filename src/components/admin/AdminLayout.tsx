@@ -1,8 +1,7 @@
-
 import React, { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useAuth } from '@/hooks/blog/useAuth';
+import { useAuth } from '@/hooks/useAuth';
 
 const AdminLayout = () => {
   const location = useLocation();
