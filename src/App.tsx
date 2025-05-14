@@ -10,6 +10,7 @@ import ContentLayout from "./components/layout/ContentLayout";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminDirect from "./pages/admin/AdminDirect";
+import AdminLogin from "./pages/admin/AdminLogin";
 
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
@@ -48,6 +49,9 @@ function App() {
           {/* Route principale */}
           <Route path="/" element={<ContentLayout><Index /></ContentLayout>} />
           <Route path="/mentions-legales" element={<ContentLayout><MentionsLegales /></ContentLayout>} />
+          
+          {/* Route de connexion admin */}
+          <Route path="/admin-blog" element={<AdminLogin />} />
           
           {/* Routes admin */}
           <Route
