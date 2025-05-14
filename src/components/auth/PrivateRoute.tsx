@@ -8,7 +8,7 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const { isAdmin, loading, session } = useAuth();
+  const { isAdmin, loading, session, isLoading } = useAuth();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
   }, [isAdmin, loading, session]);
   
   // Show loading state while checking authentication
-  if (loading) {
+  if (loading || isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>

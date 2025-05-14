@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Image } from '@/types/blog';
+import { BlogImage, Image } from '@/types/blog';
 
 // Simplified placeholder hook with no actual functionality
 export const useImages = () => {
@@ -12,8 +12,24 @@ export const useImages = () => {
     return [];
   };
 
-  const deleteImage = async (id: string) => {
+  const deleteImage = async (id: string, storagePath?: string) => {
     return { error: null };
+  };
+
+  const uploadImage = async (file: File, name?: string, description?: string) => {
+    // Return a mock BlogImage object to satisfy TypeScript
+    const mockImage: BlogImage = {
+      id: 'mock-id-' + Date.now(),
+      name: name || file.name,
+      storage_path: 'mock-path/' + file.name,
+      public_url: URL.createObjectURL(file),
+      width: 800,
+      height: 600,
+      size: file.size,
+      mime_type: file.type,
+      description: description
+    };
+    return mockImage;
   };
 
   return {
@@ -21,6 +37,7 @@ export const useImages = () => {
     loading,
     error,
     fetchImages,
-    deleteImage
+    deleteImage,
+    uploadImage
   };
 };

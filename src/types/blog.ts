@@ -12,7 +12,7 @@ export interface Article {
   updated_at: string;
   categories: string[];
   tags: string[];
-  image_url?: string; // Added to fix ArticleForm errors
+  image_url?: string;
 }
 
 export interface Category {
@@ -27,9 +27,26 @@ export interface Tag {
   slug: string;
 }
 
+export interface BlogImage {
+  id: string;
+  name: string;
+  storage_path: string;
+  public_url: string;
+  width?: number;
+  height?: number;
+  size?: number;
+  mime_type?: string;
+  description?: string;
+}
+
+// Use the same name as the simpler interface to avoid conflicts
 export interface Image {
   id: string;
   name: string;
   url: string;
+  public_url: string;
+  width?: number;
+  height?: number;
+  storage_path: string;
   created_at: string;
 }
