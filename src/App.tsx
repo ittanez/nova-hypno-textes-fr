@@ -1,11 +1,10 @@
 
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 
 import Index from "@/pages/Index";
 import MentionsLegales from "@/pages/MentionsLegales";
-import NotFound from "@/pages/NotFound";
 import ContentLayout from "./components/layout/ContentLayout";
 
 // Routes admin
@@ -26,6 +25,13 @@ function AppRedirects() {
         `https://${window.location.hostname}${window.location.pathname}${window.location.search}`
       );
     }
+    
+    // Log 404 attempts but redirect to home
+    if (location.pathname !== "/" && 
+        location.pathname !== "/mentions-legales" && 
+        !location.pathname.startsWith("/admin")) {
+      console.error("Tentative d'accès à une page inexistante:", location.pathname);
+    }
   }, [location]);
   
   return null;
@@ -44,8 +50,8 @@ function App() {
         {/* Routes admin standard */}
         {AdminRoutes}
         
-        {/* Route 404 */}
-        <Route path="*" element={<ContentLayout><NotFound /></ContentLayout>} />
+        {/* Au lieu d'une route 404, rediriger vers la page d'accueil */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       
       <Toaster />
