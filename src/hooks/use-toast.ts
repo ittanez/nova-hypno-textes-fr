@@ -149,7 +149,7 @@ export function useToast() {
   }, [state])
 
   return {
-    ...state,
+    toasts: state.toasts,
     toast: (props: Omit<ToasterToast, "id">) => {
       const id = genId()
 
@@ -163,7 +163,7 @@ export function useToast() {
 
       return {
         id,
-        dismiss: () => dispatch({ type: actionTypes.DISMISS_TOAST }),
+        dismiss: () => dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id }),
       }
     },
     dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),

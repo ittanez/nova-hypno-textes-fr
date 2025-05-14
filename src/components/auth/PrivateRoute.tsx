@@ -8,7 +8,7 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const { isAdmin, loading, session, isLoading } = useAuth();
+  const { isAdmin, loading, session, isLoading, logout } = useAuth();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -19,7 +19,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
     if (session && !isAdmin && !loading && !isLoading) {
       // If session exists but admin check failed, log the user out for security
       const securityCheck = async () => {
-        const { error } = await useAuth().logout();
+        const { error } = await logout();
         if (error) {
           console.error("Error during security logout:", error);
         }
@@ -28,7 +28,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
       // Use setTimeout to prevent potential infinite loop with auth state changes
       setTimeout(securityCheck, 0);
     }
-  }, [isAdmin, loading, session, isLoading]);
+  }, [isAdmin, loading, session, isLoading, logout]);
   
   // Show loading state while checking authentication
   if (loading || isLoading) {
