@@ -3,6 +3,26 @@
   publish = "dist"
   command = "npm run build"
 
+# Configuration pour le pré-rendu des pages
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+  buildDir = "dist"
+  exclude = [
+    # Patterns à exclure du sitemap
+    '**/admin/**'
+  ]
+
+# Configuration pour la génération HTML statique
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+  
+  [plugins.inputs]
+    staticFolderPath = "public"
+    publicFolderPath = "dist"
+
+# Redirection pour les SPA
 [[redirects]]
   from = "/*"
   to = "/index.html"

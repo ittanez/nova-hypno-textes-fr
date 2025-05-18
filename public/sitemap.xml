@@ -1,16 +1,40 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Page d'accueil -->
   <url>
     <loc>https://novahypnose.fr/</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://novahypnose.fr/lovable-uploads/ac75f7ce-64fa-4285-9d09-3c372d3efde5.png</image:loc>
+      <image:caption>Alain Zenatti, Hypnothérapeute à Paris</image:caption>
+      <image:title>NovaHypnose - Cabinet d'hypnothérapie à Paris</image:title>
+    </image:image>
   </url>
+  
+  <!-- Mentions légales -->
   <url>
     <loc>https://novahypnose.fr/mentions-legales</loc>
-    <lastmod>2025-05-10</lastmod>
+    <lastmod>2025-05-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  
+  <!-- Services spécifiques (à ajouter lorsque ces pages seront créées) -->
+  <url>
+    <loc>https://novahypnose.fr/hypno-balade</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://novahypnose.fr/hypno-balade.jpg</image:loc>
+      <image:caption>Hypno-Balade en Forêt de Senonches</image:caption>
+    </image:image>
   </url>
 </urlset>
