@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -90,7 +89,7 @@ const SeoContent = () => {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
             <h5 className="text-md font-semibold mb-2">Hypnose à Paris 4ème</h5>
-            <p>Cabinet d'hypnose thérapeutique près de Bastille, séances sur rendez-vous, hypnothérapie certifiée, approche ericksonienne.</p>
+            <p>Cabinet d'hypnose thérapeutique près de Bastille, séances sur rendez-vous, hypnose certifiée, approche ericksonienne.</p>
           </div>
           <div>
             <h5 className="text-md font-semibold mb-2">Traitement de l'anxiété par hypnose</h5>
@@ -134,10 +133,6 @@ const Index = () => {
       </Helmet>
       
       <ContentLayout>
-        {/* H1 modifié pour éviter la duplication avec le logo dans l'en-tête */}
-        <h1 className="text-4xl font-serif text-center mt-4 mb-8 px-4 animate-fade-in">
-          Cabinet d'hypnothérapie à Paris avec Alain Zenatti
-        </h1>
         <Hero />
         <About />
         <ApplicationsGrid />

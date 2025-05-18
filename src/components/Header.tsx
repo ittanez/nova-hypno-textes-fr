@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { 
@@ -70,6 +69,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
+            
             {mainNavLinks.map((link) => (
               <a 
                 key={link.name}
