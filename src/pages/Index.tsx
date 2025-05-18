@@ -134,7 +134,10 @@ const Index = () => {
       </Helmet>
       
       <ContentLayout>
-        <h1 className="sr-only">NovaHypnose - Cabinet d'hypnothérapie à Paris avec Alain Zenatti, hypnothérapeute certifié</h1>
+        {/* Remplacement du H1 sr-only par un H1 visible et bien placé */}
+        <h1 className="text-4xl font-serif text-center mt-4 mb-8 px-4 animate-fade-in">
+          NovaHypnose - Cabinet d'hypnothérapie à Paris avec Alain Zenatti
+        </h1>
         <Hero />
         <About />
         <ApplicationsGrid />
