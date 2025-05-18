@@ -60,6 +60,36 @@ export type Database = {
         }
         Relationships: []
       }
+      article_tags: {
+        Row: {
+          article_id: string
+          tag_id: string
+        }
+        Insert: {
+          article_id: string
+          tag_id: string
+        }
+        Update: {
+          article_id?: string
+          tag_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_tags_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "articles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "article_tags_tag_id_fkey"
+            columns: ["tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       articles: {
         Row: {
           author: string | null
@@ -71,6 +101,7 @@ export type Database = {
           id: string
           image_url: string | null
           published: boolean | null
+          slug: string | null
           tags: string[] | null
           title: string
           updated_at: string | null
@@ -85,6 +116,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           published?: boolean | null
+          slug?: string | null
           tags?: string[] | null
           title: string
           updated_at?: string | null
@@ -99,8 +131,39 @@ export type Database = {
           id?: string
           image_url?: string | null
           published?: boolean | null
+          slug?: string | null
           tags?: string[] | null
           title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      authors: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string | null
+          email: string | null
+          id: string
+          name: string
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          name: string
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          name?: string
           updated_at?: string | null
         }
         Relationships: []
@@ -385,6 +448,27 @@ export type Database = {
         }
         Relationships: []
       }
+      subscribers: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          verified: boolean | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          verified?: boolean | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
       tags: {
         Row: {
           created_at: string | null
@@ -462,6 +546,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_get_article_id_by_slug_function: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
       create_tables_if_not_exist: {
         Args: Record<PropertyKey, never>
         Returns: undefined
@@ -470,8 +558,16 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: string
       }
+      get_article_id_by_slug: {
+        Args: { slug_param: string }
+        Returns: string
+      }
       has_role: {
         Args: { user_id: string; required_role: string }
+        Returns: boolean
+      }
+      is_admin: {
+        Args: { user_id: string }
         Returns: boolean
       }
       random_string: {
