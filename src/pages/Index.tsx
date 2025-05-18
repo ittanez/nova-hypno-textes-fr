@@ -134,9 +134,9 @@ const Index = () => {
       </Helmet>
       
       <ContentLayout>
-        {/* Remplacement du H1 sr-only par un H1 visible et bien placé */}
+        {/* H1 modifié pour éviter la duplication avec le logo dans l'en-tête */}
         <h1 className="text-4xl font-serif text-center mt-4 mb-8 px-4 animate-fade-in">
-          NovaHypnose - Cabinet d'hypnothérapie à Paris avec Alain Zenatti
+          Cabinet d'hypnothérapie à Paris avec Alain Zenatti
         </h1>
         <Hero />
         <About />
