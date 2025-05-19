@@ -17,8 +17,8 @@ import { Helmet } from 'react-helmet';
 
 // Contenu SEO spécifique à la page d'accueil - MISE À JOUR
 const homePageSeo = {
-  title: 'Hypnose Paris 4 | Hypnothérapeute parisien thérapie par hypnose',
-  description: 'Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, phobies,...) qui vous gâchent la vie ? 0649358089',
+  title: 'Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose',
+  description: 'Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, émotions, phobies,...)  qui vous gâchent la vie ? 06 49 35 80 89',
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -28,7 +28,7 @@ const homePageSeo = {
     },
     "name": "NovaHypnose - Cabinet d'hypnothérapie à Paris",
     "headline": "Hypnothérapie Ericksonienne Personnalisée Paris Centre",
-    "description": "Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, phobies,...) qui vous gâchent la vie ?",
+    "description": "Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, émotions, phobies,...) qui vous gâchent la vie ?",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://novahypnose.fr/"
