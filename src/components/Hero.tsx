@@ -3,31 +3,16 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-  // Image optimisée en WebP avec dimensions prédéfinies
-  const bgImageUrl = 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1200&q=80&fm=webp'; 
-
   return (
     <section id="intro" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
-      {/* Image d'arrière-plan avec dimensions explicites */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <img 
-          src={bgImageUrl} 
-          alt="Séance d'hypnothérapie à Paris - cabinet d'hypnose"
-          className="object-cover w-full h-full"
-          width={1200}
-          height={800}
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark/80 via-nova-blue/60 to-nova-green-light/40" aria-hidden="true"></div>
+      {/* Suppression de l'image d'arrière-plan pour améliorer les performances */}
+      <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light" aria-hidden="true"></div>
       
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Texte principal optimisé pour le LCP avec H1 pour le SEO */}
+          {/* Modification du H1 principal pour le SEO */}
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
-            Hypnothérapeute à Paris | Alain Zenatti - Spécialiste en Hypnose Ericksonienne
+            Hypnothérapie Ericksonienne Personnalisée Paris Centre
           </h1>
           
           <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>

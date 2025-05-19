@@ -15,10 +15,10 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
 
-// Contenu SEO spécifique à la page d'accueil
+// Contenu SEO spécifique à la page d'accueil - MISE À JOUR
 const homePageSeo = {
-  title: 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti, Maître en Hypnose',
-  description: 'Cabinet d\'hypnothérapie à Paris avec Alain Zenatti. Spécialiste en hypnose ericksonienne pour stress, sommeil, phobies. Séances sur mesure près de Bastille.',
+  title: 'Hypnose Paris 4 | Hypnothérapeute parisien thérapie par hypnose',
+  description: 'Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, phobies,...) qui vous gâchent la vie ? 0649358089',
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -27,8 +27,8 @@ const homePageSeo = {
       "cssSelector": ["h1", ".speakable"]
     },
     "name": "NovaHypnose - Cabinet d'hypnothérapie à Paris",
-    "headline": "Hypnothérapie à Paris avec Alain Zenatti, Spécialiste en Hypnose Ericksonienne",
-    "description": "Retrouvez confiance et équilibre grâce à l'hypnose ericksonienne. Séances personnalisées pour stress, sommeil, phobies à Paris.",
+    "headline": "Hypnothérapie Ericksonienne Personnalisée Paris Centre",
+    "description": "Vous recherchez un hypnothérapeute sur Paris pour la prise en charge de vos maux (stress, sommeil, phobies,...) qui vous gâchent la vie ?",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://novahypnose.fr/"
