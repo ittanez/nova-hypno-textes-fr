@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Award } from 'lucide-react';
 
@@ -33,6 +32,9 @@ const About = () => {
                 width="600"
                 height="800"
                 fetchPriority="high"
+                srcSet="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png 600w"
+                sizes="(max-width: 768px) 100vw, 600px"
+                type="image/png"
               />
             </div>
           </div>
@@ -118,6 +120,9 @@ const About = () => {
                   width="800"
                   height="533"
                   fetchPriority="low"
+                  srcSet="/lovable-uploads/e1acda5a-fe4c-472d-8083-5c8baf982923.png 800w"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  type="image/png"
                 />
               </div>
             </div>
