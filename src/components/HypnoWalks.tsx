@@ -5,7 +5,7 @@ import { MapPin, Calendar, Clock, Users, Euro } from 'lucide-react';
 const HypnoWalks = () => {
   return (
     <section id="walks" className="section-padding relative">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3')] bg-cover bg-center opacity-15"></div>
+      <div className="absolute inset-0 bg-[url('https://drive.google.com/uc?export=view&id=1JNWUq5g5fH85-PNSJbKp5UdjqcRXzBZq')] bg-cover bg-center opacity-15"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-center text-nova-green-dark mb-6">Hypno-Balades dans le Perche</h2>
