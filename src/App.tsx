@@ -6,6 +6,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 
 import Index from "@/pages/Index";
 import MentionsLegales from "@/pages/MentionsLegales";
+import Custom404 from "@/pages/Custom404";
 import ContentLayout from "./components/layout/ContentLayout";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -27,13 +28,6 @@ function AppRedirects() {
         `https://${window.location.hostname}${window.location.pathname}${window.location.search}`
       );
     }
-    
-    // Log 404 attempts but redirect to home
-    if (location.pathname !== "/" && 
-        location.pathname !== "/mentions-legales" && 
-        !location.pathname.startsWith("/admin")) {
-      console.error("Tentative d'accès à une page inexistante:", location.pathname);
-    }
   }, [location]);
   
   return null;
@@ -47,8 +41,11 @@ function App() {
         
         <Routes>
           {/* Route principale */}
-          <Route path="/" element={<ContentLayout><Index /></ContentLayout>} />
-          <Route path="/mentions-legales" element={<ContentLayout><MentionsLegales /></ContentLayout>} />
+          <Route path="/" element={<Index />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          
+          {/* Page d'erreur 404 personnalisée */}
+          <Route path="/404" element={<Custom404 />} />
           
           {/* Route de connexion admin */}
           <Route path="/admin-blog" element={<AdminLogin />} />
@@ -71,8 +68,8 @@ function App() {
             }
           />
           
-          {/* Au lieu d'une route 404, rediriger vers la page d'accueil */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Au lieu d'une route * vague, rediriger spécifiquement vers la page 404 */}
+          <Route path="*" element={<Custom404 />} />
         </Routes>
         
         <Toaster />
