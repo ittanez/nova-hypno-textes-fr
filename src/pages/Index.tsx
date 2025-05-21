@@ -18,7 +18,7 @@ import { Helmet } from 'react-helmet';
 // Contenu SEO spécifique à la page d'accueil - MISE À JOUR
 const homePageSeo = {
   title: 'Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose',
-  description: 'Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultations à Paris 4. Tél 06 49 35 80 89.',
+  description: "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultations à Paris 4. Tél 06 49 35 80 89.",
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",

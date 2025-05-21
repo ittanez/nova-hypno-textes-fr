@@ -8,8 +8,8 @@ import { useSeoMetadata } from '../hooks/useSeoMetadata';
 const Custom404 = () => {
   // SEO pour la page 404
   useSeoMetadata({
-    title: 'Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4',
-    description: 'Cette page est introuvable, mais notre cabinet d\'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d\'hypnose pour stress, sommeil, phobies.',
+    title: "Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4",
+    description: "Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies.",
     canonicalUrl: 'https://novahypnose.fr/404'
   });
 
