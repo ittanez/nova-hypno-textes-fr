@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Heart, Award } from 'lucide-react';
 
@@ -25,7 +26,7 @@ const About = () => {
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="https://drive.google.com/uc?export=view&id=1aYGktbf33KkvO3EOHXTpfmW6JtOaJZzi" 
+                src="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png" 
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="eager"
@@ -110,7 +111,7 @@ const About = () => {
               
               <div className="mt-8">
                 <img 
-                  src="https://drive.google.com/uc?export=view&id=1PpAn4DRwgc5T0ilC3Q33TPN1y6iLnBjX" 
+                  src="/lovable-uploads/e1acda5a-fe4c-472d-8083-5c8baf982923.png" 
                   alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
