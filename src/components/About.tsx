@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Heart, Award } from 'lucide-react';
 
@@ -18,7 +19,7 @@ const About = () => {
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-nova-blue-dark mb-12">
-          À propos d'Alain Zenatti, Maître Hypnologue et Maître en Hypnose Ericksonienne
+          Alain Zenatti, votre hypnothérapeute de confiance à Paris
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -84,7 +85,7 @@ const About = () => {
             <div className="bg-nova-neutral p-8 rounded-xl shadow-lg">
               <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
                 <Heart className="mr-2 text-nova-green" size={24} />
-                L'hypnose ericksonienne : une approche respectueuse et créative
+                L'hypnose ericksonienne à Paris accompagne votre transformation en douceur
               </h3>
               
               <p className="mb-4">
