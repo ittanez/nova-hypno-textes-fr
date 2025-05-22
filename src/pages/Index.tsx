@@ -131,6 +131,57 @@ const Index = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": "NovaHypnose - Alain Zenatti",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "16 rue St Antoine",
+              "addressLocality": "Paris",
+              "postalCode": "75004",
+              "addressCountry": "FR"
+            },
+            "telephone": "0649358089",
+            "email": "contact@novahypnose.fr",
+            "priceRange": "90€",
+            "url": "https://novahypnose.fr"
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "NovaHypnose - Cabinet d'hypnothérapie Paris",
+            "image": "https://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp",
+            "telephone": "0649358089",
+            "email": "contact@novahypnose.fr",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "16 rue St Antoine",
+              "addressLocality": "Paris",
+              "postalCode": "75004",
+              "addressRegion": "Île-de-France",
+              "addressCountry": "FR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.8533576,
+              "longitude": 2.3644123
+            },
+            "url": "https://novahypnose.fr",
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "19:00"
+              }
+            ],
+            "priceRange": "90€"
+          })}
+        </script>
       </Helmet>
       
       <ContentLayout>

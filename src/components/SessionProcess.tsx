@@ -49,7 +49,7 @@ const SessionProcess = () => {
   return (
     <section id="sessions" className="section-padding bg-nova-blue-light bg-opacity-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-6">Un cadre sécurisant pour laisser émerger ce qui doit changer</h2>
+        <h2 className="text-center text-nova-blue-dark mb-6">Découvrez comment une séance d'hypnose à Paris peut transformer votre quotidien</h2>
         
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-center">

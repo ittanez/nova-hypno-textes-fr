@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 
@@ -6,7 +5,7 @@ const Pricing = () => {
   return (
     <section id="pricing" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12">Tarifs des séances d'hypnothérapie</h2>
+        <h2 className="text-center text-nova-blue-dark mb-12">Investir dans votre bien-être avec nos tarifs d'hypnose à Paris</h2>
         
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
           <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden">
