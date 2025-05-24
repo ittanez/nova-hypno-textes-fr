@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Star } from 'lucide-react';
 import TestimonialCard from './TestimonialCard';
 import TestimonialControls from './TestimonialControls';

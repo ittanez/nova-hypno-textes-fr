@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Clock, MessageCircle, Brain, Target } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
