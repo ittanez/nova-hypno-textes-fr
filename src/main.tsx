@@ -74,7 +74,11 @@ root.render(
       const loadHandler = () => {
         setTimeout(loadNonCriticalResources, 1500);
       };
-      if (window && window.addEventListener) {
+      
+      // Vérifier si le document est déjà chargé
+      if (document.readyState === 'complete') {
+        loadHandler();
+      } else {
         window.addEventListener('load', loadHandler, { once: true });
       }
     }
