@@ -1,7 +1,6 @@
 
 import { ArrowDown } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import OptimizedImage from './ui/optimized-image';
 
 const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -16,36 +15,18 @@ const Hero = () => {
   return (
     <section 
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center"
+      style={{
+        background: 'linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)'
+      }}
       role="banner"
       aria-label="Section d'accueil"
     >
-      {/* Image de fond optimisée */}
-      <div className="absolute inset-0 z-[-2]">
-        <OptimizedImage
-          src="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png"
-          alt="Cabinet d'hypnothérapie NovaHypnose à Paris - Ambiance apaisante pour séances d'hypnose ericksonienne"
-          width={1920}
-          height={1080}
-          priority={true}
-          className="w-full h-full"
-        />
-      </div>
-      
-      {/* Overlay avec dégradé optimisé */}
-      <div 
-        className="absolute inset-0 z-[-1]"
-        style={{
-          background: 'linear-gradient(135deg, rgba(0, 95, 115, 0.8), rgba(10, 147, 150, 0.6), rgba(148, 210, 189, 0.4))'
-        }}
-        aria-hidden="true"
-      />
-      
       {/* Contenu principal */}
       <div className={`relative z-10 text-center text-white px-4 max-w-4xl mx-auto ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
           <span className="block">Hypnose Ericksonienne</span>
-          <span className="block text-nova-blue-light">à Paris</span>
+          <span className="block text-white">à Paris</span>
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90 max-w-3xl mx-auto">
@@ -64,7 +45,7 @@ const Hero = () => {
           
           <a 
             href="tel:0649358089"
-            className="border-2 border-white text-white hover:bg-white hover:text-nova-blue-dark px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+            className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
             aria-label="Appeler le cabinet au 06 49 35 80 89"
           >
             06 49 35 80 89
@@ -80,7 +61,7 @@ const Hero = () => {
       {/* Indicateur de scroll optimisé */}
       <button
         onClick={scrollToNextSection}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-nova-blue-light transition-colors duration-300 animate-bounce"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-blue-200 transition-colors duration-300 animate-bounce"
         aria-label="Faire défiler vers la section suivante"
       >
         <ArrowDown size={32} />
