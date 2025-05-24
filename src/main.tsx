@@ -4,72 +4,142 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Fonction pour charger les ressources non critiques après le rendu initial
+// Fonction pour charger les ressources non critiques de manière optimisée
 const loadNonCriticalResources = () => {
-  // Chargement des ressources non essentielles avec priorité basse
-  const loadNonCriticalScript = (src: string, cacheTime: number = 604800) => {
+  // Performance optimizations avec priorité basse et cache amélioré
+  const loadOptimizedScript = (src: string, options: { defer?: boolean; async?: boolean } = {}) => {
     const script = document.createElement('script');
     script.src = src;
-    script.async = true;
+    script.defer = options.defer ?? true;
+    script.async = options.async ?? true;
     script.setAttribute('fetchPriority', 'low');
     
-    // Ajout des en-têtes de cache pour les ressources statiques
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = src;
-    link.as = 'script';
+    // Gestion d'erreur pour les scripts externes
+    script.onerror = () => {
+      console.warn(`Failed to load script: ${src}`);
+    };
     
     document.body.appendChild(script);
   };
   
-  // Chargement des styles non critiques
-  const loadNonCriticalStyles = (href: string, cacheTime: number = 604800) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.setAttribute('fetchPriority', 'low');
-    document.head.appendChild(link);
+  // Préconnexion optimisée aux domaines tiers
+  const addOptimizedPreconnect = (url: string) => {
+    if (!document.querySelector(`link[href="${url}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = url;
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    }
   };
   
-  // Préconnexion aux domaines tiers
-  const addPreconnect = (url: string) => {
-    const link = document.createElement('link');
-    link.rel = 'preconnect';
-    link.href = url;
-    document.head.appendChild(link);
-  };
+  // Ajouter les préconnexions avec vérification de doublons
+  addOptimizedPreconnect('https://cdn.gpteng.co');
+  addOptimizedPreconnect('https://tools.luckyorange.com');
+  addOptimizedPreconnect('https://fonts.gstatic.com');
   
-  // Ajouter les préconnexions
-  addPreconnect('https://cdn.gpteng.co');
-  addPreconnect('https://tools.luckyorange.com');
-  
-  // Chargement d'autres ressources non critiques
+  // Service Worker pour la mise en cache (si supporté)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .catch(() => {
+          // Service worker non disponible, continuer sans
+        });
+    });
+  }
 };
 
-// Rendu de l'application avec priorité maximale
+// Rendu de l'application avec priorité maximale et optimisations
 const root = createRoot(document.getElementById("root")!);
+
+// Activer le mode concurrent de React pour de meilleures performances
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// Wrapped in an immediate function to avoid global scope pollution
-(function() {
+// Fonction d'optimisation encapsulée pour éviter la pollution du scope global
+(function initPerformanceOptimizations() {
   if (typeof window === 'undefined') return;
   
-  // Note: HTTP to HTTPS redirection is now handled in the App component only, not here
-  
-  // Utilisation de requestIdleCallback avec une stratégie de fallback optimisée
-  if ('requestIdleCallback' in window) {
-    // Utiliser requestIdleCallback avec un délai maximal pour garantir l'exécution
-    window.requestIdleCallback(loadNonCriticalResources, { timeout: 5000 });
-  } else {
-    // Fallback qui attend que le contenu principal soit chargé
-    // Type assertion to ensure TypeScript knows this is a Window object
-    const win = window as Window;
-    win.addEventListener('load', () => {
-      setTimeout(loadNonCriticalResources, 2000);
+  // Optimisation du chargement différé avec stratégies multiples
+  const scheduleNonCriticalLoading = () => {
+    // Priorité 1: requestIdleCallback (navigateurs modernes)
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadNonCriticalResources, { 
+        timeout: 3000 // Assurer l'exécution même si le navigateur est occupé
+      });
+    } 
+    // Priorité 2: setTimeout après load (fallback)
+    else {
+      window.addEventListener('load', () => {
+        setTimeout(loadNonCriticalResources, 1500);
+      }, { once: true });
+    }
+  };
+
+  // Optimisations spécifiques aux Core Web Vitals
+  const optimizeWebVitals = () => {
+    // Éviter les Layout Shifts
+    const images = document.querySelectorAll('img:not([width]):not([height])');
+    images.forEach((img) => {
+      if (img instanceof HTMLImageElement && !img.width && !img.height) {
+        // Ajouter des dimensions par défaut pour éviter le CLS
+        img.style.aspectRatio = '16/9';
+      }
     });
+
+    // Optimiser les animations
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotion.matches) {
+      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+    }
+  };
+
+  // Mesures de performance pour le debugging
+  const measurePerformance = () => {
+    if ('PerformanceObserver' in window) {
+      try {
+        // Observer pour LCP
+        const lcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          console.log('LCP:', lastEntry.startTime);
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+        // Observer pour FID
+        const fidObserver = new PerformanceObserver((list) => {
+          list.getEntries().forEach((entry) => {
+            console.log('FID:', entry.processingStart - entry.startTime);
+          });
+        });
+        fidObserver.observe({ entryTypes: ['first-input'] });
+
+        // Observer pour CLS
+        const clsObserver = new PerformanceObserver((list) => {
+          let clsValue = 0;
+          list.getEntries().forEach((entry) => {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          });
+          console.log('CLS:', clsValue);
+        });
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      } catch (e) {
+        // PerformanceObserver non supporté
+      }
+    }
+  };
+
+  // Initialiser toutes les optimisations
+  scheduleNonCriticalLoading();
+  optimizeWebVitals();
+  
+  // Mesurer les performances seulement en développement
+  if (import.meta.env.DEV) {
+    measurePerformance();
   }
 })();

@@ -1,50 +1,90 @@
 
-import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import OptimizedImage from './ui/optimized-image';
 
 const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('#about');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="intro" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
-      {/* Suppression de l'image d'arrière-plan pour améliorer les performances */}
-      <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light" aria-hidden="true"></div>
+    <section 
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      role="banner"
+      aria-label="Section d'accueil"
+    >
+      {/* Image de fond optimisée */}
+      <div className="absolute inset-0 z-[-2]">
+        <OptimizedImage
+          src="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png"
+          alt="Cabinet d'hypnothérapie NovaHypnose à Paris - Ambiance apaisante pour séances d'hypnose ericksonienne"
+          width={1920}
+          height={1080}
+          priority={true}
+          className="w-full h-full"
+        />
+      </div>
       
-      <div className="container mx-auto px-4 py-24 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Modification du H1 principal pour le SEO */}
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
-            Hypnothérapie Ericksonienne Personnalisée Paris Centre
-          </h1>
+      {/* Overlay avec dégradé optimisé */}
+      <div 
+        className="absolute inset-0 z-[-1]"
+        style={{
+          background: 'linear-gradient(135deg, rgba(0, 95, 115, 0.8), rgba(10, 147, 150, 0.6), rgba(148, 210, 189, 0.4))'
+        }}
+        aria-hidden="true"
+      />
+      
+      {/* Contenu principal */}
+      <div className={`relative z-10 text-center text-white px-4 max-w-4xl mx-auto ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <span className="block">Hypnose Ericksonienne</span>
+          <span className="block text-nova-blue-light">à Paris</span>
+        </h1>
+        
+        <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90 max-w-3xl mx-auto">
+          Accompagnement thérapeutique avec <strong>Alain Zenatti</strong>, Maître Hypnologue. 
+          Retrouvez confiance, équilibre et vitalité grâce à l'hypnose ericksonienne.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a 
+            href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+            className="bg-nova-green hover:bg-nova-green-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            aria-label="Prendre rendez-vous avec Alain Zenatti"
+          >
+            Prendre Rendez-vous
+          </a>
           
-          <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>
-            Hypnose ericksonienne et auto-hypnose à Paris : une approche respectueuse et sur mesure, pour mobiliser les ressources profondes de votre inconscient et favoriser un mieux-être durable.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.4s"}}>
-            <a 
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
-              aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris"
-            >
-              Prendre rendez-vous
-            </a>
-            <a 
-              href="#applications" 
-              className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold"
-              aria-label="Découvrir les applications de l'hypnose"
-            >
-              Découvrir les applications
-            </a>
-          </div>
+          <a 
+            href="tel:0649358089"
+            className="border-2 border-white text-white hover:bg-white hover:text-nova-blue-dark px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+            aria-label="Appeler le cabinet au 06 49 35 80 89"
+          >
+            06 49 35 80 89
+          </a>
+        </div>
+        
+        <div className="mt-8 text-sm opacity-75">
+          <p>📍 Cabinet à Paris 4ème - Quartier Marais Bastille</p>
+          <p>🌿 Séances en cabinet ou Hypno-Balades en forêt</p>
         </div>
       </div>
       
-      <div className="absolute bottom-10 w-full flex justify-center animate-bounce">
-        <a href="#about" aria-label="Défiler vers la section à propos">
-          <ChevronDown size={40} className="text-white" />
-        </a>
-      </div>
+      {/* Indicateur de scroll optimisé */}
+      <button
+        onClick={scrollToNextSection}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-nova-blue-light transition-colors duration-300 animate-bounce"
+        aria-label="Faire défiler vers la section suivante"
+      >
+        <ArrowDown size={32} />
+      </button>
     </section>
   );
 };
