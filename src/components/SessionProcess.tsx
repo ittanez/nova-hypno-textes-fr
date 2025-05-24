@@ -26,16 +26,16 @@ const SessionProcess = () => {
   ];
 
   return (
-    <section id="sessions" className="py-16 bg-white">
+    <section id="sessions" className="py-8 md:py-16 bg-white">
       <div className="container mx-auto px-4">
         <div 
           ref={ref}
-          className={`text-center mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+          className={`text-center mb-8 md:mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-nova-blue-dark mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-nova-blue-dark mb-4 md:mb-6">
             Découvrez comment une séance d'hypnose à Paris peut transformer votre quotidien
           </h2>
-          <div className="text-lg text-nova-neutral-dark max-w-3xl mx-auto space-y-4">
+          <div className="text-base md:text-lg text-nova-neutral-dark max-w-3xl mx-auto space-y-3 md:space-y-4">
             <p>
               Chaque séance est une rencontre. Une rencontre avec vous-même, mais dans un cadre guidé, 
               respectueux, où rien n'est forcé et tout peut être entendu.
@@ -50,33 +50,33 @@ const SessionProcess = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <div
                 key={index}
-                className={`text-center p-6 rounded-lg border-2 transition-all cursor-pointer ${
+                className={`text-center p-4 md:p-6 rounded-lg border-2 transition-all duration-300 cursor-pointer ${
                   activeStep === index 
-                    ? 'border-nova-green bg-nova-green/5 transform scale-105' 
+                    ? 'border-nova-green bg-nova-green/5 transform scale-[1.02] md:scale-105' 
                     : 'border-gray-200 hover:border-nova-green/50'
                 } ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 0.2}s` }}
                 onClick={() => setActiveStep(index)}
               >
-                <div className="flex justify-center mb-4">
-                  <div className={`p-4 rounded-full ${
+                <div className="flex justify-center mb-3 md:mb-4">
+                  <div className={`p-3 md:p-4 rounded-full transition-colors duration-300 ${
                     activeStep === index ? 'bg-nova-green text-white' : 'bg-nova-blue/10 text-nova-blue'
                   }`}>
-                    <Icon size={32} />
+                    <Icon size={24} className="md:w-8 md:h-8" />
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">
+                <h3 className="text-lg md:text-xl font-semibold text-nova-blue-dark mb-3 md:mb-4">
                   {index + 1}. {step.title}
                 </h3>
                 
-                <p className="text-nova-neutral-dark leading-relaxed">
+                <p className="text-sm md:text-base text-nova-neutral-dark leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -84,9 +84,9 @@ const SessionProcess = () => {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-nova-blue/5 rounded-lg p-6 max-w-2xl mx-auto">
-            <p className="text-lg text-nova-neutral-dark font-medium">
+        <div className="text-center mt-8 md:mt-12">
+          <div className="bg-nova-blue/5 rounded-lg p-4 md:p-6 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-nova-neutral-dark font-medium">
               Chaque séance est un pas. Un pas mesuré, respectueux, mais engagé vers un mieux-être durable et autonome.
             </p>
           </div>

@@ -9,17 +9,35 @@ export const useScrollAnimation = (threshold: number = 0.1) => {
     const element = ref.current;
     if (!element) return;
 
+    // Configuration adaptée mobile avec seuil plus bas
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
       {
-        threshold,
-        rootMargin: '10px',
+        threshold: Math.max(0.05, threshold), // Seuil minimum de 5% pour mobile
+        rootMargin: '20px 0px', // Marge plus large pour déclencher plus tôt
       }
     );
 
     observer.observe(element);
+
+    // Fallback pour les navigateurs qui ne supportent pas IntersectionObserver
+    const fallbackCheck = () => {
+      if (!element) return;
+      
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      
+      if (rect.top <= windowHeight * 0.8) {
+        setIsVisible(true);
+      }
+    };
+
+    // Vérification immédiate au cas où l'élément serait déjà visible
+    fallbackCheck();
 
     return () => {
       observer.disconnect();
