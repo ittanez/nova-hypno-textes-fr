@@ -40,12 +40,10 @@ const loadNonCriticalResources = () => {
   
   // Service Worker pour la mise en cache (si supporté)
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .catch(() => {
-          // Service worker non disponible, continuer sans
-        });
-    });
+    navigator.serviceWorker.register('/sw.js')
+      .catch(() => {
+        // Service worker non disponible, continuer sans
+      });
   }
 };
 
@@ -67,15 +65,16 @@ root.render(
   const scheduleNonCriticalLoading = () => {
     // Priorité 1: requestIdleCallback (navigateurs modernes)
     if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(loadNonCriticalResources, { 
+      window.requestIdleCallback(loadNonCriticalResources, { 
         timeout: 3000 // Assurer l'exécution même si le navigateur est occupé
       });
     } 
     // Priorité 2: setTimeout après load (fallback)
     else {
-      window.addEventListener('load', () => {
+      const loadHandler = () => {
         setTimeout(loadNonCriticalResources, 1500);
-      }, { once: true });
+      };
+      window.addEventListener('load', loadHandler, { once: true });
     }
   };
 
@@ -97,9 +96,9 @@ root.render(
     }
   };
 
-  // Mesures de performance pour le debugging
+  // Mesures de performance pour le debugging (simplifiées)
   const measurePerformance = () => {
-    if ('PerformanceObserver' in window) {
+    if ('PerformanceObserver' in window && import.meta.env.DEV) {
       try {
         // Observer pour LCP
         const lcpObserver = new PerformanceObserver((list) => {
@@ -108,26 +107,6 @@ root.render(
           console.log('LCP:', lastEntry.startTime);
         });
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-
-        // Observer pour FID
-        const fidObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry: any) => {
-            console.log('FID:', entry.processingStart - entry.startTime);
-          });
-        });
-        fidObserver.observe({ entryTypes: ['first-input'] });
-
-        // Observer pour CLS
-        const clsObserver = new PerformanceObserver((list) => {
-          let clsValue = 0;
-          list.getEntries().forEach((entry: any) => {
-            if (!entry.hadRecentInput) {
-              clsValue += entry.value;
-            }
-          });
-          console.log('CLS:', clsValue);
-        });
-        clsObserver.observe({ entryTypes: ['layout-shift'] });
       } catch (e) {
         // PerformanceObserver non supporté
       }
