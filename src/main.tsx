@@ -74,7 +74,9 @@ root.render(
       const loadHandler = () => {
         setTimeout(loadNonCriticalResources, 1500);
       };
-      window.addEventListener('load', loadHandler, { once: true });
+      if (window && window.addEventListener) {
+        window.addEventListener('load', loadHandler, { once: true });
+      }
     }
   };
 
