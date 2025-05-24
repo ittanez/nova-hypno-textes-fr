@@ -79,10 +79,8 @@ root.render(
       if (document.readyState === 'complete') {
         loadHandler();
       } else {
-        // S'assurer que window existe et a addEventListener avant de l'utiliser
-        if (typeof window !== 'undefined') {
-          window.addEventListener('load', loadHandler, { once: true });
-        }
+        // Utiliser addEventListener seulement si disponible
+        window.addEventListener('load', loadHandler, { once: true });
       }
     }
   };
