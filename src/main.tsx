@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
@@ -69,18 +68,17 @@ root.render(
         timeout: 3000 // Assurer l'exécution même si le navigateur est occupé
       });
     } 
-    // Priorité 2: setTimeout après load (fallback)
+    // Priorité 2: setTimeout après DOMContentLoaded (fallback)
     else {
       const loadHandler = () => {
         setTimeout(loadNonCriticalResources, 1500);
       };
       
       // Vérifier si le document est déjà chargé
-      if (document.readyState === 'complete') {
-        loadHandler();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadHandler, { once: true });
       } else {
-        // Utiliser addEventListener seulement si disponible
-        window.addEventListener('load', loadHandler, { once: true });
+        loadHandler();
       }
     }
   };
