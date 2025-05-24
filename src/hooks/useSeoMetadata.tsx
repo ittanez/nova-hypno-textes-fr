@@ -1,5 +1,5 @@
 
-import { useEffect, useMemo } from 'react';
+import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 
 type SeoProps = {
@@ -37,11 +37,11 @@ export function useSeoMetadata({
   
   // Generate the current URL for Open Graph and canonical tags
   const currentPath = location.pathname;
-  const fullUrl = useMemo(() => `${BASE_URL}${currentPath}`, [currentPath]);
+  const fullUrl = React.useMemo(() => `${BASE_URL}${currentPath}`, [currentPath]);
   const actualOgUrl = ogUrl || fullUrl;
   const actualCanonicalUrl = canonicalUrl || fullUrl;
   
-  useEffect(() => {
+  React.useEffect(() => {
     // Set page title with optimal length (60-70 characters)
     document.title = title;
     

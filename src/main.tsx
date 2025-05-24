@@ -96,29 +96,7 @@ root.render(
     }
   };
 
-  // Mesures de performance pour le debugging (simplifiées)
-  const measurePerformance = () => {
-    if ('PerformanceObserver' in window && import.meta.env.DEV) {
-      try {
-        // Observer pour LCP
-        const lcpObserver = new PerformanceObserver((list) => {
-          const entries = list.getEntries();
-          const lastEntry = entries[entries.length - 1];
-          console.log('LCP:', lastEntry.startTime);
-        });
-        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-      } catch (e) {
-        // PerformanceObserver non supporté
-      }
-    }
-  };
-
   // Initialiser toutes les optimisations
   scheduleNonCriticalLoading();
   optimizeWebVitals();
-  
-  // Mesurer les performances seulement en développement
-  if (import.meta.env.DEV) {
-    measurePerformance();
-  }
 })();

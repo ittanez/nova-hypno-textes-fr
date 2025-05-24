@@ -1,4 +1,4 @@
-// Renamed from useToast to conform to React conventions
+
 import * as React from "react"
 
 const TOAST_LIMIT = 5
