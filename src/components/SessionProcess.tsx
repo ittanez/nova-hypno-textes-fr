@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Clock, Users, Brain, Target } from 'lucide-react';
+import { Clock, MessageCircle, Brain, Target } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const SessionProcess = () => {
@@ -9,22 +9,19 @@ const SessionProcess = () => {
 
   const steps = [
     {
-      icon: Users,
-      title: "Premier Entretien",
-      description: "Échange pour comprendre vos objectifs et définir votre parcours personnalisé.",
-      duration: "30 min"
+      icon: MessageCircle,
+      title: "Temps d'échange",
+      description: "Nous commençons par un temps de parole. Vous y exprimez vos besoins, votre état du moment, vos attentes. Ce dialogue me permet de cerner ce qui se joue en vous, et de poser les bases d'un accompagnement personnalisé."
     },
     {
       icon: Brain,
-      title: "Séance d'Hypnose",
-      description: "Accompagnement en état d'hypnose ericksonienne pour activer vos ressources.",
-      duration: "45 min"
+      title: "Induction hypnotique et travail ciblé",
+      description: "Je vous guide progressivement vers un état de conscience modifiée, naturel et sécurisé, qui facilite le dialogue avec votre monde intérieur. C'est dans cet état que nous mobilisons vos ressources inconscientes, à travers des suggestions, des métaphores, ou des protocoles adaptés à votre objectif."
     },
     {
       icon: Target,
-      title: "Ancrage des Changements",
-      description: "Techniques pour intégrer durablement les nouveaux comportements.",
-      duration: "15 min"
+      title: "Intégration et retour à l'état ordinaire",
+      description: "En fin de séance, nous prenons un moment pour revenir à l'état de veille, accueillir vos ressentis et poser les premiers ancrages du changement. Vous repartez avec une sensation d'apaisement, parfois une clarté nouvelle, souvent un début de transformation silencieuse mais réelle."
     }
   ];
 
@@ -35,15 +32,25 @@ const SessionProcess = () => {
           ref={ref}
           className={`text-center mb-12 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-nova-blue-dark mb-4">
-            Déroulement des Séances
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-nova-blue-dark mb-6">
+            Découvrez comment une séance d'hypnose à Paris peut transformer votre quotidien
           </h2>
-          <p className="text-lg text-nova-neutral-dark max-w-2xl mx-auto">
-            Un accompagnement structuré et bienveillant pour maximiser l'efficacité de chaque séance
-          </p>
+          <div className="text-lg text-nova-neutral-dark max-w-3xl mx-auto space-y-4">
+            <p>
+              Chaque séance est une rencontre. Une rencontre avec vous-même, mais dans un cadre guidé, 
+              respectueux, où rien n'est forcé et tout peut être entendu.
+            </p>
+            <p>
+              Mon rôle est d'ouvrir un espace où votre inconscient peut s'exprimer librement, à son rythme, 
+              et où vous pouvez vous sentir en sécurité pour amorcer un changement en profondeur.
+            </p>
+            <p className="font-semibold">
+              Voici comment se déroule une séance type :
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -65,18 +72,13 @@ const SessionProcess = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-nova-blue-dark mb-3">
-                  {step.title}
+                <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">
+                  {index + 1}. {step.title}
                 </h3>
                 
-                <p className="text-nova-neutral-dark mb-4 leading-relaxed">
+                <p className="text-nova-neutral-dark leading-relaxed">
                   {step.description}
                 </p>
-                
-                <div className="flex items-center justify-center text-nova-green font-medium">
-                  <Clock size={16} className="mr-2" />
-                  {step.duration}
-                </div>
               </div>
             );
           })}
@@ -84,12 +86,8 @@ const SessionProcess = () => {
 
         <div className="text-center mt-12">
           <div className="bg-nova-blue/5 rounded-lg p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-nova-blue-dark mb-3">
-              Durée totale : 90 minutes
-            </h3>
-            <p className="text-nova-neutral-dark">
-              Chaque séance est adaptée à votre rythme et à vos besoins spécifiques. 
-              Un suivi personnalisé vous est proposé entre les séances.
+            <p className="text-lg text-nova-neutral-dark font-medium">
+              Chaque séance est un pas. Un pas mesuré, respectueux, mais engagé vers un mieux-être durable et autonome.
             </p>
           </div>
         </div>
