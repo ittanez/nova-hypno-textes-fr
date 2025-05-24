@@ -11,13 +11,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react({
-      // Optimisations SWC pour de meilleures performances
-      jsxImportSource: '@emotion/react',
-      plugins: [
-        ['@swc/plugin-emotion', {}],
-      ],
-    }),
+    react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
@@ -72,9 +66,6 @@ export default defineConfig(({ mode }) => ({
   },
   css: {
     devSourcemap: mode === 'development',
-    preprocessorOptions: {
-      // Optimisations CSS
-    },
   },
   // Configuration des headers pour la mise en cache
   preview: {

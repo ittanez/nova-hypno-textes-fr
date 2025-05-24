@@ -67,7 +67,7 @@ root.render(
   const scheduleNonCriticalLoading = () => {
     // Priorité 1: requestIdleCallback (navigateurs modernes)
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadNonCriticalResources, { 
+      (window as any).requestIdleCallback(loadNonCriticalResources, { 
         timeout: 3000 // Assurer l'exécution même si le navigateur est occupé
       });
     } 
@@ -111,7 +111,7 @@ root.render(
 
         // Observer pour FID
         const fidObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry) => {
+          list.getEntries().forEach((entry: any) => {
             console.log('FID:', entry.processingStart - entry.startTime);
           });
         });
@@ -120,7 +120,7 @@ root.render(
         // Observer pour CLS
         const clsObserver = new PerformanceObserver((list) => {
           let clsValue = 0;
-          list.getEntries().forEach((entry) => {
+          list.getEntries().forEach((entry: any) => {
             if (!entry.hadRecentInput) {
               clsValue += entry.value;
             }
