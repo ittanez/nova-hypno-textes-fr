@@ -25,8 +25,7 @@ const Hero = () => {
       {/* Contenu principal */}
       <div className={`relative z-10 text-center text-white px-4 max-w-4xl mx-auto ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          <span className="block">Hypnothérapie</span>
-          <span className="block">Ericksonienne</span>
+          <span className="block text-white">Hypnothérapie Ericksonienne</span>
           <span className="block text-white">Personnalisée Paris Centre</span>
         </h1>
         
@@ -46,13 +45,13 @@ const Hero = () => {
             Prendre rendez-vous
           </a>
           
-          <button
-            onClick={scrollToNextSection}
+          <a
+            href="https://preview--nova-hypno-textes-fr.lovable.app/#applications"
             className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
             aria-label="Découvrir les applications de l'hypnose"
           >
             Découvrir les applications
-          </button>
+          </a>
         </div>
       </div>
       
