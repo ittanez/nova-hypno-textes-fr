@@ -65,7 +65,7 @@ root.render(
   const scheduleNonCriticalLoading = () => {
     // Priorité 1: requestIdleCallback (navigateurs modernes)
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadNonCriticalResources, { 
+      (window as any).requestIdleCallback(loadNonCriticalResources, { 
         timeout: 3000 // Assurer l'exécution même si le navigateur est occupé
       });
     } 
