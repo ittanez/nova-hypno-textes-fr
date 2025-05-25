@@ -18,7 +18,7 @@ import { Helmet } from 'react-helmet';
 // Contenu SEO spécifique à la page d'accueil - MISE À JOUR
 const homePageSeo = {
   title: 'Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose',
-  description: "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89.",
+  description: "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultations à Paris 4. Tél 06 49 35 80 89.",
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -28,7 +28,7 @@ const homePageSeo = {
     },
     "name": "NovaHypnose - Cabinet d'hypnothérapie à Paris",
     "headline": "Hypnothérapie Ericksonienne Personnalisée Paris Centre",
-    "description": "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89.",
+    "description": "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultations à Paris 4.",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://novahypnose.fr/"
@@ -41,7 +41,7 @@ const SeoContent = () => {
   return (
     <section aria-hidden="true" className="py-8 px-4 bg-gray-50">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl font-serif mb-4">L'hypnose à Paris pour retrouver votre équilibre naturel</h2>
+        <h2 className="text-2xl font-serif mb-4">L'hypnothérapie à Paris avec Alain Zenatti - Votre Hypnothérapeute Certifié</h2>
         <p className="mb-4">
           Bienvenue chez NovaHypnose, votre cabinet d'hypnothérapie de référence à Paris. Spécialiste en hypnose ericksonienne, 
           Alain Zenatti vous accompagne dans votre cheminement vers un mieux-être durable. Situé dans le 4ème arrondissement 
@@ -93,11 +93,11 @@ const SeoContent = () => {
             <p>Cabinet d'hypnose thérapeutique près de Bastille, séances sur rendez-vous, hypnose certifiée, approche ericksonienne.</p>
           </div>
           <div>
-            <h5 className="text-md font-semibold mb-2">Hypnothérapie Paris pour le Stress et les Émotions</h5>
+            <h5 className="text-md font-semibold mb-2">Traitement de l'anxiété par hypnose</h5>
             <p>Gestion du stress, apaisement des angoisses, techniques de respiration, relaxation profonde, retrouver le calme intérieur.</p>
           </div>
           <div>
-            <h5 className="text-md font-semibold mb-2">Retrouvez un sommeil réparateur grâce à l'hypnose à Paris</h5>
+            <h5 className="text-md font-semibold mb-2">Hypnose pour le sommeil</h5>
             <p>Traitement de l'insomnie, amélioration de la qualité du sommeil, endormissement facilité, sommeil réparateur, rituels de coucher.</p>
           </div>
         </div>
@@ -129,57 +129,6 @@ const Index = () => {
                 "item": "https://novahypnose.fr/"
               }
             ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MedicalBusiness",
-            "name": "NovaHypnose - Alain Zenatti",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "16 rue St Antoine",
-              "addressLocality": "Paris",
-              "postalCode": "75004",
-              "addressCountry": "FR"
-            },
-            "telephone": "0649358089",
-            "email": "contact@novahypnose.fr",
-            "priceRange": "90€",
-            "url": "https://novahypnose.fr"
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "NovaHypnose - Cabinet d'hypnothérapie Paris",
-            "image": "https://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp",
-            "telephone": "0649358089",
-            "email": "contact@novahypnose.fr",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "16 rue St Antoine",
-              "addressLocality": "Paris",
-              "postalCode": "75004",
-              "addressRegion": "Île-de-France",
-              "addressCountry": "FR"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 48.8533576,
-              "longitude": 2.3644123
-            },
-            "url": "https://novahypnose.fr",
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "19:00"
-              }
-            ],
-            "priceRange": "90€"
           })}
         </script>
       </Helmet>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
 
@@ -5,7 +6,7 @@ const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12">Nous rencontrer dans le cœur historique de Paris</h2>
+        <h2 className="text-center text-nova-blue-dark mb-12">Informations de contact</h2>
         
         <div className="max-w-4xl mx-auto mb-12">
           <div className="rounded-xl overflow-hidden shadow-lg">

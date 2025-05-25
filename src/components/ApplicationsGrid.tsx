@@ -4,22 +4,22 @@ import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwic
 
 const applications = [
   {
-    title: 'Hypnothérapie Paris pour le Stress et les Émotions',
+    title: 'Gestion du stress et des émotions',
     description: "Apprendre à accueillir ce qui vous traverse sans être débordé. L'hypnose permet d'installer un espace de recul intérieur, pour retrouver stabilité, calme et sécurité émotionnelle.",
     icon: GanttChart
   },
   {
-    title: 'Retrouvez un sommeil réparateur grâce à l\'hypnose à Paris',
+    title: 'Amélioration du sommeil',
     description: "En calmant les pensées envahissantes, en apaisant le système nerveux et en reconditionnant les automatismes du sommeil, l'hypnose aide à retrouver un endormissement plus naturel et réparateur.",
     icon: Moon
   },
   {
-    title: 'Renforcez votre confiance en vous avec l\'hypnose dans notre cabinet parisien',
+    title: 'Renforcement de la confiance en soi',
     description: "Vous reconnecter à vos capacités, redéfinir votre regard sur vous-même, oser prendre votre place avec assurance. L'inconscient devient ici un soutien puissant pour se réapproprier sa valeur.",
     icon: Heart
   },
   {
-    title: 'Libérez-vous de vos peurs et blocages avec un hypnothérapeute à Paris',
+    title: 'Libération des blocages et peurs',
     description: "Phobies, peur du jugement, frein au changement : l'hypnose offre un accès indirect mais efficace aux racines émotionnelles du blocage, et permet de les transformer en nouvelles perceptions.",
     icon: Frown
   },
@@ -54,7 +54,7 @@ const ApplicationsGrid = () => {
   return (
     <section id="applications" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-6">L'hypnose à Paris pour retrouver votre équilibre naturel</h2>
+        <h2 className="text-center text-nova-blue-dark mb-6">Apaiser, transformer, réactiver ce qui est prêt en vous</h2>
         
         <div className="max-w-4xl mx-auto mb-16">
           <p className="text-center text-lg">

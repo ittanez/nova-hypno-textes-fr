@@ -4,14 +4,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faqItems = [
   {
-    question: "Pourquoi choisir un hypnothérapeute à Paris ?",
-    answer: "Choisir un hypnothérapeute à Paris offre plusieurs avantages. La proximité facilite le suivi régulier de vos séances sans contrainte de long déplacement. Paris, en tant que capitale, dispose d'un réseau dense de praticiens hautement qualifiés et formés aux dernières techniques. La richesse de l'offre vous permet de trouver un hypnothérapeute dont l'approche correspond parfaitement à vos besoins. De plus, la concentration de professionnels favorise l'émulation et l'excellence des pratiques."
-  },
-  {
-    question: "Où se trouve exactement le cabinet d'hypnose à Paris ?",
-    answer: "Notre cabinet se situe au 16 rue Saint-Antoine dans le 4ème arrondissement de Paris, quartier Bastille-Marais. Stations de métro les plus proches : Bastille (lignes 1, 5, 8) à 3 minutes à pied, Saint-Paul (ligne 1) à 5 minutes à pied, Châtelet (lignes 1, 4, 7, 11, 14, RER A, B, D) à 8 minutes à pied, République (lignes 3, 5, 8, 9, 11) à 10 minutes à pied."
-  },
-  {
     question: "À quelle vitesse va-t-on remarquer des changements ?",
     answer: "Certaines personnes remarquent des changements après une seule séance, tandis que d'autres auront besoin de quelques séances pour observer des transformations significatives. Cela dépend de la problématique, de votre réceptivité à l'hypnose et de votre engagement dans le processus."
   },
