@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -18,7 +17,6 @@ export default defineConfig(({ mode }) => ({
     loader: 'tsx',
     include: /\.[jt]sx?$/,
     exclude: [],
-    jsxInject: `import React from 'react'`
   },
   resolve: {
     alias: {
