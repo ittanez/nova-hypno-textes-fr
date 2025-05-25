@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+// Renamed from useToast to conform to React conventions
+import * as React from "react"
 
 const TOAST_LIMIT = 5
 const TOAST_REMOVE_DELAY = 1000000
@@ -135,9 +136,9 @@ function setToastTimeout(id: string) {
 }
 
 export function useToast() {
-  const [state, setState] = useState<State>(memoryState)
+  const [state, setState] = React.useState<State>(memoryState)
 
-  useEffect(() => {
+  React.useEffect(() => {
     listeners.push(setState)
     return () => {
       const index = listeners.indexOf(setState)

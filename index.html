@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -13,9 +12,9 @@
     <!-- Préconnexions pour les ressources tierces importantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.gpteng.co">
-    <link rel="dns-prefetch" href="https://tools.luckyorange.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.gpteng.co">
+    <link rel="preconnect" href="https://tools.luckyorange.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
@@ -31,18 +30,26 @@
     <!-- Nouveau favicon -->
     <link rel="icon" type="image/png" href="/lovable-uploads/018550af-5b85-4ea6-a75d-3c3ceed387b1.png" />
     
-    <!-- Préchargement des polices optimisé avec resource hints -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"></noscript>
+    <!-- Préchargement des polices optimisé -->
+    
+    <!-- Préchargement des polices principales pour améliorer le LCP -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
     
     <!-- Chargement différé des variantes de police moins critiques -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" media="print">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
     </noscript>
     
-    <!-- Canonical URL avec HTTPS -->
-    <link rel="canonical" href="https://novahypnose.fr/" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5W9ZQEJKLF');
+    </script>
     
     <!-- Schema.org - Medical Business Structured Data -->
     <script type="application/ld+json">
@@ -133,72 +140,49 @@
     }
     </script>
     
-    <!-- CSS Critique intégré pour améliorer le LCP -->
+    <!-- Inline des styles critiques pour éliminer les ressources bloquantes -->
     <style>
-      /* Reset et styles de base critiques */
-      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{scroll-behavior:smooth}
-      body{font-family:'Poppins',sans-serif;line-height:1.6;color:#222;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-      h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif;line-height:1.2}
-      img{max-width:100%;height:auto;vertical-align:middle}
+      /* Styles critiques pour le rendu initial */
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+      }
       
-      /* Layout critique pour éviter le CLS */
-      .hero-container{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-      .hero-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-      .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,95,115,0.8),rgba(10,147,150,0.6),rgba(148,210,189,0.4));z-index:-1}
-      .hero-content{text-align:center;color:white;padding:2rem;max-width:800px;animation:fadeInUp 1s ease-out}
+      /* Styles pour éviter le Layout Shift */
+      .hero-image-container {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
       
-      /* Header critique */
-      .header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 0;transition:all 0.3s ease;background-color:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
-      .header.scrolled{background-color:white;box-shadow:0 2px 20px rgba(0,0,0,0.1)}
-      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+      /* Animation plus performante pour le fade-in */
+      @keyframes optimizedFadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
       
-      /* Animation critique pour éviter le FOUC */
-      @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-      .animate-fade-in{animation:fadeInUp 0.8s ease-out forwards}
-      
-      /* Classes utilitaires critiques */
-      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      .animate-fade-in {
+        animation: optimizedFadeIn 0.8s forwards;
+        will-change: opacity, transform;
+      }
     </style>
     
-    <!-- Préchargement de l'image hero optimisée -->
-    <link rel="preload" as="image" href="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png" fetchpriority="high" media="(min-width: 768px)">
+    <!-- Lucky Orange Tracking Code avec chargement différé -->
+    <script defer src="https://tools.luckyorange.com/core/lo.js?site-id=856f311d"></script>
+    
+    <!-- Canonical URL avec HTTPS -->
+    <link rel="canonical" href="https://novahypnose.fr/" />
   </head>
 
   <body>
     <div id="root"></div>
-    
-    <!-- Scripts critiques avec optimisations -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="high"></script>
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Scripts non critiques chargés de manière différée -->
-    <script>
-      // Chargement différé des scripts non critiques pour améliorer le LCP
-      window.addEventListener('load', function() {
-        // Google Analytics avec chargement différé
-        setTimeout(function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF';
-          document.head.appendChild(script);
-          
-          script.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-5W9ZQEJKLF');
-          };
-        }, 2000);
-        
-        // Lucky Orange avec chargement très différé
-        setTimeout(function() {
-          var loScript = document.createElement('script');
-          loScript.async = true;
-          loScript.src = 'https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
-          document.body.appendChild(loScript);
-        }, 5000);
-      });
-    </script>
+    <!-- Script non critique chargé avec priorité basse et defer pour améliorer le LCP -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="low" defer></script>
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>

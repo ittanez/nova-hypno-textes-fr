@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
+
+import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 type SeoProps = {

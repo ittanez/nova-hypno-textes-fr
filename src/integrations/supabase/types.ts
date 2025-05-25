@@ -124,7 +124,6 @@ export type Database = {
         Row: {
           author: string | null
           categories: string[] | null
-          category: string | null
           content: string
           created_at: string | null
           excerpt: string | null
@@ -140,7 +139,6 @@ export type Database = {
         Insert: {
           author?: string | null
           categories?: string[] | null
-          category?: string | null
           content: string
           created_at?: string | null
           excerpt?: string | null
@@ -156,7 +154,6 @@ export type Database = {
         Update: {
           author?: string | null
           categories?: string[] | null
-          category?: string | null
           content?: string
           created_at?: string | null
           excerpt?: string | null
