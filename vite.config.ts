@@ -14,6 +14,12 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  esbuild: {
+    loader: 'tsx',
+    include: /\.[jt]sx?$/,
+    exclude: [],
+    jsxInject: `import React from 'react'`
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
