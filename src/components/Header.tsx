@@ -36,13 +36,13 @@ const Header = () => {
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '#about' },
-    { name: 'Emergences le Blog', href: 'https://emergences.novahypnose.fr/', external: true },
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
   const pourQuoiLinks: NavLink[] = [
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
+    { name: 'Emergences le Blog', href: 'https://emergences.novahypnose.fr/', external: true },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
   ];
 
