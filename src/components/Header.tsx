@@ -36,7 +36,7 @@ const Header = () => {
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '#about' },
-    // Blog link removed from main navigation as requested
+    { name: 'Emergences le Blog', href: 'https://emergences.novahypnose.fr/', external: true },
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
