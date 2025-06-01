@@ -1,131 +1,174 @@
- import React from 'react';
-import { Heart, Award } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM" />
+    <title>Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose</title>
+    <meta name="description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
+    <meta name="author" content="NovaHypnose" />
+    <meta name="keywords" content="hypnothérapeute Paris, hypnose ericksonienne Paris, maître hypnologue Paris, séance hypnose Bastille, auto-hypnose formation, hypnothérapie anxiété, hypnothérapie sommeil, hypnothérapie confiance, hypno-balade forêt de Senonches" />
 
-const About = () => {
-  const diplomas = [
-    "Maître Hypnologue - École Psynapse (2025)",
-    "Praticien en Hypnose Directive (Elmanienne) et Hyperemperia - École Psynapse (2025)",
-    "Hypnologue - École Psynapse (2023)",
-    "Maître Praticien en Hypnose Ericksonienne - École Psynapse (2023)",
-    "Praticien en Hypnose spirituelle - École Psynapse (2023)",
-    "Speed Hypnose (2023)",
-    "Praticien en hypno-magnétisme - École Psynapse (2021)",
-    "Praticien en Hypnose Ericksonienne - École Psynapse (2021)",
-    "Praticien en Hypnose Ericksonienne - École MHD (2020)"
-  ];
-  
-  return (
-    <section id="about" className="section-padding bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12">
-          À propos d'Alain Zenatti, Maître Hypnologue et Maître en Hypnose Ericksonienne
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div className="space-y-6">
-            <div className="rounded-xl overflow-hidden shadow-lg">
-              <img 
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" 
-                alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
-                className="w-full h-auto"
-                loading="eager"
-                width="600"
-                height="800"
-                fetchPriority="high"
-                style={{aspectRatio: "3/4"}}
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <p className="mb-6">
-                Je suis Alain Zenatti, hypnothérapeute certifié à Paris, spécialisé en hypnose ericksonienne et en auto-hypnose.
-                Formé aux approches intégratives et humanistes de l'hypnose, je suis profondément convaincu que chacun porte en lui les clés de sa propre évolution. J'ai choisi de proposer, un espace d'accompagnement où le respect, l'écoute et la personnalisation sont au cœur de chaque séance.
-              </p>
-              
-              <p className="mb-6">
-                Chaque personne que je reçois est accueillie dans sa singularité, sans jugement, avec attention. Qu'il s'agisse d'un stress persistant, d'un blocage émotionnel, d'un manque de confiance, ou simplement d'un besoin de réorientation intérieure, mon rôle n'est pas de vous diriger, mais de vous accompagner dans un dialogue respectueux avec votre inconscient.
-              </p>
-              
-              <p className="mb-6">
-                Je pratique l'hypnose ericksonienne, c'est-à-dire profondément adaptative, souple, respectueuse de votre rythme intérieur. Elle s'appuie sur une relation de confiance, sur des suggestions métaphoriques, des images symboliques, ou encore des protocoles personnalisés. Elle n'agit pas sur vous, mais avec vous.
-              </p>
-              
-              <p className="mb-6">
-                L'inconscient est à mes yeux un allié, pas un obstacle. Il contient bien plus que des blocages ou des résistances : il est une source précieuse de ressources, de sagesse et de mémoire vivante, souvent ignorée par la conscience rationnelle. L'auto-hypnose, que j'enseigne également, prolonge ce lien et vous rend autonome dans votre parcours de mieux-être.
-              </p>
-              
-              <p className="mb-6">
-                Chaque séance est construite avec soin, dans un cadre sécurisant, ajusté à votre vécu, vos capacités du moment, vos aspirations. Ce n'est jamais une méthode appliquée mécaniquement, mais une co-construction subtile, où le corps, les émotions, les images mentales et l'écoute profonde se rejoignent.
-              </p>
-              
-              <p className="mb-6">
-                Je vous accompagne dans ce mouvement intérieur — celui qui ne force rien, mais qui facilite l'émergence d'un mieux-être authentique, durable et aligné avec qui vous êtes.
-              </p>
-            </div>
-            
-            <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
-              <h3 className="text-nova-blue-dark flex items-center text-xl font-semibold mb-4">
-                <Award className="mr-2 text-nova-blue" size={24} />
-                Diplômes et formations
-              </h3>
-              <ul className="space-y-2">
-                {diplomas.map((diploma, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-nova-green mr-2">•</span>
-                    <span>{diploma}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="bg-nova-neutral p-8 rounded-xl shadow-lg">
-              <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
-                <Heart className="mr-2 text-nova-green" size={24} />
-                L'hypnose ericksonienne : une approche respectueuse et créative
-              </h3>
-              
-              <p className="mb-4">
-                L'hypnose que je pratique est issue de l'approche ericksonienne, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
-              </p>
-              
-              <p className="mb-4">
-                Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que l'inconscient de chaque personne est une source immense de solutions et de ressources.
-              </p>
-              
-              <p className="mb-4">
-                Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients. Il ne s'agit jamais d'imposer un changement, mais d'éveiller ce qui est déjà en vous, prêt à émerger.
-              </p>
-              
-              <div className="mt-6 flex justify-center">
-                <a 
-                  href="https://hypnokick.novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-center"
-                >
-                  Suis-je hypnotisable ?
-                </a>
-              </div>
-              
-              <div className="mt-8">
-                <img 
-                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/cabinet.webp" 
-                  alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
-                  className="w-full h-auto rounded-lg shadow-md"
-                  loading="lazy"
-                  width="800"
-                  height="533"
-                  style={{aspectRatio: "16/10"}}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+    <!-- Préconnexions pour les ressources tierces importantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.gpteng.co">
+    <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co">
 
-export default About;
+    <!-- Préchargement de l'image critique -->
+    <link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" as="image" fetchpriority="high">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
+    <meta property="og:description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@novahypnose" />
+    <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
+    
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    
+    <!-- Chargement optimisé des polices -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
+    </noscript>
+    
+    <!-- Chargement différé des variantes de police moins critiques -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
+    </noscript>
+    
+    <!-- Google Analytics différé -->
+    <script>
+      setTimeout(function(){
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF';
+        s.async=true;
+        document.head.appendChild(s);
+        s.onload=function(){
+          window.dataLayer=window.dataLayer||[];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js',new Date());gtag('config','G-5W9ZQEJKLF');
+        };
+      },3000);
+    </script>
+    
+    <!-- Structured Data pour Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "NovaHypnose - Cabinet d'hypnothérapie",
+      "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
+      "url": "https://novahypnose.fr",
+      "telephone": "+33649358089",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "16 rue St Antoine",
+        "addressLocality": "Paris",
+        "postalCode": "75004",
+        "addressCountry": "FR"
+      },
+      "priceRange": "€€",
+      "description": "Cabinet d'hypnothérapie à Paris spécialisé en hypnose ericksonienne. Alain Zenatti vous accompagne pour retrouver confiance, équilibre et vitalité.",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8533575,
+        "longitude": 2.3644123
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data pour Service spécifique: Hypno-Balade -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Hypno-Balade en Forêt de Senonches",
+      "serviceType": "Hypnose en pleine nature",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "NovaHypnose - Cabinet d'hypnothérapie",
+        "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
+        "url": "https://novahypnose.fr",
+        "telephone": "+33649358089"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Forêt de Senonches",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Senonches",
+          "addressRegion": "Eure-et-Loir",
+          "postalCode": "28250",
+          "addressCountry": "FR"
+        }
+      },
+      "description": "Expérience unique combinant hypnose et nature pour votre bien-être et développement personnel en forêt de Senonches.",
+      "offers": {
+        "@type": "Offer",
+        "price": "25.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability"
+      }
+    }
+    </script>
+    
+    <!-- CSS critique inline pour éliminer les ressources bloquantes -->
+    <style>
+      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6}
+      h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif}
+      .animate-fade-in{animation:fadeIn .8s ease-out forwards}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+      .section-padding{padding:80px 0}
+      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+      .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative}
+      .text-center{text-align:center}
+      .grid{display:grid}
+      .space-y-6>*+*{margin-top:1.5rem}
+      .bg-white{background-color:#fff}
+      .rounded-xl{border-radius:0.75rem}
+      .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)}
+      .mb-12{margin-bottom:3rem}
+      .w-full{width:100%}
+      .h-auto{height:auto}
+    </style>
+
+    <!-- Chargement différé du CSS complet -->
+    <link rel="preload" href="/assets/index-430gJSy4.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/index-430gJSy4.css"></noscript>
+    
+    <!-- Lucky Orange différé -->
+    <script>
+      setTimeout(function(){
+        const script=document.createElement('script');
+        script.src='https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
+        document.head.appendChild(script);
+      },5000);
+    </script>
+    
+    <!-- Canonical URL avec HTTPS -->
+    <link rel="canonical" href="https://novahypnose.fr/" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- Script non critique chargé avec priorité basse et defer pour améliorer le LCP -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="low" defer></script>
+    <script type="module" src="/src/main.tsx" defer></script>
+  </body>
+</html>
