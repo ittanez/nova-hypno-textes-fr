@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { Heart, Award } from 'lucide-react';
 
 const About = () => {
@@ -25,16 +25,14 @@ const About = () => {
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//zenatti.webp" 
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" 
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="eager"
                 width="600"
                 height="800"
                 fetchPriority="high"
-                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//zenatti.webp"
-                sizes="(max-width: 768px) 100vw, 600px"
-                type="image/png"
+                style="aspect-ratio: 3/4;"
               />
             </div>
           </div>
@@ -113,16 +111,13 @@ const About = () => {
               
               <div className="mt-8">
                 <img 
-                  src="/https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//cabinet.webp" 
+                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/cabinet.webp" 
                   alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
                   width="800"
                   height="533"
-                  fetchPriority="low"
-                  srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//cabinet.webp 800w"
-                  sizes="(max-width: 768px) 100vw, 800px"
-                  type="image/png"
+                  style="aspect-ratio: 16/10;"
                 />
               </div>
             </div>
