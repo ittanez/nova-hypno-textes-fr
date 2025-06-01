@@ -117,7 +117,7 @@ const About = () => {
                   loading="lazy"
                 className="w-full h-auto"
   style={{aspectRatio: "3/4"}}
-                   }
+                    
                 />
               </div>
             </div>
