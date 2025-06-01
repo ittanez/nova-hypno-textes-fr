@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { Heart, Award } from 'lucide-react';
 
 const About = () => {
@@ -29,10 +29,7 @@ const About = () => {
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="eager"
-                
                 fetchPriority="high"
-                className="w-full h-auto"
-  style={{aspectRatio: "1/1"}}
               />
             </div>
           </div>
@@ -115,10 +112,6 @@ const About = () => {
                   alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
-                className="w-full h-auto"
-  
-                }
-                    
                 />
               </div>
             </div>
