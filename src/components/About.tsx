@@ -32,7 +32,7 @@ const About = () => {
                 
                 fetchPriority="high"
                 className="w-full h-auto"
-  style={{aspectRatio: "3/4"}}
+  style={{aspectRatio: "1/1"}}
               />
             </div>
           </div>
@@ -116,7 +116,8 @@ const About = () => {
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
                 className="w-full h-auto"
-  style={{aspectRatio: "3/4"}}
+  
+                }
                     
                 />
               </div>
