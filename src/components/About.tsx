@@ -25,14 +25,14 @@ const About = () => {
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png" 
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//zenatti.webp" 
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="eager"
                 width="600"
                 height="800"
                 fetchPriority="high"
-                srcSet="/lovable-uploads/bfa09bf5-35ee-4e5b-9b32-5d1f42101734.png 600w"
+                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//zenatti.webp"
                 sizes="(max-width: 768px) 100vw, 600px"
                 type="image/png"
               />
@@ -113,14 +113,14 @@ const About = () => {
               
               <div className="mt-8">
                 <img 
-                  src="/lovable-uploads/e1acda5a-fe4c-472d-8083-5c8baf982923.png" 
+                  src="/https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//cabinet.webp" 
                   alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
                   width="800"
                   height="533"
                   fetchPriority="low"
-                  srcSet="/lovable-uploads/e1acda5a-fe4c-472d-8083-5c8baf982923.png 800w"
+                  srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//cabinet.webp 800w"
                   sizes="(max-width: 768px) 100vw, 800px"
                   type="image/png"
                 />
