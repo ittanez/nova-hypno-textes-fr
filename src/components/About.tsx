@@ -29,10 +29,10 @@ const About = () => {
                 alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
                 className="w-full h-auto"
                 loading="eager"
-                width="600"
-                height="800"
+                
                 fetchPriority="high"
-                style={{aspectRatio: "3/4"}}
+                className="w-full h-auto"
+  style={{aspectRatio: "3/4"}}
               />
             </div>
           </div>
@@ -115,9 +115,9 @@ const About = () => {
                   alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
-                  width="800"
-                  height="533"
-                  style={{aspectRatio: "16/10"}}
+                className="w-full h-auto"
+  style={{aspectRatio: "3/4"}}
+                   }
                 />
               </div>
             </div>
