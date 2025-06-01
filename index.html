@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -14,59 +13,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.gpteng.co">
-    <link rel="preconnect" href="https://tools.luckyorange.com">
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-<!-- Dans la section <head> -->
-<link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co">
 
-<!-- Fallback pour navigateurs sans JS -->
-<noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
-</noscript>
+    <!-- Préchargement de l'image critique -->
+    <link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" as="image" fetchpriority="high">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
     <meta property="og:description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/alain-zenatti-hypnotherapeute-paris.webp" />
+    <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@novahypnose" />
-    <meta name="twitter:image" content="/alain-zenatti-hypnotherapeute-paris.webp" />
+    <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
     
     <link rel="icon" type="image/png" href="/favicon.ico" />
     
-    <!-- Préchargement des polices optimisé -->
+    <!-- Chargement optimisé des polices -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
+    </noscript>
     
-   <!-- NOUVEAU CODE -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
-</noscript>
     <!-- Chargement différé des variantes de police moins critiques -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
     </noscript>
     
-    <!-- Google Analytics -->
-  <!-- NOUVEAU CODE -->
-<script>
-  window.addEventListener('load', function() {
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    script.onload = function() {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5W9ZQEJKLF');
-    };
-  });
-</script>
+    <!-- Google Analytics différé -->
+    <script>
+      setTimeout(function(){
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF';
+        s.async=true;
+        document.head.appendChild(s);
+        s.onload=function(){
+          window.dataLayer=window.dataLayer||[];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js',new Date());gtag('config','G-5W9ZQEJKLF');
+        };
+      },3000);
+    </script>
     
     <!-- Structured Data pour Local Business -->
     <script type="application/ld+json">
@@ -74,7 +65,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "NovaHypnose - Cabinet d'hypnothérapie",
-      "image": "/alain-zenatti-hypnotherapeute-paris.webp",
+      "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
       "url": "https://novahypnose.fr",
       "telephone": "+33649358089",
       "address": {
@@ -112,7 +103,7 @@
       "provider": {
         "@type": "LocalBusiness",
         "name": "NovaHypnose - Cabinet d'hypnothérapie",
-        "image": "/alain-zenatti-hypnotherapeute-paris.webp",
+        "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
         "url": "https://novahypnose.fr",
         "telephone": "+33649358089"
       },
@@ -137,48 +128,38 @@
     }
     </script>
     
-    <!-- Inline des styles critiques pour éliminer les ressources bloquantes -->
+    <!-- CSS critique inline pour éliminer les ressources bloquantes -->
     <style>
-      /* Styles critiques pour le rendu initial */
-      body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Playfair Display', serif;
-      }
-      
-      /* Styles pour éviter le Layout Shift */
-      .hero-image-container {
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-      }
-      
-      /* Animation plus performante pour le fade-in */
-      @keyframes optimizedFadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      .animate-fade-in {
-        animation: optimizedFadeIn 0.8s forwards;
-        will-change: opacity, transform;
-      }
+      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6}
+      h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif}
+      .animate-fade-in{animation:fadeIn .8s ease-out forwards}
+      @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+      .section-padding{padding:80px 0}
+      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+      .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative}
+      .text-center{text-align:center}
+      .grid{display:grid}
+      .space-y-6>*+*{margin-top:1.5rem}
+      .bg-white{background-color:#fff}
+      .rounded-xl{border-radius:0.75rem}
+      .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)}
+      .mb-12{margin-bottom:3rem}
+      .w-full{width:100%}
+      .h-auto{height:auto}
     </style>
+
+    <!-- Chargement différé du CSS complet -->
+    <link rel="preload" href="/assets/index-430gJSy4.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/index-430gJSy4.css"></noscript>
     
-  <!-- NOUVEAU CODE -->
-<script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      const script = document.createElement('script');
-      script.src = 'https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
-      document.head.appendChild(script);
-    }, 3000);
-  });
-</script>
+    <!-- Lucky Orange différé -->
+    <script>
+      setTimeout(function(){
+        const script=document.createElement('script');
+        script.src='https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
+        document.head.appendChild(script);
+      },5000);
+    </script>
     
     <!-- Canonical URL avec HTTPS -->
     <link rel="canonical" href="https://novahypnose.fr/" />
