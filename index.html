@@ -17,6 +17,11 @@
     <link rel="preconnect" href="https://tools.luckyorange.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
 
+
+<!-- Fallback pour navigateurs sans JS -->
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
+</noscript>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
     <meta property="og:description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
@@ -32,10 +37,12 @@
     
     <!-- Préchargement des polices optimisé -->
     
-    <!-- Préchargement des polices principales pour améliorer le LCP -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
-    
+   <!-- NOUVEAU CODE -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
+</noscript>
     <!-- Chargement différé des variantes de police moins critiques -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -43,13 +50,22 @@
     </noscript>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF"></script>
-    <script>
+  <!-- NOUVEAU CODE -->
+<script>
+  window.addEventListener('load', function() {
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    script.onload = function() {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-5W9ZQEJKLF');
-    </script>
+    };
+  });
+</script>
     
     <!-- Structured Data pour Local Business -->
     <script type="application/ld+json">
@@ -152,8 +168,16 @@
       }
     </style>
     
-    <!-- Lucky Orange Tracking Code avec chargement différé -->
-    <script defer src="https://tools.luckyorange.com/core/lo.js?site-id=856f311d"></script>
+  <!-- NOUVEAU CODE -->
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const script = document.createElement('script');
+      script.src = 'https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
+      document.head.appendChild(script);
+    }, 3000);
+  });
+</script>
     
     <!-- Canonical URL avec HTTPS -->
     <link rel="canonical" href="https://novahypnose.fr/" />
