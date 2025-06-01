@@ -32,7 +32,7 @@ const About = () => {
                 width="600"
                 height="800"
                 fetchPriority="high"
-                style="aspect-ratio: 3/4;"
+                style={{aspectRatio: "3/4"}}
               />
             </div>
           </div>
@@ -117,7 +117,7 @@ const About = () => {
                   loading="lazy"
                   width="800"
                   height="533"
-                  style="aspect-ratio: 16/10;"
+                  style={{aspectRatio: "16/10"}}
                 />
               </div>
             </div>
