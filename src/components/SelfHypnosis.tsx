@@ -31,7 +31,7 @@ const SelfHypnosis = () => {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1pbmRmdWxuZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" 
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" 
                 alt="Pratique de l'auto-hypnose pour la relaxation et le bien-être" 
                 className="w-full h-auto"
                 loading="lazy"
