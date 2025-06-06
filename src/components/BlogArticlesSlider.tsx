@@ -24,7 +24,7 @@ const BlogArticlesSlider: React.FC = () => {
 
   // Configuration
   const BLOG_URL = 'https://emergence-blog-scribe.lovable.app';
-  const API_URL = `${BLOG_URL}/api/latest-articles`;
+const API_URL = `https://emergences.novahypnose.fr/api/latest-articles.json`;
   const AUTOPLAY_DELAY = 5000; // 5 secondes
 
   useEffect(() => {
