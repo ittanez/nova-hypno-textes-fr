@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+ import React, { useEffect, useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Clock, Calendar } from 'lucide-react';
 
 interface BlogArticle {
@@ -11,6 +11,7 @@ interface BlogArticle {
   created_at: string;
   categories?: string[];
   read_time?: number;
+  url: string;
 }
 
 const BlogArticlesSlider: React.FC = () => {
@@ -22,30 +23,34 @@ const BlogArticlesSlider: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
-  // Configuration
-  const BLOG_URL = 'https://emergence-blog-scribe.lovable.app';
-const API_URL = `https://emergences.novahypnose.fr/api/latest-articles.json`;
+  // ✅ Configuration avec votre vraie URL
+  const BLOG_URL = 'https://emergences.novahypnose.fr';
+  const API_URL = `${BLOG_URL}/api/latest-articles.json`;
   const AUTOPLAY_DELAY = 5000; // 5 secondes
 
   useEffect(() => {
     const fetchLatestArticles = async () => {
       try {
+        console.log('🔄 Récupération des articles depuis:', API_URL);
+        
         const response = await fetch(API_URL);
         
         if (!response.ok) {
-          throw new Error('Erreur lors du chargement des articles');
+          throw new Error(`Erreur ${response.status}: ${response.statusText}`);
         }
 
         const data = await response.json();
+        console.log('📊 Données reçues:', data);
         
         if (data.success && data.data?.articles) {
           setArticles(data.data.articles);
+          console.log('✅ Articles chargés:', data.data.articles.length);
         } else {
           throw new Error(data.error || 'Aucun article trouvé');
         }
       } catch (err) {
+        console.error('❌ Erreur articles blog:', err);
         setError('Impossible de charger les articles du blog');
-        console.error('Erreur articles blog:', err);
       } finally {
         setIsLoading(false);
       }
@@ -75,7 +80,7 @@ const API_URL = `https://emergences.novahypnose.fr/api/latest-articles.json`;
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000); // Reprendre auto-play après 10s
+    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToPrevious = () => {
@@ -245,7 +250,7 @@ const API_URL = `https://emergences.novahypnose.fr/api/latest-articles.json`;
 
                 {/* CTA */}
                 <a 
-                  href={`${BLOG_URL}/article/${currentArticle.slug}`}
+                  href={currentArticle.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 font-medium w-fit group"
