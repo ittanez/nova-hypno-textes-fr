@@ -1,0 +1,4 @@
+// Dans BlogArticlesSlider.tsx, changez :
+const API_URL = `${BLOG_URL}/api/latest-articles.json`;
+// Par :
+const API_URL = `/api/latest-articles.json`; // URL relative
