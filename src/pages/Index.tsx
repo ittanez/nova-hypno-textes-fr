@@ -1,4 +1,4 @@
- import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import ApplicationsGrid from '../components/ApplicationsGrid';
@@ -8,10 +8,6 @@ import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
-// ✅ AJOUTEZ CETTE LIGNE
-import BlogArticlesSlider from '../components/BlogArticlesSlider';
-// ✅ NOUVEAU : Import du slider du blog
-import BlogArticlesSlider from '../components/BlogArticlesSlider';
 
 // Composants chargés de manière différée (lazy loading)
 const SelfHypnosis = lazy(() => import('../components/SelfHypnosis'));
@@ -84,11 +80,6 @@ const Index = () => {
         
         <Pricing />
         <Contact />
-        
-        {/* ✅ NOUVEAU : Slider des articles du blog - après le contact */}
-        <Suspense fallback={<div className="h-96 animate-pulse bg-gradient-to-br from-purple-50 to-blue-50"></div>}>
-          <BlogArticlesSlider />
-        </Suspense>
         
         <Suspense fallback={null}>
           <SeoContent />
