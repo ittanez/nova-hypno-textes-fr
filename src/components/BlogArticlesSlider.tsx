@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+ import React, { useEffect, useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Clock, Calendar } from 'lucide-react';
 
 interface BlogArticle {
@@ -287,18 +287,18 @@ const BlogArticlesSlider: React.FC = () => {
               {/* Boutons précédent/suivant */}
               <button
                 onClick={goToPrevious}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-20 border border-gray-200"
+                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-1.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30"
                 aria-label="Article précédent"
               >
-                <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
+                <ChevronLeft size={16} className="sm:w-6 sm:h-6" />
               </button>
               
               <button
                 onClick={goToNext}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-20 border border-gray-200"
+                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-1.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30"
                 aria-label="Article suivant"
               >
-                <ChevronRight size={18} className="sm:w-6 sm:h-6" />
+                <ChevronRight size={16} className="sm:w-6 sm:h-6" />
               </button>
 
               {/* Indicateurs */}
