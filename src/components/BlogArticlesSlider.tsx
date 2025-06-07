@@ -24,7 +24,7 @@ const BlogArticlesSlider: React.FC = () => {
 
   // ✅ Configuration Supabase directe
   const SUPABASE_URL = 'https://akrlyzmfszumibwgocae.supabase.co';
-  const SUPABASE_ANON_KEY = 'votre-cle-publique-supabase'; // À récupérer
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30'; // À récupérer
   const BLOG_URL = 'https://emergences.novahypnose.fr';
   const AUTOPLAY_DELAY = 5000;
 
@@ -174,7 +174,7 @@ const BlogArticlesSlider: React.FC = () => {
       <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Émergences – Hypnose Paris : explorez, transformez-vous
+            Articles d'hypnothérapie et bien-être à Paris
           </h2>
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
             <p className="text-gray-600 mb-6">
@@ -203,10 +203,10 @@ const BlogArticlesSlider: React.FC = () => {
         {/* En-tête SEO optimisée */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Émergences – Hypnose Paris : explorez, transformez-vous
+            Articles d'hypnothérapie et bien-être à Paris
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez Émergences, le blog d'hypnose thérapeutique à Paris : articles sur les peurs, la transformation intérieure, le subconscient et le mieux-être.
+            Découvrez nos dernières réflexions sur l'hypnothérapie, la transformation intérieure et le développement personnel par votre hypnothérapeute parisien
           </p>
         </div>
 
