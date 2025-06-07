@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -50,6 +49,10 @@ const faqItems = [
   {
     question: "Les séances d'hypnose sont-elles remboursées par les mutuelles ?",
     answer: "En France, l'hypnothérapie est remboursée par certaines mutuelles. Les remboursements varient en fonction des mutuelles et des contrats souscrits. Pour savoir si votre mutuelle rembourse l'hypnothérapie, il est recommandé de contacter votre mutuelle directement."
+  },
+  {
+    question: "Où se situe le cabinet d'hypnothérapie Marais Bastille à Paris ?",
+    answer: "Le cabinet **Marais Bastille** est situé au **16 rue Saint-Antoine à Bastille**, au croisement des **4ᵉ, 11ᵉ et 12ᵉ arrondissements**, dans le quartier du **Marais**.\n\n**Accès métro :** Station **Bastille** (lignes 1, 5, 8) à 2 minutes à pied, ou **Saint-Paul** (ligne 1).\n\n**Situation centrale :** Le cabinet se trouve à proximité de **République**, **Châtelet** et **Gare de Lyon**, permettant un accès facile depuis toute la région parisienne. Plusieurs lignes de bus desservent également le secteur (69, 76, 86, 87, 96).\n\nCette localisation privilégiée au cœur de Paris facilite vos consultations d'**hypnothérapie à Bastille**, que ce soit en journée ou en soirée."
   }
 ];
 
@@ -87,7 +90,7 @@ const Faq = () => {
                     openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
                   }`}
                 >
-                  <p>{item.answer}</p>
+                  <div className="whitespace-pre-line">{item.answer}</div>
                 </div>
               </div>
             ))}
