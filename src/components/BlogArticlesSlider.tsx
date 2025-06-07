@@ -80,8 +80,6 @@ const BlogArticlesSlider: React.FC = () => {
     fetchLatestArticles();
   }, []);
 
-  // ... reste du code identique (navigation, formatage, etc.)
-
   // Auto-play
   useEffect(() => {
     if (!isAutoPlaying || articles.length <= 1) return;
@@ -146,7 +144,7 @@ const BlogArticlesSlider: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Articles d'hypnothérapie et bien-être à Paris
+              Émergences – Hypnose Paris : explorez, transformez-vous
             </h2>
             <div className="animate-pulse">
               <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
@@ -174,7 +172,7 @@ const BlogArticlesSlider: React.FC = () => {
       <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Articles d'hypnothérapie et bien-être à Paris
+            Émergences – Hypnose Paris : explorez, transformez-vous
           </h2>
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
             <p className="text-gray-600 mb-6">
@@ -203,10 +201,10 @@ const BlogArticlesSlider: React.FC = () => {
         {/* En-tête SEO optimisée */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Articles d'hypnothérapie et bien-être à Paris
+            Émergences – Hypnose Paris : explorez, transformez-vous
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos dernières réflexions sur l'hypnothérapie, la transformation intérieure et le développement personnel par votre hypnothérapeute parisien
+            Découvrez Émergences, le blog d'hypnose thérapeutique à Paris : articles sur les peurs, la transformation intérieure, le subconscient et le mieux-être.
           </p>
         </div>
 
