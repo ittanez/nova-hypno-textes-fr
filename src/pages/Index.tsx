@@ -8,7 +8,6 @@ import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
-// ✅ AJOUT : Import du slider
 import BlogArticlesSlider from '../components/BlogArticlesSlider';
 
 // Composants chargés de manière différée (lazy loading)
@@ -73,19 +72,24 @@ const Index = () => {
         <ApplicationsGrid />
         
         <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100"></div>}>
-          <HypnoWalks />
           <SelfHypnosis />
           <SessionProcess />
           <Testimonials />
+          
+          {/* ✅ Blog après les témoignages */}
+          <div id="blog">
+            <BlogArticlesSlider />
+          </div>
+          
           <Faq />
         </Suspense>
         
         <Pricing />
         <Contact />
         
-        {/* ✅ AJOUT : Slider des articles du blog */}
-        <Suspense fallback={<div className="h-96 animate-pulse bg-gradient-to-br from-purple-50 to-blue-50"></div>}>
-          <BlogArticlesSlider />
+        {/* ✅ HypnoWalks après contact */}
+        <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100"></div>}>
+          <HypnoWalks />
         </Suspense>
         
         <Suspense fallback={null}>
