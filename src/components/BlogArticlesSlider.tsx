@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+ import React, { useEffect, useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Clock, Calendar } from 'lucide-react';
 
 interface BlogArticle {
@@ -219,15 +219,15 @@ const BlogArticlesSlider: React.FC = () => {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="flex flex-col lg:flex-row">
               {/* Image */}
-              <div className="lg:w-1/2">
+              <div className="lg:w-1/2 flex items-center">
                 {currentArticle.image_url ? (
                   <img 
                     src={currentArticle.image_url} 
                     alt={currentArticle.title}
-                    className="w-full h-64 lg:h-96 object-cover"
+                    className="w-full h-64 lg:h-96 object-cover rounded-l-2xl lg:rounded-l-2xl lg:rounded-r-none"
                   />
                 ) : (
-                  <div className="w-full h-64 lg:h-96 bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                  <div className="w-full h-64 lg:h-96 bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center rounded-l-2xl lg:rounded-l-2xl lg:rounded-r-none">
                     <div className="text-center text-white">
                       <h3 className="text-2xl font-bold mb-2">NovaHypnose</h3>
                       <p className="text-purple-100">Blog Émergences</p>
