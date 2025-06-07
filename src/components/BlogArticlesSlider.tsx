@@ -11,7 +11,6 @@ interface BlogArticle {
   created_at: string;
   categories?: string[];
   read_time?: number;
-  url: string;
 }
 
 const BlogArticlesSlider: React.FC = () => {
@@ -23,33 +22,55 @@ const BlogArticlesSlider: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
-  // ✅ Configuration SIMPLE - JSON local
+  // ✅ Configuration Supabase directe
+  const SUPABASE_URL = 'https://akrlyzmfszumibwgocae.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30'; // À récupérer
   const BLOG_URL = 'https://emergences.novahypnose.fr';
-  const API_URL = `/api/latest-articles.json`; // ✅ LOCAL = pas de CORS !
   const AUTOPLAY_DELAY = 5000;
 
   useEffect(() => {
     const fetchLatestArticles = async () => {
       try {
-        console.log('🔄 Récupération des articles depuis:', API_URL);
+        console.log('🔄 Récupération automatique des articles...');
         
-        const response = await fetch(API_URL);
+        // ✅ Appel direct à Supabase depuis novahypnose.fr
+        const response = await fetch(
+          `${SUPABASE_URL}/rest/v1/articles?published=eq.true&order=published_at.desc,created_at.desc&limit=6`,
+          {
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
         
         if (!response.ok) {
           throw new Error(`Erreur ${response.status}: ${response.statusText}`);
         }
 
         const data = await response.json();
-        console.log('📊 Données reçues:', data);
+        console.log('📊 Articles récupérés automatiquement:', data.length);
         
-        if (data.success && data.data?.articles) {
-          setArticles(data.data.articles);
-          console.log('✅ Articles chargés:', data.data.articles.length);
-        } else {
-          throw new Error(data.error || 'Aucun article trouvé');
-        }
+        // ✅ Transformer les données pour le slider
+        const transformedArticles = data.map((article: any) => ({
+          id: article.id,
+          title: article.title,
+          excerpt: article.excerpt,
+          image_url: article.image_url,
+          slug: article.slug,
+          published_at: article.published_at || article.created_at,
+          created_at: article.created_at,
+          categories: article.categories,
+          read_time: article.read_time,
+          url: `${BLOG_URL}/article/${article.slug}`
+        }));
+        
+        setArticles(transformedArticles);
+        console.log('✅ Articles transformés:', transformedArticles.length);
+        
       } catch (err) {
-        console.error('❌ Erreur articles blog:', err);
+        console.error('❌ Erreur récupération automatique:', err);
         setError('Impossible de charger les articles du blog');
       } finally {
         setIsLoading(false);
@@ -58,6 +79,8 @@ const BlogArticlesSlider: React.FC = () => {
 
     fetchLatestArticles();
   }, []);
+
+  // ... reste du code identique (navigation, formatage, etc.)
 
   // Auto-play
   useEffect(() => {
@@ -76,7 +99,7 @@ const BlogArticlesSlider: React.FC = () => {
     };
   }, [isAutoPlaying, articles.length]);
 
-  // Navigation
+  // Navigation functions...
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
@@ -93,7 +116,6 @@ const BlogArticlesSlider: React.FC = () => {
     goToSlide(newIndex);
   };
 
-  // Formatage date
   const formatDate = (dateString: string) => {
     return new Intl.DateTimeFormat('fr-FR', {
       day: 'numeric',
@@ -102,7 +124,6 @@ const BlogArticlesSlider: React.FC = () => {
     }).format(new Date(dateString));
   };
 
-  // Pause auto-play au survol
   const handleMouseEnter = () => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
@@ -125,7 +146,7 @@ const BlogArticlesSlider: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Derniers articles du blog
+              Articles d'hypnothérapie et bien-être à Paris
             </h2>
             <div className="animate-pulse">
               <div className="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
@@ -153,7 +174,7 @@ const BlogArticlesSlider: React.FC = () => {
       <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Derniers articles du blog
+            Articles d'hypnothérapie et bien-être à Paris
           </h2>
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
             <p className="text-gray-600 mb-6">
@@ -177,15 +198,15 @@ const BlogArticlesSlider: React.FC = () => {
   const currentArticle = articles[currentIndex];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50" id="blog">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
+        {/* En-tête SEO optimisée */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Derniers articles du blog
+            Articles d'hypnothérapie et bien-être à Paris
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos dernières réflexions sur l'hypnothérapie, la transformation intérieure et le bien-être
+            Découvrez nos dernières réflexions sur l'hypnothérapie, la transformation intérieure et le développement personnel par votre hypnothérapeute parisien
           </p>
         </div>
 
@@ -239,7 +260,7 @@ const BlogArticlesSlider: React.FC = () => {
                 </div>
 
                 {/* Titre */}
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight" itemProp="headline">
                   {currentArticle.title}
                 </h3>
 
@@ -250,7 +271,7 @@ const BlogArticlesSlider: React.FC = () => {
 
                 {/* CTA */}
                 <a 
-                  href={currentArticle.url}
+                  href={`${BLOG_URL}/article/${currentArticle.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 font-medium w-fit group"
