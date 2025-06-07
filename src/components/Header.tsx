@@ -42,7 +42,7 @@ const Header = () => {
   const pourQuoiLinks: NavLink[] = [
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
-    { name: 'Emergences le Blog', href: 'https://emergences.novahypnose.fr/', external: true },
+    { name: 'Émergences le blog', href: '#blog' }, // ✅ CHANGÉ : ancre interne
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
   ];
 
