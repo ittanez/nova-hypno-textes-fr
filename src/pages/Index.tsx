@@ -15,7 +15,6 @@ const SelfHypnosis = lazy(() => import('../components/SelfHypnosis'));
 const SessionProcess = lazy(() => import('../components/SessionProcess'));
 const Faq = lazy(() => import('../components/Faq'));
 const Testimonials = lazy(() => import('../components/testimonials/Testimonials'));
-const HypnoWalks = lazy(() => import('../components/HypnoWalks'));
 const SeoContent = lazy(() => import('../components/SeoContent'));
 
 // Contenu SEO spécifique à la page d'accueil - MISE À JOUR
@@ -87,10 +86,6 @@ const Index = () => {
         <Pricing />
         <Contact />
         
-        {/* ✅ HypnoWalks après contact */}
-        <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100"></div>}>
-          <HypnoWalks />
-        </Suspense>
         
         <Suspense fallback={null}>
           <SeoContent />
