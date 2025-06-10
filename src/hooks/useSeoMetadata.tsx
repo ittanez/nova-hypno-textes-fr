@@ -16,7 +16,7 @@ type SeoProps = {
 const DEFAULT_TITLE = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti, Maître en Hypnose Ericksonienne';
 const DEFAULT_DESCRIPTION = 'Cherchez un hypnothérapeute à Paris ? Cabinet d\'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89.';
 const DEFAULT_KEYWORDS = 'hypnothérapeute Paris, hypnose ericksonienne, Alain Zenatti, séance hypnose, cabinet hypnothérapie, stress, sommeil, confiance en soi, phobies, Hypno-Balade, forêt de Senonches';
-const DEFAULT_OG_IMAGE = '/lovable-uploads/ec67dc75-c109-4d24-aa14-90092a4d4e2e.png';
+const DEFAULT_OG_IMAGE = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp';
 const DEFAULT_OG_TYPE = 'website';
 const BASE_URL = 'https://novahypnose.fr';
 
@@ -134,7 +134,7 @@ function getDefaultStructuredData() {
     "@type": "LocalBusiness",
     "@id": "https://novahypnose.fr/#organization",
     "name": "NovaHypnose - Alain Zenatti",
-    "image": "https://novahypnose.fr/lovable-uploads/ac75f7ce-64fa-4285-9d09-3c372d3efde5.png",
+    "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
     "description": "Cabinet d'hypnothérapie à Paris. Alain Zenatti, Maître Hypnologue vous accompagne pour retrouver confiance, équilibre et vitalité.",
     "url": "https://novahypnose.fr",
     "telephone": "+33649358089",
