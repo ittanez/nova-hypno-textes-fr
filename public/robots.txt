@@ -1,25 +1,29 @@
-
-# Robots.txt file for NovaHypnose
+ # Robots.txt file for NovaHypnose - Architecture propre
 # https://novahypnose.fr/
 
-# Allow all web crawlers to access all content
 User-agent: *
-Allow: /
+# Bloquer toutes les anciennes URLs PHP
+Disallow: /index.php/
+Disallow: *.php
 
-# Specific permissions for major search engines
+# Autoriser uniquement les nouvelles pages React
+Allow: /
+Allow: /mentions-legales
+Allow: /hypno-balade
+Allow: /auto-hypnose
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Moteurs de recherche spécifiques
 User-agent: Googlebot
+Disallow: /index.php/
 Allow: /
 
 User-agent: Bingbot
+Disallow: /index.php/
 Allow: /
 
-User-agent: Yandexbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-# Social media crawlers
+# Réseaux sociaux (OK pour toutes les pages autorisées)
 User-agent: Twitterbot
 Allow: /
 
@@ -29,5 +33,8 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Indicate the sitemap location
+# Sitemap des pages autorisées uniquement
 Sitemap: https://novahypnose.fr/sitemap.xml
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
