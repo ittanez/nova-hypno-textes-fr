@@ -69,10 +69,6 @@ const Footer = () => {
           <p className="text-sm">© {currentYear} NovaHypnose - Tous droits réservés</p>
           <p className="text-xs text-gray-300 mt-2 md:mt-0">
             <Link to="/mentions-legales" className="hover:underline">Mentions légales</Link>
-            <span className="mx-2">|</span>
-            <Link to="/blog" className="hover:underline">Blog</Link>
-            <span className="mx-2">|</span>
-            <a href="https://hypno-balade.novahypnose.fr" className="hover:underline" target="_blank" rel="noopener noreferrer">Hypno-Balade</a>
           </p>
         </div>
       </div>
