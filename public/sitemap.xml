@@ -1,14 +1,14 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- Page d'accueil -->
+  
+  <!-- Page d'accueil principale -->
   <url>
     <loc>https://novahypnose.fr/</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -21,20 +21,9 @@
   <!-- Mentions légales -->
   <url>
     <loc>https://novahypnose.fr/mentions-legales</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
-  <!-- Services spécifiques (à ajouter lorsque ces pages seront créées) -->
-  <url>
-    <loc>https://novahypnose.fr/hypno-balade</loc>
-    <lastmod>2025-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://novahypnose.fr/hypno-balade.jpg</image:loc>
-      <image:caption>Hypno-Balade en Forêt de Senonches</image:caption>
-    </image:image>
-  </url>
 </urlset>
