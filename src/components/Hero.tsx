@@ -24,15 +24,17 @@ const Hero = () => {
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
-              aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris"
+              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-nova-green focus:ring-offset-2"
+              aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris 4ème"
+              role="button"
             >
               Prendre rendez-vous
             </a>
             <a 
               href="#applications" 
-              className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold"
-              aria-label="Découvrir les applications de l'hypnose"
+              className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              aria-label="Découvrir les applications de l'hypnose ericksonienne"
+              role="button"
             >
               Découvrir les applications
             </a>
@@ -41,7 +43,12 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-10 w-full flex justify-center animate-bounce">
-        <a href="#about" aria-label="Défiler vers la section à propos">
+        <a 
+          href="#about" 
+          aria-label="Défiler vers la section à propos d'Alain Zenatti"
+          className="focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-full p-2"
+          role="button"
+        >
           <ChevronDown size={40} className="text-white" />
         </a>
       </div>

@@ -12,7 +12,7 @@ const Contact = () => {
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img 
               src="https://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp"
-              alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
+              alt="Consultation hypnothérapie Paris 4ème - Accueil bienveillant cabinet hypnose Marais Bastille" 
               className="w-full h-auto"
               loading="lazy"
             />

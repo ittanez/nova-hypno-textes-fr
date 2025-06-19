@@ -26,7 +26,7 @@ const About = () => {
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" 
-                alt="Alain Zenatti, Hypnothérapeute à Paris spécialisé en hypnose ericksonienne" 
+                alt="Alain Zenatti, Hypnothérapeute Paris 4ème Marais spécialisé en hypnose ericksonienne et auto-hypnose" 
                 className="w-full h-auto"
                 loading="eager"
                 fetchPriority="high"
@@ -109,7 +109,7 @@ const About = () => {
               <div className="mt-8">
                 <img 
                   src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/cabinet.webp" 
-                  alt="Séance d'hypnothérapie avec Alain Zenatti à Paris - Cabinet d'hypnose ericksonienne" 
+                  alt="Cabinet d'hypnose Paris 4ème Marais - Séance d'hypnothérapie ericksonienne personnalisée avec Alain Zenatti" 
                   className="w-full h-auto rounded-lg shadow-md"
                   loading="lazy"
                 />

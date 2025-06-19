@@ -9,6 +9,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
 import BlogArticlesSlider from '../components/BlogArticlesSlider';
+import FAQSchema from '../components/FAQSchema';
 
 // Composants chargés de manière différée (lazy loading)
 const SelfHypnosis = lazy(() => import('../components/SelfHypnosis'));
@@ -63,7 +64,27 @@ const Index = () => {
             ]
           })}
         </script>
+        
+        {/* Meta Open Graph améliorées */}
+        <meta property="og:title" content="Hypnothérapeute Paris 4 | Hypnose stress, sommeil, phobies" />
+        <meta property="og:description" content="Hypnose à Paris 4 : hypnothérapeute certifié. Hypnothérapie sur-mesure pour stress, sommeil, phobies. Cabinet Hypnose Marais/Bastille." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@novahypnose" />
+        <meta name="twitter:title" content="Hypnothérapeute Paris 4 | Hypnose stress, sommeil, phobies" />
+        <meta name="twitter:description" content="Hypnose à Paris 4 : hypnothérapeute certifié. Hypnothérapie sur-mesure pour stress, sommeil, phobies." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" />
       </Helmet>
+      
+      <FAQSchema />
       
       <ContentLayout>
         <Hero />
