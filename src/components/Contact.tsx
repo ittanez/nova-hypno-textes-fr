@@ -8,10 +8,10 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-center text-nova-blue-dark mb-12">Informations de contact</h2>
         
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-lg mx-auto mb-12">
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img 
-              src="https://novahypnose.fr/wp-content/uploads/2023/12/lhypnotherapie-une-ecoute-attentive-et-bienveillante.webp"
+              src="/cabinet.webp"
               alt="Consultation hypnothérapie Paris 4ème - Accueil bienveillant cabinet hypnose Marais Bastille" 
               className="w-full h-auto"
               loading="lazy"

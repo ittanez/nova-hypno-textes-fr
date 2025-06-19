@@ -25,7 +25,7 @@ const About = () => {
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" 
+                src="/zenatti.webp" 
                 alt="Alain Zenatti, Hypnothérapeute Paris 4ème Marais spécialisé en hypnose ericksonienne et auto-hypnose" 
                 className="w-full h-auto"
                 loading="eager"
@@ -104,15 +104,6 @@ const About = () => {
                 >
                   Suis-je hypnotisable ?
                 </a>
-              </div>
-              
-              <div className="mt-8">
-                <img 
-                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/cabinet.webp" 
-                  alt="Cabinet d'hypnose Paris 4ème Marais - Séance d'hypnothérapie ericksonienne personnalisée avec Alain Zenatti" 
-                  className="w-full h-auto rounded-lg shadow-md"
-                  loading="lazy"
-                />
               </div>
             </div>
           </div>
