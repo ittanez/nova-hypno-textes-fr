@@ -2,11 +2,14 @@
 # https://novahypnose.fr/
 
 User-agent: *
-# Bloquer toutes les anciennes URLs PHP
-Disallow: /index.php/
-Disallow: *.php
+# Bloquer uniquement les fichiers système PHP
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
 
-# Autoriser uniquement les nouvelles pages React
+# Autoriser toutes les pages importantes
 Allow: /
 Allow: /mentions-legales
 Allow: /hypno-balade
