@@ -50,14 +50,18 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    # Cache-Control pour améliorer les performances
-    Cache-Control = "public, max-age=31536000, immutable"
 
-# Exceptions de cache pour les fichiers HTML
+# Cache pour les fichiers HTML
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Cache pour les fichiers statiques
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
 
 # Redirection pour les SPA
 [[redirects]]

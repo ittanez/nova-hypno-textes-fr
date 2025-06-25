@@ -15,11 +15,11 @@ const Hero = () => {
             Hypnothérapie Ericksonienne Personnalisée Paris Centre
           </h1>
           
-          <p className="text-xl md:text-2xl mb-12 text-white/90 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>
+          <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed">
             Hypnose ericksonienne et auto-hypnose à Paris : une approche respectueuse et sur mesure, pour mobiliser les ressources profondes de votre inconscient et favoriser un mieux-être durable.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: "0.4s"}}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"

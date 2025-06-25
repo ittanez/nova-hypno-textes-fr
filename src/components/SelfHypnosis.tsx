@@ -35,6 +35,8 @@ const SelfHypnosis = () => {
                 alt="Formation auto-hypnose Paris - Techniques de relaxation et gestion du stress par l'hypnose" 
                 className="w-full h-auto"
                 loading="lazy"
+                width="600"
+                height="400"
               />
             </div>
             

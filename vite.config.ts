@@ -25,8 +25,20 @@ export default defineConfig(({ mode }) => ({
           summaryOnly: true,
           limit: 20
         })
-      ]
-    }
+      ],
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-ui': ['@radix-ui/react-accordion', '@radix-ui/react-toast', '@radix-ui/react-dialog'],
+          'vendor-router': ['react-router-dom'],
+          'vendor-supabase': ['@supabase/supabase-js'],
+          'vendor-utils': ['tailwind-merge', 'clsx', 'date-fns']
+        }
+      }
+    },
+    target: 'es2020',
+    minify: 'esbuild',
+    chunkSizeWarningLimit: 500
   },
   resolve: {
     alias: {
