@@ -53,7 +53,7 @@ const BlogArticlesSlider: React.FC = () => {
         console.log('📊 Articles récupérés automatiquement:', data.length);
         
         // ✅ Transformer les données pour le slider
-        const transformedArticles = data.map((article: any) => ({
+        const transformedArticles = data.map((article: BlogArticle) => ({
           id: article.id,
           title: article.title,
           excerpt: article.excerpt,

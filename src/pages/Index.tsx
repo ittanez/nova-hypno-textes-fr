@@ -2,13 +2,10 @@
 import Hero from '../components/Hero';
 import About from '../components/About';
 import ApplicationsGrid from '../components/ApplicationsGrid';
-import Pricing from '../components/Pricing';
-import Contact from '../components/Contact';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
-import BlogArticlesSlider from '../components/BlogArticlesSlider';
 import FAQSchema from '../components/FAQSchema';
 
 // Composants chargés de manière différée (lazy loading)
@@ -17,6 +14,11 @@ const SessionProcess = lazy(() => import('../components/SessionProcess'));
 const Faq = lazy(() => import('../components/Faq'));
 const Testimonials = lazy(() => import('../components/testimonials/Testimonials'));
 const SeoContent = lazy(() => import('../components/SeoContent'));
+
+// Composants additionnels en lazy loading
+const BlogArticlesSliderLazy = lazy(() => import('../components/BlogArticlesSlider'));
+const PricingLazy = lazy(() => import('../components/Pricing'));
+const ContactLazy = lazy(() => import('../components/Contact'));
 
 // Contenu SEO spécifique à la page d'accueil - MISE À JOUR
 const homePageSeo = {
@@ -98,14 +100,16 @@ const Index = () => {
           
           {/* ✅ Blog après les témoignages */}
           <div id="blog">
-            <BlogArticlesSlider />
+            <BlogArticlesSliderLazy />
           </div>
           
           <Faq />
         </Suspense>
         
-        <Pricing />
-        <Contact />
+        <Suspense fallback={<div className="h-32 animate-pulse bg-gray-100"></div>}>
+          <PricingLazy />
+          <ContactLazy />
+        </Suspense>
         
         
         <Suspense fallback={null}>

@@ -3,16 +3,21 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
+interface AuthError {
+  message: string;
+  code?: string;
+}
+
 type AuthContextType = {
   session: Session | null;
   user: User | null;
   loading: boolean;
   isAdmin: boolean;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<{ error: any }>;
-  logout: () => Promise<{ error: any }>;
-  signup: (email: string, password: string) => Promise<{ error: any }>;
-  requestAdminAccess: (fullName: string, reason: string) => Promise<{ error: any }>;
+  login: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  logout: () => Promise<{ error: AuthError | null }>;
+  signup: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  requestAdminAccess: (fullName: string, reason: string) => Promise<{ error: AuthError | null }>;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

@@ -39,10 +39,11 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
         setFullName('');
         setReason('');
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Une erreur est survenue";
       toast({
         title: "Erreur",
-        description: error.message || "Une erreur est survenue",
+        description: message,
         variant: "destructive",
       });
     }

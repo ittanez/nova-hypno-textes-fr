@@ -2,6 +2,12 @@
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
+interface StructuredData {
+  '@context'?: string;
+  '@type'?: string;
+  [key: string]: unknown;
+}
+
 type SeoProps = {
   title?: string;
   description?: string;
@@ -10,7 +16,7 @@ type SeoProps = {
   ogType?: 'website' | 'article';
   ogUrl?: string;
   canonicalUrl?: string;
-  structuredData?: Record<string, any>;
+  structuredData?: StructuredData;
 };
 
 const DEFAULT_TITLE = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti, Maître en Hypnose Ericksonienne';
@@ -113,7 +119,7 @@ function updateMetaTag(name: string, content: string, attributeType: 'name' | 'p
 }
 
 // Helper function to add or update structured data
-function addOrUpdateStructuredData(data: Record<string, any>) {
+function addOrUpdateStructuredData(data: StructuredData) {
   // Remove existing script if present
   const existingScript = document.querySelector('script[type="application/ld+json"]');
   if (existingScript) {

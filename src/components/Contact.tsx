@@ -12,9 +12,13 @@ const Contact = () => {
           <div className="rounded-xl overflow-hidden shadow-lg">
             <img 
               src="/cabinet.webp"
+              srcSet="/cabinet.webp 1x, /cabinet.webp 2x"
+              sizes="(max-width: 768px) 100vw, 512px"
               alt="Consultation hypnothérapie Paris 4ème - Accueil bienveillant cabinet hypnose Marais Bastille" 
               className="w-full h-auto"
               loading="lazy"
+              width="512"
+              height="384"
             />
           </div>
         </div>

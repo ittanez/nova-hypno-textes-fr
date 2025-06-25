@@ -64,9 +64,9 @@ const Faq = () => {
   };
 
   return (
-    <section id="faq" className="section-padding bg-white">
+    <section id="faq" className="section-padding bg-white" role="region" aria-labelledby="faq-heading">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-16">Questions fréquentes sur l'hypnothérapie</h2>
+        <h2 id="faq-heading" className="text-center text-nova-blue-dark mb-16">Questions fréquentes sur l'hypnothérapie</h2>
         
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
@@ -78,17 +78,23 @@ const Faq = () => {
                 <button
                   className="flex justify-between items-center w-full p-4 text-left bg-white hover:bg-gray-50 transition-colors"
                   onClick={() => toggleItem(index)}
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                 >
                   <span className="font-medium text-nova-blue-dark">{item.question}</span>
                   {openIndex === index ? 
-                    <ChevronUp className="text-nova-blue flex-shrink-0" size={20} /> : 
-                    <ChevronDown className="text-nova-blue flex-shrink-0" size={20} />
+                    <ChevronUp className="text-nova-blue flex-shrink-0" size={20} aria-hidden="true" /> : 
+                    <ChevronDown className="text-nova-blue flex-shrink-0" size={20} aria-hidden="true" />
                   }
                 </button>
                 <div 
+                  id={`faq-answer-${index}`}
                   className={`px-4 overflow-hidden transition-all duration-300 ${
                     openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
                   }`}
+                  aria-labelledby={`faq-question-${index}`}
+                  role="region"
                 >
                   <div className="whitespace-pre-line">{item.answer}</div>
                 </div>

@@ -26,10 +26,14 @@ const About = () => {
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img 
                 src="/zenatti.webp" 
+                srcSet="/zenatti.webp 1x, /zenatti.webp 2x"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Alain Zenatti, Hypnothérapeute Paris 4ème Marais spécialisé en hypnose ericksonienne et auto-hypnose" 
                 className="w-full h-auto"
                 loading="eager"
                 fetchPriority="high"
+                width="600"
+                height="800"
               />
             </div>
           </div>
