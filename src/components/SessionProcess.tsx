@@ -30,18 +30,18 @@ const SessionProcess = () => {
   
   const steps = [
     {
-      title: "Temps d'échange",
-      description: "Nous commençons par un temps de parole. Vous y exprimez vos besoins, votre état du moment, vos attentes. Ce dialogue me permet de cerner ce qui se joue en vous, et de poser les bases d'un accompagnement personnalisé.",
+      title: "1. Échange et explication (15 min)",
+      description: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de votre séance. Vous comprenez exactement ce qui va se passer et pourquoi. C'est le moment de lever toutes vos interrogations.",
       Icon: Check
     },
     {
-      title: "Induction hypnotique et travail ciblé",
-      description: "Je vous guide progressivement vers un état de conscience modifiée, naturel et sécurisé, qui facilite le dialogue avec votre monde intérieur. C'est dans cet état que nous mobilisons vos ressources inconscientes, à travers des suggestions, des métaphores, ou des protocoles adaptés à votre objectif.",
+      title: "2. Induction guidée et travail collaboratif (30 min)",
+      description: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées qui vous sont expliquées au fur et à mesure.",
       Icon: Target
     },
     {
-      title: "Intégration et retour à l'état ordinaire",
-      description: "En fin de séance, nous prenons un moment pour revenir à l'état de veille, accueillir vos ressentis et poser les premiers ancrages du changement. Vous repartez avec une sensation d'apaisement, parfois une clarté nouvelle, souvent un début de transformation silencieuse mais réelle.",
+      title: "3. Retour progressif et débriefing (15 min)",
+      description: "Retour en douceur à l'état de veille normale. Nous échangeons sur vos ressentis, je réponds à vos questions et nous ancrons les bénéfices de la séance. Vous repartez avec une compréhension claire de ce qui s'est passé.",
       Icon: Clock
     }
   ];
@@ -49,17 +49,17 @@ const SessionProcess = () => {
   return (
     <section id="sessions" className="section-padding bg-nova-blue-light bg-opacity-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-6">Un cadre sécurisant pour laisser émerger ce qui doit changer</h2>
+        <h2 className="text-center text-nova-blue-dark mb-6">Déroulement d'une séance : transparence et collaboration</h2>
         
         <div className="max-w-3xl mx-auto mb-12">
           <p className="text-center">
-            Chaque séance est une rencontre. Une rencontre avec vous-même, mais dans un cadre guidé, respectueux, où rien n'est forcé et tout peut être entendu.
+            Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole clair que je vous explique en détail.
           </p>
           <p className="text-center mt-4">
-            Mon rôle est d'ouvrir un espace où votre inconscient peut s'exprimer librement, à son rythme, et où vous pouvez vous sentir en sécurité pour amorcer un changement en profondeur.
+            Mon rôle est de vous guider étape par étape, de répondre à toutes vos questions et de co-construire avec vous le travail thérapeutique.
           </p>
           <p className="text-center mt-4 font-medium">
-            Voici comment se déroule une séance type :
+            Voici le déroulement détaillé d'une séance :
           </p>
         </div>
         
@@ -89,9 +89,15 @@ const SessionProcess = () => {
             ))}
           </div>
           
-          <p className="text-center mt-8 text-nova-blue-dark font-medium">
-            Chaque séance est un pas. Un pas mesuré, respectueux, mais engagé vers un mieux-être durable et autonome.
-          </p>
+          <div className="mt-8 p-6 bg-white rounded-lg shadow-lg">
+            <p className="text-center text-nova-blue-dark font-medium mb-2">
+              Ma promesse : Aucune surprise, tout est expliqué
+            </p>
+            <p className="text-center text-gray-700">
+              Vous ne vivrez jamais quelque chose que vous ne comprenez pas. Le temps est pris pour vous expliquer, 
+              vous rassurer et s'adapter à votre rythme. C'est votre séance, vous la construisez ensemble.
+            </p>
+          </div>
         </div>
       </div>
       

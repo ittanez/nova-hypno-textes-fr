@@ -44,15 +44,28 @@ const Pricing = () => {
             </div>
           </div>
           
-          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden">
-            <div className="bg-nova-blue-dark p-6 text-center">
-              <h3 className="text-2xl font-bold text-white">Packs d'Hypnothérapie</h3>
+          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden border-2 border-nova-green">
+            <div className="bg-nova-blue-dark p-6 text-center relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-nova-green text-white px-4 py-1 rounded-full text-sm font-semibold">
+                RECOMMANDÉ
+              </div>
+              <h3 className="text-2xl font-bold text-white mt-2">Packs d'Hypnothérapie</h3>
               <p className="text-nova-blue-light opacity-90">Validité : 6 mois</p>
             </div>
             
             <div className="p-8">
+              <div className="mb-6 bg-nova-green bg-opacity-10 p-4 rounded-lg border-l-4 border-nova-green">
+                <p className="font-semibold text-nova-blue-dark mb-2">Pack 3 séances - RECOMMANDÉ</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  Idéal pour les problématiques les plus courantes :
+                </p>
+                <div className="text-sm text-gray-600">
+                  • Phobies et blocages • Anxiété et stress • Confiance en soi
+                </div>
+              </div>
+              
               <ul className="space-y-4">
-                <li className="flex items-center">
+                <li className="flex items-center bg-nova-green bg-opacity-5 p-3 rounded-lg">
                   <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
                   <span><strong>Pack 3 séances :</strong> 85 €/séance → 255 € le pack</span>
                 </li>
@@ -63,7 +76,7 @@ const Pricing = () => {
                 <li className="flex items-center mt-6 bg-nova-blue bg-opacity-10 p-4 rounded-lg">
                   <div>
                     <p className="font-semibold text-nova-blue-dark">Économisez jusqu'à 50 € avec les packs</p>
-                    <p className="text-sm text-gray-600">Idéal pour un accompagnement sur la durée</p>
+                    <p className="text-sm text-gray-600">Accompagnement structuré pour des résultats durables</p>
                   </div>
                 </li>
               </ul>
@@ -86,7 +99,10 @@ const Pricing = () => {
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
             <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Avantages des packs</h3>
             <p className="text-gray-700 mb-4">
-              Les packs de séances d'hypnothérapie présentent plusieurs avantages par rapport à des séances isolées, notamment un coût avantageux, un engagement à long terme et un plan de traitement structuré. Ces avantages financiers et le cadre structuré peuvent être particulièrement utiles dans le cas des trois applications de l'hypnothérapie qui ont montré les taux de réussite les plus élevés : l'estime de soi - confiance en soi, les phobies et l'anxiété.
+              <strong>Le Pack 3 séances est particulièrement recommandé</strong> pour les problématiques les plus courantes qui nécessitent un accompagnement structuré : <strong>phobies, anxiété et confiance en soi</strong>. Ces trois domaines montrent les taux de réussite les plus élevés avec un suivi de 3 séances, permettant un travail progressif et l'ancrage durable des changements.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Les packs offrent également un coût avantageux, un engagement à long terme et un plan de traitement structuré, créant les conditions optimales pour votre transformation.
             </p>
           </div>
           

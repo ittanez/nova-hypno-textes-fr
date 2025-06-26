@@ -2,6 +2,7 @@
 import Hero from '../components/Hero';
 import About from '../components/About';
 import ApplicationsGrid from '../components/ApplicationsGrid';
+import HowItWorks from '../components/HowItWorks';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
@@ -91,17 +92,21 @@ const Index = () => {
       <ContentLayout>
         <Hero />
         <About />
+        
+        {/* ✅ Blog repositionné après About pour démontrer l'expertise */}
+        <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100"></div>}>
+          <div id="blog">
+            <BlogArticlesSliderLazy />
+          </div>
+        </Suspense>
+        
+        <HowItWorks />
         <ApplicationsGrid />
         
         <Suspense fallback={<div className="h-20 animate-pulse bg-gray-100"></div>}>
           <SelfHypnosis />
           <SessionProcess />
           <Testimonials />
-          
-          {/* ✅ Blog après les témoignages */}
-          <div id="blog">
-            <BlogArticlesSliderLazy />
-          </div>
           
           <Faq />
         </Suspense>

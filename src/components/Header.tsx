@@ -36,13 +36,13 @@ const Header = () => {
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '#about' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Témoignages', href: '#testimonials' },
   ];
 
   const pourQuoiLinks: NavLink[] = [
     { name: 'Applications', href: '#applications' },
     { name: 'Auto-Hypnose', href: '#self-hypnosis' },
-    { name: 'Émergences le blog', href: '#blog' }, // ✅ CHANGÉ : ancre interne
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
   ];
 

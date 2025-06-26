@@ -5,36 +5,30 @@ import TestimonialCard from './TestimonialCard';
 import TestimonialControls from './TestimonialControls';
 import type { Testimonial } from '../../types/testimonial';
 
-// Updated testimonials with initials instead of last names
+// Vrais témoignages clients Google My Business
 const testimonials: Testimonial[] = [
   {
-    name: "Claire M.",
-    date: "15 janvier 2023",
-    text: "Accompagnement vraiment exceptionnel d'Alain pour ma phobie des transports en commun. En seulement 3 séances, j'ai pu recommencer à prendre le métro sereinement. Maintenant c'est comme si cette phobie n'avait jamais existé !",
+    name: "Edward",
+    date: "il y a 2 mois",
+    text: "Découvrir NOVA HYPNOSE et le travail d'Alain Zenatti hypno thérapeute, est une expérience marquante. Alain propose bien plus que des séances, de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles, apaiser les tensions intérieures et renouer avec une forme de clarté personnelle. À travers ses packs de plusieurs séances, j'ai entamé un chemin riche en prises de conscience. J'ai laissé derrière moi certaines croyances figées, des idées préconçues qui conditionnaient mes pensées, et j'ai ouvert un espace intérieur plus souple, plus libre. Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.",
     rating: 5
   },
   {
-    name: "Thomas B.",
-    date: "3 mars 2023",
-    text: "Excellent thérapeute. J'ai consulté pour des problèmes de sommeil qui me perturbaient depuis des années. La méthode d'Alain a été efficace rapidement. Je recommande vivement son approche bienveillante et professionnelle.",
+    name: "Marie HERNANDEZ",
+    date: "il y a 3 mois",
+    text: "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparue en 3 séances. Je recommande vivement",
     rating: 5
   },
   {
-    name: "Sophie L.",
-    date: "20 avril 2023",
-    text: "Je souffrais d'anxiété sociale depuis l'adolescence. Grâce à l'hypnose pratiquée par Alain, j'ai pu me libérer de cette souffrance. Son approche est à la fois douce et efficace. Merci infiniment pour cette libération !",
+    name: "Philippe Audoin",
+    date: "il y a 3 mois",
+    text: "Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail, les points d'amélioration, les émotions limitantes, ce qui \"m'encombrait\" dans ma progression. En quelques séances, avec son accompagnement, ses techniques d'hypnose et sa connaissance de la PNL, j'ai pu me libérer de certains blocages et entamer des changements pérennes. Cela m'a fait beaucoup de bien et je le remercie pour cette évolution importante pour moi.",
     rating: 5
   },
   {
-    name: "Marc D.",
-    date: "8 juin 2023",
-    text: "Après avoir essayé plusieurs approches pour arrêter de fumer sans succès, j'ai tenté l'hypnose avec Alain. Et ça a marché ! Six mois plus tard, je n'ai pas retouché à une cigarette. Une transformation incroyable dans ma vie.",
-    rating: 5
-  },
-  {
-    name: "Julie P.",
-    date: "17 septembre 2023",
-    text: "Alain est un hypnothérapeute attentif et bienveillant. J'ai suivi un accompagnement pour gérer mon stress au travail et les résultats ont dépassé mes attentes. Je gère désormais beaucoup mieux la pression et me sens plus épanouie.",
+    name: "Jaouad Mehdid",
+    date: "il y a 3 mois",
+    text: "Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte que l'on atteigne nos objectifs.",
     rating: 5
   }
 ];
@@ -59,7 +53,9 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-center text-nova-blue-dark mb-4">Témoignages de clients</h2>
         <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
-          Voici quelques retours de personnes que j'ai eu le plaisir d'accompagner dans leur démarche de transformation.
+          Voici quelques retours de personnes que j'ai eu le plaisir d'accompagner dans leur démarche de transformation. 
+          <br/>
+          <span className="text-sm">Plus de témoignages disponibles sur Google My Business et Resalib</span>
         </p>
         
         <div className="relative max-w-4xl mx-auto">
