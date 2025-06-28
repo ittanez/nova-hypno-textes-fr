@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-nova-blue-dark text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Première colonne: A propos */}
           <div>
             <h3 className="font-serif text-xl mb-4">À propos de NovaHypnose</h3>
@@ -44,7 +44,20 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Troisième colonne: Contact */}
+          {/* Troisième colonne: Ressources */}
+          <div>
+            <h3 className="font-serif text-xl mb-4">Ressources</h3>
+            <ul className="space-y-2">
+              <li><a href="https://emergences.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Emergences, le blog de l'hypnose</a></li>
+              <li><a href="https://peurdelavion.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de l'avion</a></li>
+              <li><a href="https://peur-de-parler-en-public.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de parler en public</a></li>
+              <li><a href="https://hypnokick.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Suis-je Hypnotisable ?</a></li>
+              <li><a href="https://harmonia.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Harmonia Auto-hypnose</a></li>
+              <li><a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Hypno Balade</a></li>
+            </ul>
+          </div>
+          
+          {/* Quatrième colonne: Contact */}
           <div>
             <h3 className="font-serif text-xl mb-4">Contact</h3>
             <p className="text-sm mb-1">16 rue St Antoine, 75004 Paris</p>

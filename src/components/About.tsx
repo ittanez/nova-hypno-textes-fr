@@ -41,13 +41,6 @@ const About = () => {
               />
             </div>
 
-            <blockquote className="mt-6 text-center">
-              <p className="text-lg italic text-gray-700 mb-2">
-                "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
-              </p>
-              <cite className="text-gray-600 text-sm">— Alain Zenatti, Maître Hypnologue</cite>
-            </blockquote>
-            
             <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
               <h3 className="text-nova-blue-dark flex items-center text-xl font-semibold mb-4">
                 <Award className="mr-2 text-nova-blue" size={24} />
@@ -83,52 +76,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <div className="mb-6 bg-nova-blue-light bg-opacity-5 p-4 rounded-lg border-l-4 border-nova-blue">
-                <p className="font-semibold text-nova-blue-dark mb-2">Pourquoi choisir un Maître Hypnologue ?</p>
-                <p>
-                  Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
-                  Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée qui vous garantissent un accompagnement professionnel de haut niveau.
-                </p>
-              </div>
-              
-              <p className="mb-6">
-                Vous êtes accueilli dans votre singularité, sans jugement, avec attention. Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure, vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
-              </p>
-              
-              <div className="mb-6 bg-nova-green-light bg-opacity-5 p-4 rounded-lg">
-                <p className="font-semibold text-nova-blue-dark mb-2">Ma méthode expliquée</p>
-                <p>
-                  Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée qui respecte votre rythme intérieur. 
-                  Contrairement aux idées reçues, vous restez conscient et en contrôle. Chaque étape vous est expliquée pour que vous compreniez 
-                  exactement comment vos ressources inconscientes sont mobilisées de manière collaborative.
-                </p>
-              </div>
 
-              <blockquote className="my-8 pl-6 border-l-4 border-nova-green text-lg italic text-gray-700">
-                "Vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient."
-              </blockquote>
-              
-              <p className="mb-6">
-                Votre inconscient est un allié, pas un obstacle. Il contient bien plus que des blocages ou des résistances : c'est une source précieuse de ressources, de sagesse et de mémoire vivante, souvent ignorée par votre conscience rationnelle. L'auto-hypnose que vous apprenez prolonge ce lien et vous rend autonome dans votre parcours de mieux-être.
-              </p>
-
-              <blockquote className="my-8 pl-6 border-l-4 border-nova-blue text-lg italic text-gray-700">
-                "Votre inconscient contient une source précieuse de ressources, de sagesse et de mémoire vivante."
-              </blockquote>
-              
-              <p className="mb-6">
-                Chaque séance est construite avec soin, dans un cadre sécurisant, ajusté à votre vécu, vos capacités du moment, vos aspirations. Ce n'est jamais une méthode appliquée mécaniquement, mais une co-construction subtile, où le corps, les émotions, les images mentales et l'écoute profonde se rejoignent.
-              </p>
-              
-              <p className="mb-6">
-                Vous êtes accompagné dans ce mouvement intérieur — celui qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes.
-              </p>
-            </div>
-            
             <div className="bg-nova-neutral p-8 rounded-xl shadow-lg">
               <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
                 <Heart className="mr-2 text-nova-green" size={24} />
@@ -157,6 +105,78 @@ const About = () => {
                   Suis-je hypnotisable ?
                 </a>
               </div>
+            </div>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="bg-nova-blue-light bg-opacity-5 p-4 rounded-lg border-l-4 border-nova-blue mb-6">
+              <p className="font-semibold text-nova-blue-dark mb-2">Pourquoi choisir un Maître Hypnologue ?</p>
+              <p>
+                Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
+                Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée qui vous garantissent un accompagnement professionnel de haut niveau.
+              </p>
+            </div>
+            
+            <p className="mb-6">
+              Vous êtes accueilli dans votre singularité, sans jugement, avec attention. Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure, vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
+            </p>
+
+            <blockquote className="mt-6 text-center mb-6">
+              <p className="text-lg italic text-gray-700 mb-2">
+                "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
+              </p>
+              <cite className="text-gray-600 text-sm">— Alain Zenatti, Maître Hypnologue</cite>
+            </blockquote>
+            
+            <div className="bg-nova-green-light bg-opacity-5 p-4 rounded-lg mb-6">
+              <p className="font-semibold text-nova-blue-dark mb-2">Ma méthode expliquée</p>
+              <p>
+                Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée qui respecte votre rythme intérieur. 
+                Contrairement aux idées reçues, vous restez conscient et en contrôle. Chaque étape vous est expliquée pour que vous compreniez 
+                exactement comment vos ressources inconscientes sont mobilisées de manière collaborative.
+              </p>
+            </div>
+
+            <blockquote className="my-8 pl-6 border-l-4 border-nova-green text-lg italic text-gray-700">
+              "Vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient."
+            </blockquote>
+
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.youtube.com/embed/4VRNBAoAcAE"
+                title="Alain Zenatti - Maître Hypnologue Paris 4ème - Présentation Cabinet NovaHypnose"
+                className="w-full aspect-[9/16]"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+              
+              {/* Schema markup pour la vidéo */}
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "VideoObject",
+                  "name": "Présentation d'Alain Zenatti - Maître Hypnologue Paris",
+                  "description": "Découvrez l'approche d'Alain Zenatti, Maître Hypnologue certifié à Paris 4ème, spécialisé en hypnose ericksonienne et auto-hypnose.",
+                  "thumbnailUrl": "https://img.youtube.com/vi/4VRNBAoAcAE/maxresdefault.jpg",
+                  "uploadDate": new Date().toISOString().split('T')[0],
+                  "duration": "PT1M",
+                  "embedUrl": "https://www.youtube.com/embed/4VRNBAoAcAE",
+                  "publisher": {
+                    "@type": "Organization",
+                    "name": "NovaHypnose",
+                    "url": "https://novahypnose.fr"
+                  },
+                  "creator": {
+                    "@type": "Person",
+                    "name": "Alain Zenatti",
+                    "jobTitle": "Maître Hypnologue",
+                    "worksFor": {
+                      "@type": "MedicalBusiness",
+                      "name": "NovaHypnose"
+                    }
+                  }
+                })}
+              </script>
             </div>
           </div>
         </div>
