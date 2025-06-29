@@ -27,12 +27,29 @@ export default defineConfig(({ mode }) => ({
         })
       ],
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-ui': ['@radix-ui/react-accordion', '@radix-ui/react-toast', '@radix-ui/react-dialog'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-supabase': ['@supabase/supabase-js'],
-          'vendor-utils': ['tailwind-merge', 'clsx', 'date-fns']
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'vendor-ui';
+            }
+            if (id.includes('react-router')) {
+              return 'vendor-router';
+            }
+            if (id.includes('@supabase')) {
+              return 'vendor-supabase';
+            }
+            if (id.includes('tailwind-merge') || id.includes('clsx') || id.includes('date-fns')) {
+              return 'vendor-utils';
+            }
+            return 'vendor-misc';
+          }
+          // Split admin components into separate chunk
+          if (id.includes('pages/admin/') || id.includes('AdminDashboard') || id.includes('AdminLogin')) {
+            return 'admin';
+          }
         },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');

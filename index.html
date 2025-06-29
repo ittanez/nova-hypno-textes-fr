@@ -31,35 +31,14 @@
     
     <link rel="icon" type="image/png" href="/favicon.ico" />
     
-    <!-- Chargement optimisé des polices -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
-    </noscript>
+    <!-- Critical fonts loaded synchronously to prevent CLS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
     
-    <!-- Chargement différé des variantes de police moins critiques -->
+    <!-- Non-critical font variants loaded asynchronously -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
     </noscript>
-    
-    <!-- Load main CSS asynchronously to avoid render blocking -->
-    <script>
-      function loadCSS(href) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        link.media = 'print';
-        link.onload = function() { this.media = 'all'; };
-        document.head.appendChild(link);
-        return link;
-      }
-      // Load CSS after critical rendering
-      requestAnimationFrame(() => {
-        loadCSS('/assets/css/index-XfRj7ryC.css');
-      });
-    </script>
     
     <!-- Google Analytics optimisé (différé) -->
     <script>
@@ -116,6 +95,9 @@
       .border-nova-blue{border-color:#0c4a6e}
       @media (min-width:768px){.md\:text-6xl{font-size:3.75rem;line-height:1}}
     </style>
+    
+    <!-- Load main CSS synchronously to prevent CLS -->
+    <link rel="stylesheet" href="/assets/css/index-XfRj7ryC.css">
     
     <!-- Lucky Orange différé -->
     <script>
