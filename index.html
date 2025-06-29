@@ -44,6 +44,23 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
     </noscript>
     
+    <!-- Load main CSS asynchronously to avoid render blocking -->
+    <script>
+      function loadCSS(href) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.media = 'print';
+        link.onload = function() { this.media = 'all'; };
+        document.head.appendChild(link);
+        return link;
+      }
+      // Load CSS after critical rendering
+      requestAnimationFrame(() => {
+        loadCSS('/assets/css/index-XfRj7ryC.css');
+      });
+    </script>
+    
     <!-- Google Analytics optimisé (différé) -->
     <script>
       setTimeout(function(){
@@ -64,7 +81,7 @@
     
     <!-- CSS critique inline pour éliminer les ressources bloquantes -->
     <style>
-      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6}
+      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6;background-color:#f8fafc}
       h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif}
       .animate-fade-in{animation:fadeIn .8s ease-out forwards}
       @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -80,11 +97,25 @@
       .mb-12{margin-bottom:3rem}
       .w-full{width:100%}
       .h-auto{height:auto}
+      .text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .md\:text-6xl{font-size:3.75rem;line-height:1}
+      .font-serif{font-family:'Playfair Display',serif}
+      .font-bold{font-weight:700}
+      .mb-8{margin-bottom:2rem}
+      .text-white{color:#fff}
+      .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8))}
+      .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem}
+      .hero-text{max-width:4xl;margin:0 auto}
+      .loading-spinner{display:flex;align-items:center;justify-content:center;min-height:100vh}
+      .animate-spin{animation:spin 1s linear infinite}
+      @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+      .rounded-full{border-radius:9999px}
+      .h-32{height:8rem}
+      .w-32{width:8rem}
+      .border-b-2{border-bottom-width:2px}
+      .border-nova-blue{border-color:#0c4a6e}
+      @media (min-width:768px){.md\:text-6xl{font-size:3.75rem;line-height:1}}
     </style>
-
-    <!-- Chargement différé du CSS complet -->
-    <link rel="preload" href="/assets/index-D0Yntfjl.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/assets/index-D0Yntfjl.css"></noscript>
     
     <!-- Lucky Orange différé -->
     <script>

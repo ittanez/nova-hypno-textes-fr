@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: 'assets/js/[name]-[hash].js'
       }
     },
-    target: 'es2020',
+    target: 'es2022',
     minify: 'esbuild',
     chunkSizeWarningLimit: 500,
     cssCodeSplit: true,
