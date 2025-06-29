@@ -31,14 +31,24 @@
     
     <link rel="icon" type="image/png" href="/favicon.ico" />
     
-    <!-- Critical fonts loaded synchronously to prevent CLS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap">
-    
-    <!-- Non-critical font variants loaded asynchronously -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;500;700&display=swap">
-    </noscript>
+    <!-- Fonts loaded asynchronously to prevent render blocking -->
+    <script>
+      function loadFonts() {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap';
+        link.onload = function() {
+          document.documentElement.classList.add('fonts-loaded');
+        };
+        document.head.appendChild(link);
+      }
+      // Load fonts after critical rendering
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFonts);
+      } else {
+        loadFonts();
+      }
+    </script>
     
     <!-- Google Analytics optimisé (différé) -->
     <script>
@@ -58,10 +68,10 @@
     <!-- Structured Data généré dynamiquement par React -->
 
     
-    <!-- CSS critique inline pour éliminer les ressources bloquantes -->
+    <!-- CSS critique inline avec polices natives en fallback -->
     <style>
-      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6;background-color:#f8fafc}
-      h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',serif}
+      body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;line-height:1.6;background-color:#f8fafc}
+      h1,h2,h3,h4,h5,h6{font-family:Georgia,'Times New Roman',Times,serif}
       .animate-fade-in{animation:fadeIn .8s ease-out forwards}
       @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
       .section-padding{padding:80px 0}
@@ -78,7 +88,7 @@
       .h-auto{height:auto}
       .text-4xl{font-size:2.25rem;line-height:2.5rem}
       .md\:text-6xl{font-size:3.75rem;line-height:1}
-      .font-serif{font-family:'Playfair Display',serif}
+      .font-serif{font-family:Georgia,'Times New Roman',Times,serif}
       .font-bold{font-weight:700}
       .mb-8{margin-bottom:2rem}
       .text-white{color:#fff}
@@ -94,6 +104,9 @@
       .border-b-2{border-bottom-width:2px}
       .border-nova-blue{border-color:#0c4a6e}
       @media (min-width:768px){.md\:text-6xl{font-size:3.75rem;line-height:1}}
+      /* Transition douce vers Google Fonts quand elles se chargent */
+      .fonts-loaded body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+      .fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{font-family:'Playfair Display',Georgia,'Times New Roman',serif}
     </style>
     
     <!-- CSS will be injected by Vite automatically -->
