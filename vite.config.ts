@@ -33,12 +33,27 @@ export default defineConfig(({ mode }) => ({
           'vendor-router': ['react-router-dom'],
           'vendor-supabase': ['@supabase/supabase-js'],
           'vendor-utils': ['tailwind-merge', 'clsx', 'date-fns']
-        }
+        },
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name)) {
+            return `assets/images/[name]-[hash][extname]`;
+          }
+          if (/\.css$/i.test(assetInfo.name)) {
+            return `assets/css/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js'
       }
     },
     target: 'es2020',
     minify: 'esbuild',
-    chunkSizeWarningLimit: 500
+    chunkSizeWarningLimit: 500,
+    cssCodeSplit: true,
+    sourcemap: false
   },
   resolve: {
     alias: {

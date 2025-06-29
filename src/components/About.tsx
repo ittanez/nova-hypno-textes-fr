@@ -1,5 +1,6 @@
  import React from 'react';
 import { Heart, Award } from 'lucide-react';
+import LazyYouTube from './LazyYouTube';
 
 const About = () => {
   const diplomasByLevel = {
@@ -142,13 +143,11 @@ const About = () => {
             </blockquote>
 
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/4VRNBAoAcAE"
+              <LazyYouTube 
+                videoId="4VRNBAoAcAE"
                 title="Alain Zenatti - Maître Hypnologue Paris 4ème - Présentation Cabinet NovaHypnose"
-                className="w-full aspect-[9/16]"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+                className="w-full"
+              />
               
               {/* Schema markup pour la vidéo */}
               <script type="application/ld+json">
