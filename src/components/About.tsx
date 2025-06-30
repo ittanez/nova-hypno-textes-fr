@@ -161,6 +161,16 @@ const About = () => {
                   "duration": "PT1M14S",
                   "embedUrl": "https://www.youtube.com/embed/4VRNBAoAcAE",
                   "contentUrl": "https://www.youtube.com/watch?v=4VRNBAoAcAE",
+                  "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://novahypnose.fr/#about"
+                  },
+                  "inLanguage": "fr-FR",
+                  "potentialAction": {
+                    "@type": "WatchAction",
+                    "target": "https://www.youtube.com/watch?v=4VRNBAoAcAE"
+                  },
+                  "keywords": ["hypnose", "hypnothérapie", "Paris", "Alain Zenatti", "maître hypnologue"],
                   "publisher": {
                     "@type": "Organization",
                     "name": "NovaHypnose",
