@@ -63,6 +63,13 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
+# Redirection du sous-domaine emergences vers le domaine principal
+[[redirects]]
+  from = "https://emergences.novahypnose.fr/*"
+  to = "https://novahypnose.fr/:splat"
+  status = 301
+  force = true
+
 # Redirection pour les SPA
 [[redirects]]
   from = "/*"
