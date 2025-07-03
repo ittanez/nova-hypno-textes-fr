@@ -31,7 +31,7 @@ const Pricing = () => {
                 </li>
               </ul>
               
-              <div className="mt-8 text-center">
+              <div className="mt-8 text-center space-y-3">
                 <a 
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" 
                   target="_blank"
@@ -40,21 +40,24 @@ const Pricing = () => {
                 >
                   Réserver une séance
                 </a>
+                <div className="text-xs text-gray-500">
+                  💳 Paiement en ligne ou au cabinet
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden border-2 border-nova-green">
+          <div className="bg-nova-neutral rounded-xl shadow-lg overflow-hidden border-2 border-nova-blue">
             <div className="bg-nova-blue-dark p-6 text-center relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-nova-green text-white px-4 py-1 rounded-full text-sm font-semibold">
+              <div className="absolute top-2 right-4 bg-nova-blue text-white px-3 py-1 rounded-full text-xs font-semibold">
                 RECOMMANDÉ
               </div>
-              <h3 className="text-2xl font-bold text-white mt-2">Packs d'Hypnothérapie</h3>
+              <h3 className="text-2xl font-bold text-white mt-6">Packs d'Hypnothérapie</h3>
               <p className="text-nova-blue-light opacity-90">Validité : 6 mois</p>
             </div>
             
             <div className="p-8">
-              <div className="mb-6 bg-nova-green bg-opacity-10 p-4 rounded-lg border-l-4 border-nova-green">
+              <div className="mb-6 bg-nova-blue bg-opacity-10 p-4 rounded-lg border-l-4 border-nova-blue">
                 <p className="font-semibold text-nova-blue-dark mb-2">Pack 3 séances - RECOMMANDÉ</p>
                 <p className="text-sm text-gray-700 mb-2">
                   Idéal pour les problématiques les plus courantes :
@@ -65,7 +68,7 @@ const Pricing = () => {
               </div>
               
               <ul className="space-y-4">
-                <li className="flex items-center bg-nova-green bg-opacity-5 p-3 rounded-lg">
+                <li className="flex items-center bg-nova-blue bg-opacity-5 p-3 rounded-lg">
                   <Check className="text-nova-green mr-2 flex-shrink-0" size={20} />
                   <span><strong>Pack 3 séances :</strong> 85 €/séance → 255 € le pack</span>
                 </li>
@@ -75,21 +78,40 @@ const Pricing = () => {
                 </li>
                 <li className="flex items-center mt-6 bg-nova-blue bg-opacity-10 p-4 rounded-lg">
                   <div>
-                    <p className="font-semibold text-nova-blue-dark">Économisez jusqu'à 50 € avec les packs</p>
-                    <p className="text-sm text-gray-600">Accompagnement structuré pour des résultats durables</p>
+                    <p className="font-semibold text-nova-blue-dark">Accompagnement structuré pour des résultats durables</p>
+                    <p className="text-sm text-gray-600">Suivi personnalisé et tarif préférentiel</p>
                   </div>
                 </li>
               </ul>
               
-              <div className="mt-8 text-center">
-                <a 
-                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-3 bg-nova-green text-white rounded-full hover:bg-nova-green-dark transition-colors"
-                >
-                  Réserver un pack
-                </a>
+              <div className="mt-8 text-center space-y-3">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <a 
+                    href="https://buy.stripe.com/aFacN4bfL1nZ6Za3PO4ko07"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 bg-nova-blue text-white rounded-full hover:bg-nova-blue-dark transition-colors font-semibold"
+                  >
+                    Réserver Pack 3 Séances
+                  </a>
+                  <a 
+                    href="https://buy.stripe.com/14A14mdnT7Mn1EQ1HG4ko08"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 bg-nova-blue-dark text-white rounded-full hover:bg-nova-blue transition-colors font-semibold"
+                  >
+                    Réserver Pack 5 Séances
+                  </a>
+                </div>
+                <div className="text-sm text-gray-600 space-y-2">
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 inline-block">
+                    <span className="text-green-700 font-semibold">💳 Paiement en 4 fois possible</span>
+                    <div className="text-xs text-green-600">Sans frais avec votre carte bancaire</div>
+                  </div>
+                  <div>
+                    ou <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" target="_blank" rel="noopener noreferrer" className="text-nova-blue underline">réserver via Resalib</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
