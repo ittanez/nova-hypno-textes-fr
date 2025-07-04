@@ -105,8 +105,8 @@ const Pricing = () => {
                 </div>
                 <div className="text-sm text-gray-600 space-y-2">
                   <div className="bg-green-50 border border-green-200 rounded-lg p-3 inline-block">
-                    <span className="text-green-700 font-semibold">💳 Paiement en 4 fois possible</span>
-                    <div className="text-xs text-green-600">Sans frais avec votre carte bancaire</div>
+                    <span className="text-green-700 font-semibold">💳 Paiement en 3 fois possible</span>
+                    <div className="text-xs text-green-600">Sans frais avec votre carte bancaire avec Klarna</div>
                   </div>
                   <div>
                     ou <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" target="_blank" rel="noopener noreferrer" className="text-nova-blue underline">réserver via Resalib</a>
