@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.novahypnose.novarespire",
+      "sha256_cert_fingerprints": [
+        "A3:A0:88:5B:3F:2B:72:DA:B1:D5:3C:91:05:CF:81:93:D6:3F:0B:3F:EE:BE:2B:B7:7D:B4:F6:CF:52:22:84:DA"
+      ]
+    }
+  }
+]

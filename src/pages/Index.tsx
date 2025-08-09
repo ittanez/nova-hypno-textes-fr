@@ -5,7 +5,7 @@ import ApplicationsGrid from '../components/ApplicationsGrid';
 import HowItWorks from '../components/HowItWorks';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { useSeoMetadata } from '../hooks/useSeoMetadata';
+// import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import { Helmet } from 'react-helmet';
 import FAQSchema from '../components/FAQSchema';
 
@@ -44,7 +44,7 @@ const homePageSeo = {
 
 const Index = () => {
   // Utilisons notre hook personnalisé pour le SEO
-  useSeoMetadata(homePageSeo);
+  // useSeoMetadata(homePageSeo);
   
   // Hook pour animations au défilement
   useScrollAnimation();

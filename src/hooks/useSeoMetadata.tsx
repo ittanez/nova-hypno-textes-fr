@@ -122,7 +122,7 @@ function updateMetaTag(name: string, content: string, attributeType: 'name' | 'p
 function addOrUpdateStructuredData(data: StructuredData) {
   // Remove existing script if present
   const existingScript = document.querySelector('script[type="application/ld+json"]');
-  if (existingScript) {
+  if (existingScript && existingScript.parentNode === document.head) {
     document.head.removeChild(existingScript);
   }
   
