@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Modification du H1 principal pour le SEO */}
-          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in speakable" data-speakable="true">
             Comprendre l'Hypnose, Choisir le Bon Accompagnement
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed speakable" data-speakable="true">
             Vous voulez comprendre comment fonctionne l'hypnose avant de vous engager ?
           </p>
           <p className="text-lg md:text-xl mb-12 text-white/80 leading-relaxed">

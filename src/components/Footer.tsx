@@ -17,7 +17,7 @@ const Footer = () => {
               Cabinet d'hypnothérapie à Paris spécialisé en hypnose ericksonienne. 
               Alain Zenatti vous accompagne pour retrouver confiance, équilibre et vitalité.
             </p>
-            <div className="flex items-center mt-3">
+            <div className="flex items-center mt-3 space-x-4">
               <a 
                 href="https://www.instagram.com/novahypnose/"
                 target="_blank"
@@ -26,6 +26,26 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
+              </a>
+            </div>
+            
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold text-white mb-2">Application mobile</h4>
+              <p className="text-xs text-gray-300 mb-3">
+                NovaRespire : votre application de techniques de respiration et relaxation pour gérer stress et anxiété au quotidien.
+              </p>
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+                aria-label="Télécharger NovaRespire sur Google Play"
+              >
+                <img 
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                  alt="Disponible sur Google Play"
+                  className="h-12"
+                />
               </a>
             </div>
           </div>
@@ -48,6 +68,7 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-xl mb-4">Ressources</h3>
             <ul className="space-y-2">
+              <li><a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">NovaRespire App - Techniques de respiration</a></li>
               <li><a href="https://emergences.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Emergences, le blog de l'hypnose</a></li>
               <li><a href="https://peurdelavion.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de l'avion</a></li>
               <li><a href="https://peur-de-parler-en-public.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de parler en public</a></li>

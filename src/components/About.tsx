@@ -22,7 +22,7 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12">
+        <h2 className="text-center text-nova-blue-dark mb-12 speakable" data-speakable="true">
           À propos d'Alain Zenatti, Maître Hypnologue et Maître en Hypnose Ericksonienne
         </h2>
         

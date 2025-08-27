@@ -88,7 +88,7 @@ const Contact = () => {
             
             <div className="mt-8 text-center">
               <p className="mb-4">Pour obtenir des informations ou poser des questions, je suis à votre disposition.</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <a 
                   href="tel:0649358089" 
                   className="px-6 py-3 bg-nova-blue text-white rounded-md shadow hover:bg-nova-blue-dark transition-colors flex items-center justify-center"
@@ -104,6 +104,26 @@ const Contact = () => {
                 >
                   <Mail size={18} className="mr-2" />
                   Envoyer un email
+                </a>
+              </div>
+              
+              <div className="border-t border-gray-200 pt-6">
+                <h4 className="text-lg font-semibold text-nova-blue-dark mb-2">Application mobile NovaRespire</h4>
+                <p className="mb-4 text-sm text-gray-600">
+                  Complétez vos séances avec NovaRespire, l'application mobile qui vous propose des techniques de respiration et exercices de relaxation pour gérer le stress et l'anxiété au quotidien. Créée par Alain Zenatti, elle vous accompagne où que vous soyez.
+                </p>
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                  aria-label="Télécharger NovaRespire sur Google Play"
+                >
+                  <img 
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                    alt="Disponible sur Google Play"
+                    className="h-14 mx-auto"
+                  />
                 </a>
               </div>
             </div>

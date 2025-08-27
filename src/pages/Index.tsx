@@ -18,6 +18,7 @@ const SeoContent = lazy(() => import('../components/SeoContent'));
 
 // Composants additionnels en lazy loading
 const BlogArticlesSliderLazy = lazy(() => import('../components/BlogArticlesSlider'));
+const MobileAppsLazy = lazy(() => import('../components/MobileApps'));
 const PricingLazy = lazy(() => import('../components/Pricing'));
 const ContactLazy = lazy(() => import('../components/Contact'));
 
@@ -56,15 +57,34 @@ const Index = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Accueil",
-                "item": "https://novahypnose.fr/"
-              }
-            ]
+            "@type": "WebPage",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [
+                "h1",
+                "h2", 
+                ".faq-question",
+                ".speakable",
+                "[data-speakable='true']"
+              ],
+              "xpath": [
+                "/html/head/title",
+                "//h1",
+                "//h2[@class*='section']",
+                "//div[@class*='faq']//h3"
+              ]
+            },
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Accueil",
+                  "item": "https://novahypnose.fr/"
+                }
+              ]
+            }
           })}
         </script>
         
@@ -112,6 +132,7 @@ const Index = () => {
         </Suspense>
         
         <Suspense fallback={<div className="h-32 animate-pulse bg-gray-100"></div>}>
+          <MobileAppsLazy />
           <PricingLazy />
           <ContactLazy />
         </Suspense>

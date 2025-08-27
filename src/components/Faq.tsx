@@ -82,7 +82,7 @@ const Faq = () => {
                   aria-controls={`faq-answer-${index}`}
                   id={`faq-question-${index}`}
                 >
-                  <span className="font-medium text-nova-blue-dark">{item.question}</span>
+                  <span className="font-medium text-nova-blue-dark faq-question speakable" data-speakable="true">{item.question}</span>
                   {openIndex === index ? 
                     <ChevronUp className="text-nova-blue flex-shrink-0" size={20} aria-hidden="true" /> : 
                     <ChevronDown className="text-nova-blue flex-shrink-0" size={20} aria-hidden="true" />

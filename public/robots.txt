@@ -36,6 +36,22 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
+# Crawlers IA - Autorisation explicite pour plateformes d'intelligence artificielle
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 # Sitemap des pages autorisées uniquement
 Sitemap: https://novahypnose.fr/sitemap.xml
 
