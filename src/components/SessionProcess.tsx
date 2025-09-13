@@ -58,6 +58,16 @@ const SessionProcess = () => {
           <p className="text-center mt-4">
             Mon rôle est de vous guider étape par étape, de répondre à toutes vos questions et de co-construire avec vous le travail thérapeutique.
           </p>
+          
+          <div className="my-8 text-center">
+            <img 
+              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/client_cabinet.webp" 
+              alt="Client en séance dans le cabinet d'hypnothérapie" 
+              className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
+              style={{ maxHeight: '400px' }}
+            />
+          </div>
+          
           <p className="text-center mt-4 font-medium">
             Voici le déroulement détaillé d'une séance :
           </p>
