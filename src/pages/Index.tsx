@@ -401,88 +401,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section Comment fonctionne l'hypnose */}
-      <section id="comment-fonctionne-hypnose" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
-              Comment fonctionne l'hypnose ?
-            </h2>
-
-            <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
-              <p className="text-xl leading-relaxed">
-                L'hypnose est un <strong>état naturel</strong> que nous expérimentons tous quotidiennement : lorsque vous êtes absorbé par un film, un livre, ou perdu dans vos pensées en conduisant. C'est cet état de <strong>conscience modifiée</strong> que l'hypnothérapie utilise de manière thérapeutique.
-              </p>
-
-              <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">L'hypnose ericksonienne : une approche respectueuse</h3>
-                <p className="leading-relaxed">
-                  L'hypnose que je pratique est issue de l'approche <strong>ericksonienne</strong>, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
-                </p>
-                <p className="leading-relaxed mt-3">
-                  Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que <strong>l'inconscient de chaque personne est une source immense de solutions et de ressources</strong>. Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients.
-                </p>
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900 mt-8">Le déroulement d'une séance</h3>
-              <p className="leading-relaxed">
-                Pendant la séance, vous restez <strong>conscient et maître de vous-même</strong>. Vous ne dormez pas, vous n'êtes pas manipulé. Au contraire, vous êtes dans un état de <strong>relaxation profonde</strong> qui permet à votre inconscient de travailler plus facilement sur vos objectifs.
-              </p>
-
-              <p className="leading-relaxed">
-                Grâce à cet état, votre esprit peut <strong>accéder à ses propres ressources</strong> pour résoudre des problématiques variées : stress, anxiété, phobies, troubles du sommeil, manque de confiance, addictions, et bien d'autres.
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
-                <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Ce que l'hypnose peut faire</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 font-bold">✓</span>
-                      <span>Accéder à vos ressources inconscientes</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 font-bold">✓</span>
-                      <span>Modifier des schémas de pensée limitants</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 font-bold">✓</span>
-                      <span>Réduire le stress et l'anxiété</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-500 font-bold">✓</span>
-                      <span>Renforcer la confiance en soi</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border border-green-100">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Ce que l'hypnose ne fait pas</h4>
-                  <ul className="space-y-2 text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <span className="text-red-500 font-bold">✗</span>
-                      <span>Vous faire perdre le contrôle</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-red-500 font-bold">✗</span>
-                      <span>Vous manipuler ou vous endormir</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-red-500 font-bold">✗</span>
-                      <span>Fonctionner contre votre volonté</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-red-500 font-bold">✗</span>
-                      <span>Remplacer un traitement médical</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Section À propos - Design moderne */}
       <section id="about" className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
@@ -759,7 +677,16 @@ const Index = () => {
 
           {/* Mobile: Carousel */}
           <div className="md:hidden relative max-w-lg mx-auto">
-            <div className="overflow-hidden">
+            {/* Bouton précédent */}
+            <button
+              onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              aria-label="Application précédente"
+            >
+              <ChevronLeft className="text-blue-500" size={24} />
+            </button>
+
+            <div className="overflow-hidden mx-12">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentApplication * 100}%)` }}>
                 {applications.map((app, index) => {
                   const Icon = app.icon;
@@ -777,6 +704,15 @@ const Index = () => {
                 })}
               </div>
             </div>
+
+            {/* Bouton suivant */}
+            <button
+              onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              aria-label="Application suivante"
+            >
+              <ChevronRight className="text-blue-500" size={24} />
+            </button>
 
             {/* Navigation dots */}
             <div className="flex justify-center gap-2 mt-6 flex-wrap">
@@ -968,7 +904,7 @@ const Index = () => {
 
             {/* Pack 3 séances */}
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl transform scale-105 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-bold">
                 RECOMMANDÉ
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Pack 3 Séances</h3>
@@ -1147,7 +1083,16 @@ const Index = () => {
 
           {/* Mobile: Carousel */}
           <div className="md:hidden relative max-w-lg mx-auto">
-            <div className="overflow-hidden">
+            {/* Bouton précédent */}
+            <button
+              onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              aria-label="Témoignage précédent"
+            >
+              <ChevronLeft className="text-blue-500" size={24} />
+            </button>
+
+            <div className="overflow-hidden mx-12">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                 <div className="min-w-full px-2">
                   <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
@@ -1214,6 +1159,15 @@ const Index = () => {
                 </div>
               </div>
             </div>
+
+            {/* Bouton suivant */}
+            <button
+              onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              aria-label="Témoignage suivant"
+            >
+              <ChevronRight className="text-blue-500" size={24} />
+            </button>
 
             {/* Navigation dots */}
             <div className="flex justify-center gap-2 mt-6">
