@@ -15,6 +15,7 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 // Lazy loading for less critical pages
 const MentionsLegales = lazy(() => import("@/pages/MentionsLegales"));
 const Maquette = lazy(() => import("@/pages/Maquette"));
+const BlogMaquette = lazy(() => import("@/pages/BlogMaquette"));
 const Custom404 = lazy(() => import("@/pages/Custom404"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminDirect = lazy(() => import("./pages/admin/AdminDirect"));
@@ -70,6 +71,7 @@ function App() {
 
             {/* Routes Blog publiques */}
             <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog-maquette" element={<BlogMaquette />} />
             <Route path="/blog/article/:slug" element={<ArticlePage />} />
             <Route path="/blog/categorie/:slug" element={<CategoryPage />} />
             <Route path="/blog/categories" element={<CategoriesPage />} />

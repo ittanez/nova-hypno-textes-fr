@@ -37,6 +37,9 @@ const Header = () => {
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Fermer le menu mobile
+    setMobileMenuOpen(false);
+
     // Si c'est un lien avec ancre (#section)
     if (href.startsWith('/#')) {
       e.preventDefault();
@@ -58,15 +61,15 @@ const Header = () => {
           }
         }, 100);
       }
-      setMobileMenuOpen(false);
     }
+    // Pour les vraies routes (/, /blog, etc.), laisser le comportement par défaut
   };
 
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '/#about' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Témoignages', href: '/#testimonials' },
+    { name: 'Témoignages', href: '/#temoignages' },
   ];
 
   const pourQuoiLinks: NavLink[] = [
@@ -76,8 +79,8 @@ const Header = () => {
   ];
 
   const infosPratiquesLinks: NavLink[] = [
-    { name: 'Déroulement Des Séances', href: '/#sessions' },
-    { name: 'Tarifs', href: '/#pricing' },
+    { name: 'Déroulement Des Séances', href: '/#deroulement' },
+    { name: 'Tarifs', href: '/#tarifs' },
     { name: 'FAQ', href: '/#faq' },
     { name: 'Contact', href: '/#contact' },
   ];
