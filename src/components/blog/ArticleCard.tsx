@@ -2,11 +2,9 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
-import { Article } from "@/lib/types";
+import { Article } from "@/lib/types/blog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import OptimizedImage from "@/components/OptimizedImage";
-import LazyLoadWrapper from "@/components/LazyLoadWrapper";
 
 interface ArticleCardProps {
   article: Article;
@@ -77,39 +75,17 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
 
   return (
     <Card className="group hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <Link to={`/article/${article.slug}`} className="block">
-        {/* ✅ OPTIMISATION CLS : Container avec aspect-ratio fixe */}
+      <Link to={`/blog/article/${article.slug}`} className="block">
+        {/* Container avec aspect-ratio fixe */}
         <div className="aspect-video overflow-hidden relative bg-gray-100">
-          {isFirst || isLCP ? (
-            <OptimizedImage
-              src={article.image_url || "/placeholder.svg"}
-              alt={article.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              width={400}
-              height={225}
-              loading="eager"
-              fetchPriority="high"
-              isLCP={isLCP}
-            />
-          ) : (
-            <LazyLoadWrapper
-              fallback={
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center absolute inset-0">
-                  <div className="text-gray-400 text-sm">Chargement...</div>
-                </div>
-              }
-            >
-              <OptimizedImage
-                src={article.image_url || "/placeholder.svg"}
-                alt={article.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                width={400}
-                height={225}
-                loading="lazy"
-                fetchPriority="auto"
-              />
-            </LazyLoadWrapper>
-          )}
+          <img
+            src={article.image_url || "/placeholder.svg"}
+            alt={article.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            width="400"
+            height="225"
+            loading={isFirst || isLCP ? "eager" : "lazy"}
+          />
         </div>
         
         {/* ✅ OPTIMISATION CLS : Contenu avec hauteur minimum fixe */}
@@ -119,10 +95,10 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
             {displayTags.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {displayTags.slice(0, 3).map((tagName, index) => (
-                  <Badge 
+                  <Badge
                     key={`${tagName}-${index}`}
-                    variant="secondary" 
-                    className="text-xs hover:bg-nova-50 transition-colors"
+                    variant="outline"
+                    className="text-xs bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
                   >
                     {tagName}
                   </Badge>

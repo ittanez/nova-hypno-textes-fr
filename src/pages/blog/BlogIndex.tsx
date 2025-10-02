@@ -1,18 +1,16 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Article } from "@/lib/types";
+import { Article } from "@/lib/types/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NewsletterForm from "@/components/NewsletterForm";
-import SEOHead from "@/components/SEOHead";
-import SearchAndFilter from "@/components/SearchAndFilter";
-import Pagination from "@/components/Pagination";
+import NewsletterForm from "@/components/blog/NewsletterForm";
+import SEOHead from "@/components/blog/SEOHead";
+import SearchAndFilter from "@/components/blog/SearchAndFilter";
+import Pagination from "@/components/blog/Pagination";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/articleService";
-import ArticleCard from "@/components/ArticleCard";
-import { generateWebsiteSchema, generateOrganizationSchema } from "@/lib/services/schemaService";
-import { usePreloadLCPImage } from "@/hooks/usePreloadCriticalResources";
+import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+import ArticleCard from "@/components/blog/ArticleCard";
 
 // Configuration de la pagination
 const ARTICLES_PER_PAGE = 9;
@@ -26,10 +24,6 @@ const Index = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
-  // Générer les données structurées pour le site
-  const websiteSchema = generateWebsiteSchema();
-  const organizationSchema = generateOrganizationSchema();
-  const structuredData = [websiteSchema, organizationSchema];
   
   // ✅ GESTION DU PARAMÈTRE CATÉGORIE DEPUIS L'URL
   useEffect(() => {
@@ -52,14 +46,13 @@ const Index = () => {
           getAllCategories()
         ]);
 
-        if (articlesResult.data && articlesResult.data.length > 0) {
+        if (articlesResult.data) {
           // ✅ Plus besoin de filtrer côté client, c'est fait côté serveur
           setArticles(articlesResult.data);
+          console.log("✅ Articles chargés:", articlesResult.data.length);
         } else {
-          // Fallback vers données mock si problème Supabase
-          const { articles: mockArticles } = await import("@/lib/mock-data");
-          setArticles(mockArticles);
-          console.log("✅ Articles mock chargés en fallback:", mockArticles.length);
+          console.error("❌ Erreur chargement articles:", articlesResult.error);
+          setArticles([]);
         }
         
         if (categoriesResult.data) {
@@ -148,10 +141,6 @@ const Index = () => {
   const endIndex = startIndex + ARTICLES_PER_PAGE;
   const currentPageArticles = filteredAndSortedArticles.slice(startIndex, endIndex);
 
-  // ✅ OPTIMISATION LCP : Précharger l'image du premier article
-  const firstArticleImage = currentPageArticles.length > 0 && currentPage === 1 ? currentPageArticles[0].image_url : null;
-  usePreloadLCPImage(firstArticleImage, currentPage === 1 && currentPageArticles.length > 0);
-
   // Réinitialiser la page quand les filtres changent
   useEffect(() => {
     setCurrentPage(1);
@@ -193,12 +182,11 @@ const Index = () => {
         title="Émergences - le blog de NovaHypnose"
         description="Blog d'Alain Zenatti, hypnothérapeute à Paris. Découvrez l'hypnose ericksonienne et la transformation intérieure pour votre bien-être."
         keywords={["hypnose", "hypnothérapie", "hypnose Paris", "Alain Zenatti", "hypnothérapeute Paris", "bien-être", "transformation", "développement personnel", "gestion du stress", "hypnose ericksonienne"]}
-        structuredData={structuredData}
       />
       
       <Header />
-      
-      <main className="flex-grow container mx-auto px-4 pt-8 pb-12">
+
+      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         {/* ✅ OPTIMISATION CLS : Hero section avec dimensions fixes */}
         <div className="mb-12 text-center min-h-[200px] flex flex-col justify-center">
           <h1
@@ -310,39 +298,6 @@ const Index = () => {
             )}
           </div>
         )}
-        
-        {/* Pages connexes */}
-        <div className="mt-16 mb-12">
-          <h2 className="text-3xl font-serif mb-8 text-center">Découvrir l'hypnose ericksonienne</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md border text-center">
-              <h3 className="text-xl font-medium mb-3 text-nova-700">À propos d'Alain Zenatti</h3>
-              <p className="text-gray-700 text-sm mb-4">
-                Découvrez le parcours et l'expertise d'Alain Zenatti, Maître Hypnologue certifié 
-                en hypnose ericksonienne. Son approche bienveillante et personnalisée pour votre transformation.
-              </p>
-              <Link
-                to="/about"
-                className="inline-block bg-nova-600 text-white px-4 py-2 rounded hover:bg-nova-700 transition-colors"
-              >
-                En savoir plus
-              </Link>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md border text-center">
-              <h3 className="text-xl font-medium mb-3 text-nova-700">Questions fréquentes</h3>
-              <p className="text-gray-700 text-sm mb-4">
-                Trouvez les réponses aux questions les plus courantes sur l'hypnose thérapeutique, 
-                les séances d'hypnothérapie et l'approche ericksonienne.
-              </p>
-              <Link
-                to="/faq"
-                className="inline-block bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors"
-              >
-                Voir la FAQ
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Application Mobile */}
         <div className="mt-16">

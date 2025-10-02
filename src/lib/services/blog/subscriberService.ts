@@ -1,10 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
-import { Subscriber } from '../types';
+import { supabase } from '@/integrations/supabase/client';
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL!,
-  import.meta.env.VITE_SUPABASE_ANON_KEY!
-);
+interface Subscriber {
+  id: string;
+  email: string;
+  verified: boolean;
+  created_at: string;
+}
 
 export async function addSubscriber(email: string): Promise<{ data: Subscriber | null; error: any }> {
   console.log('=== DÉBUT INSCRIPTION ABONNÉ ===');
@@ -26,16 +27,16 @@ export async function addSubscriber(email: string): Promise<{ data: Subscriber |
     
     console.log('Abonné ajouté en base avec succès:', data);
     
-    // 2. Envoyer l'email de confirmation
+    // 2. Envoyer l'email de confirmation à l'abonné
     console.log('Étape 2: Envoi de l\'email de confirmation...');
     try {
       console.log('Appel de la fonction send-confirmation-email...');
       const emailResponse = await supabase.functions.invoke('send-confirmation-email', {
         body: { email: data.email }
       });
-      
+
       console.log('Réponse complète de la fonction email:', emailResponse);
-      
+
       if (emailResponse.error) {
         console.error('Erreur de la fonction edge:', emailResponse.error);
         // On ne fait pas échouer l'inscription si l'email échoue
@@ -48,6 +49,26 @@ export async function addSubscriber(email: string): Promise<{ data: Subscriber |
       console.error('Exception lors de l\'envoi de l\'email:', emailError);
       // On ne fait pas échouer l'inscription si l'email échoue
       console.warn('Exception email, mais inscription réussie');
+    }
+
+    // 3. Notifier l'administrateur
+    console.log('Étape 3: Envoi de la notification admin...');
+    try {
+      console.log('Envoi notification à a.zenatti@gmail.com...');
+      const adminEmailResponse = await supabase.functions.invoke('send-admin-notification', {
+        body: {
+          subscriberEmail: data.email,
+          adminEmail: 'a.zenatti@gmail.com'
+        }
+      });
+
+      if (adminEmailResponse.error) {
+        console.error('Erreur notification admin:', adminEmailResponse.error);
+      } else {
+        console.log('Notification admin envoyée avec succès!');
+      }
+    } catch (adminError) {
+      console.error('Exception lors de la notification admin:', adminError);
     }
     
     console.log('=== FIN INSCRIPTION ABONNÉ - SUCCÈS ===');

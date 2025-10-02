@@ -13,9 +13,7 @@ import { Plus, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Article } from '@/lib/types';
-
-// Import simple hook
+import { Article } from '@/lib/types/blog';
 import { useAdminArticles } from '@/hooks/useAdminArticles';
 
 // Fonction pour déterminer le statut de l'article
@@ -53,15 +51,16 @@ const AdminArticles = () => {
   } = useAdminArticles();
 
   const handleNewArticle = () => {
-    navigate('/admin/article/new');
+    console.log('Navigation vers nouvel article...');
+    navigate('/admin-blog/article/new');
   };
 
   const handleViewArticle = (slug: string) => {
-    window.open(`/article/${slug}`, '_blank');
+    window.open(`/blog/article/${slug}`, '_blank');
   };
 
   const handleEditArticle = (articleId: string) => {
-    navigate(`/admin/article/${articleId}`);
+    navigate(`/admin-blog/article/${articleId}/edit`);
   };
 
   // Format date utility
@@ -130,8 +129,8 @@ const AdminArticles = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-grow container mx-auto p-6">
+
+      <main className="flex-grow container mx-auto p-6 pt-24">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div>
@@ -146,7 +145,7 @@ const AdminArticles = () => {
               )}
             </p>
           </div>
-          <Button onClick={handleNewArticle}>
+          <Button type="button" onClick={handleNewArticle}>
             <Plus className="h-4 w-4 mr-2" />
             Nouvel article
           </Button>

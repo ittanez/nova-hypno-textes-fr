@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Article } from '@/lib/types';
-import { getAllArticlesNoPagination } from '@/lib/services/articleService';
+import { Article } from '@/lib/types/blog';
+import { getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
 
 interface RelatedArticlesProps {
   currentArticleId: string;

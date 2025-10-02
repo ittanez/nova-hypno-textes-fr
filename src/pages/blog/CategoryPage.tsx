@@ -1,12 +1,12 @@
 
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { articles, categories, sortOptions } from "@/lib/mock-data";
-import { Article } from "@/lib/types";
+import { Article } from "@/lib/types/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ArticleCard from "@/components/ArticleCard";
+import ArticleCard from "@/components/blog/ArticleCard";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
@@ -55,8 +55,8 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-grow container mx-auto px-4 pt-8 pb-12">
+
+      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         <div className="mb-12">
           <h1 className="font-serif mb-2 text-center">{category.name}</h1>
           {category.description && (

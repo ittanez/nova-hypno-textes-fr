@@ -14,6 +14,7 @@ type AuthContextType = {
   loading: boolean;
   isAdmin: boolean;
   isLoading: boolean;
+  isCheckingAdmin: boolean;
   login: (email: string, password: string) => Promise<{ error: AuthError | null }>;
   logout: () => Promise<{ error: AuthError | null }>;
   signup: (email: string, password: string) => Promise<{ error: AuthError | null }>;
@@ -28,6 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isCheckingAdmin, setIsCheckingAdmin] = useState(false);
 
   useEffect(() => {
     // Set up auth state listener FIRST
@@ -65,6 +67,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const checkAdminStatus = async (userId: string) => {
+    setIsCheckingAdmin(true);
     try {
       const { data, error } = await supabase
         .from('admin_users')
@@ -81,6 +84,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error) {
       console.error('Error checking admin status:', error);
       setIsAdmin(false);
+    } finally {
+      setIsCheckingAdmin(false);
     }
   };
 
@@ -156,6 +161,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         loading,
         isAdmin,
         isLoading,
+        isCheckingAdmin,
         login,
         logout,
         signup,

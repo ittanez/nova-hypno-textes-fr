@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Eye, Pencil, Send, Trash2 } from "lucide-react";
-import { Article } from "@/lib/types";
+import { Article } from "@/lib/types/blog";
 
 interface AdminArticlesTableProps {
   articles: Article[];

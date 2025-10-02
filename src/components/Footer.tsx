@@ -1,10 +1,32 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname === '/') {
+      // On est déjà sur la page d'accueil, on scroll juste vers la section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On est sur une autre page, on navigue vers la page d'accueil
+      navigate('/');
+      // On attend que la navigation soit terminée avant de scroller
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
   
   return (
     <footer className="bg-nova-blue-dark text-white py-8">
@@ -34,15 +56,15 @@ const Footer = () => {
               <p className="text-xs text-gray-300 mb-3">
                 NovaRespire : votre application de techniques de respiration et relaxation pour gérer stress et anxiété au quotidien.
               </p>
-              <a 
+              <a
                 href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block hover:opacity-80 transition-opacity"
                 aria-label="Télécharger NovaRespire sur Google Play"
               >
-                <img 
-                  src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+                <img
+                  src="/google-play-badge-fr.png"
                   alt="Disponible sur Google Play"
                   className="h-12"
                 />
@@ -54,13 +76,62 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-xl mb-4">Navigation rapide</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">À propos</a></li>
-              <li><a href="#applications" className="text-gray-300 hover:text-white transition-colors">Applications</a></li>
-              <li><a href="#self-hypnosis" className="text-gray-300 hover:text-white transition-colors">Auto-hypnose</a></li>
-              <li><a href="#sessions" className="text-gray-300 hover:text-white transition-colors">Déroulement des séances</a></li>
-              <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Tarifs</a></li>
-              <li><a href="#faq" className="text-gray-300 hover:text-white transition-colors">FAQ</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('about')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  À propos
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('applications')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  Applications
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('self-hypnosis')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  Auto-hypnose
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('sessions')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  Déroulement des séances
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('pricing')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  Tarifs
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('faq')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  FAQ
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleSectionClick('contact')}
+                  className="text-gray-300 hover:text-white transition-colors text-left"
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
           
@@ -69,7 +140,6 @@ const Footer = () => {
             <h3 className="font-serif text-xl mb-4">Ressources</h3>
             <ul className="space-y-2">
               <li><a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">NovaRespire App - Techniques de respiration</a></li>
-              <li><a href="https://emergences.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Emergences, le blog de l'hypnose</a></li>
               <li><a href="https://peurdelavion.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de l'avion</a></li>
               <li><a href="https://peur-de-parler-en-public.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de parler en public</a></li>
               <li><a href="https://hypnokick.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Suis-je Hypnotisable ?</a></li>

@@ -1,9 +1,11 @@
 
 import { Link } from "react-router-dom";
-import { categories, articles } from "@/lib/mock-data";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+import { Article } from "@/lib/types/blog";
 
 const CategoriesPage = () => {
   // Count articles in each category
@@ -17,8 +19,8 @@ const CategoriesPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-grow container mx-auto px-4 pt-8 pb-12">
+
+      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         <div className="mb-12 text-center">
           <h1 className="font-serif mb-4">Catégories</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">

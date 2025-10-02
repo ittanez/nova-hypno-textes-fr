@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
 // Define interface for navigation links
@@ -17,6 +18,8 @@ interface NavLink {
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,24 +36,50 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Si c'est un lien avec ancre (#section)
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const section = href.substring(2); // Enlever "/#"
+
+      // Si on est déjà sur la page d'accueil
+      if (location.pathname === '/') {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Sinon, naviguer vers l'accueil puis scroller
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(section);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+      setMobileMenuOpen(false);
+    }
+  };
+
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Témoignages', href: '#testimonials' },
+    { name: 'À propos', href: '/#about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Témoignages', href: '/#testimonials' },
   ];
 
   const pourQuoiLinks: NavLink[] = [
-    { name: 'Applications', href: '#applications' },
-    { name: 'Auto-Hypnose', href: '#self-hypnosis' },
+    { name: 'Applications', href: '/#applications' },
+    { name: 'Auto-Hypnose', href: '/#self-hypnosis' },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
   ];
 
   const infosPratiquesLinks: NavLink[] = [
-    { name: 'Déroulement Des Séances', href: '#sessions' },
-    { name: 'Tarifs', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Déroulement Des Séances', href: '/#sessions' },
+    { name: 'Tarifs', href: '/#pricing' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -71,11 +100,12 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6">
             
             {mainNavLinks.map((link) => (
-              <a 
+              <a
                 key={link.name}
                 href={link.href}
                 target={link.external ? "_blank" : ""}
                 rel={link.external ? "noopener noreferrer" : ""}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
               >
                 {link.name}
@@ -90,10 +120,11 @@ const Header = () => {
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
                 {pourQuoiLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
-                    <a 
+                    <a
                       href={link.href}
                       target={link.external ? "_blank" : ""}
                       rel={link.external ? "noopener noreferrer" : ""}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
                     >
                       {link.name}
@@ -111,8 +142,9 @@ const Header = () => {
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
                 {infosPratiquesLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
-                    <a 
+                    <a
                       href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
                     >
                       {link.name}
@@ -161,13 +193,13 @@ const Header = () => {
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
               {mainNavLinks.map((link) => (
-                <a 
+                <a
                   key={link.name}
                   href={link.href}
                   target={link.external ? "_blank" : ""}
                   rel={link.external ? "noopener noreferrer" : ""}
                   className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
-                  onClick={toggleMobileMenu}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
                 </a>
@@ -180,13 +212,19 @@ const Header = () => {
                 </p>
                 <div className="pl-4 space-y-2">
                   {pourQuoiLinks.map((link) => (
-                    <a 
+                    <a
                       key={link.name}
                       href={link.href}
                       target={link.external ? "_blank" : ""}
                       rel={link.external ? "noopener noreferrer" : ""}
                       className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
-                      onClick={toggleMobileMenu}
+                      onClick={(e) => {
+                        if (!link.external) {
+                          handleNavClick(e, link.href);
+                        } else {
+                          toggleMobileMenu();
+                        }
+                      }}
                     >
                       {link.name}
                     </a>
@@ -201,11 +239,11 @@ const Header = () => {
                 </p>
                 <div className="pl-4 space-y-2">
                   {infosPratiquesLinks.map((link) => (
-                    <a 
+                    <a
                       key={link.name}
                       href={link.href}
                       className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
-                      onClick={toggleMobileMenu}
+                      onClick={(e) => handleNavClick(e, link.href)}
                     >
                       {link.name}
                     </a>

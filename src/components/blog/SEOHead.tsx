@@ -1,7 +1,6 @@
 
 import React from "react";
-import { Helmet } from "react-helmet-async";
-import { SchemaMarkup } from "@/lib/services/schemaService";
+import { Helmet } from "react-helmet";
 
 // Fonction pour sécuriser le JSON-LD et éviter les erreurs de syntaxe JavaScript
 const safeJSONStringify = (data: unknown): string => {

@@ -2,32 +2,25 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
-import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NewsletterForm from "@/components/NewsletterForm";
-import SEOHead from "@/components/SEOHead";
-import OptimizedImage from "@/components/OptimizedImage";
+import NewsletterForm from "@/components/blog/NewsletterForm";
+import SEOHead from "@/components/blog/SEOHead";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Facebook, Linkedin, Link2, Share2, ChevronLeft, ChevronRight, Edit } from "lucide-react";
-import { useAuth } from "@/lib/contexts/AuthContext";
-import "../styles/article-hypnose.css";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
+import { useAuth } from "@/hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger 
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import RelatedArticles from "@/components/RelatedArticles";
-import { BreadcrumbsWithSchema, generateArticleBreadcrumbs } from "@/components/Breadcrumbs";
-import { toast } from "sonner";
-import { getArticleBySlug, getRelatedArticles, getAllArticlesNoPagination } from "@/lib/services/articleService";
-import { articles } from "@/lib/mock-data";
-import { Article } from "@/lib/types";
-import { useStructuredData } from "@/hooks/useStructuredData";
-import { generateArticleSchema } from "@/lib/services/schemaService";
-import { useInternalLinking } from "@/lib/services/internalLinkingService";
+import RelatedArticles from "@/components/blog/RelatedArticles";
+import Breadcrumb from "@/components/blog/Breadcrumb";
+import { toast } from "@/hooks/use-toast";
+import { getArticleBySlug, getAllArticlesNoPagination } from "@/lib/services/blog/articleService";
+import { Article } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 
 // ✅ FONCTION POUR OBTENIR LES ARTICLES ADJACENTS
@@ -82,106 +75,97 @@ const ArticlePage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
+  const [article, setArticle] = useState<Article | null>(null);
   const [allArticles, setAllArticles] = useState<Article[]>([]);
-  const { processArticleContent } = useInternalLinking(allArticles);
-  
-  // Logs détaillés pour le debugging
-  console.log("=== ArticlePage Component Loading ===");
-  console.log("URL slug from params:", slug);
-  console.log("Current URL:", window.location.href);
-  console.log("Current pathname:", window.location.pathname);
-  
-  // ✅ CHARGEMENT DE TOUS LES ARTICLES POUR LA NAVIGATION
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
+
+  // ✅ CHARGEMENT DE L'ARTICLE ET DE TOUS LES ARTICLES
   useEffect(() => {
-    const fetchAllArticles = async () => {
+    const fetchData = async () => {
       try {
-        const result = await getAllArticlesNoPagination();
-        if (result.data) {
-          setAllArticles(result.data.filter(a => a.published));
+        setIsLoading(true);
+
+        // Charger l'article actuel
+        const articleResult = await getArticleBySlug(slug!);
+        if (articleResult.data) {
+          setArticle(articleResult.data);
         } else {
-          setAllArticles(articles.filter(a => a.published));
+          setError("Article non trouvé");
         }
-      } catch (error) {
-        console.error("Erreur lors du chargement des articles:", error);
-        setAllArticles(articles.filter(a => a.published));
+
+        // Charger tous les articles pour la navigation
+        const allResult = await getAllArticlesNoPagination();
+        if (allResult.data) {
+          setAllArticles(allResult.data.filter(a => a.published));
+        }
+      } catch (err) {
+        console.error("Erreur lors du chargement:", err);
+        setError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
-    
-    fetchAllArticles();
-  }, []);
-  
-  // Use React Query to fetch the article data
-  const { 
-    data: articleResult, 
-    error: articleError,
-    isLoading: articleLoading 
-  } = useQuery({
-    queryKey: ['article', slug],
-    queryFn: async () => {
-      console.log("🔍 Chargement article:", slug);
-      const result = await getArticleBySlug(slug!);
-      
-      if (result.redirect && typeof window !== 'undefined') {
-        console.log("🔄 Redirection: " + result.redirect.from + " → " + result.redirect.to);
-        
-        navigate("/article/" + result.redirect.to, { replace: true });
-        
-        toast.info("Lien mis à jour", {
-          description: "Redirection vers l'URL actualisée",
-          duration: 3000
-        });
-      }
-      
-      return result;
-    },
-    enabled: !!slug,
-  });
 
-  // Get the article from Supabase or use mock data as fallback
-  const article = articleResult?.data || articles.find(article => {
-    console.log("Checking mock article slug:", article.slug, "against URL slug:", slug);
-    return article.slug === slug;
-  });
-  
-  console.log("Final article found:", article ? article.title : "NO ARTICLE FOUND");
-  console.log("Article error:", articleError);
-  
+    if (slug) {
+      fetchData();
+    }
+  }, [slug]);
+
   // ✅ OBTENIR LES ARTICLES PRÉCÉDENT ET SUIVANT
   const { previousArticle, nextArticle } = article ? getAdjacentArticles(article, allArticles) : { previousArticle: null, nextArticle: null };
-  
-  // Use React Query to fetch related articles
-  const { 
-    data: relatedData,
-    error: relatedError,
-    isLoading: relatedLoading 
-  } = useQuery({
-    queryKey: ['relatedArticles', article?.id],
-    queryFn: () => getRelatedArticles(article!.id, 3),
-    enabled: !!article?.id,
-  });
 
-  // Get related articles from Supabase or use mock data as fallback
-  const relatedArticles = relatedData?.data || 
-    articles.filter(a => a.id !== article?.id).slice(0, 3);
-  
-  // Handle case where article is not found
+  // ✅ AJOUT STRUCTURED DATA JSON-LD DANS LE HEAD
   useEffect(() => {
-    console.log("=== useEffect for article check ===");
-    console.log("articleLoading:", articleLoading);
-    console.log("article exists:", !!article);
-    console.log("articleError:", articleError);
-    
-    if (!articleLoading && !article) {
-      console.log("Article not found, redirecting to home page");
-      toast.error("Article non trouvé", {
-        description: "L'article que vous recherchez n'existe pas ou a été supprimé."
-      });
-      navigate("/");
-    }
-  }, [article, articleLoading, navigate, articleError]);
-  
-  if (articleLoading) {
-    console.log("Showing loading state");
+    if (!article) return;
+
+    const authorName = article.author?.name || article.author || "Alain Zenatti";
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.title,
+      "description": article.seo_description || article.excerpt,
+      "image": article.image_url || "",
+      "datePublished": article.published_at || article.created_at,
+      "dateModified": article.updated_at || article.created_at,
+      "author": {
+        "@type": "Person",
+        "name": authorName,
+        "url": "https://novahypnose.fr"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NovaHypnose",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://novahypnose.fr/lovable-uploads/ac75f7ce-64fa-4285-9d09-3c372d3efde5.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://novahypnose.fr/blog/article/${article.slug}`
+      },
+      "keywords": Array.isArray(article.keywords) ? article.keywords.join(", ") : "",
+      "articleSection": article.categories?.[0] || "Hypnose",
+      "wordCount": article.content ? article.content.split(/\s+/).length : 0,
+      "inLanguage": "fr-FR"
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    script.id = 'article-structured-data';
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('article-structured-data');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, [article]);
+
+  if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -192,9 +176,8 @@ const ArticlePage = () => {
       </div>
     );
   }
-  
-  if (articleError || !article) {
-    console.log("Showing error state");
+
+  if (error || !article) {
     return (
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -204,8 +187,8 @@ const ArticlePage = () => {
             <p className="text-gray-600 mb-4">
               L'article que vous recherchez n'existe pas ou a été supprimé.
             </p>
-            <Link to="/" className="text-nova-700 hover:underline">
-              Retour à l'accueil
+            <Link to="/blog" className="text-nova-700 hover:underline">
+              Retour au blog
             </Link>
           </div>
         </div>
@@ -214,8 +197,6 @@ const ArticlePage = () => {
     );
   }
   
-  console.log("Rendering article successfully:", article.title);
-  
   const formattedDate = format(new Date(article.published_at || article.created_at), "d MMMM yyyy", { locale: fr });
   const formattedUpdateDate = article.updated_at !== article.created_at 
     ? format(new Date(article.updated_at), "d MMMM yyyy", { locale: fr })
@@ -223,12 +204,6 @@ const ArticlePage = () => {
   
   // Utiliser l'auteur de l'article ou un nom par défaut
   const authorName = article.author?.name || article.author || "Alain Zenatti";
-  
-  // Générer les données structurées pour l'article
-  const structuredData = generateArticleSchema(article);
-  
-  // Générer les breadcrumbs pour l'article
-  const breadcrumbs = generateArticleBreadcrumbs(article);
   
   // ✅ PARSER LES TAGS POUR L'AFFICHAGE
   const displayTags = parseTagsForDisplay(article.tags);
@@ -267,7 +242,7 @@ const ArticlePage = () => {
       window.open(shareUrl, "_blank", "width=600,height=400");
     }
   };
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
@@ -279,29 +254,31 @@ const ArticlePage = () => {
         modifiedTime={article.updated_at}
         author={authorName}
         keywords={Array.isArray(article.keywords) ? article.keywords : []}
-        structuredData={structuredData}
       />
-      
+
       <Header />
-      
-      <main className="flex-grow">
-        {/* Breadcrumbs */}
+
+      <main className="flex-grow pt-20">
+        {/* Breadcrumb */}
         <div className="container mx-auto px-4 pt-4">
-          <BreadcrumbsWithSchema 
-            items={breadcrumbs} 
-            generateSchema={true}
-            siteUrl="https://emergences.novahypnose.fr"
+          <Breadcrumb
+            items={[
+              { label: 'Blog', href: '/blog' },
+              article.categories?.[0]
+                ? { label: article.categories[0], href: `/blog?category=${encodeURIComponent(article.categories[0])}` }
+                : { label: 'Articles', href: '/blog' },
+              { label: article.title }
+            ]}
           />
         </div>
-        
+
         {/* Article header with image */}
         <div className="w-full h-[40vh] relative">
-          <OptimizedImage
+          <img
             src={article.image_url || "/placeholder.svg"}
             alt={article.title}
             className="w-full h-full object-cover"
             loading="eager"
-            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-end">
             <div className="container mx-auto px-4 pb-8 text-white">
@@ -310,7 +287,7 @@ const ArticlePage = () => {
                   <h1 className="text-3xl md:text-4xl font-serif flex-1">{article.title}</h1>
                   {isAdmin && (
                     <Button
-                      onClick={() => navigate(`/admin/article/${article.id}`)}
+                      onClick={() => navigate(`/admin-blog/article/${article.id}/edit`)}
                       variant="secondary"
                       size="sm"
                       className="ml-4 flex items-center gap-2"
@@ -340,10 +317,10 @@ const ArticlePage = () => {
               {displayTags.length > 0 && (
                 <div className="mb-4 flex flex-wrap gap-2">
                   {displayTags.map((tagName, index) => (
-                    <Badge 
-                      key={tagName + "-" + index} 
-                      variant="outline" 
-                      className="hover:bg-nova-50"
+                    <Badge
+                      key={tagName + "-" + index}
+                      variant="outline"
+                      className="text-xs bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
                     >
                       {tagName}
                     </Badge>
@@ -351,13 +328,10 @@ const ArticlePage = () => {
                 </div>
               )}
               
-              <div 
+              <div
                 className="article-hypnose"
-                dangerouslySetInnerHTML={{ 
-                  __html: processArticleContent(
-                    parseMarkdownToHtml(article.content), 
-                    article.slug
-                  )
+                dangerouslySetInnerHTML={{
+                  __html: parseMarkdownToHtml(article.content)
                 }}
               />
               
@@ -375,8 +349,8 @@ const ArticlePage = () => {
                   <div className="flex justify-between items-center">
                     <div className="flex-1">
                       {previousArticle && (
-                        <Link 
-                          to={"/article/" + previousArticle.slug}
+                        <Link
+                          to={"/blog/article/" + previousArticle.slug}
                           className="group flex items-center space-x-3 p-4 rounded-lg border hover:bg-gray-50 transition-colors"
                         >
                           <ChevronLeft className="h-5 w-5 text-nova-600" />
@@ -391,8 +365,8 @@ const ArticlePage = () => {
                     </div>
                     
                     <div className="mx-4">
-                      <Link 
-                        to="/" 
+                      <Link
+                        to="/blog"
                         className="text-sm text-gray-500 hover:text-nova-700 transition-colors"
                       >
                         Tous les articles
@@ -401,8 +375,8 @@ const ArticlePage = () => {
                     
                     <div className="flex-1 flex justify-end">
                       {nextArticle && (
-                        <Link 
-                          to={"/article/" + nextArticle.slug}
+                        <Link
+                          to={"/blog/article/" + nextArticle.slug}
                           className="group flex items-center space-x-3 p-4 rounded-lg border hover:bg-gray-50 transition-colors text-right"
                         >
                           <div>
@@ -438,8 +412,8 @@ const ArticlePage = () => {
                       <span>Catégories: </span>
                       {article.categories.map((category, index) => (
                         <span key={category}>
-                          <Link 
-                            to={"/?category=" + encodeURIComponent(category)} 
+                          <Link
+                            to={"/blog?category=" + encodeURIComponent(category)}
                             className="text-nova-700 hover:underline"
                             title={"Voir tous les articles de la catégorie " + category}
                           >
@@ -492,31 +466,6 @@ const ArticlePage = () => {
             
             <aside className="lg:w-1/3 space-y-8">
               <NewsletterForm />
-              
-              <div className="bg-gray-50 border rounded-lg p-6">
-                <h3 className="text-lg font-serif font-medium mb-4">Articles recommandés</h3>
-                {relatedLoading ? (
-                  <p>Chargement des articles recommandés...</p>
-                ) : (
-                  <ul className="space-y-4">
-                    {relatedArticles.map(relatedArticle => (
-                      <li key={relatedArticle.id} className="border-b pb-4 last:border-0">
-                        <Link 
-                          to={"/article/" + relatedArticle.slug}
-                          className="block group"
-                        >
-                          <h4 className="font-medium group-hover:text-nova-700 transition-colors">
-                            {relatedArticle.title}
-                          </h4>
-                          <p className="text-sm text-gray-600 mt-1">
-                            {relatedArticle.read_time || 5} min de lecture
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
             </aside>
           </div>
         </div>

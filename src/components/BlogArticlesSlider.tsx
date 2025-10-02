@@ -1,5 +1,6 @@
  import React, { useEffect, useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, Clock, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, Clock, Calendar } from 'lucide-react';
 
 interface BlogArticle {
   id: string;
@@ -24,8 +25,7 @@ const BlogArticlesSlider: React.FC = () => {
 
   // ✅ Configuration Supabase directe
   const SUPABASE_URL = 'https://akrlyzmfszumibwgocae.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30'; // À récupérer
-  const BLOG_URL = 'https://emergences.novahypnose.fr';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30';
   const AUTOPLAY_DELAY = 5000;
 
   useEffect(() => {
@@ -62,8 +62,7 @@ const BlogArticlesSlider: React.FC = () => {
           published_at: article.published_at || article.created_at,
           created_at: article.created_at,
           categories: article.categories,
-          read_time: article.read_time,
-          url: `${BLOG_URL}/article/${article.slug}`
+          read_time: article.read_time
         }));
         
         setArticles(transformedArticles);
@@ -178,15 +177,12 @@ const BlogArticlesSlider: React.FC = () => {
             <p className="text-gray-600 mb-6">
               {error || 'Aucun article disponible pour le moment'}
             </p>
-            <a 
-              href={BLOG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/blog"
               className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-medium"
             >
               Visiter le blog
-              <ExternalLink size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -270,15 +266,12 @@ const BlogArticlesSlider: React.FC = () => {
                 </p>
 
                 {/* CTA */}
-                <a 
-                  href={`${BLOG_URL}/article/${currentArticle.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={`/blog/article/${currentArticle.slug}`}
                   className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 font-medium w-fit group"
                 >
                   Lire l'article
-                  <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -324,15 +317,12 @@ const BlogArticlesSlider: React.FC = () => {
 
         {/* CTA vers le blog */}
         <div className="text-center mt-12">
-          <a 
-            href={BLOG_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/blog"
             className="inline-flex items-center gap-2 bg-transparent border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300 font-medium"
           >
             Voir tous les articles du blog
-            <ExternalLink size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

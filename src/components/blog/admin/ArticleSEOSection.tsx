@@ -1,8 +1,8 @@
 
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import TagInput from "@/components/TagInput";
-import { Article } from "@/lib/types";
+import TagInput from "@/components/blog/TagInput";
+import { Article } from "@/lib/types/blog";
 
 interface ArticleSEOSectionProps {
   article: Partial<Article>;
@@ -18,7 +18,7 @@ const ArticleSEOSection = ({
   return (
     <div className="space-y-6">
       <h3 className="text-lg font-medium">Référencement (SEO)</h3>
-      
+
       <div className="space-y-2">
         <Label htmlFor="seo_description">Méta-description</Label>
         <Textarea
@@ -33,7 +33,7 @@ const ArticleSEOSection = ({
           Recommandation: 150-160 caractères maximum
         </p>
       </div>
-      
+
       <div className="space-y-2">
         <Label>Mots-clés SEO</Label>
         <TagInput

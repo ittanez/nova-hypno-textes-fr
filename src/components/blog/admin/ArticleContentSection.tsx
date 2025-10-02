@@ -2,8 +2,8 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import RichTextEditor from "@/components/RichTextEditor";
-import { Article } from "@/lib/types";
+import RichTextEditor from "@/components/blog/RichTextEditor";
+import { Article } from "@/lib/types/blog";
 
 interface ArticleContentSectionProps {
   article: Partial<Article>;
@@ -27,14 +27,14 @@ const ArticleContentSection = ({
         <Input
           id="title"
           name="title"
-          value={article.title}
+          value={article.title || ''}
           onChange={onTitleChange}
           placeholder="Titre de l'article"
           required
           className="text-xl font-medium"
         />
       </div>
-    
+
       <div className="space-y-2">
         <RichTextEditor
           label="Contenu *"
@@ -43,7 +43,7 @@ const ArticleContentSection = ({
           height={500}
         />
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="excerpt">Extrait / Résumé</Label>
         <Textarea
@@ -58,7 +58,7 @@ const ArticleContentSection = ({
           Affiché sur la page d'accueil. Si non renseigné, les premiers caractères du contenu seront utilisés.
         </p>
       </div>
-      
+
       <div className="space-y-2">
         <Label htmlFor="image">Image principale</Label>
         <div className="flex items-center gap-4">
@@ -71,10 +71,10 @@ const ArticleContentSection = ({
           />
           {article.image_url && (
             <div className="w-16 h-16 rounded overflow-hidden">
-              <img 
-                src={article.image_url} 
-                alt="Aperçu" 
-                className="w-full h-full object-cover" 
+              <img
+                src={article.image_url}
+                alt="Aperçu"
+                className="w-full h-full object-cover"
               />
             </div>
           )}

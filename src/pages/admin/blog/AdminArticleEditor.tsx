@@ -4,14 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ArticlePreview from "@/components/ArticlePreview";
+import ArticlePreview from "@/components/blog/ArticlePreview";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import ArticleContentSection from "@/components/blog/admin/ArticleContentSection";
+import ArticleMetaSection from "@/components/blog/admin/ArticleMetaSection";
+import ArticlePublishingSection from "@/components/blog/admin/ArticlePublishingSection";
+import ArticleSEOSection from "@/components/blog/admin/ArticleSEOSection";
 import { useArticleEditor } from "@/hooks/useArticleEditor";
-import ArticleContentSection from "@/components/admin/ArticleContentSection";
-import ArticleMetaSection from "@/components/admin/ArticleMetaSection";
-import ArticlePublishingSection from "@/components/admin/ArticlePublishingSection";
-import ArticleSEOSection from "@/components/admin/ArticleSEOSection";
 
 const AdminArticleEditor = () => {
   const navigate = useNavigate();
@@ -52,8 +52,8 @@ const AdminArticleEditor = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      <main className="flex-grow container mx-auto px-4 py-8">
+
+      <main className="flex-grow container mx-auto px-4 py-8 pt-24">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">
             {isEditing ? "Modifier l'article" : "Nouvel article"}
@@ -67,9 +67,9 @@ const AdminArticleEditor = () => {
               <Eye size={16} />
               Aperçu
             </Button>
-            <Button 
-              variant="outline" 
-              onClick={() => navigate('/admin/articles')}
+            <Button
+              variant="outline"
+              onClick={() => navigate('/admin-blog/articles')}
             >
               Retour à la liste
             </Button>

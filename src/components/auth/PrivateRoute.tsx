@@ -8,7 +8,7 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const { isAdmin, loading, session, isLoading, logout } = useAuth();
+  const { isAdmin, loading, session, isLoading, isCheckingAdmin, logout } = useAuth();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -30,21 +30,21 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
     }
   }, [isAdmin, loading, session, isLoading, logout]);
   
-  // Show loading state while checking authentication
-  if (loading || isLoading) {
+  // Show loading state while checking authentication or admin status
+  if (loading || isLoading || isCheckingAdmin) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <div className="h-8 w-8 border-4 border-t-nova-blue rounded-full animate-spin"></div>
       </div>
     );
   }
-  
+
   // If not authenticated at all (no session), redirect to login
   if (!session) {
     console.log("PrivateRoute - No session, redirecting to login");
     return <Navigate to="/admin-blog" replace />;
   }
-  
+
   // If authenticated but not admin, show unauthorized message
   if (!isAdmin) {
     console.log("PrivateRoute - Not admin, showing unauthorized message");

@@ -1,9 +1,9 @@
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import CategoryMultiSelect from "@/components/CategoryMultiSelect";
-import TagInput from "@/components/TagInput";
-import { Article } from "@/lib/types";
+import CategoryMultiSelect from "@/components/blog/CategoryMultiSelect";
+import TagInput from "@/components/blog/TagInput";
+import { Article } from "@/lib/types/blog";
 
 interface ArticleMetaSectionProps {
   article: Partial<Article>;
@@ -27,7 +27,7 @@ const ArticleMetaSection = ({
             onChange={onCategoriesChange}
           />
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="slug">URL personnalisée (slug)</Label>
           <Input
@@ -42,7 +42,7 @@ const ArticleMetaSection = ({
           </p>
         </div>
       </div>
-      
+
       <div className="space-y-2">
         <TagInput
           label="Tags"

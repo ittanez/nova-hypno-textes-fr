@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { Article, Category } from '@/lib/types/blog';
 import { sanitizeData } from '@/lib/utils/textUtils';
+import { notifySubscribersOfNewArticle } from './notificationService';
 
 // Fonction pour synchroniser un article avec Firebase
 const syncArticleToFirebase = async (article: Article) => {
@@ -91,13 +92,18 @@ export const getAllArticles = async (page: number = 1, pageSize: number = 10) =>
 };
 
 // Fonction pour récupérer tous les articles sans pagination
-export const getAllArticlesNoPagination = async () => {
+export const getAllArticlesNoPagination = async (publishedOnly: boolean = true) => {
   try {
-    const { data, error } = await supabase
+    let query = supabase
       .from('articles')
-      .select('id, title, slug, excerpt, image_url, storage_image_url, published_at, created_at, read_time, categories, tags, author, featured, published')
-      .eq('published', true)  // ✅ Filtrer seulement les articles publiés côté serveur
-      .order('created_at', { ascending: false });
+      .select('id, title, slug, excerpt, image_url, storage_image_url, published_at, created_at, read_time, categories, tags, author, featured, published, scheduled_for, updated_at');
+
+    // Filtrer seulement les articles publiés si demandé (pour le front)
+    if (publishedOnly) {
+      query = query.eq('published', true);
+    }
+
+    const { data, error } = await query.order('created_at', { ascending: false });
 
     if (error) {
       throw error;
@@ -242,12 +248,21 @@ export const saveArticle = async (article: Partial<Article>) => {
         .single();
 
       if (error) throw error;
-      
+
       // Synchroniser avec Firebase si l'article est publié
       if (data && article.published) {
         await syncArticleToFirebase(data);
+
+        // Notifier les abonnés de la mise à jour si passage de brouillon à publié
+        console.log('🔔 Vérification si notification nécessaire...');
+        await notifySubscribersOfNewArticle(
+          data.id,
+          data.title,
+          data.slug,
+          data.excerpt
+        );
       }
-      
+
       return { data, error: null };
     } else {
       // Création d'un nouvel article
@@ -275,12 +290,21 @@ export const saveArticle = async (article: Partial<Article>) => {
         .single();
 
       if (error) throw error;
-      
-      // Synchroniser avec Firebase si l'article est publié
+
+      // Synchroniser avec Firebase et notifier si l'article est publié
       if (data && article.published) {
         await syncArticleToFirebase(data);
+
+        // Notifier les abonnés du nouvel article
+        console.log('🔔 Notification des abonnés pour le nouvel article...');
+        await notifySubscribersOfNewArticle(
+          data.id,
+          data.title,
+          data.slug,
+          data.excerpt
+        );
       }
-      
+
       return { data, error: null };
     }
   } catch (error: unknown) {

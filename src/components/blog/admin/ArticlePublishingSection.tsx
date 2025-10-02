@@ -24,7 +24,7 @@ const ArticlePublishingSection = ({
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-medium">Publication</h3>
-      
+
       <div className="flex flex-col space-y-2">
         <div className="flex items-center space-x-2">
           <input
@@ -38,7 +38,7 @@ const ArticlePublishingSection = ({
             Enregistrer comme brouillon
           </Label>
         </div>
-        
+
         <div className="flex items-center space-x-2">
           <input
             type="radio"
@@ -51,7 +51,7 @@ const ArticlePublishingSection = ({
             Publier immédiatement
           </Label>
         </div>
-        
+
         <div className="flex items-center space-x-2">
           <input
             type="radio"
@@ -63,7 +63,7 @@ const ArticlePublishingSection = ({
           <Label htmlFor="schedule" className="cursor-pointer">
             Programmer la publication
           </Label>
-          
+
           {publishMode === "schedule" && (
             <div className="ml-6">
               <Popover>
