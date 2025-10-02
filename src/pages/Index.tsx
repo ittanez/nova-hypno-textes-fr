@@ -338,21 +338,21 @@ const Index = () => {
                 </p>
               </div>
             ))}
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-base font-semibold transition-all shadow-lg hover:shadow-xl"
               >
-                <Calendar size={24} />
+                <Calendar size={20} />
                 Prendre rendez-vous
               </a>
               <a
                 href="#applications"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-lg font-semibold transition-all text-center"
+                className="px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-base font-semibold transition-all text-center"
               >
-                Découvrir comment je peux vous aider
+                Découvrir
               </a>
             </div>
           </div>
