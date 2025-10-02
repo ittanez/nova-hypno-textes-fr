@@ -362,39 +362,42 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Boutons de navigation du carrousel */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
-          aria-label="Slide précédent"
-        >
-          <ChevronLeft className="text-white" size={32} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
-          aria-label="Slide suivant"
-        >
-          <ChevronRight className="text-white" size={32} />
-        </button>
+        {/* Boutons de navigation du carrousel - plus discrets en bas */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
+          <button
+            onClick={prevSlide}
+            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all"
+            aria-label="Slide précédent"
+          >
+            <ChevronLeft className="text-white" size={20} />
+          </button>
 
-        {/* Indicateurs de pagination */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-          {carouselSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentSlide
-                  ? 'bg-white w-8'
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
-              aria-label={`Aller au slide ${index + 1}`}
-            />
-          ))}
+          {/* Indicateurs de pagination */}
+          <div className="flex gap-2">
+            {carouselSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentSlide
+                    ? 'bg-white w-6'
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Aller au slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextSlide}
+            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all"
+            aria-label="Slide suivant"
+          >
+            <ChevronRight className="text-white" size={20} />
+          </button>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full"></div>
           </div>
@@ -680,10 +683,10 @@ const Index = () => {
             {/* Bouton précédent */}
             <button
               onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
               aria-label="Application précédente"
             >
-              <ChevronLeft className="text-blue-500" size={24} />
+              <ChevronLeft className="text-blue-500" size={18} />
             </button>
 
             <div className="overflow-hidden mx-12">
@@ -708,10 +711,10 @@ const Index = () => {
             {/* Bouton suivant */}
             <button
               onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
               aria-label="Application suivante"
             >
-              <ChevronRight className="text-blue-500" size={24} />
+              <ChevronRight className="text-blue-500" size={18} />
             </button>
 
             {/* Navigation dots */}
@@ -1086,10 +1089,10 @@ const Index = () => {
             {/* Bouton précédent */}
             <button
               onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
               aria-label="Témoignage précédent"
             >
-              <ChevronLeft className="text-blue-500" size={24} />
+              <ChevronLeft className="text-blue-500" size={18} />
             </button>
 
             <div className="overflow-hidden mx-12">
@@ -1163,10 +1166,10 @@ const Index = () => {
             {/* Bouton suivant */}
             <button
               onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-3 rounded-full shadow-lg"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
               aria-label="Témoignage suivant"
             >
-              <ChevronRight className="text-blue-500" size={24} />
+              <ChevronRight className="text-blue-500" size={18} />
             </button>
 
             {/* Navigation dots */}
