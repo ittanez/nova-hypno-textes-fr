@@ -244,11 +244,6 @@ const Index = () => {
         }
       ]
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "47"
-    }
   };
 
   const personSchema = {
@@ -304,7 +299,7 @@ const Index = () => {
 
       <ContentLayout>
       {/* Hero Section avec Carrousel */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[600px] h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Carrousel d'images */}
         <div className="absolute inset-0">
           {carouselSlides.map((slide, index) => (
@@ -317,14 +312,15 @@ const Index = () => {
               <img
                 src={slide.image}
                 alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
             </div>
           ))}
         </div>
 
-        <div className="relative z-10 container mx-auto px-4">
+        <div className="relative z-10 container mx-auto px-4 py-8 md:py-0">
           <div className="max-w-3xl">
             {/* Contenu texte qui change avec les slides */}
             {carouselSlides.map((slide, index) => (
@@ -334,10 +330,10 @@ const Index = () => {
                   index === currentSlide ? 'opacity-100' : 'opacity-0 absolute inset-0'
                 }`}
               >
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
                   {slide.description}
                 </p>
               </div>
@@ -410,7 +406,8 @@ const Index = () => {
                 <img
                   src="/zenatti.webp"
                   alt="Alain Zenatti - Maître Hypnologue Paris"
-                  className="rounded-2xl shadow-2xl w-full"
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover"
+                  loading="lazy"
                 />
 
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
@@ -421,7 +418,8 @@ const Index = () => {
                     <img
                       src="https://img.youtube.com/vi/4VRNBAoAcAE/maxresdefault.jpg"
                       alt="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
-                      className="w-full h-auto"
+                      className="w-full h-auto object-cover rounded-xl"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                       <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -619,7 +617,7 @@ const Index = () => {
               Note moyenne : 5/5 ⭐⭐⭐⭐⭐
             </h3>
             <p className="text-lg mb-6 text-white/90">
-              Basé sur 47 avis vérifiés de patients accompagnés à Paris et en Île-de-France.
+              Basé sur les avis vérifiés de patients accompagnés à Paris et en Île-de-France.
               Spécialiste reconnu pour le traitement du stress, de l'anxiété et des phobies.
             </p>
             <a
@@ -1096,7 +1094,8 @@ const Index = () => {
                 <img
                   src="/cabinet.webp"
                   alt="Cabinet d'hypnothérapie Paris 4ème"
-                  className="rounded-2xl shadow-lg mb-6"
+                  className="rounded-2xl shadow-lg mb-6 w-full h-auto object-cover"
+                  loading="lazy"
                 />
                 <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
                   <iframe
@@ -1129,7 +1128,8 @@ const Index = () => {
                   <img
                     src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
                     alt="Disponible sur Google Play"
-                    className="h-16 mx-auto"
+                    className="h-16 mx-auto w-auto object-contain"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -1179,7 +1179,8 @@ const Index = () => {
                 <img
                   src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//SPLASH.webp"
                   alt="Formation auto-hypnose Paris"
-                  className="w-full h-auto"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 bg-blue-500 p-6 rounded-full shadow-lg">

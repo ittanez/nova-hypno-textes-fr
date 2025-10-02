@@ -86,9 +86,9 @@ const Header = () => {
   ];
 
   return (
-    <header 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm shadow-sm py-2'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -101,7 +101,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            
+
             {mainNavLinks.map((link) => (
               <a
                 key={link.name}
