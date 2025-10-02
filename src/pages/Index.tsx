@@ -14,6 +14,8 @@ const Index = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentApplication, setCurrentApplication] = useState(0);
 
   const carouselSlides = [
     {
@@ -323,36 +325,38 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4 py-8 md:py-0">
           <div className="max-w-3xl">
             {/* Contenu texte qui change avec les slides */}
-            {carouselSlides.map((slide, index) => (
-              <div
-                key={index}
-                className={`transition-opacity duration-1000 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute inset-0'
-                }`}
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                  {slide.title}
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
-                  {slide.description}
-                </p>
-              </div>
-            ))}
+            <div className="min-h-[200px] md:min-h-[250px] relative">
+              {carouselSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`transition-opacity duration-1000 ${
+                    index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
+                  }`}
+                >
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+                    {slide.description}
+                  </p>
+                </div>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-base font-semibold transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl"
               >
-                <Calendar size={20} />
+                <Calendar size={18} />
                 Prendre rendez-vous
               </a>
               <a
                 href="#applications"
-                className="px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-base font-semibold transition-all text-center"
+                className="px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
               >
-                Découvrir
+                Découvrir comment je peux vous aider
               </a>
             </div>
           </div>
@@ -393,6 +397,88 @@ const Index = () => {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Comment fonctionne l'hypnose */}
+      <section id="comment-fonctionne-hypnose" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+              Comment fonctionne l'hypnose ?
+            </h2>
+
+            <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
+              <p className="text-xl leading-relaxed">
+                L'hypnose est un <strong>état naturel</strong> que nous expérimentons tous quotidiennement : lorsque vous êtes absorbé par un film, un livre, ou perdu dans vos pensées en conduisant. C'est cet état de <strong>conscience modifiée</strong> que l'hypnothérapie utilise de manière thérapeutique.
+              </p>
+
+              <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">L'hypnose ericksonienne : une approche respectueuse</h3>
+                <p className="leading-relaxed">
+                  L'hypnose que je pratique est issue de l'approche <strong>ericksonienne</strong>, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
+                </p>
+                <p className="leading-relaxed mt-3">
+                  Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que <strong>l'inconscient de chaque personne est une source immense de solutions et de ressources</strong>. Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients.
+                </p>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mt-8">Le déroulement d'une séance</h3>
+              <p className="leading-relaxed">
+                Pendant la séance, vous restez <strong>conscient et maître de vous-même</strong>. Vous ne dormez pas, vous n'êtes pas manipulé. Au contraire, vous êtes dans un état de <strong>relaxation profonde</strong> qui permet à votre inconscient de travailler plus facilement sur vos objectifs.
+              </p>
+
+              <p className="leading-relaxed">
+                Grâce à cet état, votre esprit peut <strong>accéder à ses propres ressources</strong> pour résoudre des problématiques variées : stress, anxiété, phobies, troubles du sommeil, manque de confiance, addictions, et bien d'autres.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+                <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl border border-blue-100">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Ce que l'hypnose peut faire</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-500 font-bold">✓</span>
+                      <span>Accéder à vos ressources inconscientes</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-500 font-bold">✓</span>
+                      <span>Modifier des schémas de pensée limitants</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-500 font-bold">✓</span>
+                      <span>Réduire le stress et l'anxiété</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-500 font-bold">✓</span>
+                      <span>Renforcer la confiance en soi</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-xl border border-green-100">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Ce que l'hypnose ne fait pas</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 font-bold">✗</span>
+                      <span>Vous faire perdre le contrôle</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 font-bold">✗</span>
+                      <span>Vous manipuler ou vous endormir</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 font-bold">✗</span>
+                      <span>Fonctionner contre votre volonté</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-500 font-bold">✗</span>
+                      <span>Remplacer un traitement médical</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -457,7 +543,7 @@ const Index = () => {
                   <p className="font-semibold text-gray-900 mb-2">Votre hypnothérapeute à Paris : expertise et bienveillance</p>
                   <p className="text-gray-700 leading-relaxed">
                     En tant que <strong>Maître Hypnologue certifié</strong>, je vous accompagne au cœur de Paris avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
-                    Mon cabinet situé dans le Marais (Paris 4ème) vous offre un accompagnement professionnel de haut niveau, alliant formation approfondie (9 certifications) et approche personnalisée.
+                    Mon cabinet situé dans le Marais (Paris 4ème) vous offre un accompagnement professionnel de haut niveau, alliant formation approfondie et approche personnalisée.
                   </p>
                 </div>
 
@@ -475,7 +561,7 @@ const Index = () => {
                     <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={24} />
                     <div>
                       <p className="font-semibold text-gray-900">Formation approfondie et continue</p>
-                      <p className="text-gray-600">9 certifications en hypnose, dont Maître Hypnologue et Maître Praticien</p>
+                      <p className="text-gray-600">Maître Hypnologue certifié, formation continue en hypnose ericksonienne</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -538,7 +624,7 @@ const Index = () => {
                 Expertise reconnue
               </h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Maître Hypnologue certifié avec 9 certifications professionnelles et plus de 5 ans d'expérience.
+                Maître Hypnologue certifié avec plus de 5 ans d'expérience.
                 Formation continue pour garantir les meilleures pratiques.
               </p>
               <ul className="space-y-2 text-gray-600 text-sm">
@@ -548,11 +634,11 @@ const Index = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
-                  <span>Maître Praticien PNL</span>
+                  <span>Auto-hypnose et accompagnement personnalisé</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
-                  <span>Formation médicale continue</span>
+                  <span>Formation continue en hypnothérapie</span>
                 </li>
               </ul>
             </div>
@@ -652,7 +738,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Desktop: Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {applications.map((app, index) => {
               const Icon = app.icon;
               return (
@@ -668,6 +755,42 @@ const Index = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Mobile: Carousel */}
+          <div className="md:hidden relative max-w-lg mx-auto">
+            <div className="overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentApplication * 100}%)` }}>
+                {applications.map((app, index) => {
+                  const Icon = app.icon;
+                  return (
+                    <div key={index} className="min-w-full px-2">
+                      <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                          <Icon className="text-blue-500" size={32} />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
+                        <p className="text-gray-600 leading-relaxed">{app.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex justify-center gap-2 mt-6 flex-wrap">
+              {applications.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentApplication(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    currentApplication === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
+                  }`}
+                  aria-label={`Application ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -963,7 +1086,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {/* Desktop: Grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -988,7 +1112,7 @@ const Index = () => {
                 "J'ai consulté pour un problème d'anxiété. Dès la première séance je me suis sentie apaisée.
                 Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."
               </p>
-              <p className="font-semibold text-gray-900">Marie HERNANDEZ</p>
+              <p className="font-semibold text-gray-900">Marie</p>
               <p className="text-sm text-gray-500">il y a 3 mois</p>
             </div>
 
@@ -1002,7 +1126,7 @@ const Index = () => {
                 "Un praticien calme et réfléchi. En quelques séances, j'ai pu me libérer de certains blocages
                 et entamer des changements pérennes. Merci pour cette évolution importante."
               </p>
-              <p className="font-semibold text-gray-900">Philippe Audoin</p>
+              <p className="font-semibold text-gray-900">Philippe</p>
               <p className="text-sm text-gray-500">il y a 3 mois</p>
             </div>
 
@@ -1016,8 +1140,93 @@ const Index = () => {
                 "Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte
                 que l'on atteigne nos objectifs."
               </p>
-              <p className="font-semibold text-gray-900">Jaouad Mehdid</p>
+              <p className="font-semibold text-gray-900">Jaouad</p>
               <p className="text-sm text-gray-500">il y a 3 mois</p>
+            </div>
+          </div>
+
+          {/* Mobile: Carousel */}
+          <div className="md:hidden relative max-w-lg mx-auto">
+            <div className="overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 leading-relaxed italic">
+                      "Découvrir NOVA HYPNOSE est une expérience marquante. Alain propose de véritables parcours de transformation.
+                      J'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."
+                    </p>
+                    <p className="font-semibold text-gray-900">Edward</p>
+                    <p className="text-sm text-gray-500">il y a 2 mois</p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 leading-relaxed italic">
+                      "J'ai consulté pour un problème d'anxiété. Dès la première séance je me suis sentie apaisée.
+                      Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."
+                    </p>
+                    <p className="font-semibold text-gray-900">Marie</p>
+                    <p className="text-sm text-gray-500">il y a 3 mois</p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 leading-relaxed italic">
+                      "Un praticien calme et réfléchi. En quelques séances, j'ai pu me libérer de certains blocages
+                      et entamer des changements pérennes. Merci pour cette évolution importante."
+                    </p>
+                    <p className="font-semibold text-gray-900">Philippe</p>
+                    <p className="text-sm text-gray-500">il y a 3 mois</p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 leading-relaxed italic">
+                      "Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte
+                      que l'on atteigne nos objectifs."
+                    </p>
+                    <p className="font-semibold text-gray-900">Jaouad</p>
+                    <p className="text-sm text-gray-500">il y a 3 mois</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {[0, 1, 2, 3].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    currentTestimonial === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
+                  }`}
+                  aria-label={`Témoignage ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
