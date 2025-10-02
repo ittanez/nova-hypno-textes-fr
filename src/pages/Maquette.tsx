@@ -1,17 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Calendar, Phone, Mail, MapPin,
   Brain, Heart, Target, Sparkles, Shield, Users,
   CheckCircle, Star, Award, Clock, Lightbulb,
   ChevronDown, ChevronUp, X,
   GanttChart, Moon, Frown, ActivitySquare, CigaretteOff, Smile, Sandwich,
-  BookOpen, Smartphone, Waves
+  BookOpen, Smartphone, Waves, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import ContentLayout from '@/components/layout/ContentLayout';
 
 const Maquette = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const carouselSlides = [
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
+      title: 'Transformez votre vie avec l\'hypnose',
+      description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
+      title: 'PHOBIES',
+      description: 'Libérez-vous de vos peurs irrationnelles et retrouvez votre liberté de mouvement'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/CABINET.webp',
+      title: 'STRESS',
+      description: 'Apprenez à gérer votre stress et retrouvez votre équilibre intérieur'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PAROLEPUBLIC.webp',
+      title: 'PEUR DE PARLER EN PUBLIC',
+      description: 'Surmontez votre anxiété et exprimez-vous avec confiance devant un auditoire'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/sommeil.webp',
+      title: 'SOMMEIL',
+      description: 'Retrouvez un sommeil réparateur et des nuits paisibles grâce à l\'hypnose'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
+      title: 'POIDS',
+      description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
+    }
+  ];
+
+  // Auto-scroll du carrousel toutes les 8 secondes
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }, 8000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+  };
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -69,6 +120,18 @@ const Maquette = () => {
     {
       question: "Où se situe le cabinet d'hypnothérapie Marais Bastille à Paris ?",
       answer: "Le cabinet Marais Bastille est situé au 16 rue Saint-Antoine à Bastille, au croisement des 4ᵉ, 11ᵉ et 12ᵉ arrondissements, dans le quartier du Marais.\n\nAccès métro : Station Bastille (lignes 1, 5, 8) à 2 minutes à pied, ou  Saint-Paul  (ligne 1).\n\n Situation centrale : Le cabinet se trouve à proximité de  République ,  Châtelet  et  Gare de Lyon , permettant un accès facile depuis toute la région parisienne. Plusieurs lignes de bus desservent également le secteur (69, 76, 86, 87, 96).\n\nCette localisation privilégiée au cœur de Paris facilite vos consultations d'hypnothérapie à Bastille, que ce soit en journée ou en soirée."
+    },
+    {
+      question: "Pourquoi choisir un pack de séances ?",
+      answer: "Le Pack 3 séances est particulièrement recommandé pour les problématiques les plus courantes qui nécessitent un accompagnement structuré : phobies, anxiété et confiance en soi. Ces trois domaines montrent les taux de réussite les plus élevés avec un suivi de 3 séances, permettant un travail progressif et l'ancrage durable des changements.\n\nLes packs offrent également un coût avantageux, un engagement à long terme et un plan de traitement structuré, créant les conditions optimales pour votre transformation."
+    },
+    {
+      question: "Quelles sont les modalités de paiement et la politique d'annulation ?",
+      answer: "Modalités de paiement :\n• Chèque, espèces, carte bancaire (cabinet)\n• Carte bancaire (téléconsultations)\n\nRemarques importantes :\n• Pas de consultations pour enfants et mineurs\n\nPolitique d'annulation :\n• Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous\n• En cas d'annulation tardive (moins de 48h) ou d'absence, la séance sera facturée quelle que soit la raison"
+    },
+    {
+      question: "Comment reconnaître un hypnothérapeute qualifié ?",
+      answer: "❌ Signes d'alarme à éviter :\n• Promesses de guérison miraculeuse\n• Refus d'expliquer la méthode\n• Formation insuffisante ou floue\n• Approche directive sans respect du client\n• Tarifs anormalement bas ou élevés\n\n✅ Garanties d'un expert qualifié :\n• Formation certifiée et continue\n• Transparence sur la méthode\n• Approche personnalisée et respectueuse\n• Explication claire du processus\n• Déontologie professionnelle stricte\n\nMa promesse de transparence : Je m'engage à vous expliquer chaque étape, à répondre à toutes vos questions et à respecter votre rythme. Aucune séance ne commence sans que vous compreniez exactement ce qui va se passer."
     }
   ];
 
@@ -122,26 +185,46 @@ const Maquette = () => {
 
   return (
     <ContentLayout>
-      {/* Hero Section avec grande image */}
+      {/* Hero Section avec Carrousel */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Carrousel d'images */}
         <div className="absolute inset-0">
-          <img
-            src="/zenatti.webp"
-            alt="Alain Zenatti - Hypnothérapeute Paris"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/75 to-transparent"></div>
+          {carouselSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
+            </div>
+          ))}
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Transformez votre vie avec l'hypnose
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Contenu texte qui change avec les slides */}
+            {carouselSlides.map((slide, index) => (
+              <div
+                key={index}
+                className={`transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                }`}
+              >
+                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                  {slide.description}
+                </p>
+              </div>
+            ))}
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
@@ -159,6 +242,38 @@ const Maquette = () => {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Boutons de navigation du carrousel */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+          aria-label="Slide précédent"
+        >
+          <ChevronLeft className="text-white" size={32} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+          aria-label="Slide suivant"
+        >
+          <ChevronRight className="text-white" size={32} />
+        </button>
+
+        {/* Indicateurs de pagination */}
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+          {carouselSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide
+                  ? 'bg-white w-8'
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Aller au slide ${index + 1}`}
+            />
+          ))}
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -250,7 +365,7 @@ const Maquette = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="space-y-6">
+              <div className="space-y-6 order-2 md:order-1">
                 <img
                   src="/zenatti.webp"
                   alt="Alain Zenatti - Maître Hypnologue Paris"
@@ -291,7 +406,7 @@ const Maquette = () => {
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-6 order-1 md:order-2">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                   Alain Zenatti
                 </h2>
@@ -596,121 +711,6 @@ const Maquette = () => {
         </div>
       </section>
 
-      {/* Section Témoignages */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Ce que disent mes clients
-            </h2>
-            <div className="flex justify-center items-center gap-2 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={32} className="text-yellow-400 fill-yellow-400" />
-              ))}
-            </div>
-            <p className="text-xl text-gray-600">
-              Note moyenne de 5/5 sur Google My Business & Resalib
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Découvrir NOVA HYPNOSE est une expérience marquante. Alain propose de véritables parcours de transformation.
-                J'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."
-              </p>
-              <p className="font-semibold text-gray-900">Edward</p>
-              <p className="text-sm text-gray-500">il y a 2 mois</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "J'ai consulté pour un problème d'anxiété. Dès la première séance je me suis sentie apaisée.
-                Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."
-              </p>
-              <p className="font-semibold text-gray-900">Marie HERNANDEZ</p>
-              <p className="text-sm text-gray-500">il y a 3 mois</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Un praticien calme et réfléchi. En quelques séances, j'ai pu me libérer de certains blocages
-                et entamer des changements pérennes. Merci pour cette évolution importante."
-              </p>
-              <p className="font-semibold text-gray-900">Philippe Audoin</p>
-              <p className="text-sm text-gray-500">il y a 3 mois</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte
-                que l'on atteigne nos objectifs."
-              </p>
-              <p className="font-semibold text-gray-900">Jaouad Mehdid</p>
-              <p className="text-sm text-gray-500">il y a 3 mois</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section FAQ */}
-      <section id="faq" className="py-20 bg-gradient-to-br from-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
-            Questions fréquentes sur l'hypnothérapie
-          </h2>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-4">
-              {faqItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <button
-                    className="flex justify-between items-center w-full p-6 text-left hover:bg-gray-50 transition-colors"
-                    onClick={() => toggleFaq(index)}
-                  >
-                    <span className="font-semibold text-gray-900 pr-4">{item.question}</span>
-                    {openFaqIndex === index ?
-                      <ChevronUp className="text-blue-500 flex-shrink-0" size={24} /> :
-                      <ChevronDown className="text-blue-500 flex-shrink-0" size={24} />
-                    }
-                  </button>
-                  <div
-                    className={`px-6 overflow-hidden transition-all duration-300 ${
-                      openFaqIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
-                    }`}
-                  >
-                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Section Tarifs */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -818,6 +818,118 @@ const Maquette = () => {
               >
                 Réserver
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section CTA finale */}
+      <section className="py-20 bg-nova-blue-dark">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Prêt à commencer votre transformation ?
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Réservez votre première séance dès maintenant et découvrez comment l'hypnose peut vous aider
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <Calendar size={24} />
+              Prendre rendez-vous
+            </a>
+            <a
+              href="tel:0649358089"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition-all"
+            >
+              <Phone size={24} />
+              Appeler maintenant
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Témoignages */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Ce que disent mes clients
+            </h2>
+            <div className="flex justify-center items-center gap-2 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  size={32}
+                  className="text-yellow-400 fill-yellow-400 animate-pulse"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                />
+              ))}
+            </div>
+            <p className="text-xl text-gray-600">
+              Note moyenne de 5/5 sur Google My Business & Resalib
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "Découvrir NOVA HYPNOSE est une expérience marquante. Alain propose de véritables parcours de transformation.
+                J'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."
+              </p>
+              <p className="font-semibold text-gray-900">Edward</p>
+              <p className="text-sm text-gray-500">il y a 2 mois</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "J'ai consulté pour un problème d'anxiété. Dès la première séance je me suis sentie apaisée.
+                Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."
+              </p>
+              <p className="font-semibold text-gray-900">Marie HERNANDEZ</p>
+              <p className="text-sm text-gray-500">il y a 3 mois</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "Un praticien calme et réfléchi. En quelques séances, j'ai pu me libérer de certains blocages
+                et entamer des changements pérennes. Merci pour cette évolution importante."
+              </p>
+              <p className="font-semibold text-gray-900">Philippe Audoin</p>
+              <p className="text-sm text-gray-500">il y a 3 mois</p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 leading-relaxed italic">
+                "Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte
+                que l'on atteigne nos objectifs."
+              </p>
+              <p className="font-semibold text-gray-900">Jaouad Mehdid</p>
+              <p className="text-sm text-gray-500">il y a 3 mois</p>
             </div>
           </div>
         </div>
@@ -936,32 +1048,124 @@ const Maquette = () => {
         </div>
       </section>
 
-      {/* Section CTA finale */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Prêt à commencer votre transformation ?
+      {/* Section Auto-hypnose */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            L'auto-hypnose : devenez votre propre thérapeute
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Réservez votre première séance dès maintenant et découvrez comment l'hypnose peut vous aider
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              <Calendar size={24} />
-              Prendre rendez-vous
-            </a>
-            <a
-              href="tel:0649358089"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition-all"
-            >
-              <Phone size={24} />
-              Appeler maintenant
-            </a>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-16">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Pourquoi apprendre l'auto-hypnose ?
+              </h3>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                L'auto-hypnose est une compétence précieuse qui vous permettra de prolonger et d'approfondir
+                les bienfaits des séances avec votre hypnothérapeute.
+              </p>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Une fois maîtrisée, cette technique devient un outil puissant pour gérer votre stress,
+                améliorer votre sommeil, renforcer votre confiance et cultiver un état de bien-être au quotidien.
+              </p>
+              <p className="text-gray-700 mb-8 leading-relaxed">
+                Je vous propose d'apprendre des techniques simples et efficaces, adaptées à vos besoins spécifiques,
+                que vous pourrez pratiquer en toute autonomie.
+              </p>
+
+              <a
+                href="https://harmonia.novahypnose.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+              >
+                <BookOpen size={24} />
+                Découvrez la formation Harmonia : réduire le stress avec l'auto-hypnose
+              </a>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//SPLASH.webp"
+                  alt="Formation auto-hypnose Paris"
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-blue-500 p-6 rounded-full shadow-lg">
+                <Sparkles className="text-white" size={32} />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Auto-hypnose pour le stress
+              </h4>
+              <p className="text-gray-600">
+                Apprenez à entrer rapidement dans un état de calme profond,
+                même au milieu des situations les plus stressantes.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Auto-hypnose pour le sommeil
+              </h4>
+              <p className="text-gray-600">
+                Découvrez des techniques puissantes pour améliorer la qualité de votre sommeil
+                et installer un rituel apaisant avant de vous coucher.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Auto-hypnose pour la confiance
+              </h4>
+              <p className="text-gray-600">
+                Renforcez votre estime personnelle grâce à des exercices d'ancrage
+                et de visualisation positive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section FAQ */}
+      <section id="faq" className="py-20 bg-gradient-to-br from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
+            Questions fréquentes sur l'hypnothérapie
+          </h2>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-4">
+              {faqItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <button
+                    className="flex justify-between items-center w-full p-6 text-left hover:bg-gray-50 transition-colors"
+                    onClick={() => toggleFaq(index)}
+                  >
+                    <span className="font-semibold text-gray-900 pr-4">{item.question}</span>
+                    {openFaqIndex === index ?
+                      <ChevronUp className="text-blue-500 flex-shrink-0" size={24} /> :
+                      <ChevronDown className="text-blue-500 flex-shrink-0" size={24} />
+                    }
+                  </button>
+                  <div
+                    className={`px-6 overflow-hidden transition-all duration-300 ${
+                      openFaqIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
+                    }`}
+                  >
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

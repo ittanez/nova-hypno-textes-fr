@@ -299,7 +299,7 @@ const Index = () => {
 
       <ContentLayout>
       {/* Hero Section avec Carrousel */}
-      <section className="relative min-h-[600px] h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[400px] h-[50vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden">
         {/* Carrousel d'images */}
         <div className="absolute inset-0">
           {carouselSlides.map((slide, index) => (
