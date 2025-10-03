@@ -73,7 +73,7 @@ const Header = () => {
   ];
 
   const pourQuoiLinks: NavLink[] = [
-    { name: 'Comment fonctionne l\'hypnose', href: '/#about' },
+    { name: 'Comment fonctionne l\'hypnose', href: '/#comment-fonctionne' },
     { name: 'Applications', href: '/#applications' },
     { name: 'Auto-Hypnose', href: '/#self-hypnosis' },
     { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },

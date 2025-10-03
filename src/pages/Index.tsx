@@ -335,7 +335,7 @@ const Index = () => {
                     index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                   }`}
                 >
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
+                  <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
                     {slide.title}
                   </h1>
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
@@ -400,11 +400,6 @@ const Index = () => {
           </button>
         </div>
 
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-white rounded-full"></div>
-          </div>
-        </div>
       </section>
 
       {/* Section À propos - Design moderne */}
@@ -416,7 +411,7 @@ const Index = () => {
                 <img
                   src="/zenatti.webp"
                   alt="Alain Zenatti - Maître Hypnologue Paris"
-                  className="rounded-2xl shadow-2xl w-full h-auto object-cover"
+                  className="rounded-2xl shadow-2xl w-3/4 md:w-full h-auto object-cover mx-auto md:mx-0"
                   loading="lazy"
                 />
 
@@ -456,7 +451,7 @@ const Index = () => {
               </div>
 
               <div className="space-y-6 order-1 md:order-2">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
                   Alain Zenatti, Hypnothérapeute à Paris
                 </h2>
                 <p className="text-xl text-blue-600 font-semibold">
@@ -530,7 +525,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
               Pourquoi choisir un hypnothérapeute à Paris qualifié ?
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -646,7 +641,7 @@ const Index = () => {
       {/* Section Applications DÉTAILLÉE */}
       <section id="applications" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
             Apaiser, transformer, réactiver ce qui est prêt en vous
           </h2>
 
@@ -682,17 +677,8 @@ const Index = () => {
           </div>
 
           {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto">
-            {/* Bouton précédent - plus discret */}
-            <button
-              onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Application précédente"
-            >
-              <ChevronLeft className="text-blue-500" size={14} />
-            </button>
-
-            <div className="overflow-hidden mx-10">
+          <div className="md:hidden relative max-w-lg mx-auto pb-12">
+            <div className="overflow-hidden">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentApplication * 100}%)` }}>
                 {applications.map((app, index) => {
                   const Icon = app.icon;
@@ -711,37 +697,46 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Bouton suivant - plus discret */}
-            <button
-              onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Application suivante"
-            >
-              <ChevronRight className="text-blue-500" size={14} />
-            </button>
+            {/* Navigation en bas */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+              <button
+                onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Application précédente"
+              >
+                <ChevronLeft className="text-blue-500" size={14} />
+              </button>
 
-            {/* Navigation dots */}
-            <div className="flex justify-center gap-2 mt-6 flex-wrap">
-              {applications.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentApplication(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    currentApplication === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
-                  }`}
-                  aria-label={`Application ${index + 1}`}
-                />
-              ))}
+              <div className="flex gap-1.5">
+                {applications.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentApplication(index)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentApplication === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
+                    }`}
+                    aria-label={`Application ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Application suivante"
+              >
+                <ChevronRight className="text-blue-500" size={14} />
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Section Comment ça fonctionne */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
+      <section id="comment-fonctionne" className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Comment fonctionne l'hypnose ?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -793,16 +788,8 @@ const Index = () => {
           </div>
 
           {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto">
-            <button
-              onClick={() => setCurrentHowItWorks(prev => prev === 0 ? 3 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Précédent"
-            >
-              <ChevronLeft className="text-blue-500" size={14} />
-            </button>
-
-            <div className="overflow-hidden mx-10">
+          <div className="md:hidden relative max-w-lg mx-auto pb-12">
+            <div className="overflow-hidden">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentHowItWorks * 100}%)` }}>
                 <div className="min-w-full px-2">
                   <div className="text-center bg-white p-6 rounded-2xl shadow-lg">
@@ -854,25 +841,36 @@ const Index = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => setCurrentHowItWorks(prev => prev === 3 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Suivant"
-            >
-              <ChevronRight className="text-blue-500" size={14} />
-            </button>
+            {/* Navigation en bas */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+              <button
+                onClick={() => setCurrentHowItWorks(prev => prev === 0 ? 3 : prev - 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Précédent"
+              >
+                <ChevronLeft className="text-blue-500" size={14} />
+              </button>
 
-            <div className="flex justify-center gap-2 mt-6">
-              {[0, 1, 2, 3].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentHowItWorks(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    currentHowItWorks === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
-                  }`}
-                  aria-label={`Slide ${index + 1}`}
-                />
-              ))}
+              <div className="flex gap-1.5">
+                {[0, 1, 2, 3].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentHowItWorks(index)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentHowItWorks === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
+                    }`}
+                    aria-label={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentHowItWorks(prev => prev === 3 ? 0 : prev + 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Suivant"
+              >
+                <ChevronRight className="text-blue-500" size={14} />
+              </button>
             </div>
           </div>
         </div>
@@ -882,7 +880,7 @@ const Index = () => {
       <section id="deroulement" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
               Déroulement d'une séance
             </h2>
 
@@ -893,7 +891,7 @@ const Index = () => {
                     1
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Entretien initial (15-20 min)</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Entretien initial</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Nous discutons de vos objectifs, de vos attentes et je vous explique le processus en détail.
                       Vos questions sont les bienvenues.
@@ -908,7 +906,7 @@ const Index = () => {
                     2
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Induction hypnotique (5-10 min)</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Induction hypnotique</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Phase de relaxation progressive pour accéder à l'état hypnotique. Vous restez conscient et en contrôle à tout moment.
                     </p>
@@ -922,7 +920,7 @@ const Index = () => {
                     3
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Travail thérapeutique (30-40 min)</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Travail thérapeutique</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Nous travaillons sur vos objectifs en mobilisant vos ressources inconscientes.
                       Approche personnalisée selon vos besoins.
@@ -937,7 +935,7 @@ const Index = () => {
                     4
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Retour et débriefing (5-10 min)</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Retour et débriefing</h3>
                     <p className="text-gray-600 leading-relaxed">
                       Retour progressif à l'état de veille. Nous échangeons sur votre expérience et les prochaines étapes.
                     </p>
@@ -953,7 +951,7 @@ const Index = () => {
       <section id="tarifs" className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Tarifs & Formules
             </h2>
             <p className="text-xl text-gray-600">
@@ -973,11 +971,7 @@ const Index = () => {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">1h30 (première séance)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">1h (séances suivantes)</span>
+                  <span className="text-gray-600">Séance personnalisée</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
@@ -1061,16 +1055,8 @@ const Index = () => {
           </div>
 
           {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto">
-            <button
-              onClick={() => setCurrentPricing(prev => prev === 0 ? 2 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Tarif précédent"
-            >
-              <ChevronLeft className="text-blue-500" size={14} />
-            </button>
-
-            <div className="overflow-hidden mx-10">
+          <div className="md:hidden relative max-w-lg mx-auto pb-12">
+            <div className="overflow-hidden">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentPricing * 100}%)` }}>
                 {/* Séance individuelle */}
                 <div className="min-w-full px-2">
@@ -1083,11 +1069,7 @@ const Index = () => {
                     <ul className="space-y-3 mb-8">
                       <li className="flex items-start gap-2">
                         <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">1h30 (première séance)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">1h (séances suivantes)</span>
+                        <span className="text-gray-600">Séance personnalisée</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
@@ -1107,11 +1089,11 @@ const Index = () => {
 
                 {/* Pack 3 séances */}
                 <div className="min-w-full px-2">
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl relative">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-bold">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl relative overflow-visible">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-xs font-bold shadow-md z-10">
                       RECOMMANDÉ
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">Pack 3 Séances</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4 mt-2">Pack 3 Séances</h3>
                     <div className="mb-6">
                       <span className="text-5xl font-bold text-white">255€</span>
                       <span className="text-blue-100">/pack</span>
@@ -1176,25 +1158,36 @@ const Index = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => setCurrentPricing(prev => prev === 2 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Tarif suivant"
-            >
-              <ChevronRight className="text-blue-500" size={14} />
-            </button>
+            {/* Navigation en bas */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+              <button
+                onClick={() => setCurrentPricing(prev => prev === 0 ? 2 : prev - 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Tarif précédent"
+              >
+                <ChevronLeft className="text-blue-500" size={14} />
+              </button>
 
-            <div className="flex justify-center gap-2 mt-6">
-              {[0, 1, 2].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentPricing(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    currentPricing === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
-                  }`}
-                  aria-label={`Tarif ${index + 1}`}
-                />
-              ))}
+              <div className="flex gap-1.5">
+                {[0, 1, 2].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPricing(index)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentPricing === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
+                    }`}
+                    aria-label={`Tarif ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentPricing(prev => prev === 2 ? 0 : prev + 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Tarif suivant"
+              >
+                <ChevronRight className="text-blue-500" size={14} />
+              </button>
             </div>
           </div>
         </div>
@@ -1203,7 +1196,7 @@ const Index = () => {
       {/* Section CTA finale */}
       <section id="cta" className="py-20 bg-nova-blue-dark">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
             Prêt à commencer votre transformation ?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -1234,7 +1227,7 @@ const Index = () => {
       <section id="temoignages" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Ce que disent mes clients
             </h2>
             <div className="flex justify-center items-center gap-2 mb-4">
@@ -1312,17 +1305,8 @@ const Index = () => {
           </div>
 
           {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto">
-            {/* Bouton précédent - discret */}
-            <button
-              onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Témoignage précédent"
-            >
-              <ChevronLeft className="text-blue-500" size={14} />
-            </button>
-
-            <div className="overflow-hidden mx-10">
+          <div className="md:hidden relative max-w-lg mx-auto pb-12">
+            <div className="overflow-hidden">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                 <div className="min-w-full px-2">
                   <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
@@ -1390,27 +1374,36 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Bouton suivant - discret */}
-            <button
-              onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-              aria-label="Témoignage suivant"
-            >
-              <ChevronRight className="text-blue-500" size={14} />
-            </button>
+            {/* Navigation en bas */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+              <button
+                onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Témoignage précédent"
+              >
+                <ChevronLeft className="text-blue-500" size={14} />
+              </button>
 
-            {/* Navigation dots */}
-            <div className="flex justify-center gap-2 mt-6">
-              {[0, 1, 2, 3].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    currentTestimonial === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
-                  }`}
-                  aria-label={`Témoignage ${index + 1}`}
-                />
-              ))}
+              <div className="flex gap-1.5">
+                {[0, 1, 2, 3].map((index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentTestimonial === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
+                    }`}
+                    aria-label={`Témoignage ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
+                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+                aria-label="Témoignage suivant"
+              >
+                <ChevronRight className="text-blue-500" size={14} />
+              </button>
             </div>
           </div>
         </div>
@@ -1422,7 +1415,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
                   Contactez-moi
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
@@ -1534,7 +1527,7 @@ const Index = () => {
       {/* Section Auto-hypnose */}
       <section id="self-hypnosis" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
             L'auto-hypnose : devenez votre propre thérapeute
           </h2>
 
@@ -1619,7 +1612,7 @@ const Index = () => {
       {/* Section FAQ */}
       <section id="faq" className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-16 text-center">
             Questions fréquentes sur l'hypnothérapie
           </h2>
 
