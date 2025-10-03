@@ -1055,8 +1055,8 @@ const Index = () => {
           </div>
 
           {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto pb-12">
-            <div className="overflow-hidden">
+          <div className="md:hidden relative max-w-lg mx-auto pb-12 pt-4">
+            <div className="overflow-visible">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentPricing * 100}%)` }}>
                 {/* Séance individuelle */}
                 <div className="min-w-full px-2">
