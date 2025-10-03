@@ -68,6 +68,9 @@ const Header = () => {
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
     { name: 'À propos', href: '/#about' },
+  ];
+
+  const mainNavLinksAfter: NavLink[] = [
     { name: 'Blog', href: '/blog' },
     { name: 'Témoignages', href: '/#temoignages' },
   ];
@@ -76,7 +79,7 @@ const Header = () => {
     { name: 'Comment fonctionne l\'hypnose', href: '/#comment-fonctionne' },
     { name: 'Applications', href: '/#applications' },
     { name: 'Auto-Hypnose', href: '/#self-hypnosis' },
-    { name: 'Hypno-Balade', href: 'https://hypno-balade.novahypnose.fr', external: true },
+    { name: 'Formation Auto-hypnose', href: '/autohypnose' },
   ];
 
   const infosPratiquesLinks: NavLink[] = [
@@ -115,7 +118,7 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            
+
             {/* Pour Quoi Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
@@ -137,7 +140,20 @@ const Header = () => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            
+
+            {mainNavLinksAfter.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target={link.external ? "_blank" : ""}
+                rel={link.external ? "noopener noreferrer" : ""}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+
             {/* Infos Pratiques Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
@@ -208,7 +224,7 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              
+
               {/* Pour Quoi Mobile Section */}
               <div className="border-t border-gray-200 pt-2">
                 <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
@@ -235,7 +251,20 @@ const Header = () => {
                   ))}
                 </div>
               </div>
-              
+
+              {mainNavLinksAfter.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target={link.external ? "_blank" : ""}
+                  rel={link.external ? "noopener noreferrer" : ""}
+                  className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.name}
+                </a>
+              ))}
+
               {/* Mobile Infos Pratiques Section */}
               <div className="border-t border-gray-200 pt-2">
                 <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">

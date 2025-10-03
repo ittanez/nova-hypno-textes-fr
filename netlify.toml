@@ -70,6 +70,13 @@
   status = 301
   force = true
 
+# Redirection du sous-domaine harmonia vers la page autohypnose
+[[redirects]]
+  from = "https://harmonia.novahypnose.fr/*"
+  to = "https://novahypnose.fr/autohypnose"
+  status = 301
+  force = true
+
 # Sitemap dynamique via Supabase Edge Function
 [[redirects]]
   from = "/sitemap.xml"

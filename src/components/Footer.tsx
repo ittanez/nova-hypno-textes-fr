@@ -143,7 +143,7 @@ const Footer = () => {
               <li><a href="https://peurdelavion.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de l'avion</a></li>
               <li><a href="https://peur-de-parler-en-public.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de parler en public</a></li>
               <li><a href="https://hypnokick.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Suis-je Hypnotisable ?</a></li>
-              <li><a href="https://harmonia.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Harmonia Auto-hypnose</a></li>
+              <li><Link to="/autohypnose" className="text-gray-300 hover:text-white transition-colors">Harmonia Auto-hypnose</Link></li>
               <li><a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Hypno Balade</a></li>
             </ul>
           </div>

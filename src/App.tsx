@@ -32,6 +32,10 @@ const AdminArticles = lazy(() => import("@/pages/admin/blog/AdminArticles"));
 const AdminArticleEditor = lazy(() => import("@/pages/admin/blog/AdminArticleEditor"));
 const AdminBlogLogin = lazy(() => import("@/pages/admin/blog/AdminLogin"));
 
+// Auto-hypnose pages
+const AutohypnoseIndex = lazy(() => import("@/pages/autohypnose/Index"));
+const AutohypnoseQuiz = lazy(() => import("@/pages/autohypnose/Quiz"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -75,6 +79,10 @@ function App() {
             <Route path="/blog/article/:slug" element={<ArticlePage />} />
             <Route path="/blog/categorie/:slug" element={<CategoryPage />} />
             <Route path="/blog/categories" element={<CategoriesPage />} />
+
+            {/* Routes Auto-hypnose */}
+            <Route path="/autohypnose" element={<AutohypnoseIndex />} />
+            <Route path="/autohypnose/quiz" element={<AutohypnoseQuiz />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />
