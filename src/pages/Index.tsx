@@ -16,6 +16,8 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentApplication, setCurrentApplication] = useState(0);
+  const [currentHowItWorks, setCurrentHowItWorks] = useState(0);
+  const [currentPricing, setCurrentPricing] = useState(0);
 
   const carouselSlides = [
     {
@@ -322,10 +324,10 @@ const Index = () => {
           ))}
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 py-8 md:py-0">
+        <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">
           <div className="max-w-3xl">
             {/* Contenu texte qui change avec les slides */}
-            <div className="min-h-[200px] md:min-h-[250px] relative">
+            <div className="min-h-[140px] md:min-h-[200px] relative">
               {carouselSlides.map((slide, index) => (
                 <div
                   key={index}
@@ -333,16 +335,17 @@ const Index = () => {
                     index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                   }`}
                 >
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
                     {slide.description}
                   </p>
                 </div>
               ))}
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+            {/* Boutons masqués sur mobile */}
+            <div className="hidden md:flex flex-col sm:flex-row gap-3 mt-6">
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
@@ -362,25 +365,25 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Boutons de navigation du carrousel - plus discrets en bas */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
+        {/* Boutons de navigation du carrousel - très discrets */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
           <button
             onClick={prevSlide}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all"
+            className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
             aria-label="Slide précédent"
           >
-            <ChevronLeft className="text-white" size={20} />
+            <ChevronLeft className="text-white" size={16} />
           </button>
 
           {/* Indicateurs de pagination */}
-          <div className="flex gap-2">
+          <div className="flex gap-1.5">
             {carouselSlides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-1.5 h-1.5 rounded-full transition-all ${
                   index === currentSlide
-                    ? 'bg-white w-6'
+                    ? 'bg-white w-4'
                     : 'bg-white/50 hover:bg-white/75'
                 }`}
                 aria-label={`Aller au slide ${index + 1}`}
@@ -390,10 +393,10 @@ const Index = () => {
 
           <button
             onClick={nextSlide}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-2 rounded-full transition-all"
+            className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
             aria-label="Slide suivant"
           >
-            <ChevronRight className="text-white" size={20} />
+            <ChevronRight className="text-white" size={16} />
           </button>
         </div>
 
@@ -680,16 +683,16 @@ const Index = () => {
 
           {/* Mobile: Carousel */}
           <div className="md:hidden relative max-w-lg mx-auto">
-            {/* Bouton précédent */}
+            {/* Bouton précédent - plus discret */}
             <button
               onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Application précédente"
             >
-              <ChevronLeft className="text-blue-500" size={18} />
+              <ChevronLeft className="text-blue-500" size={14} />
             </button>
 
-            <div className="overflow-hidden mx-12">
+            <div className="overflow-hidden mx-10">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentApplication * 100}%)` }}>
                 {applications.map((app, index) => {
                   const Icon = app.icon;
@@ -708,13 +711,13 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Bouton suivant */}
+            {/* Bouton suivant - plus discret */}
             <button
               onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Application suivante"
             >
-              <ChevronRight className="text-blue-500" size={18} />
+              <ChevronRight className="text-blue-500" size={14} />
             </button>
 
             {/* Navigation dots */}
@@ -746,7 +749,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {/* Desktop: Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Brain className="text-blue-500" size={40} />
@@ -785,6 +789,90 @@ const Index = () => {
               <p className="text-gray-600">
                 Vous êtes acteur de votre changement. Le thérapeute guide, vous créez les solutions
               </p>
+            </div>
+          </div>
+
+          {/* Mobile: Carousel */}
+          <div className="md:hidden relative max-w-lg mx-auto">
+            <button
+              onClick={() => setCurrentHowItWorks(prev => prev === 0 ? 3 : prev - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              aria-label="Précédent"
+            >
+              <ChevronLeft className="text-blue-500" size={14} />
+            </button>
+
+            <div className="overflow-hidden mx-10">
+              <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentHowItWorks * 100}%)` }}>
+                <div className="min-w-full px-2">
+                  <div className="text-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Brain className="text-blue-500" size={40} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">État naturel</h3>
+                    <p className="text-gray-600">
+                      Un état de conscience modifié que vous expérimentez naturellement (rêverie, absorption dans un livre)
+                    </p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="text-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Shield className="text-blue-500" size={40} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Vous gardez le contrôle</h3>
+                    <p className="text-gray-600">
+                      Vous restez conscient et pouvez refuser toute suggestion qui ne vous convient pas
+                    </p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="text-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Lightbulb className="text-blue-500" size={40} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Accès aux ressources</h3>
+                    <p className="text-gray-600">
+                      Accédez à vos ressources inconscientes et créez de nouveaux apprentissages positifs
+                    </p>
+                  </div>
+                </div>
+
+                <div className="min-w-full px-2">
+                  <div className="text-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Users className="text-blue-500" size={40} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Collaboration active</h3>
+                    <p className="text-gray-600">
+                      Vous êtes acteur de votre changement. Le thérapeute guide, vous créez les solutions
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setCurrentHowItWorks(prev => prev === 3 ? 0 : prev + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              aria-label="Suivant"
+            >
+              <ChevronRight className="text-blue-500" size={14} />
+            </button>
+
+            <div className="flex justify-center gap-2 mt-6">
+              {[0, 1, 2, 3].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentHowItWorks(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    currentHowItWorks === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
+                  }`}
+                  aria-label={`Slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -873,7 +961,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Desktop: Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Séance individuelle */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Séance Individuelle</h3>
@@ -968,6 +1057,144 @@ const Index = () => {
               >
                 Réserver
               </a>
+            </div>
+          </div>
+
+          {/* Mobile: Carousel */}
+          <div className="md:hidden relative max-w-lg mx-auto">
+            <button
+              onClick={() => setCurrentPricing(prev => prev === 0 ? 2 : prev - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              aria-label="Tarif précédent"
+            >
+              <ChevronLeft className="text-blue-500" size={14} />
+            </button>
+
+            <div className="overflow-hidden mx-10">
+              <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentPricing * 100}%)` }}>
+                {/* Séance individuelle */}
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Séance Individuelle</h3>
+                    <div className="mb-6">
+                      <span className="text-5xl font-bold text-blue-600">90€</span>
+                      <span className="text-gray-600">/séance</span>
+                    </div>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">1h30 (première séance)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">1h (séances suivantes)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">Cabinet ou téléconsultation</span>
+                      </li>
+                    </ul>
+                    <a
+                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                    >
+                      Réserver
+                    </a>
+                  </div>
+                </div>
+
+                {/* Pack 3 séances */}
+                <div className="min-w-full px-2">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl relative">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-bold">
+                      RECOMMANDÉ
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">Pack 3 Séances</h3>
+                    <div className="mb-6">
+                      <span className="text-5xl font-bold text-white">255€</span>
+                      <span className="text-blue-100">/pack</span>
+                    </div>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
+                        <span className="text-white">85€/séance</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
+                        <span className="text-white">Suivi personnalisé</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
+                        <span className="text-white">Économisez 15€</span>
+                      </li>
+                    </ul>
+                    <a
+                      href="https://buy.stripe.com/aFacN4bfL1nZ6Za3PO4ko07"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                    >
+                      Réserver
+                    </a>
+                  </div>
+                </div>
+
+                {/* Pack 5 séances */}
+                <div className="min-w-full px-2">
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Pack 5 Séances</h3>
+                    <div className="mb-6">
+                      <span className="text-5xl font-bold text-blue-600">400€</span>
+                      <span className="text-gray-600">/pack</span>
+                    </div>
+                    <ul className="space-y-3 mb-8">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">80€/séance</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">Transformation profonde</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-gray-600">Économisez 50€</span>
+                      </li>
+                    </ul>
+                    <a
+                      href="https://buy.stripe.com/14A14mdnT7Mn1EQ1HG4ko08"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                    >
+                      Réserver
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setCurrentPricing(prev => prev === 2 ? 0 : prev + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              aria-label="Tarif suivant"
+            >
+              <ChevronRight className="text-blue-500" size={14} />
+            </button>
+
+            <div className="flex justify-center gap-2 mt-6">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPricing(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    currentPricing === index ? 'w-8 bg-blue-500' : 'w-2 bg-gray-300'
+                  }`}
+                  aria-label={`Tarif ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -1086,16 +1313,16 @@ const Index = () => {
 
           {/* Mobile: Carousel */}
           <div className="md:hidden relative max-w-lg mx-auto">
-            {/* Bouton précédent */}
+            {/* Bouton précédent - discret */}
             <button
               onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Témoignage précédent"
             >
-              <ChevronLeft className="text-blue-500" size={18} />
+              <ChevronLeft className="text-blue-500" size={14} />
             </button>
 
-            <div className="overflow-hidden mx-12">
+            <div className="overflow-hidden mx-10">
               <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                 <div className="min-w-full px-2">
                   <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
@@ -1163,13 +1390,13 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Bouton suivant */}
+            {/* Bouton suivant - discret */}
             <button
               onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 p-2 rounded-full shadow-md"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Témoignage suivant"
             >
-              <ChevronRight className="text-blue-500" size={18} />
+              <ChevronRight className="text-blue-500" size={14} />
             </button>
 
             {/* Navigation dots */}
