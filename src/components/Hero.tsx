@@ -4,11 +4,11 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="intro" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
+    <section id="intro" className="min-h-screen flex flex-col justify-center md:justify-start relative overflow-hidden">
       {/* Suppression de l'image d'arrière-plan pour améliorer les performances */}
       <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light" aria-hidden="true"></div>
       
-      <div className="container mx-auto px-4 py-24 relative z-10">
+      <div className="container mx-auto px-4 py-24 md:pt-40 md:pb-24 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Modification du H1 principal pour le SEO */}
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in speakable" data-speakable="true">
