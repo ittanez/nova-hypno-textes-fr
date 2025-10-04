@@ -318,7 +318,8 @@
 
                     <div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-3">Les causes principales</h3>
-                        <ul class="space-y-3 text-gray-700">
+                        <!-- Desktop: Liste complète -->
+                        <ul class="hidden md:flex space-y-3 text-gray-700 flex-col">
                             <li class="flex items-start">
                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -350,6 +351,62 @@
                                 <span><strong>Expérience traumatisante :</strong> Vol difficile ou turbulences importantes</span>
                             </li>
                         </ul>
+
+                        <!-- Mobile: Carrousel -->
+                        <div class="md:hidden relative">
+                            <div id="causes-carousel" class="overflow-hidden">
+                                <div class="flex transition-transform duration-300 ease-in-out" id="causes-track">
+                                    <div class="min-w-full p-4 bg-white rounded-xl border-2 border-primary">
+                                        <div class="flex items-start">
+                                            <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="text-gray-700"><strong>Perte de contrôle :</strong> Sentiment d'impuissance face à une situation non maîtrisée</span>
+                                        </div>
+                                    </div>
+                                    <div class="min-w-full p-4 bg-white rounded-xl border-2 border-primary">
+                                        <div class="flex items-start">
+                                            <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="text-gray-700"><strong>Peur du vide :</strong> Angoisse liée à la hauteur et à l'altitude</span>
+                                        </div>
+                                    </div>
+                                    <div class="min-w-full p-4 bg-white rounded-xl border-2 border-primary">
+                                        <div class="flex items-start">
+                                            <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="text-gray-700"><strong>Claustrophobie :</strong> Anxiété dans l'espace confiné de la cabine</span>
+                                        </div>
+                                    </div>
+                                    <div class="min-w-full p-4 bg-white rounded-xl border-2 border-primary">
+                                        <div class="flex items-start">
+                                            <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="text-gray-700"><strong>Médias :</strong> Surexposition aux accidents d'avion dans les actualités</span>
+                                        </div>
+                                    </div>
+                                    <div class="min-w-full p-4 bg-white rounded-xl border-2 border-primary">
+                                        <div class="flex items-start">
+                                            <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="text-gray-700"><strong>Expérience traumatisante :</strong> Vol difficile ou turbulences importantes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Navigation dots -->
+                            <div class="flex justify-center gap-2 mt-4" id="causes-dots">
+                                <button class="w-2 h-2 rounded-full bg-primary" onclick="goToCausesSlide(0)"></button>
+                                <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCausesSlide(1)"></button>
+                                <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCausesSlide(2)"></button>
+                                <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCausesSlide(3)"></button>
+                                <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCausesSlide(4)"></button>
+                            </div>
+                        </div>
                     </div>
 
                     <div>
@@ -362,13 +419,7 @@
                     </div>
                 </div>
 
-                <!-- Images illustratives -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 space-y-6">
-                    <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/peuravion/vue-depuis-un-hublot-d-avion.webp"
-                         alt="Vue apaisante depuis un hublot d'avion" class="w-full h-48 object-cover rounded-xl mb-4">
-                    <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/peuravion/avionsecurite.webp"
-                         alt="Avion moderne et sécurisé" class="w-full h-48 object-cover rounded-xl">
-                </div>
+                <!-- Note: Images removed as they don't display in production -->
             </div>
         </div>
     </section>
@@ -1038,7 +1089,8 @@
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Desktop: Grid -->
+                <div class="hidden md:grid md:grid-cols-2 gap-8 mb-12">
                     <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
                         <div class="flex items-center mb-4">
                             <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
@@ -1077,6 +1129,65 @@
                         <p class="text-gray-700 leading-relaxed">
                             Après votre premier vol, nous faisons le point ensemble lors d'une séance offerte. C'est l'occasion de renforcer vos acquis, d'ajuster si nécessaire, et de célébrer votre victoire sur la peur.
                         </p>
+                    </div>
+                </div>
+
+                <!-- Mobile: Carrousel -->
+                <div class="md:hidden relative mb-12">
+                    <div id="comment-carousel" class="overflow-hidden">
+                        <div class="flex transition-transform duration-300 ease-in-out" id="comment-track">
+                            <div class="min-w-full px-2">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
+                                        <h3 class="text-2xl font-bold text-gray-900">Identification</h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Lors de la première séance, nous explorons ensemble l'origine de votre peur : traumatisme, méconnaissance, perte de contrôle... L'hypnose permet d'accéder aux émotions profondes et de comprendre les mécanismes inconscients qui alimentent votre anxiété.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="min-w-full px-2">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
+                                        <h3 class="text-2xl font-bold text-gray-900">Désensibilisation</h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        En état d'hypnose, votre inconscient est plus réceptif au changement. Nous travaillons sur vos émotions négatives et installons de nouvelles associations positives avec le vol. Vous visualisez des voyages sereins et confortables.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="min-w-full px-2">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
+                                        <h3 class="text-2xl font-bold text-gray-900">Ancrage</h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Je vous enseigne des techniques d'auto-hypnose et d'ancrage que vous pourrez utiliser le jour J. Ces outils simples vous permettent de retrouver rapidement calme et sérénité, même dans l'avion. Vous devenez autonome.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="min-w-full px-2">
+                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
+                                        <h3 class="text-2xl font-bold text-gray-900">Consolidation</h3>
+                                    </div>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Après votre premier vol, nous faisons le point ensemble lors d'une séance offerte. C'est l'occasion de renforcer vos acquis, d'ajuster si nécessaire, et de célébrer votre victoire sur la peur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation dots -->
+                    <div class="flex justify-center gap-2 mt-4" id="comment-dots">
+                        <button class="w-2 h-2 rounded-full bg-primary" onclick="goToCommentSlide(0)"></button>
+                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(1)"></button>
+                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(2)"></button>
+                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(3)"></button>
                     </div>
                 </div>
 
@@ -1189,7 +1300,8 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Desktop: Grid -->
+            <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Aérophobie classique</h3>
                     <p class="text-sm text-gray-500 mb-3">Très fréquent parmi mes clients</p>
@@ -1284,6 +1396,125 @@
                         <li>• Gêne sociale</li>
                         <li>• Isolement anticipatoire</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Mobile: Carrousel -->
+            <div class="md:hidden relative max-w-md mx-auto">
+                <div id="peurs-carousel" class="overflow-hidden">
+                    <div class="flex transition-transform duration-300 ease-in-out" id="peurs-track">
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Aérophobie classique</h3>
+                                <p class="text-sm text-gray-500 mb-3">Très fréquent parmi mes clients</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"L'avion ? Plutôt mourir !"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Vous ressentez une angoisse diffuse dès qu'on évoque l'idée de voler. Réserver un billet vous semble insurmontable. Cette peur générale peut vous priver de voyages, de retrouvailles familiales ou d'opportunités professionnelles.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Angoisse à l'idée de voler</li>
+                                    <li>• Évitement des voyages aériens</li>
+                                    <li>• Palpitations cardiaques</li>
+                                    <li>• Sueurs froides</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Crises de panique</h3>
+                                <p class="text-sm text-gray-500 mb-3">Fréquent parmi mes clients</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"Je perds le contrôle de mon corps"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Votre corps réagit de manière disproportionnée : palpitations violentes, impression de mourir, perte de repères. Ces attaques de panique peuvent survenir des semaines avant le vol ou pendant le trajet en avion.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Crises de panique anticipatoires</li>
+                                    <li>• Sensation d'étouffement</li>
+                                    <li>• Tremblements incontrôlables</li>
+                                    <li>• Nausées et vertiges</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Claustrophobie en cabine</h3>
+                                <p class="text-sm text-gray-500 mb-3">Courant parmi mes clients</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"Je ne supporte pas d'être enfermé(e)"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Dès que les portes de l'avion se ferment, vous paniquez. Cette sensation d'enfermement réveille souvent une claustrophobie plus ancienne (ascenseurs, IRM, espaces confinés). Votre cerveau crie "SORS D'ICI !" alors que c'est impossible.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Sensation d'étouffement</li>
+                                    <li>• Besoin urgent de sortir</li>
+                                    <li>• Hyperventilation</li>
+                                    <li>• Oppression thoracique</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Perte de contrôle</h3>
+                                <p class="text-sm text-gray-500 mb-3">Régulièrement rencontré</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"Je dois TOUT maîtriser"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Impossible de déléguer votre sécurité à un pilote que vous ne connaissez pas. Vous avez besoin de maîtriser chaque aspect de votre vie, et l'avion représente l'abandon total de ce contrôle. Cette impuissance est insupportable.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Besoin obsessionnel de contrôle</li>
+                                    <li>• Angoisse de déléguer</li>
+                                    <li>• Pensées catastrophiques</li>
+                                    <li>• Hypervigilance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Phobie des turbulences</h3>
+                                <p class="text-sm text-gray-500 mb-3">Fréquemment rencontré</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"Chaque secousse = crash imminent"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Le moindre mouvement de l'avion déclenche une terreur irrationnelle. Vous guettez obsessionnellement les signes de turbulences, vous scrutez le visage des hôtesses à la recherche d'indices de danger. Votre vol est un calvaire permanent.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Terreur des secousses</li>
+                                    <li>• Surveillance obsessionnelle</li>
+                                    <li>• Crispation musculaire</li>
+                                    <li>• Anticipation anxieuse</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="min-w-full px-2">
+                            <div class="bg-gray-50 border-2 border-gray-300 p-6 rounded-xl shadow-lg">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Peur sociale aérienne</h3>
+                                <p class="text-sm text-gray-500 mb-3">Parfois rencontré</p>
+                                <p class="text-lg font-semibold text-primary mb-3">"Que vont penser les autres ?"</p>
+                                <p class="text-gray-700 mb-4 italic">
+                                    Vous craignez de paniquer devant les autres passagers, d'avoir une crise visible, d'être jugé comme "faible" ou "ridicule". Cette peur du regard des autres s'ajoute à l'angoisse du vol et peut vous pousser à l'évitement total.
+                                </p>
+                                <p class="text-sm font-semibold text-gray-800 mb-2">Symptômes caractéristiques :</p>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Peur du jugement</li>
+                                    <li>• Évitement des vols bondés</li>
+                                    <li>• Gêne sociale</li>
+                                    <li>• Isolement anticipatoire</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation dots -->
+                <div class="flex justify-center gap-2 mt-4" id="peurs-dots">
+                    <button class="w-2 h-2 rounded-full bg-primary" onclick="goToTypesPeursSlide(0)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToTypesPeursSlide(1)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToTypesPeursSlide(2)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToTypesPeursSlide(3)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToTypesPeursSlide(4)"></button>
+                    <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToTypesPeursSlide(5)"></button>
                 </div>
             </div>
         </div>
@@ -1881,6 +2112,144 @@
                         checkoutButton.disabled = false;
                         checkoutButton.textContent = 'Je réserve mon programme maintenant';
                     }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // Carousel functions
+        let causesCurrentSlide = 0;
+        let commentCurrentSlide = 0;
+        let peursCurrentSlide = 0;
+
+        function goToCausesSlide(index) {
+            causesCurrentSlide = index;
+            const track = document.getElementById('causes-track');
+            const dots = document.getElementById('causes-dots').children;
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('bg-primary');
+                dots[i].classList.add('bg-gray-300');
+            }
+            dots[index].classList.remove('bg-gray-300');
+            dots[index].classList.add('bg-primary');
+        }
+
+        function goToCommentSlide(index) {
+            commentCurrentSlide = index;
+            const track = document.getElementById('comment-track');
+            const dots = document.getElementById('comment-dots').children;
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('bg-primary');
+                dots[i].classList.add('bg-gray-300');
+            }
+            dots[index].classList.remove('bg-gray-300');
+            dots[index].classList.add('bg-primary');
+        }
+
+        function goToTypesPeursSlide(index) {
+            peursCurrentSlide = index;
+            const track = document.getElementById('peurs-track');
+            const dots = document.getElementById('peurs-dots').children;
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('bg-primary');
+                dots[i].classList.add('bg-gray-300');
+            }
+            dots[index].classList.remove('bg-gray-300');
+            dots[index].classList.add('bg-primary');
+        }
+
+        // Auto-advance carousels every 5 seconds
+        setInterval(() => {
+            const causesTrack = document.getElementById('causes-track');
+            if (causesTrack) {
+                causesCurrentSlide = (causesCurrentSlide + 1) % 5;
+                goToCausesSlide(causesCurrentSlide);
+            }
+        }, 5000);
+
+        setInterval(() => {
+            const commentTrack = document.getElementById('comment-track');
+            if (commentTrack) {
+                commentCurrentSlide = (commentCurrentSlide + 1) % 4;
+                goToCommentSlide(commentCurrentSlide);
+            }
+        }, 5000);
+
+        setInterval(() => {
+            const peursTrack = document.getElementById('peurs-track');
+            if (peursTrack) {
+                peursCurrentSlide = (peursCurrentSlide + 1) % 6;
+                goToTypesPeursSlide(peursCurrentSlide);
+            }
+        }, 5000);
+
+        // Add touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleSwipe(carouselType) {
+            const threshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > threshold) {
+                if (carouselType === 'causes') {
+                    if (diff > 0 && causesCurrentSlide < 4) {
+                        goToCausesSlide(causesCurrentSlide + 1);
+                    } else if (diff < 0 && causesCurrentSlide > 0) {
+                        goToCausesSlide(causesCurrentSlide - 1);
+                    }
+                } else if (carouselType === 'comment') {
+                    if (diff > 0 && commentCurrentSlide < 3) {
+                        goToCommentSlide(commentCurrentSlide + 1);
+                    } else if (diff < 0 && commentCurrentSlide > 0) {
+                        goToCommentSlide(commentCurrentSlide - 1);
+                    }
+                } else if (carouselType === 'peurs') {
+                    if (diff > 0 && peursCurrentSlide < 5) {
+                        goToTypesPeursSlide(peursCurrentSlide + 1);
+                    } else if (diff < 0 && peursCurrentSlide > 0) {
+                        goToTypesPeursSlide(peursCurrentSlide - 1);
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const causesCarousel = document.getElementById('causes-carousel');
+            const commentCarousel = document.getElementById('comment-carousel');
+            const peursCarousel = document.getElementById('peurs-carousel');
+
+            if (causesCarousel) {
+                causesCarousel.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+                causesCarousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe('causes');
+                });
+            }
+
+            if (commentCarousel) {
+                commentCarousel.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+                commentCarousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe('comment');
+                });
+            }
+
+            if (peursCarousel) {
+                peursCarousel.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+                peursCarousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe('peurs');
                 });
             }
         });
