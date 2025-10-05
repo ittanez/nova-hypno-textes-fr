@@ -1848,15 +1848,18 @@
                 <div class="p-4 max-w-md mx-auto">
                     <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Bravo ! Test terminé</h3>
                     <p class="text-sm text-gray-600 text-center mb-4">
-                        Saisissez votre email pour recevoir vos résultats :
+                        Saisissez vos informations pour recevoir vos résultats :
                     </p>
 
                     <div class="w-full">
+                        <input type="text" id="userFirstName" placeholder="Votre prénom"
+                               class="w-full px-3 py-2 mb-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm">
+
                         <input type="email" id="userEmail" placeholder="votre@email.com"
                                class="w-full px-3 py-2 mb-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm"
                                onkeypress="if(event.key === 'Enter') submitEmail()">
 
-                        <button type="button" onclick="submitEmail()"
+                        <button type="button" id="submitBtn" onclick="submitEmail()"
                                 class="w-full bg-primary text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-cyan-600 transition text-sm">
                             Recevoir mes résultats
                         </button>
@@ -1869,12 +1872,20 @@
             `;
         }
 
-        function submitEmail() {
+        async function submitEmail() {
             console.log('submitEmail appelé');
+
+            const firstNameInput = document.getElementById('userFirstName');
             const emailInput = document.getElementById('userEmail');
-            console.log('emailInput:', emailInput);
+            const submitBtn = document.getElementById('submitBtn');
+
+            const firstName = firstNameInput ? firstNameInput.value.trim() : '';
             const email = emailInput ? emailInput.value.trim() : '';
-            console.log('email:', email);
+
+            if (!firstName) {
+                alert('Veuillez saisir votre prénom');
+                return;
+            }
 
             if (!email) {
                 alert('Veuillez saisir votre adresse email');
@@ -1886,15 +1897,91 @@
                 return;
             }
 
-            // Store email
-            userEmail = email;
-            console.log('Email stocké, affichage des résultats...');
+            // Calculate results
+            const totalPoints = answers.reduce((sum, answerIndex, questionIndex) => {
+                return sum + questions[questionIndex].options[answerIndex].points;
+            }, 0);
 
-            // Show results
-            showResults();
+            const maxPoints = 100;
+            const percentage = Math.round((totalPoints / maxPoints) * 100);
+
+            let fearLevel, recommendations;
+            if (totalPoints <= 20) {
+                fearLevel = "Peur légère";
+                recommendations = "Quelques techniques de relaxation pourraient vous aider à être encore plus serein. Une séance d'hypnose pourrait éliminer complètement ce léger stress.";
+            } else if (totalPoints <= 40) {
+                fearLevel = "Peur modérée";
+                recommendations = "L'hypnothérapie est particulièrement efficace à ce stade. Notre programme de 3 séances pourrait vous permettre de retrouver une sérénité totale en vol.";
+            } else if (totalPoints <= 70) {
+                fearLevel = "Peur importante";
+                recommendations = "Vous êtes un excellent candidat pour notre programme Liberté Aérienne. 85% de nos clients avec ce niveau de peur retrouvent la liberté de voyager sereinement en 3-4 séances.";
+            } else {
+                fearLevel = "Peur sévère";
+                recommendations = "Ne restez pas prisonnier de cette peur ! Notre approche d'hypnose ericksonienne est spécialement conçue pour les phobies sévères. Même dans votre situation, 85% de nos clients surmontent leur peur.";
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+
+            try {
+                // Send email via Netlify Function
+                const response = await fetch('/.netlify/functions/send-test-results', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userInfo: {
+                            email: email,
+                            firstName: firstName
+                        },
+                        totalScore: totalPoints,
+                        percentage: percentage,
+                        fearLevel: fearLevel,
+                        recommendations: recommendations,
+                        answers: answers.map((answerIndex, questionIndex) => ({
+                            question: questions[questionIndex].q,
+                            answer: questions[questionIndex].options[answerIndex].text,
+                            points: questions[questionIndex].options[answerIndex].points
+                        }))
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Erreur HTTP:', response.status, errorText);
+                    throw new Error(`Erreur ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log('Email envoyé avec succès:', result);
+
+                // Store email for later use
+                userEmail = email;
+                userFirstName = firstName;
+
+                // Show results
+                showResults();
+
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi de l\'email:', error);
+
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Recevoir mes résultats';
+
+                // Show error but allow to see results anyway
+                if (confirm('Une erreur est survenue lors de l\'envoi de l\'email. Voulez-vous voir vos résultats quand même ?')) {
+                    userEmail = email;
+                    userFirstName = firstName;
+                    showResults();
+                }
+            }
         }
 
         let userEmail = '';
+        let userFirstName = '';
 
         function showResults() {
             const totalPoints = answers.reduce((sum, answerIndex, questionIndex) => {
