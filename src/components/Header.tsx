@@ -67,10 +67,10 @@ const Header = () => {
 
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
+    { name: 'À propos', href: '/#about' },
   ];
 
   const mainNavLinksAfter: NavLink[] = [
-    { name: 'À propos', href: '/#about' },
     { name: 'Témoignages', href: '/#temoignages' },
     { name: 'Blog', href: '/blog' },
   ];
