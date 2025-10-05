@@ -11,6 +11,13 @@
 [functions]
   node_bundler = "esbuild"
 
+# Configuration pour le développement local
+[dev]
+  command = "npm run dev"
+  targetPort = 8080
+  port = 9999
+  autoLaunch = false
+
 # AJOUTEZ CETTE SECTION COMPLÈTE
 [[headers]]
   for = "/assets/*"
@@ -91,8 +98,22 @@
   status = 200
   force = false
 
-# Redirection pour les SPA
+# Fichiers HTML statiques ne doivent pas être redirigés
+[[redirects]]
+  from = "/peur-avion-maquette.html"
+  to = "/peur-avion-maquette.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/mentions-legales.html"
+  to = "/mentions-legales.html"
+  status = 200
+  force = true
+
+# Redirection pour les SPA (uniquement les routes non-HTML)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
