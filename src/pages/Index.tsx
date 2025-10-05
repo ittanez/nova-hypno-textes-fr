@@ -904,64 +904,43 @@ const Index = () => {
               Déroulement d'une séance
             </h2>
 
-            <div className="space-y-6">
-              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-blue-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
-                    1
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Entretien initial</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Nous discutons de vos objectifs, de vos attentes et je vous explique le processus en détail.
-                      Vos questions sont les bienvenues.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-blue-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Induction hypnotique</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Phase de relaxation progressive pour accéder à l'état hypnotique. Vous restez conscient et en contrôle à tout moment.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-blue-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Travail thérapeutique</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Nous travaillons sur vos objectifs en mobilisant vos ressources inconscientes.
-                      Approche personnalisée selon vos besoins.
-                    </p>
+            <div className="space-y-4">
+              {[
+                { title: 'Entretien initial', content: 'Nous discutons de vos objectifs, de vos attentes et je vous explique le processus en détail. Vos questions sont les bienvenues.' },
+                { title: 'Induction hypnotique', content: 'Phase de relaxation progressive pour accéder à l\'état hypnotique. Vous restez conscient et en contrôle à tout moment.' },
+                { title: 'Travail thérapeutique', content: 'Nous travaillons sur vos objectifs en mobilisant vos ressources inconscientes. Approche personnalisée selon vos besoins.' },
+                { title: 'Retour et débriefing', content: 'Retour progressif à l\'état de veille. Nous échangeons sur votre expérience et les prochaines étapes.' }
+              ].map((step, index) => (
+                <div key={index} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <button
+                    onClick={() => {
+                      const content = document.getElementById(`seance-content-${index + 1}`);
+                      const icon = document.getElementById(`seance-icon-${index + 1}`);
+                      if (content && icon) {
+                        if (content.classList.contains('hidden')) {
+                          content.classList.remove('hidden');
+                          icon.style.transform = 'rotate(180deg)';
+                        } else {
+                          content.classList.add('hidden');
+                          icon.style.transform = 'rotate(0deg)';
+                        }
+                      }
+                    }}
+                    className="w-full text-left p-6 bg-gray-50 hover:bg-gray-100 transition flex justify-between items-center"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                        {index + 1}
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900">{step.title}</h3>
+                    </div>
+                    <ChevronDown id={`seance-icon-${index + 1}`} className="text-blue-500 transition-transform flex-shrink-0" size={24} />
+                  </button>
+                  <div id={`seance-content-${index + 1}`} className="hidden p-6 bg-white">
+                    <p className="text-gray-600 leading-relaxed">{step.content}</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-blue-500">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Retour et débriefing</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Retour progressif à l'état de veille. Nous échangeons sur votre expérience et les prochaines étapes.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
