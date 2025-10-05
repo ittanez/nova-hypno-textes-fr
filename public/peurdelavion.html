@@ -1159,105 +1159,78 @@
                     </p>
                 </div>
 
-                <!-- Desktop: Grid -->
-                <div class="hidden md:grid md:grid-cols-2 gap-8 mb-12">
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
-                            <h3 class="text-2xl font-bold text-gray-900">Identification</h3>
+                <!-- Accordéon pour toutes les tailles d'écran -->
+                <div class="space-y-4 mb-12">
+                    <!-- Étape 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button onclick="toggleTherapieStep(1)" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900">Identification</h3>
+                            </div>
+                            <svg id="therapie-icon-1" class="w-6 h-6 text-gray-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="therapie-content-1" class="hidden px-6 py-4 border-t border-gray-200">
+                            <p class="text-gray-700 leading-relaxed">
+                                Lors de la première séance, nous explorons ensemble l'origine de votre peur : traumatisme, méconnaissance, perte de contrôle... L'hypnose permet d'accéder aux émotions profondes et de comprendre les mécanismes inconscients qui alimentent votre anxiété.
+                            </p>
                         </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            Lors de la première séance, nous explorons ensemble l'origine de votre peur : traumatisme, méconnaissance, perte de contrôle... L'hypnose permet d'accéder aux émotions profondes et de comprendre les mécanismes inconscients qui alimentent votre anxiété.
-                        </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
-                            <h3 class="text-2xl font-bold text-gray-900">Désensibilisation</h3>
+                    <!-- Étape 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button onclick="toggleTherapieStep(2)" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900">Désensibilisation</h3>
+                            </div>
+                            <svg id="therapie-icon-2" class="w-6 h-6 text-gray-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="therapie-content-2" class="hidden px-6 py-4 border-t border-gray-200">
+                            <p class="text-gray-700 leading-relaxed">
+                                En état d'hypnose, votre inconscient est plus réceptif au changement. Nous travaillons sur vos émotions négatives et installons de nouvelles associations positives avec le vol. Vous visualisez des voyages sereins et confortables.
+                            </p>
                         </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            En état d'hypnose, votre inconscient est plus réceptif au changement. Nous travaillons sur vos émotions négatives et installons de nouvelles associations positives avec le vol. Vous visualisez des voyages sereins et confortables.
-                        </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
-                            <h3 class="text-2xl font-bold text-gray-900">Ancrage</h3>
+                    <!-- Étape 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button onclick="toggleTherapieStep(3)" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900">Ancrage</h3>
+                            </div>
+                            <svg id="therapie-icon-3" class="w-6 h-6 text-gray-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="therapie-content-3" class="hidden px-6 py-4 border-t border-gray-200">
+                            <p class="text-gray-700 leading-relaxed">
+                                Je vous enseigne des techniques d'auto-hypnose et d'ancrage que vous pourrez utiliser le jour J. Ces outils simples vous permettent de retrouver rapidement calme et sérénité, même dans l'avion. Vous devenez autonome.
+                            </p>
                         </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            Je vous enseigne des techniques d'auto-hypnose et d'ancrage que vous pourrez utiliser le jour J. Ces outils simples vous permettent de retrouver rapidement calme et sérénité, même dans l'avion. Vous devenez autonome.
-                        </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
-                            <h3 class="text-2xl font-bold text-gray-900">Consolidation</h3>
+                    <!-- Étape 4 -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                        <button onclick="toggleTherapieStep(4)" class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-900">Consolidation</h3>
+                            </div>
+                            <svg id="therapie-icon-4" class="w-6 h-6 text-gray-600 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="therapie-content-4" class="hidden px-6 py-4 border-t border-gray-200">
+                            <p class="text-gray-700 leading-relaxed">
+                                Après votre premier vol, nous faisons le point ensemble lors d'une séance offerte. C'est l'occasion de renforcer vos acquis, d'ajuster si nécessaire, et de célébrer votre victoire sur la peur.
+                            </p>
                         </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            Après votre premier vol, nous faisons le point ensemble lors d'une séance offerte. C'est l'occasion de renforcer vos acquis, d'ajuster si nécessaire, et de célébrer votre victoire sur la peur.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Mobile: Carrousel -->
-                <div class="md:hidden relative mb-12">
-                    <div id="comment-carousel" class="overflow-hidden">
-                        <div class="flex transition-transform duration-300 ease-in-out" id="comment-track">
-                            <div class="w-full flex-shrink-0 px-4">
-                                <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-primary">
-                                    <div class="flex items-center mb-4">
-                                        <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
-                                        <h3 class="text-2xl font-bold text-gray-900">Identification</h3>
-                                    </div>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        Lors de la première séance, nous explorons ensemble l'origine de votre peur : traumatisme, méconnaissance, perte de contrôle... L'hypnose permet d'accéder aux émotions profondes et de comprendre les mécanismes inconscients qui alimentent votre anxiété.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="min-w-full flex-shrink-0">
-                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
-                                    <div class="flex items-center mb-4">
-                                        <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
-                                        <h3 class="text-2xl font-bold text-gray-900">Désensibilisation</h3>
-                                    </div>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        En état d'hypnose, votre inconscient est plus réceptif au changement. Nous travaillons sur vos émotions négatives et installons de nouvelles associations positives avec le vol. Vous visualisez des voyages sereins et confortables.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="min-w-full flex-shrink-0">
-                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
-                                    <div class="flex items-center mb-4">
-                                        <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
-                                        <h3 class="text-2xl font-bold text-gray-900">Ancrage</h3>
-                                    </div>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        Je vous enseigne des techniques d'auto-hypnose et d'ancrage que vous pourrez utiliser le jour J. Ces outils simples vous permettent de retrouver rapidement calme et sérénité, même dans l'avion. Vous devenez autonome.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="min-w-full flex-shrink-0">
-                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-secondary">
-                                    <div class="flex items-center mb-4">
-                                        <div class="bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
-                                        <h3 class="text-2xl font-bold text-gray-900">Consolidation</h3>
-                                    </div>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        Après votre premier vol, nous faisons le point ensemble lors d'une séance offerte. C'est l'occasion de renforcer vos acquis, d'ajuster si nécessaire, et de célébrer votre victoire sur la peur.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Navigation dots -->
-                    <div class="flex justify-center gap-2 mt-4" id="comment-dots">
-                        <button class="w-2 h-2 rounded-full bg-primary" onclick="goToCommentSlide(0)"></button>
-                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(1)"></button>
-                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(2)"></button>
-                        <button class="w-2 h-2 rounded-full bg-gray-300" onclick="goToCommentSlide(3)"></button>
                     </div>
                 </div>
 
@@ -2663,19 +2636,17 @@
             dots[index].classList.add('bg-primary');
         }
 
-        function goToCommentSlide(index) {
-            commentCurrentSlide = index;
-            const track = document.getElementById('comment-track');
-            const dots = document.getElementById('comment-dots').children;
+        function toggleTherapieStep(index) {
+            const content = document.getElementById(`therapie-content-${index}`);
+            const icon = document.getElementById(`therapie-icon-${index}`);
 
-            track.style.transform = `translateX(-${index * 100}%)`;
-
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('bg-primary');
-                dots[i].classList.add('bg-gray-300');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
             }
-            dots[index].classList.remove('bg-gray-300');
-            dots[index].classList.add('bg-primary');
         }
 
         function goToTypesPeursSlide(index) {
