@@ -22,7 +22,7 @@ const Index = () => {
   const carouselSlides = [
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
-      title: 'Transformez votre vie avec l\'hypnose',
+      title: 'TRANSFORMEZ VOTRE VIE AVEC L\'HYPNOSE',
       description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
     },
     {
