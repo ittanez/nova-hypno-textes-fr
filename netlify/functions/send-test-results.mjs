@@ -207,7 +207,7 @@ export const handler = async (event, context) => {
 
     // Send email
     const { data: emailResult, error: emailError } = await resend.emails.send({
-      from: process.env.FROM_EMAIL || 'NovaHypnose <contact@novahypnose.fr>',
+      from: process.env.FROM_EMAIL || 'NovaHypnose <contact@updates.novahypnose.fr>',
       to: [userInfo.email],
       subject: `${userInfo.firstName}, vos résultats du quiz peur de l'avion`,
       html: emailContent,
@@ -227,7 +227,7 @@ export const handler = async (event, context) => {
     // Send notification to admin
     try {
       await resend.emails.send({
-        from: process.env.FROM_EMAIL || 'NovaHypnose <contact@novahypnose.fr>',
+        from: process.env.FROM_EMAIL || 'NovaHypnose <contact@updates.novahypnose.fr>',
         to: ['contact@novahypnose.fr'],
         subject: `Nouveau quiz peur avion - ${fearLevel}`,
         html: `
