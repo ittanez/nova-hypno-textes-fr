@@ -353,11 +353,11 @@
                         </ul>
 
                         <!-- Mobile: Carrousel -->
-                        <div class="md:hidden relative px-4">
+                        <div class="md:hidden relative">
                             <div id="causes-carousel" class="overflow-hidden">
                                 <div class="flex transition-transform duration-300 ease-in-out" id="causes-track">
-                                    <div class="min-w-full flex-shrink-0">
-                                        <div class="p-4 bg-white rounded-xl border-2 border-primary">
+                                    <div class="w-full flex-shrink-0 px-4">
+                                        <div class="p-3 bg-white rounded-xl border-2 border-primary">
                                             <div class="flex items-start">
                                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -366,8 +366,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="min-w-full flex-shrink-0">
-                                        <div class="p-4 bg-white rounded-xl border-2 border-primary">
+                                    <div class="w-full flex-shrink-0 px-4">
+                                        <div class="p-3 bg-white rounded-xl border-2 border-primary">
                                             <div class="flex items-start">
                                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -376,8 +376,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="min-w-full flex-shrink-0">
-                                        <div class="p-4 bg-white rounded-xl border-2 border-primary">
+                                    <div class="w-full flex-shrink-0 px-4">
+                                        <div class="p-3 bg-white rounded-xl border-2 border-primary">
                                             <div class="flex items-start">
                                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -386,8 +386,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="min-w-full flex-shrink-0">
-                                        <div class="p-4 bg-white rounded-xl border-2 border-primary">
+                                    <div class="w-full flex-shrink-0 px-4">
+                                        <div class="p-3 bg-white rounded-xl border-2 border-primary">
                                             <div class="flex items-start">
                                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -396,8 +396,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="min-w-full flex-shrink-0">
-                                        <div class="p-4 bg-white rounded-xl border-2 border-primary">
+                                    <div class="w-full flex-shrink-0 px-4">
+                                        <div class="p-3 bg-white rounded-xl border-2 border-primary">
                                             <div class="flex items-start">
                                                 <svg class="w-6 h-6 text-primary mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -1152,11 +1152,11 @@
                 </div>
 
                 <!-- Mobile: Carrousel -->
-                <div class="md:hidden relative mb-12 px-4">
+                <div class="md:hidden relative mb-12">
                     <div id="comment-carousel" class="overflow-hidden">
                         <div class="flex transition-transform duration-300 ease-in-out" id="comment-track">
-                            <div class="min-w-full flex-shrink-0">
-                                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-primary">
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-primary">
                                     <div class="flex items-center mb-4">
                                         <div class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
                                         <h3 class="text-2xl font-bold text-gray-900">Identification</h3>
@@ -2096,9 +2096,14 @@
         function restartQuiz() {
             currentQuestion = 0;
             answers = [];
+            // Hide results, show quiz
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
             // Show progress bar again
             document.getElementById('progress').parentElement.style.display = 'block';
             displayQuestion();
+            // Scroll to quiz
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
         }
 
         // Initialiser le quiz quand on clique sur "Commencer le test"
