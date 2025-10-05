@@ -19,7 +19,7 @@ import {
 import RelatedArticles from "@/components/blog/RelatedArticles";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
-import { getArticleBySlug, getAllArticlesNoPagination } from "@/lib/services/blog/articleService";
+import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import { Article } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 
@@ -77,6 +77,7 @@ const ArticlePage = () => {
   const { isAdmin } = useAuth();
   const [article, setArticle] = useState<Article | null>(null);
   const [allArticles, setAllArticles] = useState<Article[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
@@ -86,18 +87,25 @@ const ArticlePage = () => {
       try {
         setIsLoading(true);
 
-        // Charger l'article actuel
-        const articleResult = await getArticleBySlug(slug!);
+        // Charger l'article actuel, tous les articles et les catégories en parallèle
+        const [articleResult, allResult, categoriesResult] = await Promise.all([
+          getArticleBySlug(slug!),
+          getAllArticlesNoPagination(),
+          getAllCategories()
+        ]);
+
         if (articleResult.data) {
           setArticle(articleResult.data);
         } else {
           setError("Article non trouvé");
         }
 
-        // Charger tous les articles pour la navigation
-        const allResult = await getAllArticlesNoPagination();
         if (allResult.data) {
           setAllArticles(allResult.data.filter(a => a.published));
+        }
+
+        if (categoriesResult.data) {
+          setCategories(categoriesResult.data);
         }
       } catch (err) {
         console.error("Erreur lors du chargement:", err);
@@ -264,9 +272,16 @@ const ArticlePage = () => {
           <Breadcrumb
             items={[
               { label: 'Blog', href: '/blog' },
-              article.categories?.[0]
-                ? { label: article.categories[0], href: `/blog?category=${encodeURIComponent(article.categories[0])}` }
-                : { label: 'Articles', href: '/blog' },
+              (() => {
+                if (article.categories?.[0]) {
+                  const categoryName = article.categories[0];
+                  const category = categories.find(c => c.name === categoryName);
+                  return category
+                    ? { label: categoryName, href: `/blog/categorie/${category.slug}` }
+                    : { label: categoryName, href: '/blog' };
+                }
+                return { label: 'Articles', href: '/blog' };
+              })(),
               { label: article.title }
             ]}
           />

@@ -18,7 +18,7 @@ const sortOptions = [
 ];
 
 const CategoryPage = () => {
-  const { categoryId } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<string>("newest");
   const [articles, setArticles] = useState<Article[]>([]);
@@ -45,8 +45,8 @@ const CategoryPage = () => {
     fetchData();
   }, []);
 
-  // Find the category
-  const category = categories.find(cat => cat.id === categoryId);
+  // Find the category by slug
+  const category = categories.find(cat => cat.slug === slug);
   
   // Filter articles by category
   const filteredArticles = articles.filter(article => 
@@ -89,7 +89,7 @@ const CategoryPage = () => {
     "@type": "CollectionPage",
     "name": category.name,
     "description": category.description,
-    "url": `https://novahypnose.fr/blog/category/${categoryId}`,
+    "url": `https://novahypnose.fr/blog/categorie/${slug}`,
     "mainEntity": {
       "@type": "ItemList",
       "itemListElement": sortedArticles.map((article, index) => ({
@@ -120,7 +120,7 @@ const CategoryPage = () => {
         "@type": "ListItem",
         "position": 3,
         "name": category.name,
-        "item": `https://novahypnose.fr/blog/category/${categoryId}`
+        "item": `https://novahypnose.fr/blog/categorie/${slug}`
       }
     ]
   };

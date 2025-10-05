@@ -1,17 +1,27 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Search, Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft, Search, Phone, Mail, Calendar, Home } from 'lucide-react';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 
 const Custom404 = () => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
   // SEO pour la page 404
   useSeoMetadata({
     title: "Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4",
     description: "Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies.",
     canonicalUrl: 'https://novahypnose.fr/404'
   });
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/blog?search=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <ContentLayout>
@@ -36,48 +46,73 @@ const Custom404 = () => {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="font-serif text-xl text-nova-blue-dark mb-3">Pages principales</h3>
               <ul className="space-y-2">
-                <li><Link to="/" className="text-nova-blue hover:underline flex items-center"><ArrowLeft className="w-4 h-4 mr-2" /> Accueil</Link></li>
-                <li><Link to="/#applications" className="text-nova-blue hover:underline">Services d'hypnothérapie</Link></li>
-                <li><Link to="/#pricing" className="text-nova-blue hover:underline">Nos tarifs</Link></li>
-                <li><Link to="/#contact" className="text-nova-blue hover:underline">Nous contacter</Link></li>
+                <li><Link to="/" className="text-nova-blue hover:underline flex items-center"><Home className="w-4 h-4 mr-2" /> Accueil</Link></li>
+                <li><a href="/#about" className="text-nova-blue hover:underline">À propos</a></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Services d'hypnothérapie</a></li>
+                <li><a href="/#pricing" className="text-nova-blue hover:underline">Nos tarifs</a></li>
+                <li><a href="/#contact" className="text-nova-blue hover:underline">Nous contacter</a></li>
+                <li><Link to="/blog" className="text-nova-blue hover:underline">Blog</Link></li>
+                <li><Link to="/autohypnose" className="text-nova-blue hover:underline">Auto-hypnose</Link></li>
               </ul>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="font-serif text-xl text-nova-blue-dark mb-3">Problèmes traités</h3>
               <ul className="space-y-2">
-                <li><Link to="/#applications" className="text-nova-blue hover:underline">Stress et anxiété</Link></li>
-                <li><Link to="/#applications" className="text-nova-blue hover:underline">Troubles du sommeil</Link></li>
-                <li><Link to="/#applications" className="text-nova-blue hover:underline">Phobies</Link></li>
-                <li><Link to="/#applications" className="text-nova-blue hover:underline">Confiance en soi</Link></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Stress et anxiété</a></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Troubles du sommeil</a></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Phobies</a></li>
+                <li><a href="/peurdelavion.html" className="text-nova-blue hover:underline">Peur de l'avion</a></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Confiance en soi</a></li>
+                <li><a href="/#applications" className="text-nova-blue hover:underline">Gestion du poids</a></li>
               </ul>
             </div>
           </div>
           
           <div className="mb-8">
-            <div className="flex justify-center items-center gap-2">
+            <form onSubmit={handleSearch} className="flex justify-center items-center gap-2">
               <div className="relative flex items-center max-w-md w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                <input 
-                  type="text" 
-                  placeholder="Rechercher sur le site..." 
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Rechercher sur le site..."
                   className="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-nova-blue"
                 />
-                <button className="bg-nova-blue hover:bg-nova-blue-dark text-white px-6 py-3 rounded-r-lg transition-colors">
+                <button type="submit" className="bg-nova-blue hover:bg-nova-blue-dark text-white px-6 py-3 rounded-r-lg transition-colors">
                   Rechercher
                 </button>
               </div>
-            </div>
+            </form>
           </div>
           
-          <div className="text-center">
-            <p className="text-lg mb-4">Besoin d'aide ou d'un rendez-vous ?</p>
-            <a 
-              href="tel:+33649358089" 
-              className="inline-flex items-center bg-nova-green hover:bg-nova-green-dark text-white px-6 py-3 rounded-full transition-colors shadow-md font-medium text-lg"
+          <div className="text-center bg-nova-blue text-white p-8 rounded-lg">
+            <p className="text-xl mb-4 font-semibold">Besoin d'aide ou d'un rendez-vous ?</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+              <a
+                href="tel:0649358089"
+                className="inline-flex items-center hover:text-gray-200 transition-colors text-lg"
+              >
+                <Phone className="mr-2" size={20} />
+                06 49 35 80 89
+              </a>
+              <a
+                href="mailto:contact@novahypnose.fr"
+                className="inline-flex items-center hover:text-gray-200 transition-colors"
+              >
+                <Mail className="mr-2" size={18} />
+                contact@novahypnose.fr
+              </a>
+            </div>
+            <a
+              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-white text-nova-blue px-6 py-3 rounded-full hover:bg-gray-100 transition-colors shadow-md font-semibold"
             >
-              <Phone className="mr-2" size={20} />
-              06 49 35 80 89
+              <Calendar className="mr-2" size={20} />
+              Prendre rendez-vous
             </a>
           </div>
           
