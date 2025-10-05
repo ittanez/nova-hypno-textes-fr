@@ -1,0 +1,464 @@
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type'
+};
+serve(async (req)=>{
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', {
+      headers: corsHeaders
+    });
+  }
+  try {
+    const { questionnaireId, email, formData, bilan } = await req.json();
+    // Debug logging
+    console.log('Email function called with:', {
+      questionnaireId,
+      email,
+      hasFormData: !!formData,
+      formDataKeys: formData ? Object.keys(formData) : [],
+      hasBilan: !!bilan
+    });
+    // Créer le client Supabase admin
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // Récupérer les détails du questionnaire
+    const { data: questionnaire, error: fetchError } = await supabase.from('questionnaire_avion_pre_accompagnement').select('*').eq('id', questionnaireId).single();
+    if (fetchError) {
+      throw new Error(`Erreur récupération questionnaire: ${fetchError.message}`);
+    }
+    // Préparer le contenu de l'email
+    const emailSubject = `Nouveau Questionnaire Peur de l'Avion - ${formData.prenom} ${formData.nom}`;
+    // Analyse automatique des réponses pour le récapitulatif praticien
+    const analyseAutomatique = (data)=>{
+      const profils = [];
+      const techniques = [];
+      let pronostic = '';
+      let nbSeances = '';
+      // Analyse du profil principal
+      if (data.traumatisme_direct?.length > 0) {
+        profils.push('Traumatisme Direct (vol difficile vécu)');
+      }
+      if (data.traumatisme_indirect?.length > 0) {
+        profils.push('Traumatisme Indirect (médias, récits)');
+      }
+      if (data.peur_transmise?.length > 0) {
+        profils.push('Peur Transmise (famille, entourage)');
+      }
+      if (data.peur_progressive?.length > 0) {
+        profils.push('Peur Progressive (développement graduel)');
+      }
+      if (data.aspects_physiques?.includes('Claustrophobie (espace confiné)')) {
+        profils.push('Claustrophobie Associée (espace confiné)');
+      }
+      if (data.aspects_physiques?.includes('Vertige/peur du vide')) {
+        profils.push('Peur du Vide/Hauteur (acrophobie)');
+      }
+      if (data.aspects_psychologiques?.includes('Perte de contrôle')) {
+        profils.push('Peur de Perte de Contrôle (besoin maîtrise)');
+      }
+      if (data.troubles_anxieux?.includes('Anxiété généralisée') || data.niveau_stress_general >= 7) {
+        profils.push('Anxiété Généralisée (anxiété globale)');
+      }
+      // Techniques recommandées basées sur l'analyse
+      if (data.receptivite_hypnose === 'Très réceptif' || data.pratique_hypnose?.includes('hypnose')) {
+        techniques.push('Technique Ernest Rossi (accord inconscient)');
+      }
+      if (profils.some((p)=>p.includes('Traumatisme'))) {
+        techniques.push('EMDR adapté');
+      }
+      if (data.aspects_psychologiques?.includes('Anticipation catastrophique')) {
+        techniques.push('Recadrage cognitif spécifique');
+      }
+      if (data.peur_decollage > 7 || data.peur_turbulences > 7) {
+        techniques.push('Technique "Mille-feuille" (confrontation progressive)');
+      }
+      techniques.push('Libération croyances négatives'); // Toujours utile
+      techniques.push('Dissociation/Futurisation'); // Technique de base
+      // Pronostic basé sur motivation, croyance et complexité
+      const motivation = data.motivation_niveau || 0;
+      const croyance = data.croyance_changement || 0;
+      const complexite = profils.length + (data.autres_phobies?.length || 0);
+      if (motivation >= 8 && croyance >= 8 && complexite <= 2) {
+        pronostic = 'Excellent (transformation rapide attendue)';
+        nbSeances = '2-3 séances';
+      } else if (motivation >= 6 && croyance >= 6 && complexite <= 4) {
+        pronostic = 'Bon (évolution favorable prévue)';
+        nbSeances = '3-4 séances';
+      } else if (motivation >= 4 && complexite <= 6) {
+        pronostic = 'Modéré (travail approfondi nécessaire)';
+        nbSeances = '3-4 séances';
+      } else {
+        pronostic = 'Complexe (approche spécialisée requise)';
+        nbSeances = '4+ séances (cas complexe)';
+      }
+      // Axes thérapeutiques basés sur l'analyse
+      const axes = [];
+      if (profils.includes('Traumatisme Direct')) {
+        axes.push('Traitement du traumatisme en priorité');
+      }
+      if (data.aspects_psychologiques?.includes('Perte de contrôle')) {
+        axes.push('Restitution du sentiment de contrôle et sécurité');
+      }
+      if (data.intensite_symptomes === 'intenses') {
+        axes.push('Gestion des symptômes physiques et régulation émotionnelle');
+      }
+      if (!axes.length) {
+        axes.push('Désensibilisation progressive et renforcement de la confiance');
+      }
+      return {
+        profils,
+        techniques,
+        pronostic,
+        nbSeances,
+        axes
+      };
+    };
+    const analyse = analyseAutomatique(formData);
+    console.log('Analyse automatique:', analyse);
+    const emailHtml = `
+      <html>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px;">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 30px;">
+            <h1 style="margin: 0; font-size: 28px;">📋 Questionnaire Peur de l'Avion</h1>
+            <p style="margin: 10px 0 0 0; font-size: 18px;">Évaluation Complète de la Peur de l'Avion</p>
+            <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.9;">NovaHypnose - ${new Date().toLocaleDateString('fr-FR')}</p>
+          </div>
+
+          <div style="background: #f8f9ff; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h2 style="color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">👤 INFORMATIONS DU PATIENT</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+              <p><strong>Nom :</strong> ${formData.nom || 'Non renseigné'}</p>
+              <p><strong>Prénom :</strong> ${formData.prenom || 'Non renseigné'}</p>
+              <p><strong>Âge :</strong> ${formData.age || 'Non renseigné'}</p>
+              <p><strong>Profession :</strong> ${formData.profession || 'Non renseignée'}</p>
+              <p><strong>Email :</strong> ${formData.email}</p>
+              <p><strong>Téléphone :</strong> ${formData.telephone || 'Non renseigné'}</p>
+            </div>
+          </div>
+
+          <div style="background: #fff5f5; border-left: 4px solid #ef4444; padding: 20px; margin-bottom: 30px;">
+            <h2 style="color: #dc2626; margin-top: 0;">🎯 BILAN AUTOMATIQUE GÉNÉRÉ</h2>
+            
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #7c2d12;">PROFIL PRINCIPAL IDENTIFIÉ :</h3>
+              <p style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #fed7d7;">
+                ${bilan.profil_principal || 'À analyser manuellement'}
+              </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #7c2d12;">TECHNIQUES RECOMMANDÉES :</h3>
+              <ul style="background: white; padding: 15px; border-radius: 5px; border: 1px solid #fed7d7;">
+                ${bilan.techniques_recommandees?.map((tech)=>`<li>${tech}</li>`).join('') || '<li>À déterminer selon analyse approfondie</li>'}
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #7c2d12;">PRONOSTIC :</h3>
+              <p style="background: white; padding: 10px; border-radius: 5px; border: 1px solid #fed7d7; font-weight: bold;">
+                ${bilan.pronostic || 'À évaluer'}
+              </p>
+            </div>
+          </div>
+
+          <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h2 style="color: #0369a1; border-bottom: 2px solid #0369a1; padding-bottom: 10px;">📊 ÉVALUATION DE LA PEUR</h2>
+            <p style="margin-bottom: 15px;"><strong>Niveau de motivation :</strong> ${formData.motivation_niveau || 'Non renseigné'}/10</p>
+            
+            <h3 style="color: #0369a1;">Niveaux d'anxiété par situation (0-10) :</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+              <p>Réserver un billet : ${formData.peur_reserver || 0}/10</p>
+              <p>Voir un avion (photo) : ${formData.peur_voir_photo || 0}/10</p>
+              <p>Voir un avion réel : ${formData.peur_voir_reel || 0}/10</p>
+              <p>Aller à l'aéroport : ${formData.peur_aeroport || 0}/10</p>
+              <p>Entendre "avion" : ${formData.peur_mot_avion || 0}/10</p>
+              <p>Embarquer : ${formData.peur_embarquer || 0}/10</p>
+              <p>Fermeture portes : ${formData.peur_fermeture_portes || 0}/10</p>
+              <p>Roulage : ${formData.peur_roulage || 0}/10</p>
+              <p>Décollage : ${formData.peur_decollage || 0}/10</p>
+              <p>Vol en altitude : ${formData.peur_altitude || 0}/10</p>
+              <p>Turbulences : ${formData.peur_turbulences || 0}/10</p>
+              <p>Atterrissage : ${formData.peur_atterrissage || 0}/10</p>
+            </div>
+          </div>
+
+          <div style="background: #f8f4ff; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h2 style="color: #7c3aed; border-bottom: 2px solid #7c3aed; padding-bottom: 10px;">📝 RÉPONSES COMPLÈTES AU QUESTIONNAIRE</h2>
+            
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">🎯 OBJECTIF ET MOTIVATION</h3>
+              <p><strong>Destination de rêve :</strong> ${formData.destination_reve || '<span style="color: #dc2626;">❌ Non renseignée</span>'}</p>
+              <p><strong>Objectifs principaux :</strong> ${formData.objectif_principal?.length ? formData.objectif_principal.join(', ') : '<span style="color: #dc2626;">❌ Non renseignés</span>'}</p>
+              <p><strong>Voyage prévu :</strong> ${formData.voyage_prevu !== null ? formData.voyage_prevu ? 'Oui' : 'Non' : '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+              <p><strong>Date/période :</strong> ${formData.voyage_date || '<span style="color: #dc2626;">❌ Non renseignée</span>'}</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">🔍 ORIGINE DE LA PEUR</h3>
+              <p><strong>Première fois ressenti :</strong> ${formData.premiere_peur || '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+              <p><strong>Contexte précis :</strong> ${formData.contexte_precise || '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+              
+              <p><strong>Traumatismes directs :</strong></p>
+              ${formData.traumatisme_direct?.length ? `
+                <ul style="margin-left: 20px;">${formData.traumatisme_direct.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Traumatismes indirects :</strong></p>
+              ${formData.traumatisme_indirect?.length ? `
+                <ul style="margin-left: 20px;">${formData.traumatisme_indirect.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Peur transmise :</strong></p>
+              ${formData.peur_transmise?.length ? `
+                <ul style="margin-left: 20px;">${formData.peur_transmise.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Peur progressive :</strong></p>
+              ${formData.peur_progressive?.length ? `
+                <ul style="margin-left: 20px;">${formData.peur_progressive.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">🎯 NATURE DE LA PEUR</h3>
+              
+              <p><strong>Aspects techniques/sécurité :</strong></p>
+              ${formData.aspects_techniques?.length ? `
+                <ul style="margin-left: 20px;">${formData.aspects_techniques.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Aspects physiques/sensoriels :</strong></p>
+              ${formData.aspects_physiques?.length ? `
+                <ul style="margin-left: 20px;">${formData.aspects_physiques.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Aspects psychologiques :</strong></p>
+              ${formData.aspects_psychologiques?.length ? `
+                <ul style="margin-left: 20px;">${formData.aspects_psychologiques.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Aspect qui fait le PLUS peur :</strong> ${formData.aspect_plus_peur || '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">🧠 MANIFESTATIONS DE LA PEUR</h3>
+              
+              <p><strong>Symptômes physiques :</strong></p>
+              ${formData.symptomes_physiques?.length ? `
+                <ul style="margin-left: 20px;">${formData.symptomes_physiques.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucun sélectionné</span>'}
+              
+              <p><strong>Intensité des symptômes :</strong> ${formData.intensite_symptomes || '<span style="color: #dc2626;">❌ Non renseignée</span>'}</p>
+              
+              <p><strong>Pensées automatiques :</strong></p>
+              ${formData.pensees_automatiques?.length ? `
+                <ul style="margin-left: 20px;">${formData.pensees_automatiques.map((item)=>`<li>${item}</li>`).join('')}</ul>
+              ` : '<span style="color: #dc2626; margin-left: 20px;">❌ Aucune sélectionnée</span>'}
+              
+              <p><strong>Autres pensées :</strong> ${formData.autres_pensees || '<span style="color: #dc2626;">❌ Non renseignées</span>'}</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">🚗 HISTORIQUE VOYAGES AÉRIENS</h3>
+              <p><strong>Déjà pris l'avion :</strong> ${formData.deja_pris_avion !== null ? formData.deja_pris_avion ? 'Oui' : 'Non' : '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+              
+              ${formData.deja_pris_avion ? `
+                <p><strong>Nombre de vols :</strong> ${formData.nombre_vols || '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+                <p><strong>Dernier vol :</strong> ${formData.dernier_vol || '<span style="color: #dc2626;">❌ Non renseigné</span>'}</p>
+                <p><strong>Expérience globale :</strong> ${formData.experience_globale || '<span style="color: #dc2626;">❌ Non renseignée</span>'}</p>
+              ` : '<p style="margin-left: 20px; color: #6b7280; font-style: italic;">Détails non applicables (jamais pris l\'avion)</p>'}
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #5b21b6; margin-bottom: 10px;">✍️ INFORMATIONS SUPPLÉMENTAIRES</h3>
+              ${formData.informations_supplementaires ? `
+                <div style="background: white; padding: 15px; border-radius: 5px; border: 1px solid #e5e7eb;">
+                  <p style="white-space: pre-wrap; margin: 0;">${formData.informations_supplementaires}</p>
+                </div>
+              ` : '<span style="color: #dc2626;">❌ Aucune information supplémentaire fournie</span>'}
+            </div>
+          </div>
+
+          <div style="background: #fefce8; border: 1px solid #eab308; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h2 style="color: #a16207;">⚡ ACTIONS À PRENDRE</h2>
+            <ol style="color: #713f12;">
+              <li><strong>Contacter le patient</strong> dans les 24h pour programmer un entretien</li>
+              <li><strong>Réviser</strong> le questionnaire complet en détail</li>
+              <li><strong>Valider</strong> le bilan automatique et l'adapter si nécessaire</li>
+              <li><strong>Préparer</strong> la stratégie thérapeutique personnalisée</li>
+            </ol>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 20px; border-radius: 10px; border: 1px solid #cbd5e1;">
+            <h2 style="color: #475569;">📋 ACCÈS AU QUESTIONNAIRE COMPLET</h2>
+            <p>ID du questionnaire : <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 3px;">${questionnaireId}</code></p>
+            <p>Date de soumission : ${new Date().toLocaleDateString('fr-FR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })}</p>
+            <p style="margin-top: 15px; font-size: 14px; color: #64748b;">
+              Le questionnaire complet avec toutes les réponses détaillées est disponible dans votre base de données Supabase.
+            </p>
+          </div>
+
+          <div style="background: #f1f5f9; border: 2px solid #475569; padding: 25px; border-radius: 10px; margin-bottom: 30px;">
+            <h2 style="color: #1e293b; text-align: center; margin-bottom: 20px; font-size: 20px; text-transform: uppercase;">
+              📋 RÉCAPITULATIF PRATICIEN (analyse IA automatique)
+            </h2>
+            
+            <div style="margin-bottom: 25px;">
+              <h3 style="color: #1e293b; margin-bottom: 12px; font-size: 16px;">🎯 PROFIL PRINCIPAL IDENTIFIÉ :</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-left: 15px;">
+                ${[
+      'Traumatisme Direct (vol difficile vécu)',
+      'Traumatisme Indirect (médias, récits)',
+      'Peur Transmise (famille, entourage)',
+      'Peur Progressive (développement graduel)',
+      'Claustrophobie Associée (espace confiné)',
+      'Peur du Vide/Hauteur (acrophobie)',
+      'Peur de Perte de Contrôle (besoin maîtrise)',
+      'Anxiété Généralisée (anxiété globale)'
+    ].map((profil)=>`
+                  <label style="display: flex; align-items: center; font-size: 14px; ${analyse.profils.includes(profil) ? 'background: #dcfce7; padding: 4px; border-radius: 4px; font-weight: bold;' : ''}">
+                    <span style="margin-right: 8px; font-size: 16px;">${analyse.profils.includes(profil) ? '✅' : '☐'}</span> ${profil}
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h3 style="color: #1e293b; margin-bottom: 12px; font-size: 16px;">🎯 AXES THÉRAPEUTIQUES PRIORITAIRES :</h3>
+              <div style="border: 1px solid #cbd5e1; padding: 15px; background: white; border-radius: 5px;">
+                ${analyse.axes.map((axe, index)=>`
+                  <div style="margin-bottom: 10px; padding: 8px; background: #f0f9ff; border-left: 4px solid #3b82f6; border-radius: 4px;">
+                    <strong>${index + 1}.</strong> ${axe}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h3 style="color: #1e293b; margin-bottom: 12px; font-size: 16px;">🎯 TECHNIQUES RECOMMANDÉES :</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-left: 15px;">
+                ${[
+      'Technique Ernest Rossi (accord inconscient)',
+      'Libération croyances négatives',
+      'Technique "Mille-feuille" (confrontation progressive)',
+      'Dissociation/Futurisation',
+      'EMDR adapté',
+      'Recadrage cognitif spécifique'
+    ].map((technique)=>`
+                  <label style="display: flex; align-items: center; font-size: 14px; ${analyse.techniques.includes(technique) ? 'background: #dcfce7; padding: 4px; border-radius: 4px; font-weight: bold;' : ''}">
+                    <span style="margin-right: 8px; font-size: 16px;">${analyse.techniques.includes(technique) ? '✅' : '☐'}</span> ${technique}
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h3 style="color: #1e293b; margin-bottom: 12px; font-size: 16px;">🎯 PRONOSTIC :</h3>
+              <div style="margin-left: 15px;">
+                ${[
+      'Excellent (transformation rapide attendue)',
+      'Bon (évolution favorable prévue)',
+      'Modéré (travail approfondi nécessaire)',
+      'Complexe (approche spécialisée requise)'
+    ].map((prog)=>`
+                  <label style="display: block; margin-bottom: 8px; font-size: 14px; ${analyse.pronostic === prog ? 'background: #dcfce7; padding: 6px; border-radius: 4px; font-weight: bold;' : ''}">
+                    <span style="margin-right: 8px; font-size: 16px;">${analyse.pronostic === prog ? '✅' : '☐'}</span> ${prog}
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: #1e293b; margin-bottom: 12px; font-size: 16px;">🎯 NOMBRE DE SÉANCES ESTIMÉ :</h3>
+              <div style="margin-left: 15px;">
+                ${[
+      '2-3 séances',
+      '3-4 séances',
+      '4+ séances (cas complexe)'
+    ].map((nb)=>`
+                  <label style="display: block; margin-bottom: 8px; font-size: 14px; ${analyse.nbSeances === nb ? 'background: #dcfce7; padding: 6px; border-radius: 4px; font-weight: bold;' : ''}">
+                    <span style="margin-right: 8px; font-size: 16px;">${analyse.nbSeances === nb ? '✅' : '☐'}</span> ${nb}
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+            
+            <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 15px; border-radius: 8px; margin-top: 20px;">
+              <h4 style="color: #92400e; margin: 0 0 10px 0; font-size: 14px;">🤖 Analyse automatique basée sur :</h4>
+              <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #92400e;">
+                <li>Réponses aux questions d'origine et nature de la peur</li>
+                <li>Niveaux d'anxiété et manifestations rapportées</li>
+                <li>Motivation (${formData.motivation_niveau || 0}/10) et complexité du cas</li>
+                <li>Historique et contexte personnel</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
+            <p style="margin: 0; font-size: 14px;">
+              💙 <strong>NovaHypnose</strong> - Alain Zenatti<br>
+              Transformation et libération par l'hypnose thérapeutique
+            </p>
+          </div>
+        </body>
+      </html>
+    `;
+    // Envoyer l'email via Resend
+    const resendApiKey = Deno.env.get('RESEND_API_KEY');
+    if (!resendApiKey) {
+      throw new Error('RESEND_API_KEY not found');
+    }
+    const emailResponse = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${resendApiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Nova Hypnose <contact@updates.novahypnose.fr>',
+        to: [
+          email
+        ],
+        subject: emailSubject,
+        html: emailHtml
+      })
+    });
+    if (!emailResponse.ok) {
+      const errorData = await emailResponse.text();
+      throw new Error(`Erreur envoi email: ${emailResponse.status} - ${errorData}`);
+    }
+    const emailResult = await emailResponse.json();
+    return new Response(JSON.stringify({
+      success: true,
+      message: 'Email envoyé avec succès',
+      emailId: emailResult.id
+    }), {
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      },
+      status: 200
+    });
+  } catch (error) {
+    console.error('Erreur dans send-questionnaire-avion-pre-accompagnement:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: error.message
+    }), {
+      headers: {
+        ...corsHeaders,
+        'Content-Type': 'application/json'
+      },
+      status: 500
+    });
+  }
+});
