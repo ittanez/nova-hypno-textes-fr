@@ -228,30 +228,30 @@ body{font-family:'AlibabaSans',sans-serif;background-color:#f5f8fa;color:#333;li
 <h3>Analyse détaillée par dimensions</h3>
 </div>
 <div class="analysis-item">
-<h4>
-<span>Aspects cognitifs</span>
-<span>${dimensionPercentages?.cognitive || 0}%</span>
+<h4 style="display: flex; justify-content: space-between; align-items: center;">
+<span style="flex: 1;">Aspects cognitifs</span>
+<span style="margin-left: 20px; font-weight: bold; color: #1a73e8;">${dimensionPercentages?.cognitive || 0}%</span>
 </h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.cognitive || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4>
-<span>Réactions physiques</span>
-<span>${dimensionPercentages?.physique || 0}%</span>
+<h4 style="display: flex; justify-content: space-between; align-items: center;">
+<span style="flex: 1;">Réactions physiques</span>
+<span style="margin-left: 20px; font-weight: bold; color: #1a73e8;">${dimensionPercentages?.physique || 0}%</span>
 </h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.physique || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4>
-<span>Comportements</span>
-<span>${dimensionPercentages?.comportementale || 0}%</span>
+<h4 style="display: flex; justify-content: space-between; align-items: center;">
+<span style="flex: 1;">Comportements</span>
+<span style="margin-left: 20px; font-weight: bold; color: #1a73e8;">${dimensionPercentages?.comportementale || 0}%</span>
 </h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.comportementale || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4>
-<span>Impact social</span>
-<span>${dimensionPercentages?.sociale || 0}%</span>
+<h4 style="display: flex; justify-content: space-between; align-items: center;">
+<span style="flex: 1;">Impact social</span>
+<span style="margin-left: 20px; font-weight: bold; color: #1a73e8;">${dimensionPercentages?.sociale || 0}%</span>
 </h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.sociale || 0}%"></div></div>
 </div>
