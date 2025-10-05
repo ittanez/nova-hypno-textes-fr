@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Article } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
+import SEOHead from "@/components/blog/SEOHead";
+import Breadcrumb from "@/components/blog/Breadcrumb";
 import { Search, Calendar, Tag, Clock, ArrowRight } from "lucide-react";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import NewsletterForm from "@/components/blog/NewsletterForm";
@@ -100,8 +102,65 @@ const BlogIndex = () => {
     currentPage * ARTICLES_PER_PAGE
   );
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Émergences - Le blog de l'hypnose et du bien-être",
+    "description": "Plongez dans l'univers fascinant de l'hypnose ericksonienne à travers des articles approfondis, des témoignages inspirants et des conseils pratiques par Alain Zenatti.",
+    "url": "https://novahypnose.fr/blog",
+    "author": {
+      "@type": "Person",
+      "name": "Alain Zenatti",
+      "jobTitle": "Maître Hypnologue",
+      "url": "https://novahypnose.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "NovaHypnose",
+      "url": "https://novahypnose.fr"
+    },
+    "blogPost": paginatedArticles.map(article => ({
+      "@type": "BlogPosting",
+      "headline": article.title,
+      "url": `https://novahypnose.fr/blog/article/${article.slug}`,
+      "datePublished": article.published_at || article.created_at,
+      "image": article.image_url,
+      "author": {
+        "@type": "Person",
+        "name": "Alain Zenatti"
+      }
+    }))
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://novahypnose.fr"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://novahypnose.fr/blog"
+      }
+    ]
+  };
+
   return (
     <ContentLayout>
+      <SEOHead
+        title="Émergences - Le blog de l'hypnose et du bien-être | NovaHypnose"
+        description="Découvrez des articles approfondis sur l'hypnose ericksonienne, le bien-être et la transformation personnelle. Conseils pratiques et témoignages par Alain Zenatti, Maître Hypnologue à Paris."
+        type="website"
+        keywords={["blog hypnose", "hypnose ericksonienne", "bien-être", "développement personnel", "auto-hypnose", "transformation personnelle"]}
+        structuredData={[blogSchema, breadcrumbSchema]}
+      />
+
       {/* Hero Section */}
       <section className="relative bg-nova-blue-dark text-white py-20">
         <div className="absolute inset-0 bg-black/10"></div>

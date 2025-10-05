@@ -1,33 +1,14 @@
- # Robots.txt file for NovaHypnose - Architecture propre
+# Robots.txt file for NovaHypnose
 # https://novahypnose.fr/
 
 User-agent: *
-# Bloquer uniquement les fichiers système PHP et API
-Disallow: /wp-admin/
-Disallow: /wp-includes/
+# Bloquer uniquement les zones privées et API
 Disallow: /admin/
 Disallow: /private/
-Disallow: /config/
 Disallow: /api/
+Disallow: /*.json$
 
-# Autoriser toutes les pages importantes
-Allow: /
-Allow: /mentions-legales
-Allow: /hypno-balade
-Allow: /auto-hypnose
-Allow: /blog
-Allow: /blog/article/
-Allow: /blog/category/
-Allow: /sitemap.xml
-Allow: /robots.txt
-
-# Moteurs de recherche spécifiques
-User-agent: Googlebot
-Disallow: /index.php/
-Allow: /
-
-User-agent: Bingbot
-Disallow: /index.php/
+# Autoriser le reste (comportement par défaut, mais explicite)
 Allow: /
 
 # Réseaux sociaux (OK pour toutes les pages autorisées)

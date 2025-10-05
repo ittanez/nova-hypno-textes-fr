@@ -347,7 +347,13 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">
           <div className="max-w-3xl">
             {/* Contenu texte qui change avec les slides */}
-            <div className="min-h-[140px] md:min-h-[200px] relative">
+            {/* H1 fixe pour le SEO */}
+            <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
+              Hypnothérapeute à Paris - Transformez votre vie avec l'hypnose ericksonienne
+            </h1>
+
+            {/* Contenu dynamique du carrousel en H2 */}
+            <div className="min-h-[80px] md:min-h-[120px] relative">
               {carouselSlides.map((slide, index) => (
                 <div
                   key={index}
@@ -355,9 +361,9 @@ const Index = () => {
                     index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                   }`}
                 >
-                  <h1 className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
+                  <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold text-white/95 mb-2 leading-tight">
                     {slide.title}
-                  </h1>
+                  </h2>
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
                     {slide.description}
                   </p>

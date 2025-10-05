@@ -31,6 +31,7 @@ interface SEOHeadProps {
   modifiedTime?: string;
   author?: string;
   keywords?: string[];
+  robots?: string;
   structuredData?: SchemaMarkup | SchemaMarkup[];
   breadcrumbs?: Array<{ name: string; url?: string }>;
 }
@@ -45,24 +46,29 @@ const SEOHead = ({
   modifiedTime,
   author,
   keywords = [],
+  robots = "index, follow",
   structuredData,
   breadcrumbs = []
 }: SEOHeadProps) => {
   const siteTitle = "Émergences - le blog de NovaHypnose";
   const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
   const currentUrl = url || window.location.href;
-  
+
   return (
     <Helmet>
       {/* Titre et description de base */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      
+
+      {/* Robots */}
+      <meta name="robots" content={robots} />
+      <meta name="googlebot" content={robots} />
+
       {/* Mots-clés */}
       {keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(", ")} />
       )}
-      
+
       {/* Auteur */}
       {author && <meta name="author" content={author} />}
       

@@ -5,14 +5,46 @@ import { Article } from "@/lib/types/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/blog/ArticleCard";
+import SEOHead from "@/components/blog/SEOHead";
+import Breadcrumb from "@/components/blog/Breadcrumb";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+
+const sortOptions = [
+  { value: "newest", label: "Plus récents" },
+  { value: "oldest", label: "Plus anciens" },
+  { value: "az", label: "A-Z" },
+  { value: "za", label: "Z-A" }
+];
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<string>("newest");
-  
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [articlesRes, categoriesRes] = await Promise.all([
+          getAllArticlesNoPagination(),
+          getAllCategories()
+        ]);
+
+        if (articlesRes.data) setArticles(articlesRes.data);
+        if (categoriesRes.data) setCategories(categoriesRes.data);
+      } catch (error) {
+        console.error("Erreur chargement:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   // Find the category
   const category = categories.find(cat => cat.id === categoryId);
   
@@ -39,26 +71,81 @@ const CategoryPage = () => {
   
   // Handle case where category is not found
   useEffect(() => {
-    if (!category) {
-      navigate("/categories");
+    if (!isLoading && !category) {
+      navigate("/blog");
     }
-  }, [category, navigate]);
-  
+  }, [category, navigate, isLoading]);
+
   const handleSortChange = (value: string) => {
     setSortBy(value);
   };
-  
-  if (!category) {
+
+  if (isLoading || !category) {
     return null;
   }
-  
+
+  const categorySchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": category.name,
+    "description": category.description,
+    "url": `https://novahypnose.fr/blog/category/${categoryId}`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": sortedArticles.map((article, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://novahypnose.fr/blog/article/${article.slug}`
+      }))
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://novahypnose.fr"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://novahypnose.fr/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.name,
+        "item": `https://novahypnose.fr/blog/category/${categoryId}`
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title={`${category.name} - Blog NovaHypnose`}
+        description={category.description || `Découvrez tous nos articles sur ${category.name} - Hypnose ericksonienne et bien-être par Alain Zenatti`}
+        type="website"
+        structuredData={[categorySchema, breadcrumbSchema]}
+      />
+
       <Header />
 
       <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
-        <div className="mb-12">
-          <h1 className="font-serif mb-2 text-center">{category.name}</h1>
+        <Breadcrumb
+          items={[
+            { label: 'Blog', href: '/blog' },
+            { label: category.name }
+          ]}
+        />
+
+        <div className="mb-12 mt-8">
+          <h1 className="font-serif mb-2 text-center text-4xl md:text-5xl">{category.name}</h1>
           {category.description && (
             <p className="text-center text-gray-600 max-w-2xl mx-auto">
               {category.description}
