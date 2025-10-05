@@ -2061,7 +2061,6 @@
                 <div class="text-center mb-8">
                     <div class="inline-block">
                         <div class="text-5xl font-bold ${color} mb-2">${totalPoints}/100</div>
-                        <div class="text-xl text-gray-500 mb-2">(${percentage}%)</div>
                         <div class="text-2xl font-semibold text-gray-700">${level}</div>
                     </div>
                 </div>
@@ -2126,14 +2125,25 @@
         function restartQuiz() {
             currentQuestion = 0;
             answers = [];
-            // Hide results, show quiz
-            document.getElementById('results').style.display = 'none';
-            document.getElementById('quiz-content').style.display = 'block';
-            // Show progress bar again
-            document.getElementById('progress').parentElement.style.display = 'block';
+            userEmail = '';
+            userFirstName = '';
+            // Recreate quiz structure
+            const quizSection = document.getElementById('quiz');
+            quizSection.innerHTML = `
+                <div class="container mx-auto px-4 max-w-2xl">
+                    <!-- Progress Bar -->
+                    <div class="mb-8">
+                        <div class="bg-gray-200 h-2 rounded-full relative">
+                            <div id="progress" class="bg-gradient-to-r from-primary to-cyan-600 h-full rounded-full transition-all duration-300 ease-out" style="width: 5%"></div>
+                        </div>
+                    </div>
+                    <!-- Question Container -->
+                    <div id="question-container" class="bg-white rounded-2xl shadow-xl p-8 md:p-12"></div>
+                </div>
+            `;
             displayQuestion();
             // Scroll to quiz
-            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+            quizSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         // Initialiser le quiz quand on clique sur "Commencer le test"

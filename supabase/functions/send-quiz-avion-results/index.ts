@@ -99,22 +99,55 @@ function getUrgencyLevel(totalScore: number) {
 function generatePersonalizedRecommendations(profile: any, totalScore: number, dimensionPercentages: any) {
   const recommendations = [];
 
+  // Analyse par dimension pour recommandations ciblées
+  const dominantDimension = getDominantDimension(dimensionPercentages);
+
+  // Recommandations générales selon le score total
   if (totalScore >= 70) {
-    recommendations.push("• Commencez rapidement un accompagnement spécialisé");
-    recommendations.push("• Évitez les vols jusqu'à la résolution de votre phobie");
-    recommendations.push("• Pratiquez la relaxation quotidiennement");
+    recommendations.push("<strong>Action immédiate recommandée :</strong>");
+    recommendations.push("• Démarrez un accompagnement spécialisé dès que possible pour traiter votre phobie en profondeur");
+    recommendations.push("• Reportez les vols prévus jusqu'à ce que vous vous sentiez en sécurité et confiant");
+    recommendations.push("• Pratiquez des exercices de relaxation et de respiration plusieurs fois par jour");
+    recommendations.push("• Tenez un journal de vos émotions pour identifier les déclencheurs spécifiques");
   } else if (totalScore >= 50) {
-    recommendations.push("• Un accompagnement thérapeutique est fortement conseillé");
-    recommendations.push("• Préparez vos voyages avec des techniques de gestion du stress");
-    recommendations.push("• Commencez par des vols courts");
+    recommendations.push("<strong>Accompagnement thérapeutique fortement conseillé :</strong>");
+    recommendations.push("• Consultez un hypnothérapeute spécialisé pour un traitement adapté à votre profil");
+    recommendations.push("• Préparez vos voyages en amont avec des techniques de gestion du stress et de visualisation positive");
+    recommendations.push("• Privilégiez les vols courts au début pour reprendre confiance progressivement");
+    recommendations.push("• Informez le personnel de bord de votre anxiété - ils sont formés pour vous aider");
   } else if (totalScore >= 30) {
-    recommendations.push("• Des séances d'hypnose préventives seraient bénéfiques");
-    recommendations.push("• Informez-vous sur le fonctionnement des avions");
-    recommendations.push("• Pratiquez des exercices de respiration");
+    recommendations.push("<strong>Prévention et renforcement :</strong>");
+    recommendations.push("• Des séances d'hypnose préventives éviteront l'aggravation de votre anxiété");
+    recommendations.push("• Documentez-vous sur le fonctionnement des avions et les statistiques de sécurité aérienne");
+    recommendations.push("• Intégrez des exercices de respiration profonde dans votre routine quotidienne");
+    recommendations.push("• Visualisez régulièrement des vols réussis et agréables");
   } else {
-    recommendations.push("• Maintenez vos connaissances sur la sécurité aérienne");
-    recommendations.push("• Continuez à voyager régulièrement");
-    recommendations.push("• Restez attentif à l'évolution de votre ressenti");
+    recommendations.push("<strong>Maintien et vigilance :</strong>");
+    recommendations.push("• Maintenez vos connaissances sur la sécurité aérienne pour conserver votre confiance");
+    recommendations.push("• Continuez à voyager régulièrement pour ne pas développer d'appréhension");
+    recommendations.push("• Restez attentif à l'évolution de votre ressenti lors des vols");
+    recommendations.push("• Partagez vos stratégies avec d'autres personnes anxieuses en avion");
+  }
+
+  // Recommandations spécifiques par dimension dominante
+  recommendations.push("<br><strong>Selon votre dimension dominante (" + dominantDimension + ") :</strong>");
+
+  if (dominantDimension === "Aspects cognitifs") {
+    recommendations.push("• Travaillez sur la restructuration cognitive : remplacez les pensées catastrophiques par des faits réels");
+    recommendations.push("• L'hypnose vous aidera à reprogrammer vos croyances limitantes sur le vol");
+    recommendations.push("• Documentez-vous sur la fiabilité technique des avions modernes");
+  } else if (dominantDimension === "Réactions physiques") {
+    recommendations.push("• Apprenez des techniques de cohérence cardiaque pour gérer vos symptômes physiques");
+    recommendations.push("• L'hypnose permettra de désactiver vos réactions physiologiques automatiques");
+    recommendations.push("• Pratiquez la relaxation musculaire progressive avant et pendant le vol");
+  } else if (dominantDimension === "Comportements") {
+    recommendations.push("• Identifiez vos stratégies d'évitement et travaillez à les réduire progressivement");
+    recommendations.push("• L'hypnose vous aidera à adopter des comportements plus adaptatifs face au vol");
+    recommendations.push("• Exposez-vous graduellement aux situations liées au vol (aéroport, vidéos, simulateurs)");
+  } else if (dominantDimension === "Impact social") {
+    recommendations.push("• Communiquez ouvertement avec vos proches sur votre phobie pour obtenir leur soutien");
+    recommendations.push("• L'hypnose renforcera votre confiance en vous dans les situations sociales liées au voyage");
+    recommendations.push("• Ne laissez pas votre phobie vous isoler - le traitement vous permettra de retrouver votre liberté");
   }
 
   return recommendations.join('<br>');
@@ -154,7 +187,9 @@ body{font-family:'AlibabaSans',sans-serif;background-color:#f5f8fa;color:#333;li
 .profile-score{font-size:42px;font-weight:bold;color:#333;margin:10px 0;}
 .profile-description{font-size:14px;color:#666;}
 .analysis-item{margin-bottom:20px;}
-.analysis-item h4{font-size:16px;font-weight:500;margin-bottom:8px;display:flex;justify-content:space-between;}
+.analysis-item h4{font-size:16px;font-weight:500;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;}
+.analysis-item h4 span:first-child{flex:1;}
+.analysis-item h4 span:last-child{margin-left:15px;font-weight:bold;color:#1a73e8;}
 .progress-bar{height:6px;background-color:#e0e0e0;border-radius:3px;overflow:hidden;margin-top:5px;}
 .progress-fill{height:100%;background:linear-gradient(to right,#64b5f6,#1a73e8);border-radius:3px;}
 .program-details{margin-top:15px;}
@@ -193,19 +228,31 @@ body{font-family:'AlibabaSans',sans-serif;background-color:#f5f8fa;color:#333;li
 <h3>Analyse détaillée par dimensions</h3>
 </div>
 <div class="analysis-item">
-<h4><span>Aspects cognitifs</span><span>${dimensionPercentages?.cognitive || 0}%</span></h4>
+<h4>
+<span>Aspects cognitifs</span>
+<span>${dimensionPercentages?.cognitive || 0}%</span>
+</h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.cognitive || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4><span>Réactions physiques</span><span>${dimensionPercentages?.physique || 0}%</span></h4>
+<h4>
+<span>Réactions physiques</span>
+<span>${dimensionPercentages?.physique || 0}%</span>
+</h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.physique || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4><span>Comportements</span><span>${dimensionPercentages?.comportementale || 0}%</span></h4>
+<h4>
+<span>Comportements</span>
+<span>${dimensionPercentages?.comportementale || 0}%</span>
+</h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.comportementale || 0}%"></div></div>
 </div>
 <div class="analysis-item">
-<h4><span>Impact social</span><span>${dimensionPercentages?.sociale || 0}%</span></h4>
+<h4>
+<span>Impact social</span>
+<span>${dimensionPercentages?.sociale || 0}%</span>
+</h4>
 <div class="progress-bar"><div class="progress-fill" style="width: ${dimensionPercentages?.sociale || 0}%"></div></div>
 </div>
 </div>
@@ -251,28 +298,6 @@ En 3x sans frais : 166€/mois pendant 3 mois (avec Klarna)
 <div class="program-feature"><i class="ri-check-line"></i><span>Planning flexible adapté à vos projets de voyage</span></div>
 </div>
 
-<div style="margin: 20px 0;">
-<div style="font-weight: 500; color: #1a73e8; margin-bottom: 10px;">📚 Ressources personnalisées complètes</div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Livret PDF d'accompagnement enrichi avec conseils et exercices</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Carnet de suivi personnalisé pour marquer votre progression</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>3 audios d'auto-hypnose spécialisés phobie avion</span></div>
-</div>
-
-<div style="margin: 20px 0;">
-<div style="font-weight: 500; color: #1a73e8; margin-bottom: 10px;">📱 Suivi personnalisé révolutionnaire</div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Contact WhatsApp/SMS pour vos questions urgentes</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Support réactif entre les séances</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Programme de désensibilisation progressive</span></div>
-</div>
-
-<div style="margin: 20px 0;">
-<div style="font-weight: 500; color: #1a73e8; margin-bottom: 10px;">✈️ Accompagnement jusqu'au vol réussi</div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Débriefing post-vol : consultation téléphonique (INCLUSE)</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Contact d'urgence le jour J</span></div>
-<div class="program-feature"><i class="ri-check-line"></i><span>Validation de votre guérison avec suivi résultats</span></div>
-</div>
-
-<div class="success-rate">Méthode éprouvée avec 95% de réussite</div>
 </div>
 </div>
 
@@ -292,7 +317,7 @@ En 3x sans frais : 166€/mois pendant 3 mois (avec Klarna)
 
 <div class="footer">
 <p>Alain Zenatti - Hypnothérapeute spécialisé dans le traitement de l'aérophobie</p>
-<p>Vous recevez cet email suite à votre test en ligne sur peurdelavion.novahypnose.fr</p>
+<p>Vous recevez cet email suite à votre test en ligne sur <a href="https://novahypnose.fr" style="color: #1a73e8; text-decoration: none;">novahypnose.fr</a></p>
 </div>
 </div>
 </body>
