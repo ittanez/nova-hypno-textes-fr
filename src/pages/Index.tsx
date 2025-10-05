@@ -52,22 +52,22 @@ const Index = () => {
     },
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COLERE.webp',
-      title: 'Colère',
+      title: 'COLÈRE',
       description: 'Maîtrisez vos émotions et retrouvez le calme intérieur grâce à l\'hypnose'
     },
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PROCRASTINATION.webp',
-      title: 'Procrastination',
+      title: 'PROCRASTINATION',
       description: 'Dépassez la procrastination et libérez votre potentiel d\'action'
     },
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/RONGERSESONGLES.webp',
-      title: 'Ronger ses ongles',
+      title: 'RONGER SES ONGLES',
       description: 'Libérez-vous de cette habitude compulsive de manière définitive'
     },
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COUPLE.webp',
-      title: 'Difficultés relationnelles',
+      title: 'DIFFICULTÉS RELATIONNELLES',
       description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple'
     }
   ];
