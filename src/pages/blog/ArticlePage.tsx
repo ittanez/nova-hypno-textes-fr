@@ -351,9 +351,9 @@ const ArticlePage = () => {
               />
               
               {/* ✅ ARTICLES CONNEXES */}
-              <RelatedArticles 
-                currentArticleId={article.id} 
-                currentArticleCategory={article.category}
+              <RelatedArticles
+                currentArticleId={article.id}
+                currentArticleCategories={article.categories}
                 maxArticles={3}
               />
               

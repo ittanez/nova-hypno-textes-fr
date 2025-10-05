@@ -35,7 +35,7 @@ async function generateSitemap() {
     // Récupérer toutes les catégories
     const { data: categories, error: catError } = await supabase
       .from('categories')
-      .select('slug, updated_at');
+      .select('slug, created_at');
 
     if (catError) {
       console.warn('⚠️ Erreur lors de la récupération des catégories:', catError);
@@ -87,8 +87,8 @@ async function generateSitemap() {
     if (categories && categories.length > 0) {
       xml += `\n  <!-- Catégories du blog -->\n`;
       categories.forEach(category => {
-        const lastmod = category.updated_at
-          ? new Date(category.updated_at).toISOString().split('T')[0]
+        const lastmod = category.created_at
+          ? new Date(category.created_at).toISOString().split('T')[0]
           : now;
 
         xml += `  <url>

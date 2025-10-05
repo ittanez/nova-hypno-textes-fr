@@ -5,14 +5,14 @@ import { getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
 
 interface RelatedArticlesProps {
   currentArticleId: string;
-  currentArticleCategory?: string;
+  currentArticleCategories?: string[];
   maxArticles?: number;
 }
 
-const RelatedArticles: React.FC<RelatedArticlesProps> = ({ 
-  currentArticleId, 
-  currentArticleCategory,
-  maxArticles = 3 
+const RelatedArticles: React.FC<RelatedArticlesProps> = ({
+  currentArticleId,
+  currentArticleCategories,
+  maxArticles = 3
 }) => {
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,23 +22,27 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
       try {
         setIsLoading(true);
         const articles = await getAllArticlesNoPagination();
-        
+
         // Ensure articles is an array
         const articlesArray = Array.isArray(articles) ? articles : (articles?.data || []);
-        
+
         // Filter out current article and get related ones
         const filteredArticles = articlesArray.filter(article => article.id !== currentArticleId);
-        
+
         // Priority: same category first, then by date
-        const categorized = currentArticleCategory 
-          ? filteredArticles.filter(article => article.categories?.includes(currentArticleCategory))
+        const categorized = currentArticleCategories && currentArticleCategories.length > 0
+          ? filteredArticles.filter(article =>
+              article.categories?.some(cat => currentArticleCategories.includes(cat))
+            )
           : [];
-        
-        const others = filteredArticles.filter(article => !article.categories?.includes(currentArticleCategory));
-        
+
+        const others = filteredArticles.filter(article =>
+          !article.categories?.some(cat => currentArticleCategories?.includes(cat))
+        );
+
         // Combine and limit results
         const combined = [...categorized, ...others].slice(0, maxArticles);
-        
+
         setRelatedArticles(combined);
       } catch (error) {
         console.error('Error fetching related articles:', error);
@@ -48,7 +52,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
     };
 
     fetchRelatedArticles();
-  }, [currentArticleId, currentArticleCategory, maxArticles]);
+  }, [currentArticleId, currentArticleCategories, maxArticles]);
 
   if (isLoading) {
     return (
@@ -78,7 +82,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
         {relatedArticles.map((article) => (
           <Link
             key={article.id}
-            to={`/article/${article.slug}`}
+            to={`/blog/article/${article.slug}`}
             className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-gray-300"
           >
             <h4 className="font-medium text-gray-900 mb-2 line-clamp-1">
@@ -101,7 +105,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
       
       <div className="mt-6 pt-4 border-t border-gray-200">
         <Link
-          to="/"
+          to="/blog"
           className="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 font-medium"
         >
           → Voir tous les articles
