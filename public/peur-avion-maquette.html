@@ -675,7 +675,7 @@
             </div>
 
             <!-- Comparatif -->
-            <div class="mt-16">
+            <div class="mt-16 hidden md:block">
                 <button onclick="toggleComparatif()" class="w-full bg-gray-100 hover:bg-gray-200 rounded-xl p-6 transition-colors flex flex-col items-center justify-center">
                     <div class="text-center">
                         <h3 class="text-3xl font-bold text-gray-800 font-serif mb-2">
@@ -800,7 +800,8 @@
 
                     <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Les Causes Profondes de la Peur de l'Avion</h3>
 
-                    <div class="space-y-6">
+                    <!-- Desktop: Liste complète -->
+                    <div class="hidden md:block space-y-6">
                         <div class="bg-gray-50 border-l-4 border-gray-400 p-6 rounded-lg">
                             <div class="mb-3">
                                 <h4 class="text-xl font-bold text-gray-900">Traumatisme aérien</h4>
@@ -1926,10 +1927,11 @@
 
             try {
                 // Send email via Netlify Function
-                const response = await fetch('/.netlify/functions/send-test-results', {
+                const response = await fetch('https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-peur-avion-results', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30'
                     },
                     body: JSON.stringify({
                         userInfo: {

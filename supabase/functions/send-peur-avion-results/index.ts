@@ -1,42 +1,29 @@
-import { Resend } from 'resend';
-import { createClient } from '@supabase/supabase-js';
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
 const supabase = createClient(
-  process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL,
-  process.env.VITE_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY
+  Deno.env.get('SUPABASE_URL') ?? '',
+  Deno.env.get('SUPABASE_ANON_KEY') ?? ''
 );
 
-export const handler = async (event, context) => {
-  // Enable CORS
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
-  };
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+};
 
-  // Handle preflight requests
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: ''
-    };
-  }
-
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
+serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { userInfo, totalScore, percentage, fearLevel, recommendations, answers } = JSON.parse(event.body);
+    const { userInfo, totalScore, percentage, fearLevel, recommendations, answers } = await req.json();
 
     // Save to Supabase
-    const { data: testResult, error: dbError } = await supabase
+    const { error: dbError } = await supabase
       .from('quiz_peur_avion')
       .insert([
         {
@@ -49,9 +36,7 @@ export const handler = async (event, context) => {
           answers: answers,
           created_at: new Date().toISOString()
         }
-      ])
-      .select()
-      .single();
+      ]);
 
     if (dbError) {
       console.error('Database error:', dbError);
@@ -59,7 +44,7 @@ export const handler = async (event, context) => {
     }
 
     // Generate personalized recommendations based on score
-    const getDetailedRecommendations = (percentage) => {
+    const getDetailedRecommendations = (percentage: number) => {
       if (percentage <= 20) {
         return {
           immediate: [
@@ -185,7 +170,7 @@ export const handler = async (event, context) => {
                     <h3>Programme "Liberté Aérienne"</h3>
                     <p>Basé sur votre profil, notre programme d'hypnothérapie peut vous aider à surmonter définitivement votre peur de l'avion.</p>
                     <p><strong>95% de réussite • 3 séances + 1 offerte • Garantie satisfait</strong></p>
-                    <a href="${process.env.SITE_URL || 'https://novahypnose.fr'}/peur-avion-maquette#programmes" style="background: white; color: #0369A1; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 10px;">Découvrir le programme 497€</a>
+                    <a href="https://novahypnose.fr/peur-avion-maquette#programmes" style="background: white; color: #0369A1; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 10px;">Découvrir le programme 497€</a>
                 </div>
                 ` : ''}
 
@@ -205,9 +190,9 @@ export const handler = async (event, context) => {
     </html>
     `;
 
-    // Send email
+    // Send email to client
     const { data: emailResult, error: emailError } = await resend.emails.send({
-      from: process.env.FROM_EMAIL || 'NovaHypnose <contact@updates.novahypnose.fr>',
+      from: 'NovaHypnose <contact@updates.novahypnose.fr>',
       to: [userInfo.email],
       subject: `${userInfo.firstName}, vos résultats du quiz peur de l'avion`,
       html: emailContent,
@@ -227,8 +212,8 @@ export const handler = async (event, context) => {
     // Send notification to admin
     try {
       await resend.emails.send({
-        from: process.env.FROM_EMAIL || 'NovaHypnose <contact@updates.novahypnose.fr>',
-        to: ['contact@novahypnose.fr'],
+        from: 'NovaHypnose <contact@updates.novahypnose.fr>',
+        to: ['a.zenatti@gmail.com'],
         subject: `Nouveau quiz peur avion - ${fearLevel}`,
         html: `
           <h3>Nouveau quiz de peur de l'avion complété</h3>
@@ -244,26 +229,30 @@ export const handler = async (event, context) => {
       // Don't fail the main request if admin email fails
     }
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({
+    return new Response(
+      JSON.stringify({
         success: true,
         message: 'Résultats envoyés avec succès',
         emailId: emailResult?.id
-      })
-    };
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 200,
+      }
+    );
 
   } catch (error) {
     console.error('Function error:', error);
 
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({
+    return new Response(
+      JSON.stringify({
         error: 'Erreur lors de l\'envoi des résultats',
         details: error.message
-      })
-    };
+      }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 500,
+      }
+    );
   }
-};
+});
