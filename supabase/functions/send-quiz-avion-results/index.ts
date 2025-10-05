@@ -301,8 +301,8 @@ En 3x sans frais : 166€/mois pendant 3 mois (avec Klarna)
 </div>
 </div>
 
-<a href="https://buy.stripe.com/bJebJ0abH5Efabmcmk4ko0b" class="cta-button">${personalizedArguments?.cta || 'Libérez-vous maintenant'}</a>
-<div class="payment-info">Paiement sécurisé • Possibilité 3x sans frais • 4ème séance offerte si nécessaire</div>
+<a href="${totalScore > 50 ? 'https://buy.stripe.com/bJebJ0abH5Efabmcmk4ko0b' : 'https://novahypnose.fr/peur-avion-maquette.html'}" class="cta-button">${personalizedArguments?.cta || 'Libérez-vous maintenant'}</a>
+<div class="payment-info">${totalScore > 50 ? 'Paiement sécurisé • Possibilité 3x sans frais • 4ème séance offerte si nécessaire' : 'Découvrez notre programme complet pour surmonter votre peur de l\'avion'}</div>
 
 <div class="card">
 <div class="card-title">
