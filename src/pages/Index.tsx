@@ -49,6 +49,26 @@ const Index = () => {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
       title: 'POIDS',
       description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COLERE.webp',
+      title: 'GESTION DE LA COLÈRE',
+      description: 'Maîtrisez vos émotions et retrouvez le calme intérieur grâce à l\'hypnose'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PROCRASTINATION.webp',
+      title: 'PROCRASTINATION',
+      description: 'Dépassez la procrastination et libérez votre potentiel d\'action'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/RONGERSESONGLES.webp',
+      title: 'ARRÊTER DE SE RONGER LES ONGLES',
+      description: 'Libérez-vous de cette habitude compulsive de manière définitive'
+    },
+    {
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COUPLE.webp',
+      title: 'THÉRAPIE DE COUPLE',
+      description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple'
     }
   ];
 
