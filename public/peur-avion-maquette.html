@@ -1848,25 +1848,23 @@
         function showEmailCapture() {
             const container = document.getElementById('quiz');
             container.innerHTML = `
-                <div class="p-6 md:p-8">
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">Bravo ! Vous avez terminé le test</h3>
-                    <p class="text-base text-gray-600 text-center mb-6">
-                        Pour recevoir votre rapport personnalisé détaillé, merci de saisir votre adresse email :
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Bravo ! Test terminé</h3>
+                    <p class="text-sm text-gray-600 text-center mb-4">
+                        Saisissez votre email pour recevoir vos résultats :
                     </p>
 
-                    <div class="max-w-sm mx-auto">
-                        <div class="mb-4">
-                            <input type="email" id="userEmail" placeholder="votre@email.com"
-                                   class="w-full px-4 py-2.5 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none">
-                        </div>
+                    <div class="max-w-xs mx-auto">
+                        <input type="email" id="userEmail" placeholder="votre@email.com"
+                               class="w-full px-3 py-2 mb-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm">
 
                         <button onclick="submitEmail()"
-                                class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-cyan-600 transition shadow-lg">
-                            Recevoir mon rapport personnalisé
+                                class="w-full bg-primary text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-cyan-600 transition text-sm">
+                            Recevoir mes résultats
                         </button>
 
-                        <p class="text-xs text-gray-500 text-center mt-3">
-                            🔒 Vos données sont protégées et ne seront jamais partagées
+                        <p class="text-xs text-gray-500 text-center mt-2">
+                            🔒 Données protégées
                         </p>
                     </div>
                 </div>
