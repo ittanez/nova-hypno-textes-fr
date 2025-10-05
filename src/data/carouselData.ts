@@ -34,5 +34,29 @@ export const carouselSlides = [
     title: 'POIDS',
     description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture',
     alt: 'Gestion du poids par hypnose'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COLERE.webp',
+    title: 'GESTION DE LA COLÈRE',
+    description: 'Maîtrisez vos émotions et retrouvez le calme intérieur grâce à l\'hypnose',
+    alt: 'Gestion de la colère par hypnose'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PROCRASTINATION.webp',
+    title: 'PROCRASTINATION',
+    description: 'Dépassez la procrastination et libérez votre potentiel d\'action',
+    alt: 'Vaincre la procrastination par hypnose'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/RONGERSESONGLES.webp',
+    title: 'ARRÊTER DE SE RONGER LES ONGLES',
+    description: 'Libérez-vous de cette habitude compulsive de manière définitive',
+    alt: 'Arrêter de se ronger les ongles par hypnose'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COUPLE.webp',
+    title: 'THÉRAPIE DE COUPLE',
+    description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple',
+    alt: 'Thérapie de couple par hypnose'
   }
 ];
