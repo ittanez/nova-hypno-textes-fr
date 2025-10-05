@@ -70,6 +70,7 @@ const Header = () => {
   ];
 
   const mainNavLinksAfter: NavLink[] = [
+    { name: 'À propos', href: '/#about' },
     { name: 'Témoignages', href: '/#temoignages' },
     { name: 'Blog', href: '/blog' },
   ];
@@ -81,12 +82,9 @@ const Header = () => {
   ];
 
   const accompagnementsLinks: NavLink[] = [
-    { name: 'Accompagnements proposés', href: '/#applications' },
+    { name: 'Applications', href: '/#applications' },
+    { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
     { name: 'Offre Liberté Aérienne', href: '/peurdelavion' },
-  ];
-
-  const aProposLinks: NavLink[] = [
-    { name: 'Alain Zenatti', href: '/#about' },
   ];
 
   const infosPratiquesLinks: NavLink[] = [
@@ -155,28 +153,6 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
                 {accompagnementsLinks.map((link) => (
-                  <DropdownMenuItem key={link.name} asChild>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : ""}
-                      rel={link.external ? "noopener noreferrer" : ""}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {/* À propos Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                À propos <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                {aProposLinks.map((link) => (
                   <DropdownMenuItem key={link.name} asChild>
                     <a
                       href={link.href}
@@ -310,33 +286,6 @@ const Header = () => {
                 </p>
                 <div className="pl-4 space-y-2">
                   {accompagnementsLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      target={link.external ? "_blank" : ""}
-                      rel={link.external ? "noopener noreferrer" : ""}
-                      className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
-                      onClick={(e) => {
-                        if (!link.external) {
-                          handleNavClick(e, link.href);
-                        } else {
-                          toggleMobileMenu();
-                        }
-                      }}
-                    >
-                      {link.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* À propos Mobile Section */}
-              <div className="border-t border-gray-200 pt-2">
-                <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
-                  À propos <ChevronDown className="ml-1 h-4 w-4" />
-                </p>
-                <div className="pl-4 space-y-2">
-                  {aProposLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
