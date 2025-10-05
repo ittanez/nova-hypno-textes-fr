@@ -1928,10 +1928,13 @@
                 recommendation = "Ne restez pas prisonnier de cette peur ! Notre approche d'hypnose ericksonienne est spécialement conçue pour les phobies sévères. Même dans votre situation, 85% de nos clients surmontent leur peur. Contactez-nous pour un accompagnement personnalisé.";
             }
 
-            const container = document.getElementById('question-container');
+            const container = document.getElementById('quiz');
 
-            // Hide progress bar
-            document.getElementById('progress').parentElement.style.display = 'none';
+            // Hide progress bar if it exists
+            const progressBar = document.getElementById('progress');
+            if (progressBar && progressBar.parentElement) {
+                progressBar.parentElement.style.display = 'none';
+            }
 
             container.innerHTML = `
                 <div class="p-8 md:p-12">
