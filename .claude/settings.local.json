@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m \"$(cat <<''EOF''\nperf: Optimisations critiques pour atteindre 85-90 Lighthouse\n\nImplémente 3 optimisations majeures pour améliorer significativement\nles Core Web Vitals et le score Lighthouse.\n\n**1. Correction CLS (0.085 → ~0.01)**\n- Ajout aspect-ratio 16/9 sur images carrousel\n- Ajout width/height explicites (1920x1080)\n- Prévient le layout shift pendant le chargement\n\n**2. Optimisation LCP (4.3s → ~3.0s)**\n- Breakpoints srcset ajustés : 480w, 768w, 1024w, 1536w\n- Image par défaut réduite : 1024w → 768w\n- Taille LCP réduite de ~40% (62 KiB → ~35 KiB)\n\n**3. Preload image LCP**\n- Preload de l''image hero avec srcset dans index.html\n- Preconnect vers ImageKit CDN\n- Chargement prioritaire dès le HTML (pas d''attente JS)\n\n**Gains attendus**\n- Score Lighthouse : 77 → 85-87\n- LCP : 4.3s → 3.0-3.2s (-1.3s)\n- CLS : 0.085 → 0.01 (-0.075)\n- FCP : 3.0s → 2.5s (-0.5s)\n\n**Impact utilisateur**\n- Page stable (pas de saut lors du chargement)\n- Image hero visible 30-40% plus rapidement\n- Meilleure expérience mobile (images adaptées)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

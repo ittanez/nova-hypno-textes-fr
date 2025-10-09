@@ -388,6 +388,9 @@ const Index = () => {
                   sizes={sizes}
                   alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                   className="w-full h-full object-cover object-center"
+                  style={{ aspectRatio: '16/9' }}
+                  width="1920"
+                  height="1080"
                   loading={index === 0 ? "eager" : "lazy"}
                   fetchpriority={index === 0 ? "high" : "low"}
                 />

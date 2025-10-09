@@ -56,7 +56,7 @@ export function getResponsiveSrcSet(
   srcSet: string;
   sizes: string;
 } {
-  const widths = [640, 1024, 1920];
+  const widths = [480, 768, 1024, 1536];
 
   const srcSet = widths
     .map(width => {
@@ -69,9 +69,9 @@ export function getResponsiveSrcSet(
     })
     .join(', ');
 
-  // URL par défaut (mobile first)
+  // URL par défaut (petite pour LCP rapide)
   const src = getImageKitUrl(supabaseUrl, {
-    width: 1024,
+    width: 768,
     quality,
     format: 'auto'
   });
