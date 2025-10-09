@@ -381,6 +381,8 @@ const Index = () => {
             >
               <img
                 src={slide.image}
+                srcSet={`${slide.image}?width=640&quality=80 640w, ${slide.image}?width=1024&quality=80 1024w, ${slide.image}?width=1920&quality=75 1920w`}
+                sizes="100vw"
                 alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                 className="w-full h-full object-cover object-center"
                 loading={index === 0 ? "eager" : "lazy"}
