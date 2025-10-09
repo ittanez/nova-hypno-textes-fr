@@ -72,33 +72,35 @@
     <!-- Structured Data généré dynamiquement par React -->
 
     
-    <!-- CSS critique inline avec polices natives en fallback -->
+    <!-- CSS critique inline - Optimisé pour LCP et FCP -->
     <style>
-      body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;margin:0;padding:0;line-height:1.6;background-color:#f8fafc}
-      h1,h2,h3,h4,h5,h6{font-family:Georgia,'Times New Roman',Times,serif}
-      .animate-fade-in{animation:fadeIn .8s ease-out forwards}
-      @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-      .section-padding{padding:80px 0}
-      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
-      .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative}
-      .text-center{text-align:center}
-      .grid{display:grid}
-      .space-y-6>*+*{margin-top:1.5rem}
-      .bg-white{background-color:#fff}
-      .rounded-xl{border-radius:0.75rem}
-      .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,0.1)}
-      .mb-12{margin-bottom:3rem}
-      .w-full{width:100%}
-      .h-auto{height:auto}
+      /* Reset et bases essentielles */
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;background-color:#f8fafc;overflow-x:hidden;max-width:100%}
+      #root{min-height:100vh}
+
+      /* Hero carrousel - critique pour LCP */
+      .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative;background:#1e3a8a}
+      .hero-image-container img{width:100%;height:100%;object-fit:cover;display:block}
+      .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8));z-index:1}
+      .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem;color:#fff}
+      .hero-text{max-width:56rem;margin:0 auto}
+
+      /* Typographie critique */
+      h1,h2,h3,h4,h5,h6{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;line-height:1.2;letter-spacing:0.025em}
+      h1{font-size:2.25rem;margin-bottom:2rem}
       .text-4xl{font-size:2.25rem;line-height:2.5rem}
-      .md\:text-6xl{font-size:3.75rem;line-height:1}
+      .text-white{color:#fff}
       .font-serif{font-family:Georgia,'Times New Roman',Times,serif}
       .font-bold{font-weight:700}
       .mb-8{margin-bottom:2rem}
-      .text-white{color:#fff}
-      .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8))}
-      .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem}
-      .hero-text{max-width:4xl;margin:0 auto}
+
+      /* Utilitaires critiques */
+      .w-full{width:100%}
+      .text-center{text-align:center}
+      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+
+      /* Loading spinner */
       .loading-spinner{display:flex;align-items:center;justify-content:center;min-height:100vh}
       .animate-spin{animation:spin 1s linear infinite}
       @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
@@ -107,16 +109,16 @@
       .w-32{width:8rem}
       .border-b-2{border-bottom-width:2px}
       .border-nova-blue{border-color:#0c4a6e}
-      @media (min-width:768px){.md\:text-6xl{font-size:3.75rem;line-height:1}}
-      /* Transition douce vers Google Fonts quand elles se chargent */
-      .fonts-loaded body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-feature-settings:"kern" 1,"liga" 1,"calt" 1}
-      .fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-feature-settings:"kern" 1,"liga" 1,"calt" 1}
-      /* Ajustement des métriques pour correspondre aux Google Fonts */
-      body{font-size:16px;font-weight:400;letter-spacing:0.025em}
-      h1,h2,h3,h4,h5,h6{font-weight:700;letter-spacing:0.025em;line-height:1.2}
-      /* Prévention du layout shift avec des dimensions similaires */
-      .fonts-loaded body{letter-spacing:0}
-      .fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{letter-spacing:-0.025em}
+
+      /* Responsive - critique */
+      @media (min-width:768px){
+        h1,.text-4xl{font-size:3.75rem;line-height:1}
+        .md\:text-6xl{font-size:3.75rem;line-height:1}
+      }
+
+      /* Google Fonts - Transition douce */
+      .fonts-loaded body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;letter-spacing:0}
+      .fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{font-family:'Playfair Display',Georgia,'Times New Roman',serif;letter-spacing:-0.025em}
     </style>
     
     <!-- CSS will be injected by Vite automatically -->

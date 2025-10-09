@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { viteSeoHeaders } from "./vite-plugin-seo-headers.js";
+import { deferCss } from "./vite-plugin-defer-css.js";
 import analyze from "rollup-plugin-analyzer";
 
 // https://vitejs.dev/config/
@@ -15,6 +16,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     viteSeoHeaders(),
+    deferCss(),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
