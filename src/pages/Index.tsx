@@ -500,7 +500,7 @@ const Index = () => {
                     className="block relative group w-full text-left"
                   >
                     <img
-                      src="https://img.youtube.com/vi/4VRNBAoAcAE/maxresdefault.jpg"
+                      src="https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg"
                       alt="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
                       className="w-full h-auto object-cover rounded-xl"
                       loading="lazy"
