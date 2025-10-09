@@ -5,8 +5,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-// Create a client
-const queryClient = new QueryClient();
+// Create a client with cache configuration
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes - les données restent fraîches
+      gcTime: 10 * 60 * 1000, // 10 minutes - durée de conservation en cache
+    },
+  },
+});
 
 import Index from "@/pages/Index";
 import ContentLayout from "./components/layout/ContentLayout";

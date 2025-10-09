@@ -10,8 +10,10 @@ import {
 } from 'lucide-react';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
+import { useQueryClient } from '@tanstack/react-query';
 
 const Index = () => {
+  const queryClient = useQueryClient();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -82,27 +84,36 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Préchargement des données du blog en arrière-plan
+  // Préchargement des données du blog en arrière-plan avec React Query cache
   useEffect(() => {
     const prefetchBlogData = async () => {
       try {
-        // Attendre 2 secondes après le chargement de la page d'accueil
-        // pour ne pas impacter la performance initiale
-        await Promise.all([
-          getAllArticlesNoPagination(),
-          getAllCategories()
-        ]);
-        console.log('✅ Données du blog préchargées avec succès');
+        // Précharger les articles avec React Query (mise en cache automatique)
+        await queryClient.prefetchQuery({
+          queryKey: ['blog-articles'],
+          queryFn: () => getAllArticlesNoPagination(),
+          staleTime: 5 * 60 * 1000, // 5 minutes
+        });
+
+        // Précharger les catégories avec React Query
+        await queryClient.prefetchQuery({
+          queryKey: ['blog-categories'],
+          queryFn: () => getAllCategories(),
+          staleTime: 5 * 60 * 1000, // 5 minutes
+        });
+
+        console.log('✅ Données du blog préchargées et mises en cache');
       } catch (error) {
         // Ignorer silencieusement les erreurs de préchargement
         console.log('ℹ️ Préchargement du blog ignoré');
       }
     };
 
+    // Attendre 2 secondes après le chargement pour ne pas impacter la performance initiale
     const timer = setTimeout(prefetchBlogData, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [queryClient]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
@@ -360,7 +371,8 @@ const Index = () => {
                 src={slide.image}
                 alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                 className="w-full h-full object-cover object-center"
-                loading="eager"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchpriority={index === 0 ? "high" : "low"}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
             </div>

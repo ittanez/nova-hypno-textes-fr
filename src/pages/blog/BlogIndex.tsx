@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/blog/Breadcrumb";
 import { Search, Calendar, Tag, Clock, ArrowRight } from "lucide-react";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import NewsletterForm from "@/components/blog/NewsletterForm";
+import { useQuery } from "@tanstack/react-query";
 
 const ARTICLES_PER_PAGE = 9;
 
@@ -15,36 +16,30 @@ const BlogIndex = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
+  // Utiliser React Query pour récupérer les articles (avec cache)
+  const { data: articlesData, isLoading: articlesLoading } = useQuery({
+    queryKey: ['blog-articles'],
+    queryFn: async () => {
+      const result = await getAllArticlesNoPagination();
+      return result.data || [];
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
 
-        const [articlesResult, categoriesResult] = await Promise.all([
-          getAllArticlesNoPagination(),
-          getAllCategories()
-        ]);
+  // Utiliser React Query pour récupérer les catégories (avec cache)
+  const { data: categoriesData, isLoading: categoriesLoading } = useQuery({
+    queryKey: ['blog-categories'],
+    queryFn: async () => {
+      const result = await getAllCategories();
+      return result.data || [];
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
 
-        if (articlesResult.data) {
-          setArticles(articlesResult.data);
-        }
-
-        if (categoriesResult.data) {
-          setCategories(categoriesResult.data);
-        }
-      } catch (error) {
-        console.error("Erreur lors du chargement des données:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const articles = articlesData || [];
+  const categories = categoriesData || [];
+  const isLoading = articlesLoading || categoriesLoading;
 
   const categoriesWithCount = useMemo(() => {
     if (!articles.length) return [];
