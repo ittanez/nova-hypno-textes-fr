@@ -374,7 +374,7 @@ const Index = () => {
         {/* Carrousel d'images */}
         <div className="absolute inset-0">
           {carouselSlides.map((slide, index) => {
-            const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 80);
+            const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
             return (
               <div
                 key={index}

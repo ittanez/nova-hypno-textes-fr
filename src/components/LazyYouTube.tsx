@@ -34,7 +34,9 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = "
     setIsLoaded(true);
   };
 
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // Utiliser mqdefault (320x180) au lieu de maxresdefault (1280x720) pour économiser 122 KiB
+  // Si l'image est trop petite, on peut utiliser sddefault (640x480) pour un bon compromis
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
 
   return (
     <div ref={thumbnailRef} className={`relative ${className}`}>

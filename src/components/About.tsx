@@ -1,6 +1,7 @@
  import React from 'react';
 import { Heart, Award } from 'lucide-react';
 import LazyYouTube from './LazyYouTube';
+import { getImageKitUrl } from '@/lib/utils/imagekit';
 
 const About = () => {
   const diplomasByLevel = {
@@ -18,6 +19,14 @@ const About = () => {
       "Hypnose Ericksonienne - École MHD (2020)"
     ]
   };
+
+  // Image zenatti optimisée avec ImageKit
+  const zenattiBaseUrl = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp';
+  const zenattiSrcSet = [
+    `${getImageKitUrl(zenattiBaseUrl, { width: 285, quality: 80, format: 'auto' })} 285w`,
+    `${getImageKitUrl(zenattiBaseUrl, { width: 400, quality: 80, format: 'auto' })} 400w`,
+    `${getImageKitUrl(zenattiBaseUrl, { width: 600, quality: 80, format: 'auto' })} 600w`
+  ].join(', ');
   
   return (
     <section id="about" className="section-padding bg-white">
@@ -29,16 +38,15 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-6">
             <div className="rounded-xl overflow-hidden shadow-lg">
-              <img 
-                src="/zenatti.webp" 
-                srcSet="/zenatti.webp 1x, /zenatti.webp 2x"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                alt="Alain Zenatti, Hypnothérapeute Paris 4ème Marais spécialisé en hypnose ericksonienne et auto-hypnose" 
+              <img
+                src={getImageKitUrl(zenattiBaseUrl, { width: 400, quality: 80, format: 'auto' })}
+                srcSet={zenattiSrcSet}
+                sizes="(max-width: 768px) 100vw, 400px"
+                alt="Alain Zenatti, Hypnothérapeute Paris 4ème Marais spécialisé en hypnose ericksonienne et auto-hypnose"
                 className="w-full h-auto"
-                loading="eager"
-                fetchPriority="high"
-                width="600"
-                height="800"
+                loading="lazy"
+                width="400"
+                height="533"
               />
             </div>
 
