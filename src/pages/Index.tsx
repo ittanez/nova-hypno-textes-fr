@@ -88,24 +88,36 @@ const Index = () => {
   useEffect(() => {
     const prefetchBlogData = async () => {
       try {
+        console.log('🚀 [Prefetch] Démarrage du préchargement blog...');
+        const startTime = performance.now();
+
         // Précharger les articles avec React Query (mise en cache automatique)
         await queryClient.prefetchQuery({
           queryKey: ['blog-articles'],
-          queryFn: () => getAllArticlesNoPagination(),
+          queryFn: async () => {
+            console.log('📥 [Prefetch] Chargement articles...');
+            const result = await getAllArticlesNoPagination();
+            return result.data || [];
+          },
           staleTime: 5 * 60 * 1000, // 5 minutes
         });
 
         // Précharger les catégories avec React Query
         await queryClient.prefetchQuery({
           queryKey: ['blog-categories'],
-          queryFn: () => getAllCategories(),
+          queryFn: async () => {
+            console.log('📥 [Prefetch] Chargement catégories...');
+            const result = await getAllCategories();
+            return result.data || [];
+          },
           staleTime: 5 * 60 * 1000, // 5 minutes
         });
 
-        console.log('✅ Données du blog préchargées et mises en cache');
+        const endTime = performance.now();
+        console.log(`✅ [Prefetch] Blog préchargé en ${Math.round(endTime - startTime)}ms et mis en cache`);
       } catch (error) {
         // Ignorer silencieusement les erreurs de préchargement
-        console.log('ℹ️ Préchargement du blog ignoré');
+        console.log('⚠️ [Prefetch] Échec du préchargement blog');
       }
     };
 
