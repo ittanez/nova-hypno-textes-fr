@@ -9,6 +9,7 @@ import {
   BookOpen, Smartphone, Waves, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import ContentLayout from '@/components/layout/ContentLayout';
+import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 
 const Index = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -79,6 +80,28 @@ const Index = () => {
     }, 8000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  // Préchargement des données du blog en arrière-plan
+  useEffect(() => {
+    const prefetchBlogData = async () => {
+      try {
+        // Attendre 2 secondes après le chargement de la page d'accueil
+        // pour ne pas impacter la performance initiale
+        await Promise.all([
+          getAllArticlesNoPagination(),
+          getAllCategories()
+        ]);
+        console.log('✅ Données du blog préchargées avec succès');
+      } catch (error) {
+        // Ignorer silencieusement les erreurs de préchargement
+        console.log('ℹ️ Préchargement du blog ignoré');
+      }
+    };
+
+    const timer = setTimeout(prefetchBlogData, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const nextSlide = () => {
