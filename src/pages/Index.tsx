@@ -11,6 +11,7 @@ import {
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { useQueryClient } from '@tanstack/react-query';
+import { getResponsiveSrcSet } from '@/lib/utils/imagekit';
 
 const Index = () => {
   const queryClient = useQueryClient();
@@ -372,25 +373,28 @@ const Index = () => {
       <section className="relative min-h-[400px] h-[50vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden">
         {/* Carrousel d'images */}
         <div className="absolute inset-0">
-          {carouselSlides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <img
-                src={slide.image}
-                srcSet={`${slide.image}?width=640&quality=80 640w, ${slide.image}?width=1024&quality=80 1024w, ${slide.image}?width=1920&quality=75 1920w`}
-                sizes="100vw"
-                alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                className="w-full h-full object-cover object-center"
-                loading={index === 0 ? "eager" : "lazy"}
-                fetchpriority={index === 0 ? "high" : "low"}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
-            </div>
-          ))}
+          {carouselSlides.map((slide, index) => {
+            const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 80);
+            return (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <img
+                  src={src}
+                  srcSet={srcSet}
+                  sizes={sizes}
+                  alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                  className="w-full h-full object-cover object-center"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "low"}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">
