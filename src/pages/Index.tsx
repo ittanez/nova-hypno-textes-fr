@@ -12,6 +12,7 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { useQueryClient } from '@tanstack/react-query';
 import { getResponsiveSrcSet } from '@/lib/utils/imagekit';
+import CommuteMap from '@/components/CommuteMap';
 
 const Index = () => {
   const queryClient = useQueryClient();
@@ -1535,23 +1536,7 @@ const Index = () => {
               </div>
 
               <div>
-                <img
-                  src="/cabinet.webp"
-                  alt="Cabinet d'hypnothérapie Paris 4ème"
-                  className="rounded-2xl shadow-lg mb-6 w-full h-auto object-cover"
-                  loading="lazy"
-                />
-                <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1895883840313!2d2.36441231564579!3d48.85335757928646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0x99b8ba789490de09!2s16%20Rue%20Saint-Antoine%2C%2075004%20Paris!5e0!3m2!1sfr!2sfr!4v1650969612695!5m2!1sfr!2sfr"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    title="Localisation du cabinet"
-                  ></iframe>
-                </div>
+                <CommuteMap />
               </div>
             </div>
 
