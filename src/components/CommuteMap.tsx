@@ -120,9 +120,10 @@ const CommuteMap: React.FC = () => {
     setAutocomplete(auto);
   }, [map]);
 
-  const calculateRoute = async (origin: google.maps.LatLng) => {
+  const calculateRoute = async (origin: google.maps.LatLng, mode?: string) => {
     if (!directionsService || !directionsRenderer) return;
 
+    const travelMode = mode || selectedMode;
     setLoading(true);
     setError('');
 
@@ -130,7 +131,7 @@ const CommuteMap: React.FC = () => {
       const result = await directionsService.route({
         origin: origin,
         destination: CABINET_LOCATION,
-        travelMode: selectedMode as google.maps.TravelMode,
+        travelMode: travelMode as google.maps.TravelMode,
         unitSystem: google.maps.UnitSystem.METRIC
       });
 
@@ -141,7 +142,7 @@ const CommuteMap: React.FC = () => {
         setCommuteInfo({
           distance: route.legs[0].distance?.text || '',
           duration: route.legs[0].duration?.text || '',
-          mode: selectedMode
+          mode: travelMode
         });
       }
     } catch (err) {
@@ -153,13 +154,12 @@ const CommuteMap: React.FC = () => {
   };
 
   const handleModeChange = async (mode: string) => {
-    const previousMode = selectedMode;
     setSelectedMode(mode);
 
-    // Recalculer immédiatement si une destination existe
+    // Recalculer immédiatement avec le NOUVEAU mode
     const place = autocomplete?.getPlace();
-    if (place?.geometry?.location && previousMode !== mode) {
-      await calculateRoute(place.geometry.location);
+    if (place?.geometry?.location) {
+      await calculateRoute(place.geometry.location, mode);
     }
   };
 
