@@ -153,13 +153,13 @@ const CommuteMap: React.FC = () => {
   };
 
   const handleModeChange = async (mode: string) => {
+    const previousMode = selectedMode;
     setSelectedMode(mode);
-    if (commuteInfo && inputRef.current?.value) {
-      // Recalculer avec le nouveau mode
-      const place = autocomplete?.getPlace();
-      if (place?.geometry?.location) {
-        await calculateRoute(place.geometry.location);
-      }
+
+    // Recalculer immédiatement si une destination existe
+    const place = autocomplete?.getPlace();
+    if (place?.geometry?.location && previousMode !== mode) {
+      await calculateRoute(place.geometry.location);
     }
   };
 
