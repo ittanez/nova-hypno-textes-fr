@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
+import CommuteMap from './CommuteMap';
 
 const Contact = () => {
   return (
@@ -71,18 +72,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div className="h-64 md:h-full rounded-lg overflow-hidden shadow-md">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.1895883840313!2d2.36441231564579!3d48.85335757928646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0x99b8ba789490de09!2s16%20Rue%20Saint-Antoine%2C%2075004%20Paris!5e0!3m2!1sfr!2sfr!4v1650969612695!5m2!1sfr!2sfr" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Cabinet d'hypnothérapie d'Alain Zenatti à Paris"
-                  aria-label="Carte montrant l'emplacement du cabinet d'hypnothérapie au 16 Rue Saint-Antoine, 75004 Paris"
-                ></iframe>
+              <div className="md:h-full">
+                <CommuteMap />
               </div>
             </div>
             
