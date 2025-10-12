@@ -9,6 +9,7 @@ import SEOHead from "@/components/blog/SEOHead";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+import { useQuery } from "@tanstack/react-query";
 
 const sortOptions = [
   { value: "newest", label: "Plus récents" },
@@ -21,29 +22,30 @@ const CategoryPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<string>("newest");
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [articlesRes, categoriesRes] = await Promise.all([
-          getAllArticlesNoPagination(),
-          getAllCategories()
-        ]);
+  // Utiliser React Query pour récupérer les articles (avec cache partagé)
+  const { data: articlesData, isLoading: articlesLoading } = useQuery({
+    queryKey: ['blog-articles'],
+    queryFn: async () => {
+      const result = await getAllArticlesNoPagination();
+      return result.data || [];
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
 
-        if (articlesRes.data) setArticles(articlesRes.data);
-        if (categoriesRes.data) setCategories(categoriesRes.data);
-      } catch (error) {
-        console.error("Erreur chargement:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  // Utiliser React Query pour récupérer les catégories (avec cache partagé)
+  const { data: categoriesData, isLoading: categoriesLoading } = useQuery({
+    queryKey: ['blog-categories'],
+    queryFn: async () => {
+      const result = await getAllCategories();
+      return result.data || [];
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
 
-    fetchData();
-  }, []);
+  const articles = articlesData || [];
+  const categories = categoriesData || [];
+  const isLoading = articlesLoading || categoriesLoading;
 
   // Find the category by slug
   const category = categories.find(cat => cat.slug === slug);

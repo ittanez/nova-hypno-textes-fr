@@ -92,7 +92,7 @@ async function generateSitemap() {
           : now;
 
         xml += `  <url>
-    <loc>${SITE_URL}/blog/category/${category.slug}</loc>
+    <loc>${SITE_URL}/blog/categorie/${category.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

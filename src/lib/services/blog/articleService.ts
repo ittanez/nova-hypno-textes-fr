@@ -261,6 +261,27 @@ export const saveArticle = async (article: Partial<Article>) => {
           data.slug,
           data.excerpt
         );
+
+        // Notifier Google Search Console du nouveau contenu
+        console.log('🔔 Notification Google Search Console...');
+        try {
+          const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-google-sitemap`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            }
+          });
+
+          const result = await response.json();
+          if (result.success) {
+            console.log('✅ Google Search Console notifié avec succès');
+          } else {
+            console.warn('⚠️ Google Search Console non notifié:', result.message);
+          }
+        } catch (error) {
+          console.warn('⚠️ Erreur notification Google (non bloquant):', error);
+        }
       }
 
       return { data, error: null };
@@ -303,6 +324,27 @@ export const saveArticle = async (article: Partial<Article>) => {
           data.slug,
           data.excerpt
         );
+
+        // Notifier Google Search Console du nouveau contenu
+        console.log('🔔 Notification Google Search Console...');
+        try {
+          const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-google-sitemap`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json'
+            }
+          });
+
+          const result = await response.json();
+          if (result.success) {
+            console.log('✅ Google Search Console notifié avec succès');
+          } else {
+            console.warn('⚠️ Google Search Console non notifié:', result.message);
+          }
+        } catch (error) {
+          console.warn('⚠️ Erreur notification Google (non bloquant):', error);
+        }
       }
 
       return { data, error: null };
