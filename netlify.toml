@@ -46,15 +46,16 @@
   
 
 # Plugin pour la génération du sitemap
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  
-  [plugins.inputs]
-  buildDir = "dist"
-  exclude = [
-    # Patterns à exclure du sitemap
-    '**/admin/**'
-  ]
+# DÉSACTIVÉ : On utilise maintenant un sitemap dynamique via Supabase Edge Function
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+#
+#   [plugins.inputs]
+#   buildDir = "dist"
+#   exclude = [
+#     # Patterns à exclure du sitemap
+#     '**/admin/**'
+#   ]
 
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
