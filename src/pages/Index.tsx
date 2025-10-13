@@ -24,6 +24,9 @@ const Index = () => {
   const [currentHowItWorks, setCurrentHowItWorks] = useState(0);
   const [currentPricing, setCurrentPricing] = useState(0);
 
+  // Détection mobile pour alléger le chargement
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   const carouselSlides = [
     {
       type: 'video' as const,
@@ -35,54 +38,63 @@ const Index = () => {
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/arraignee.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9hcnJhaWduZWUubXA0IiwiaWF0IjoxNzYwMzU3NDgzLCJleHAiOjIwNzU3MTc0ODN9.b7P8YNO3EHkO11ASArKVFdAkFzKOPPJuwfUC_GvZLvk',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
       title: 'PEURS - PHOBIES',
       description: 'Libérez-vous de vos peurs irrationnelles et retrouvez votre liberté de mouvement'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/stress-anxiete.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9zdHJlc3MtYW54aWV0ZS5tcDQiLCJpYXQiOjE3NjAzNTgxMDAsImV4cCI6MjcwNjQzODEwMH0.sx1q7tXg2XBGtaxuppYnni5D_PN18HYpwG1fA3x8jjA',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/CABINET.webp',
       title: 'STRESS - ANXIÉTÉ',
       description: 'Apprenez à gérer votre stress et votre anxiété pour retrouver votre équilibre intérieur'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/parler-en-public.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9wYXJsZXItZW4tcHVibGljLm1wNCIsImlhdCI6MTc2MDM1ODA2MiwiZXhwIjoyNzA2NDM4MDYyfQ.nLdSm-R31p8OtMqOeMIYVdJffkwW7tWAqLrGW2vyaEc',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PAROLEPUBLIC.webp',
       title: 'PEUR DE PARLER EN PUBLIC',
       description: 'Surmontez votre anxiété et exprimez-vous avec confiance devant un auditoire'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/sommeil.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9zb21tZWlsLm1wNCIsImlhdCI6MTc2MDM1ODA4MCwiZXhwIjoyNzA2NDM4MDgwfQ.UrNOlTffAjabXdfdtnUuRi_W2FlDT-ncm7VpU_oyxeI',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/sommeil.webp',
       title: 'SOMMEIL',
       description: 'Retrouvez un sommeil réparateur et des nuits paisibles grâce à l\'hypnose'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/POIDS.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9QT0lEUy5tcDQiLCJpYXQiOjE3NjAzNTk4ODIsImV4cCI6MjcwNjQzOTg4Mn0.CzuuFas_dbdNhAPhqwgQsCo_UKSU8dpwB0t5hnO_kKA',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
       title: 'POIDS',
       description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/colere.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9jb2xlcmUubXA0IiwiaWF0IjoxNzYwMzU4MDEyLCJleHAiOjI3MDY0MzgwMTJ9.dVeTy8iqDM3qzxUnuQyhkbsC7uEOVV3xNM1UrhgvKt0',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COLERE.webp',
       title: 'COLÈRE',
       description: 'Maîtrisez vos émotions et retrouvez le calme intérieur grâce à l\'hypnose'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/procrastination.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9wcm9jcmFzdGluYXRpb24ubXA0IiwiaWF0IjoxNzYwMzU5NDQ0LCJleHAiOjI3MDY0Mzk0NDR9.Jv2AF0OiQBw1w-JXlP_tiYGk1Oh3pmFTFQBtD8S7ihU',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PROCRASTINATION.webp',
       title: 'PROCRASTINATION',
       description: 'Dépassez la procrastination et libérez votre potentiel d\'action'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/grok-video-db3ca028-5456-4df6-ba51-e63e2b1bbc21.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ncm9rLXZpZGVvLWRiM2NhMDI4LTU0NTYtNGRmNi1iYTUxLWU2M2UyYjFiYmMyMS5tcDQiLCJpYXQiOjE3NjAzNjA1MDksImV4cCI6MjcwNjQ0MDUwOX0.PeVd1-5tjMra9_Qbkje2OAO1Y_o2PrxbnW9kxwSbJbo',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/RONGERSESONGLES.webp',
       title: 'RONGER SES ONGLES',
       description: 'Libérez-vous de cette habitude compulsive de manière définitive'
     },
     {
       type: 'video' as const,
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/difficultes-relationnelles.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9kaWZmaWN1bHRlcy1yZWxhdGlvbm5lbGxlcy5tcDQiLCJpYXQiOjE3NjAzNTgwMzEsImV4cCI6MjcwNjQzODAzMX0.YROyGDStFV1Zy18PM3BmD3_fWNsKUcTLsmyW0pkyxvA',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COUPLE.webp',
       title: 'DIFFICULTÉS RELATIONNELLES',
       description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple'
     }
@@ -393,7 +405,7 @@ const Index = () => {
                   index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {slide.type === 'video' ? (
+                {slide.type === 'video' && !isMobile ? (
                   <video
                     ref={(el) => {
                       if (el && index === currentSlide) {
@@ -409,7 +421,14 @@ const Index = () => {
                     preload={index === 0 ? "auto" : "metadata"}
                     loading={index === 0 ? "eager" : undefined}
                   />
-                ) : (
+                ) : slide.type === 'video' && isMobile && slide.poster ? (
+                  <img
+                    src={slide.poster}
+                    alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                    className="w-full h-full object-cover object-center"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                ) : slide.type !== 'video' ? (
                   (() => {
                     const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
                     return (
