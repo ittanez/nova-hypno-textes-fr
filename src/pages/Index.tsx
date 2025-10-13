@@ -26,62 +26,73 @@ const Index = () => {
 
   const carouselSlides = [
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/alain.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9hbGFpbi5tcDQiLCJpYXQiOjE3NjAzNTc5ODUsImV4cCI6MjcwNjQzNzk4NX0.SdvQ9Su7l9SfV-8gScHAP2mtMO67XjhWH-2po2_VmHA',
+      poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
       title: 'TRANSFORMEZ VOTRE VIE AVEC L\'HYPNOSE',
       description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
-      title: 'PHOBIES',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/arraignee.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9hcnJhaWduZWUubXA0IiwiaWF0IjoxNzYwMzU3NDgzLCJleHAiOjIwNzU3MTc0ODN9.b7P8YNO3EHkO11ASArKVFdAkFzKOPPJuwfUC_GvZLvk',
+      title: 'PEURS - PHOBIES',
       description: 'Libérez-vous de vos peurs irrationnelles et retrouvez votre liberté de mouvement'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/CABINET.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/stress-anxiete.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9zdHJlc3MtYW54aWV0ZS5tcDQiLCJpYXQiOjE3NjAzNTgxMDAsImV4cCI6MjcwNjQzODEwMH0.sx1q7tXg2XBGtaxuppYnni5D_PN18HYpwG1fA3x8jjA',
       title: 'STRESS - ANXIÉTÉ',
       description: 'Apprenez à gérer votre stress et votre anxiété pour retrouver votre équilibre intérieur'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PAROLEPUBLIC.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/parler-en-public.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9wYXJsZXItZW4tcHVibGljLm1wNCIsImlhdCI6MTc2MDM1ODA2MiwiZXhwIjoyNzA2NDM4MDYyfQ.nLdSm-R31p8OtMqOeMIYVdJffkwW7tWAqLrGW2vyaEc',
       title: 'PEUR DE PARLER EN PUBLIC',
       description: 'Surmontez votre anxiété et exprimez-vous avec confiance devant un auditoire'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/sommeil.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/sommeil.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9zb21tZWlsLm1wNCIsImlhdCI6MTc2MDM1ODA4MCwiZXhwIjoyNzA2NDM4MDgwfQ.UrNOlTffAjabXdfdtnUuRi_W2FlDT-ncm7VpU_oyxeI',
       title: 'SOMMEIL',
       description: 'Retrouvez un sommeil réparateur et des nuits paisibles grâce à l\'hypnose'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/POIDS.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9QT0lEUy5tcDQiLCJpYXQiOjE3NjAzNTk4ODIsImV4cCI6MjcwNjQzOTg4Mn0.CzuuFas_dbdNhAPhqwgQsCo_UKSU8dpwB0t5hnO_kKA',
       title: 'POIDS',
       description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COLERE.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/colere.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9jb2xlcmUubXA0IiwiaWF0IjoxNzYwMzU4MDEyLCJleHAiOjI3MDY0MzgwMTJ9.dVeTy8iqDM3qzxUnuQyhkbsC7uEOVV3xNM1UrhgvKt0',
       title: 'COLÈRE',
       description: 'Maîtrisez vos émotions et retrouvez le calme intérieur grâce à l\'hypnose'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PROCRASTINATION.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/procrastination.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9wcm9jcmFzdGluYXRpb24ubXA0IiwiaWF0IjoxNzYwMzU5NDQ0LCJleHAiOjI3MDY0Mzk0NDR9.Jv2AF0OiQBw1w-JXlP_tiYGk1Oh3pmFTFQBtD8S7ihU',
       title: 'PROCRASTINATION',
       description: 'Dépassez la procrastination et libérez votre potentiel d\'action'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/RONGERSESONGLES.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/grok-video-db3ca028-5456-4df6-ba51-e63e2b1bbc21.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ncm9rLXZpZGVvLWRiM2NhMDI4LTU0NTYtNGRmNi1iYTUxLWU2M2UyYjFiYmMyMS5tcDQiLCJpYXQiOjE3NjAzNjA1MDksImV4cCI6MjcwNjQ0MDUwOX0.PeVd1-5tjMra9_Qbkje2OAO1Y_o2PrxbnW9kxwSbJbo',
       title: 'RONGER SES ONGLES',
       description: 'Libérez-vous de cette habitude compulsive de manière définitive'
     },
     {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/COUPLE.webp',
+      type: 'video' as const,
+      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/sign/video/difficultes-relationnelles.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zOTUxZDFmMy1kNzgwLTQ5M2MtYTE0MS1lZmU0MjRhMTBmNWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9kaWZmaWN1bHRlcy1yZWxhdGlvbm5lbGxlcy5tcDQiLCJpYXQiOjE3NjAzNTgwMzEsImV4cCI6MjcwNjQzODAzMX0.YROyGDStFV1Zy18PM3BmD3_fWNsKUcTLsmyW0pkyxvA',
       title: 'DIFFICULTÉS RELATIONNELLES',
       description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple'
     }
   ];
 
-  // Auto-scroll du carrousel toutes les 8 secondes
+  // Auto-scroll du carrousel toutes les 4,5 secondes
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
-    }, 8000);
+    }, 4500);
 
     return () => clearInterval(timer);
   }, []);
@@ -371,34 +382,57 @@ const Index = () => {
 
       <ContentLayout>
       {/* Hero Section avec Carrousel */}
-      <section className="relative min-h-[400px] h-[50vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden">
-        {/* Carrousel d'images */}
+      <section className="relative min-h-[400px] h-[50vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Carrousel d'images/vidéos */}
         <div className="absolute inset-0">
           {carouselSlides.map((slide, index) => {
-            const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
             return (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ${
+                className={`absolute inset-0 transition-opacity duration-[1800ms] ease-in-out ${
                   index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                <img
-                  src={src}
-                  srcSet={srcSet}
-                  sizes={sizes}
-                  alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                  className="w-full h-full object-cover object-center"
-                  style={{ aspectRatio: '16/9' }}
-                  width="1920"
-                  height="1080"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchpriority={index === 0 ? "high" : "low"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent"></div>
+                {slide.type === 'video' ? (
+                  <video
+                    ref={(el) => {
+                      if (el && index === currentSlide) {
+                        el.currentTime = 0;
+                        el.play().catch(() => {});
+                      }
+                    }}
+                    src={slide.image}
+                    poster={slide.poster}
+                    className="w-full h-full object-cover object-center"
+                    muted
+                    playsInline
+                    preload={index === 0 ? "auto" : "metadata"}
+                    loading={index === 0 ? "eager" : undefined}
+                  />
+                ) : (
+                  (() => {
+                    const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
+                    return (
+                      <img
+                        src={src}
+                        srcSet={srcSet}
+                        sizes={sizes}
+                        alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                        className="w-full h-full object-cover object-center"
+                        style={{ aspectRatio: '16/9' }}
+                        width="1920"
+                        height="1080"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "low"}
+                      />
+                    );
+                  })()
+                )}
               </div>
             );
           })}
+          {/* Gradient overlay constant */}
+          <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent pointer-events-none"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">

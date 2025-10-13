@@ -9,7 +9,7 @@ const HeroSection = ({ onStartTest }: HeroSectionProps) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 py-12 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
 
           {/* Text Content - Left Side */}
           <div className="flex-1 text-left max-w-2xl">
