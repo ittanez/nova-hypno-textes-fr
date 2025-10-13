@@ -79,6 +79,7 @@ const Header = () => {
     { name: 'Comment fonctionne l\'hypnose', href: '/#comment-fonctionne' },
     { name: 'L\'auto-hypnose', href: '/#self-hypnosis' },
     { name: 'Déroulement des séances', href: '/#deroulement' },
+    { name: 'Test de réceptivité', href: '/test-receptivite' },
   ];
 
   const accompagnementsLinks: NavLink[] = [
@@ -90,7 +91,6 @@ const Header = () => {
   const infosPratiquesLinks: NavLink[] = [
     { name: 'Tarifs', href: '/#tarifs' },
     { name: 'FAQ', href: '/#faq' },
-    { name: 'Test de réceptivité', href: 'https://hypnokick.novahypnose.fr/', external: true },
     { name: 'Contact', href: '/#contact' },
   ];
 
