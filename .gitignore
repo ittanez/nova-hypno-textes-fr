@@ -34,3 +34,7 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+# Windows reserved filenames
+nul
+src/nul
