@@ -459,7 +459,7 @@ const Index = () => {
             );
           })}
           {/* Gradient overlay constant */}
-          <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/60 via-nova-blue-dark/40 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/30 via-nova-blue-dark/20 to-transparent pointer-events-none"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">
