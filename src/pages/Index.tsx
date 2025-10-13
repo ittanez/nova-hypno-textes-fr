@@ -23,6 +23,7 @@ const Index = () => {
   const [currentApplication, setCurrentApplication] = useState(0);
   const [currentHowItWorks, setCurrentHowItWorks] = useState(0);
   const [currentPricing, setCurrentPricing] = useState(0);
+  const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
 
   const carouselSlides = [
     {
@@ -96,6 +97,15 @@ const Index = () => {
       description: 'Renforcez votre relation et retrouvez l\'harmonie dans votre couple'
     }
   ];
+
+  // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowFirstVideoPoster(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto-scroll du carrousel toutes les 4,5 secondes
   useEffect(() => {
@@ -402,7 +412,16 @@ const Index = () => {
                   index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {slide.type === 'video' ? (
+                {slide.type === 'video' && (index === 0 && showFirstVideoPoster) ? (
+                  // Pour la première vidéo, afficher d'abord le poster pendant 3 secondes
+                  <img
+                    src={slide.poster}
+                    alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                    className="w-full h-full object-cover object-center"
+                    loading="eager"
+                    fetchpriority="high"
+                  />
+                ) : slide.type === 'video' ? (
                   <video
                     ref={(el) => {
                       if (el && index === currentSlide) {
