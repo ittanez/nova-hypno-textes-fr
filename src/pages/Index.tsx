@@ -24,9 +24,6 @@ const Index = () => {
   const [currentHowItWorks, setCurrentHowItWorks] = useState(0);
   const [currentPricing, setCurrentPricing] = useState(0);
 
-  // Détection mobile pour alléger le chargement
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
   const carouselSlides = [
     {
       type: 'video' as const,
@@ -405,7 +402,7 @@ const Index = () => {
                   index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
-                {slide.type === 'video' && !isMobile ? (
+                {slide.type === 'video' ? (
                   <video
                     ref={(el) => {
                       if (el && index === currentSlide) {
@@ -419,16 +416,8 @@ const Index = () => {
                     muted
                     playsInline
                     preload={index === 0 ? "auto" : "metadata"}
-                    loading={index === 0 ? "eager" : undefined}
                   />
-                ) : slide.type === 'video' && isMobile && slide.poster ? (
-                  <img
-                    src={slide.poster}
-                    alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                    className="w-full h-full object-cover object-center"
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                ) : slide.type !== 'video' ? (
+                ) : (
                   (() => {
                     const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
                     return (
@@ -446,7 +435,7 @@ const Index = () => {
                       />
                     );
                   })()
-                ) : null}
+                )}
               </div>
             );
           })}
