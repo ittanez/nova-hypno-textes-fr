@@ -2,8 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
 import CommuteMap from '@/components/CommuteMap';
-import { MapPin, Train, Car, Bike, Clock, CheckCircle, Phone, Calendar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { MapPin, Train, Car, Bike, Clock, CheckCircle } from 'lucide-react';
 
 const ZoneIntervention = () => {
   const arrondissements = [
@@ -59,8 +58,7 @@ const ZoneIntervention = () => {
       icon: Train,
       type: "Bus",
       details: [
-        "Arrêt Bastille : Lignes 20, 29, 65, 69, 76, 86, 87, 91, 96",
-        "Arrêt Saint-Antoine : Lignes 67, 69, 76, 96",
+        "Arrêt Bastille : Lignes 29, 69, 76, 86, 91, 96",
         "Desserte fréquente toute la journée"
       ]
     },
@@ -68,7 +66,6 @@ const ZoneIntervention = () => {
       icon: Car,
       type: "Voiture",
       details: [
-        "Parking Bastille Saint-Antoine - 50 mètres (accès direct)",
         "Parking Baudoyer - 300 mètres",
         "Parking Saint-Paul - 400 mètres"
       ]
@@ -77,9 +74,9 @@ const ZoneIntervention = () => {
       icon: Bike,
       type: "Vélo / Vélib'",
       details: [
+        "Plusieurs stations Vélib' à Bastille",
         "Station Place de la Bastille - 2 min",
-        "Station Rue de Turenne - 3 min",
-        "Arceaux vélos devant le cabinet"
+        "Station Rue de Turenne - 3 min"
       ]
     }
   ];
@@ -108,7 +105,7 @@ const ZoneIntervention = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 py-16 md:py-24">
+      <section className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm mb-6">
@@ -131,15 +128,11 @@ const ZoneIntervention = () => {
 
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm">
-                <Train className="h-5 w-5 text-blue-600" />
+                <Train className="h-5 w-5 text-gray-700" />
                 <span className="text-gray-700 font-medium">Métro Bastille 2 min</span>
               </div>
               <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm">
-                <Car className="h-5 w-5 text-green-600" />
-                <span className="text-gray-700 font-medium">Parkings à proximité</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm">
-                <Clock className="h-5 w-5 text-purple-600" />
+                <Clock className="h-5 w-5 text-gray-700" />
                 <span className="text-gray-700 font-medium">Accessible en 5-30 min</span>
               </div>
             </div>
@@ -147,26 +140,46 @@ const ZoneIntervention = () => {
         </div>
       </section>
 
-      {/* Section Statistiques */}
-      <section className="py-12 bg-white border-b">
+      {/* Séances à domicile et visio */}
+      <section className="py-12 bg-gray-50 border-b">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 md:p-8">
-              <div className="flex items-start gap-4">
-                <CheckCircle className="h-8 w-8 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    99% des séances se déroulent au cabinet
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Je privilégie les <strong>consultations en présentiel</strong> au cabinet de Paris 4ème
-                    pour garantir la meilleure qualité d'accompagnement. L'environnement calme et dédié
-                    du cabinet favorise votre immersion et l'efficacité des séances d'hypnose.
-                  </p>
-                  <p className="text-gray-600 text-sm mt-3">
-                    <em>Quelques téléconsultations sont possibles dans des cas exceptionnels (mobilité réduite,
-                    éloignement géographique important). Contactez-moi pour en discuter.</em>
-                  </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Séances à domicile */}
+              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="h-8 w-8 text-gray-700 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      Séances à domicile
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Pour les personnes qui ne peuvent pas se déplacer au cabinet, je propose des
+                      <strong> séances d'hypnose à domicile dans Paris centre</strong>.
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900 mt-3">
+                      140 € la séance
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Séances en visio */}
+              <div className="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <CheckCircle className="h-8 w-8 text-gray-700 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      Séances en visioconférence
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Vous habitez en dehors de Paris ou préférez consulter depuis chez vous ?
+                      <strong> Les séances d'hypnose en visio</strong> sont tout aussi efficaces.
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900 mt-3">
+                      90 € la séance
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -194,9 +207,9 @@ const ZoneIntervention = () => {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-bold text-gray-900">{zone.zone}</h3>
-                    <div className="flex items-center gap-2 bg-blue-50 px-3 py-1 rounded-full">
-                      <Clock className="h-4 w-4 text-blue-600" />
-                      <span className="text-sm font-semibold text-blue-600">{zone.temps}</span>
+                    <div className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full">
+                      <Clock className="h-4 w-4 text-gray-700" />
+                      <span className="text-sm font-semibold text-gray-700">{zone.temps}</span>
                     </div>
                   </div>
 
@@ -238,7 +251,7 @@ const ZoneIntervention = () => {
               {gares.map((gare, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border-2 border-blue-100"
+                  className="bg-white rounded-lg p-6 border-2 border-gray-200 shadow-sm"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-bold text-gray-900">{gare.nom}</h3>
@@ -279,8 +292,8 @@ const ZoneIntervention = () => {
                     className="bg-white rounded-lg shadow-md p-6"
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="bg-blue-100 p-3 rounded-full">
-                        <Icon className="h-6 w-6 text-blue-600" />
+                      <div className="bg-gray-100 p-3 rounded-full">
+                        <Icon className="h-6 w-6 text-gray-700" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900">{transport.type}</h3>
                     </div>
@@ -288,7 +301,7 @@ const ZoneIntervention = () => {
                     <ul className="space-y-2">
                       {transport.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-700">
-                          <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="h-5 w-5 text-gray-700 flex-shrink-0 mt-0.5" />
                           <span className="text-sm">{detail}</span>
                         </li>
                       ))}
@@ -318,83 +331,6 @@ const ZoneIntervention = () => {
         </div>
       </section>
 
-      {/* Section Téléconsultations (secondaire) */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md p-8 md:p-10 border-2 border-gray-200">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Téléconsultations : Une Option Exceptionnelle
-              </h2>
-
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Bien que <strong>99% des séances se déroulent au cabinet</strong>, je propose
-                occasionnellement des téléconsultations dans des situations particulières :
-              </p>
-
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">Mobilité réduite temporaire ou permanente</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">Éloignement géographique important (hors Île-de-France)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700">Suivi après plusieurs séances en cabinet</span>
-                </li>
-              </ul>
-
-              <p className="text-gray-600 text-sm italic">
-                Les téléconsultations nécessitent un environnement calme, une bonne connexion internet,
-                et l'utilisation d'écouteurs. Contactez-moi pour évaluer si cette option est adaptée
-                à votre situation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Prêt à Commencer Votre Accompagnement en Hypnose ?
-            </h2>
-            <p className="text-xl mb-8 text-blue-50">
-              Le cabinet de Paris 4ème vous accueille du lundi au vendredi de 11h à 20h.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                onClick={() => window.location.href = 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris'}
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-6 text-lg rounded-lg shadow-lg"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Prendre Rendez-vous
-              </Button>
-
-              <Button
-                onClick={() => window.location.href = 'tel:+33649358089'}
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 text-lg rounded-lg"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                06 49 35 80 89
-              </Button>
-            </div>
-
-            <p className="mt-8 text-blue-100 text-sm">
-              📍 16 rue Saint-Antoine, 75004 Paris | Métro Bastille (Lignes 1, 5, 8)
-            </p>
-          </div>
-        </div>
-      </section>
     </ContentLayout>
   );
 };
