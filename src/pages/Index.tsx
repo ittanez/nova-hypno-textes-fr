@@ -225,6 +225,26 @@ const Index = () => {
       answer: "Le cabinet Marais Bastille est situé au 16 rue Saint-Antoine à Bastille, au croisement des 4ᵉ, 11ᵉ et 12ᵉ arrondissements, dans le quartier du Marais.\n\nAccès métro : Station Bastille (lignes 1, 5, 8) à 2 minutes à pied, ou  Saint-Paul  (ligne 1).\n\n Situation centrale : Le cabinet se trouve à proximité de  République ,  Châtelet  et  Gare de Lyon , permettant un accès facile depuis toute la région parisienne. Plusieurs lignes de bus desservent également le secteur (69, 76, 86, 87, 96).\n\nCette localisation privilégiée au cœur de Paris facilite vos consultations d'hypnothérapie à Bastille, que ce soit en journée ou en soirée."
     },
     {
+      question: "Comment accéder au cabinet d'hypnothérapie depuis le métro Bastille ?",
+      answer: "Le cabinet est situé à seulement 2 minutes à pied de la station de métro Bastille. Sortez par la sortie 'Rue Saint-Antoine' et marchez en direction de l'ouest sur la rue Saint-Antoine. Le cabinet se trouve au numéro 16, sur votre droite. La station Bastille dessert les lignes 1, 5 et 8, ce qui facilite l'accès depuis toute la région parisienne."
+    },
+    {
+      question: "Y a-t-il un parking près du cabinet d'hypnothérapie à Paris 4ème ?",
+      answer: "Oui, plusieurs options de stationnement sont disponibles à proximité immédiate du cabinet :\n\n• Parking Bastille Saint-Antoine (à 50 mètres) - Accès direct rue Saint-Antoine\n• Parking Baudoyer (300 mètres) - Rue François Miron\n• Parking Saint-Paul (400 mètres) - Rue Saint-Antoine\n\nDes stations Vélib' sont également situées Place de la Bastille (2 minutes) et rue de Turenne (3 minutes) pour ceux qui préfèrent le vélo."
+    },
+    {
+      question: "Quels arrondissements de Paris sont desservis depuis votre cabinet ?",
+      answer: "Situé au cœur de Paris 4ème dans le quartier Marais-Bastille, mon cabinet est facilement accessible depuis tous les arrondissements parisiens grâce à l'excellente desserte en transports en commun :\n\n• Paris Centre (1er, 2ème, 3ème, 4ème) : 5-10 min\n• Paris Est (10ème, 11ème, 12ème) : 5-10 min\n• Paris Nord (18ème, 19ème, 20ème) : 15-20 min\n• Paris Sud (5ème, 13ème, 14ème) : 15-25 min\n• Paris Ouest (7ème, 8ème, 15ème, 16ème) : 20-30 min\n\nLa station Bastille (lignes 1, 5, 8) permet de rejoindre rapidement République, Châtelet, Gare de Lyon et tous les grands points de correspondance parisiens."
+    },
+    {
+      question: "Proposez-vous des téléconsultations d'hypnose pour les personnes éloignées de Paris ?",
+      answer: "Oui, je propose des séances d'hypnose en téléconsultation pour les personnes qui ne peuvent pas se déplacer à Paris. Les téléconsultations sont tout aussi efficaces que les séances en cabinet, notamment pour :\n\n• Gestion du stress et de l'anxiété\n• Amélioration du sommeil\n• Confiance en soi\n• Préparation mentale\n• Arrêt du tabac\n\nLes séances se déroulent via une plateforme sécurisée (Zoom, Skype, ou Google Meet). Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable, et d'un casque ou écouteurs pour une meilleure immersion."
+    },
+    {
+      question: "Quel est le temps de trajet pour rejoindre votre cabinet depuis les principales gares parisiennes ?",
+      answer: "Le cabinet est très bien situé et facilement accessible depuis toutes les gares parisiennes :\n\n• Gare de Lyon : 5 minutes en métro (Ligne 1 directe jusqu'à Bastille)\n• Gare du Nord : 15 minutes (Ligne 5 directe depuis Gare du Nord jusqu'à Bastille)\n• Gare de l'Est : 15 minutes (Ligne 5 directe depuis Gare de l'Est jusqu'à Bastille)\n• Gare Montparnasse : 20-25 minutes (Ligne 6 puis 1, ou Ligne 4 puis 1)\n• Gare Saint-Lazare : 20 minutes (Ligne 14 puis 1, ou Ligne 3 puis 5)\n\nLa station Bastille étant un grand hub de correspondance (lignes 1, 5, 8), le cabinet est idéalement placé pour les patients venant de banlieue ou de province."
+    },
+    {
       question: "Pourquoi choisir un pack de séances ?",
       answer: "Le Pack 3 séances est particulièrement recommandé pour les problématiques les plus courantes qui nécessitent un accompagnement structuré : phobies, anxiété et confiance en soi. Ces trois domaines montrent les taux de réussite les plus élevés avec un suivi de 3 séances, permettant un travail progressif et l'ancrage durable des changements.\n\nLes packs offrent également un coût avantageux, un engagement à long terme et un plan de traitement structuré, créant les conditions optimales pour votre transformation."
     },
@@ -346,6 +366,13 @@ const Index = () => {
         }
       ]
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": "12"
+    }
   };
 
   const personSchema = {
