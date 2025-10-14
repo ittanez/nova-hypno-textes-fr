@@ -91,6 +91,7 @@ const Header = () => {
   const infosPratiquesLinks: NavLink[] = [
     { name: 'Tarifs', href: '/#tarifs' },
     { name: 'FAQ', href: '/#faq' },
+    { name: 'Zone d\'intervention', href: '/zone-intervention' },
     { name: 'Contact', href: '/#contact' },
   ];
 

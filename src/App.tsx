@@ -46,6 +46,9 @@ const AutohypnoseQuiz = lazy(() => import("@/pages/autohypnose/Quiz"));
 // Test de réceptivité
 const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
 
+// Zone d'intervention
+const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -96,6 +99,9 @@ function App() {
 
             {/* Test de réceptivité */}
             <Route path="/test-receptivite" element={<TestReceptivite />} />
+
+            {/* Zone d'intervention */}
+            <Route path="/zone-intervention" element={<ZoneIntervention />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />
