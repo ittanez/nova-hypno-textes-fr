@@ -275,7 +275,7 @@ const BlogIndex = () => {
           ) : (
             <>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {paginatedArticles.map((article) => (
+                {paginatedArticles.map((article, index) => (
                   <Link
                     key={article.id}
                     to={`/blog/article/${article.slug}`}
@@ -285,6 +285,8 @@ const BlogIndex = () => {
                       <img
                         src={article.image_url || "/placeholder.svg"}
                         alt={article.title}
+                        loading={index < 3 ? "eager" : "lazy"}
+                        fetchpriority={index === 0 ? "high" : "auto"}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>

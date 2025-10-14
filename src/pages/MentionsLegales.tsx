@@ -1,21 +1,12 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Separator } from '../components/ui/separator';
 import { ExternalLink } from 'lucide-react';
 
 const MentionsLegales = () => {
-  // Update page title and description
-  useEffect(() => {
-    document.title = 'Mentions Légales - NovaHypnose';
-    
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Mentions légales de NovaHypnose, cabinet d'hypnothérapie d'Alain Zenatti à Paris.");
-    }
-  }, []);
 
   const partners = [
     { name: "Psychonaute", url: "https://psychonaute.org/" },
@@ -31,6 +22,11 @@ const MentionsLegales = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Mentions Légales - NovaHypnose</title>
+        <meta name="description" content="Mentions légales de NovaHypnose, cabinet d'hypnothérapie d'Alain Zenatti à Paris." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Header />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
