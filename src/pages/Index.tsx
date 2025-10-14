@@ -445,8 +445,11 @@ const Index = () => {
                     src={slide.poster}
                     alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                     className="w-full h-full object-cover object-center"
+                    width="1920"
+                    height="1080"
                     loading="eager"
                     fetchpriority="high"
+                    decoding="async"
                   />
                 ) : slide.type === 'video' ? (
                   <video
