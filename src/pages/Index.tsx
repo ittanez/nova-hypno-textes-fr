@@ -443,7 +443,7 @@ const Index = () => {
                   // Pour la première vidéo, afficher d'abord le poster pendant 3 secondes
                   <img
                     src={slide.poster}
-                    alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                    alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                     className="w-full h-full object-cover object-center"
                     loading="eager"
                     fetchpriority="high"
@@ -471,7 +471,7 @@ const Index = () => {
                         src={src}
                         srcSet={srcSet}
                         sizes={sizes}
-                        alt={`${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                        alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                         className="w-full h-full object-cover object-center"
                         style={{ aspectRatio: '16/9' }}
                         width="1920"
