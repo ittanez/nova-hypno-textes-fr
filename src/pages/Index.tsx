@@ -12,6 +12,7 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { useQueryClient } from '@tanstack/react-query';
 import { getResponsiveSrcSet } from '@/lib/utils/imagekit';
+import { getCarouselImageSrcSet } from '@/lib/utils/supabaseImageTransform';
 import CommuteMap from '@/components/CommuteMap';
 
 const Index = () => {
@@ -441,16 +442,23 @@ const Index = () => {
               >
                 {slide.type === 'video' && (index === 0 && showFirstVideoPoster) ? (
                   // Pour la première vidéo, afficher d'abord le poster pendant 3 secondes
-                  <img
-                    src={slide.poster}
-                    alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                    className="w-full h-full object-cover object-center"
-                    width="1920"
-                    height="1080"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                  />
+                  (() => {
+                    const { src, srcSet, sizes } = getCarouselImageSrcSet(slide.poster);
+                    return (
+                      <img
+                        src={src}
+                        srcSet={srcSet}
+                        sizes={sizes}
+                        alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                        className="w-full h-full object-cover object-center"
+                        width="1920"
+                        height="1080"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                      />
+                    );
+                  })()
                 ) : slide.type === 'video' ? (
                   <video
                     ref={(el) => {
