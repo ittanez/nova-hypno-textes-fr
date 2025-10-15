@@ -81,6 +81,10 @@ const ArticlePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
+  // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
+  const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';
+  const canonicalBaseUrl = 'https://novahypnose.fr';
+
   // ✅ CHARGEMENT DE L'ARTICLE ET DE TOUS LES ARTICLES
   useEffect(() => {
     const fetchData = async () => {
@@ -262,6 +266,10 @@ const ArticlePage = () => {
         modifiedTime={article.updated_at}
         author={authorName}
         keywords={Array.isArray(article.keywords) ? article.keywords : []}
+        // ✅ GESTION DU CONTENU DUPLIQUÉ
+        // Si on est sur emergences.novahypnose.fr, on pointe vers novahypnose.fr et on désindexe
+        url={isEmergencesDomain ? `${canonicalBaseUrl}/blog/article/${article.slug}` : undefined}
+        robots={isEmergencesDomain ? "noindex, nofollow" : "index, follow"}
       />
 
       <Header />

@@ -17,6 +17,10 @@ const BlogIndex = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
+  const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';
+  const canonicalBaseUrl = 'https://novahypnose.fr';
+
   // Utiliser React Query pour récupérer les articles (avec cache)
   const { data: articlesData, isLoading: articlesLoading, isFetching: articlesFetching } = useQuery({
     queryKey: ['blog-articles'],
@@ -170,6 +174,9 @@ const BlogIndex = () => {
         type="website"
         keywords={["blog hypnose", "hypnose ericksonienne", "bien-être", "développement personnel", "auto-hypnose", "transformation personnelle"]}
         structuredData={[blogSchema, breadcrumbSchema]}
+        // ✅ GESTION DU CONTENU DUPLIQUÉ
+        url={isEmergencesDomain ? `${canonicalBaseUrl}/blog` : undefined}
+        robots={isEmergencesDomain ? "noindex, nofollow" : "index, follow"}
       />
 
       {/* Hero Section */}
