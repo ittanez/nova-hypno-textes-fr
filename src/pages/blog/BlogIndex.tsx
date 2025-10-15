@@ -175,7 +175,8 @@ const BlogIndex = () => {
         keywords={["blog hypnose", "hypnose ericksonienne", "bien-être", "développement personnel", "auto-hypnose", "transformation personnelle"]}
         structuredData={[blogSchema, breadcrumbSchema]}
         // ✅ GESTION DU CONTENU DUPLIQUÉ
-        url={isEmergencesDomain ? `${canonicalBaseUrl}/blog` : undefined}
+        // URL canonique pointe TOUJOURS vers novahypnose.fr
+        url={`${canonicalBaseUrl}/blog`}
         robots={isEmergencesDomain ? "noindex, nofollow" : "index, follow"}
       />
 
