@@ -206,19 +206,6 @@ function getDefaultStructuredData() {
         }
       ]
     },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Claire M."
-      },
-      "reviewBody": "Accompagnement vraiment exceptionnel d'Alain pour ma phobie des transports en commun. En seulement 3 séances, j'ai pu recommencer à prendre le métro sereinement."
-    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
