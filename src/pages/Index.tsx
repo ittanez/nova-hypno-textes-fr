@@ -415,17 +415,7 @@ const Index = () => {
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(localBusinessSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(personSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      </Helmet>
+      {/* Structured data (JSON-LD) is managed by vite-plugin-seo-headers.js for better SEO crawlability */}
 
       <ContentLayout>
       {/* Hero Section avec Carrousel */}
