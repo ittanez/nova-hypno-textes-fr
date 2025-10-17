@@ -1682,7 +1682,7 @@ const Index = () => {
               </p>
 
               <a
-                href="https://harmonia.novahypnose.fr"
+                href="https://novahypnose.fr/autohypnose"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
