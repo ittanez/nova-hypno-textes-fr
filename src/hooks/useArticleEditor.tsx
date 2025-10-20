@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, FormEvent } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";

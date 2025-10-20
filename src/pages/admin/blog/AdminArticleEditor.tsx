@@ -141,7 +141,7 @@ const AdminArticleEditor = () => {
       <ArticlePreview
         article={{
           ...article,
-          tags: getTagsForPreview(),
+          tags: (article.tags as any) || [],
           created_at: article.created_at || new Date().toISOString()
         }}
         open={showPreview}

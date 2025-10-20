@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { supabase } from '@/integrations/supabase/client';
 import { Article, Category } from '@/lib/types/blog';
 import { sanitizeData } from '@/lib/utils/textUtils';

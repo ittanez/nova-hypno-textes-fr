@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 
 // Import TinyMCE
 import 'tinymce/tinymce';
+import 'tinymce/skins/ui/oxide/skin.min.css';
+import 'tinymce/skins/content/default/content.min.css';
 
 // Import TinyMCE themes and plugins
 import 'tinymce/themes/silver';
@@ -111,6 +113,7 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
           onEditorChange={(newContent: string) => onChange(newContent)}
           licenseKey="gpl"
           init={{
+            base_url: '/',
             height,
             menubar: true,
             plugins: [
