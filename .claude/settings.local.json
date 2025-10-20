@@ -6,7 +6,22 @@
       "Bash(git commit:*)",
       "Bash(curl -s https://novahypnose.fr/index.html)",
       "Bash(curl:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(taskkill:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(timeout 10 sleep 10)",
+      "Bash(npm audit)",
+      "Bash(npm outdated:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:novahypnose.fr)",
+      "Bash(git revert:*)",
+      "Bash(cat:*)",
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(npm audit fix:*)",
+      "Bash(git pull)"
     ],
     "deny": [],
     "ask": []
