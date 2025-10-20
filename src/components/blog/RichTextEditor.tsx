@@ -1,7 +1,8 @@
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Label } from "@/components/ui/label";
 import { Editor } from '@tinymce/tinymce-react';
+import { Textarea } from "@/components/ui/textarea";
 
 // Types pour TinyMCE
 interface TinyMCEEditor {
@@ -29,19 +30,56 @@ interface RichTextEditorProps {
 const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditorProps) => {
   const editorRef = useRef<TinyMCEEditor | null>(null);
   const [isReady, setIsReady] = useState(false);
+  const [loadingTimeout, setLoadingTimeout] = useState(false);
+
+  // Timeout après 10 secondes si TinyMCE ne charge pas
+  useEffect(() => {
+    console.log('🔄 RichTextEditor: Démarrage du timeout (10s)');
+    const timer = setTimeout(() => {
+      if (!isReady) {
+        console.warn('⚠️ TinyMCE n\'a pas chargé après 10s - Basculement sur textarea');
+        setLoadingTimeout(true);
+      }
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [isReady]);
 
   return (
     <div className="space-y-2">
       {label && <Label htmlFor="content">{label}</Label>}
-      {!isReady && (
-        <div className="flex items-center justify-center bg-gray-100 rounded-md" style={{ height: `${height}px` }}>
-          <div className="text-gray-500">Chargement de l'éditeur...</div>
+
+      {/* Fallback : Textarea si TinyMCE ne charge pas */}
+      {loadingTimeout && !isReady && (
+        <div className="space-y-2">
+          <div className="bg-yellow-50 border border-yellow-200 rounded-md p-3 text-sm text-yellow-800">
+            ⚠️ L'éditeur visuel n'a pas pu se charger. Vous pouvez utiliser cet éditeur texte basique (Markdown supporté).
+          </div>
+          <Textarea
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className="font-mono text-sm"
+            style={{ minHeight: `${height}px` }}
+            placeholder="Écrivez votre contenu ici (Markdown supporté)..."
+          />
         </div>
       )}
+
+      {/* Message de chargement */}
+      {!isReady && !loadingTimeout && (
+        <div className="flex flex-col items-center justify-center bg-gray-100 rounded-md" style={{ height: `${height}px` }}>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mb-3"></div>
+          <div className="text-gray-500">Chargement de l'éditeur...</div>
+          <div className="text-xs text-gray-400 mt-2">Si le chargement dure plus de 10s, un éditeur de secours s'affichera</div>
+        </div>
+      )}
+
+      {/* TinyMCE Editor */}
       <div style={{ display: isReady ? 'block' : 'none' }}>
         <Editor
           apiKey="6q2l0qo2d981lsmsnugf2o15m593samljjw043nc4ol1ao8t"
           onInit={(evt: Event, editor: TinyMCEEditor) => {
+            console.log('✅ TinyMCE chargé avec succès');
             editorRef.current = editor;
             setIsReady(true);
           }}
