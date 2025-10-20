@@ -101,17 +101,16 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
       {/* TinyMCE Editor */}
       <div style={{ display: isReady ? 'block' : 'none' }}>
         <Editor
-          onInit={(evt: Event, editor: TinyMCEEditor) => {
+          onInit={(evt, editor) => {
             console.log('✅ TinyMCE chargé avec succès (version locale)');
-            editorRef.current = editor;
+            editorRef.current = editor as any;
             setIsReady(true);
           }}
           initialValue={value}
           value={value}
           onEditorChange={(newContent: string) => onChange(newContent)}
+          licenseKey="gpl"
           init={{
-            base_url: '/',
-            suffix: '.min',
             height,
             menubar: true,
             plugins: [
