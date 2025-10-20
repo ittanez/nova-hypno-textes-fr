@@ -4,6 +4,30 @@ import { Label } from "@/components/ui/label";
 import { Editor } from '@tinymce/tinymce-react';
 import { Textarea } from "@/components/ui/textarea";
 
+// Import TinyMCE
+import 'tinymce/tinymce';
+
+// Import TinyMCE themes and plugins
+import 'tinymce/themes/silver';
+import 'tinymce/icons/default';
+import 'tinymce/plugins/advlist';
+import 'tinymce/plugins/autolink';
+import 'tinymce/plugins/lists';
+import 'tinymce/plugins/link';
+import 'tinymce/plugins/image';
+import 'tinymce/plugins/charmap';
+import 'tinymce/plugins/preview';
+import 'tinymce/plugins/anchor';
+import 'tinymce/plugins/searchreplace';
+import 'tinymce/plugins/visualblocks';
+import 'tinymce/plugins/code';
+import 'tinymce/plugins/fullscreen';
+import 'tinymce/plugins/insertdatetime';
+import 'tinymce/plugins/media';
+import 'tinymce/plugins/table';
+import 'tinymce/plugins/help';
+import 'tinymce/plugins/wordcount';
+
 // Types pour TinyMCE
 interface TinyMCEEditor {
   getContent: () => string;
@@ -77,9 +101,8 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
       {/* TinyMCE Editor */}
       <div style={{ display: isReady ? 'block' : 'none' }}>
         <Editor
-          apiKey="6q2l0qo2d981lsmsnugf2o15m593samljjw043nc4ol1ao8t"
           onInit={(evt: Event, editor: TinyMCEEditor) => {
-            console.log('✅ TinyMCE chargé avec succès');
+            console.log('✅ TinyMCE chargé avec succès (version locale)');
             editorRef.current = editor;
             setIsReady(true);
           }}
@@ -92,7 +115,7 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
             plugins: [
               'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
               'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-              'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+              'insertdatetime', 'media', 'table', 'help', 'wordcount'
             ],
             toolbar: 'undo redo | blocks | ' +
               'bold italic forecolor | alignleft aligncenter ' +
@@ -113,10 +136,9 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
                 reader.readAsDataURL(blobInfo.blob());
               });
             },
-            language: 'fr_FR',
-            language_url: 'https://cdn.tiny.cloud/1/6q2l0qo2d981lsmsnugf2o15m593samljjw043nc4ol1ao8t/tinymce/6/langs/fr_FR.js',
             skin: "oxide",
             branding: false,
+            promotion: false,
           }}
         />
       </div>
