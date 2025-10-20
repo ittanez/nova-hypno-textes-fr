@@ -54,22 +54,30 @@ export const useArticleEditor = () => {
 
   useEffect(() => {
     const fetchArticle = async () => {
-      if (!isEditing || !id) return;
+      if (!isEditing || !id) {
+        console.log('🔍 fetchArticle: pas d\'édition ou pas d\'ID', { isEditing, id });
+        return;
+      }
 
       try {
+        console.log('🔍 fetchArticle: début du chargement pour ID:', id);
         setIsLoading(true);
 
         const { data, error } = await getArticleById(id);
 
+        console.log('📦 getArticleById résultat:', { data: !!data, error: error?.message });
+
         if (error) {
+          console.error('❌ Erreur Supabase:', error);
           throw error;
         }
 
         if (!data) {
-          throw new Error("Article non trouvé");
+          console.error('❌ Article non trouvé pour ID:', id);
+          throw new Error(`Article non trouvé pour l'ID: ${id}`);
         }
 
-        console.log("Article récupéré:", data);
+        console.log("✅ Article récupéré:", data.title);
         setArticle(data);
 
         if (data.scheduled_for) {
@@ -81,14 +89,16 @@ export const useArticleEditor = () => {
           setPublishMode("draft");
         }
       } catch (error: any) {
-        console.error("Erreur lors de la récupération de l'article:", error);
+        console.error("❌ Erreur lors de la récupération de l'article:", error);
         toast({
-          title: "Erreur",
-          description: "Impossible de charger l'article",
+          title: "Erreur de chargement",
+          description: error?.message || "Impossible de charger l'article. Vérifiez que l'ID est correct.",
           variant: "destructive"
         });
-        navigate('/admin-blog/articles');
+        // Redirection après 2 secondes pour laisser le temps de voir l'erreur
+        setTimeout(() => navigate('/admin-blog/articles'), 2000);
       } finally {
+        console.log('🏁 fetchArticle: fin du chargement');
         setIsLoading(false);
       }
     };
