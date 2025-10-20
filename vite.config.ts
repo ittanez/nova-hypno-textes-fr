@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 import { viteSeoHeaders } from "./vite-plugin-seo-headers.js";
 import { deferCss } from "./vite-plugin-defer-css.js";
 import analyze from "rollup-plugin-analyzer";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -19,6 +20,27 @@ export default defineConfig(({ mode }) => ({
     deferCss(),
     mode === 'development' &&
     componentTagger(),
+    // Copy TinyMCE assets to dist folder
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'node_modules/tinymce/skins',
+          dest: ''
+        },
+        {
+          src: 'node_modules/tinymce/models',
+          dest: ''
+        },
+        {
+          src: 'node_modules/tinymce/plugins',
+          dest: ''
+        },
+        {
+          src: 'node_modules/tinymce/icons',
+          dest: ''
+        }
+      ]
+    })
   ].filter(Boolean),
   build: {
     rollupOptions: {
