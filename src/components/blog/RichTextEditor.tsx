@@ -29,6 +29,7 @@ import 'tinymce/plugins/media';
 import 'tinymce/plugins/table';
 import 'tinymce/plugins/help';
 import 'tinymce/plugins/wordcount';
+import 'tinymce/models/dom/model';
 
 // Types pour TinyMCE
 interface TinyMCEEditor {
@@ -113,7 +114,6 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
           onEditorChange={(newContent: string) => onChange(newContent)}
           licenseKey="gpl"
           init={{
-            base_url: '/',
             height,
             menubar: true,
             plugins: [
@@ -140,7 +140,9 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
                 reader.readAsDataURL(blobInfo.blob());
               });
             },
-            skin: "oxide",
+            // Use bundled assets
+            skin: false,
+            content_css: false,
             branding: false,
             promotion: false,
           }}
