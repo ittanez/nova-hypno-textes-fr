@@ -8,6 +8,40 @@ import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blo
 import { Article } from "@/lib/types/blog";
 
 const CategoriesPage = () => {
+  const [categories, setCategories] = useState<any[]>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [categoriesResponse, articlesResponse] = await Promise.all([
+          getAllCategories(),
+          getAllArticlesNoPagination()
+        ]);
+        setCategories(categoriesResponse.data || []);
+        setArticles(articlesResponse.data || []);
+      } catch (error) {
+        console.error("Error loading categories:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">Loading...</div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   // Count articles in each category
   const categoryArticleCounts = categories.map(category => {
     const count = articles.filter(article => 

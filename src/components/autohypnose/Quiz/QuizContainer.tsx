@@ -186,8 +186,11 @@ const QuizContainer = () => {
       const normalizedScore = Math.min(100, Math.max(0, averageScore));
       
       return {
+        dimension,
         name: dimension,
         score: normalizedScore,
+        maxScore: 100,
+        percentage: normalizedScore,
         recommendation: getDimensionRecommendation(dimension, normalizedScore / 20) // Convert to 0-5 scale for recommendation
       };
     });
@@ -201,6 +204,9 @@ const QuizContainer = () => {
     // Create result object
     const result: QuizResult = {
       totalScore: normalizedTotalScore,
+      score: normalizedTotalScore,
+      totalQuestions: quizQuestions.length,
+      answers: {},
       dimensionScores: dimensionResults,
       conclusion: getOverallConclusion(normalizedTotalScore / 20) // Convert to 0-5 scale for conclusion
     };

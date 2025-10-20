@@ -1,3 +1,4 @@
+/// <reference types="google.maps" />
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Navigation, Clock, Car, Train, Bike, Footprints } from 'lucide-react';
 

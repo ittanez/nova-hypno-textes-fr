@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
+import { SchemaMarkup } from "@/types/schema";
 
 // Fonction pour sécuriser le JSON-LD et éviter les erreurs de syntaxe JavaScript
 const safeJSONStringify = (data: unknown): string => {
@@ -35,6 +36,9 @@ interface SEOHeadProps {
   structuredData?: SchemaMarkup | SchemaMarkup[];
   breadcrumbs?: Array<{ name: string; url?: string }>;
 }
+
+// Export du type pour utilisation ailleurs
+export type { SchemaMarkup };
 
 const SEOHead = ({
   title,
