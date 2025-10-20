@@ -110,6 +110,8 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
           value={value}
           onEditorChange={(newContent: string) => onChange(newContent)}
           init={{
+            base_url: '/',
+            suffix: '.min',
             height,
             menubar: true,
             plugins: [
