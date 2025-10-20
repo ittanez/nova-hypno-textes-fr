@@ -133,6 +133,7 @@ const CategoryPage = () => {
         title={`${category.name} - Blog NovaHypnose`}
         description={category.description || `Découvrez tous nos articles sur ${category.name} - Hypnose ericksonienne et bien-être par Alain Zenatti`}
         type="website"
+        url={`https://novahypnose.fr/blog/categorie/${slug}`}
         structuredData={[categorySchema, breadcrumbSchema]}
       />
 
