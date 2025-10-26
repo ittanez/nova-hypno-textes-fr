@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Article } from "@/lib/types/blog";
-import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+import { getAllArticlesNoPagination, getAllCategories, deleteArticle } from "@/lib/services/blog/articleService";
 
 type SortField = 'title' | 'created_at' | 'published_at' | 'status';
 type SortDirection = 'asc' | 'desc';
@@ -165,8 +165,16 @@ export const useAdminArticles = () => {
       setIsLoading(true);
       console.log("Suppression de l'article:", selectedArticle.id);
 
-      // Simuler la suppression pour l'instant
+      // Appeler la fonction de suppression de la base de données
+      const { success, error } = await deleteArticle(selectedArticle.id);
+
+      if (error || !success) {
+        throw error || new Error("Échec de la suppression");
+      }
+
+      // Retirer l'article de l'état local après suppression réussie
       setAllArticles(allArticles.filter(a => a.id !== selectedArticle.id));
+
       toast({
         title: "Succès",
         description: "Article supprimé avec succès"
