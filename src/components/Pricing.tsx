@@ -9,7 +9,7 @@ const Pricing = () => {
       title: "Cabinet Paris Bastille",
       price: "90€",
       description: "Au cœur de Paris",
-      features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille"]
+      features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille, St Paul, Sully-Morland"]
     },
     {
       icon: Video,
@@ -97,7 +97,7 @@ const Pricing = () => {
               <li>Carte bancaire (téléconsultations)</li>
             </ul>
           </div>
-          
+
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-md">
             <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Remarques importantes</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
