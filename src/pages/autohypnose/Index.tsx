@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import AutohypnoseHero from '@/components/autohypnose/AutohypnoseHero';
-import AutohypnoseSerenityTest from '@/components/autohypnose/AutohypnoseSerenityTest';
 import AutohypnoseRoadmap from '@/components/autohypnose/AutohypnoseRoadmap';
 import AutohypnoseProgram from '@/components/autohypnose/AutohypnoseProgram';
 import AutohypnosePricing from '@/components/autohypnose/AutohypnosePricing';
@@ -29,7 +28,6 @@ const AutohypnoseIndex = () => {
       <Header />
       <main>
         <AutohypnoseHero />
-        <AutohypnoseSerenityTest />
         <AutohypnoseRoadmap />
         <AutohypnoseProgram />
         <AutohypnosePricing />
