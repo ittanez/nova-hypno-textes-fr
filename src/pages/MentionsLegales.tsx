@@ -48,6 +48,7 @@ const MentionsLegales = () => {
                   <li><strong>Numéro Siren :</strong> 894898907</li>
                   <li><strong>Numéro Siret :</strong> 89489890700015 (siège de l'entreprise)</li>
                   <li><strong>Code NAF / APE :</strong> 8690F</li>
+                  <li><strong>TVA :</strong> Non applicable, article 293B du CGI</li>
                   <li><strong>Adhérent :</strong> SDMH (Syndicat des Métiers de l'Hypnose)</li>
                   <li><strong>Forme juridique :</strong> Entrepreneur individuel</li>
                   <li><strong>Responsable éditorial :</strong> Alain ZENATTI</li>
