@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Calendar, Phone, Mail, MapPin,
+  Calendar, Phone, Mail, MapPin, Video, Home,
   Brain, Heart, Target, Sparkles, Shield, Users,
   CheckCircle, Star, Award, Clock, Lightbulb,
   ChevronDown, ChevronUp, X,
@@ -712,53 +712,164 @@ const Maquette = () => {
       </section>
 
       {/* Section Tarifs */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Tarifs & Formules
             </h2>
             <p className="text-xl text-gray-600">
-              Des formules adaptées à vos besoins
+              Choisissez la formule qui vous convient le mieux
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Séances Individuelles</h3>
-              <div className="mb-6">
-                <ul className="space-y-4">
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">Cabinet (Paris Bastille)</span>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            {/* Cabinet Paris Bastille */}
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-t-2xl">
+                <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <MapPin className="text-blue-600" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-white text-center mb-2">Cabinet Paris Bastille</h3>
+                <p className="text-white/90 text-center text-sm">Au cœur de Paris</p>
+              </div>
+
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl font-bold text-gray-900 mb-1">90€</div>
+                  <div className="text-sm text-gray-500">par séance</div>
+                </div>
+
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="text-2xl font-bold text-blue-600">90€</span>
+                    <span className="text-sm">1h30 (première séance)</span>
                   </li>
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">Téléconsultation</span>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="text-2xl font-bold text-blue-600">90€</span>
+                    <span className="text-sm">1h (séances suivantes)</span>
                   </li>
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">À Domicile (Paris Centre)</span>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
-                    <span className="text-2xl font-bold text-blue-600">140€</span>
+                    <span className="text-sm">Métro Bastille</span>
                   </li>
                 </ul>
+
+                <a
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
+                >
+                  Réserver
+                </a>
               </div>
-              <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Réserver une séance
-              </a>
+            </div>
+
+            {/* Téléconsultation */}
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-t-2xl">
+                <div className="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Video className="text-purple-600" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-white text-center mb-2">Téléconsultation</h3>
+                <p className="text-white/90 text-center text-sm">Depuis chez vous</p>
+              </div>
+
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl font-bold text-gray-900 mb-1">90€</div>
+                  <div className="text-sm text-gray-500">par séance</div>
+                </div>
+
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">1h30 (première séance)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">1h (séances suivantes)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">Connexion sécurisée</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
+                >
+                  Réserver
+                </a>
+              </div>
+            </div>
+
+            {/* À Domicile */}
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ring-2 ring-green-500 scale-105">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                ✨ NOUVEAU
+              </div>
+
+              <div className="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-t-2xl">
+                <div className="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Home className="text-green-600" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-white text-center mb-2">À Domicile</h3>
+                <p className="text-white/90 text-center text-sm">Paris Centre</p>
+              </div>
+
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl font-bold text-gray-900 mb-1">140€</div>
+                  <div className="text-sm text-gray-500">par séance</div>
+                </div>
+
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">1h30 (première séance)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">1h (séances suivantes)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-gray-600">
+                    <div className="mt-1 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    </div>
+                    <span className="text-sm">Arrond. 1-4, 9-11</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
+                >
+                  Réserver
+                </a>
+              </div>
             </div>
           </div>
         </div>
