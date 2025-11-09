@@ -70,10 +70,7 @@ const Pricing = () => {
                 <div>
                   <div className="bg-nova-blue text-white p-4 rounded-lg mb-6">
                     <p className="text-4xl font-bold mb-2 flex items-baseline">
-                      300€ <span className="text-sm ml-2">TTC</span>
-                    </p>
-                    <p className="text-sm">
-                      🎉 Obtenez votre code promo de 50% de réduction en complétant le test de sérénité
+                      180€ <span className="text-sm ml-2">TTC</span>
                     </p>
                   </div>
 
@@ -93,7 +90,7 @@ const Pricing = () => {
                     <stripe-buy-button
                       buy-button-id="buy_btn_1RD8bAANRwaqPj2NLAMafpVx"
                       publishable-key="pk_live_51RCQyrANRwaqPj2NZIKGZiadw33A3msp4preGmKVLNV258KoGe0eadZL65pKs74NOA0TxnKdEY2KqshyYnBWeO9H00DIad5mNU"
-                      data-href="https://buy.stripe.com/28og292uN30p3XW3cc"
+                      data-href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
                     >
                     </stripe-buy-button>
                   </div>
