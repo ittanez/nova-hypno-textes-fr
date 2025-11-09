@@ -66,7 +66,16 @@ const MentionsLegales = () => {
                   <li><strong>Site Web :</strong> hostinger.fr</li>
                 </ul>
               </section>
-              
+
+              <section>
+                <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Responsabilité Civile Professionnelle</h2>
+                <ul className="space-y-2 text-gray-700">
+                  <li><strong>Assureur :</strong> GRAS SAVOYE</li>
+                  <li><strong>Adresse :</strong> IMMEUBLE QUAI 33 CS70001, 33 QUAI DE DION BOUTON, 92814 PUTEAUX CEDEX</li>
+                  <li><strong>Téléphone :</strong> 09 72 72 01 35</li>
+                </ul>
+              </section>
+
               <section>
                 <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Développement</h2>
                 <ul className="space-y-2 text-gray-700">

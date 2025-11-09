@@ -152,10 +152,12 @@ const Footer = () => {
             <p className="text-sm mb-1">16 rue St Antoine, 75004 Paris</p>
             <p className="text-sm mb-1">Quartier le Marais - Bastille</p>
             <a href="tel:0649358089" className="text-sm text-gray-300 hover:text-white block mb-1">06 49 35 80 89</a>
-            <a href="mailto:contact@novahypnose.fr" className="text-sm text-gray-300 hover:text-white">contact@novahypnose.fr</a>
-            
-            <div className="mt-4">
-              <a 
+            <a href="mailto:contact@novahypnose.fr" className="text-sm text-gray-300 hover:text-white block mb-3">contact@novahypnose.fr</a>
+
+            <Link to="/mentions-legales" className="text-sm text-gray-300 hover:text-white block mb-4">Mentions légales</Link>
+
+            <div className="mt-2">
+              <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -167,11 +169,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-sm">© {currentYear} NovaHypnose - Tous droits réservés</p>
-          <p className="text-xs text-gray-300 mt-2 md:mt-0">
-            <Link to="/mentions-legales" className="hover:underline">Mentions légales</Link>
-          </p>
         </div>
       </div>
     </footer>
