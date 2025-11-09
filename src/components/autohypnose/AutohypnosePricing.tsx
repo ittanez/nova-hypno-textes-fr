@@ -94,10 +94,19 @@ const Pricing = () => {
                     >
                     </stripe-buy-button>
                   </div>
-                  
-                  <p className="text-sm text-gray-500">
+
+                  <p className="text-sm text-gray-500 mb-6">
                     Places limitées à 6 participants. Réservez rapidement pour garantir votre place.
                   </p>
+
+                  <a
+                    href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
+                  >
+                    Réserver ma place - 180€
+                  </a>
                 </div>
                 
                 <div>

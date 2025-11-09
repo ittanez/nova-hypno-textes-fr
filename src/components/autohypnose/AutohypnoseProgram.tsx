@@ -139,15 +139,6 @@ const Program = () => {
                 </dl>
               </CardContent>
             </Card>
-
-            <div className="text-center">
-              <a
-                href="#pricing"
-                className="inline-block w-full px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
-              >
-                Réserver ma place - 180€
-              </a>
-            </div>
           </div>
         </div>
       </div>
