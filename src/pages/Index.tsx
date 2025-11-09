@@ -15,6 +15,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { getResponsiveSrcSet } from '@/lib/utils/imagekit';
 import { getCarouselImageSrcSet } from '@/lib/utils/supabaseImageTransform';
 import CommuteMap from '@/components/CommuteMap';
+import Pricing from '@/components/Pricing';
 
 const Index = () => {
   const queryClient = useQueryClient();
@@ -1096,97 +1097,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section Tarifs */}
-      <section id="tarifs" className="py-20 bg-gradient-to-br from-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
-              Tarifs & Formules
-            </h2>
-            <p className="text-xl text-gray-600">
-              Des formules de séances d'hypnothérapie adaptées à vos besoins
-            </p>
-          </div>
-
-          {/* Desktop: Centered Single Card */}
-          <div className="hidden md:block max-w-2xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Séances Individuelles</h3>
-              <div className="mb-6">
-                <ul className="space-y-4">
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">Cabinet (Paris Bastille)</span>
-                    </div>
-                    <span className="text-2xl font-bold text-blue-600">90€</span>
-                  </li>
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">Téléconsultation</span>
-                    </div>
-                    <span className="text-2xl font-bold text-blue-600">90€</span>
-                  </li>
-                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-700 font-medium">À Domicile (Paris Centre)</span>
-                    </div>
-                    <span className="text-2xl font-bold text-blue-600">140€</span>
-                  </li>
-                </ul>
-              </div>
-              <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Réserver une séance
-              </a>
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="md:hidden max-w-lg mx-auto px-4">
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Séances Individuelles</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
-                    <span className="text-gray-700 text-sm">Cabinet (Paris Bastille)</span>
-                  </div>
-                  <span className="text-xl font-bold text-blue-600">90€</span>
-                </li>
-                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
-                    <span className="text-gray-700 text-sm">Téléconsultation</span>
-                  </div>
-                  <span className="text-xl font-bold text-blue-600">90€</span>
-                </li>
-                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
-                    <span className="text-gray-700 text-sm">À Domicile (Paris Centre)</span>
-                  </div>
-                  <span className="text-xl font-bold text-blue-600">140€</span>
-                </li>
-              </ul>
-              <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Réserver une séance
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Section Tarifs - Design moderne avec 3 cartes */}
+      <Pricing />
 
       {/* Section CTA finale */}
       <section id="cta" className="py-20 bg-nova-blue-dark">

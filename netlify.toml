@@ -66,11 +66,11 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Cache pour les fichiers HTML
+# Cache pour les fichiers HTML - Force refresh 2025-01
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=3600, must-revalidate"
+    Cache-Control = "no-cache, no-store, must-revalidate"
 
 # Cache pour les fichiers statiques
 [[headers]]
