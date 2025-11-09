@@ -1108,235 +1108,81 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Desktop: Grid */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Séance individuelle */}
+          {/* Desktop: Centered Single Card */}
+          <div className="hidden md:block max-w-2xl mx-auto">
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Séance Individuelle</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Séances Individuelles</h3>
               <div className="mb-6">
-                <span className="text-5xl font-bold text-blue-600">90€</span>
-                <span className="text-gray-600">/séance</span>
+                <ul className="space-y-4">
+                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-700 font-medium">Cabinet (Paris Bastille)</span>
+                    </div>
+                    <span className="text-2xl font-bold text-blue-600">90€</span>
+                  </li>
+                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-700 font-medium">Téléconsultation</span>
+                    </div>
+                    <span className="text-2xl font-bold text-blue-600">90€</span>
+                  </li>
+                  <li className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-700 font-medium">À Domicile (Paris Centre)</span>
+                    </div>
+                    <span className="text-2xl font-bold text-blue-600">140€</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">Séance personnalisée</span>
+              <a
+                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Réserver une séance
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile */}
+          <div className="md:hidden max-w-lg mx-auto px-4">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Séances Individuelles</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">Cabinet (Paris Bastille)</span>
+                  </div>
+                  <span className="text-xl font-bold text-blue-600">90€</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">Cabinet ou téléconsultation</span>
+                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">Téléconsultation</span>
+                  </div>
+                  <span className="text-xl font-bold text-blue-600">90€</span>
+                </li>
+                <li className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">À Domicile (Paris Centre)</span>
+                  </div>
+                  <span className="text-xl font-bold text-blue-600">140€</span>
                 </li>
               </ul>
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Réserver
+                Réserver une séance
               </a>
-            </div>
-
-            {/* Pack 3 séances */}
-            <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl transform scale-105 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-sm font-bold">
-                RECOMMANDÉ
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Pack 3 Séances</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-white">255€</span>
-                <span className="text-blue-100">/pack</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">85€/séance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Suivi personnalisé</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                  <span className="text-white">Économisez 15€</span>
-                </li>
-              </ul>
-              <a
-                href="https://buy.stripe.com/aFacN4bfL1nZ6Za3PO4ko07"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Réserver
-              </a>
-            </div>
-
-            {/* Pack 5 séances */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:border-blue-300 hover:shadow-2xl transition-all">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Pack 5 Séances</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-blue-600">400€</span>
-                <span className="text-gray-600">/pack</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">80€/séance</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">Transformation profonde</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                  <span className="text-gray-600">Économisez 50€</span>
-                </li>
-              </ul>
-              <a
-                href="https://buy.stripe.com/14A14mdnT7Mn1EQ1HG4ko08"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-              >
-                Réserver
-              </a>
-            </div>
-          </div>
-
-          {/* Mobile: Carousel */}
-          <div className="md:hidden relative max-w-lg mx-auto pb-12 pt-4">
-            <div className="overflow-visible">
-              <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentPricing * 100}%)` }}>
-                {/* Séance individuelle */}
-                <div className="min-w-full px-2">
-                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Séance Individuelle</h3>
-                    <div className="mb-6">
-                      <span className="text-5xl font-bold text-blue-600">90€</span>
-                      <span className="text-gray-600">/séance</span>
-                    </div>
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">Séance personnalisée</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">Cabinet ou téléconsultation</span>
-                      </li>
-                    </ul>
-                    <a
-                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-                    >
-                      Réserver
-                    </a>
-                  </div>
-                </div>
-
-                {/* Pack 3 séances */}
-                <div className="min-w-full px-2">
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl relative overflow-visible">
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-xs font-bold shadow-md z-10">
-                      RECOMMANDÉ
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-4 mt-2">Pack 3 Séances</h3>
-                    <div className="mb-6">
-                      <span className="text-5xl font-bold text-white">255€</span>
-                      <span className="text-blue-100">/pack</span>
-                    </div>
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                        <span className="text-white">85€/séance</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                        <span className="text-white">Suivi personnalisé</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-white flex-shrink-0 mt-1" size={20} />
-                        <span className="text-white">Économisez 15€</span>
-                      </li>
-                    </ul>
-                    <a
-                      href="https://buy.stripe.com/aFacN4bfL1nZ6Za3PO4ko07"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                    >
-                      Réserver
-                    </a>
-                  </div>
-                </div>
-
-                {/* Pack 5 séances */}
-                <div className="min-w-full px-2">
-                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Pack 5 Séances</h3>
-                    <div className="mb-6">
-                      <span className="text-5xl font-bold text-blue-600">400€</span>
-                      <span className="text-gray-600">/pack</span>
-                    </div>
-                    <ul className="space-y-3 mb-8">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">80€/séance</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">Transformation profonde</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-gray-600">Économisez 50€</span>
-                      </li>
-                    </ul>
-                    <a
-                      href="https://buy.stripe.com/14A14mdnT7Mn1EQ1HG4ko08"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-3 bg-white border-2 border-blue-500 text-blue-500 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-                    >
-                      Réserver
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation en bas */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
-              <button
-                onClick={() => setCurrentPricing(prev => prev === 0 ? 2 : prev - 1)}
-                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-                aria-label="Tarif précédent"
-              >
-                <ChevronLeft className="text-blue-500" size={14} />
-              </button>
-
-              <div className="flex gap-1.5">
-                {[0, 1, 2].map((index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentPricing(index)}
-                    className={`h-1.5 rounded-full transition-all ${
-                      currentPricing === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
-                    }`}
-                    aria-label={`Tarif ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => setCurrentPricing(prev => prev === 2 ? 0 : prev + 1)}
-                className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
-                aria-label="Tarif suivant"
-              >
-                <ChevronRight className="text-blue-500" size={14} />
-              </button>
             </div>
           </div>
         </div>

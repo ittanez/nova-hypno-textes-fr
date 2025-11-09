@@ -188,21 +188,6 @@ const AutohypnoseTestimonials = () => {
               </div>
             </div>
           </div>
-
-          <div className="text-center bg-nova-blue-light rounded-xl p-8">
-            <p className="text-2xl font-bold text-nova-blue-dark mb-4">
-              95% de satisfaction
-            </p>
-            <p className="text-gray-700 mb-6">
-              Rejoignez les centaines de personnes qui ont déjà retrouvé leur sérénité grâce à l'auto-hypnose
-            </p>
-            <a
-              href="#quiz"
-              className="inline-block px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
-            >
-              Commencer le test de sérénité
-            </a>
-          </div>
         </div>
       </div>
     </section>

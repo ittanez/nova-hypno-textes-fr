@@ -5,36 +5,30 @@ const AutohypnoseRoadmap = () => {
   const steps = [
     {
       number: '1',
-      title: 'Évaluation initiale',
-      description: 'Complétez le test de sérénité pour identifier vos besoins spécifiques et recevez votre code promo',
-      duration: '5 min',
-    },
-    {
-      number: '2',
       title: 'Inscription à la formation',
-      description: 'Réservez votre place pour la journée du 25 janvier 2026 à Paris Bastille (max 6 participants)',
+      description: 'Réservez votre place pour la journée du 25 janvier 2026 à Paris Bastille (max 6 participants) - Tarif : 180€',
       duration: '2 min',
     },
     {
-      number: '3',
+      number: '2',
       title: 'Formation intensive',
       description: 'Journée complète d\'apprentissage des techniques d\'auto-hypnose et de gestion du stress',
       duration: '1 jour',
     },
     {
-      number: '4',
+      number: '3',
       title: 'Pratique quotidienne',
       description: 'Application des techniques apprises dans votre vie quotidienne avec le support de cours fourni',
       duration: 'Continu',
     },
     {
-      number: '5',
+      number: '4',
       title: 'Suivi personnalisé',
       description: 'Entretien téléphonique un mois après la formation pour faire le point sur votre progression',
       duration: '30 min',
     },
     {
-      number: '6',
+      number: '5',
       title: 'Autonomie et sérénité',
       description: 'Maîtrise complète de l\'auto-hypnose pour gérer votre stress de manière autonome',
       duration: 'À vie',
@@ -120,10 +114,10 @@ const AutohypnoseRoadmap = () => {
                   Rejoignez les participants qui ont déjà transformé leur vie avec l'auto-hypnose
                 </p>
                 <a
-                  href="/autohypnose/quiz"
+                  href="#pricing"
                   className="inline-block px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
                 >
-                  Commencer gratuitement
+                  Réserver ma place - 180€
                 </a>
               </CardContent>
             </Card>

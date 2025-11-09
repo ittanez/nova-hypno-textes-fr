@@ -36,10 +36,6 @@ const AutohypnoseFAQ = () => {
       answer: 'Oui ! Un mois après la formation, vous bénéficiez d\'un entretien téléphonique personnalisé pour faire le point sur votre pratique, répondre à vos questions et ajuster les techniques si nécessaire.',
     },
     {
-      question: 'Comment obtenir le code promo de 50% ?',
-      answer: 'Il suffit de compléter notre test de sérénité gratuit. Vous recevrez immédiatement votre code promo par email, ainsi qu\'une analyse personnalisée de votre profil de stress.',
-    },
-    {
       question: 'Puis-je annuler ou reporter ma participation ?',
       answer: 'Oui, les annulations sont possibles avec remboursement selon notre politique : remboursement intégral si annulation plus de 15 jours avant, 50% entre 7 et 15 jours avant. Vous pouvez également reporter sur une autre date sous réserve de disponibilité.',
     },
