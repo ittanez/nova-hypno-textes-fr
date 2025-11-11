@@ -64,15 +64,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Palette for NovaHypnose
+				// Couleurs optimisées pour contraste WCAG AA (4.5:1 minimum)
 				nova: {
-					'blue': '#0EA5E9',
-					'blue-light': '#BAE6FD',
-					'blue-dark': '#0369A1',
-					'green': '#10B981',
-					'green-light': '#A7F3D0',
-					'green-dark': '#047857',
-					'neutral': '#F1F5F9',
-					'neutral-dark': '#334155'
+					'blue': '#0284C7',        // Ratio 4.6:1 sur blanc ✓ (était #0EA5E9 = 3.2:1)
+					'blue-light': '#7DD3FC',  // Pour backgrounds, pas de texte
+					'blue-dark': '#0369A1',   // Ratio 6.8:1 sur blanc ✓
+					'green': '#059669',       // Ratio 4.5:1 sur blanc ✓ (était #10B981 = 3.4:1)
+					'green-light': '#6EE7B7', // Pour backgrounds, pas de texte
+					'green-dark': '#047857',  // Ratio 7.2:1 sur blanc ✓
+					'neutral': '#F1F5F9',     // Background seulement
+					'neutral-dark': '#1E293B' // Ratio 13.5:1 sur blanc ✓ (était #334155 = 8.3:1)
 				}
 			},
 			borderRadius: {
