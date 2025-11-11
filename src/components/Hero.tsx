@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 
 const Hero = () => {
   return (

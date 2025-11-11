@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 import { memo } from 'react';
 
 // Memoize the Hero component to prevent unnecessary re-renders

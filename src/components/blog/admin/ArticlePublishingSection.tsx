@@ -1,7 +1,7 @@
 
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { CalendarIcon } from "lucide-react";
+import CalendarIconLucide from 'lucide-react/dist/esm/icons/calendar';
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
@@ -75,7 +75,7 @@ const ArticlePublishingSection = ({
                       !scheduledDate && "text-muted-foreground"
                     )}
                   >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    <CalendarIconLucide className="mr-2 h-4 w-4" />
                     {scheduledDate ? format(scheduledDate, "PPP", { locale: fr }) : "Choisir une date"}
                   </Button>
                 </PopoverTrigger>

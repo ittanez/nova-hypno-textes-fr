@@ -1,6 +1,9 @@
 
 import React from 'react';
-import { MapPin, Video, Home, Check } from 'lucide-react';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Video from 'lucide-react/dist/esm/icons/video';
+import Home from 'lucide-react/dist/esm/icons/home';
+import Check from 'lucide-react/dist/esm/icons/check';
 
 const Pricing = () => {
   const sessions = [

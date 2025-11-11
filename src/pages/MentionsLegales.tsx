@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Separator } from '../components/ui/separator';
-import { ExternalLink } from 'lucide-react';
+import ExternalLink from 'lucide-react/dist/esm/icons/external-link';
 
 const MentionsLegales = () => {
 

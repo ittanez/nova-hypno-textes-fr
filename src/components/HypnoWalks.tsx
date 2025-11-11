@@ -1,6 +1,10 @@
 
 import React from 'react';
-import { MapPin, Calendar, Clock, Users, Euro } from 'lucide-react';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Users from 'lucide-react/dist/esm/icons/users';
+import Euro from 'lucide-react/dist/esm/icons/euro';
 
 const HypnoWalks = () => {
   return (

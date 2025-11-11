@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { ChevronLeft } from 'lucide-react';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 
 type EmailStepProps = {
   email: string;

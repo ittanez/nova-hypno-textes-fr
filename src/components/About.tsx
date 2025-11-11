@@ -1,5 +1,6 @@
  import React from 'react';
-import { Heart, Award } from 'lucide-react';
+import Heart from 'lucide-react/dist/esm/icons/heart';
+import Award from 'lucide-react/dist/esm/icons/award';
 import LazyYouTube from './LazyYouTube';
 import { getImageKitUrl } from '@/lib/utils/imagekit';
 

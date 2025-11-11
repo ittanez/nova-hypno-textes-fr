@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { TestResult } from '@/utils/receptivite/calculateScore';
-import { Mail } from 'lucide-react';
+import Mail from 'lucide-react/dist/esm/icons/mail';
 
 type ResultsStepProps = {
   results: TestResult;

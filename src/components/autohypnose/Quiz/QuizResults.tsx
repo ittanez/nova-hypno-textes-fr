@@ -2,7 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { QuizResult, DimensionResult } from "@/types/quiz";
 import { dimensionNames } from "@/data/quizData";
-import { Check, Copy, Calendar, AlertTriangle, ShoppingCart } from "lucide-react";
+import Check from 'lucide-react/dist/esm/icons/check';
+import Copy from 'lucide-react/dist/esm/icons/copy';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import AlertTriangle from 'lucide-react/dist/esm/icons/alert-triangle';
+import ShoppingCart from 'lucide-react/dist/esm/icons/shopping-cart';
 import { useState, useEffect } from "react";
 import { toast } from "@/components/ui/sonner";
 
