@@ -7,6 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  VITE_BASE_PATH = "/"
 
 [functions]
   node_bundler = "esbuild"

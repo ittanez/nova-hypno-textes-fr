@@ -14,10 +14,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  // Base path différent selon l'environnement de déploiement
-  // GitHub Pages: /nova-hypno-textes-fr/ (sous-dossier du repo)
-  // Netlify: / (domaine custom)
-  base: process.env.GITHUB_ACTIONS ? '/nova-hypno-textes-fr/' : '/',
+  // Base path pour GitHub Pages (sous-dossier du repo)
+  // Pour désactiver, déployer avec: VITE_BASE_PATH=/ npm run build
+  base: process.env.VITE_BASE_PATH || '/nova-hypno-textes-fr/',
   plugins: [
     react(),
     viteSeoHeaders(),
