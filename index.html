@@ -15,8 +15,17 @@
     <link rel="preconnect" href="https://cdn.gpteng.co">
     <link rel="preconnect" href="https://ik.imagekit.io">
 
-    <!-- Préchargement de l'image LCP (Hero carrousel) - URL OPTIMISÉE avec transformation Supabase -->
-    <link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=640&quality=80" as="image" fetchpriority="high" imagesrcset="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=640&quality=80 640w, https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1024&quality=80 1024w, https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1920&quality=80 1920w" imagesizes="100vw">
+    <!-- Préchargement de l'image LCP (Hero carrousel) - OPTIMISÉ avec Supabase Transform -->
+    <link rel="preload"
+      href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=768&quality=75"
+      as="image"
+      fetchpriority="high"
+      imagesrcset="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=480&quality=75 480w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=768&quality=75 768w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1024&quality=75 1024w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1536&quality=75 1536w"
+      imagesizes="100vw"
+      type="image/webp">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
@@ -82,26 +91,45 @@
       body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;background-color:#f8fafc;overflow-x:hidden;max-width:100%}
       #root{min-height:100vh}
 
-      /* Hero carrousel - critique pour LCP */
+      /* Hero carrousel - critique pour LCP - AMÉLIORÉ */
       .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative;background:#1e3a8a}
-      .hero-image-container img{width:100%;height:100%;object-fit:cover;display:block}
+      .hero-image-container img,.hero-image-container video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
       .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8));z-index:1}
       .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem;color:#fff}
       .hero-text{max-width:56rem;margin:0 auto}
+
+      /* Carrousel - styles critiques */
+      .relative{position:relative}
+      .absolute{position:absolute}
+      .inset-0{inset:0}
+      .flex{display:flex}
+      .items-center{align-items:center}
+      .justify-center{justify-content:center}
+      .min-h-screen{min-height:100vh}
+      .z-10{z-index:10}
+      .z-20{z-index:20}
+      .opacity-0{opacity:0}
+      .opacity-100{opacity:100}
+      .transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.3s}
 
       /* Typographie critique */
       h1,h2,h3,h4,h5,h6{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;line-height:1.2;letter-spacing:0.025em}
       h1{font-size:2.25rem;margin-bottom:2rem}
       .text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .text-xl{font-size:1.25rem;line-height:1.75rem}
       .text-white{color:#fff}
       .font-serif{font-family:Georgia,'Times New Roman',Times,serif}
       .font-bold{font-weight:700}
       .mb-8{margin-bottom:2rem}
+      .mb-4{margin-bottom:1rem}
 
       /* Utilitaires critiques */
       .w-full{width:100%}
+      .h-full{height:100%}
       .text-center{text-align:center}
       .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+      .pointer-events-none{pointer-events:none}
+      .object-cover{object-fit:cover}
 
       /* Loading spinner */
       .loading-spinner{display:flex;align-items:center;justify-content:center;min-height:100vh}
@@ -117,6 +145,7 @@
       @media (min-width:768px){
         h1,.text-4xl{font-size:3.75rem;line-height:1}
         .md\:text-6xl{font-size:3.75rem;line-height:1}
+        .md\:text-xl{font-size:1.25rem;line-height:1.75rem}
       }
 
       /* Google Fonts - Transition douce */
