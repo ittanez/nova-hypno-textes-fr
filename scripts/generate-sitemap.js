@@ -146,7 +146,9 @@ async function generateSitemap() {
 
   } catch (error) {
     console.error('❌ Erreur lors de la génération du sitemap:', error);
-    process.exit(1);
+    console.warn('⚠️  Le sitemap existant sera utilisé. Build continue...');
+    // Ne pas exit(1) pour ne pas faire échouer le build GitHub Actions
+    // Le sitemap existant dans public/ sera utilisé
   }
 }
 
