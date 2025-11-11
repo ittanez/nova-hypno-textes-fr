@@ -1,6 +1,9 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Mail from 'lucide-react/dist/esm/icons/mail';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import CommuteMap from './CommuteMap';
 
 const Contact = () => {

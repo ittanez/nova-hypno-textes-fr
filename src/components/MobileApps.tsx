@@ -1,5 +1,8 @@
 import React from 'react';
-import { Smartphone, Heart, Waves, Brain } from 'lucide-react';
+import Smartphone from 'lucide-react/dist/esm/icons/smartphone';
+import Heart from 'lucide-react/dist/esm/icons/heart';
+import Waves from 'lucide-react/dist/esm/icons/waves';
+import Brain from 'lucide-react/dist/esm/icons/brain';
 
 const MobileApps = () => {
   return (

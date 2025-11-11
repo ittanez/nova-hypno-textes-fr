@@ -1,7 +1,12 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Phone, Mail, Calendar, Home } from 'lucide-react';
+import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
+import Search from 'lucide-react/dist/esm/icons/search';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Mail from 'lucide-react/dist/esm/icons/mail';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import Home from 'lucide-react/dist/esm/icons/home';
 import ContentLayout from '../components/layout/ContentLayout';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 

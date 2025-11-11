@@ -2,7 +2,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { ArrowLeft, Download, Trash2, Mail, CheckCircle, XCircle, Search } from 'lucide-react';
+import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
+import Download from 'lucide-react/dist/esm/icons/download';
+import Trash2 from 'lucide-react/dist/esm/icons/trash-2';
+import Mail from 'lucide-react/dist/esm/icons/mail';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+import XCircle from 'lucide-react/dist/esm/icons/x-circle';
+import Search from 'lucide-react/dist/esm/icons/search';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {

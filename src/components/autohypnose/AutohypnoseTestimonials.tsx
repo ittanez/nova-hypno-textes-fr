@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import Star from 'lucide-react/dist/esm/icons/star';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 
 const AutohypnoseTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

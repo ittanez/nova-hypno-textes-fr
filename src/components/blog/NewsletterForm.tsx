@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/hooks/use-toast";
 import { addSubscriber } from "@/lib/services/blog/subscriberService";
-import { Bell } from "lucide-react";
+import Bell from 'lucide-react/dist/esm/icons/bell';
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");

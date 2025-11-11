@@ -3,7 +3,11 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Article } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
-import { Search, Calendar, Tag, Clock, ArrowRight } from "lucide-react";
+import Search from 'lucide-react/dist/esm/icons/search';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import Tag from 'lucide-react/dist/esm/icons/tag';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 

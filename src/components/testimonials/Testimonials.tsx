@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Star } from 'lucide-react';
+import Star from 'lucide-react/dist/esm/icons/star';
 import TestimonialCard from './TestimonialCard';
 import TestimonialControls from './TestimonialControls';
 import type { Testimonial } from '../../types/testimonial';

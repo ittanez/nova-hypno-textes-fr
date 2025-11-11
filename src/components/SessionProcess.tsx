@@ -1,6 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Check, Target, Clock, Sunrise, Sun, FileText } from 'lucide-react';
+import Check from 'lucide-react/dist/esm/icons/check';
+import Target from 'lucide-react/dist/esm/icons/target';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Sunrise from 'lucide-react/dist/esm/icons/sunrise';
+import Sun from 'lucide-react/dist/esm/icons/sun';
+import FileText from 'lucide-react/dist/esm/icons/file-text';
 
 const SessionProcess = () => {
   const timelineRef = useRef<HTMLDivElement>(null);

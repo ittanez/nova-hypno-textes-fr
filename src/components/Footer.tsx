@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Instagram } from 'lucide-react';
+import Instagram from 'lucide-react/dist/esm/icons/instagram';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

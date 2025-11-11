@@ -2,7 +2,12 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
 import CommuteMap from '@/components/CommuteMap';
-import { MapPin, Train, Car, Bike, Clock, CheckCircle } from 'lucide-react';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Train from 'lucide-react/dist/esm/icons/train';
+import Car from 'lucide-react/dist/esm/icons/car';
+import Bike from 'lucide-react/dist/esm/icons/bike';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const ZoneIntervention = () => {
   const arrondissements = [

@@ -8,7 +8,10 @@ import {
   TableCell 
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Eye, Pencil, Send, Trash2 } from "lucide-react";
+import Eye from 'lucide-react/dist/esm/icons/eye';
+import Pencil from 'lucide-react/dist/esm/icons/pencil';
+import Send from 'lucide-react/dist/esm/icons/send';
+import Trash2 from 'lucide-react/dist/esm/icons/trash-2';
 import { Article } from "@/lib/types/blog";
 
 interface AdminArticlesTableProps {

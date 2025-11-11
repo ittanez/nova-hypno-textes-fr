@@ -3,7 +3,9 @@ import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Search, Filter, X } from 'lucide-react';
+import Search from 'lucide-react/dist/esm/icons/search';
+import Filter from 'lucide-react/dist/esm/icons/filter';
+import X from 'lucide-react/dist/esm/icons/x';
 
 interface AdminArticlesFiltersProps {
   searchQuery: string;

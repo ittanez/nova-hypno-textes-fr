@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllCategories } from '@/lib/services/blog/articleService';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import X from 'lucide-react/dist/esm/icons/x';
 import {
   DropdownMenu,
   DropdownMenuContent,

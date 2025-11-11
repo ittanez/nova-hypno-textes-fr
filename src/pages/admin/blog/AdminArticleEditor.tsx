@@ -1,7 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Eye } from "lucide-react";
+import Eye from 'lucide-react/dist/esm/icons/eye';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticlePreview from "@/components/blog/ArticlePreview";

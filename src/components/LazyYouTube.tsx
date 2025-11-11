@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Play } from 'lucide-react';
+import Play from 'lucide-react/dist/esm/icons/play';
 
 interface LazyYouTubeProps {
   videoId: string;

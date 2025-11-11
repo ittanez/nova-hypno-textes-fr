@@ -1,14 +1,36 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import {
-  Calendar, Phone, Mail, MapPin,
-  Brain, Heart, Target, Sparkles, Shield, Users,
-  CheckCircle, Star, Award, Clock, Lightbulb,
-  ChevronDown, ChevronUp, X,
-  GanttChart, Moon, Frown, ActivitySquare, CigaretteOff, Smile, Sandwich,
-  BookOpen, Smartphone, Waves, ChevronLeft, ChevronRight
-} from 'lucide-react';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Mail from 'lucide-react/dist/esm/icons/mail';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Brain from 'lucide-react/dist/esm/icons/brain';
+import Heart from 'lucide-react/dist/esm/icons/heart';
+import Target from 'lucide-react/dist/esm/icons/target';
+import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
+import Shield from 'lucide-react/dist/esm/icons/shield';
+import Users from 'lucide-react/dist/esm/icons/users';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+import Star from 'lucide-react/dist/esm/icons/star';
+import Award from 'lucide-react/dist/esm/icons/award';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Lightbulb from 'lucide-react/dist/esm/icons/lightbulb';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
+import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
+import X from 'lucide-react/dist/esm/icons/x';
+import GanttChart from 'lucide-react/dist/esm/icons/gantt-chart';
+import Moon from 'lucide-react/dist/esm/icons/moon';
+import Frown from 'lucide-react/dist/esm/icons/frown';
+import ActivitySquare from 'lucide-react/dist/esm/icons/activity-square';
+import CigaretteOff from 'lucide-react/dist/esm/icons/cigarette-off';
+import Smile from 'lucide-react/dist/esm/icons/smile';
+import Sandwich from 'lucide-react/dist/esm/icons/sandwich';
+import BookOpen from 'lucide-react/dist/esm/icons/book-open';
+import Smartphone from 'lucide-react/dist/esm/icons/smartphone';
+import Waves from 'lucide-react/dist/esm/icons/waves';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { useQueryClient } from '@tanstack/react-query';
