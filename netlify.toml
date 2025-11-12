@@ -105,6 +105,13 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
+# Service Worker - Cache court pour permettre les mises à jour
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
 # Redirection du sous-domaine emergences vers le domaine principal
 [[redirects]]
   from = "https://emergences.novahypnose.fr/*"
