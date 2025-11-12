@@ -9,7 +9,13 @@ import NewsletterForm from "@/components/blog/NewsletterForm";
 import SEOHead from "@/components/blog/SEOHead";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Facebook, Linkedin, Link2, Share2, ChevronLeft, ChevronRight, Edit } from "lucide-react";
+import Facebook from 'lucide-react/dist/esm/icons/facebook';
+import Linkedin from 'lucide-react/dist/esm/icons/linkedin';
+import Link2 from 'lucide-react/dist/esm/icons/link-2';
+import Share2 from 'lucide-react/dist/esm/icons/share-2';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
+import Edit from 'lucide-react/dist/esm/icons/edit';
 import { useAuth } from "@/hooks/useAuth";
 import {
   DropdownMenu,

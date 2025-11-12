@@ -14,7 +14,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: '/',
+  // Base path pour GitHub Pages (sous-dossier du repo)
+  // Pour désactiver, déployer avec: VITE_BASE_PATH=/ npm run build
+  base: process.env.VITE_BASE_PATH || '/nova-hypno-textes-fr/',
   plugins: [
     react(),
     viteSeoHeaders(),

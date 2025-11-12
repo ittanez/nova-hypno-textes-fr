@@ -1,5 +1,8 @@
 import React from 'react';
-import { Brain, Shield, Target, Users } from 'lucide-react';
+import Brain from 'lucide-react/dist/esm/icons/brain';
+import Shield from 'lucide-react/dist/esm/icons/shield';
+import Target from 'lucide-react/dist/esm/icons/target';
+import Users from 'lucide-react/dist/esm/icons/users';
 
 const HowItWorks = () => {
   return (

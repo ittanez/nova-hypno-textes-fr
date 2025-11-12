@@ -1,4 +1,6 @@
-import { CheckCircle, Clock, Brain } from 'lucide-react';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Brain from 'lucide-react/dist/esm/icons/brain';
 import { Button } from '@/components/ui/button';
 
 interface HeroSectionProps {

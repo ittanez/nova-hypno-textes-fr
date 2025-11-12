@@ -1,6 +1,7 @@
 import { vakogQuestions } from '@/data/receptivite/vakogQuestions';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ProgressBar from '../ProgressBar';
 import { Answer } from '@/utils/receptivite/calculateScore';
 

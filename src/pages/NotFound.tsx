@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Search, Home, Calendar, Phone, Mail } from "lucide-react";
+import Search from 'lucide-react/dist/esm/icons/search';
+import Home from 'lucide-react/dist/esm/icons/home';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Mail from 'lucide-react/dist/esm/icons/mail';
 
 const NotFound = () => {
   const navigate = useNavigate();

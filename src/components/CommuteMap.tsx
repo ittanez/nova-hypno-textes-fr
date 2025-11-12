@@ -1,6 +1,12 @@
 /// <reference types="google.maps" />
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Navigation, Clock, Car, Train, Bike, Footprints } from 'lucide-react';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import Navigation from 'lucide-react/dist/esm/icons/navigation';
+import Clock from 'lucide-react/dist/esm/icons/clock';
+import Car from 'lucide-react/dist/esm/icons/car';
+import Train from 'lucide-react/dist/esm/icons/train';
+import Bike from 'lucide-react/dist/esm/icons/bike';
+import Footprints from 'lucide-react/dist/esm/icons/footprints';
 
 // Coordonnées du cabinet (16 rue Saint Antoine, 75004 Paris)
 const CABINET_LOCATION = {

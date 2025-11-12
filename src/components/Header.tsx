@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
+import Menu from 'lucide-react/dist/esm/icons/menu';
+import X from 'lucide-react/dist/esm/icons/x';
+import Instagram from 'lucide-react/dist/esm/icons/instagram';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 import {
   DropdownMenu,
   DropdownMenuContent,

@@ -9,7 +9,12 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
-import { Plus, ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import Plus from 'lucide-react/dist/esm/icons/plus';
+import ArrowUpDown from 'lucide-react/dist/esm/icons/arrow-up-down';
+import ArrowUp from 'lucide-react/dist/esm/icons/arrow-up';
+import ArrowDown from 'lucide-react/dist/esm/icons/arrow-down';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

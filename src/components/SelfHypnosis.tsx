@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Sparkles, BookOpen } from 'lucide-react';
+import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
+import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 
 const SelfHypnosis = () => {
   return (

@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { TableHead } from '@/components/ui/table';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 
 type SortField = 'title' | 'created_at' | 'published_at' | 'status';
 type SortDirection = 'asc' | 'desc';

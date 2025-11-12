@@ -7,6 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  VITE_BASE_PATH = "/"
 
 [functions]
   node_bundler = "esbuild"
@@ -61,6 +62,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    # Headers de sécurité de base
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
@@ -82,11 +84,15 @@
       connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://region1.analytics.google.com https://www.google.com https://tools.luckyorange.com https://settings.luckyorange.com https://maps.googleapis.com;
       media-src 'self' https://akrlyzmfszumibwgocae.supabase.co blob:;
       frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://www.googletagmanager.com;
+      connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://tools.luckyorange.com https://maps.googleapis.com;
+      media-src 'self' https://akrlyzmfszumibwgocae.supabase.co blob:;
+      frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com;
       frame-ancestors 'none';
       base-uri 'self';
       form-action 'self';
       upgrade-insecure-requests;
     """
+
 # Cache pour les fichiers HTML - Force refresh 2025-01
 [[headers]]
   for = "/*.html"

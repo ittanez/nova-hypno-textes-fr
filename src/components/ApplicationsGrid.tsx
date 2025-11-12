@@ -1,6 +1,14 @@
 
 import React from 'react';
-import { Heart, Brain, Frown, ActivitySquare, CigaretteOff, Moon, Smile, Sandwich, GanttChart } from 'lucide-react';
+import Heart from 'lucide-react/dist/esm/icons/heart';
+import Brain from 'lucide-react/dist/esm/icons/brain';
+import Frown from 'lucide-react/dist/esm/icons/frown';
+import ActivitySquare from 'lucide-react/dist/esm/icons/activity-square';
+import CigaretteOff from 'lucide-react/dist/esm/icons/cigarette-off';
+import Moon from 'lucide-react/dist/esm/icons/moon';
+import Smile from 'lucide-react/dist/esm/icons/smile';
+import Sandwich from 'lucide-react/dist/esm/icons/sandwich';
+import GanttChart from 'lucide-react/dist/esm/icons/gantt-chart';
 
 const applications = [
   {

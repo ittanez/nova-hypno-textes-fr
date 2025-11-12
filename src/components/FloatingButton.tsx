@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { CalendarPlus } from 'lucide-react';
+import CalendarPlus from 'lucide-react/dist/esm/icons/calendar-plus';
 
 const FloatingButton = () => {
   const [visible, setVisible] = useState(false);

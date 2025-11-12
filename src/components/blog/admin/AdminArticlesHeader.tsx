@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import Plus from 'lucide-react/dist/esm/icons/plus';
 
 interface AdminArticlesHeaderProps {
   totalCount: number;
