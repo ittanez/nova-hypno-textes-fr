@@ -55,7 +55,7 @@
       document.documentElement.classList.add('fonts-loaded');
     </script>
     
-    <!-- Google Analytics optimisé (différé) -->
+    <!-- Google Analytics optimisé (différé 8s au lieu de 5s) -->
     <script>
       setTimeout(function(){
         const s=document.createElement('script');
@@ -67,7 +67,7 @@
           function gtag(){dataLayer.push(arguments);}
           gtag('js',new Date());gtag('config','G-5W9ZQEJKLF');
         };
-      },5000);
+      },8000);
     </script>
     
     <!-- Structured Data généré dynamiquement par React -->
@@ -144,13 +144,13 @@
     
     <!-- CSS will be injected by Vite automatically -->
     
-    <!-- Lucky Orange différé -->
+    <!-- Lucky Orange différé (8s au lieu de 5s) -->
     <script>
       setTimeout(function(){
         const script=document.createElement('script');
         script.src='https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
         document.head.appendChild(script);
-      },5000);
+      },8000);
     </script>
   </head>
 
