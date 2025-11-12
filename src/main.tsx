@@ -54,12 +54,22 @@ root.render(
   </React.StrictMode>
 );
 
-// Unregister any existing service workers to prevent errors
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(function(registrations) {
-    for(const registration of registrations) {
-      registration.unregister();
-    }
+// Register Service Worker for performance optimization (Phase 2)
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('[SW] Service Worker registered successfully:', registration.scope);
+
+        // Vérifier les mises à jour toutes les heures
+        setInterval(() => {
+          registration.update();
+        }, 60 * 60 * 1000);
+      })
+      .catch((error) => {
+        console.log('[SW] Service Worker registration failed:', error);
+      });
   });
 }
 
