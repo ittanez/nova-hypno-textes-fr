@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://cdn.gpteng.co">
     <link rel="preconnect" href="https://ik.imagekit.io">
 
+    <!-- Fonts optimisées avec font-display: swap pour améliorer FCP -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"></noscript>
+
     <!-- Préchargement de l'image LCP (Hero carrousel) - OPTIMISÉ avec Supabase Transform -->
     <link rel="preload"
       href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=768&quality=75"
@@ -45,26 +49,10 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://novahypnose.fr/" />
 
-    <!-- Fonts loaded asynchronously to prevent render blocking -->
+    <!-- Fonts chargées avec display=swap - Pas besoin de script complexe -->
     <script>
-      function loadFonts() {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap';
-        link.onload = function() {
-          // Délai pour permettre aux polices de se charger complètement
-          setTimeout(() => {
-            document.documentElement.classList.add('fonts-loaded');
-          }, 100);
-        };
-        document.head.appendChild(link);
-      }
-      // Load fonts after critical rendering
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadFonts);
-      } else {
-        loadFonts();
-      }
+      // Ajouter la classe fonts-loaded immédiatement pour éviter FOUT
+      document.documentElement.classList.add('fonts-loaded');
     </script>
     
     <!-- Google Analytics optimisé (différé) -->
