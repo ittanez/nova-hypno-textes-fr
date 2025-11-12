@@ -129,6 +129,20 @@
   p {
     @apply mb-4 leading-relaxed;
   }
+
+  /* Amélioration du focus visible pour accessibilité (WCAG 2.4.7) */
+  *:focus-visible {
+    outline: 3px solid #0284C7;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Focus spécifique pour les boutons et liens */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid #0284C7;
+    outline-offset: 3px;
+  }
 }
 
 .section-padding {
