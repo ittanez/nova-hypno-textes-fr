@@ -87,26 +87,50 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-nova-neutral p-8 rounded-xl shadow-lg">
+            <div className="bg-nova-neutral p-8 rounded-xl shadow-lg space-y-6">
               <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
                 <Heart className="mr-2 text-nova-green" size={24} />
                 L'hypnose ericksonienne : une approche respectueuse et créative
               </h3>
-              
-              <p className="mb-4">
-                L'hypnose que je pratique est issue de l'approche ericksonienne, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
-              </p>
-              
-              <p className="mb-4">
-                Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que l'inconscient de chaque personne est une source immense de solutions et de ressources.
-              </p>
-              
-              <p className="mb-4">
-                Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients. Il ne s'agit jamais d'imposer un changement, mais d'éveiller ce qui est déjà en vous, prêt à émerger.
-              </p>
-              
+
+              <div>
+                <h4 className="font-semibold text-nova-blue-dark mb-3">
+                  Une révolution thérapeutique
+                </h4>
+                <p className="mb-3 leading-relaxed">
+                  L'hypnose que je pratique est issue de l'approche ericksonienne, du nom de Milton H. Erickson.
+                </p>
+                <p className="mb-3 leading-relaxed">
+                  Ce psychiatre et hypnothérapeute a révolutionné l'utilisation de l'hypnose thérapeutique.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-nova-blue-dark mb-3">
+                  Votre inconscient, source de solutions
+                </h4>
+                <p className="mb-3 leading-relaxed">
+                  Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur une conviction :
+                </p>
+                <p className="mb-3 leading-relaxed">
+                  L'inconscient de chaque personne est une source immense de solutions et de ressources.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-nova-blue-dark mb-3">
+                  Une méthode douce et personnalisée
+                </h4>
+                <p className="mb-3 leading-relaxed">
+                  Cette approche respecte pleinement votre rythme et vos choix inconscients.
+                </p>
+                <p className="mb-3 leading-relaxed">
+                  Il ne s'agit jamais d'imposer un changement, mais d'éveiller ce qui est déjà en vous, prêt à émerger.
+                </p>
+              </div>
+
               <div className="mt-6 flex justify-center">
-                <a 
+                <a
                   href="https://hypnokick.novahypnose.fr"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -119,17 +143,38 @@ const About = () => {
           </div>
           
           <div className="space-y-6">
-            <div className="bg-nova-blue-light bg-opacity-5 p-4 rounded-lg border-l-4 border-nova-blue mb-6">
-              <p className="font-semibold text-nova-blue-dark mb-2">Pourquoi choisir un Maître Hypnologue ?</p>
-              <p>
-                Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
-                Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée qui vous garantissent un accompagnement professionnel de haut niveau.
+            <div className="bg-nova-blue-light bg-opacity-5 p-6 rounded-lg border-l-4 border-nova-blue mb-6 space-y-3">
+              <h3 className="font-semibold text-nova-blue-dark text-xl mb-3">
+                Pourquoi choisir un Maître Hypnologue ?
+              </h3>
+              <p className="leading-relaxed">
+                Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris.
+              </p>
+              <p className="leading-relaxed">
+                Plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
+              </p>
+              <p className="leading-relaxed">
+                Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée.
+              </p>
+              <p className="leading-relaxed">
+                Un accompagnement professionnel de haut niveau garanti.
               </p>
             </div>
-            
-            <p className="mb-6">
-              Vous êtes accueilli dans votre singularité, sans jugement, avec attention. Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure, vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
-            </p>
+
+            <div className="mb-6 space-y-4">
+              <h3 className="font-semibold text-nova-blue-dark text-xl">
+                Un accueil sans jugement
+              </h3>
+              <p className="leading-relaxed">
+                Vous êtes accueilli dans votre singularité, sans jugement, avec attention.
+              </p>
+              <p className="leading-relaxed">
+                Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure.
+              </p>
+              <p className="leading-relaxed">
+                Vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
+              </p>
+            </div>
 
             <blockquote className="mt-6 text-center mb-6">
               <p className="text-lg italic text-gray-700 mb-2">
@@ -138,12 +183,18 @@ const About = () => {
               <cite className="text-gray-600 text-sm">— Alain Zenatti, Maître Hypnologue</cite>
             </blockquote>
             
-            <div className="bg-nova-green-light bg-opacity-5 p-4 rounded-lg mb-6">
-              <p className="font-semibold text-nova-blue-dark mb-2">Ma méthode expliquée</p>
-              <p>
-                Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée qui respecte votre rythme intérieur. 
-                Contrairement aux idées reçues, vous restez conscient et en contrôle. Chaque étape vous est expliquée pour que vous compreniez 
-                exactement comment vos ressources inconscientes sont mobilisées de manière collaborative.
+            <div className="bg-nova-green-light bg-opacity-5 p-6 rounded-lg mb-6 space-y-3">
+              <h3 className="font-semibold text-nova-blue-dark text-xl mb-3">
+                Ma méthode expliquée
+              </h3>
+              <p className="leading-relaxed">
+                Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée.
+              </p>
+              <p className="leading-relaxed">
+                Elle respecte votre rythme intérieur. Contrairement aux idées reçues, vous restez conscient et en contrôle.
+              </p>
+              <p className="leading-relaxed">
+                Chaque étape vous est expliquée pour que vous compreniez exactement comment vos ressources inconscientes sont mobilisées de manière collaborative.
               </p>
             </div>
 
