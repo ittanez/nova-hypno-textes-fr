@@ -12,14 +12,17 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           {/* Modification du H1 principal pour le SEO */}
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-white animate-fade-in speakable" data-speakable="true">
-            Comprendre l'Hypnose, Choisir le Bon Accompagnement
+            Libérez-vous du Stress, de l'Anxiété et des Phobies
           </h1>
-          
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed speakable" data-speakable="true">
-            Vous voulez comprendre comment fonctionne l'hypnose avant de vous engager ?
+
+          <p className="text-xl md:text-2xl mb-6 text-white/90 leading-relaxed speakable" data-speakable="true">
+            Vous souffrez de <strong>stress chronique</strong>, <strong>troubles du sommeil</strong>, <strong>anxiété</strong> ou <strong>phobies</strong> ?
           </p>
-          <p className="text-lg md:text-xl mb-12 text-white/80 leading-relaxed">
-            Découvrez une approche transparente avec un <strong>Maître Hypnologue certifié</strong> qui prend le temps de vous expliquer chaque étape de votre transformation.
+          <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
+            L'hypnose ericksonienne peut vous aider à retrouver sérénité et confiance en vous.
+          </p>
+          <p className="text-base md:text-lg mb-12 text-white/80 leading-relaxed">
+            Accompagnement par un <strong>Maître Hypnologue certifié</strong> à Paris • Résultats visibles dès 3 à 5 séances
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
