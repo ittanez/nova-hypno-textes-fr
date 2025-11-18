@@ -38,3 +38,4 @@ dist-ssr
 # Windows reserved filenames
 nul
 src/nul
+.pr-body.md
