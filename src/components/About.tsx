@@ -32,9 +32,17 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12 speakable" data-speakable="true">
-          À propos d'Alain Zenatti, Maître Hypnologue et Maître en Hypnose Ericksonienne
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-nova-blue-dark mb-3 speakable" data-speakable="true">
+            À propos d'Alain Zenatti
+          </h2>
+          <p className="text-xl text-nova-blue font-semibold">
+            Maître Hypnologue certifié • Maître en Hypnose Ericksonienne
+          </p>
+          <p className="text-lg text-gray-600 mt-2">
+            Plus de 5 ans d'expérience • Cabinet Paris 4ème
+          </p>
+        </div>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-6">
@@ -88,10 +96,15 @@ const About = () => {
             </div>
 
             <div className="bg-nova-neutral p-8 rounded-xl shadow-lg space-y-6">
-              <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
-                <Heart className="mr-2 text-nova-green" size={24} />
-                L'hypnose ericksonienne : une approche respectueuse et créative
-              </h3>
+              <div>
+                <h3 className="text-nova-blue mb-2 flex items-center text-xl font-semibold">
+                  <Heart className="mr-2 text-nova-green" size={24} />
+                  L'hypnose ericksonienne
+                </h3>
+                <p className="text-gray-600 italic mb-4">
+                  Une approche respectueuse et créative
+                </p>
+              </div>
 
               <div>
                 <h4 className="font-semibold text-nova-blue-dark mb-3">
