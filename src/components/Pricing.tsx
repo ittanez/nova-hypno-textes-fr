@@ -79,14 +79,21 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-                <a
-                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center px-6 py-2.5 bg-nova-blue text-white rounded-lg font-medium hover:bg-nova-blue-dark transition-colors"
-                >
-                  Réserver
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center px-6 py-2.5 bg-nova-blue text-white rounded-lg font-medium hover:bg-nova-blue-dark transition-colors"
+                  >
+                    Choisir cette formule
+                  </a>
+                  {session.popular && (
+                    <p className="text-xs text-center text-gray-500">
+                      Réservation en ligne sécurisée • Confirmation immédiate
+                    </p>
+                  )}
+                </div>
               </div>
             );
           })}

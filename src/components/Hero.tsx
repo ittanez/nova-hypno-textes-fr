@@ -23,24 +23,27 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="#about" 
+            <a
+              href="#about"
               className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-nova-green focus:ring-offset-2"
               aria-label="Découvrir ma méthode et mes qualifications"
               role="button"
             >
               Découvrir ma méthode
             </a>
-            <a 
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-              aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris 4ème"
-              role="button"
-            >
-              Prendre rendez-vous
-            </a>
+            <div className="flex flex-col items-center">
+              <a
+                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                aria-label="Réserver ma première consultation avec Alain Zenatti, hypnothérapeute à Paris 4ème"
+                role="button"
+              >
+                Réserver ma première consultation
+              </a>
+              <p className="text-sm text-white/80 mt-2">Premier échange gratuit de 15 min par téléphone</p>
+            </div>
           </div>
           
           <div className="mt-8 text-center">
