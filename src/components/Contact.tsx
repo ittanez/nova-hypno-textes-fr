@@ -62,15 +62,18 @@ const Contact = () => {
                   <Calendar className="text-nova-blue mt-1 mr-4 flex-shrink-0" size={24} />
                   <div>
                     <p className="font-semibold text-gray-700">Réservation</p>
-                    <p>Via la plateforme Resalib</p>
-                    <a 
-                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-block mt-2 px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors"
+                    <p className="mb-2">Via la plateforme Resalib</p>
+                    <a
+                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors"
                     >
-                      Prendre rendez-vous
+                      Réserver une séance
                     </a>
+                    <p className="text-xs text-gray-500 mt-2">
+                      Réponse sous 24h • Créneaux disponibles 7j/7
+                    </p>
                   </div>
                 </div>
               </div>
