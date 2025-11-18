@@ -62,12 +62,12 @@ const ApplicationsGrid = () => {
   return (
     <section id="applications" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-8">Apaiser, transformer, réactiver ce qui est prêt en vous</h2>
+        <h2 className="text-center text-nova-blue-dark mb-8">Comment l'hypnose peut vous aider : 9 domaines d'application</h2>
 
         <div className="max-w-4xl mx-auto mb-16 space-y-8">
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
-              Agir au-delà de la volonté consciente
+              Des résultats concrets et durables
             </h3>
             <p className="text-lg leading-relaxed">
               L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients.
@@ -79,26 +79,27 @@ const ApplicationsGrid = () => {
 
           <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
             <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4 text-center">
-              Une approche respectueuse et collaborative
+              Ce que vous pouvez attendre de l'hypnose
             </h3>
             <p className="text-lg leading-relaxed">
-              En travaillant avec votre inconscient, nous n'imposons rien.
+              En mobilisant vos ressources inconscientes, l'hypnose vous permet de :
             </p>
-            <p className="text-lg leading-relaxed mt-3">
-              Nous l'invitons à mobiliser ses propres ressources pour :
-            </p>
-            <ul className="mt-4 space-y-2 text-lg">
+            <ul className="mt-4 space-y-3 text-lg">
               <li className="flex items-start">
-                <span className="text-nova-green mr-3 mt-1">•</span>
-                <span>Restaurer l'équilibre intérieur</span>
+                <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                <span><strong>Réduire votre stress et anxiété</strong> dès les premières séances</span>
               </li>
               <li className="flex items-start">
-                <span className="text-nova-green mr-3 mt-1">•</span>
-                <span>Alléger les tensions accumulées</span>
+                <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                <span><strong>Retrouver un sommeil réparateur</strong> en 3 à 5 séances</span>
               </li>
               <li className="flex items-start">
-                <span className="text-nova-green mr-3 mt-1">•</span>
-                <span>Soutenir vos capacités d'adaptation et de changement</span>
+                <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                <span><strong>Surmonter vos phobies et blocages</strong> de manière durable</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                <span><strong>Renforcer votre confiance en vous</strong> au quotidien</span>
               </li>
             </ul>
           </div>

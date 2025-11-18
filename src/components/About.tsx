@@ -176,12 +176,29 @@ const About = () => {
               </p>
             </div>
 
-            <blockquote className="mt-6 text-center mb-6">
-              <p className="text-lg italic text-gray-700 mb-2">
-                "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
-              </p>
-              <cite className="text-gray-600 text-sm">— Alain Zenatti, Maître Hypnologue</cite>
-            </blockquote>
+            <div className="mt-6 bg-nova-green-light bg-opacity-10 p-6 rounded-xl mb-6">
+              <h3 className="font-semibold text-nova-blue-dark text-lg mb-3 text-center">
+                Résultats concrets et mesurables
+              </h3>
+              <ul className="space-y-2 text-base">
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Stress et anxiété réduits</strong> de manière durable</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Phobies surmontées</strong> avec un accompagnement progressif et bienveillant</span>
+                </li>
+              </ul>
+            </div>
             
             <div className="bg-nova-green-light bg-opacity-5 p-6 rounded-lg mb-6 space-y-3">
               <h3 className="font-semibold text-nova-blue-dark text-xl mb-3">
