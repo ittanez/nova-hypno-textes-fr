@@ -12,7 +12,9 @@ const Pricing = () => {
       title: "Cabinet Paris Bastille",
       price: "90€",
       description: "Au cœur de Paris",
-      features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille, St Paul, Sully-Morland"]
+      features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille, St Paul, Sully-Morland"],
+      popular: true,
+      popularText: "Le choix de 80% de nos clients"
     },
     {
       icon: Video,
@@ -27,7 +29,7 @@ const Pricing = () => {
       price: "140€",
       description: "Paris Centre",
       features: ["1h30 (première séance)", "1h (séances suivantes)", "Arrond. 1-4, 9-11"],
-      popular: true
+      badge: "NOUVEAU"
     }
   ];
 
@@ -45,19 +47,31 @@ const Pricing = () => {
             return (
               <div
                 key={index}
-                className={`bg-white border-2 rounded-lg p-6 hover:shadow-lg transition-shadow ${
-                  session.popular ? 'border-nova-blue' : 'border-gray-200'
+                className={`relative rounded-lg p-6 transition-all ${
+                  session.popular
+                    ? 'bg-gradient-to-br from-nova-blue-light/5 to-white border-[3px] border-nova-green shadow-xl scale-105 md:scale-105'
+                    : 'bg-white border-2 border-gray-200 hover:shadow-lg'
                 }`}
               >
+                {/* Badge POPULAIRE ou NOUVEAU */}
                 {session.popular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <div className="inline-block bg-nova-green text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
+                      ⭐ POPULAIRE
+                    </div>
+                  </div>
+                )}
+                {session.badge && (
                   <div className="inline-block bg-nova-blue text-white px-3 py-1 rounded text-xs font-semibold mb-4">
-                    NOUVEAU
+                    {session.badge}
                   </div>
                 )}
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-nova-blue-light rounded-lg flex items-center justify-center">
-                    <Icon className="text-nova-blue" size={24} />
+                <div className={`flex items-center gap-3 ${session.popular ? 'mt-4 mb-4' : 'mb-4'}`}>
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                    session.popular ? 'bg-nova-green-light' : 'bg-nova-blue-light'
+                  }`}>
+                    <Icon className={session.popular ? 'text-nova-green' : 'text-nova-blue'} size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{session.title}</h3>
@@ -68,12 +82,17 @@ const Pricing = () => {
                 <div className="mb-4">
                   <div className="text-3xl font-bold text-nova-blue-dark">{session.price}</div>
                   <div className="text-sm text-gray-500">par séance</div>
+                  {session.popularText && (
+                    <div className="mt-2 inline-block bg-nova-green/10 text-nova-green px-3 py-1 rounded-full text-xs font-semibold">
+                      {session.popularText}
+                    </div>
+                  )}
                 </div>
 
                 <ul className="space-y-2 mb-6">
                   {session.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-gray-600 text-sm">
-                      <Check className="text-nova-blue flex-shrink-0 mt-0.5" size={16} />
+                      <Check className={`${session.popular ? 'text-nova-green' : 'text-nova-blue'} flex-shrink-0 mt-0.5`} size={16} />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -83,7 +102,11 @@ const Pricing = () => {
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-6 py-2.5 bg-nova-blue text-white rounded-lg font-medium hover:bg-nova-blue-dark transition-colors"
+                  className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors ${
+                    session.popular
+                      ? 'bg-nova-green text-white hover:bg-nova-green-dark shadow-md'
+                      : 'bg-nova-blue text-white hover:bg-nova-blue-dark'
+                  }`}
                 >
                   Réserver
                 </a>
