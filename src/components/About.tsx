@@ -32,9 +32,17 @@ const About = () => {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-12 speakable" data-speakable="true">
-          À propos d'Alain Zenatti, Maître Hypnologue et Maître en Hypnose Ericksonienne
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="text-nova-blue-dark mb-3 speakable" data-speakable="true">
+            À propos d'Alain Zenatti
+          </h2>
+          <p className="text-xl text-nova-blue font-semibold">
+            Maître Hypnologue certifié • Maître en Hypnose Ericksonienne
+          </p>
+          <p className="text-lg text-gray-600 mt-2">
+            Plus de 5 ans d'expérience • Cabinet Paris 4ème
+          </p>
+        </div>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div className="space-y-6">
@@ -88,10 +96,15 @@ const About = () => {
             </div>
 
             <div className="bg-nova-neutral p-8 rounded-xl shadow-lg space-y-6">
-              <h3 className="text-nova-blue mb-4 flex items-center text-xl font-semibold">
-                <Heart className="mr-2 text-nova-green" size={24} />
-                L'hypnose ericksonienne : une approche respectueuse et créative
-              </h3>
+              <div>
+                <h3 className="text-nova-blue mb-2 flex items-center text-xl font-semibold">
+                  <Heart className="mr-2 text-nova-green" size={24} />
+                  L'hypnose ericksonienne
+                </h3>
+                <p className="text-gray-600 italic mb-4">
+                  Une approche respectueuse et créative
+                </p>
+              </div>
 
               <div>
                 <h4 className="font-semibold text-nova-blue-dark mb-3">
@@ -176,12 +189,29 @@ const About = () => {
               </p>
             </div>
 
-            <blockquote className="mt-6 text-center mb-6">
-              <p className="text-lg italic text-gray-700 mb-2">
-                "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
-              </p>
-              <cite className="text-gray-600 text-sm">— Alain Zenatti, Maître Hypnologue</cite>
-            </blockquote>
+            <div className="mt-6 bg-nova-green-light bg-opacity-10 p-6 rounded-xl mb-6">
+              <h3 className="font-semibold text-nova-blue-dark text-lg mb-3 text-center">
+                Résultats concrets et mesurables
+              </h3>
+              <ul className="space-y-2 text-base">
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Stress et anxiété réduits</strong> de manière durable</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2 font-bold">✓</span>
+                  <span><strong>Phobies surmontées</strong> avec un accompagnement progressif et bienveillant</span>
+                </li>
+              </ul>
+            </div>
             
             <div className="bg-nova-green-light bg-opacity-5 p-6 rounded-lg mb-6 space-y-3">
               <h3 className="font-semibold text-nova-blue-dark text-xl mb-3">
