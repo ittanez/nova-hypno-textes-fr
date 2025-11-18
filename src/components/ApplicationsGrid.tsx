@@ -62,18 +62,58 @@ const ApplicationsGrid = () => {
   return (
     <section id="applications" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-6">Apaiser, transformer, réactiver ce qui est prêt en vous</h2>
-        
-        <div className="max-w-4xl mx-auto mb-16">
-          <p className="text-center text-lg">
-            L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients qui influencent notre manière de penser, de réagir, de vivre.
-          </p>
-          <p className="text-center text-lg mt-4">
-            En travaillant avec votre inconscient, nous n'imposons rien : nous l'invitons à mobiliser ses propres ressources pour restaurer l'équilibre, alléger les tensions et soutenir vos capacités d'adaptation et de changement.
-          </p>
-          <p className="text-center text-lg mt-4">
-            Chaque accompagnement s'adapte à votre réalité. Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
-          </p>
+        <h2 className="text-center text-nova-blue-dark mb-8">Apaiser, transformer, réactiver ce qui est prêt en vous</h2>
+
+        <div className="max-w-4xl mx-auto mb-16 space-y-8">
+          <div className="text-center">
+            <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
+              Agir au-delà de la volonté consciente
+            </h3>
+            <p className="text-lg leading-relaxed">
+              L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients.
+            </p>
+            <p className="text-lg leading-relaxed mt-3">
+              Ces mécanismes influencent notre manière de penser, de réagir, de vivre au quotidien.
+            </p>
+          </div>
+
+          <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
+            <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4 text-center">
+              Une approche respectueuse et collaborative
+            </h3>
+            <p className="text-lg leading-relaxed">
+              En travaillant avec votre inconscient, nous n'imposons rien.
+            </p>
+            <p className="text-lg leading-relaxed mt-3">
+              Nous l'invitons à mobiliser ses propres ressources pour :
+            </p>
+            <ul className="mt-4 space-y-2 text-lg">
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1">•</span>
+                <span>Restaurer l'équilibre intérieur</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1">•</span>
+                <span>Alléger les tensions accumulées</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1">•</span>
+                <span>Soutenir vos capacités d'adaptation et de changement</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="text-center">
+            <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
+              Des accompagnements adaptés à votre réalité
+            </h3>
+            <p className="text-lg leading-relaxed">
+              Chaque accompagnement s'adapte à votre situation personnelle.
+            </p>
+            <p className="text-lg leading-relaxed mt-3">
+              Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
+            </p>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

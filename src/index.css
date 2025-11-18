@@ -323,3 +323,51 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+/* ===== AMÉLIORATION SCANNABILITÉ TEXTE MOBILE ===== */
+
+/* Augmentation taille de police sur mobile pour meilleure lisibilité */
+@media (max-width: 768px) {
+  /* Taille de police augmentée à 18px pour les paragraphes sur mobile */
+  #about p,
+  #applications p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  /* Espacements verticaux améliorés pour la scannabilité */
+  #about .space-y-4 > * + *,
+  #applications .space-y-4 > * + * {
+    margin-top: 1.25rem;
+  }
+
+  #about .space-y-6 > * + *,
+  #applications .space-y-6 > * + * {
+    margin-top: 2rem;
+  }
+
+  /* Amélioration de la lisibilité des listes */
+  #applications ul li {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  /* Espacement entre les sous-titres et le contenu */
+  #about h3,
+  #applications h3 {
+    margin-bottom: 1rem;
+  }
+
+  #about h4,
+  #applications h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Padding augmenté pour les blocs de contenu */
+  #about .rounded-lg,
+  #about .rounded-xl,
+  #applications .rounded-lg,
+  #applications .rounded-xl {
+    padding: 1.5rem;
+  }
+}
