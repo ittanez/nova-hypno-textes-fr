@@ -131,7 +131,7 @@ const Header = () => {
 
             {/* L'hypnose Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
                 L'hypnose <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
@@ -153,7 +153,7 @@ const Header = () => {
 
             {/* Mes accompagnements Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
                 Mes accompagnements <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
@@ -188,7 +188,7 @@ const Header = () => {
 
             {/* Infos Pratiques Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
                 Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
