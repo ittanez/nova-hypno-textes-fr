@@ -664,14 +664,33 @@ const Index = () => {
                   </p>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed mb-4">
                   Vous êtes accueilli dans votre singularité, sans jugement, avec attention. Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure, vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
                 </p>
 
-                <blockquote className="pl-6 border-l-4 border-blue-500 italic text-gray-700">
-                  "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
-                  <footer className="text-gray-600 text-sm mt-2 not-italic">— Alain Zenatti, Maître Hypnologue</footer>
-                </blockquote>
+                <div className="bg-nova-green-light bg-opacity-10 p-6 rounded-xl">
+                  <h4 className="font-semibold text-nova-blue-dark text-lg mb-3 text-center">
+                    Des résultats concrets, mesurables et durables
+                  </h4>
+                  <ul className="space-y-2 text-base">
+                    <li className="flex items-start">
+                      <span className="text-nova-green mr-2 font-bold">✓</span>
+                      <span><strong>Stress et anxiété réduits</strong> de manière durable après quelques séances</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-nova-green mr-2 font-bold">✓</span>
+                      <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-nova-green mr-2 font-bold">✓</span>
+                      <span><strong>Confiance renforcée</strong> pour affronter les défis du quotidien</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-nova-green mr-2 font-bold">✓</span>
+                      <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                    </li>
+                  </ul>
+                </div>
 
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
@@ -839,19 +858,39 @@ const Index = () => {
       {/* Section Applications DÉTAILLÉE */}
       <section id="applications" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            Apaiser, transformer, réactiver ce qui est prêt en vous
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-3">
+              Comment l'hypnose peut vous aider
+            </h2>
+            <p className="text-xl text-nova-blue font-semibold mb-6">9 domaines d'application concrets</p>
+          </div>
 
-          <div className="max-w-4xl mx-auto mb-16">
-            <p className="text-center text-lg text-gray-700 mb-4">
-              L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients qui influencent notre manière de penser, de réagir, de vivre.
-            </p>
-            <p className="text-center text-lg text-gray-700 mb-4">
-              En travaillant avec votre inconscient, nous n'imposons rien : nous l'invitons à mobiliser ses propres ressources pour restaurer l'équilibre, alléger les tensions et soutenir vos capacités d'adaptation et de changement.
-            </p>
+          <div className="max-w-4xl mx-auto mb-16 space-y-6">
+            <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold text-nova-blue-dark mb-4 text-center">
+                Des résultats mesurables et durables
+              </h3>
+              <ul className="space-y-3 text-lg">
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                  <span><strong>Stress et anxiété réduits</strong> dès les premières séances</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                  <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                  <span><strong>Phobies surmontées</strong> avec un accompagnement progressif</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
+                  <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                </li>
+              </ul>
+            </div>
             <p className="text-center text-lg text-gray-700">
-              Chaque accompagnement s'adapte à votre réalité. Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
+              L'hypnose agit là où la volonté seule atteint ses limites. Découvrez les domaines dans lesquels elle peut transformer votre quotidien :
             </p>
           </div>
 
