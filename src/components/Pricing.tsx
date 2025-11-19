@@ -52,11 +52,11 @@ const Pricing = () => {
                     : 'bg-white border-2 border-gray-200 hover:shadow-lg'
                 }`}
               >
-                {/* Badge POPULAIRE ou NOUVEAU */}
+                {/* Badge RECOMMANDEE ou NOUVEAU */}
                 {session.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <div className="inline-block bg-nova-green text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md">
-                      ⭐ POPULAIRE
+                      ⭐ RECOMMANDÉE
                     </div>
                   </div>
                 )}
@@ -125,7 +125,7 @@ const Pricing = () => {
           <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-md">
             <h3 className="text-xl font-semibold text-nova-blue-dark mb-4">Modalités de Paiement</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Chèque, espèces, carte bancaire (cabinet)</li>
+              <li>Espèces, carte bancaire (cabinet), Wero, paiement en ligne</li>
               <li>Carte bancaire (téléconsultations)</li>
             </ul>
           </div>

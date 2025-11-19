@@ -275,7 +275,7 @@ const Index = () => {
     },
     {
       question: "Quelles sont les modalités de paiement et la politique d'annulation ?",
-      answer: "Modalités de paiement :\n• Chèque, espèces, carte bancaire (cabinet)\n• Carte bancaire (téléconsultations)\n\nRemarques importantes :\n• Pas de consultations pour enfants et mineurs\n\nPolitique d'annulation :\n• Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous\n• En cas d'annulation tardive (moins de 48h) ou d'absence, la séance sera facturée quelle que soit la raison"
+      answer: "Modalités de paiement :\n• Espèces, carte bancaire (cabinet), Wero, paiement en ligne\n• Carte bancaire (téléconsultations)\n\nRemarques importantes :\n• Pas de consultations pour enfants et mineurs\n\nPolitique d'annulation :\n• Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous\n• En cas d'annulation tardive (moins de 48h) ou d'absence, la séance sera facturée quelle que soit la raison"
     },
     {
       question: "Comment reconnaître un hypnothérapeute qualifié ?",
@@ -679,7 +679,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="text-nova-green mr-2 font-bold">✓</span>
-                      <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                      <span><strong>Sommeil retrouvé</strong> en 3 séances en moyenne</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-nova-green mr-2 font-bold">✓</span>
@@ -877,7 +877,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
-                  <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                  <span><strong>Sommeil retrouvé</strong> en 3 séances en moyenne</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>

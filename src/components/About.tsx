@@ -222,7 +222,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
-                  <span><strong>Sommeil retrouvé</strong> en 3 à 5 séances en moyenne</span>
+                  <span><strong>Sommeil retrouvé</strong> en 3 séances en moyenne</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
