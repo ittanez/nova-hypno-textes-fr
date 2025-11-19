@@ -687,7 +687,7 @@ const Index = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="text-nova-green mr-2 font-bold">✓</span>
-                      <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                      <span><strong>95% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
                     </li>
                   </ul>
                 </div>
@@ -885,7 +885,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
-                  <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                  <span><strong>95% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
                 </li>
               </ul>
             </div>

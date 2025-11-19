@@ -214,7 +214,7 @@ const About = () => {
               <ul className="space-y-2 text-base">
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
-                  <span><strong>85% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                  <span><strong>95% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
