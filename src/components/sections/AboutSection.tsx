@@ -22,7 +22,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
             <div className="space-y-6 order-2 md:order-1">
               <img
                 src="/zenatti.webp"
-                alt="Alain Zenatti - Maître Hypnologue Paris"
+                alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
                 className="rounded-2xl shadow-2xl w-3/4 md:w-full h-auto object-cover mx-auto md:mx-0"
                 loading="lazy"
               />
@@ -34,7 +34,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 >
                   <img
                     src="https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg"
-                    alt="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+                    alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
                     className="w-full h-auto object-cover rounded-xl"
                     loading="lazy"
                   />

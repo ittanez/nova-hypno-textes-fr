@@ -80,7 +80,7 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
         <div className="aspect-video overflow-hidden relative bg-gray-100">
           <img
             src={article.image_url || "/placeholder.svg"}
-            alt={article.title}
+            alt={`Article hypnothérapie - ${article.title}`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             width="400"
             height="225"

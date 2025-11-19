@@ -310,7 +310,7 @@ const ArticlePage = () => {
         <div className="w-full h-[40vh] relative">
           <img
             src={article.image_url || "/placeholder.svg"}
-            alt={article.title}
+            alt={`Article hypnothérapie - ${article.title}`}
             className="w-full h-full object-cover"
             loading="eager"
           />

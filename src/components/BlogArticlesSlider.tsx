@@ -220,9 +220,9 @@ const BlogArticlesSlider: React.FC = () => {
               {/* Image */}
               <div className="lg:w-1/2 flex items-center">
                 {currentArticle.image_url ? (
-                  <img 
-                    src={currentArticle.image_url} 
-                    alt={currentArticle.title}
+                  <img
+                    src={currentArticle.image_url}
+                    alt={`Article hypnothérapie - ${currentArticle.title}`}
                     className="w-full h-64 lg:h-96 object-cover rounded-l-2xl lg:rounded-l-2xl lg:rounded-r-none"
                     width="600"
                     height="400"
