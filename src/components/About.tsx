@@ -37,7 +37,7 @@ const About = () => {
             À propos d'Alain Zenatti
           </h2>
           <p className="text-xl text-nova-blue font-semibold">
-            Maître Hypnologue certifié • Maître en Hypnose Ericksonienne
+            Maître Hypnologue • Hypnose Ericksonienne
           </p>
           <p className="text-lg text-gray-600 mt-2">
             Plus de 5 ans d'expérience • Cabinet Paris 4ème

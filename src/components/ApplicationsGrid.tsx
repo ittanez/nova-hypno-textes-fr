@@ -62,12 +62,15 @@ const ApplicationsGrid = () => {
   return (
     <section id="applications" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-nova-blue-dark mb-8">Comment l'hypnose peut vous aider : 9 domaines d'application</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-nova-blue-dark mb-3">Comment l'hypnose peut vous aider</h2>
+          <p className="text-xl text-nova-blue font-semibold">9 domaines d'application</p>
+        </div>
 
         <div className="max-w-4xl mx-auto mb-16 space-y-8">
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
-              L'hypnose : quand agir en profondeur fait la différence
+              Agir en profondeur : la force de l'hypnose
             </h3>
             <p className="text-lg leading-relaxed mb-4">
               L'hypnose agit là où la volonté seule atteint ses limites :
