@@ -483,14 +483,14 @@ const Index = () => {
                       }
                     }}
                     src={index <= currentSlide + 1 ? slide.image : undefined}
-                    poster={`${slide.poster}?width=${index === 0 ? '1024' : '768'}&quality=75`}
+                    poster={`${slide.poster}?width=${index === 0 ? '400' : '640'}&quality=60`}
                     className="w-full h-full object-cover object-center"
                     style={{ aspectRatio: '16/9' }}
                     width="1920"
                     height="1080"
                     muted
                     playsInline
-                    preload={index === 0 ? "auto" : index === currentSlide + 1 ? "metadata" : "none"}
+                    preload={index === 0 ? "metadata" : "none"}
                     loading={index === 0 ? "eager" : "lazy"}
                   />
                 ) : (

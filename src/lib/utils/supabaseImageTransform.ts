@@ -71,17 +71,17 @@ export function generateSupabaseSrcSet(
 
 /**
  * Tailles recommandées pour les images du carousel
- * Optimisées pour Performance Lighthouse (Phase 2)
+ * Optimisées AGRESSIVEMENT pour Performance Lighthouse LOCAL (Phase 3)
  */
 export const CAROUSEL_IMAGE_SIZES = {
-  mobile: 480,      // Réduit: 640 → 480
-  tablet: 768,      // Réduit: 1024 → 768
-  desktop: 1024,    // Réduit: 1920 → 1024
+  mobile: 400,      // Réduit: 480 → 400 (optimisation locale)
+  tablet: 640,      // Réduit: 768 → 640 (optimisation locale)
+  desktop: 960,     // Réduit: 1024 → 960 (optimisation locale)
 };
 
 /**
  * Génère le srcset optimisé pour les images du carousel
- * Quality réduite à 70% pour améliorer LCP (Phase 2)
+ * Quality réduite à 60% pour améliorer LCP en local (Phase 3)
  */
 export function getCarouselImageSrcSet(url: string): {
   src: string;
@@ -89,8 +89,8 @@ export function getCarouselImageSrcSet(url: string): {
   sizes: string;
 } {
   return {
-    // Image par défaut (mobile-first)
-    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 70 }),
+    // Image par défaut (mobile-first, très optimisée)
+    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 60 }),
     // srcset avec différentes tailles optimisées
     srcSet: generateSupabaseSrcSet(
       url,
@@ -99,7 +99,7 @@ export function getCarouselImageSrcSet(url: string): {
         CAROUSEL_IMAGE_SIZES.tablet,
         CAROUSEL_IMAGE_SIZES.desktop,
       ],
-      70  // Quality: 80 → 75 → 70
+      60  // Quality: 80 → 75 → 70 → 60 (optimisation locale)
     ),
     // Tailles selon le viewport
     sizes: '100vw',
