@@ -67,14 +67,25 @@ const ApplicationsGrid = () => {
         <div className="max-w-4xl mx-auto mb-16 space-y-8">
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
-              Des résultats concrets et durables
+              L'hypnose : quand agir en profondeur fait la différence
             </h3>
-            <p className="text-lg leading-relaxed">
-              L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients.
+            <p className="text-lg leading-relaxed mb-4">
+              L'hypnose agit là où la volonté seule atteint ses limites :
             </p>
-            <p className="text-lg leading-relaxed mt-3">
-              Ces mécanismes influencent notre manière de penser, de réagir, de vivre au quotidien.
-            </p>
+            <ul className="text-left max-w-2xl mx-auto space-y-3 text-lg">
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1 font-bold">→</span>
+                <span>Dans vos <strong>mécanismes profonds</strong> : ceux qui régissent vos réactions automatiques</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1 font-bold">→</span>
+                <span>Dans vos <strong>émotions inconscientes</strong> : celles qui vous débordent malgré vous</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-nova-green mr-3 mt-1 font-bold">→</span>
+                <span>Dans vos <strong>schémas mentaux</strong> : ceux qui influencent votre quotidien</span>
+              </li>
+            </ul>
           </div>
 
           <div className="bg-nova-blue-light bg-opacity-10 p-6 rounded-xl">
@@ -106,13 +117,11 @@ const ApplicationsGrid = () => {
 
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-nova-blue-dark mb-4">
-              Des accompagnements adaptés à votre réalité
+              9 domaines d'accompagnement personnalisés
             </h3>
-            <p className="text-lg leading-relaxed">
-              Chaque accompagnement s'adapte à votre situation personnelle.
-            </p>
-            <p className="text-lg leading-relaxed mt-3">
-              Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
+            <p className="text-lg leading-relaxed max-w-3xl mx-auto">
+              Chaque accompagnement s'adapte à votre situation personnelle.<br/>
+              Découvrez les domaines dans lesquels l'hypnose peut vous aider concrètement :
             </p>
           </div>
         </div>

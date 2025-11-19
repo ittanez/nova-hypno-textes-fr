@@ -181,10 +181,28 @@ const About = () => {
               <p className="leading-relaxed">
                 Vous êtes accueilli dans votre singularité, sans jugement, avec attention.
               </p>
-              <p className="leading-relaxed">
-                Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure.
+              <p className="leading-relaxed mb-3">
+                Quels que soient vos défis :
               </p>
-              <p className="leading-relaxed">
+              <ul className="space-y-2 ml-4">
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2">•</span>
+                  <span>Stress persistant ou anxiété envahissante</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2">•</span>
+                  <span>Blocages émotionnels qui vous freinent</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2">•</span>
+                  <span>Manque de confiance ou doutes récurrents</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-nova-green mr-2">•</span>
+                  <span>Besoin de réorientation intérieure</span>
+                </li>
+              </ul>
+              <p className="leading-relaxed mt-4">
                 Vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
               </p>
             </div>
@@ -221,7 +239,10 @@ const About = () => {
                 Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée.
               </p>
               <p className="leading-relaxed">
-                Elle respecte votre rythme intérieur. Contrairement aux idées reçues, vous restez conscient et en contrôle.
+                Elle respecte votre rythme intérieur.
+              </p>
+              <p className="leading-relaxed">
+                Contrairement aux idées reçues, vous restez conscient et en contrôle.
               </p>
               <p className="leading-relaxed">
                 Chaque étape vous est expliquée pour que vous compreniez exactement comment vos ressources inconscientes sont mobilisées de manière collaborative.

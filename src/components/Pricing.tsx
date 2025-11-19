@@ -13,8 +13,7 @@ const Pricing = () => {
       price: "90€",
       description: "Au cœur de Paris",
       features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille, St Paul, Sully-Morland"],
-      popular: true,
-      popularText: "Le choix de 80% de nos clients"
+      popular: true
     },
     {
       icon: Video,
