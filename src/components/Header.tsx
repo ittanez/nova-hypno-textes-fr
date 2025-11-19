@@ -22,6 +22,7 @@ interface NavLink {
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' && window.innerWidth >= 768);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,9 +31,16 @@ const Header = () => {
       setScrolled(window.scrollY > 10);
     };
 
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -129,49 +137,53 @@ const Header = () => {
               </a>
             ))}
 
-            {/* L'hypnose Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                L'hypnose <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                {hypnoseLinks.map((link) => (
-                  <DropdownMenuItem key={link.name} asChild>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : ""}
-                      rel={link.external ? "noopener noreferrer" : ""}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* L'hypnose Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
+            {isDesktop && (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                  L'hypnose <ChevronDown className="ml-1 h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                  {hypnoseLinks.map((link) => (
+                    <DropdownMenuItem key={link.name} asChild>
+                      <a
+                        href={link.href}
+                        target={link.external ? "_blank" : ""}
+                        rel={link.external ? "noopener noreferrer" : ""}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
 
-            {/* Mes accompagnements Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                Mes accompagnements <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                {accompagnementsLinks.map((link) => (
-                  <DropdownMenuItem key={link.name} asChild>
-                    <a
-                      href={link.href}
-                      target={link.external ? "_blank" : ""}
-                      rel={link.external ? "noopener noreferrer" : ""}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Mes accompagnements Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
+            {isDesktop && (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                  Mes accompagnements <ChevronDown className="ml-1 h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                  {accompagnementsLinks.map((link) => (
+                    <DropdownMenuItem key={link.name} asChild>
+                      <a
+                        href={link.href}
+                        target={link.external ? "_blank" : ""}
+                        rel={link.external ? "noopener noreferrer" : ""}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
 
             {mainNavLinksAfter.map((link) => (
               <a
@@ -186,25 +198,27 @@ const Header = () => {
               </a>
             ))}
 
-            {/* Infos Pratiques Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="hidden md:flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                {infosPratiquesLinks.map((link) => (
-                  <DropdownMenuItem key={link.name} asChild>
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Infos Pratiques Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
+            {isDesktop && (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                  Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                  {infosPratiquesLinks.map((link) => (
+                    <DropdownMenuItem key={link.name} asChild>
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
             
             {/* Instagram Icon */}
             <a 
