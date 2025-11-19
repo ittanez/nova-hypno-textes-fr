@@ -141,20 +141,20 @@ const HeroCarousel: React.FC = () => {
               </div>
             ))}
           </div>
-          {/* Boutons masqués sur mobile */}
-          <div className="hidden md:flex flex-col sm:flex-row gap-3 mt-6">
+          {/* CTA visibles sur mobile - CRITIQUE pour conversion */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <a
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-nova-green hover:bg-nova-green-dark text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl"
             >
               <Calendar size={18} />
               Prendre rendez-vous
             </a>
             <a
               href="#applications"
-              className="px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
             >
               Découvrir comment je peux vous aider
             </a>

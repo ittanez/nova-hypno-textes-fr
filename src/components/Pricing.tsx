@@ -13,14 +13,16 @@ const Pricing = () => {
       price: "90€",
       description: "Au cœur de Paris",
       features: ["1h30 (première séance)", "1h (séances suivantes)", "Métro Bastille, St Paul, Sully-Morland"],
-      popular: true
+      popular: true,
+      ctaText: "Réserver au cabinet"
     },
     {
       icon: Video,
       title: "Téléconsultation",
       price: "90€",
       description: "Depuis chez vous",
-      features: ["1h30 (première séance)", "1h (séances suivantes)", "Connexion sécurisée"]
+      features: ["1h30 (première séance)", "1h (séances suivantes)", "Connexion sécurisée"],
+      ctaText: "Réserver en visio"
     },
     {
       icon: Home,
@@ -28,7 +30,8 @@ const Pricing = () => {
       price: "140€",
       description: "Paris Centre",
       features: ["1h30 (première séance)", "1h (séances suivantes)", "Arrond. 1-4, 9-11"],
-      badge: "NOUVEAU"
+      badge: "NOUVEAU",
+      ctaText: "Réserver à domicile"
     }
   ];
 
@@ -105,10 +108,10 @@ const Pricing = () => {
                     className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors ${
                       session.popular
                         ? 'bg-nova-green text-white hover:bg-nova-green-dark shadow-md'
-                        : 'bg-nova-blue text-white hover:bg-nova-blue-dark'
+                        : 'bg-nova-green text-white hover:bg-nova-green-dark'
                     }`}
                   >
-                    Choisir cette formule
+                    {session.ctaText}
                   </a>
                   {session.popular && (
                     <p className="text-xs text-center text-gray-500">

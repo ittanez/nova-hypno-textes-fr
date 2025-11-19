@@ -4,6 +4,7 @@ import Menu from 'lucide-react/dist/esm/icons/menu';
 import X from 'lucide-react/dist/esm/icons/x';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
+import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -217,13 +218,14 @@ const Header = () => {
             </a>
             
             {/* Highlighted Appointment Button */}
-            <a 
+            <a
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors ml-4"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors ml-4"
             >
-              Rendez-vous
+              <Calendar size={16} />
+              Prendre RDV
             </a>
           </nav>
 
@@ -355,13 +357,14 @@ const Header = () => {
                 </a>
                 
                 {/* Appointment Button */}
-                <a 
+                <a
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors"
                 >
-                  Rendez-vous
+                  <Calendar size={16} />
+                  Prendre RDV
                 </a>
               </div>
             </nav>
