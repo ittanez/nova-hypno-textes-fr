@@ -249,6 +249,20 @@ const About = () => {
               </p>
             </div>
 
+            <div className="text-center my-8">
+              <a
+                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-lg font-medium"
+              >
+                Discuter de mon besoin avec Alain
+              </a>
+              <p className="text-sm text-gray-600 mt-3">
+                Premier échange gratuit de 15 min par téléphone
+              </p>
+            </div>
+
             <blockquote className="my-8 pl-6 border-l-4 border-nova-green text-lg italic text-gray-700">
               "Vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient."
             </blockquote>
