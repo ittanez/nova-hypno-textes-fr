@@ -137,9 +137,9 @@ const Header = () => {
               </a>
             ))}
 
-            {/* L'hypnose Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            {/* L'hypnose Dropdown - Quadruple protection : CSS critique + inline + Tailwind + JS */}
             <div
-              className="hidden md:flex"
+              className="desktop-dropdown-wrapper hidden md:flex"
               style={{ display: isDesktop ? 'flex' : 'none' }}
             >
               {isDesktop && (
@@ -166,9 +166,9 @@ const Header = () => {
               )}
             </div>
 
-            {/* Mes accompagnements Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            {/* Mes accompagnements Dropdown - Quadruple protection : CSS critique + inline + Tailwind + JS */}
             <div
-              className="hidden md:flex"
+              className="desktop-dropdown-wrapper hidden md:flex"
               style={{ display: isDesktop ? 'flex' : 'none' }}
             >
               {isDesktop && (
@@ -208,9 +208,9 @@ const Header = () => {
               </a>
             ))}
 
-            {/* Infos Pratiques Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            {/* Infos Pratiques Dropdown - Quadruple protection : CSS critique + inline + Tailwind + JS */}
             <div
-              className="hidden md:flex"
+              className="desktop-dropdown-wrapper hidden md:flex"
               style={{ display: isDesktop ? 'flex' : 'none' }}
             >
               {isDesktop && (
