@@ -42,7 +42,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[400px] h-[50vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-[500px] h-[65vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Carrousel d'images/vidéos */}
       <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
@@ -114,17 +114,17 @@ const HeroCarousel: React.FC = () => {
             </div>
           );
         })}
-        {/* Gradient overlay constant */}
-        <div className="absolute inset-0 bg-gradient-to-r from-nova-blue-dark/30 via-nova-blue-dark/20 to-transparent pointer-events-none"></div>
+        {/* Gradient overlay constant - renforcé sur mobile pour améliorer la lisibilité */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:bg-gradient-to-r md:from-nova-blue-dark/40 md:via-nova-blue-dark/20 md:to-transparent pointer-events-none"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 flex items-end pb-24 md:pb-16 h-full">
-        <div className="max-w-3xl">
+      <div className="relative z-10 container mx-auto px-4 flex items-end pb-20 md:pb-16 h-full">
+        <div className="max-w-3xl w-full">
           {/* H1 masqué pour le SEO uniquement */}
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="min-h-[160px] md:min-h-[200px] relative">
+          <div className="min-h-[140px] md:min-h-[200px] relative">
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
@@ -132,10 +132,10 @@ const HeroCarousel: React.FC = () => {
                   index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                 }`}
               >
-                <div className="text-3xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
                   {slide.title}
                 </div>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md">
                   {slide.description}
                 </p>
               </div>
