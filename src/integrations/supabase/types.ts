@@ -7,6 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "12.2.3 (519615d)"
+  }
   public: {
     Tables: {
       admin_requests: {
@@ -90,6 +95,38 @@ export type Database = {
           },
         ]
       }
+      article_redirects: {
+        Row: {
+          article_id: string | null
+          created_at: string | null
+          id: number
+          new_slug: string
+          old_slug: string
+        }
+        Insert: {
+          article_id?: string | null
+          created_at?: string | null
+          id?: number
+          new_slug: string
+          old_slug: string
+        }
+        Update: {
+          article_id?: string | null
+          created_at?: string | null
+          id?: number
+          new_slug?: string
+          old_slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_redirects_article_id_fkey"
+            columns: ["article_id"]
+            isOneToOne: false
+            referencedRelation: "articles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       article_tags: {
         Row: {
           article_id: string
@@ -124,14 +161,22 @@ export type Database = {
         Row: {
           author: string | null
           categories: string[] | null
+          category: string | null
           content: string
           created_at: string | null
           excerpt: string | null
           featured: boolean | null
           id: string
           image_url: string | null
+          keywords: string[] | null
+          meta_description: string | null
           published: boolean | null
+          published_at: string | null
+          read_time: number | null
+          scheduled_for: string | null
+          seo_description: string | null
           slug: string | null
+          storage_image_url: string | null
           tags: string[] | null
           title: string
           updated_at: string | null
@@ -139,14 +184,22 @@ export type Database = {
         Insert: {
           author?: string | null
           categories?: string[] | null
+          category?: string | null
           content: string
           created_at?: string | null
           excerpt?: string | null
           featured?: boolean | null
           id?: string
           image_url?: string | null
+          keywords?: string[] | null
+          meta_description?: string | null
           published?: boolean | null
+          published_at?: string | null
+          read_time?: number | null
+          scheduled_for?: string | null
+          seo_description?: string | null
           slug?: string | null
+          storage_image_url?: string | null
           tags?: string[] | null
           title: string
           updated_at?: string | null
@@ -154,14 +207,22 @@ export type Database = {
         Update: {
           author?: string | null
           categories?: string[] | null
+          category?: string | null
           content?: string
           created_at?: string | null
           excerpt?: string | null
           featured?: boolean | null
           id?: string
           image_url?: string | null
+          keywords?: string[] | null
+          meta_description?: string | null
           published?: boolean | null
+          published_at?: string | null
+          read_time?: number | null
+          scheduled_for?: string | null
+          seo_description?: string | null
           slug?: string | null
+          storage_image_url?: string | null
           tags?: string[] | null
           title?: string
           updated_at?: string | null
@@ -195,6 +256,271 @@ export type Database = {
           id?: string
           name?: string
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      avion_email_sequences: {
+        Row: {
+          clicked_at: string | null
+          created_at: string | null
+          delivered_at: string | null
+          email_subject: string | null
+          email_template: string | null
+          email_type: string | null
+          id: string
+          opened_at: string | null
+          profile_type: string | null
+          resend_message_id: string | null
+          response_id: string | null
+          scheduled_at: string | null
+          sent_at: string | null
+          sequence_step: number | null
+        }
+        Insert: {
+          clicked_at?: string | null
+          created_at?: string | null
+          delivered_at?: string | null
+          email_subject?: string | null
+          email_template?: string | null
+          email_type?: string | null
+          id?: string
+          opened_at?: string | null
+          profile_type?: string | null
+          resend_message_id?: string | null
+          response_id?: string | null
+          scheduled_at?: string | null
+          sent_at?: string | null
+          sequence_step?: number | null
+        }
+        Update: {
+          clicked_at?: string | null
+          created_at?: string | null
+          delivered_at?: string | null
+          email_subject?: string | null
+          email_template?: string | null
+          email_type?: string | null
+          id?: string
+          opened_at?: string | null
+          profile_type?: string | null
+          resend_message_id?: string | null
+          response_id?: string | null
+          scheduled_at?: string | null
+          sent_at?: string | null
+          sequence_step?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "avion_email_sequences_response_id_fkey"
+            columns: ["response_id"]
+            isOneToOne: false
+            referencedRelation: "avion_quiz_responses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      avion_profiles: {
+        Row: {
+          color_code: string | null
+          description: string | null
+          icon: string | null
+          id: string
+          is_active: boolean | null
+          max_score: number | null
+          min_score: number | null
+          name: string
+          program_name: string | null
+          program_price: number | null
+          recommendation: string | null
+        }
+        Insert: {
+          color_code?: string | null
+          description?: string | null
+          icon?: string | null
+          id: string
+          is_active?: boolean | null
+          max_score?: number | null
+          min_score?: number | null
+          name: string
+          program_name?: string | null
+          program_price?: number | null
+          recommendation?: string | null
+        }
+        Update: {
+          color_code?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          is_active?: boolean | null
+          max_score?: number | null
+          min_score?: number | null
+          name?: string
+          program_name?: string | null
+          program_price?: number | null
+          recommendation?: string | null
+        }
+        Relationships: []
+      }
+      avion_quiz_question_responses: {
+        Row: {
+          created_at: string | null
+          dimension: string
+          id: string
+          question_id: number
+          quiz_response_id: string | null
+          timestamp: string | null
+          value: number
+        }
+        Insert: {
+          created_at?: string | null
+          dimension: string
+          id?: string
+          question_id: number
+          quiz_response_id?: string | null
+          timestamp?: string | null
+          value: number
+        }
+        Update: {
+          created_at?: string | null
+          dimension?: string
+          id?: string
+          question_id?: number
+          quiz_response_id?: string | null
+          timestamp?: string | null
+          value?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "avion_quiz_question_responses_quiz_response_id_fkey"
+            columns: ["quiz_response_id"]
+            isOneToOne: false
+            referencedRelation: "avion_quiz_responses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      avion_quiz_questions: {
+        Row: {
+          created_at: string | null
+          dimension: string | null
+          id: number
+          is_active: boolean | null
+          question_order: number | null
+          question_text: string
+          response_type: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          dimension?: string | null
+          id: number
+          is_active?: boolean | null
+          question_order?: number | null
+          question_text: string
+          response_type?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          dimension?: string | null
+          id?: number
+          is_active?: boolean | null
+          question_order?: number | null
+          question_text?: string
+          response_type?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      avion_quiz_responses: {
+        Row: {
+          answers: Json | null
+          behavioral_score: number | null
+          cognitive_score: number | null
+          completion_time: number | null
+          conversion_date: string | null
+          converted: boolean | null
+          created_at: string | null
+          dimension_scores: Json | null
+          email: string
+          email_consent: boolean | null
+          email_sent: boolean | null
+          first_name: string | null
+          id: string
+          ip_address: unknown
+          marketing_consent: boolean | null
+          physical_score: number | null
+          profile_id: string | null
+          profile_name: string | null
+          profile_type: string | null
+          quiz_completed: boolean | null
+          referrer: string | null
+          social_score: number | null
+          total_score: number | null
+          updated_at: string | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          answers?: Json | null
+          behavioral_score?: number | null
+          cognitive_score?: number | null
+          completion_time?: number | null
+          conversion_date?: string | null
+          converted?: boolean | null
+          created_at?: string | null
+          dimension_scores?: Json | null
+          email: string
+          email_consent?: boolean | null
+          email_sent?: boolean | null
+          first_name?: string | null
+          id?: string
+          ip_address?: unknown
+          marketing_consent?: boolean | null
+          physical_score?: number | null
+          profile_id?: string | null
+          profile_name?: string | null
+          profile_type?: string | null
+          quiz_completed?: boolean | null
+          referrer?: string | null
+          social_score?: number | null
+          total_score?: number | null
+          updated_at?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          answers?: Json | null
+          behavioral_score?: number | null
+          cognitive_score?: number | null
+          completion_time?: number | null
+          conversion_date?: string | null
+          converted?: boolean | null
+          created_at?: string | null
+          dimension_scores?: Json | null
+          email?: string
+          email_consent?: boolean | null
+          email_sent?: boolean | null
+          first_name?: string | null
+          id?: string
+          ip_address?: unknown
+          marketing_consent?: boolean | null
+          physical_score?: number | null
+          profile_id?: string | null
+          profile_name?: string | null
+          profile_type?: string | null
+          quiz_completed?: boolean | null
+          referrer?: string | null
+          social_score?: number | null
+          total_score?: number | null
+          updated_at?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
@@ -263,6 +589,33 @@ export type Database = {
           },
         ]
       }
+      fear_flight_tests: {
+        Row: {
+          created_at: string | null
+          email: string
+          email_sent_at: string | null
+          fear_level: string
+          id: number
+          test_responses: Json
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          email_sent_at?: string | null
+          fear_level: string
+          id?: number
+          test_responses: Json
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          email_sent_at?: string | null
+          fear_level?: string
+          id?: number
+          test_responses?: Json
+        }
+        Relationships: []
+      }
       images: {
         Row: {
           description: string | null
@@ -302,6 +655,114 @@ export type Database = {
         }
         Relationships: []
       }
+      inscriptions: {
+        Row: {
+          commentaires: string | null
+          created_at: string | null
+          email: string
+          email_confirmation_sent: boolean | null
+          id: string
+          nom: string
+          prenom: string
+          session_date: string | null
+          session_id: number | null
+          telephone: string | null
+        }
+        Insert: {
+          commentaires?: string | null
+          created_at?: string | null
+          email: string
+          email_confirmation_sent?: boolean | null
+          id?: string
+          nom: string
+          prenom: string
+          session_date?: string | null
+          session_id?: number | null
+          telephone?: string | null
+        }
+        Update: {
+          commentaires?: string | null
+          created_at?: string | null
+          email?: string
+          email_confirmation_sent?: boolean | null
+          id?: string
+          nom?: string
+          prenom?: string
+          session_date?: string | null
+          session_id?: number | null
+          telephone?: string | null
+        }
+        Relationships: []
+      }
+      package_orders: {
+        Row: {
+          amount: number
+          created_at: string | null
+          email: string
+          expires_at: string
+          id: number
+          reference_code: string
+          status: string | null
+          stripe_session_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string | null
+          email: string
+          expires_at: string
+          id?: number
+          reference_code: string
+          status?: string | null
+          stripe_session_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string | null
+          email?: string
+          expires_at?: string
+          id?: number
+          reference_code?: string
+          status?: string | null
+          stripe_session_id?: string | null
+        }
+        Relationships: []
+      }
+      peur_avion_test_results: {
+        Row: {
+          answers: Json
+          created_at: string | null
+          email: string
+          fear_level: string
+          first_name: string
+          id: string
+          percentage: number
+          recommendations: string
+          total_score: number
+        }
+        Insert: {
+          answers: Json
+          created_at?: string | null
+          email: string
+          fear_level: string
+          first_name: string
+          id?: string
+          percentage: number
+          recommendations: string
+          total_score: number
+        }
+        Update: {
+          answers?: Json
+          created_at?: string | null
+          email?: string
+          fear_level?: string
+          first_name?: string
+          id?: string
+          percentage?: number
+          recommendations?: string
+          total_score?: number
+        }
+        Relationships: []
+      }
       promo_codes: {
         Row: {
           assigned_at: string | null
@@ -338,6 +799,315 @@ export type Database = {
           stripe_synced?: boolean
           user_email?: string | null
           user_id?: string | null
+        }
+        Relationships: []
+      }
+      questionnaire_avion_pre_accompagnement: {
+        Row: {
+          age: number | null
+          anxiolytiques: string | null
+          approches_educatives: string[] | null
+          approches_medicales: string[] | null
+          aspect_plus_peur: string | null
+          aspects_physiques: string[] | null
+          aspects_psychologiques: string[] | null
+          aspects_techniques: string[] | null
+          autres_pensees: string | null
+          autres_phobies: string[] | null
+          axes_therapeutiques: string[] | null
+          bequilles_voyage: string[] | null
+          bilan_detaille: string | null
+          canal_sensoriel: string | null
+          comment_surmontes: string | null
+          comportements_evitement: string[] | null
+          contexte_precise: string | null
+          created_at: string
+          croyance_changement: number | null
+          date_remplissage: string | null
+          defis_surmontes: string | null
+          deja_pris_avion: boolean | null
+          dernier_vol: string | null
+          destination_reve: string | null
+          echecs_details: string | null
+          email: string
+          email_sent_at: string | null
+          etat_sante: string[] | null
+          evenements_stressants: string | null
+          experience_globale: string | null
+          gestion_stress: string[] | null
+          id: string
+          imagination_apres_peur: string | null
+          informations_supplementaires: string | null
+          intensite_symptomes: string | null
+          medicaments_anxiete: boolean | null
+          medicaments_details: string | null
+          motivation_niveau: number | null
+          motivation_principale: string[] | null
+          niveau_stress_general: number | null
+          nom: string | null
+          nombre_vols: number | null
+          objectif_principal: string[] | null
+          origine_peur: string[] | null
+          pensees_automatiques: string[] | null
+          peur_aeroport: number | null
+          peur_altitude: number | null
+          peur_atterrissage: number | null
+          peur_decollage: number | null
+          peur_embarquer: number | null
+          peur_fermeture_portes: number | null
+          peur_liee_aspects: string[] | null
+          peur_mot_avion: number | null
+          peur_progressive: string[] | null
+          peur_reserver: number | null
+          peur_roulage: number | null
+          peur_transmise: string[] | null
+          peur_turbulences: number | null
+          peur_voir_photo: number | null
+          peur_voir_reel: number | null
+          phobies_specifiques: string[] | null
+          pratique_hypnose: string | null
+          premiere_peur: string | null
+          prenom: string | null
+          profession: string | null
+          profil_principal: string | null
+          pronostic: string | null
+          questions_preoccupations: string | null
+          realisation_incroyable: string | null
+          receptivite_hypnose: string | null
+          resultats_tentatives: string | null
+          situation_personnelle: string[] | null
+          situation_professionnelle: string[] | null
+          sources_confiance: string[] | null
+          symptomes_physiques: string[] | null
+          techniques_recommandees: string[] | null
+          telephone: string | null
+          tentatives_anterieures: string[] | null
+          therapies_alternatives: string[] | null
+          traumatisme_direct: string[] | null
+          traumatisme_indirect: string[] | null
+          troubles_anxieux: string[] | null
+          updated_at: string
+          vol_marquant_contexte: string | null
+          vol_marquant_impact: string | null
+          voyage_date: string | null
+          voyage_prevu: boolean | null
+        }
+        Insert: {
+          age?: number | null
+          anxiolytiques?: string | null
+          approches_educatives?: string[] | null
+          approches_medicales?: string[] | null
+          aspect_plus_peur?: string | null
+          aspects_physiques?: string[] | null
+          aspects_psychologiques?: string[] | null
+          aspects_techniques?: string[] | null
+          autres_pensees?: string | null
+          autres_phobies?: string[] | null
+          axes_therapeutiques?: string[] | null
+          bequilles_voyage?: string[] | null
+          bilan_detaille?: string | null
+          canal_sensoriel?: string | null
+          comment_surmontes?: string | null
+          comportements_evitement?: string[] | null
+          contexte_precise?: string | null
+          created_at?: string
+          croyance_changement?: number | null
+          date_remplissage?: string | null
+          defis_surmontes?: string | null
+          deja_pris_avion?: boolean | null
+          dernier_vol?: string | null
+          destination_reve?: string | null
+          echecs_details?: string | null
+          email: string
+          email_sent_at?: string | null
+          etat_sante?: string[] | null
+          evenements_stressants?: string | null
+          experience_globale?: string | null
+          gestion_stress?: string[] | null
+          id?: string
+          imagination_apres_peur?: string | null
+          informations_supplementaires?: string | null
+          intensite_symptomes?: string | null
+          medicaments_anxiete?: boolean | null
+          medicaments_details?: string | null
+          motivation_niveau?: number | null
+          motivation_principale?: string[] | null
+          niveau_stress_general?: number | null
+          nom?: string | null
+          nombre_vols?: number | null
+          objectif_principal?: string[] | null
+          origine_peur?: string[] | null
+          pensees_automatiques?: string[] | null
+          peur_aeroport?: number | null
+          peur_altitude?: number | null
+          peur_atterrissage?: number | null
+          peur_decollage?: number | null
+          peur_embarquer?: number | null
+          peur_fermeture_portes?: number | null
+          peur_liee_aspects?: string[] | null
+          peur_mot_avion?: number | null
+          peur_progressive?: string[] | null
+          peur_reserver?: number | null
+          peur_roulage?: number | null
+          peur_transmise?: string[] | null
+          peur_turbulences?: number | null
+          peur_voir_photo?: number | null
+          peur_voir_reel?: number | null
+          phobies_specifiques?: string[] | null
+          pratique_hypnose?: string | null
+          premiere_peur?: string | null
+          prenom?: string | null
+          profession?: string | null
+          profil_principal?: string | null
+          pronostic?: string | null
+          questions_preoccupations?: string | null
+          realisation_incroyable?: string | null
+          receptivite_hypnose?: string | null
+          resultats_tentatives?: string | null
+          situation_personnelle?: string[] | null
+          situation_professionnelle?: string[] | null
+          sources_confiance?: string[] | null
+          symptomes_physiques?: string[] | null
+          techniques_recommandees?: string[] | null
+          telephone?: string | null
+          tentatives_anterieures?: string[] | null
+          therapies_alternatives?: string[] | null
+          traumatisme_direct?: string[] | null
+          traumatisme_indirect?: string[] | null
+          troubles_anxieux?: string[] | null
+          updated_at?: string
+          vol_marquant_contexte?: string | null
+          vol_marquant_impact?: string | null
+          voyage_date?: string | null
+          voyage_prevu?: boolean | null
+        }
+        Update: {
+          age?: number | null
+          anxiolytiques?: string | null
+          approches_educatives?: string[] | null
+          approches_medicales?: string[] | null
+          aspect_plus_peur?: string | null
+          aspects_physiques?: string[] | null
+          aspects_psychologiques?: string[] | null
+          aspects_techniques?: string[] | null
+          autres_pensees?: string | null
+          autres_phobies?: string[] | null
+          axes_therapeutiques?: string[] | null
+          bequilles_voyage?: string[] | null
+          bilan_detaille?: string | null
+          canal_sensoriel?: string | null
+          comment_surmontes?: string | null
+          comportements_evitement?: string[] | null
+          contexte_precise?: string | null
+          created_at?: string
+          croyance_changement?: number | null
+          date_remplissage?: string | null
+          defis_surmontes?: string | null
+          deja_pris_avion?: boolean | null
+          dernier_vol?: string | null
+          destination_reve?: string | null
+          echecs_details?: string | null
+          email?: string
+          email_sent_at?: string | null
+          etat_sante?: string[] | null
+          evenements_stressants?: string | null
+          experience_globale?: string | null
+          gestion_stress?: string[] | null
+          id?: string
+          imagination_apres_peur?: string | null
+          informations_supplementaires?: string | null
+          intensite_symptomes?: string | null
+          medicaments_anxiete?: boolean | null
+          medicaments_details?: string | null
+          motivation_niveau?: number | null
+          motivation_principale?: string[] | null
+          niveau_stress_general?: number | null
+          nom?: string | null
+          nombre_vols?: number | null
+          objectif_principal?: string[] | null
+          origine_peur?: string[] | null
+          pensees_automatiques?: string[] | null
+          peur_aeroport?: number | null
+          peur_altitude?: number | null
+          peur_atterrissage?: number | null
+          peur_decollage?: number | null
+          peur_embarquer?: number | null
+          peur_fermeture_portes?: number | null
+          peur_liee_aspects?: string[] | null
+          peur_mot_avion?: number | null
+          peur_progressive?: string[] | null
+          peur_reserver?: number | null
+          peur_roulage?: number | null
+          peur_transmise?: string[] | null
+          peur_turbulences?: number | null
+          peur_voir_photo?: number | null
+          peur_voir_reel?: number | null
+          phobies_specifiques?: string[] | null
+          pratique_hypnose?: string | null
+          premiere_peur?: string | null
+          prenom?: string | null
+          profession?: string | null
+          profil_principal?: string | null
+          pronostic?: string | null
+          questions_preoccupations?: string | null
+          realisation_incroyable?: string | null
+          receptivite_hypnose?: string | null
+          resultats_tentatives?: string | null
+          situation_personnelle?: string[] | null
+          situation_professionnelle?: string[] | null
+          sources_confiance?: string[] | null
+          symptomes_physiques?: string[] | null
+          techniques_recommandees?: string[] | null
+          telephone?: string | null
+          tentatives_anterieures?: string[] | null
+          therapies_alternatives?: string[] | null
+          traumatisme_direct?: string[] | null
+          traumatisme_indirect?: string[] | null
+          troubles_anxieux?: string[] | null
+          updated_at?: string
+          vol_marquant_contexte?: string | null
+          vol_marquant_impact?: string | null
+          voyage_date?: string | null
+          voyage_prevu?: boolean | null
+        }
+        Relationships: []
+      }
+      quiz_prise_parole_responses: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message_resultat: string
+          niveau_peur: string
+          nom: string | null
+          prenom: string
+          reponses: Json
+          score_total: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message_resultat: string
+          niveau_peur: string
+          nom?: string | null
+          prenom: string
+          reponses: Json
+          score_total: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message_resultat?: string
+          niveau_peur?: string
+          nom?: string | null
+          prenom?: string
+          reponses?: Json
+          score_total?: number
+          updated_at?: string
         }
         Relationships: []
       }
@@ -398,6 +1168,45 @@ export type Database = {
           total_score?: number
           user_email?: string
           vakog_answers?: string | null
+        }
+        Relationships: []
+      }
+      quizaqualibre: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message_resultat: string
+          niveau_aquaphobie: string
+          prenom: string
+          reponses: Json
+          score_total: number
+          sessions_recommandees: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message_resultat: string
+          niveau_aquaphobie: string
+          prenom: string
+          reponses: Json
+          score_total: number
+          sessions_recommandees: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message_resultat?: string
+          niveau_aquaphobie?: string
+          prenom?: string
+          reponses?: Json
+          score_total?: number
+          sessions_recommandees?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -577,33 +1386,42 @@ export type Database = {
     }
     Functions: {
       create_get_article_id_by_slug_function: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: undefined
       }
-      create_tables_if_not_exist: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
+      create_tables_if_not_exist: { Args: never; Returns: undefined }
+      generate_clean_slug: { Args: { title: string }; Returns: string }
+      generate_promo_code: { Args: never; Returns: string }
+      get_article_by_slug: {
+        Args: { input_slug: string }
+        Returns: {
+          author: string
+          canonical_slug: string
+          categories: string[]
+          category: string
+          content: string
+          created_at: string
+          excerpt: string
+          featured: boolean
+          id: string
+          image_url: string
+          is_redirect: boolean
+          published: boolean
+          scheduled_for: string
+          slug: string
+          storage_image_url: string
+          tags: string[]
+          title: string
+          updated_at: string
+        }[]
       }
-      generate_promo_code: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      get_article_id_by_slug: {
-        Args: { slug_param: string }
-        Returns: string
-      }
+      get_article_id_by_slug: { Args: { slug_param: string }; Returns: string }
       has_role: {
-        Args: { user_id: string; required_role: string }
+        Args: { required_role: string; user_id: string }
         Returns: boolean
       }
-      is_admin: {
-        Args: { user_id: string }
-        Returns: boolean
-      }
-      random_string: {
-        Args: { length: number }
-        Returns: string
-      }
+      is_admin: { Args: { user_id?: string }; Returns: boolean }
+      random_string: { Args: { length: number }; Returns: string }
     }
     Enums: {
       [_ in never]: never
@@ -614,21 +1432,25 @@ export type Database = {
   }
 }
 
-type DefaultSchema = Database[Extract<keyof Database, "public">]
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R
     }
     ? R
@@ -646,14 +1468,16 @@ export type Tables<
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I
     }
     ? I
@@ -669,14 +1493,16 @@ export type TablesInsert<
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U
     }
     ? U
@@ -692,14 +1518,16 @@ export type TablesUpdate<
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never
@@ -707,14 +1535,16 @@ export type Enums<
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
+    schema: keyof DatabaseWithoutInternals
   }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
