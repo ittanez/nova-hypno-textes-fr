@@ -14,6 +14,7 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
+  const [isFirstImageLoaded, setIsFirstImageLoaded] = useState(false);
 
   // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
   useEffect(() => {
@@ -23,6 +24,17 @@ const HeroCarousel: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Fallback : forcer le chargement après 4 secondes pour éviter de bloquer l'utilisateur
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstImageLoaded) {
+        setIsFirstImageLoaded(true);
+      }
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstImageLoaded]);
 
   // Auto-scroll du carrousel toutes les 4,5 secondes
   useEffect(() => {
@@ -43,6 +55,13 @@ const HeroCarousel: React.FC = () => {
 
   return (
     <section className="relative min-h-[500px] h-[65vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Loader pendant le chargement initial */}
+      {!isFirstImageLoaded && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center bg-black">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        </div>
+      )}
+
       {/* Carrousel d'images/vidéos */}
       <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
@@ -70,6 +89,7 @@ const HeroCarousel: React.FC = () => {
                       loading="eager"
                       fetchpriority="high"
                       decoding="async"
+                      onLoad={() => setIsFirstImageLoaded(true)}
                     />
                   );
                 })()
@@ -119,7 +139,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 flex items-end pb-20 md:pb-16 h-full">
-        <div className="max-w-3xl w-full">
+        <div className={`max-w-3xl w-full transition-opacity duration-500 ${isFirstImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {/* H1 masqué pour le SEO uniquement */}
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
@@ -163,7 +183,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       {/* Boutons de navigation du carrousel - très discrets */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3 transition-opacity duration-500 ${isFirstImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <button
           onClick={prevSlide}
           className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
