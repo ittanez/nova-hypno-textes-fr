@@ -14,6 +14,12 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Marquer comme chargé dès le montage du composant
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
   useEffect(() => {
@@ -43,8 +49,13 @@ const HeroCarousel: React.FC = () => {
 
   return (
     <section className="relative min-h-[500px] h-[65vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Skeleton loader pendant le chargement initial */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light animate-pulse" />
+      )}
+      
       {/* Carrousel d'images/vidéos */}
-      <div className="absolute inset-0">
+      <div className={`absolute inset-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         {carouselSlides.map((slide, index) => {
           return (
             <div
@@ -64,12 +75,12 @@ const HeroCarousel: React.FC = () => {
                       sizes={sizes}
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9' }}
+                      style={{ aspectRatio: '16/9', minHeight: '500px' }}
                       width="1920"
                       height="1080"
                       loading="eager"
                       fetchPriority="high"
-                      decoding="async"
+                      decoding="sync"
                     />
                   );
                 })()
@@ -84,7 +95,7 @@ const HeroCarousel: React.FC = () => {
                   src={index <= currentSlide + 1 ? slide.image : undefined}
                   poster={`${slide.poster}?width=${index === 0 ? '400' : '640'}&quality=60`}
                   className="w-full h-full object-cover object-center"
-                  style={{ aspectRatio: '16/9' }}
+                  style={{ aspectRatio: '16/9', minHeight: '500px' }}
                   width="1920"
                   height="1080"
                   muted
@@ -101,11 +112,12 @@ const HeroCarousel: React.FC = () => {
                       sizes={sizes}
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9' }}
+                      style={{ aspectRatio: '16/9', minHeight: '500px' }}
                       width="1920"
                       height="1080"
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchPriority={index === 0 ? "high" : "low"}
+                      decoding={index === 0 ? "sync" : "async"}
                     />
                   );
                 })()
@@ -123,7 +135,7 @@ const HeroCarousel: React.FC = () => {
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="min-h-[140px] md:min-h-[200px] relative">
+          <div className="min-h-[180px] md:min-h-[240px] relative"  style={{ willChange: 'opacity' }}>
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
