@@ -38,7 +38,7 @@ export const localBusinessSchema = {
     }
   ],
   "priceRange": "€€",
-  "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
+  "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "description": "Hypnothérapeute Paris 4ème - Cabinet d'hypnothérapie ericksonienne. Spécialiste stress, sommeil, phobies, confiance en soi. Maître Hypnologue certifié Alain Zenatti.",
   "areaServed": [
     {
@@ -81,7 +81,7 @@ export const personSchema = {
   "jobTitle": "Maître Hypnologue",
   "description": "Hypnothérapeute certifié spécialisé en hypnose ericksonienne à Paris",
   "url": "https://novahypnose.fr",
-  "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
+  "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "sameAs": [
     "https://www.instagram.com/novahypnose/",
     "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"

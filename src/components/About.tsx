@@ -22,7 +22,7 @@ const About = () => {
   };
 
   // Image zenatti optimisée avec ImageKit
-  const zenattiBaseUrl = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp';
+  const zenattiBaseUrl = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp';
   const zenattiSrcSet = [
     `${getImageKitUrl(zenattiBaseUrl, { width: 285, quality: 80, format: 'auto' })} 285w`,
     `${getImageKitUrl(zenattiBaseUrl, { width: 400, quality: 80, format: 'auto' })} 400w`,
