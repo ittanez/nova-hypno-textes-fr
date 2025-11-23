@@ -68,7 +68,7 @@ const HeroCarousel: React.FC = () => {
                       width="1920"
                       height="1080"
                       loading="eager"
-                      fetchpriority="high"
+                      fetchPriority="high"
                       decoding="async"
                     />
                   );
@@ -90,7 +90,6 @@ const HeroCarousel: React.FC = () => {
                   muted
                   playsInline
                   preload={index === 0 ? "metadata" : "none"}
-                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ) : (
                 (() => {
@@ -106,7 +105,7 @@ const HeroCarousel: React.FC = () => {
                       width="1920"
                       height="1080"
                       loading={index === 0 ? "eager" : "lazy"}
-                      fetchpriority={index === 0 ? "high" : "low"}
+                      fetchPriority={index === 0 ? "high" : "low"}
                     />
                   );
                 })()

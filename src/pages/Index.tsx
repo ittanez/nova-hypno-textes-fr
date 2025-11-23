@@ -55,12 +55,12 @@ const Index: React.FC = () => {
         await Promise.all([
           queryClient.prefetchQuery({
             queryKey: ['articles', 'all'],
-            queryFn: getAllArticlesNoPagination,
+            queryFn: () => getAllArticlesNoPagination(),
             staleTime: 5 * 60 * 1000, // 5 minutes
           }),
           queryClient.prefetchQuery({
             queryKey: ['categories'],
-            queryFn: getAllCategories,
+            queryFn: () => getAllCategories(),
             staleTime: 5 * 60 * 1000,
           }),
         ]);
