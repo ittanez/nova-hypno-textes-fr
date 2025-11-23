@@ -139,6 +139,16 @@
       /* Google Fonts - Transition douce */
       .fonts-loaded body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;letter-spacing:0}
       .fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{font-family:'Playfair Display',Georgia,'Times New Roman',serif;letter-spacing:-0.025em}
+
+      /* ANTI-FOUC CRITIQUE : Masquer les dropdowns desktop sur mobile AVANT React */
+      @media (max-width: 767px) {
+        .desktop-dropdown-wrapper {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+      }
     </style>
     
     <!-- CSS will be injected by Vite automatically -->
