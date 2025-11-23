@@ -137,8 +137,11 @@ const Header = () => {
               </a>
             ))}
 
-            {/* L'hypnose Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
-            <div className="hidden md:flex">
+            {/* L'hypnose Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            <div
+              className="hidden md:flex"
+              style={{ display: isDesktop ? 'flex' : 'none' }}
+            >
               {isDesktop && (
                 <DropdownMenu>
                   <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
@@ -163,8 +166,11 @@ const Header = () => {
               )}
             </div>
 
-            {/* Mes accompagnements Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
-            <div className="hidden md:flex">
+            {/* Mes accompagnements Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            <div
+              className="hidden md:flex"
+              style={{ display: isDesktop ? 'flex' : 'none' }}
+            >
               {isDesktop && (
                 <DropdownMenu>
                   <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
@@ -202,8 +208,11 @@ const Header = () => {
               </a>
             ))}
 
-            {/* Infos Pratiques Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
-            <div className="hidden md:flex">
+            {/* Infos Pratiques Dropdown - Triple protection contre FOUC : inline style + CSS + JS */}
+            <div
+              className="hidden md:flex"
+              style={{ display: isDesktop ? 'flex' : 'none' }}
+            >
               {isDesktop && (
                 <DropdownMenu>
                   <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
