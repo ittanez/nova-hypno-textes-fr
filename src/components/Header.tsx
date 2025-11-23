@@ -137,53 +137,57 @@ const Header = () => {
               </a>
             ))}
 
-            {/* L'hypnose Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
-            {isDesktop && (
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                  L'hypnose <ChevronDown className="ml-1 h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                  {hypnoseLinks.map((link) => (
-                    <DropdownMenuItem key={link.name} asChild>
-                      <a
-                        href={link.href}
-                        target={link.external ? "_blank" : ""}
-                        rel={link.external ? "noopener noreferrer" : ""}
-                        onClick={(e) => handleNavClick(e, link.href)}
-                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
+            {/* L'hypnose Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
+            <div className="hidden md:flex">
+              {isDesktop && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                    L'hypnose <ChevronDown className="ml-1 h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                    {hypnoseLinks.map((link) => (
+                      <DropdownMenuItem key={link.name} asChild>
+                        <a
+                          href={link.href}
+                          target={link.external ? "_blank" : ""}
+                          rel={link.external ? "noopener noreferrer" : ""}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
 
-            {/* Mes accompagnements Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
-            {isDesktop && (
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                  Mes accompagnements <ChevronDown className="ml-1 h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                  {accompagnementsLinks.map((link) => (
-                    <DropdownMenuItem key={link.name} asChild>
-                      <a
-                        href={link.href}
-                        target={link.external ? "_blank" : ""}
-                        rel={link.external ? "noopener noreferrer" : ""}
-                        onClick={(e) => handleNavClick(e, link.href)}
-                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
+            {/* Mes accompagnements Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
+            <div className="hidden md:flex">
+              {isDesktop && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                    Mes accompagnements <ChevronDown className="ml-1 h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                    {accompagnementsLinks.map((link) => (
+                      <DropdownMenuItem key={link.name} asChild>
+                        <a
+                          href={link.href}
+                          target={link.external ? "_blank" : ""}
+                          rel={link.external ? "noopener noreferrer" : ""}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
 
             {mainNavLinksAfter.map((link) => (
               <a
@@ -198,27 +202,29 @@ const Header = () => {
               </a>
             ))}
 
-            {/* Infos Pratiques Dropdown - Rendu conditionnel pour éviter FOUC sur mobile */}
-            {isDesktop && (
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
-                  Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
-                  {infosPratiquesLinks.map((link) => (
-                    <DropdownMenuItem key={link.name} asChild>
-                      <a
-                        href={link.href}
-                        onClick={(e) => handleNavClick(e, link.href)}
-                        className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
-                      >
-                        {link.name}
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
+            {/* Infos Pratiques Dropdown - Double protection contre FOUC : CSS + JS conditionnel */}
+            <div className="hidden md:flex">
+              {isDesktop && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                    Infos pratiques <ChevronDown className="ml-1 h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                    {infosPratiquesLinks.map((link) => (
+                      <DropdownMenuItem key={link.name} asChild>
+                        <a
+                          href={link.href}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
             
             {/* Instagram Icon */}
             <a 
