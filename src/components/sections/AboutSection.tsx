@@ -21,7 +21,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 order-2 md:order-1">
               <img
-                src="/zenatti.webp"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp"
                 alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
                 className="rounded-2xl shadow-2xl w-3/4 md:w-full h-auto object-cover mx-auto md:mx-0"
                 loading="lazy"
