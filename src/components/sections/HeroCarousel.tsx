@@ -49,7 +49,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '600px', maxHeight: '100vh' }}>
+    <section className="relative min-h-[400px] h-[50vh] md:h-[60vh] max-h-[700px] flex items-center justify-center overflow-hidden bg-black">
       {/* Skeleton loader pendant le chargement initial */}
       {!isLoaded && (
         <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light animate-pulse" />
