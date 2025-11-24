@@ -48,10 +48,26 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://novahypnose.fr/" />
 
-    <!-- Fonts chargées avec display=swap - Pas besoin de script complexe -->
+    <!-- Fonts chargées avec display=swap - Détection réelle du chargement -->
     <script>
-      // Ajouter la classe fonts-loaded immédiatement pour éviter FOUT
-      document.documentElement.classList.add('fonts-loaded');
+      // Détecter le chargement réel des fonts pour éviter FOUT
+      if ('fonts' in document) {
+        Promise.all([
+          document.fonts.load("700 1em 'Playfair Display'"),
+          document.fonts.load("400 1em 'Poppins'"),
+          document.fonts.load("600 1em 'Poppins'")
+        ]).then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        }).catch(function() {
+          // Fallback: ajouter la classe après 3s si le chargement échoue
+          setTimeout(function() {
+            document.documentElement.classList.add('fonts-loaded');
+          }, 3000);
+        });
+      } else {
+        // Fallback pour navigateurs anciens
+        document.documentElement.classList.add('fonts-loaded');
+      }
     </script>
     
     <!-- Google Analytics optimisé (différé 8s au lieu de 5s) -->
@@ -79,12 +95,12 @@
       body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;background-color:#f8fafc;overflow-x:hidden;max-width:100%}
       #root{min-height:100vh}
 
-      /* Hero carrousel - critique pour LCP - AMÉLIORÉ */
-      .hero-image-container{width:100%;height:100vh;overflow:hidden;position:relative;background:#1e3a8a}
+      /* Hero carrousel - critique pour LCP - STABILISÉ */
+      .hero-image-container{width:100%;height:100vh;min-height:600px;max-height:100vh;overflow:hidden;position:relative;background:#000}
       .hero-image-container img,.hero-image-container video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
       .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8));z-index:1}
-      .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:2rem;color:#fff}
-      .hero-text{max-width:56rem;margin:0 auto}
+      .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;height:100vh;min-height:600px;max-height:100vh;text-align:center;padding:2rem;color:#fff}
+      .hero-text{max-width:56rem;margin:0 auto;height:240px}
 
       /* Carrousel - styles critiques */
       .relative{position:relative}
