@@ -84,11 +84,6 @@ const Pricing = () => {
                 <div className="mb-4">
                   <div className="text-3xl font-bold text-nova-blue-dark">{session.price}</div>
                   <div className="text-sm text-gray-500">par séance</div>
-                  {session.popularText && (
-                    <div className="mt-2 inline-block bg-nova-green/10 text-nova-green px-3 py-1 rounded-full text-xs font-semibold">
-                      {session.popularText}
-                    </div>
-                  )}
                 </div>
 
                 <ul className="space-y-2 mb-6">
