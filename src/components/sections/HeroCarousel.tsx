@@ -14,12 +14,6 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Marquer comme chargé dès le montage du composant
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
   useEffect(() => {
@@ -48,14 +42,9 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '600px', maxHeight: '100vh' }}>
-      {/* Skeleton loader pendant le chargement initial */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light animate-pulse" />
-      )}
-      
-      {/* Carrousel d'images/vidéos */}
-      <div className={`absolute inset-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '100vh' }}>
+      {/* Carrousel d'images/vidéos - visible immédiatement */}
+      <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
           return (
             <div
