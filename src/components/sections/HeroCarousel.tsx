@@ -66,8 +66,8 @@ const HeroCarousel: React.FC = () => {
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
                       style={{ aspectRatio: '16/9' }}
-                      width="1920"
-                      height="1080"
+                      width="360"
+                      height="203"
                       loading="eager"
                       fetchPriority="high"
                       decoding="sync"
@@ -83,11 +83,11 @@ const HeroCarousel: React.FC = () => {
                     }
                   }}
                   src={index <= currentSlide + 1 ? slide.image : undefined}
-                  poster={`${slide.poster}?width=${index === 0 ? '400' : '640'}&quality=60`}
+                  poster={`${slide.poster}?width=${index === 0 ? '360' : '600'}&quality=50`}
                   className="w-full h-full object-cover object-center"
                   style={{ aspectRatio: '16/9' }}
-                  width="1920"
-                  height="1080"
+                  width="360"
+                  height="203"
                   muted
                   playsInline
                   preload={index === 0 ? "metadata" : "none"}
@@ -103,8 +103,8 @@ const HeroCarousel: React.FC = () => {
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
                       style={{ aspectRatio: '16/9' }}
-                      width="1920"
-                      height="1080"
+                      width="360"
+                      height="203"
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchPriority={index === 0 ? "high" : "low"}
                       decoding={index === 0 ? "sync" : "async"}
@@ -125,7 +125,7 @@ const HeroCarousel: React.FC = () => {
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="relative min-h-[180px] md:min-h-[200px]" style={{ willChange: 'opacity' }}>
+          <div className="relative min-h-[180px] md:min-h-[200px]">
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
