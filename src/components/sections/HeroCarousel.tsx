@@ -71,7 +71,6 @@ const HeroCarousel: React.FC = () => {
                       loading="eager"
                       fetchPriority="high"
                       decoding="sync"
-                      onLoad={() => index === 0 && setIsLoaded(true)}
                     />
                   );
                 })()
@@ -109,7 +108,6 @@ const HeroCarousel: React.FC = () => {
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchPriority={index === 0 ? "high" : "low"}
                       decoding={index === 0 ? "sync" : "async"}
-                      onLoad={() => index === 0 && setIsLoaded(true)}
                     />
                   );
                 })()
@@ -122,7 +120,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 flex items-end pb-20 md:pb-16 h-full">
-        <div className={`max-w-3xl w-full transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="max-w-3xl w-full">
           {/* H1 masqué pour le SEO uniquement */}
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
@@ -166,7 +164,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       {/* Boutons de navigation du carrousel - très discrets */}
-      <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
         <button
           onClick={prevSlide}
           className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
