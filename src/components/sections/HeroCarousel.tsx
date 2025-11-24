@@ -30,6 +30,17 @@ const HeroCarousel: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Fallback : forcer le chargement après 4 secondes pour éviter de bloquer l'utilisateur
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isFirstImageLoaded) {
+        setIsFirstImageLoaded(true);
+      }
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [isFirstImageLoaded]);
+
   // Auto-scroll du carrousel toutes les 4,5 secondes
   useEffect(() => {
     const timer = setInterval(() => {
@@ -130,7 +141,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 flex items-end pb-20 md:pb-16 h-full">
-        <div className="max-w-3xl w-full">
+        <div className={`max-w-3xl w-full transition-opacity duration-500 ${isFirstImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
           {/* H1 masqué pour le SEO uniquement */}
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
@@ -174,7 +185,7 @@ const HeroCarousel: React.FC = () => {
       </div>
 
       {/* Boutons de navigation du carrousel - très discrets */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3 transition-opacity duration-500 ${isFirstImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <button
           onClick={prevSlide}
           className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
