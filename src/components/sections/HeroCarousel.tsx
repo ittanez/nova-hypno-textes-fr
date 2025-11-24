@@ -129,46 +129,49 @@ const HeroCarousel: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:bg-gradient-to-r md:from-nova-blue-dark/40 md:via-nova-blue-dark/20 md:to-transparent pointer-events-none"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 flex items-end pb-20 md:pb-16 h-full">
-        <div className="max-w-3xl w-full">
-          {/* H1 masqué pour le SEO uniquement */}
-          <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
+      {/* Conteneur de texte positionné en absolu pour éviter layout shift */}
+      <div className="absolute bottom-20 md:bottom-24 left-0 right-0 z-10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl w-full">
+            {/* H1 masqué pour le SEO uniquement */}
+            <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
-          {/* Contenu visuel dynamique du carrousel */}
-          <div className="relative min-h-[180px] md:min-h-[200px]">
-            {carouselSlides.map((slide, index) => (
-              <div
-                key={index}
-                className={`transition-opacity duration-1000 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
-                }`}
-              >
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
-                  {slide.title}
+            {/* Contenu visuel dynamique du carrousel - hauteur fixe pour stabilité */}
+            <div className="relative h-[240px] sm:h-[220px] md:h-[280px] lg:h-[320px]">
+              {carouselSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentSlide ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
+                    {slide.title}
+                  </div>
+                  <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md">
+                    {slide.description}
+                  </p>
                 </div>
-                <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md">
-                  {slide.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          {/* CTA visibles sur mobile - CRITIQUE pour conversion */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-6">
-            <a
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-nova-green hover:bg-nova-green-dark text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl"
-            >
-              <Calendar size={18} />
-              Prendre rendez-vous
-            </a>
-            <a
-              href="#applications"
-              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
-            >
-              Découvrir comment je peux vous aider
-            </a>
+              ))}
+            </div>
+            {/* CTA visibles sur mobile - CRITIQUE pour conversion */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+              <a
+                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-nova-green hover:bg-nova-green-dark text-white rounded-lg text-sm font-semibold transition-all shadow-lg hover:shadow-xl"
+              >
+                <Calendar size={18} />
+                Prendre rendez-vous
+              </a>
+              <a
+                href="#applications"
+                className="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
+              >
+                Découvrir comment je peux vous aider
+              </a>
+            </div>
           </div>
         </div>
       </div>
