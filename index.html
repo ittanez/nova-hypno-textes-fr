@@ -100,7 +100,7 @@
       .hero-image-container img,.hero-image-container video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
       .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8));z-index:1}
       .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;height:100vh;min-height:600px;max-height:100vh;text-align:center;padding:2rem;color:#fff}
-      .hero-text{max-width:56rem;margin:0 auto;height:240px}
+      .hero-text{max-width:56rem;margin:0 auto;min-height:180px}
 
       /* Carrousel - styles critiques */
       .relative{position:relative}
@@ -171,6 +171,21 @@
           pointer-events: none !important;
         }
       }
+
+      /* SKELETON HERO - Visible IMMÉDIATEMENT avant React */
+      .hero-skeleton{position:relative;width:100%;height:100vh;min-height:600px;max-height:100vh;overflow:hidden;background:#0a0a0a}
+      .hero-skeleton-image{position:absolute;inset:0;background:linear-gradient(135deg,#0c4a6e 0%,#0e7490 50%,#2dd4bf 100%);animation:pulse 2s ease-in-out infinite}
+      .hero-skeleton-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.4) 50%,transparent 100%);pointer-events:none}
+      .hero-skeleton-content{position:absolute;bottom:5rem;left:1rem;right:1rem;max-width:48rem;z-index:10}
+      .hero-skeleton-title{height:3rem;width:90%;background:rgba(255,255,255,0.15);border-radius:0.5rem;margin-bottom:1rem;animation:pulse 1.5s ease-in-out infinite}
+      .hero-skeleton-description{height:1.5rem;width:75%;background:rgba(255,255,255,0.1);border-radius:0.5rem;margin-bottom:1.5rem;animation:pulse 1.5s ease-in-out infinite 0.2s}
+      .hero-skeleton-button{height:2.5rem;width:12rem;background:rgba(45,212,191,0.3);border-radius:0.5rem;animation:pulse 1.5s ease-in-out infinite 0.4s}
+      @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+      @media (min-width:768px){
+        .hero-skeleton-content{left:2rem;right:2rem;bottom:6rem}
+        .hero-skeleton-title{height:4rem}
+        .hero-skeleton-description{height:2rem}
+      }
     </style>
     
     <!-- CSS will be injected by Vite automatically -->
@@ -186,7 +201,18 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Skeleton visible IMMÉDIATEMENT avant React -->
+      <div class="hero-skeleton">
+        <div class="hero-skeleton-image"></div>
+        <div class="hero-skeleton-gradient"></div>
+        <div class="hero-skeleton-content">
+          <div class="hero-skeleton-title"></div>
+          <div class="hero-skeleton-description"></div>
+          <div class="hero-skeleton-button"></div>
+        </div>
+      </div>
+    </div>
     <!-- Script non critique chargé avec priorité basse et defer pour améliorer le LCP -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module" fetchpriority="low" defer></script>
     <script type="module" src="/src/main.tsx" defer></script>

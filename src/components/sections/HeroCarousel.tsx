@@ -14,7 +14,6 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
   useEffect(() => {
@@ -44,14 +43,9 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[400px] h-[50vh] md:h-[60vh] max-h-[700px] flex items-center justify-center overflow-hidden bg-black">
-      {/* Skeleton loader pendant le chargement initial */}
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light animate-pulse" />
-      )}
-      
-      {/* Carrousel d'images/vidéos */}
-      <div className={`absolute inset-0 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '100vh' }}>
+      {/* Carrousel d'images/vidéos - visible immédiatement */}
+      <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
           return (
             <div
@@ -133,12 +127,12 @@ const HeroCarousel: React.FC = () => {
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="relative" style={{ height: '240px', willChange: 'opacity' }}>
+          <div className="relative min-h-[180px] md:min-h-[200px]" style={{ willChange: 'opacity' }}>
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                className={`transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
