@@ -42,11 +42,21 @@ const HeroCarousel: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
   };
 
+  // Optimisation: N'afficher que 3 slides (précédent, actuel, suivant)
+  const shouldRenderSlide = (index: number) => {
+    const prev = (currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
+    const next = (currentSlide + 1) % carouselSlides.length;
+    return index === currentSlide || index === prev || index === next;
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '100vh' }}>
       {/* Carrousel d'images/vidéos - visible immédiatement */}
       <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
+          // Lazy rendering: ne rendre que 3 slides
+          if (!shouldRenderSlide(index)) return null;
+
           return (
             <div
               key={index}
@@ -82,7 +92,7 @@ const HeroCarousel: React.FC = () => {
                       el.play().catch(() => {});
                     }
                   }}
-                  src={index <= currentSlide + 1 ? slide.image : undefined}
+                  src={index === currentSlide ? slide.image : undefined}
                   poster={`${slide.poster}?width=${index === 0 ? '360' : '600'}&quality=50`}
                   className="w-full h-full object-cover object-center"
                   style={{ aspectRatio: '16/9' }}

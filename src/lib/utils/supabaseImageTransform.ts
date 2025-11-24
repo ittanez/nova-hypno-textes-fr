@@ -53,17 +53,19 @@ export function transformSupabaseImage(
  * Génère un srcset pour une image Supabase avec différentes largeurs
  * @param url - URL originale de l'image
  * @param widths - Tableau de largeurs pour le srcset
- * @param quality - Qualité de l'image (défaut: 80)
+ * @param quality - Qualité de l'image (défaut: 80) ou tableau de qualités par taille
  * @returns String srcset pour l'attribut HTML
  */
 export function generateSupabaseSrcSet(
   url: string,
   widths: number[] = [400, 800, 1200, 1600],
-  quality: number = 80
+  quality: number | number[] = 80
 ): string {
   return widths
-    .map((width) => {
-      const transformedUrl = transformSupabaseImage(url, { width, quality });
+    .map((width, index) => {
+      // Qualité adaptative : utiliser tableau si fourni, sinon valeur fixe
+      const q = Array.isArray(quality) ? quality[index] || quality[0] : quality;
+      const transformedUrl = transformSupabaseImage(url, { width, quality: q });
       return `${transformedUrl} ${width}w`;
     })
     .join(', ');
@@ -82,7 +84,7 @@ export const CAROUSEL_IMAGE_SIZES = {
 
 /**
  * Génère le srcset optimisé pour les images du carousel
- * Quality réduite à 50% pour améliorer LCP (Phase 4)
+ * Qualité ADAPTATIVE : plus basse sur mobile, plus haute sur desktop (Phase 5 - FINALE)
  */
 export function getCarouselImageSrcSet(url: string): {
   src: string;
@@ -92,16 +94,16 @@ export function getCarouselImageSrcSet(url: string): {
   return {
     // Image par défaut (mobile-first, très optimisée)
     src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 50 }),
-    // srcset avec différentes tailles optimisées
+    // srcset avec qualité adaptative selon la taille
     srcSet: generateSupabaseSrcSet(
       url,
       [
-        CAROUSEL_IMAGE_SIZES.mobile,
-        CAROUSEL_IMAGE_SIZES.tablet,
-        CAROUSEL_IMAGE_SIZES.desktop,
-        CAROUSEL_IMAGE_SIZES.large,
+        CAROUSEL_IMAGE_SIZES.mobile,   // 360px
+        CAROUSEL_IMAGE_SIZES.tablet,   // 600px
+        CAROUSEL_IMAGE_SIZES.desktop,  // 900px
+        CAROUSEL_IMAGE_SIZES.large,    // 1200px
       ],
-      50  // Quality: 60 → 50 (gain ~20% poids, perte qualité minime)
+      [50, 55, 60, 65]  // Qualité adaptative : mobile → large
     ),
     // Tailles selon le viewport
     sizes: '100vw',
