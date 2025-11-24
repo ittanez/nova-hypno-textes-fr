@@ -76,8 +76,8 @@ const HeroCarousel: React.FC = () => {
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
                       style={{ aspectRatio: '16/9' }}
-                      width="360"
-                      height="203"
+                      width="320"
+                      height="180"
                       loading="eager"
                       fetchPriority="high"
                       decoding="sync"
@@ -93,18 +93,18 @@ const HeroCarousel: React.FC = () => {
                     }
                   }}
                   src={index === currentSlide ? slide.image : undefined}
-                  poster={`${slide.poster}?width=${index === 0 ? '360' : '600'}&quality=50`}
+                  poster={`${slide.poster}?width=320&quality=40`}
                   className="w-full h-full object-cover object-center"
                   style={{ aspectRatio: '16/9' }}
-                  width="360"
-                  height="203"
+                  width="320"
+                  height="180"
                   muted
                   playsInline
                   preload={index === 0 ? "metadata" : "none"}
                 />
               ) : (
                 (() => {
-                  const { src, srcSet, sizes } = getResponsiveSrcSet(slide.image, 75);
+                  const { src, srcSet, sizes } = getCarouselImageSrcSet(slide.image);
                   return (
                     <img
                       src={src}
@@ -113,8 +113,8 @@ const HeroCarousel: React.FC = () => {
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
                       style={{ aspectRatio: '16/9' }}
-                      width="360"
-                      height="203"
+                      width="320"
+                      height="180"
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchPriority={index === 0 ? "high" : "low"}
                       decoding={index === 0 ? "sync" : "async"}
