@@ -135,12 +135,12 @@ const HeroCarousel: React.FC = () => {
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="relative" style={{ height: '240px', willChange: 'opacity' }}>
+          <div className="relative min-h-[180px] md:min-h-[200px]" style={{ willChange: 'opacity' }}>
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                className={`transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
