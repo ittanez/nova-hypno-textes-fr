@@ -16,11 +16,6 @@ const HeroCarousel: React.FC = () => {
   const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Marquer comme chargé dès le montage du composant
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -82,6 +77,7 @@ const HeroCarousel: React.FC = () => {
                       loading="eager"
                       fetchPriority="high"
                       decoding="sync"
+                      onLoad={() => index === 0 && setIsLoaded(true)}
                     />
                   );
                 })()
@@ -119,6 +115,7 @@ const HeroCarousel: React.FC = () => {
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchPriority={index === 0 ? "high" : "low"}
                       decoding={index === 0 ? "sync" : "async"}
+                      onLoad={() => index === 0 && setIsLoaded(true)}
                     />
                   );
                 })()
