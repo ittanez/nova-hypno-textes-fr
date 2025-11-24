@@ -73,18 +73,18 @@ export function generateSupabaseSrcSet(
 
 /**
  * Tailles recommandées pour les images du carousel
- * OPTIMISÉES AGRESSIVEMENT pour LCP et CLS (Phase 4)
+ * ULTRA-OPTIMISÉES pour réduire drastiquement le poids (Phase 6 - AGRESSIVE)
  */
 export const CAROUSEL_IMAGE_SIZES = {
-  mobile: 360,      // Réduit: 400 → 360 (-10% poids)
-  tablet: 600,      // Réduit: 640 → 600 (-6% poids)
-  desktop: 900,     // Réduit: 960 → 900 (-6% poids)
-  large: 1200,      // NOUVEAU: pour grands écrans
+  mobile: 320,      // Réduit: 360 → 320 (-25% poids total)
+  tablet: 540,      // Réduit: 600 → 540 (-20% poids)
+  desktop: 800,     // Réduit: 900 → 800 (-22% poids)
+  large: 1024,      // Réduit: 1200 → 1024 (-30% poids)
 };
 
 /**
  * Génère le srcset optimisé pour les images du carousel
- * Qualité ADAPTATIVE : plus basse sur mobile, plus haute sur desktop (Phase 5 - FINALE)
+ * Qualité ULTRA-BASSE : compression maximale pour réduire le poids (Phase 6)
  */
 export function getCarouselImageSrcSet(url: string): {
   src: string;
@@ -92,18 +92,18 @@ export function getCarouselImageSrcSet(url: string): {
   sizes: string;
 } {
   return {
-    // Image par défaut (mobile-first, très optimisée)
-    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 50 }),
-    // srcset avec qualité adaptative selon la taille
+    // Image par défaut (mobile-first, compression maximale)
+    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 40 }),
+    // srcset avec qualité ultra-basse pour poids minimal
     srcSet: generateSupabaseSrcSet(
       url,
       [
-        CAROUSEL_IMAGE_SIZES.mobile,   // 360px
-        CAROUSEL_IMAGE_SIZES.tablet,   // 600px
-        CAROUSEL_IMAGE_SIZES.desktop,  // 900px
-        CAROUSEL_IMAGE_SIZES.large,    // 1200px
+        CAROUSEL_IMAGE_SIZES.mobile,   // 320px
+        CAROUSEL_IMAGE_SIZES.tablet,   // 540px
+        CAROUSEL_IMAGE_SIZES.desktop,  // 800px
+        CAROUSEL_IMAGE_SIZES.large,    // 1024px
       ],
-      [50, 55, 60, 65]  // Qualité adaptative : mobile → large
+      [40, 45, 50, 55]  // Qualité réduite : -10 points sur chaque breakpoint
     ),
     // Tailles selon le viewport
     sizes: '100vw',
