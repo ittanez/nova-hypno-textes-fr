@@ -48,7 +48,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[500px] h-[65vh] md:h-[70vh] lg:h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '600px', maxHeight: '100vh' }}>
       {/* Skeleton loader pendant le chargement initial */}
       {!isLoaded && (
         <div className="absolute inset-0 bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green-light animate-pulse" />
@@ -75,7 +75,7 @@ const HeroCarousel: React.FC = () => {
                       sizes={sizes}
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9', minHeight: '500px' }}
+                      style={{ aspectRatio: '16/9' }}
                       width="1920"
                       height="1080"
                       loading="eager"
@@ -95,7 +95,7 @@ const HeroCarousel: React.FC = () => {
                   src={index <= currentSlide + 1 ? slide.image : undefined}
                   poster={`${slide.poster}?width=${index === 0 ? '400' : '640'}&quality=60`}
                   className="w-full h-full object-cover object-center"
-                  style={{ aspectRatio: '16/9', minHeight: '500px' }}
+                  style={{ aspectRatio: '16/9' }}
                   width="1920"
                   height="1080"
                   muted
@@ -112,7 +112,7 @@ const HeroCarousel: React.FC = () => {
                       sizes={sizes}
                       alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                       className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9', minHeight: '500px' }}
+                      style={{ aspectRatio: '16/9' }}
                       width="1920"
                       height="1080"
                       loading={index === 0 ? "eager" : "lazy"}
@@ -135,12 +135,12 @@ const HeroCarousel: React.FC = () => {
           <h1 className="sr-only">Hypnothérapeute à Paris - Hypnose ericksonienne - Alain Zenatti</h1>
 
           {/* Contenu visuel dynamique du carrousel */}
-          <div className="min-h-[180px] md:min-h-[240px] relative"  style={{ willChange: 'opacity' }}>
+          <div className="relative" style={{ height: '240px', willChange: 'opacity' }}>
             {carouselSlides.map((slide, index) => (
               <div
                 key={index}
-                className={`transition-opacity duration-1000 ${
-                  index === currentSlide ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 right-0'
+                className={`transition-opacity duration-1000 absolute top-0 left-0 right-0 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
                 }`}
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
