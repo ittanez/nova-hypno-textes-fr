@@ -110,7 +110,6 @@ const HeroCarousel: React.FC = () => {
                   muted
                   playsInline
                   preload={index === 0 ? "metadata" : "none"}
-                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ) : (
                 (() => {
