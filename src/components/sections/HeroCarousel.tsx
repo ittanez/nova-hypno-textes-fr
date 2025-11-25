@@ -13,17 +13,6 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showFirstVideoPoster, setShowFirstVideoPoster] = useState(true);
-
-  // Afficher le poster de la première vidéo pendant 3 secondes, puis basculer sur la vidéo
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowFirstVideoPoster(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
 
   // Auto-scroll du carrousel toutes les 4,5 secondes
   useEffect(() => {
@@ -64,64 +53,27 @@ const HeroCarousel: React.FC = () => {
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              {slide.type === 'video' && (index === 0 && showFirstVideoPoster) ? (
-                // Pour la première vidéo, afficher d'abord le poster pendant 3 secondes
-                (() => {
-                  const { src, srcSet, sizes } = getCarouselImageSrcSet(slide.poster);
-                  return (
-                    <img
-                      src={src}
-                      srcSet={srcSet}
-                      sizes={sizes}
-                      alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                      className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9' }}
-                      width="320"
-                      height="180"
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="sync"
-                    />
-                  );
-                })()
-              ) : slide.type === 'video' ? (
-                <video
-                  ref={(el) => {
-                    if (el && index === currentSlide) {
-                      el.currentTime = 0;
-                      el.play().catch(() => {});
-                    }
-                  }}
-                  src={index === currentSlide ? slide.image : undefined}
-                  poster={`${slide.poster}?width=320&quality=40`}
-                  className="w-full h-full object-cover object-center"
-                  style={{ aspectRatio: '16/9' }}
-                  width="320"
-                  height="180"
-                  muted
-                  playsInline
-                  preload={index === 0 ? "metadata" : "none"}
-                />
-              ) : (
-                (() => {
-                  const { src, srcSet, sizes } = getCarouselImageSrcSet(slide.image);
-                  return (
-                    <img
-                      src={src}
-                      srcSet={srcSet}
-                      sizes={sizes}
-                      alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
-                      className="w-full h-full object-cover object-center"
-                      style={{ aspectRatio: '16/9' }}
-                      width="320"
-                      height="180"
-                      loading={index === 0 ? "eager" : "lazy"}
-                      fetchPriority={index === 0 ? "high" : "low"}
-                      decoding={index === 0 ? "sync" : "async"}
-                    />
-                  );
-                })()
-              )}
+              {/* OPTIMISATION: Toujours afficher le poster (image optimisée), ne JAMAIS charger les vidéos MP4 lourdes */}
+              {(() => {
+                // Pour les slides video, utiliser le poster. Pour les images, utiliser l'image.
+                const imageUrl = slide.type === 'video' ? slide.poster : slide.image;
+                const { src, srcSet, sizes } = getCarouselImageSrcSet(imageUrl);
+                return (
+                  <img
+                    src={src}
+                    srcSet={srcSet}
+                    sizes={sizes}
+                    alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
+                    className="w-full h-full object-cover object-center"
+                    style={{ aspectRatio: '16/9' }}
+                    width="280"
+                    height="158"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchPriority={index === 0 ? "high" : "low"}
+                    decoding={index === 0 ? "sync" : "async"}
+                  />
+                );
+              })()}
             </div>
           );
         })}

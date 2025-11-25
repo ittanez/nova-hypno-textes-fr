@@ -73,18 +73,18 @@ export function generateSupabaseSrcSet(
 
 /**
  * Tailles recommandées pour les images du carousel
- * ULTRA-OPTIMISÉES pour réduire drastiquement le poids (Phase 6 - AGRESSIVE)
+ * RÉDUCTION EXTRÊME pour poids minimal absolu (Phase 7 - ULTRA-LIGHT)
  */
 export const CAROUSEL_IMAGE_SIZES = {
-  mobile: 320,      // Réduit: 360 → 320 (-25% poids total)
-  tablet: 540,      // Réduit: 600 → 540 (-20% poids)
-  desktop: 800,     // Réduit: 900 → 800 (-22% poids)
-  large: 1024,      // Réduit: 1200 → 1024 (-30% poids)
+  mobile: 280,      // Réduit: 320 → 280 (-50% vs original)
+  tablet: 480,      // Réduit: 540 → 480 (-40% vs original)
+  desktop: 640,     // Réduit: 800 → 640 (-45% vs original)
+  large: 900,       // Réduit: 1024 → 900 (-50% vs original)
 };
 
 /**
  * Génère le srcset optimisé pour les images du carousel
- * Qualité ULTRA-BASSE : compression maximale pour réduire le poids (Phase 6)
+ * Qualité MINIMALE : compression extrême pour poids minimal (Phase 7)
  */
 export function getCarouselImageSrcSet(url: string): {
   src: string;
@@ -92,18 +92,18 @@ export function getCarouselImageSrcSet(url: string): {
   sizes: string;
 } {
   return {
-    // Image par défaut (mobile-first, compression maximale)
-    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 40 }),
-    // srcset avec qualité ultra-basse pour poids minimal
+    // Image par défaut (mobile-first, compression extrême)
+    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 30 }),
+    // srcset avec qualité minimale absolue
     srcSet: generateSupabaseSrcSet(
       url,
       [
-        CAROUSEL_IMAGE_SIZES.mobile,   // 320px
-        CAROUSEL_IMAGE_SIZES.tablet,   // 540px
-        CAROUSEL_IMAGE_SIZES.desktop,  // 800px
-        CAROUSEL_IMAGE_SIZES.large,    // 1024px
+        CAROUSEL_IMAGE_SIZES.mobile,   // 280px
+        CAROUSEL_IMAGE_SIZES.tablet,   // 480px
+        CAROUSEL_IMAGE_SIZES.desktop,  // 640px
+        CAROUSEL_IMAGE_SIZES.large,    // 900px
       ],
-      [40, 45, 50, 55]  // Qualité réduite : -10 points sur chaque breakpoint
+      [30, 35, 40, 45]  // Qualité minimale : -10 points supplémentaires
     ),
     // Tailles selon le viewport
     sizes: '100vw',
