@@ -73,18 +73,18 @@ export function generateSupabaseSrcSet(
 
 /**
  * Tailles recommandées pour les images du carousel
- * RÉDUCTION EXTRÊME pour poids minimal absolu (Phase 7 - ULTRA-LIGHT)
+ * OPTIMISÉES pour mobile : tailles encore plus réduites pour adaptation parfaite
  */
 export const CAROUSEL_IMAGE_SIZES = {
-  mobile: 280,      // Réduit: 320 → 280 (-50% vs original)
-  tablet: 480,      // Réduit: 540 → 480 (-40% vs original)
-  desktop: 640,     // Réduit: 800 → 640 (-45% vs original)
-  large: 900,       // Réduit: 1024 → 900 (-50% vs original)
+  mobile: 240,      // Réduit: 280 → 240 (adapté aux petits écrans)
+  tablet: 420,      // Réduit: 480 → 420 (adapté tablettes)
+  desktop: 600,     // Réduit: 640 → 600 (adapté desktops)
+  large: 800,       // Réduit: 900 → 800 (adapté grands écrans)
 };
 
 /**
  * Génère le srcset optimisé pour les images du carousel
- * Qualité MINIMALE : compression extrême pour poids minimal (Phase 7)
+ * Avec sizes intelligents pour charger la bonne taille selon l'écran
  */
 export function getCarouselImageSrcSet(url: string): {
   src: string;
@@ -92,20 +92,23 @@ export function getCarouselImageSrcSet(url: string): {
   sizes: string;
 } {
   return {
-    // Image par défaut (mobile-first, compression extrême)
+    // Image par défaut (mobile-first, ultra-compressée)
     src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 30 }),
-    // srcset avec qualité minimale absolue
+    // srcset avec plusieurs tailles
     srcSet: generateSupabaseSrcSet(
       url,
       [
-        CAROUSEL_IMAGE_SIZES.mobile,   // 280px
-        CAROUSEL_IMAGE_SIZES.tablet,   // 480px
-        CAROUSEL_IMAGE_SIZES.desktop,  // 640px
-        CAROUSEL_IMAGE_SIZES.large,    // 900px
+        CAROUSEL_IMAGE_SIZES.mobile,   // 240px
+        CAROUSEL_IMAGE_SIZES.tablet,   // 420px
+        CAROUSEL_IMAGE_SIZES.desktop,  // 600px
+        CAROUSEL_IMAGE_SIZES.large,    // 800px
       ],
-      [30, 35, 40, 45]  // Qualité minimale : -10 points supplémentaires
+      [30, 35, 40, 45]  // Qualité adaptative
     ),
-    // Tailles selon le viewport
-    sizes: '100vw',
+    // CORRECTION CRITIQUE: sizes intelligents pour charger la bonne image selon la largeur d'écran
+    // Mobile (0-640px): 100vw → charge 240px
+    // Tablet (640-1024px): 90vw → charge 420px
+    // Desktop (1024px+): 80vw → charge 600-800px
+    sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw',
   };
 }

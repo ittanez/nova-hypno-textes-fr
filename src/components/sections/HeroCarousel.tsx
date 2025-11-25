@@ -66,8 +66,8 @@ const HeroCarousel: React.FC = () => {
                     alt={slide.alt || `${slide.title} - Hypnothérapie NovaHypnose Paris 4ème`}
                     className="w-full h-full object-cover object-center"
                     style={{ aspectRatio: '16/9' }}
-                    width="280"
-                    height="158"
+                    width="240"
+                    height="135"
                     loading={index === 0 ? "eager" : "lazy"}
                     fetchPriority={index === 0 ? "high" : "low"}
                     decoding={index === 0 ? "sync" : "async"}
