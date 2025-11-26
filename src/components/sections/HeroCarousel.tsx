@@ -49,7 +49,7 @@ const HeroCarousel: React.FC = () => {
           return (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-[1800ms] ease-in-out ${
+              className={`absolute inset-0 transition-opacity [transition-duration:1800ms] ease-in-out ${
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             >
