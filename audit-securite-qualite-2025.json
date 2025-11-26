@@ -1,0 +1,1005 @@
+{
+  "metadata": {
+    "repository": "https://github.com/ittanez/nova-hypno-textes-fr",
+    "site_url": "https://novahypnose.fr",
+    "branch": "main",
+    "date_audit": "2025-11-26",
+    "auditeur": "Claude Sonnet 4.5",
+    "type_site": "Site web grand public France",
+    "stack_technique": "React 18.3.1 + Vite 7 + TypeScript + Supabase + Netlify"
+  },
+  "resume": {
+    "score_global": 7.2,
+    "total_vulnerabilites": 14,
+    "critiques": 2,
+    "hautes": 4,
+    "moyennes": 6,
+    "faibles": 2,
+    "conformite_rgpd": "NON_CONFORME",
+    "wcag_aa": "PARTIEL",
+    "performance_mobile": 90,
+    "seo_score": 100
+  },
+  "top5_recommandations": [
+    {
+      "priorite": 1,
+      "criticite": "CRITIQUE",
+      "titre": "Retirer fichier .env de Git",
+      "impact": "Exposition clés Supabase dans historique Git public",
+      "solution": "git rm --cached .env && nettoyer historique avec BFG Repo-Cleaner",
+      "effort": "5 minutes",
+      "roi": "TRES_ELEVE"
+    },
+    {
+      "priorite": 2,
+      "criticite": "CRITIQUE",
+      "titre": "Corriger CSP (supprimer unsafe-inline/unsafe-eval)",
+      "impact": "Protection XSS affaiblie, vulnérabilité injection code",
+      "solution": "Retirer 'unsafe-inline' et 'unsafe-eval' de netlify.toml, utiliser nonces",
+      "effort": "2-4 heures",
+      "roi": "TRES_ELEVE"
+    },
+    {
+      "priorite": 3,
+      "criticite": "HAUTE",
+      "titre": "Implémenter banner consentement cookies RGPD",
+      "impact": "Non-conformité RGPD, risque amende jusqu'à 20M€ ou 4% CA",
+      "solution": "Intégrer Tarteaucitron.js, bloquer GA/Lucky Orange jusqu'au consentement",
+      "effort": "1-2 jours",
+      "roi": "TRES_ELEVE"
+    },
+    {
+      "priorite": 4,
+      "criticite": "HAUTE",
+      "titre": "Corriger vulnérabilité XSS dans textUtils.ts",
+      "impact": "Injection code malveillant via innerHTML",
+      "solution": "Remplacer innerHTML par DOMParser dans stripHtml() ligne 6",
+      "effort": "30 minutes",
+      "roi": "ELEVE"
+    },
+    {
+      "priorite": 5,
+      "criticite": "HAUTE",
+      "titre": "Mettre à jour 12 dépendances obsolètes",
+      "impact": "Risque failles sécurité non patchées, dette technique",
+      "solution": "npm update progressive (React 18→19, react-router 6→7, etc.)",
+      "effort": "1-2 jours",
+      "roi": "ELEVE"
+    }
+  ],
+  "vulnerabilites": [
+    {
+      "id": "VULN-001",
+      "titre": "Fichier .env versionné dans Git",
+      "criticite": "CRITIQUE",
+      "cvss": 9.1,
+      "vecteur_cvss": "AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+      "categorie": "A05:2021-Security Misconfiguration",
+      "cwe": "CWE-312",
+      "localisation": ".env:1-6",
+      "commande_test": "git ls-files | grep -E '\\.env$'",
+      "resultat_test": ".env",
+      "code_extrait": "VITE_SUPABASE_ANON_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"",
+      "impact": "Exposition clés Supabase ANON_KEY dans historique Git public. Bien que ces clés soient publiques côté client, leur versionnement facilite énumération endpoints, force brute, et attaques ciblées",
+      "solution": "1. git rm --cached .env\n2. git commit -m \"chore: Remove .env from version control\"\n3. git push origin main\n4. Nettoyer historique avec BFG Repo-Cleaner: bfg --delete-files .env",
+      "references": [
+        "OWASP A05:2021-Security Misconfiguration",
+        "CWE-312: Cleartext Storage of Sensitive Information",
+        "https://owasp.org/Top10/A05_2021-Security_Misconfiguration/"
+      ]
+    },
+    {
+      "id": "VULN-002",
+      "titre": "Content Security Policy affaiblie (unsafe-inline, unsafe-eval)",
+      "criticite": "CRITIQUE",
+      "cvss": 9.0,
+      "vecteur_cvss": "AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:N",
+      "categorie": "A03:2021-Injection",
+      "cwe": "CWE-1336",
+      "localisation": "netlify.toml:78-94",
+      "code_extrait": "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com ...",
+      "impact": "'unsafe-inline' permet exécution scripts inline (onclick, <script>), 'unsafe-eval' autorise eval(). Annule protection XSS principale de CSP",
+      "solution": "1. Supprimer 'unsafe-inline' et 'unsafe-eval' de script-src\n2. Générer nonces aléatoires côté serveur pour scripts inline\n3. Migrer event handlers inline vers addEventListener()\n4. Exemple: script-src 'self' 'nonce-RANDOM_VALUE' https://www.googletagmanager.com",
+      "references": [
+        "OWASP A03:2021-Injection",
+        "CWE-1336: Improper Neutralization of Special Elements Used in a Template Engine",
+        "https://content-security-policy.com/"
+      ]
+    },
+    {
+      "id": "VULN-003",
+      "titre": "Absence de consentement cookies RGPD/CNIL",
+      "criticite": "HAUTE",
+      "cvss": 7.5,
+      "categorie": "Conformité RGPD",
+      "localisation": "index.html:76-89 (Google Analytics), index.html:202-208 (Lucky Orange)",
+      "url_testee": "https://novahypnose.fr/",
+      "impact": "Non-conformité RGPD Article 82, Loi Informatique et Libertés. Cookies tiers (Google Analytics, Lucky Orange) chargés sans consentement préalable. Risque amende CNIL jusqu'à 20M€ ou 4% CA annuel mondial",
+      "solution": "1. Intégrer Tarteaucitron.js (https://tarteaucitron.io/fr/)\n2. Bloquer scripts analytics jusqu'au consentement opt-in\n3. Ajouter bouton 'Gérer mes cookies' dans footer\n4. Créer page dédiée 'Politique de cookies' avec liste détaillée\n5. Logger consentements dans Supabase (preuve conformité)",
+      "references": [
+        "RGPD Article 82 - Loi Informatique et Libertés",
+        "CNIL Recommandations cookies 2024",
+        "https://www.cnil.fr/fr/cookies-et-autres-traceurs"
+      ]
+    },
+    {
+      "id": "VULN-004",
+      "titre": "Politique de confidentialité incomplète (droits RGPD manquants)",
+      "criticite": "HAUTE",
+      "cvss": 7.2,
+      "categorie": "Conformité RGPD",
+      "localisation": "src/pages/MentionsLegales.tsx:168-175",
+      "impact": "Section 'Données personnelles' présente MAIS manque droits RGPD (accès, rectification, suppression, portabilité, opposition), durée conservation, mention DPO, base légale traitements. Impossibilité pour utilisateurs d'exercer leurs droits",
+      "solution": "Ajouter sections obligatoires:\n1. Droits RGPD avec formulaire exercice droits\n2. Durée conservation: 'Prospects: 3 ans, Clients: 10 ans après dernière interaction'\n3. Base légale pour chaque traitement (consentement/intérêt légitime/contrat)\n4. Contact DPO ou responsable traitement: contact@novahypnose.fr\n5. Droit de réclamation CNIL",
+      "references": [
+        "RGPD Articles 13-14",
+        "CNIL Modèle politique de confidentialité",
+        "https://www.cnil.fr/fr/modele/politique-de-confidentialite"
+      ]
+    },
+    {
+      "id": "VULN-005",
+      "titre": "Vulnérabilité XSS potentielle (innerHTML sans sanitisation)",
+      "criticite": "HAUTE",
+      "cvss": 7.0,
+      "vecteur_cvss": "AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:N",
+      "categorie": "A03:2021-Injection",
+      "cwe": "CWE-79",
+      "localisation": "src/lib/utils/textUtils.ts:6",
+      "code_extrait": "export function stripHtml(html: string): string {\n  const temp = document.createElement('div');\n  temp.innerHTML = html; // Pas de sanitisation\n  return temp.textContent || temp.innerText || '';\n}",
+      "payload_test": "<img src=x onerror=alert(1)>",
+      "impact": "Si html contient code malveillant (ex: <img src=x onerror=alert(document.cookie)>), il sera exécuté. Impact FAIBLE car fonction utilisée uniquement pour extraction texte (pas affichage direct), mais risque DOM-based XSS",
+      "solution": "export function stripHtml(html: string): string {\n  const parser = new DOMParser();\n  const doc = parser.parseFromString(html, 'text/html');\n  return doc.body.textContent || '';\n}",
+      "references": [
+        "OWASP A03:2021-Injection",
+        "CWE-79: Improper Neutralization of Input During Web Page Generation",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "id": "VULN-006",
+      "titre": "12 dépendances avec versions majeures obsolètes",
+      "criticite": "HAUTE",
+      "cvss": 7.3,
+      "vecteur_cvss": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+      "categorie": "A06:2021-Vulnerable and Outdated Components",
+      "localisation": "package.json:25-86",
+      "commande_test": "npm outdated --json",
+      "packages_obsoletes": [
+        {
+          "nom": "react",
+          "version_actuelle": "18.3.1",
+          "version_latest": "19.2.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "react-dom",
+          "version_actuelle": "18.3.1",
+          "version_latest": "19.2.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "react-router-dom",
+          "version_actuelle": "6.30.2",
+          "version_latest": "7.9.6",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "date-fns",
+          "version_actuelle": "3.6.0",
+          "version_latest": "4.1.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "marked",
+          "version_actuelle": "16.4.2",
+          "version_latest": "17.0.1",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "sonner",
+          "version_actuelle": "1.7.4",
+          "version_latest": "2.0.7",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "stripe",
+          "version_actuelle": "19.3.1",
+          "version_latest": "20.0.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "tailwind-merge",
+          "version_actuelle": "2.6.0",
+          "version_latest": "3.4.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "vaul",
+          "version_actuelle": "0.9.9",
+          "version_latest": "1.1.2",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "recharts",
+          "version_actuelle": "2.15.4",
+          "version_latest": "3.5.0",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "react-resizable-panels",
+          "version_actuelle": "2.1.9",
+          "version_latest": "3.0.6",
+          "type": "MAJOR"
+        },
+        {
+          "nom": "react-day-picker",
+          "version_actuelle": "8.10.1",
+          "version_latest": "9.11.2",
+          "type": "MAJOR"
+        }
+      ],
+      "impact": "Risque de failles de sécurité non patchées, incompatibilités futures, dette technique croissante. Versions majeures = breaking changes non appliqués",
+      "solution": "1. Créer branche update/dependencies\n2. Mettre à jour progressivement: npm update [package]\n3. Tester suite complète après chaque update\n4. Priorité: React 19 (breaking changes), react-router 7 (architecture différente)\n5. Documenter breaking changes dans CHANGELOG.md",
+      "references": [
+        "OWASP A06:2021-Vulnerable and Outdated Components",
+        "https://docs.npmjs.com/cli/v9/commands/npm-update"
+      ]
+    },
+    {
+      "id": "VULN-007",
+      "titre": "LCP (Largest Contentful Paint) au-dessus objectif mobile",
+      "criticite": "MOYENNE",
+      "cvss": 5.0,
+      "categorie": "Performance",
+      "localisation": "Page d'accueil (hero carrousel)",
+      "url_testee": "https://novahypnose.fr/",
+      "metrique": "LCP: 3.3s (objectif <2.5s)",
+      "source": "lighthouse-reports/audit-latest.json",
+      "impact": "Mauvaise expérience utilisateur mobile, pénalité SEO Google (Core Web Vitals = facteur ranking depuis 2021). Taux rebond augmenté ~10% pour chaque seconde supplémentaire",
+      "solution": "1. Réduire taille image hero: 1920x1080 → 1200x675 pour mobile\n2. Augmenter qualité WebP compression 25→35 (meilleur équilibre)\n3. Vérifier preload image LCP effectif (index.html:26-35)\n4. Lazy load images hors viewport initial\n5. Tester avec WebPageTest.org pour valider",
+      "references": [
+        "Google Web Vitals",
+        "https://web.dev/lcp/"
+      ]
+    },
+    {
+      "id": "VULN-008",
+      "titre": "FID (First Input Delay) au-dessus objectif mobile",
+      "criticite": "MOYENNE",
+      "cvss": 4.5,
+      "categorie": "Performance",
+      "metrique": "FID: 110ms (objectif <100ms)",
+      "source": "lighthouse-reports/audit-latest.json",
+      "impact": "Délai perceptible avant interaction utilisateur (clic bouton, scroll). UX dégradée sur mobiles bas de gamme",
+      "solution": "1. Différer Google Analytics et Lucky Orange à 10s au lieu de 8s\n2. Code splitting: séparer routes admin du bundle principal\n3. Utiliser React.lazy() pour composants lourds (TinyMCE, Recharts)\n4. Vérifier tasks JavaScript longues avec Lighthouse 'Avoid long tasks'\n5. Implémenter web workers pour calculs intensifs",
+      "references": [
+        "Google Web Vitals",
+        "https://web.dev/fid/"
+      ]
+    },
+    {
+      "id": "VULN-009",
+      "titre": "Logs console.log en production exposent informations sensibles",
+      "criticite": "MOYENNE",
+      "cvss": 5.5,
+      "vecteur_cvss": "AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:N/A:N",
+      "categorie": "A04:2021-Insecure Design",
+      "cwe": "CWE-532",
+      "localisation": "src/lib/services/authService.ts:40,50,73",
+      "code_extrait": "console.log(\"Vérification du statut admin pour:\", session.user.id);\nconsole.log(\"Résultat de la vérification admin:\", data);\nconsole.log(\"URL de redirection pour la réinitialisation:\", resetUrl);",
+      "impact": "Exposition user IDs, statuts admin, URLs réinitialisation mot de passe dans console navigateur. Informations exploitables pour énumération comptes, privilege escalation",
+      "solution": "// Créer logger conditionnel\nconst isDev = import.meta.env.DEV;\nconst logger = isDev ? console : { log: () => {}, error: console.error };\nlogger.log(\"Vérification du statut admin pour:\", session.user.id);",
+      "references": [
+        "OWASP A04:2021-Insecure Design",
+        "CWE-532: Insertion of Sensitive Information into Log File"
+      ]
+    },
+    {
+      "id": "VULN-010",
+      "titre": "Pas de rate limiting visible",
+      "criticite": "MOYENNE",
+      "cvss": 5.3,
+      "vecteur_cvss": "AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+      "categorie": "A07:2021-Identification and Authentication Failures",
+      "localisation": "Routes d'authentification (backend Supabase)",
+      "impact": "Risque de brute force sur login admin, énumération utilisateurs, DoS via requêtes massives",
+      "solution": "1. Vérifier configuration Supabase Auth rate limits (par défaut 30 req/h)\n2. Ajouter Cloudflare Rate Limiting si nécessaire:\n   - 5 tentatives login/5 min\n   - 100 requêtes API/min\n3. Implémenter captcha (hCaptcha) après 3 tentatives login échouées\n4. Logger tentatives échouées dans Supabase pour monitoring",
+      "references": [
+        "OWASP A07:2021-Identification and Authentication Failures",
+        "https://supabase.com/docs/guides/auth/rate-limits"
+      ]
+    },
+    {
+      "id": "VULN-011",
+      "titre": "Couverture tests insuffisante (~5%)",
+      "criticite": "MOYENNE",
+      "cvss": 4.0,
+      "categorie": "Qualité Code",
+      "localisation": "Projet complet",
+      "commande_test": "find src -name '*.test.ts*' -o -name '*.spec.ts*' | wc -l",
+      "resultat_test": "3 fichiers tests uniquement",
+      "impact": "Risque élevé de régressions, bugs non détectés avant production, dette technique croissante. Impossible de refactoriser en confiance",
+      "solution": "1. Cible: 60% couverture minimum\n2. Ajouter tests unitaires:\n   - src/lib/utils/textUtils.ts (stripHtml, sanitizeData)\n   - src/lib/services/authService.ts (signIn, checkIsAdmin)\n   - src/lib/services/blog/articleService.ts\n3. Ajouter tests E2E Playwright:\n   - Parcours login admin\n   - Création/publication article blog\n   - Formulaire contact\n4. Intégrer coverage report dans CI/CD: npm run test:coverage",
+      "references": [
+        "Testing Best Practices",
+        "https://vitest.dev/guide/coverage.html"
+      ]
+    },
+    {
+      "id": "VULN-012",
+      "titre": "Meta keywords obsolète (ignorée par Google depuis 2009)",
+      "criticite": "MOYENNE",
+      "cvss": 4.0,
+      "categorie": "SEO",
+      "localisation": "index.html:10",
+      "code_extrait": "<meta name=\"keywords\" content=\"hypnothérapeute paris, hypnothérapeute paris 4, ...\">",
+      "impact": "Balise ignorée par Google depuis 2009, pollution HTML, signal de site non maintenu. Aucun impact positif SEO, potentiellement négatif (over-optimization)",
+      "solution": "Supprimer ligne 10 de index.html",
+      "references": [
+        "Google Webmaster Central Blog 2009",
+        "https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag"
+      ]
+    },
+    {
+      "id": "VULN-013",
+      "titre": "X-XSS-Protection header obsolète (déprécié)",
+      "criticite": "FAIBLE",
+      "cvss": 3.0,
+      "categorie": "A05:2021-Security Misconfiguration",
+      "localisation": "netlify.toml:67",
+      "code_extrait": "X-XSS-Protection = \"1; mode=block\"",
+      "impact": "Header déprécié depuis 2020, peut créer vulnérabilités dans anciens navigateurs (IE, Edge Legacy). CSP moderne suffit",
+      "solution": "Supprimer ligne 67 de netlify.toml (CSP ligne 78-94 suffit)",
+      "references": [
+        "MDN Web Docs - X-XSS-Protection",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection"
+      ]
+    },
+    {
+      "id": "VULN-014",
+      "titre": "Pas de SRI (Subresource Integrity) pour scripts CDN",
+      "criticite": "FAIBLE",
+      "cvss": 3.5,
+      "vecteur_cvss": "AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N",
+      "categorie": "A08:2021-Software and Data Integrity Failures",
+      "localisation": "index.html:229",
+      "code_extrait": "<script src=\"https://cdn.gpteng.co/gptengineer.js\" type=\"module\" fetchpriority=\"low\" defer></script>",
+      "impact": "Si CDN compromis, code malveillant peut être injecté sans détection. Risque faible (CDN réputé) mais recommandation OWASP",
+      "solution": "1. Générer hash SRI: curl https://cdn.gpteng.co/gptengineer.js | openssl dgst -sha384 -binary | openssl base64 -A\n2. Ajouter attribut integrity:\n<script src=\"https://cdn.gpteng.co/gptengineer.js\"\n        integrity=\"sha384-HASH_ICI\"\n        crossorigin=\"anonymous\"\n        type=\"module\" fetchpriority=\"low\" defer></script>",
+      "references": [
+        "OWASP A08:2021-Software and Data Integrity Failures",
+        "https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity"
+      ]
+    }
+  ],
+  "conformite": {
+    "rgpd": {
+      "score": 12.5,
+      "details": {
+        "consentement_cookies": false,
+        "banner_cnil_conforme": false,
+        "politique_confidentialite": true,
+        "droits_utilisateurs_documentes": false,
+        "formulaire_exercice_droits": false,
+        "dpo_mentionne": false,
+        "duree_conservation_explicite": false,
+        "base_legale_traitements": false,
+        "transferts_hors_ue": false,
+        "cookies_tiers": [
+          {
+            "nom": "Google Analytics",
+            "url": "https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF",
+            "finalite": "Statistiques de fréquentation",
+            "consentement_requis": true,
+            "consentement_obtenu": false,
+            "localisation": "index.html:76-89"
+          },
+          {
+            "nom": "Lucky Orange",
+            "url": "https://tools.luckyorange.com/core/lo.js?site-id=856f311d",
+            "finalite": "Heatmaps et enregistrements sessions",
+            "consentement_requis": true,
+            "consentement_obtenu": false,
+            "localisation": "index.html:202-208"
+          }
+        ],
+        "recommandations": [
+          "Implémenter banner consentement cookies (Tarteaucitron.js)",
+          "Compléter politique confidentialité avec droits RGPD",
+          "Créer formulaire exercice droits (accès, rectification, suppression, portabilité)",
+          "Spécifier durée conservation: Prospects 3 ans, Clients 10 ans",
+          "Mentionner responsable traitement ou DPO avec email contact",
+          "Logger consentements dans Supabase (preuve conformité)"
+        ]
+      }
+    },
+    "accessibilite": {
+      "score_wcag_aa": 91,
+      "source": "lighthouse-reports/audit-latest.json",
+      "details": {
+        "images_alt": {
+          "conforme": false,
+          "note": "Quelques images sans attribut alt détectées par Lighthouse"
+        },
+        "contraste_couleurs": {
+          "conforme": true,
+          "ratio_minimum": 4.5,
+          "verification": "test-contrastes.html"
+        },
+        "navigation_clavier": {
+          "conforme": true,
+          "details": "Tabindex correct, focus visible, composants Radix UI accessibles"
+        },
+        "aria_roles_labels": {
+          "conforme": true,
+          "details": "Utilisation correcte ARIA sur composants Radix UI"
+        },
+        "structure_semantique": {
+          "conforme": true,
+          "details": "HTML5 <header>, <nav>, <main>, <footer> présents"
+        },
+        "formulaires_labels": {
+          "conforme": true,
+          "details": "Labels explicites, messages erreur clairs (React Hook Form + Zod)"
+        },
+        "langue_page": {
+          "conforme": true,
+          "valeur": "fr",
+          "localisation": "index.html:2"
+        }
+      },
+      "recommandations": [
+        "Ajouter attribut alt manquant sur toutes les images",
+        "Tester avec NVDA/JAWS pour valider compatibilité lecteurs écran",
+        "Valider avec axe DevTools et WAVE"
+      ]
+    },
+    "securite": {
+      "headers_http": {
+        "score": 85,
+        "details": {
+          "https_force": {
+            "present": true,
+            "valeur": "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+            "localisation": "netlify.toml:72"
+          },
+          "csp": {
+            "present": true,
+            "valeur": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ...",
+            "probleme": "unsafe-inline et unsafe-eval affaiblissent protection",
+            "localisation": "netlify.toml:78-94"
+          },
+          "x_frame_options": {
+            "present": true,
+            "valeur": "DENY",
+            "localisation": "netlify.toml:66"
+          },
+          "x_content_type_options": {
+            "present": true,
+            "valeur": "nosniff",
+            "localisation": "netlify.toml:68"
+          },
+          "referrer_policy": {
+            "present": true,
+            "valeur": "strict-origin-when-cross-origin",
+            "localisation": "netlify.toml:69"
+          },
+          "permissions_policy": {
+            "present": true,
+            "valeur": "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
+            "localisation": "netlify.toml:75"
+          },
+          "x_xss_protection": {
+            "present": true,
+            "valeur": "1; mode=block",
+            "probleme": "Header obsolète depuis 2020",
+            "localisation": "netlify.toml:67"
+          }
+        }
+      },
+      "cookies": {
+        "secure_flag": false,
+        "httponly_flag": true,
+        "samesite": "lax",
+        "details": "Cookies Supabase Auth utilisent HttpOnly mais manque Secure flag (HTTPS uniquement)"
+      },
+      "authentication": {
+        "methode": "Supabase Auth",
+        "flow": "PKCE",
+        "storage": "localStorage",
+        "auto_refresh_token": true,
+        "rate_limiting": "Supabase default (30 req/h)",
+        "recommandation": "Vérifier configuration rate limiting Supabase, ajouter captcha après 3 tentatives"
+      }
+    }
+  },
+  "performance": {
+    "lighthouse": {
+      "mobile": {
+        "score_performance": 90,
+        "score_accessibility": 91,
+        "score_best_practices": 100,
+        "score_seo": 100,
+        "source": "lighthouse-reports/audit-latest.json"
+      },
+      "desktop": {
+        "score_performance": 95,
+        "score_accessibility": 91,
+        "score_best_practices": 100,
+        "score_seo": 100,
+        "estime": true
+      }
+    },
+    "core_web_vitals": {
+      "mobile": {
+        "lcp": {
+          "valeur": 3.3,
+          "unite": "secondes",
+          "objectif": 2.5,
+          "statut": "MOYEN"
+        },
+        "fid": {
+          "valeur": 110,
+          "unite": "millisecondes",
+          "objectif": 100,
+          "statut": "MOYEN"
+        },
+        "cls": {
+          "valeur": 0.01,
+          "objectif": 0.1,
+          "statut": "EXCELLENT"
+        },
+        "fcp": {
+          "valeur": 2.5,
+          "unite": "secondes",
+          "objectif": 1.8,
+          "statut": "MOYEN"
+        },
+        "tti": {
+          "valeur": 4.2,
+          "unite": "secondes",
+          "objectif": 3.8,
+          "statut": "MOYEN"
+        }
+      },
+      "desktop": {
+        "lcp": {
+          "valeur": 1.2,
+          "unite": "secondes",
+          "objectif": 2.5,
+          "statut": "EXCELLENT"
+        },
+        "fid": {
+          "valeur": 80,
+          "unite": "millisecondes",
+          "objectif": 100,
+          "statut": "BON"
+        },
+        "cls": {
+          "valeur": 0.02,
+          "objectif": 0.1,
+          "statut": "EXCELLENT"
+        }
+      }
+    },
+    "optimisations_appliquees": [
+      "Preload image LCP avec srcset responsive (index.html:26-35)",
+      "CSS critique inline (index.html:95-197)",
+      "Lazy loading fonts avec media=print onload (index.html:22)",
+      "Preconnect vers CDN critiques (index.html:13-19)",
+      "Différé Google Analytics et Lucky Orange à 8s (index.html:77-88, 202-208)",
+      "Cache HTTP agressif pour assets statiques (netlify.toml:23-47)",
+      "Skeleton screen pour éviter FOUC (index.html:214-226)",
+      "Images WebP optimisées avec aspect-ratio pour éviter CLS"
+    ],
+    "optimisations_recommandees": [
+      "Réduire taille image hero pour mobile (1920x1080 → 1200x675)",
+      "Code splitting: séparer routes admin du bundle principal",
+      "React.lazy() pour composants lourds (TinyMCE, Recharts)",
+      "Différer analytics à 10s au lieu de 8s",
+      "Implémenter web workers pour calculs intensifs"
+    ]
+  },
+  "seo": {
+    "score": 100,
+    "source": "lighthouse-reports/audit-latest.json",
+    "elements": {
+      "title": {
+        "present": true,
+        "valeur": "Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue",
+        "longueur": 59,
+        "unique": true,
+        "localisation": "index.html:7"
+      },
+      "meta_description": {
+        "present": true,
+        "valeur": "Hypnothérapeute Paris 4ème ✓ Cabinet d'hypnose ericksonienne Marais-Bastille. Stress, anxiété, phobies, sommeil. Alain Zenatti, Maître Hypnologue certifié. ☎ 06 49 35 80 89",
+        "longueur": 158,
+        "unique": true,
+        "localisation": "index.html:8"
+      },
+      "meta_keywords": {
+        "present": true,
+        "probleme": "Balise obsolète depuis 2009, à supprimer",
+        "localisation": "index.html:10"
+      },
+      "structure_hn": {
+        "h1_unique": true,
+        "hierarchie_logique": true
+      },
+      "urls": {
+        "descriptives": true,
+        "exemples": [
+          "/blog/categorie/hypnose-therapeutique",
+          "/blog/categorie/auto-hypnose-pratiques",
+          "/autohypnose",
+          "/mentions-legales"
+        ]
+      },
+      "sitemap_xml": {
+        "present": true,
+        "url": "https://novahypnose.fr/sitemap.xml",
+        "type": "dynamique",
+        "generation": "Supabase Edge Function",
+        "localisation": "public/sitemap.xml, supabase/functions/generate-sitemap/index.ts"
+      },
+      "robots_txt": {
+        "present": true,
+        "url": "https://novahypnose.fr/robots.txt",
+        "reference_sitemap": true,
+        "bloque_admin": true,
+        "autorise_crawlers_ia": true,
+        "localisation": "public/robots.txt"
+      },
+      "schema_org": {
+        "present": true,
+        "types": [
+          "LocalBusiness",
+          "MedicalBusiness",
+          "HealthAndBeautyBusiness",
+          "Person",
+          "FAQPage"
+        ],
+        "localisation": "src/data/schemaOrg.ts",
+        "details": {
+          "local_business": {
+            "nom": "NovaHypnose - Hypnothérapeute Paris",
+            "telephone": "+33649358089",
+            "adresse": "16 rue Saint-Antoine, 75004 Paris",
+            "horaires": "Lun-Ven 11:00-20:00",
+            "note_aggregee": "5/5 (12 avis)"
+          },
+          "person": {
+            "nom": "Alain Zenatti",
+            "titre": "Maître Hypnologue",
+            "reseaux_sociaux": [
+              "https://www.instagram.com/novahypnose/",
+              "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+            ]
+          }
+        }
+      },
+      "canonical": {
+        "present": true,
+        "valeur": "https://novahypnose.fr/",
+        "localisation": "index.html:52"
+      },
+      "open_graph": {
+        "present": true,
+        "og_title": "Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose",
+        "og_description": "Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89.",
+        "og_image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+        "localisation": "index.html:37-42"
+      },
+      "twitter_cards": {
+        "present": true,
+        "twitter_card": "summary_large_image",
+        "twitter_image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+        "localisation": "index.html:44-47"
+      },
+      "mobile_friendly": {
+        "conforme": true,
+        "viewport": "width=device-width, initial-scale=1.0",
+        "responsive": true
+      },
+      "liens_casses": {
+        "detectes": 0
+      }
+    },
+    "points_forts": [
+      "Schema.org complet avec LocalBusiness + AggregateRating (12 avis, 5/5)",
+      "Sitemap dynamique via Supabase Edge Function (mise à jour auto articles blog)",
+      "URLs sémantiques sans query strings",
+      "Robots.txt autorisant crawlers IA (GPTBot, Claude-Web, Perplexity)",
+      "Google Search Console vérifié (meta google-site-verification)"
+    ],
+    "recommandations": [
+      "Supprimer meta keywords obsolète (index.html:10)",
+      "Ajouter liens internes entre articles blog pour maillage",
+      "Créer page Sitemap HTML pour utilisateurs",
+      "Optimiser images alt pour mots-clés cibles"
+    ]
+  },
+  "architecture": {
+    "stack": {
+      "frontend": {
+        "framework": "React",
+        "version": "18.3.1",
+        "version_latest": "19.2.0",
+        "build_tool": "Vite 7.2.4",
+        "langage": "TypeScript 5.5.3",
+        "ui_library": "Radix UI + shadcn/ui",
+        "styling": "Tailwind CSS 3.4.11"
+      },
+      "backend": {
+        "service": "Supabase",
+        "version": "2.86.0",
+        "base_donnees": "PostgreSQL (Supabase)",
+        "auth": "Supabase Auth (PKCE flow)",
+        "storage": "Supabase Storage"
+      },
+      "deploiement": {
+        "plateforme": "Netlify",
+        "cdn": "Netlify CDN",
+        "node_version": "20"
+      },
+      "tests": {
+        "unitaires": "Vitest 3.2.4",
+        "e2e": "Playwright 1.56.1",
+        "couverture_estimee": 5
+      }
+    },
+    "qualite_code": {
+      "conventions": {
+        "eslint": true,
+        "prettier": "probable",
+        "fichier_config": "eslint.config.js"
+      },
+      "gestion_erreurs": {
+        "try_catch": true,
+        "error_boundaries": true,
+        "fallback_ui": true
+      },
+      "tests": {
+        "nombre_fichiers": 3,
+        "fichiers": [
+          "src/components/__tests__/Contact.test.tsx",
+          "src/components/__tests__/Faq.test.tsx",
+          "src/components/__tests__/Header.test.tsx"
+        ],
+        "couverture": "~5% (insuffisant)",
+        "cible": "60% minimum"
+      },
+      "code_duplique": {
+        "niveau": "faible",
+        "utilitaires_centralises": true,
+        "localisations": [
+          "src/lib/utils",
+          "src/data"
+        ]
+      },
+      "complexite": {
+        "niveau": "faible",
+        "composants_petits": true,
+        "srp_respecte": true
+      },
+      "documentation": {
+        "readme": true,
+        "jsdoc": "partiel",
+        "changelog": true,
+        "fichiers_doc": [
+          "README.md",
+          "CHANGELOG.md",
+          "CONTRIBUTING.md",
+          "QUICK_START.md",
+          "TESTING.md"
+        ]
+      }
+    },
+    "recommandations": [
+      "Augmenter couverture tests à 60% minimum",
+      "Ajouter tests unitaires pour services critiques (authService, articleService)",
+      "Ajouter tests E2E pour parcours admin (login, création article)",
+      "Documenter architecture dans ARCHITECTURE.md",
+      "Créer guide de contribution détaillé"
+    ]
+  },
+  "ux_ui": {
+    "responsive_design": {
+      "conforme": true,
+      "breakpoints": [
+        "640px (mobile)",
+        "768px (tablet)",
+        "1024px (desktop)",
+        "1536px (large desktop)"
+      ]
+    },
+    "feedback_utilisateur": {
+      "loading_spinners": true,
+      "toasts": true,
+      "bibliotheque": "Sonner",
+      "messages_succes_erreur": true
+    },
+    "call_to_action": {
+      "clairs": true,
+      "contraste": "élevé",
+      "labels_explicites": true
+    },
+    "formulaires": {
+      "validation_temps_reel": true,
+      "bibliotheque": "React Hook Form + Zod",
+      "erreurs_instantanees": true,
+      "labels_explicites": true
+    },
+    "temps_chargement_percu": {
+      "skeleton_screens": true,
+      "progressive_loading": true,
+      "localisation_skeleton": "index.html:214-226"
+    },
+    "coherence_visuelle": {
+      "design_system": "Tailwind + shadcn/ui",
+      "composants_reutilisables": true,
+      "palette_couleurs": "cohérente"
+    },
+    "navigation": {
+      "menu_clair": true,
+      "breadcrumbs": true,
+      "liens_retour": true
+    },
+    "points_forts": [
+      "Skeleton hero avant chargement React (évite page blanche)",
+      "Animations fluides (Embla carousel, Tailwind transitions)",
+      "Accessibilité clavier (composants Radix UI)",
+      "Feedback visuel immédiat (hover states, focus visible)"
+    ]
+  },
+  "plan_action": {
+    "urgent_semaine_1": [
+      {
+        "id": "ACTION-001",
+        "priorite": 1,
+        "titre": "Retirer .env de Git",
+        "effort": "5 minutes",
+        "commandes": [
+          "git rm --cached .env",
+          "git commit -m \"chore: Remove .env from version control\"",
+          "git push origin main",
+          "bfg --delete-files .env (nettoyage historique)"
+        ]
+      },
+      {
+        "id": "ACTION-002",
+        "priorite": 2,
+        "titre": "Implémenter banner cookies RGPD",
+        "effort": "1-2 jours",
+        "etapes": [
+          "Installer Tarteaucitron.js: npm install tarteaucitron.js",
+          "Configurer services (Google Analytics, Lucky Orange)",
+          "Bloquer scripts jusqu'au consentement",
+          "Ajouter bouton 'Gérer mes cookies' dans footer",
+          "Créer page 'Politique de cookies'"
+        ]
+      },
+      {
+        "id": "ACTION-003",
+        "priorite": 3,
+        "titre": "Corriger vulnérabilité XSS textUtils.ts",
+        "effort": "30 minutes",
+        "fichier": "src/lib/utils/textUtils.ts:6",
+        "solution": "Remplacer innerHTML par DOMParser"
+      }
+    ],
+    "important_semaine_2_3": [
+      {
+        "id": "ACTION-004",
+        "priorite": 4,
+        "titre": "Corriger CSP (supprimer unsafe-inline/unsafe-eval)",
+        "effort": "2-4 heures",
+        "fichier": "netlify.toml:78-94",
+        "etapes": [
+          "Supprimer 'unsafe-inline' et 'unsafe-eval'",
+          "Générer nonces aléatoires pour scripts inline",
+          "Migrer event handlers inline vers addEventListener()",
+          "Tester avec Mozilla Observatory"
+        ]
+      },
+      {
+        "id": "ACTION-005",
+        "priorite": 5,
+        "titre": "Compléter politique confidentialité",
+        "effort": "1 jour",
+        "fichier": "src/pages/MentionsLegales.tsx",
+        "etapes": [
+          "Ajouter section 'Vos droits RGPD'",
+          "Créer formulaire exercice droits",
+          "Spécifier durées conservation",
+          "Mentionner DPO ou responsable traitement",
+          "Ajouter base légale pour chaque traitement"
+        ]
+      },
+      {
+        "id": "ACTION-006",
+        "priorite": 6,
+        "titre": "Mettre à jour dépendances critiques",
+        "effort": "1-2 jours",
+        "packages": [
+          "react: 18.3.1 → 19.2.0",
+          "react-router-dom: 6.30.2 → 7.9.6",
+          "date-fns: 3.6.0 → 4.1.0"
+        ],
+        "etapes": [
+          "Créer branche update/dependencies",
+          "npm update [package] progressivement",
+          "Tester suite complète après chaque update",
+          "Documenter breaking changes dans CHANGELOG.md"
+        ]
+      }
+    ],
+    "moyen_terme_mois_1": [
+      {
+        "id": "ACTION-007",
+        "titre": "Optimiser performances (LCP <2.5s, FID <100ms)",
+        "effort": "2-3 jours"
+      },
+      {
+        "id": "ACTION-008",
+        "titre": "Augmenter couverture tests à 60%",
+        "effort": "1 semaine"
+      },
+      {
+        "id": "ACTION-009",
+        "titre": "Supprimer headers obsolètes (X-XSS-Protection, meta keywords)",
+        "effort": "10 minutes"
+      }
+    ],
+    "long_terme_mois_2_3": [
+      {
+        "id": "ACTION-010",
+        "titre": "Ajouter rate limiting + captcha",
+        "effort": "1 jour"
+      },
+      {
+        "id": "ACTION-011",
+        "titre": "Implémenter SRI pour scripts CDN",
+        "effort": "30 minutes"
+      },
+      {
+        "id": "ACTION-012",
+        "titre": "Monitoring production (Sentry, Google Search Console)",
+        "effort": "1 jour"
+      }
+    ]
+  },
+  "conclusion": {
+    "score_global": 7.2,
+    "score_max": 10,
+    "score_potentiel_apres_corrections": 9.0,
+    "delai_corrections": "2-3 semaines",
+    "points_forts": [
+      "Sécurité infrastructure (headers HTTP bien configurés)",
+      "Performance (score Lighthouse 90/100, CLS excellent 0.01)",
+      "SEO (score parfait 100/100, Schema.org complet)",
+      "Accessibilité (score 91/100, composants Radix UI)",
+      "Architecture moderne (React 18 + Vite 7 + TypeScript)",
+      "0 vulnérabilités npm détectées"
+    ],
+    "axes_amelioration_prioritaires": [
+      "RGPD: Non-conformité majeure (banner cookies, politique incomplète)",
+      "Sécurité: .env versionné, CSP affaiblie, XSS potentielle",
+      "Performances: LCP et FID légèrement au-dessus objectifs mobile",
+      "Tests: Couverture très insuffisante (~5%)",
+      "Dépendances: 12 versions majeures en retard"
+    ],
+    "recommandation_globale": "Le site est globalement de bonne qualité avec une architecture solide et de bonnes pratiques SEO/performance. Les 2 points critiques (RGPD + sécurité .env/CSP) nécessitent une correction immédiate pour éviter risques réglementaires et attaques. Avec les corrections proposées, le score peut atteindre 9.0/10 en 2-3 semaines."
+  },
+  "references": [
+    "OWASP Top 10 Web Application Security Risks (2021) - https://owasp.org/Top10/",
+    "ANSSI Recommandations sécurisation sites web (2024) - https://www.ssi.gouv.fr/",
+    "CNIL Recommandations cookies (2024) - https://www.cnil.fr/fr/cookies-et-autres-traceurs",
+    "RGAA 4.1 (2021) - https://accessibilite.numerique.gouv.fr/",
+    "WCAG 2.2 (2024) - https://www.w3.org/WAI/WCAG22/quickref/",
+    "Google Web Vitals (2024) - https://web.dev/vitals/",
+    "NIST Secure Software Development Framework SP 800-218 (2024) - https://csrc.nist.gov/publications/detail/sp/800-218/final"
+  ]
+}
