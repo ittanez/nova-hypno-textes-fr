@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
-import CommuteMap from '@/components/CommuteMap';
+import LazyCommuteMap from '@/components/LazyCommuteMap';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Train from 'lucide-react/dist/esm/icons/train';
 import Car from 'lucide-react/dist/esm/icons/car';
@@ -331,7 +331,7 @@ const ZoneIntervention = () => {
               depuis votre domicile ou lieu de travail jusqu'au cabinet.
             </p>
 
-            <CommuteMap />
+            <LazyCommuteMap />
           </div>
         </div>
       </section>

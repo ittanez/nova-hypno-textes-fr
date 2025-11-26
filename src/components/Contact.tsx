@@ -4,7 +4,7 @@ import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import CommuteMap from './CommuteMap';
+import LazyCommuteMap from './LazyCommuteMap';
 
 const Contact = () => {
   return (
@@ -79,7 +79,7 @@ const Contact = () => {
               </div>
               
               <div className="md:h-full">
-                <CommuteMap />
+                <LazyCommuteMap />
               </div>
             </div>
             

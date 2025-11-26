@@ -9,7 +9,7 @@ import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Clock from 'lucide-react/dist/esm/icons/clock';
-import CommuteMap from '@/components/CommuteMap';
+import LazyCommuteMap from '@/components/LazyCommuteMap';
 
 const ContactSection: React.FC = () => {
   return (
@@ -80,7 +80,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             <div>
-              <CommuteMap />
+              <LazyCommuteMap />
             </div>
           </div>
 
