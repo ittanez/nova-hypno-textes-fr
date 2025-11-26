@@ -21,8 +21,14 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 order-2 md:order-1">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=800&quality=75"
+                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75 400w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=600&quality=75 600w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=800&quality=75 800w"
+                sizes="(max-width: 768px) 75vw, 500px"
                 alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
+                width="800"
+                height="1062"
                 className="rounded-2xl shadow-2xl w-3/4 md:w-full h-auto object-cover mx-auto md:mx-0"
                 loading="lazy"
               />
@@ -35,6 +41,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   <img
                     src="https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg"
                     alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
+                    width="640"
+                    height="480"
                     className="w-full h-auto object-cover rounded-xl"
                     loading="lazy"
                   />
