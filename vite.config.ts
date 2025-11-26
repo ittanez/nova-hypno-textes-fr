@@ -54,12 +54,31 @@ export default defineConfig(({ mode }) => ({
         })
       ],
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-ui': ['@radix-ui/react-accordion', '@radix-ui/react-toast', '@radix-ui/react-dialog'],
-          'vendor-router': ['react-router-dom'],
-          'vendor-supabase': ['@supabase/supabase-js'],
-          'vendor-utils': ['tailwind-merge', 'clsx', 'date-fns']
+        manualChunks: (id) => {
+          // React core bundle
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'vendor-react';
+          }
+          // UI libraries
+          if (id.includes('@radix-ui')) {
+            return 'vendor-ui';
+          }
+          // Router
+          if (id.includes('react-router-dom')) {
+            return 'vendor-router';
+          }
+          // Supabase
+          if (id.includes('@supabase/supabase-js')) {
+            return 'vendor-supabase';
+          }
+          // Lucide icons in separate chunk
+          if (id.includes('lucide-react')) {
+            return 'vendor-icons';
+          }
+          // Utilities
+          if (id.includes('tailwind-merge') || id.includes('clsx') || id.includes('date-fns')) {
+            return 'vendor-utils';
+          }
         },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
