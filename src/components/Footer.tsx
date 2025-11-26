@@ -66,6 +66,8 @@ const Footer = () => {
                 <img
                   src="/google-play-badge-fr.png"
                   alt="Disponible sur Google Play"
+                  width="161"
+                  height="48"
                   className="h-12"
                 />
               </a>
