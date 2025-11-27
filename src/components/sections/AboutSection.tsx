@@ -21,15 +21,15 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 order-2 md:order-1">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=600&quality=75"
-                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=300&quality=75 300w,
-                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75 400w,
-                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=600&quality=75 600w"
-                sizes="(max-width: 768px) 60vw, 450px"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=800&quality=75"
+                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75 400w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=600&quality=75 600w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=800&quality=75 800w"
+                sizes="(max-width: 768px) 75vw, 500px"
                 alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
-                width="600"
-                height="796"
-                className="rounded-2xl shadow-2xl w-3/5 md:w-4/5 h-auto object-contain mx-auto md:mx-0"
+                width="800"
+                height="1062"
+                className="rounded-2xl shadow-2xl w-3/4 md:w-full h-auto object-cover mx-auto md:mx-0"
                 loading="lazy"
               />
 
