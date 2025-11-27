@@ -25,11 +25,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=300&quality=75 300w,
                         https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75 400w,
                         https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=600&quality=75 600w"
-                sizes="(max-width: 768px) 50vw, 400px"
+                sizes="(max-width: 768px) 60vw, 450px"
                 alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
                 width="600"
                 height="796"
-                className="rounded-2xl shadow-2xl w-1/2 md:w-2/3 h-auto object-cover mx-auto md:mx-0"
+                className="rounded-2xl shadow-2xl w-3/5 md:w-4/5 h-auto object-contain mx-auto md:mx-0"
                 loading="lazy"
               />
 
