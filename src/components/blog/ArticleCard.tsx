@@ -82,8 +82,6 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
             src={article.image_url || "/placeholder.svg"}
             alt={`Article hypnothérapie - ${article.title}`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            width="400"
-            height="225"
             loading={isFirst || isLCP ? "eager" : "lazy"}
           />
         </div>
