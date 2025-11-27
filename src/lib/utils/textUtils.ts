@@ -1,10 +1,10 @@
 
 // Utilitaires pour le traitement du texte
 export function stripHtml(html: string): string {
-  // Utilise DOMParser pour parser le HTML de manière sécurisée (évite XSS)
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  return doc.body.textContent || '';
+  // Crée un élément temporaire pour parser le HTML
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
+  return temp.textContent || temp.innerText || '';
 }
 
 export function calculateReadTime(content: string): number {

@@ -75,17 +75,18 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
 
     # Content-Security-Policy - Protection XSS avancée
-    # ✅ DURCIE : unsafe-inline retiré de script-src (tous les scripts sont externes)
-    # Note: 'unsafe-inline' conservé pour style-src (CSS critique inline pour performance LCP/FCP)
     Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' https://www.googletagmanager.com https://tools.luckyorange.com https://cdn.gpteng.co https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://tools.luckyorange.com https://cdn.gpteng.co https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://maps.googleapis.com;
       img-src 'self' data: https: blob:;
       font-src 'self' https://fonts.gstatic.com data:;
       connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://region1.analytics.google.com https://www.google.com https://tools.luckyorange.com https://settings.luckyorange.com https://maps.googleapis.com;
       media-src 'self' https://akrlyzmfszumibwgocae.supabase.co blob:;
       frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://www.googletagmanager.com;
+      connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://tools.luckyorange.com https://maps.googleapis.com;
+      media-src 'self' https://akrlyzmfszumibwgocae.supabase.co blob:;
+      frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com;
       frame-ancestors 'none';
       base-uri 'self';
       form-action 'self';
