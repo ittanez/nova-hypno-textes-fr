@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-route
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import CookieConsent from "@/components/CookieConsent";
 
 // Create a client with cache configuration
 const queryClient = new QueryClient({
@@ -75,7 +76,8 @@ function App() {
       <AuthProvider>
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <AppRedirects />
-        
+          <CookieConsent />
+
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-nova-blue"></div></div>}>
           <Routes>
             {/* Route principale */}

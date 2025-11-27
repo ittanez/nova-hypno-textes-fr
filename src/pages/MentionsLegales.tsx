@@ -165,12 +165,85 @@ const MentionsLegales = () => {
               </section>
               
               <section>
-                <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Données personnelles</h2>
-                <p className="text-gray-700">
-                  En général, vous n'êtes pas obligé de fournir vos données personnelles lors de votre visite sur le site novahypnose.fr. Cependant, certaines exceptions existent, notamment pour les services qui nécessitent des informations telles que votre nom, adresse électronique et numéro de téléphone. Vous pouvez refuser de fournir ces données, mais cela pourrait limiter l'utilisation de certains services du site, comme demander des renseignements ou recevoir des lettres d'information.
+                <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Politique de confidentialité et protection des données (RGPD)</h2>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Responsable du traitement</h3>
+                <p className="text-gray-700 mb-3">
+                  Le responsable du traitement des données personnelles est Alain ZENATTI, joignable à l'adresse contact@novahypnose.fr ou au 06 49 35 80 89.
                 </p>
-                <p className="mt-2 text-gray-700">
-                  Certaines informations peuvent également être collectées automatiquement lors de votre navigation, telles que les zones visitées, l'adresse IP, le type de navigateur et les temps d'accès. Ces informations sont utilisées uniquement à des fins statistiques pour améliorer la qualité des services.
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Données collectées</h3>
+                <p className="text-gray-700 mb-2">
+                  Nous collectons les données personnelles suivantes :
+                </p>
+                <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1">
+                  <li><strong>Données de contact :</strong> nom, prénom, adresse email, numéro de téléphone (formulaires de contact)</li>
+                  <li><strong>Données de navigation :</strong> adresse IP, type de navigateur, pages visitées, durée de visite</li>
+                  <li><strong>Cookies :</strong> préférences utilisateur, statistiques de navigation (Google Analytics, Lucky Orange)</li>
+                </ul>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Finalités et bases légales</h3>
+                <p className="text-gray-700 mb-2">Vos données sont traitées pour les finalités suivantes :</p>
+                <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1">
+                  <li><strong>Gestion des demandes de contact :</strong> base légale = intérêt légitime (répondre aux demandes)</li>
+                  <li><strong>Amélioration du site :</strong> base légale = consentement (cookies analytiques)</li>
+                  <li><strong>Marketing :</strong> base légale = consentement (cookies marketing)</li>
+                </ul>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Durée de conservation</h3>
+                <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1">
+                  <li><strong>Données de contact :</strong> 3 ans maximum après le dernier contact</li>
+                  <li><strong>Cookies analytiques :</strong> 13 mois maximum (conformément CNIL)</li>
+                  <li><strong>Données de navigation :</strong> 13 mois maximum</li>
+                </ul>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Destinataires des données</h3>
+                <p className="text-gray-700 mb-2">Vos données peuvent être transmises à :</p>
+                <ul className="list-disc list-inside text-gray-700 mb-3 space-y-1">
+                  <li><strong>Supabase :</strong> hébergement des données (UE)</li>
+                  <li><strong>Google Analytics :</strong> analyses statistiques</li>
+                  <li><strong>Lucky Orange :</strong> analyses comportementales</li>
+                </ul>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Transferts hors UE</h3>
+                <p className="text-gray-700 mb-3">
+                  Les données traitées par Google Analytics et Lucky Orange peuvent être transférées hors de l'Union Européenne.
+                  Ces transferts sont encadrés par les clauses contractuelles types approuvées par la Commission Européenne.
+                </p>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Vos droits RGPD</h3>
+                <p className="text-gray-700 mb-2">
+                  Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
+                </p>
+                <ul className="list-disc list-inside text-gray-700 mb-3 space-y-2">
+                  <li><strong>Droit d'accès :</strong> obtenir une copie de vos données personnelles</li>
+                  <li><strong>Droit de rectification :</strong> corriger vos données inexactes ou incomplètes</li>
+                  <li><strong>Droit à l'effacement :</strong> supprimer vos données dans certaines conditions</li>
+                  <li><strong>Droit à la limitation :</strong> limiter le traitement de vos données</li>
+                  <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
+                  <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
+                  <li><strong>Droit de retirer votre consentement :</strong> pour les traitements basés sur le consentement</li>
+                </ul>
+
+                <p className="text-gray-700 mb-3">
+                  Pour exercer ces droits, contactez-nous à <strong>contact@novahypnose.fr</strong> ou par courrier à l'adresse
+                  16 Rue Saint Antoine, 75004 Paris. Nous vous répondrons dans un délai d'un mois maximum.
+                </p>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Droit de réclamation</h3>
+                <p className="text-gray-700 mb-3">
+                  Vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL)
+                  si vous estimez que vos droits ne sont pas respectés. Plus d'informations sur{' '}
+                  <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-nova-blue hover:underline">
+                    www.cnil.fr
+                  </a>
+                </p>
+
+                <h3 className="text-lg font-semibold text-nova-blue-dark mb-2 mt-4">Sécurité des données</h3>
+                <p className="text-gray-700 mb-3">
+                  Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données
+                  contre tout accès non autorisé, modification, divulgation ou destruction (HTTPS, pare-feu, accès restreints,
+                  sauvegardes régulières).
                 </p>
               </section>
 
