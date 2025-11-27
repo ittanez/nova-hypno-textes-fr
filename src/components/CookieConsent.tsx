@@ -35,6 +35,23 @@ const CookieConsent = () => {
     }
   }, []);
 
+  // Fermer tous les dropdowns/modales Radix UI quand la bannière apparaît
+  useEffect(() => {
+    if (showBanner) {
+      // Fermer tous les dropdowns ouverts en cliquant sur le body
+      document.body.click();
+      // Désactiver le scroll du body
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Réactiver le scroll quand la bannière est fermée
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showBanner]);
+
   const applyPreferences = (prefs: CookiePreferences) => {
     // Appliquer les préférences analytics
     if (prefs.analytics && window.gtag) {
