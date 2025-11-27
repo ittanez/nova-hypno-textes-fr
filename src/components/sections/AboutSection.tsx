@@ -21,15 +21,15 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 order-2 md:order-1">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75"
-                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=300&quality=75 300w,
-                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=400&quality=75 400w,
-                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=500&quality=75 500w"
-                sizes="(max-width: 768px) 50vw, 350px"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=250&quality=75"
+                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=200&quality=75 200w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=250&quality=75 250w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/alain-nov2025.webp?width=300&quality=75 300w"
+                sizes="(max-width: 768px) 40vw, 250px"
                 alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
                 width="800"
                 height="1062"
-                className="rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm h-auto mx-auto md:mx-0"
+                className="rounded-2xl shadow-2xl w-full max-w-[200px] md:max-w-[250px] h-auto mx-auto md:mx-0"
                 loading="lazy"
               />
 
