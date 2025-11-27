@@ -92,23 +92,23 @@ export function getCarouselImageSrcSet(url: string): {
   sizes: string;
 } {
   return {
-    // Image par défaut (mobile-first, ultra-compressée)
-    src: transformSupabaseImage(url, { width: CAROUSEL_IMAGE_SIZES.mobile, quality: 30 }),
-    // srcset avec plusieurs tailles
+    // Image par défaut pour desktop (fallback si srcSet non supporté)
+    src: transformSupabaseImage(url, { width: 768, quality: 60 }),
+    // srcset avec plusieurs tailles optimisées
     srcSet: generateSupabaseSrcSet(
       url,
       [
-        CAROUSEL_IMAGE_SIZES.mobile,   // 240px
-        CAROUSEL_IMAGE_SIZES.tablet,   // 420px
-        CAROUSEL_IMAGE_SIZES.desktop,  // 600px
-        CAROUSEL_IMAGE_SIZES.large,    // 800px
+        480,   // Mobile
+        768,   // Tablet
+        1024,  // Desktop
+        1536,  // Large
       ],
-      [30, 35, 40, 45]  // Qualité adaptative
+      [40, 50, 60, 70]  // Qualité adaptative améliorée
     ),
-    // CORRECTION CRITIQUE: sizes intelligents pour charger la bonne image selon la largeur d'écran
-    // Mobile (0-640px): 100vw → charge 240px
-    // Tablet (640-1024px): 90vw → charge 420px
-    // Desktop (1024px+): 80vw → charge 600-800px
+    // sizes intelligents pour charger la bonne image selon la largeur d'écran
+    // Mobile (0-640px): 100vw → charge 480px
+    // Tablet (640-1024px): 90vw → charge 768px
+    // Desktop (1024px+): 80vw → charge 1024-1536px
     sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw',
   };
 }

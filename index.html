@@ -22,15 +22,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap"></noscript>
 
-    <!-- Préchargement de l'image LCP (Hero carrousel) - Optimisé mobile avec sizes intelligents -->
+    <!-- Préchargement de l'image LCP (Hero carrousel) - Optimisé avec nouvelles dimensions -->
     <link rel="preload"
-      href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=240&quality=25"
+      href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=768&quality=60"
       as="image"
       fetchpriority="high"
-      imagesrcset="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=240&quality=25 240w,
-                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=420&quality=30 420w,
-                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=600&quality=35 600w,
-                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=800&quality=40 800w"
+      imagesrcset="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=480&quality=40 480w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=768&quality=50 768w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1024&quality=60 1024w,
+                   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1536&quality=70 1536w"
       imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
       type="image/webp">
 
@@ -100,7 +100,7 @@
 
       /* Hero carrousel - critique pour LCP - STABILISÉ */
       .hero-image-container{width:100%;height:100vh;min-height:600px;max-height:100vh;overflow:hidden;position:relative;background:#000}
-      .hero-image-container img,.hero-image-container video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
+      .hero-image-container img,.hero-image-container video{width:100%;height:100%;object-fit:cover;display:block}
       .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,74,110,0.9),rgba(45,212,191,0.8));z-index:1}
       .hero-content{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;height:100vh;min-height:600px;max-height:100vh;text-align:center;padding:2rem;color:#fff}
       .hero-text{max-width:56rem;margin:0 auto;min-height:180px}
