@@ -27,6 +27,7 @@ const SessionFlowSection = lazy(() => import('@/components/sections/SessionFlowS
 const Pricing = lazy(() => import('@/components/Pricing'));
 const CTASection = lazy(() => import('@/components/sections/CTASection'));
 const TestimonialsCarousel = lazy(() => import('@/components/sections/TestimonialsCarousel'));
+const CredibilityBadgesSection = lazy(() => import('@/components/sections/CredibilityBadgesSection'));
 const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
 const SelfHypnosisSection = lazy(() => import('@/components/sections/SelfHypnosisSection'));
 const FAQSection = lazy(() => import('@/components/sections/FAQSection'));
@@ -123,6 +124,11 @@ const Index: React.FC = () => {
         <Suspense fallback={<SectionLoader />}>
           {/* Section Témoignages */}
           <TestimonialsCarousel />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          {/* Section Badges de crédibilité */}
+          <CredibilityBadgesSection />
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>

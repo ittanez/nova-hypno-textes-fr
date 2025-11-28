@@ -79,11 +79,14 @@ const Header = () => {
 
   const mainNavLinks: NavLink[] = [
     { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '/#about' },
+  ];
+
+  const aboutLinks: NavLink[] = [
+    { name: 'Présentation', href: '/#about' },
+    { name: 'Témoignages', href: '/#temoignages' },
   ];
 
   const mainNavLinksAfter: NavLink[] = [
-    { name: 'Témoignages', href: '/#temoignages' },
     { name: 'Blog', href: '/blog' },
   ];
 
@@ -136,6 +139,35 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+
+            {/* À propos Dropdown - Navigation simplifiée (6 éléments max) */}
+            <div
+              className="desktop-dropdown-wrapper hidden md:flex"
+              style={{ display: isDesktop ? 'flex' : 'none' }}
+            >
+              {isDesktop && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center text-nova-neutral-dark hover:text-nova-blue transition-colors focus:outline-none">
+                    À propos <ChevronDown className="ml-1 h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-white min-w-[220px] border border-gray-200 rounded">
+                    {aboutLinks.map((link) => (
+                      <DropdownMenuItem key={link.name} asChild>
+                        <a
+                          href={link.href}
+                          target={link.external ? "_blank" : ""}
+                          rel={link.external ? "noopener noreferrer" : ""}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          className="block px-4 py-2 text-nova-neutral-dark hover:text-nova-blue hover:bg-gray-50 transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
+            </div>
 
             {/* L'hypnose Dropdown - Quadruple protection : CSS critique + inline + Tailwind + JS */}
             <div
@@ -251,7 +283,7 @@ const Header = () => {
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors ml-4"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors ml-4"
             >
               <Calendar size={16} />
               Prendre RDV
@@ -286,6 +318,27 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
+
+              {/* À propos Mobile Section - Navigation simplifiée (6 éléments max) */}
+              <div className="border-t border-gray-200 pt-2">
+                <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
+                  À propos <ChevronDown className="ml-1 h-4 w-4" />
+                </p>
+                <div className="pl-4 space-y-2">
+                  {aboutLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target={link.external ? "_blank" : ""}
+                      rel={link.external ? "noopener noreferrer" : ""}
+                      className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
+                      onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
 
               {/* L'hypnose Mobile Section */}
               <div className="border-t border-gray-200 pt-2">
@@ -390,7 +443,7 @@ const Header = () => {
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors"
                 >
                   <Calendar size={16} />
                   Prendre RDV
