@@ -16,6 +16,7 @@ import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blo
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
+import ProfessionalProblemsSection from '@/components/sections/ProfessionalProblemsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import WhyChooseSection from '@/components/sections/WhyChooseSection';
 
@@ -82,6 +83,9 @@ const Index: React.FC = () => {
 
         {/* Hero Section avec Carrousel vidéo */}
         <HeroCarousel />
+
+        {/* Section Problèmes des Professionnels - PRIORITÉ 1 */}
+        <ProfessionalProblemsSection />
 
         {/* Section À propos */}
         <AboutSection onOpenVideoModal={() => setIsVideoModalOpen(true)} />

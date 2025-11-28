@@ -90,6 +90,25 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 Vous êtes accueilli dans votre singularité, sans jugement, avec attention. Qu'il s'agisse de votre stress persistant, de vos blocages émotionnels, de votre manque de confiance, ou simplement de votre besoin de réorientation intérieure, vous n'êtes pas dirigé, mais accompagné dans un dialogue respectueux avec votre inconscient.
               </p>
 
+              {/* PRIORITÉ 2 : Encart "Thérapie brève orientée solutions" */}
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl border-l-4 border-blue-600 mb-6">
+                <h4 className="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
+                  ⚡ Une thérapie brève orientée solutions
+                </h4>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  Contrairement aux thérapies longues traditionnelles qui peuvent durer des mois ou des années,
+                  <strong> l'hypnose ericksonienne respecte votre emploi du temps chargé</strong>.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  <strong>Des résultats concrets, pas d'exploration sans fin.</strong> La plupart des
+                  accompagnements aboutissent en <strong>3 à 5 séances</strong> seulement.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Vous gagnez du temps tout en obtenant des changements profonds et durables.
+                  Idéal pour les professionnels qui cherchent de l'efficacité sans sacrifier des semaines.
+                </p>
+              </div>
+
               <div className="bg-nova-green-light bg-opacity-10 p-6 rounded-xl">
                 <h4 className="font-semibold text-nova-blue-dark text-lg mb-3 text-center">
                   Des résultats concrets, mesurables et durables

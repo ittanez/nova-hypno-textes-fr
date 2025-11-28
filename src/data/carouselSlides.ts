@@ -17,8 +17,8 @@ export const carouselSlides: CarouselSlide[] = [
     type: 'video' as const,
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/alain.mp4',
     poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp',
-    title: 'TRANSFORMEZ VOTRE VIE AVEC L\'HYPNOSE',
-    description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
+    title: 'RETROUVEZ VOTRE ÉNERGIE ET VOTRE FOCUS',
+    description: 'Thérapie brève orientée solutions • 3 à 5 séances • Alain ZENATTI, Maître Hypnologue Paris 4ème'
   },
   {
     type: 'video' as const,
@@ -32,7 +32,7 @@ export const carouselSlides: CarouselSlide[] = [
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/stress-anxiete.mp4',
     poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/CABINET.webp',
     title: 'STRESS - ANXIÉTÉ',
-    description: 'Apprenez à gérer votre stress et votre anxiété pour retrouver votre équilibre intérieur'
+    description: 'Sortez du cercle vicieux de la pression permanente • Performance sans épuisement • Résultats en 3 à 5 séances'
   },
   {
     type: 'video' as const,
