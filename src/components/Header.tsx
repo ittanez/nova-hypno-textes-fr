@@ -100,7 +100,7 @@ const Header = () => {
   const accompagnementsLinks: NavLink[] = [
     { name: 'Applications', href: '/#applications' },
     { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
-    { name: 'Offre Liberté Aérienne', href: '/peurdelavion' },
+    { name: 'Offre Liberté Aérienne', href: '/peurdelavion.html' },
   ];
 
   const infosPratiquesLinks: NavLink[] = [

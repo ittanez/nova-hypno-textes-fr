@@ -135,6 +135,12 @@
 
 # Fichiers HTML statiques ne doivent pas être redirigés
 [[redirects]]
+  from = "/peurdelavion.html"
+  to = "/peurdelavion.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/peur-avion-maquette.html"
   to = "/peur-avion-maquette.html"
   status = 200
