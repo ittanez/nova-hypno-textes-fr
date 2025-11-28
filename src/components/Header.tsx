@@ -251,7 +251,7 @@ const Header = () => {
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors ml-4"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors ml-4"
             >
               <Calendar size={16} />
               Prendre RDV
@@ -390,7 +390,7 @@ const Header = () => {
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-nova-green text-white rounded-md font-medium hover:bg-nova-green-dark transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors"
                 >
                   <Calendar size={16} />
                   Prendre RDV

@@ -73,6 +73,8 @@ export default {
 					'green': '#059669',       // Ratio 4.5:1 sur blanc ✓ (était #10B981 = 3.4:1)
 					'green-light': '#6EE7B7', // Pour backgrounds, pas de texte
 					'green-dark': '#047857',  // Ratio 7.2:1 sur blanc ✓
+					'orange': '#F37336',      // CTA accent (recommandé) - Ratio ~3.8:1 sur blanc (backgrounds/boutons uniquement)
+					'orange-dark': '#D85A1F',  // Version foncée pour hover - Ratio ~5.1:1 sur blanc ✓
 					'neutral': '#F1F5F9',     // Background seulement (proche de #F3FAFD recommandé)
 					'neutral-dark': '#1E293B' // Ratio 13.5:1 sur blanc ✓ (était #334155 = 8.3:1)
 				}

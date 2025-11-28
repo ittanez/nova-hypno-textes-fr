@@ -15,6 +15,7 @@ interface Testimonial {
   text: string;
 }
 
+// Témoignages recommandés : 2-3 maximum (source : "Design web pour hypnothérapeutes 2024-2025")
 const testimonials: Testimonial[] = [
   {
     name: 'Edward',
@@ -30,11 +31,6 @@ const testimonials: Testimonial[] = [
     name: 'Philippe',
     date: 'il y a 3 mois',
     text: '"Un praticien calme et réfléchi. En quelques séances, j\'ai pu me libérer de certains blocages et entamer des changements pérennes. Merci pour cette évolution importante."'
-  },
-  {
-    name: 'Jaouad',
-    date: 'il y a 3 mois',
-    text: '"Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte que l\'on atteigne nos objectifs."'
   }
 ];
 
@@ -107,7 +103,7 @@ const TestimonialsCarousel: React.FC = () => {
           {/* Navigation en bas */}
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
             <button
-              onClick={() => setCurrentTestimonial(prev => prev === 0 ? 3 : prev - 1)}
+              onClick={() => setCurrentTestimonial(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
               className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Témoignage précédent"
             >
@@ -115,7 +111,7 @@ const TestimonialsCarousel: React.FC = () => {
             </button>
 
             <div className="flex gap-1.5">
-              {[0, 1, 2, 3].map((index) => (
+              {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
@@ -128,7 +124,7 @@ const TestimonialsCarousel: React.FC = () => {
             </div>
 
             <button
-              onClick={() => setCurrentTestimonial(prev => prev === 3 ? 0 : prev + 1)}
+              onClick={() => setCurrentTestimonial(prev => prev === testimonials.length - 1 ? 0 : prev + 1)}
               className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
               aria-label="Témoignage suivant"
             >
