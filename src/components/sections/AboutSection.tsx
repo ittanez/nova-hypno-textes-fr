@@ -20,6 +20,19 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6 order-2 md:order-1">
+              <img
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=300&quality=75"
+                srcSet="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=250&quality=75 250w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=300&quality=75 300w,
+                        https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=350&quality=75 350w"
+                sizes="(max-width: 768px) 45vw, 300px"
+                alt="Alain Zenatti - Maître Hypnologue certifié, spécialiste en hypnose ericksonienne à Paris 4ème Marais-Bastille"
+                width="800"
+                height="1062"
+                className="rounded-2xl shadow-2xl w-full max-w-[280px] md:max-w-[300px] h-auto mx-auto md:mx-0"
+                loading="lazy"
+              />
+
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <button
                   onClick={onOpenVideoModal}
