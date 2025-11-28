@@ -26,6 +26,16 @@ const ContactSection: React.FC = () => {
                 Je suis là pour vous accompagner dans votre démarche.
               </p>
 
+              {/* Photo Alain */}
+              <div className="mb-8">
+                <img
+                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-contact.webp"
+                  alt="Alain Zenatti - Hypnothérapeute Paris 4ème"
+                  className="w-full h-auto rounded-2xl shadow-lg object-cover"
+                  loading="lazy"
+                />
+              </div>
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
