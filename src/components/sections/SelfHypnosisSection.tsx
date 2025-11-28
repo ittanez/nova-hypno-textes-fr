@@ -48,7 +48,7 @@ const SelfHypnosisSection: React.FC = () => {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//SPLASH.webp"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/AUTOHYPNOSE_novahypnose.webp"
                 alt="Formation auto-hypnose Paris - Apprendre l'auto-hypnose pour gérer le stress, l'anxiété et améliorer le sommeil"
                 className="w-full h-auto object-cover"
                 loading="lazy"

@@ -60,7 +60,7 @@ const TestimonialsCarousel: React.FC = () => {
         </div>
 
         {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
               <div className="flex gap-1 mb-4">
