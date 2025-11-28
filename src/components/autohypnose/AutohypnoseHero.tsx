@@ -38,7 +38,7 @@ const Hero = memo(() => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
               href="https://buy.stripe.com/28og292uN30p3XW3cc"
-              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
+              className="px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
               rel="noopener"
             >
               Inscrivez-vous maintenant
