@@ -7,6 +7,7 @@ import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 const AutohypnoseTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Témoignages recommandés : 2-3 maximum (source : "Design web pour hypnothérapeutes 2024-2025")
   const testimonials = [
     {
       name: "Sophie L.",
@@ -28,27 +29,6 @@ const AutohypnoseTestimonials = () => {
       text: "Cette formation m'a donné des outils concrets pour gérer mon anxiété et améliorer mon sommeil. Le petit groupe permet un accompagnement personnalisé et les échanges sont très enrichissants.",
       rating: 5,
       date: "Novembre 2024"
-    },
-    {
-      name: "Thomas R.",
-      role: "Développeur web",
-      text: "Formation exceptionnelle ! Alain est un formateur passionné et pédagogue. En une journée, j'ai acquis des compétences qui m'aident au quotidien. Le suivi téléphonique un mois après est un vrai plus.",
-      rating: 5,
-      date: "Octobre 2024"
-    },
-    {
-      name: "Émilie B.",
-      role: "Manager",
-      text: "Grâce à la formation Harmonia, j'ai appris à créer mon lieu sûr intérieur et à l'utiliser dans les moments difficiles. C'est devenu un réflexe salvateur au travail comme à la maison.",
-      rating: 5,
-      date: "Septembre 2024"
-    },
-    {
-      name: "David M.",
-      role: "Commercial",
-      text: "Une journée intense et enrichissante ! Les techniques apprises sont faciles à mettre en pratique. Je dors mieux, je suis plus serein face aux défis professionnels. Un investissement qui change la vie.",
-      rating: 5,
-      date: "Août 2024"
     }
   ];
 

@@ -103,7 +103,7 @@ const Pricing = () => {
                     href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold"
+                    className="block w-full text-center px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
                   >
                     Réserver ma place - 180€
                   </a>
