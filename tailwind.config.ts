@@ -64,15 +64,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Palette for NovaHypnose
-				// Couleurs optimisées pour contraste WCAG AA (4.5:1 minimum)
+				// Couleurs recommandées "Design web pour hypnothérapeutes 2024-2025"
+				// Palette "Confiance Sereine" - Optimisées pour contraste WCAG AA (4.5:1 minimum)
 				nova: {
-					'blue': '#0284C7',        // Ratio 4.6:1 sur blanc ✓ (était #0EA5E9 = 3.2:1)
-					'blue-light': '#7DD3FC',  // Pour backgrounds, pas de texte
-					'blue-dark': '#0369A1',   // Ratio 6.8:1 sur blanc ✓
+					'blue': '#4470AD',        // Blue Yonder (recommandé) - Ratio ~5.2:1 sur blanc ✓
+					'blue-light': '#CCDBEE',  // Columbia Blue (recommandé) - Pour backgrounds, pas de texte
+					'blue-dark': '#233C67',   // Rainbow Indigo (recommandé) - Ratio ~11.5:1 sur blanc ✓
 					'green': '#059669',       // Ratio 4.5:1 sur blanc ✓ (était #10B981 = 3.4:1)
 					'green-light': '#6EE7B7', // Pour backgrounds, pas de texte
 					'green-dark': '#047857',  // Ratio 7.2:1 sur blanc ✓
-					'neutral': '#F1F5F9',     // Background seulement
+					'neutral': '#F1F5F9',     // Background seulement (proche de #F3FAFD recommandé)
 					'neutral-dark': '#1E293B' // Ratio 13.5:1 sur blanc ✓ (était #334155 = 8.3:1)
 				}
 			},
