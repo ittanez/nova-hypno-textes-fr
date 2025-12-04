@@ -10,6 +10,7 @@
  */
 
 import React, { lazy, Suspense, useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
@@ -79,6 +80,28 @@ const Index: React.FC = () => {
 
   return (
     <>
+      {/* SEO Head pour la page d'accueil */}
+      <Helmet>
+        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue</title>
+        <meta name="description" content="Hypnothérapeute Paris 4ème - Cabinet d'hypnose ericksonienne Marais-Bastille. Stress, anxiété, phobies, sommeil. Alain Zenatti certifié." />
+        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
+        <meta property="og:description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@novahypnose" />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+
+        {/* Canonical */}
+        <link rel="canonical" href="https://novahypnose.fr/" />
+      </Helmet>
+
       <ContentLayout>
         {/* ===== ABOVE THE FOLD (Chargé immédiatement) ===== */}
 
