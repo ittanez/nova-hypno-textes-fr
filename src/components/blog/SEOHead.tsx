@@ -55,7 +55,16 @@ const SEOHead = ({
   breadcrumbs = []
 }: SEOHeadProps) => {
   const siteTitle = "Émergences - le blog de NovaHypnose";
-  const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+
+  // Fonction pour tronquer le titre si trop long (max 60 caractères total)
+  const truncateTitle = (title: string, maxLength: number = 45): string => {
+    if (title.length <= maxLength) return title;
+    return title.substring(0, maxLength).trim() + '...';
+  };
+
+  const fullTitle = title === siteTitle
+    ? title
+    : `${truncateTitle(title)} | ${siteTitle}`;
   const currentUrl = url || window.location.href;
 
   return (
