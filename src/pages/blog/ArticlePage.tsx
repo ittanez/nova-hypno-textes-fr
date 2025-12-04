@@ -160,7 +160,7 @@ const ArticlePage = () => {
         "name": "NovaHypnose",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://novahypnose.fr/lovable-uploads/ac75f7ce-64fa-4285-9d09-3c372d3efde5.png"
+          "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
         }
       },
       "mainEntityOfPage": {

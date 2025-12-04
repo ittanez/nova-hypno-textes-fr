@@ -60,7 +60,7 @@ async function generateSitemap() {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>${SITE_URL}/lovable-uploads/ac75f7ce-64fa-4285-9d09-3c372d3efde5.png</image:loc>
+      <image:loc>https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp</image:loc>
       <image:caption>Alain Zenatti, Hypnothérapeute à Paris</image:caption>
       <image:title>NovaHypnose - Cabinet d'hypnothérapie à Paris</image:title>
     </image:image>
