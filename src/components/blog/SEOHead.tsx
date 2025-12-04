@@ -65,13 +65,56 @@ const SEOHead = ({
   const fullTitle = title === siteTitle
     ? title
     : `${truncateTitle(title)} | ${siteTitle}`;
-  const currentUrl = url || window.location.href;
+
+  // Normaliser l'URL pour éviter les différences canonical/og:url
+  const normalizeUrl = (rawUrl: string): string => {
+    try {
+      const urlObj = new URL(rawUrl);
+      // Supprimer trailing slash sauf pour la racine
+      const pathname = urlObj.pathname === '/' ? '/' : urlObj.pathname.replace(/\/$/, '');
+      // Supprimer query params et fragments
+      return `${urlObj.protocol}//${urlObj.host}${pathname}`;
+    } catch {
+      return rawUrl;
+    }
+  };
+
+  const currentUrl = normalizeUrl(url || window.location.href);
+
+  // Garantir une longueur minimale de description (70-160 caractères)
+  const ensureDescriptionLength = (desc: string): string => {
+    const minLength = 70;
+    const maxLength = 160;
+
+    if (desc.length >= minLength && desc.length <= maxLength) {
+      return desc;
+    }
+
+    if (desc.length < minLength) {
+      // Description trop courte : ajouter un suffix générique
+      const suffix = " Découvrez nos techniques d'hypnose ericksonienne à Paris pour améliorer votre bien-être.";
+      const needed = minLength - desc.length;
+      if (needed > suffix.length) {
+        return desc + suffix;
+      }
+      return desc + suffix.substring(0, needed);
+    }
+
+    // Description trop longue : tronquer
+    if (desc.length > maxLength) {
+      return desc.substring(0, maxLength - 3) + '...';
+    }
+
+    return desc;
+  };
+
+  const finalDescription = ensureDescriptionLength(description);
 
   return (
     <Helmet>
       {/* Titre et description de base */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={finalDescription} />
 
       {/* Robots */}
       <meta name="robots" content={robots} />
@@ -88,11 +131,11 @@ const SEOHead = ({
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={siteTitle} />
-      
+
       {/* Article spécifique */}
       {type === "article" && publishedTime && (
         <meta property="article:published_time" content={publishedTime} />
@@ -103,11 +146,11 @@ const SEOHead = ({
       {type === "article" && author && (
         <meta property="article:author" content={author} />
       )}
-      
+
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={image} />
       
       {/* Canonical URL */}
