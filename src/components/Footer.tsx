@@ -125,6 +125,14 @@ const Footer = () => {
                 </button>
               </li>
               <li>
+                <Link
+                  to="/blog"
+                  className="text-gray-300 hover:text-white transition-colors block"
+                >
+                  Blog & Actualités
+                </Link>
+              </li>
+              <li>
                 <button
                   onClick={() => handleSectionClick('contact')}
                   className="text-gray-300 hover:text-white transition-colors text-left"
