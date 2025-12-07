@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM" />
-    <!-- Meta tags SEO (title, description, etc.) gérés par react-helmet dans les composants React -->
+
+    <!-- Fallback SEO tags pour crawlers sans JavaScript - Mis à jour par React Helmet après chargement -->
+    <title>Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue</title>
+    <meta name="description" content="Hypnothérapeute Paris 4ème - Cabinet d'hypnose ericksonienne Marais-Bastille. Stress, anxiété, phobies, sommeil. Alain Zenatti certifié." />
+    <link rel="canonical" href="https://novahypnose.fr/" />
 
     <!-- Préconnexions pour les ressources tierces importantes -->
     <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co">
@@ -195,7 +199,8 @@
         <div class="hero-skeleton-content">
           <div class="hero-skeleton-wrapper">
             <div class="hero-skeleton-text-area">
-              <div class="hero-skeleton-title"></div>
+              <!-- H1 SEO visible pour les crawlers sans JavaScript -->
+              <h1 class="hero-skeleton-title" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.9);font-size:clamp(1.5rem,5vw,3rem);font-family:Georgia,serif;text-align:center;background:transparent;">Hypnothérapeute Paris - Alain Zenatti</h1>
               <div class="hero-skeleton-description"></div>
             </div>
             <div class="hero-skeleton-button"></div>
