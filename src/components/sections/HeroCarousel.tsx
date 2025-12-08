@@ -39,7 +39,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '85vh' }}>
+    <section className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '95vh' }}>
       {/* Carrousel d'images/vidéos - visible immédiatement */}
       <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {
