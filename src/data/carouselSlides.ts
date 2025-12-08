@@ -16,7 +16,7 @@ export const carouselSlides: CarouselSlide[] = [
   {
     type: 'video' as const,
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/alain.mp4',
-    poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
+    poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/alaincab.webp',
     title: 'TRANSFORMEZ VOTRE VIE PAR L\'HYPNOSE',
     description: 'Thérapie brève orientée solutions • 3 à 5 séances • Alain ZENATTI, Maître Hypnologue Paris 4ème'
   },
