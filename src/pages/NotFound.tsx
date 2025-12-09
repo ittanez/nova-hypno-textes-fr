@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Search from 'lucide-react/dist/esm/icons/search';
@@ -20,21 +21,28 @@ const NotFound = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <>
+      <Helmet>
+        <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
+        <meta name="description" content="Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
 
-      <main className="flex-grow bg-gradient-to-br from-blue-50 to-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* 404 Number */}
-            <div className="mb-8">
-              <h1 className="text-9xl font-bold text-blue-600/20">404</h1>
-            </div>
+      <div className="flex flex-col min-h-screen">
+        <Header />
 
-            {/* Main Message */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Page introuvable
-            </h2>
+        <main className="flex-grow bg-gradient-to-br from-blue-50 to-white py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              {/* 404 Number */}
+              <div className="mb-8">
+                <h1 className="text-9xl font-bold text-blue-600/20">404</h1>
+              </div>
+
+              {/* Main Message */}
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Page introuvable
+              </h2>
 
             <p className="text-xl text-gray-600 mb-4">
               Pas de stress, respirez profondément... La page que vous recherchez n'est malheureusement pas disponible.
@@ -191,6 +199,7 @@ const NotFound = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 
