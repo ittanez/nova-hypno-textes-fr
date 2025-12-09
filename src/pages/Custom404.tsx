@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
 import Search from 'lucide-react/dist/esm/icons/search';
 import Phone from 'lucide-react/dist/esm/icons/phone';
@@ -8,18 +9,10 @@ import Mail from 'lucide-react/dist/esm/icons/mail';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Home from 'lucide-react/dist/esm/icons/home';
 import ContentLayout from '../components/layout/ContentLayout';
-import { useSeoMetadata } from '../hooks/useSeoMetadata';
 
 const Custom404 = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-
-  // SEO pour la page 404
-  useSeoMetadata({
-    title: "Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4",
-    description: "Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies.",
-    canonicalUrl: 'https://novahypnose.fr/404'
-  });
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,8 +22,16 @@ const Custom404 = () => {
   };
 
   return (
-    <ContentLayout>
-      <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <>
+      <Helmet>
+        <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
+        <meta name="description" content="Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies." />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/404" />
+      </Helmet>
+
+      <ContentLayout>
+        <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
         <div className="max-w-3xl w-full text-center bg-white/80 backdrop-blur-md p-8 rounded-xl shadow-lg">
           <h1 className="text-5xl text-nova-blue-dark mb-4 font-serif">404</h1>
           
@@ -128,7 +129,8 @@ const Custom404 = () => {
           </div>
         </div>
       </div>
-    </ContentLayout>
+      </ContentLayout>
+    </>
   );
 };
 

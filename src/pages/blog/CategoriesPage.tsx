@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -51,12 +52,18 @@ const CategoriesPage = () => {
   });
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Catégories d'Articles - Blog Hypnose | NovaHypnose</title>
+        <meta name="description" content="Explorez les catégories d'articles sur l'hypnose ericksonienne, le bien-être et la transformation personnelle. Trouvez les articles pertinents pour vos besoins." />
+      </Helmet>
 
-      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
-        <div className="mb-12 text-center">
-          <h1 className="font-serif mb-4">Catégories</h1>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+
+        <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
+          <div className="mb-12 text-center">
+            <h1 className="font-serif mb-4">Catégories</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explorez nos articles par thématique
           </p>
@@ -84,9 +91,10 @@ const CategoriesPage = () => {
           ))}
         </div>
       </main>
-      
+
       <Footer />
     </div>
+    </>
   );
 };
 
