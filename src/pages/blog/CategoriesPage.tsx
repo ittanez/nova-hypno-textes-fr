@@ -71,7 +71,7 @@ const CategoriesPage = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categoryArticleCounts.map(category => (
-            <Link to={`/category/${category.id}`} key={category.id} className="block group">
+            <Link to={`/blog/categorie/${category.slug}`} key={category.id} className="block group">
               <Card className="h-full transition-shadow hover:shadow-md">
                 <CardHeader>
                   <CardTitle className="group-hover:text-nova-700 transition-colors">

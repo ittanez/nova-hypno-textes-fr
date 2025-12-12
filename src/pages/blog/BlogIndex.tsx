@@ -79,10 +79,18 @@ const BlogIndex = () => {
       }
     });
 
+    // Croiser avec les catégories pour obtenir les slugs
     return Object.entries(categoryCount)
-      .map(([name, count]) => ({ name, count }))
+      .map(([name, count]) => {
+        const categoryData = categories.find(cat => cat.name === name);
+        return {
+          name,
+          count,
+          slug: categoryData?.slug || name.toLowerCase().replace(/\s+/g, '-').replace(/[éèê]/g, 'e').replace(/[àâ]/g, 'a').replace(/[ùû]/g, 'u').replace(/[îï]/g, 'i').replace(/[ôö]/g, 'o').replace(/ç/g, 'c')
+        };
+      })
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [articles]);
+  }, [articles, categories]);
 
   const filteredAndSortedArticles = useMemo(() => {
     let filtered = articles;
@@ -238,13 +246,10 @@ const BlogIndex = () => {
               Tous les articles ({articles.length})
             </button>
 
-            {categoriesWithCount.map(({ name, count }) => (
-              <button
+            {categoriesWithCount.map(({ name, count, slug }) => (
+              <Link
                 key={name}
-                onClick={() => {
-                  setSelectedCategory(name);
-                  setCurrentPage(1);
-                }}
+                to={`/blog/categorie/${slug}`}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedCategory === name
                     ? "bg-blue-500 text-white shadow-lg"
@@ -252,7 +257,7 @@ const BlogIndex = () => {
                 }`}
               >
                 {name} ({count})
-              </button>
+              </Link>
             ))}
           </div>
         </div>
