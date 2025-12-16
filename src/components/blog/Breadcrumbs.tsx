@@ -65,7 +65,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => {
 };
 
 // Helper functions pour générer des breadcrumbs automatiquement
-export const generateArticleBreadcrumbs = (article: any): BreadcrumbItem[] => {
+export const generateArticleBreadcrumbs = (article: { category?: string; title: string }): BreadcrumbItem[] => {
   const breadcrumbs: BreadcrumbItem[] = [
     { name: 'Accueil', url: '/', isHome: true }
   ];

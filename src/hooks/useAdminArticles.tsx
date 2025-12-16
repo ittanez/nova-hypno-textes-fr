@@ -31,7 +31,7 @@ export const useAdminArticles = () => {
         if (data) {
           setCategories(data);
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error("Erreur lors de la récupération des catégories:", error);
       }
     };
@@ -63,7 +63,7 @@ export const useAdminArticles = () => {
           setAllArticles([]);
           setTotalCount(0);
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error("Erreur lors de la récupération des articles:", error);
         toast({
           title: "Erreur",
@@ -109,12 +109,13 @@ export const useAdminArticles = () => {
         case 'created_at':
           comparison = new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
           break;
-        case 'published_at':
+        case 'published_at': {
           const dateA = a.published_at ? new Date(a.published_at).getTime() : 0;
           const dateB = b.published_at ? new Date(b.published_at).getTime() : 0;
           comparison = dateA - dateB;
           break;
-        case 'status':
+        }
+        case 'status': {
           // Ordre: Programmé > Brouillon > Publié
           const getStatus = (article: Article) => {
             if (article.scheduled_for && new Date(article.scheduled_for) > new Date()) return 0;
@@ -123,6 +124,7 @@ export const useAdminArticles = () => {
           };
           comparison = getStatus(a) - getStatus(b);
           break;
+        }
       }
 
       return sortDirection === 'asc' ? comparison : -comparison;
@@ -180,7 +182,7 @@ export const useAdminArticles = () => {
         description: "Article supprimé avec succès"
       });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erreur lors de la suppression de l'article:", error);
       toast({
         title: "Erreur",

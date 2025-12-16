@@ -15,6 +15,7 @@ const safeJSONStringify = (data: unknown): string => {
       .replace(/\u2028/g, '\\u2028')
       .replace(/\u2029/g, '\\u2029')
       // Supprimer les caractères de contrôle qui peuvent casser le JavaScript
+      // eslint-disable-next-line no-control-regex
       .replace(/[\u0000-\u001f\u007f-\u009f]/g, '');
   } catch (error) {
     console.error('Erreur JSON.stringify:', error);

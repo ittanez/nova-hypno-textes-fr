@@ -3,14 +3,11 @@ import { Button } from "@/components/ui/button";
 import Check from 'lucide-react/dist/esm/icons/check';
 import { useEffect, useRef } from "react";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'stripe-buy-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        'buy-button-id'?: string;
-        'publishable-key'?: string;
-      };
-    }
+// Déclaration de type pour le composant Stripe Buy Button
+declare module 'react' {
+  interface HTMLAttributes<T> {
+    'buy-button-id'?: string;
+    'publishable-key'?: string;
   }
 }
 
