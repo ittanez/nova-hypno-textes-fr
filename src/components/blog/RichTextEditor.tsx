@@ -106,7 +106,7 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
         <Editor
           onInit={(evt, editor) => {
             console.log('✅ TinyMCE chargé avec succès (version locale)');
-            editorRef.current = editor as any;
+            editorRef.current = editor as TinyMCEEditor;
             setIsReady(true);
           }}
           initialValue={value}

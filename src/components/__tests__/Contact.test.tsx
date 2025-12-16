@@ -1,11 +1,16 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Contact from '../Contact';
+
+// Mock du composant LazyCommuteMap qui charge Google Maps
+vi.mock('../LazyCommuteMap', () => ({
+  default: () => <div data-testid="mock-map">Map</div>
+}));
 
 describe('Contact Component', () => {
   it('affiche le titre de la section contact', () => {
     render(<Contact />);
-    expect(screen.getByText(/Prendre rendez-vous/i)).toBeInTheDocument();
+    expect(screen.getByText(/Informations de contact/i)).toBeInTheDocument();
   });
 
   it('affiche le numéro de téléphone', () => {
@@ -53,11 +58,11 @@ describe('Contact Component', () => {
     expect(adresseElements.length).toBeGreaterThan(0);
   });
 
-  it('a un bouton pour prendre rendez-vous', () => {
+  it('a un bouton pour réserver une séance', () => {
     render(<Contact />);
 
-    // Cherche un bouton ou lien "Prendre rendez-vous"
-    const ctaElements = screen.getAllByText(/Prendre rendez-vous/i);
+    // Cherche un bouton ou lien "Réserver ma séance en ligne"
+    const ctaElements = screen.getAllByText(/Réserver ma séance en ligne/i);
     expect(ctaElements.length).toBeGreaterThan(0);
   });
 

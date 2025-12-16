@@ -376,7 +376,7 @@ export const deleteArticle = async (articleId: string) => {
 export const generateUniqueSlug = async (title: string, existingId?: string): Promise<{ slug: string | null, error: unknown | null }> => {
   let slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   let count = 0;
-  let originalSlug = slug;
+  const originalSlug = slug;
 
   try {
     while (true) {

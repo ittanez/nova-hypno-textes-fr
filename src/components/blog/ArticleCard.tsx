@@ -18,7 +18,7 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
   });
 
   // ✅ FONCTION DE PARSING DES TAGS TRÈS ROBUSTE
-  const parseTagsForDisplay = (tags: any): string[] => {
+  const parseTagsForDisplay = (tags: unknown): string[] => {
     if (!tags) return [];
     
     // Si c'est déjà un array de strings, le retourner

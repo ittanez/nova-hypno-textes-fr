@@ -31,9 +31,9 @@ describe('Header Component', () => {
     expect(screen.getByText('Mes accompagnements')).toBeInTheDocument();
   });
 
-  it('affiche le bouton Rendez-vous', () => {
+  it('affiche le bouton Prendre RDV', () => {
     renderHeader();
-    const ctaButtons = screen.getAllByText('Rendez-vous');
+    const ctaButtons = screen.getAllByText('Prendre RDV');
     expect(ctaButtons.length).toBeGreaterThan(0);
   });
 

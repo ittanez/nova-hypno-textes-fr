@@ -17,7 +17,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
   
   // Calculer la plage de pages à afficher
   let startPage = Math.max(1, currentPage - Math.floor(showPages / 2));
-  let endPage = Math.min(totalPages, startPage + showPages - 1);
+  const endPage = Math.min(totalPages, startPage + showPages - 1);
   
   // Ajuster si on est vers la fin
   if (endPage - startPage + 1 < showPages) {

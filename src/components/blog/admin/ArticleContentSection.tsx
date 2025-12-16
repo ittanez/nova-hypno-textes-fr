@@ -1,9 +1,20 @@
 
+import { lazy, Suspense } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import RichTextEditor from "@/components/blog/RichTextEditor";
 import { Article } from "@/lib/types/blog";
+
+// Lazy load de TinyMCE pour réduire le bundle initial (~1.3MB → chargé à la demande)
+const RichTextEditor = lazy(() => import("@/components/blog/RichTextEditor"));
+
+// Fallback pendant le chargement de TinyMCE
+const EditorLoadingFallback = () => (
+  <div className="flex flex-col items-center justify-center bg-gray-100 rounded-md h-[500px]">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mb-3"></div>
+    <div className="text-gray-500">Chargement de l'éditeur...</div>
+  </div>
+);
 
 interface ArticleContentSectionProps {
   article: Partial<Article>;
@@ -36,12 +47,14 @@ const ArticleContentSection = ({
       </div>
 
       <div className="space-y-2">
-        <RichTextEditor
-          label="Contenu *"
-          value={article.content || ""}
-          onChange={onContentChange}
-          height={500}
-        />
+        <Label>Contenu *</Label>
+        <Suspense fallback={<EditorLoadingFallback />}>
+          <RichTextEditor
+            value={article.content || ""}
+            onChange={onContentChange}
+            height={500}
+          />
+        </Suspense>
       </div>
 
       <div className="space-y-2">
