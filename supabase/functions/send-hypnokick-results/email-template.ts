@@ -123,7 +123,7 @@ export function generateEmailContent(
             <td style="padding: 20px 30px;">
               <h2 style="font-size: 22px; font-weight: 600; color: #374151; text-align: center; margin: 0 0 20px 0;">Votre hypnothérapeute à Paris Le Marais Bastille</h2>
 
-              <p style="color: #ef4444; font-size: 16px; text-align: center; margin: 0 0 15px 0;">📍 Je suis Alain Zenatti, hypnothérapeute à Paris, spécialisé en hypnose ericksonienne et en auto-hypnose.</p>
+              <p style="color: #475569; font-size: 16px; text-align: center; margin: 0 0 15px 0;">📍 Je suis Alain Zenatti, hypnothérapeute à Paris, spécialisé en hypnose ericksonienne et en auto-hypnose.</p>
 
               <p style="font-size: 15px; line-height: 1.8; color: #475569; margin: 0 0 15px 0; text-align: center;">Depuis plusieurs années, j'aide les personnes à retrouver confiance, équilibre et clarté intérieure grâce à des séances d'hypnose sur mesure, toujours bienveillantes et respectueuses du rythme de chacun.</p>
 
@@ -135,13 +135,13 @@ export function generateEmailContent(
                 <tr>
                   <td align="center" style="padding: 5px 0;">
                     <span style="color: #ef4444; font-size: 18px;">📧</span>
-                    <a href="mailto:contact@novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">contact@<span style="background-color: #fef08a;">novahypnose</span>.fr</a>
+                    <a href="mailto:contact@novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">contact@novahypnose.fr</a>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding: 5px 0;">
                     <span style="color: #3b82f6; font-size: 18px;">🌐</span>
-                    <a href="https://www.novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">www.<span style="background-color: #fef08a;">novahypnose</span>.fr</a>
+                    <a href="https://www.novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">www.novahypnose.fr</a>
                   </td>
                 </tr>
                 <tr>
