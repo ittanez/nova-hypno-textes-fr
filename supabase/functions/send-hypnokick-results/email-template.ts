@@ -69,7 +69,7 @@ export function generateEmailContent(
     .main-title {
       font-size: 36px;
       font-weight: 700;
-      color: #1e293b;
+      color: #7c3aed;
       line-height: 1.3;
       margin: 30px 0;
       text-align: center;
@@ -156,7 +156,7 @@ export function generateEmailContent(
     .therapist-title {
       font-size: 24px;
       font-weight: 600;
-      color: #1e293b;
+      color: #7c3aed;
       margin: 0 0 20px 0;
     }
     .therapist-intro {
