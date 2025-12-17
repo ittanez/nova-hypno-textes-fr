@@ -113,21 +113,15 @@ export function generateEmailContent(
           <!-- Superpouvoir Section -->
           <tr>
             <td style="padding: 0 30px 20px 30px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                <tr>
-                  <td style="background-color: #f1f5f9; padding: 25px; border-radius: 8px;">
-                    <p style="font-size: 18px; font-weight: 600; color: #1e293b; margin: 0 0 15px 0; text-align: center;">Votre superpouvoir hypnotique, un potentiel illimité qui grandit avec vous</p>
-                    <p style="font-size: 15px; line-height: 1.8; color: #475569; margin: 0;">Votre capacité hypnotique n'est pas figée – elle fluctue selon votre état physique, émotionnel et votre environnement. Cette variabilité est une force! Elle signifie que vous pouvez développer ce potentiel avec de la pratique, comme un muscle qui se renforce. L'hypnose thérapeutique vous permet d'accéder à des ressources insoupçonnées et de créer des changements précis et durables dans votre vie, qu'il s'agisse de dépasser des peurs, renforcer votre confiance, ou transformer des habitudes. Chaque personne possède sa propre porte d'entrée vers ces états de conscience modifiés – découvrir la vôtre est le premier pas vers une vie plus alignée avec vos aspirations profondes.</p>
-                  </td>
-                </tr>
-              </table>
+              <h2 style="font-size: 20px; font-weight: 600; color: #1e293b; margin: 0 0 15px 0;">Votre superpouvoir hypnotique, un potentiel illimité qui grandit avec vous</h2>
+              <p style="font-size: 15px; line-height: 1.8; color: #475569; margin: 0;">Votre capacité hypnotique n'est pas figée – elle fluctue selon votre état physique, émotionnel et votre environnement. Cette variabilité est une force! Elle signifie que vous pouvez développer ce potentiel avec de la pratique, comme un muscle qui se renforce. L'hypnose thérapeutique vous permet d'accéder à des ressources insoupçonnées et de créer des changements précis et durables dans votre vie, qu'il s'agisse de dépasser des peurs, renforcer votre confiance, ou transformer des habitudes. Chaque personne possède sa propre porte d'entrée vers ces états de conscience modifiés – découvrir la vôtre est le premier pas vers une vie plus alignée avec vos aspirations profondes.</p>
             </td>
           </tr>
 
           <!-- Therapist Section -->
           <tr>
             <td style="padding: 20px 30px;">
-              <h2 style="font-size: 22px; font-weight: 600; color: #7c3aed; text-align: center; margin: 0 0 20px 0;">Votre hypnothérapeute à Paris Le Marais Bastille</h2>
+              <h2 style="font-size: 22px; font-weight: 600; color: #374151; text-align: center; margin: 0 0 20px 0;">Votre hypnothérapeute à Paris Le Marais Bastille</h2>
 
               <p style="color: #ef4444; font-size: 16px; text-align: center; margin: 0 0 15px 0;">📍 Je suis Alain Zenatti, hypnothérapeute à Paris, spécialisé en hypnose ericksonienne et en auto-hypnose.</p>
 
@@ -141,18 +135,18 @@ export function generateEmailContent(
                 <tr>
                   <td align="center" style="padding: 5px 0;">
                     <span style="color: #ef4444; font-size: 18px;">📧</span>
-                    <a href="mailto:contact@novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">contact@novahypnose.fr</a>
+                    <a href="mailto:contact@novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">contact@<span style="background-color: #fef08a;">novahypnose</span>.fr</a>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding: 5px 0;">
                     <span style="color: #3b82f6; font-size: 18px;">🌐</span>
-                    <a href="https://www.novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">www.novahypnose.fr</a>
+                    <a href="https://www.novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-left: 8px;">www.<span style="background-color: #fef08a;">novahypnose</span>.fr</a>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding: 5px 0;">
-                    <span style="color: #ec4899; font-size: 18px;">📞</span>
+                    <span style="color: #6b7280; font-size: 18px;">📞</span>
                     <span style="color: #3b82f6; font-size: 16px; margin-left: 8px;">06 49 35 80 89</span>
                   </td>
                 </tr>
