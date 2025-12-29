@@ -6,9 +6,15 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Configuration Supabase
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL || "https://akrlyzmfszumibwgocae.supabase.co";
-const SUPABASE_KEY = process.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30";
+// Configuration Supabase - Les clés doivent être définies via les variables d'environnement
+const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
+const SUPABASE_KEY = process.env.VITE_SUPABASE_ANON_KEY;
+
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('❌ Variables Supabase manquantes. Vérifiez VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY');
+  console.warn('⚠️  Le sitemap existant sera utilisé. Build continue...');
+  process.exit(0); // Ne pas faire échouer le build
+}
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 

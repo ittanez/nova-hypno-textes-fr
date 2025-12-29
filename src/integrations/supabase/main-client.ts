@@ -1,11 +1,14 @@
-
 // Client Supabase pour le site principal (novahypnose.fr)
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-// Utilisez les variables d'environnement du projet existant
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://akrlyzmfszumibwgocae.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30";
+// Securité: Les clés doivent être définies via les variables d'environnement
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+  console.error('Variables Supabase manquantes. Vérifiez VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY');
+}
 
 // Client principal pour le site existant
 export const supabaseMain = createClient<Database>(

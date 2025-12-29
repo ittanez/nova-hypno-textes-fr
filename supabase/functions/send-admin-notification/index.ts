@@ -1,13 +1,11 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { getCorsHeaders, isValidEmail } from "../_shared/cors.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-}
-
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req)
+
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -15,6 +13,14 @@ serve(async (req) => {
 
   try {
     const { subscriberEmail, adminEmail } = await req.json()
+
+    // Validation des emails
+    if (!isValidEmail(subscriberEmail) || !isValidEmail(adminEmail)) {
+      return new Response(
+        JSON.stringify({ error: "Format d'email invalide" }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
 
     console.log('Envoi de notification admin pour:', subscriberEmail)
 
