@@ -1,28 +1,33 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
+import { getCorsHeaders, isValidEmail } from "../_shared/cors.ts";
 
 const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-};
-
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
+
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { 
-      firstName, 
-      userEmail, 
-      totalScore, 
-      dimensionScores, 
+    const {
+      firstName,
+      userEmail,
+      totalScore,
+      dimensionScores,
       promoCode,
-      sendToClient = true 
+      sendToClient = true
     } = await req.json();
+
+    // Validation de l'email
+    if (!isValidEmail(userEmail)) {
+      return new Response(
+        JSON.stringify({ error: 'Format d\'email invalide' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
     
     // Format dimension scores for admin email
     const formattedDimensions = dimensionScores.map(d => `

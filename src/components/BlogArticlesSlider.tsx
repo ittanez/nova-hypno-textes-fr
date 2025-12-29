@@ -26,9 +26,9 @@ const BlogArticlesSlider: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
-  // ✅ Configuration Supabase directe
-  const SUPABASE_URL = 'https://akrlyzmfszumibwgocae.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30';
+  // Configuration Supabase via variables d'environnement
+  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+  const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
   const AUTOPLAY_DELAY = 5000;
 
   useEffect(() => {
