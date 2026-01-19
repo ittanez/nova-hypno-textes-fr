@@ -6,7 +6,7 @@ const AutohypnoseRoadmap = () => {
     {
       number: '1',
       title: 'Inscription à la formation',
-      description: 'Réservez votre place pour la journée du 25 janvier 2026 à Paris Bastille (max 6 participants) - Tarif : 180€',
+      description: 'Réservez votre place pour la journée du 12 avril 2026 à Paris Bastille (max 6 participants) - Tarif : 180€',
       duration: '2 min',
     },
     {
