@@ -39,7 +39,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   className="block relative group w-full text-left"
                 >
                   <img
-                    src="https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg"
+                    src="https://img.youtube.com/vi/r8OUp2OJRp4/sddefault.jpg"
                     alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
                     width="640"
                     height="480"
