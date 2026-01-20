@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { checkIsAdmin } from '@/lib/services/authService';
+import { logger } from '@/lib/logger';
 
 interface AuthContextType {
   session: Session | null;
@@ -30,19 +31,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Fonction pour vérifier si l'utilisateur est admin
     const verifyAdminStatus = async (userId: string) => {
       try {
-        console.log("Vérification du statut admin pour l'utilisateur:", userId);
+        logger.debug("Verification du statut admin pour l'utilisateur:", userId);
         const { isAdmin: adminStatus, error } = await checkIsAdmin();
         
         if (error) {
-          console.error("Erreur lors de la vérification du statut admin:", error);
+          logger.error("Erreur lors de la verification du statut admin:", error);
           setIsAdmin(false);
           return;
         }
         
-        console.log("Statut admin:", adminStatus);
+        logger.debug("Statut admin:", adminStatus);
         setIsAdmin(adminStatus);
       } catch (error) {
-        console.error("Exception lors de la vérification du statut admin:", error);
+        logger.error("Exception lors de la verification du statut admin:", error);
         setIsAdmin(false);
       }
     };
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(true);
         const { data: { session } } = await supabase.auth.getSession();
         
-        console.log("Session initiale:", session);
+        logger.debug("Session initiale:", session);
         setSession(session);
         setUser(session?.user ?? null);
         
@@ -61,7 +62,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           await verifyAdminStatus(session.user.id);
         }
       } catch (error) {
-        console.error('Erreur d\'initialisation de l\'authentification:', error);
+        logger.error('Erreur d\'initialisation de l\'authentification:', error);
       } finally {
         setIsLoading(false);
       }
@@ -73,7 +74,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Écouteur des changements d'état d'authentification
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log("Événement d'authentification:", event, session);
+        logger.debug("Evenement d'authentification:", event, session);
         setSession(session);
         setUser(session?.user ?? null);
         

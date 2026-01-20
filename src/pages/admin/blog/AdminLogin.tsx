@@ -1,5 +1,3 @@
-
-// @ts-nocheck
 import { useState, useEffect } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -73,10 +71,11 @@ const AdminLogin = () => {
       // Rediriger immédiatement après une connexion réussie
       toast({ title: "Connexion réussie", description: "Redirection en cours..." });
       setTimeout(() => navigate("/admin-blog/articles"), 500);
-    } catch (error: any) {
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Vérifiez vos identifiants et réessayez.";
       toast({
         title: "Erreur de connexion",
-        description: error.message || "Vérifiez vos identifiants et réessayez.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
@@ -88,7 +87,11 @@ const AdminLogin = () => {
     e.preventDefault();
     
     if (!resetEmail || !resetEmail.includes('@')) {
-      toast.error("Veuillez saisir une adresse email valide");
+      toast({
+        title: "Erreur",
+        description: "Veuillez saisir une adresse email valide",
+        variant: "destructive"
+      });
       return;
     }
     
@@ -106,10 +109,11 @@ const AdminLogin = () => {
         title: "Email de réinitialisation envoyé",
         description: "Vérifiez votre boîte de réception et suivez les instructions."
       });
-    } catch (error: any) {
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Une erreur s'est produite lors de l'envoi de l'email de réinitialisation.";
       toast({
         title: "Erreur lors de la réinitialisation",
-        description: error.message || "Une erreur s'est produite lors de l'envoi de l'email de réinitialisation.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {

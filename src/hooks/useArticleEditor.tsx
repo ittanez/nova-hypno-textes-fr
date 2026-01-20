@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState, useEffect, FormEvent } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
@@ -6,6 +5,9 @@ import { Article } from "@/lib/types/blog";
 import { saveArticle, generateUniqueSlug, getArticleById } from "@/lib/services/blog/articleService";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/lib/logger';
+
+type PublishMode = "draft" | "publish" | "schedule";
 
 export const useArticleEditor = () => {
   const { id } = useParams();
@@ -15,7 +17,7 @@ export const useArticleEditor = () => {
   const navigate = useNavigate();
   const { user, isAdmin } = useAuth();
 
-  console.log('useArticleEditor - id:', id, 'isNewArticle:', isNewArticle, 'isEditing:', isEditing);
+  logger.debug('useArticleEditor - id:', { id, isNewArticle, isEditing });
 
   const [isLoading, setIsLoading] = useState(isEditing);
   const [isSaving, setIsSaving] = useState(false);
@@ -40,7 +42,7 @@ export const useArticleEditor = () => {
     featured: false,
     storage_image_url: "",
   });
-  const [publishMode, setPublishMode] = useState<"draft" | "publish" | "schedule">("draft");
+  const [publishMode, setPublishMode] = useState<PublishMode>("draft");
 
   useEffect(() => {
     if (isAdmin === false) {
@@ -56,29 +58,29 @@ export const useArticleEditor = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       if (!isEditing || !id) {
-        console.log('🔍 fetchArticle: pas d\'édition ou pas d\'ID', { isEditing, id });
+        logger.debug('fetchArticle: pas d\'édition ou pas d\'ID', { isEditing, id });
         return;
       }
 
       try {
-        console.log('🔍 fetchArticle: début du chargement pour ID:', id);
+        logger.debug('fetchArticle: début du chargement pour ID:', id);
         setIsLoading(true);
 
         const { data, error } = await getArticleById(id);
 
-        console.log('📦 getArticleById résultat:', { data: !!data, error: error?.message });
+        logger.debug('getArticleById résultat:', { hasData: !!data, error: error?.message });
 
         if (error) {
-          console.error('❌ Erreur Supabase:', error);
+          logger.error('Erreur Supabase:', error);
           throw error;
         }
 
         if (!data) {
-          console.error('❌ Article non trouvé pour ID:', id);
+          logger.error('Article non trouvé pour ID:', id);
           throw new Error(`Article non trouvé pour l'ID: ${id}`);
         }
 
-        console.log("✅ Article récupéré:", data.title);
+        logger.debug("Article récupéré:", data.title);
         setArticle(data);
 
         if (data.scheduled_for) {
@@ -89,17 +91,18 @@ export const useArticleEditor = () => {
         } else {
           setPublishMode("draft");
         }
-      } catch (error: any) {
-        console.error("❌ Erreur lors de la récupération de l'article:", error);
+      } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : "Erreur inconnue";
+        logger.error("Erreur lors de la récupération de l'article:", error);
         toast({
           title: "Erreur de chargement",
-          description: error?.message || "Impossible de charger l'article. Vérifiez que l'ID est correct.",
+          description: errorMessage || "Impossible de charger l'article. Vérifiez que l'ID est correct.",
           variant: "destructive"
         });
         // Redirection après 2 secondes pour laisser le temps de voir l'erreur
         setTimeout(() => navigate('/admin-blog/articles'), 2000);
       } finally {
-        console.log('🏁 fetchArticle: fin du chargement');
+        logger.debug('fetchArticle: fin du chargement');
         setIsLoading(false);
       }
     };
@@ -162,8 +165,8 @@ export const useArticleEditor = () => {
     setArticle(prev => ({ ...prev, keywords }));
   };
 
-  const handlePublishModeChange = (mode: "draft" | "publish" | "schedule") => {
-    console.log("Changement de mode de publication:", mode);
+  const handlePublishModeChange = (mode: PublishMode) => {
+    logger.debug("Changement de mode de publication:", mode);
     setPublishMode(mode);
 
     if (mode === "publish") {
@@ -200,7 +203,7 @@ export const useArticleEditor = () => {
   };
 
   const handleCategoriesChange = (categories: string[]) => {
-    console.log("Nouvelles catégories sélectionnées:", categories);
+    logger.debug("Nouvelles catégories sélectionnées:", categories);
     setArticle(prev => ({ ...prev, categories }));
   };
 
@@ -229,9 +232,9 @@ export const useArticleEditor = () => {
     setIsUploadingImage(true);
 
     try {
-      console.log('🚀 Upload vers Supabase Storage...');
+      logger.debug('Upload vers Supabase Storage...');
 
-      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      const fileExtension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
       const timestamp = Date.now();
       const random = Math.random().toString(36).substring(2, 8);
 
@@ -244,7 +247,7 @@ export const useArticleEditor = () => {
 
       const fileName = `${baseName}-${timestamp}-${random}.${fileExtension}`;
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('blog_images')
         .upload(fileName, file, {
           cacheControl: '3600',
@@ -252,7 +255,7 @@ export const useArticleEditor = () => {
         });
 
       if (uploadError) {
-        console.error('❌ Erreur upload:', uploadError);
+        logger.error('Erreur upload:', uploadError);
         throw uploadError;
       }
 
@@ -260,7 +263,7 @@ export const useArticleEditor = () => {
         .from('blog_images')
         .getPublicUrl(fileName);
 
-      console.log('✅ Image uploadée:', urlData.publicUrl);
+      logger.debug('Image uploadée:', urlData.publicUrl);
 
       setArticle(prev => ({
         ...prev,
@@ -279,12 +282,12 @@ export const useArticleEditor = () => {
             .eq('id', article.id);
 
           if (updateError) {
-            console.warn('⚠️ Erreur mise à jour DB (non critique):', updateError);
+            logger.warn('Erreur mise à jour DB (non critique):', updateError);
           } else {
-            console.log('✅ Base de données mise à jour');
+            logger.debug('Base de données mise à jour');
           }
         } catch (dbError) {
-          console.warn('⚠️ Erreur DB non critique:', dbError);
+          logger.warn('Erreur DB non critique:', dbError);
         }
       }
 
@@ -293,8 +296,8 @@ export const useArticleEditor = () => {
         description: "Image uploadée avec succès"
       });
 
-    } catch (error: any) {
-      console.error('❌ Erreur handleImageUpload:', error);
+    } catch (error) {
+      logger.error('Erreur handleImageUpload:', error);
       toast({
         title: "Erreur",
         description: "Erreur lors de l'upload de l'image",
@@ -330,7 +333,7 @@ export const useArticleEditor = () => {
     try {
       setIsSaving(true);
 
-      const articleToSave = {
+      const articleToSave: Partial<Article> = {
         ...article,
         meta_description: article.seo_description || article.meta_description || "",
         author: article.author || user?.email || 'Admin',
@@ -350,8 +353,8 @@ export const useArticleEditor = () => {
         articleToSave.scheduled_for = undefined;
       }
 
-      console.log("Sauvegarde de l'article avec mode:", publishMode);
-      console.log("Article à sauvegarder:", articleToSave);
+      logger.debug("Sauvegarde de l'article avec mode:", publishMode);
+      logger.debug("Article à sauvegarder:", articleToSave);
 
       const { data, error } = await saveArticle(articleToSave);
 
@@ -378,11 +381,12 @@ export const useArticleEditor = () => {
       });
 
       navigate('/admin-blog/articles');
-    } catch (error: any) {
-      console.error("Erreur lors de la sauvegarde de l'article:", error);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Erreur inconnue";
+      logger.error("Erreur lors de la sauvegarde de l'article:", error);
       toast({
         title: "Erreur",
-        description: "Erreur lors de la sauvegarde",
+        description: errorMessage || "Erreur lors de la sauvegarde",
         variant: "destructive"
       });
     } finally {

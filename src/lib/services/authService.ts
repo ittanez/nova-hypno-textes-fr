@@ -1,5 +1,6 @@
 
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/lib/logger';
 
 export interface AuthCredentials {
   email: string;
@@ -37,20 +38,20 @@ export async function checkIsAdmin() {
   }
 
   try {
-    console.log("Vérification du statut admin pour:", session.user.id);
+    logger.debug("Verification du statut admin pour:", session.user.id);
     const { data, error } = await supabase.rpc('is_admin', {
       user_id: session.user.id
     });
 
     if (error) {
-      console.error('Erreur lors de la vérification des droits admin:', error);
+      logger.error('Erreur lors de la verification des droits admin:', error);
       return { isAdmin: false, error };
     }
 
-    console.log("Résultat de la vérification admin:", data);
+    logger.debug("Resultat de la verification admin:", data);
     return { isAdmin: !!data, error: null };
   } catch (error) {
-    console.error('Exception lors de la vérification des droits admin:', error);
+    logger.error('Exception lors de la verification des droits admin:', error);
     return { isAdmin: false, error };
   }
 }
@@ -70,7 +71,7 @@ export async function getCurrentSession() {
 export async function resetPassword(email: string) {
   // Utilisation de l'URL complète pour s'assurer de la redirection correcte
   const resetUrl = `${window.location.origin}/admin/reset-password`;
-  console.log("URL de redirection pour la réinitialisation:", resetUrl);
+  logger.debug("URL de redirection pour la reinitialisation:", resetUrl);
   
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: resetUrl,

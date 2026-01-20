@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/lib/logger';
 
 interface AuthError {
   message: string;
@@ -76,13 +77,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         .single();
 
       if (error) {
-        console.error('Error checking admin status:', error);
+        logger.error('Error checking admin status:', error);
         setIsAdmin(false);
       } else {
         setIsAdmin(!!data);
       }
     } catch (error) {
-      console.error('Error checking admin status:', error);
+      logger.error('Error checking admin status:', error);
       setIsAdmin(false);
     } finally {
       setIsCheckingAdmin(false);

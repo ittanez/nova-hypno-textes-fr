@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
@@ -27,8 +26,9 @@ import RelatedArticles from "@/components/blog/RelatedArticles";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
 import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
-import { Article } from "@/lib/types/blog";
+import { Article, Category } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
+import { logger } from "@/lib/logger";
 
 // ✅ FONCTION POUR OBTENIR LES ARTICLES ADJACENTS
 const getAdjacentArticles = (currentArticle: Article, allArticles: Article[]) => {
@@ -44,37 +44,40 @@ const getAdjacentArticles = (currentArticle: Article, allArticles: Article[]) =>
   };
 };
 
-// ✅ FONCTION DE PARSING DES TAGS ROBUSTE
-const parseTagsForDisplay = (tags: any): string[] => {
+// Type pour les tags qui peuvent avoir différents formats
+type TagInput = string | string[] | { name: string }[] | null | undefined;
+
+// Fonction de parsing des tags robuste
+const parseTagsForDisplay = (tags: TagInput): string[] => {
   if (!tags) return [];
-  
+
   if (Array.isArray(tags) && tags.every(tag => typeof tag === 'string')) {
-    return tags;
+    return tags as string[];
   }
-  
+
   if (Array.isArray(tags)) {
     return tags.map(tag => {
       if (typeof tag === 'string') return tag;
-      if (tag && typeof tag === 'object' && tag.name) return tag.name;
+      if (tag && typeof tag === 'object' && 'name' in tag) return tag.name;
       return null;
-    }).filter(Boolean);
+    }).filter((tag): tag is string => tag !== null);
   }
-  
+
   if (typeof tags === 'string') {
     try {
-      const parsed = JSON.parse(tags);
+      const parsed = JSON.parse(tags) as unknown;
       if (Array.isArray(parsed)) {
         return parsed.map(tag => {
           if (typeof tag === 'string') return tag;
-          if (tag && typeof tag === 'object' && tag.name) return tag.name;
+          if (tag && typeof tag === 'object' && tag !== null && 'name' in tag) return (tag as { name: string }).name;
           return null;
-        }).filter(Boolean);
+        }).filter((tag): tag is string => tag !== null);
       }
-    } catch (e) {
+    } catch {
       return [tags];
     }
   }
-  
+
   return [];
 };
 
@@ -84,9 +87,9 @@ const ArticlePage = () => {
   const { isAdmin } = useAuth();
   const [article, setArticle] = useState<Article | null>(null);
   const [allArticles, setAllArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<Error | null>(null);
 
   // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
   const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';

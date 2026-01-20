@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
+import { logger } from '@/lib/logger';
 
 const AdminLogin = () => {
   const { login, isLoading } = useAuth();
@@ -13,10 +14,10 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('🔐 Login attempt:', { email, hasPassword: !!password });
+    logger.debug('Login attempt:', { email, hasPassword: !!password });
 
     if (!email || !password) {
-      console.log('❌ Missing fields');
+      logger.debug('Missing fields');
       toast({
         title: "Erreur",
         description: "Veuillez remplir tous les champs",
@@ -25,19 +26,19 @@ const AdminLogin = () => {
       return;
     }
 
-    console.log('🚀 Calling login...');
+    logger.debug('Calling login...');
     const { error } = await login(email, password);
-    console.log('📥 Login response:', { error });
+    logger.debug('Login response:', { error });
 
     if (error) {
-      console.error('❌ Login error:', error);
+      logger.error('Login error:', error);
       toast({
         title: "Erreur de connexion",
         description: error.message || "Identifiants invalides",
         variant: "destructive",
       });
     } else {
-      console.log('✅ Login successful! Redirecting to dashboard...');
+      logger.debug('Login successful! Redirecting to dashboard...');
       // Rediriger vers le dashboard après login réussi
       navigate('/admin-blog/dashboard');
     }

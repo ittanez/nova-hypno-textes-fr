@@ -9,6 +9,7 @@ import Mail from 'lucide-react/dist/esm/icons/mail';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import XCircle from 'lucide-react/dist/esm/icons/x-circle';
 import Search from 'lucide-react/dist/esm/icons/search';
+import { logger } from '@/lib/logger';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -81,7 +82,7 @@ const AdminSubscribers = () => {
         setSubscribers(mockSubscribers);
         setFilteredSubscribers(mockSubscribers);
       } catch (error) {
-        console.error('Error fetching subscribers:', error);
+        logger.error('Error fetching subscribers:', error);
         toast({
           title: 'Erreur',
           description: 'Impossible de charger la liste des abonnés',

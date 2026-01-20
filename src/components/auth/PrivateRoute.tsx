@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import { logger } from '@/lib/logger';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
   
   useEffect(() => {
     // Log authentication state to help debug
-    console.log("PrivateRoute - Auth state:", { isAdmin, loading, hasSession: !!session });
+    logger.debug("PrivateRoute - Auth state:", { isAdmin, loading, hasSession: !!session });
     
     // Add security check to prevent timing attacks
     if (session && !isAdmin && !loading && !isLoading) {
@@ -21,7 +22,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
       const securityCheck = async () => {
         const { error } = await logout();
         if (error) {
-          console.error("Error during security logout:", error);
+          logger.error("Error during security logout:", error);
         }
       };
       
@@ -41,13 +42,13 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
   // If not authenticated at all (no session), redirect to login
   if (!session) {
-    console.log("PrivateRoute - No session, redirecting to login");
+    logger.debug("PrivateRoute - No session, redirecting to login");
     return <Navigate to="/admin-blog" replace />;
   }
 
   // If authenticated but not admin, show unauthorized message
   if (!isAdmin) {
-    console.log("PrivateRoute - Not admin, showing unauthorized message");
+    logger.debug("PrivateRoute - Not admin, showing unauthorized message");
     return (
       <div className="flex flex-col justify-center items-center min-h-screen p-4">
         <h1 className="text-2xl font-bold mb-4">Accès non autorisé</h1>
@@ -65,7 +66,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
   }
   
   // If authenticated as admin, render the child routes
-  console.log("PrivateRoute - Admin access granted");
+  logger.debug("PrivateRoute - Admin access granted");
   return <>{children}</>;
 };
 

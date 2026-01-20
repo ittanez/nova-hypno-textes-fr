@@ -1,8 +1,9 @@
 
 // Utilitaire AI minimal pour remplacer les dépendances supprimées
+import { logger } from '@/lib/logger';
 
 export const generateSummaryAndKeywords = async (text: string) => {
-  console.log("Fonction AI appelée mais non implémentée");
+  logger.debug("Fonction AI appelee mais non implementee");
   
   return {
     excerpt: "Extrait généré automatiquement (non implémenté)",

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Article } from '@/lib/types/blog';
 import { getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
+import { logger } from '@/lib/logger';
 
 interface RelatedArticlesProps {
   currentArticleId: string;
@@ -45,7 +46,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
 
         setRelatedArticles(combined);
       } catch (error) {
-        console.error('Error fetching related articles:', error);
+        logger.error('Error fetching related articles:', error);
       } finally {
         setIsLoading(false);
       }

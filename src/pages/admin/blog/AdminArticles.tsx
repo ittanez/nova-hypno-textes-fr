@@ -20,6 +20,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Article } from '@/lib/types/blog';
 import { useAdminArticles } from '@/hooks/useAdminArticles';
+import { logger } from '@/lib/logger';
 
 // Fonction pour déterminer le statut de l'article
 const getArticleStatus = (article: Article) => {
@@ -56,7 +57,7 @@ const AdminArticles = () => {
   } = useAdminArticles();
 
   const handleNewArticle = () => {
-    console.log('Navigation vers nouvel article...');
+    logger.debug('Navigation vers nouvel article...');
     navigate('/admin-blog/article/new');
   };
 
