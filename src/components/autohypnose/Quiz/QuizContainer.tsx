@@ -9,6 +9,7 @@ import QuizResults from "./QuizResults";
 import { toast } from "@/components/ui/sonner";
 import { saveQuizResult, assignPromoCode, sendQuizResultsEmail } from "@/services/quizService";
 import { trackQuizStep, trackConversion, trackFormInteraction } from "@/lib/analytics";
+import { logger } from '@/lib/logger';
 
 const QuizContainer = () => {
   // Quiz states
@@ -110,33 +111,33 @@ const QuizContainer = () => {
       try {
         assignedPromoCode = await assignPromoCode(data.email);
         setPromoCode(assignedPromoCode);
-        console.log("Promo code assigned:", assignedPromoCode);
+        logger.debug("Promo code assigned:", assignedPromoCode);
 
         // Only attempt to send email if we have a promo code
         if (assignedPromoCode) {
           try {
             // Send email with results
-            console.log("Sending email with quiz results to", data.email);
+            logger.debug("Sending email with quiz results to", data.email);
             const emailResult = await sendQuizResultsEmail(data, result, assignedPromoCode);
 
             setEmailSent(emailResult.success);
 
             if (emailResult.success) {
-              console.log("Email sent successfully");
+              logger.debug("Email sent successfully");
               toast.success("Un email avec vos résultats a été envoyé à votre adresse.");
             } else {
-              console.error("Email sending failed:", emailResult.error);
+              logger.error("Email sending failed:", emailResult.error);
               setEmailError(emailResult.error || "Raison inconnue");
               toast.error(`L'envoi de l'email a échoué. ${emailResult.error || "Veuillez réessayer plus tard."}`);
             }
           } catch (emailError) {
-            console.error("Exception during email sending:", emailError);
+            logger.error("Exception during email sending:", emailError);
             setEmailError(emailError instanceof Error ? emailError.message : String(emailError));
             toast.error("Une erreur est survenue lors de l'envoi de l'email. Veuillez réessayer plus tard.");
           }
         }
       } catch (error) {
-        console.error("Failed to assign promo code:", error);
+        logger.error("Failed to assign promo code:", error);
         toast.error("Impossible d'attribuer un code promo. Veuillez nous contacter.");
       }
 
@@ -155,7 +156,7 @@ const QuizContainer = () => {
       toast.success("Votre test a été complété avec succès!");
 
     } catch (error) {
-      console.error("Error processing quiz results:", error);
+      logger.error("Error processing quiz results:", error);
       toast.error("Une erreur est survenue. Veuillez réessayer plus tard.");
     } finally {
       setIsSubmitting(false);

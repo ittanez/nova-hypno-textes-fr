@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Article } from "@/lib/types/blog";
+import { Article, Category } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
 import Search from 'lucide-react/dist/esm/icons/search';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
@@ -10,6 +9,7 @@ import Clock from 'lucide-react/dist/esm/icons/clock';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import NewsletterForm from "@/components/blog/NewsletterForm";
+import { logger } from "@/lib/logger";
 
 const ARTICLES_PER_PAGE = 9;
 
@@ -19,7 +19,7 @@ const BlogMaquette = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [articles, setArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const BlogMaquette = () => {
           setCategories(categoriesResult.data);
         }
       } catch (error) {
-        console.error("Erreur lors du chargement des données:", error);
+        logger.error("Erreur lors du chargement des données:", error);
       } finally {
         setIsLoading(false);
       }

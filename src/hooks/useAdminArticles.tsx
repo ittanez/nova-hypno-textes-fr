@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Article } from "@/lib/types/blog";
 import { getAllArticlesNoPagination, getAllCategories, deleteArticle } from "@/lib/services/blog/articleService";
+import { logger } from '@/lib/logger';
 
 type SortField = 'title' | 'created_at' | 'published_at' | 'status';
 type SortDirection = 'asc' | 'desc';
@@ -32,7 +33,7 @@ export const useAdminArticles = () => {
           setCategories(data);
         }
       } catch (error: unknown) {
-        console.error("Erreur lors de la récupération des catégories:", error);
+        logger.error("Erreur lors de la recuperation des categories:", error);
       }
     };
 
@@ -44,17 +45,17 @@ export const useAdminArticles = () => {
     const fetchArticles = async () => {
       try {
         setIsLoading(true);
-        console.log("Récupération de tous les articles pour l'admin...");
+        logger.debug("Recuperation de tous les articles pour l'admin...");
 
         // Charger TOUS les articles sans pagination (y compris brouillons)
         const { data, error } = await getAllArticlesNoPagination(false);
 
         if (error) {
-          console.error("Erreur lors de la récupération des articles:", error);
+          logger.error("Erreur lors de la recuperation des articles:", error);
           throw error;
         }
 
-        console.log("Articles récupérés pour l'admin:", data?.length || 0);
+        logger.debug("Articles recuperes pour l'admin:", data?.length || 0);
 
         if (data) {
           setAllArticles(data);
@@ -64,7 +65,7 @@ export const useAdminArticles = () => {
           setTotalCount(0);
         }
       } catch (error: unknown) {
-        console.error("Erreur lors de la récupération des articles:", error);
+        logger.error("Erreur lors de la recuperation des articles:", error);
         toast({
           title: "Erreur",
           description: "Impossible de charger les articles",
@@ -165,7 +166,7 @@ export const useAdminArticles = () => {
 
     try {
       setIsLoading(true);
-      console.log("Suppression de l'article:", selectedArticle.id);
+      logger.debug("Suppression de l'article:", selectedArticle.id);
 
       // Appeler la fonction de suppression de la base de données
       const { success, error } = await deleteArticle(selectedArticle.id);
@@ -183,7 +184,7 @@ export const useAdminArticles = () => {
       });
 
     } catch (error: unknown) {
-      console.error("Erreur lors de la suppression de l'article:", error);
+      logger.error("Erreur lors de la suppression de l'article:", error);
       toast({
         title: "Erreur",
         description: "Erreur lors de la suppression",

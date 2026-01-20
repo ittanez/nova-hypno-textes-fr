@@ -1,19 +1,60 @@
-// @ts-nocheck
 import { supabase } from '@/integrations/supabase/client';
 import { Article, Category } from '@/lib/types/blog';
 import { sanitizeData } from '@/lib/utils/textUtils';
 import { notifySubscribersOfNewArticle } from './notificationService';
+import { logger } from '@/lib/logger';
+
+// Types pour les réponses d'API
+interface ArticleResponse {
+  data: Article | null;
+  error: Error | null;
+  redirect?: { from: string; to: string };
+}
+
+interface ArticlesResponse {
+  data: Article[] | null;
+  error: Error | null;
+  count?: number;
+}
+
+interface CategoryResponse {
+  data: Category | null;
+  error: Error | null;
+}
+
+interface CategoriesResponse {
+  data: Category[] | null;
+  error: Error | null;
+}
+
+interface DeleteResponse {
+  success: boolean;
+  error: Error | null;
+}
+
+interface SlugResponse {
+  slug: string | null;
+  error: Error | null;
+}
 
 // Fonction pour synchroniser un article avec Firebase
-const syncArticleToFirebase = async (article: Article) => {
+const syncArticleToFirebase = async (article: Article): Promise<void> => {
   try {
-    console.log('🔥 Déclenchement synchronisation Firebase pour article:', article.slug);
-    
+    logger.debug('Déclenchement synchronisation Firebase pour article:', article.slug);
+
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      logger.warn('Variables Supabase non configurées pour Firebase sync');
+      return;
+    }
+
     // Appel de la nouvelle edge function to_firebase
-    const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/to_firebase`, {
+    const response = await fetch(`${supabaseUrl}/functions/v1/to_firebase`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        'Authorization': `Bearer ${supabaseAnonKey}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -35,11 +76,11 @@ const syncArticleToFirebase = async (article: Article) => {
       })
     });
 
-    const result = await response.json();
-    
+    const result = await response.json() as { success?: boolean; message?: string; error?: string };
+
     if (response.ok && result.success) {
-      console.log('✅ Synchronisation Firebase réussie:', result.message);
-      
+      logger.debug('Synchronisation Firebase réussie:', result.message);
+
       // Optionnel: Notification de succès
       if (typeof window !== 'undefined' && window.dispatchEvent) {
         window.dispatchEvent(new CustomEvent('firebase-sync-success', {
@@ -47,8 +88,8 @@ const syncArticleToFirebase = async (article: Article) => {
         }));
       }
     } else {
-      console.warn('⚠️ Échec synchronisation Firebase:', result.error || 'Erreur inconnue');
-      
+      logger.warn('Échec synchronisation Firebase:', result.error || 'Erreur inconnue');
+
       // Optionnel: Notification d'erreur
       if (typeof window !== 'undefined' && window.dispatchEvent) {
         window.dispatchEvent(new CustomEvent('firebase-sync-error', {
@@ -57,19 +98,20 @@ const syncArticleToFirebase = async (article: Article) => {
       }
     }
   } catch (error) {
-    console.warn('⚠️ Erreur synchronisation Firebase:', error);
-    
+    const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+    logger.warn('Erreur synchronisation Firebase:', errorMessage);
+
     // Ne pas faire échouer la sauvegarde si Firebase échoue
     if (typeof window !== 'undefined' && window.dispatchEvent) {
       window.dispatchEvent(new CustomEvent('firebase-sync-error', {
-        detail: { articleId: article.id, error: error.message }
+        detail: { articleId: article.id, error: errorMessage }
       }));
     }
   }
 };
 
 // Fonction pour récupérer tous les articles avec pagination
-export const getAllArticles = async (page: number = 1, pageSize: number = 10) => {
+export const getAllArticles = async (page: number = 1, pageSize: number = 10): Promise<ArticlesResponse & { count: number }> => {
   const startIndex = (page - 1) * pageSize;
 
   try {
@@ -84,16 +126,16 @@ export const getAllArticles = async (page: number = 1, pageSize: number = 10) =>
     }
 
     // Nettoyer les données avant de les retourner
-    const sanitizedData = data ? data.map(article => sanitizeData(article)) : null;
-    return { data: sanitizedData, error: null, count };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération des articles:", error);
-    return { data: null, error, count: 0 };
+    const sanitizedData = data ? data.map(article => sanitizeData(article) as Article) : null;
+    return { data: sanitizedData, error: null, count: count || 0 };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des articles:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue'), count: 0 };
   }
 };
 
 // Fonction pour récupérer tous les articles sans pagination
-export const getAllArticlesNoPagination = async (publishedOnly: boolean = true) => {
+export const getAllArticlesNoPagination = async (publishedOnly: boolean = true): Promise<ArticlesResponse> => {
   try {
     let query = supabase
       .from('articles')
@@ -110,15 +152,15 @@ export const getAllArticlesNoPagination = async (publishedOnly: boolean = true) 
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération des articles:", error);
-    return { data: null, error };
+    return { data: data as Article[], error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des articles:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour récupérer un article par son ID
-export const getArticleById = async (id: string) => {
+export const getArticleById = async (id: string): Promise<ArticleResponse> => {
   try {
     const { data, error } = await supabase
       .from('articles')
@@ -130,40 +172,42 @@ export const getArticleById = async (id: string) => {
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération de l'article:", error);
-    return { data: null, error };
+    return { data: data as Article, error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération de l'article:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour récupérer un article par son slug
-export const getArticleBySlug = async (slug: string) => {
+export const getArticleBySlug = async (slug: string): Promise<ArticleResponse> => {
   try {
     const { data, error } = await supabase
       .from('articles')
       .select('*')
       .eq('slug', slug)
       .single();
-    
+
     if (error) {
       // Vérifier si l'erreur est due à une redirection
       if (error.message.includes('redirect')) {
-        const redirectSlug = error.message.split('redirect:')[1].trim();
-        return { data: null, error: null, redirect: { from: slug, to: redirectSlug } };
+        const redirectSlug = error.message.split('redirect:')[1]?.trim();
+        if (redirectSlug) {
+          return { data: null, error: null, redirect: { from: slug, to: redirectSlug } };
+        }
       }
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération de l'article:", error);
-    return { data: null, error };
+    return { data: data as Article, error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération de l'article:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour récupérer les articles populaires (par exemple, les plus récents)
-export const getPopularArticles = async (limit: number = 3) => {
+export const getPopularArticles = async (limit: number = 3): Promise<ArticlesResponse> => {
   try {
     const { data, error } = await supabase
       .from('articles')
@@ -175,15 +219,15 @@ export const getPopularArticles = async (limit: number = 3) => {
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération des articles populaires:", error);
-    return { data: null, error };
+    return { data: data as Article[], error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des articles populaires:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour récupérer les articles similaires (basé sur les tags ou catégories)
-export const getRelatedArticles = async (articleId: string, limit: number = 3) => {
+export const getRelatedArticles = async (articleId: string, limit: number = 3): Promise<ArticlesResponse> => {
   try {
     // Récupérer l'article actuel pour obtenir ses tags ou catégories
     const { data: article, error: articleError } = await supabase
@@ -205,22 +249,52 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3) =
       .from('articles')
       .select('*')
       .neq('id', articleId) // Exclure l'article actuel
-      .overlaps('tags', article.tags) // Filtrer par tags similaires
+      .overlaps('tags', article.tags || []) // Filtrer par tags similaires
       .limit(limit);
 
     if (error) {
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération des articles similaires:", error);
-    return { data: null, error };
+    return { data: data as Article[], error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des articles similaires:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
+  }
+};
+
+// Helper pour notifier Google Search Console
+const notifyGoogleSearchConsole = async (): Promise<void> => {
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    logger.warn('Variables Supabase non configurées pour Google notification');
+    return;
+  }
+
+  try {
+    const response = await fetch(`${supabaseUrl}/functions/v1/notify-google-sitemap`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${supabaseAnonKey}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const result = await response.json() as { success?: boolean; message?: string };
+    if (result.success) {
+      logger.debug('Google Search Console notifié avec succès');
+    } else {
+      logger.warn('Google Search Console non notifié:', result.message);
+    }
+  } catch (error) {
+    logger.warn('Erreur notification Google (non bloquant):', error);
   }
 };
 
 // Fonction pour sauvegarder un article (création ou mise à jour)
-export const saveArticle = async (article: Partial<Article>) => {
+export const saveArticle = async (article: Partial<Article>): Promise<ArticleResponse> => {
   try {
     if (article.id) {
       // Mise à jour d'un article existant
@@ -252,10 +326,10 @@ export const saveArticle = async (article: Partial<Article>) => {
 
       // Synchroniser avec Firebase si l'article est publié
       if (data && article.published) {
-        await syncArticleToFirebase(data);
+        await syncArticleToFirebase(data as Article);
 
         // Notifier les abonnés de la mise à jour si passage de brouillon à publié
-        console.log('🔔 Vérification si notification nécessaire...');
+        logger.debug('Vérification si notification nécessaire...');
         await notifySubscribersOfNewArticle(
           data.id,
           data.title,
@@ -264,28 +338,11 @@ export const saveArticle = async (article: Partial<Article>) => {
         );
 
         // Notifier Google Search Console du nouveau contenu
-        console.log('🔔 Notification Google Search Console...');
-        try {
-          const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-google-sitemap`, {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-              'Content-Type': 'application/json'
-            }
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            console.log('✅ Google Search Console notifié avec succès');
-          } else {
-            console.warn('⚠️ Google Search Console non notifié:', result.message);
-          }
-        } catch (error) {
-          console.warn('⚠️ Erreur notification Google (non bloquant):', error);
-        }
+        logger.debug('Notification Google Search Console...');
+        await notifyGoogleSearchConsole();
       }
 
-      return { data, error: null };
+      return { data: data as Article, error: null };
     } else {
       // Création d'un nouvel article
       const { data, error } = await supabase
@@ -315,10 +372,10 @@ export const saveArticle = async (article: Partial<Article>) => {
 
       // Synchroniser avec Firebase et notifier si l'article est publié
       if (data && article.published) {
-        await syncArticleToFirebase(data);
+        await syncArticleToFirebase(data as Article);
 
         // Notifier les abonnés du nouvel article
-        console.log('🔔 Notification des abonnés pour le nouvel article...');
+        logger.debug('Notification des abonnés pour le nouvel article...');
         await notifySubscribersOfNewArticle(
           data.id,
           data.title,
@@ -327,37 +384,20 @@ export const saveArticle = async (article: Partial<Article>) => {
         );
 
         // Notifier Google Search Console du nouveau contenu
-        console.log('🔔 Notification Google Search Console...');
-        try {
-          const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-google-sitemap`, {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-              'Content-Type': 'application/json'
-            }
-          });
-
-          const result = await response.json();
-          if (result.success) {
-            console.log('✅ Google Search Console notifié avec succès');
-          } else {
-            console.warn('⚠️ Google Search Console non notifié:', result.message);
-          }
-        } catch (error) {
-          console.warn('⚠️ Erreur notification Google (non bloquant):', error);
-        }
+        logger.debug('Notification Google Search Console...');
+        await notifyGoogleSearchConsole();
       }
 
-      return { data, error: null };
+      return { data: data as Article, error: null };
     }
-  } catch (error: unknown) {
-    console.error('Erreur lors de la sauvegarde de l\'article:', error);
-    return { data: null, error };
+  } catch (error) {
+    logger.error('Erreur lors de la sauvegarde de l\'article:', error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour supprimer un article
-export const deleteArticle = async (articleId: string) => {
+export const deleteArticle = async (articleId: string): Promise<DeleteResponse> => {
   try {
     const { error } = await supabase
       .from('articles')
@@ -366,27 +406,27 @@ export const deleteArticle = async (articleId: string) => {
 
     if (error) throw error;
     return { success: true, error: null };
-  } catch (error: unknown) {
-    console.error('Erreur lors de la suppression de l\'article:', error);
-    return { success: false, error };
+  } catch (error) {
+    logger.error('Erreur lors de la suppression de l\'article:', error);
+    return { success: false, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour générer un slug unique
-export const generateUniqueSlug = async (title: string, existingId?: string): Promise<{ slug: string | null, error: unknown | null }> => {
+export const generateUniqueSlug = async (title: string, existingId?: string): Promise<SlugResponse> => {
   let slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   let count = 0;
   const originalSlug = slug;
 
   try {
     while (true) {
-      const { data, error, count: resultCount } = await supabase
+      const { data, error } = await supabase
         .from('articles')
         .select('id', { count: 'exact' })
         .eq('slug', slug);
 
       if (error) {
-        console.error("Erreur lors de la vérification du slug:", error);
+        logger.error("Erreur lors de la vérification du slug:", error);
         return { slug: null, error };
       }
 
@@ -401,14 +441,14 @@ export const generateUniqueSlug = async (title: string, existingId?: string): Pr
       count++;
       slug = `${originalSlug}-${count}`;
     }
-  } catch (error: unknown) {
-    console.error("Erreur lors de la génération du slug unique:", error);
-    return { slug: null, error };
+  } catch (error) {
+    logger.error("Erreur lors de la génération du slug unique:", error);
+    return { slug: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
 // Fonction pour récupérer toutes les catégories
-export const getAllCategories = async () => {
+export const getAllCategories = async (): Promise<CategoriesResponse> => {
   try {
     const { data, error } = await supabase
       .from('categories')
@@ -419,15 +459,15 @@ export const getAllCategories = async () => {
       throw error;
     }
 
-    return { data, error: null };
-  } catch (error: unknown) {
-    console.error("Erreur lors de la récupération des catégories:", error);
-    return { data: null, error };
+    return { data: data as Category[], error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des catégories:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
-// ✅ AJOUTÉ : Fonction saveCategory manquante
-export const saveCategory = async (category: Partial<Category>) => {
+// Fonction saveCategory
+export const saveCategory = async (category: Partial<Category>): Promise<CategoryResponse> => {
   try {
     if (category.id) {
       // Mise à jour d'une catégorie existante
@@ -442,9 +482,9 @@ export const saveCategory = async (category: Partial<Category>) => {
         .eq('id', category.id)
         .select()
         .single();
-      
+
       if (error) throw error;
-      return { data, error: null };
+      return { data: data as Category, error: null };
     } else {
       // Création d'une nouvelle catégorie
       const { data, error } = await supabase
@@ -457,28 +497,28 @@ export const saveCategory = async (category: Partial<Category>) => {
         })
         .select()
         .single();
-      
+
       if (error) throw error;
-      return { data, error: null };
+      return { data: data as Category, error: null };
     }
-  } catch (error: unknown) {
-    console.error('Erreur lors de la sauvegarde de la catégorie:', error);
-    return { data: null, error };
+  } catch (error) {
+    logger.error('Erreur lors de la sauvegarde de la catégorie:', error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };
 
-// ✅ AJOUTÉ : Fonction deleteCategory manquante
-export const deleteCategory = async (categoryId: string) => {
+// Fonction deleteCategory
+export const deleteCategory = async (categoryId: string): Promise<DeleteResponse> => {
   try {
     const { error } = await supabase
       .from('categories')
       .delete()
       .eq('id', categoryId);
-    
+
     if (error) throw error;
     return { success: true, error: null };
-  } catch (error: unknown) {
-    console.error('Erreur lors de la suppression de la catégorie:', error);
-    return { success: false, error };
+  } catch (error) {
+    logger.error('Erreur lors de la suppression de la catégorie:', error);
+    return { success: false, error: error instanceof Error ? error : new Error('Erreur inconnue') };
   }
 };

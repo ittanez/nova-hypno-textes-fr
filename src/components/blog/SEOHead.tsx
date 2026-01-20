@@ -2,6 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { SchemaMarkup } from "@/types/schema";
+import { logger } from '@/lib/logger';
 
 // Fonction pour sécuriser le JSON-LD et éviter les erreurs de syntaxe JavaScript
 const safeJSONStringify = (data: unknown): string => {
@@ -18,7 +19,7 @@ const safeJSONStringify = (data: unknown): string => {
       // eslint-disable-next-line no-control-regex
       .replace(/[\u0000-\u001f\u007f-\u009f]/g, '');
   } catch (error) {
-    console.error('Erreur JSON.stringify:', error);
+    logger.error('Erreur JSON.stringify:', error);
     return '{}';
   }
 };

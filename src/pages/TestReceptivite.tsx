@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
@@ -16,6 +15,7 @@ import { ResultsStep } from '@/components/receptivite/test/ResultsStep';
 import { Answer, calculateScore, TestResult } from '@/utils/receptivite/calculateScore';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/lib/logger';
 
 const TestReceptivite = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'vakog' | 'email' | 'results'>('intro');
@@ -97,7 +97,7 @@ const TestReceptivite = () => {
         });
 
       if (insertError) {
-        console.error('Error saving results:', insertError);
+        logger.error('Error saving results:', insertError);
       }
 
       const { error: emailError } = await supabase.functions.invoke('send-hypnokick-results', {
@@ -113,7 +113,7 @@ const TestReceptivite = () => {
       });
 
       if (emailError) {
-        console.error('Error sending email:', emailError);
+        logger.error('Error sending email:', emailError);
         toast.error("Une erreur est survenue lors de l'envoi de l'email");
       } else {
         toast.success('Email envoyé avec succès !');
@@ -121,7 +121,7 @@ const TestReceptivite = () => {
 
       setCurrentStep('results');
     } catch (error) {
-      console.error('Error processing results:', error);
+      logger.error('Error processing results:', error);
       toast.error('Une erreur est survenue');
     } finally {
       setIsSubmitting(false);

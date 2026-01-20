@@ -2,6 +2,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { Answer, DimensionResult, QuizResult, UserData } from "@/types/quiz";
 import { Json } from "@/integrations/supabase/types";
+import { logger } from '@/lib/logger';
 
 export interface SaveQuizResultParams {
   userData: UserData;
@@ -24,13 +25,13 @@ export const saveQuizResult = async ({ userData, quizResult, answers }: SaveQuiz
       .select();
 
     if (error) {
-      console.error("Error saving quiz results:", error);
+      logger.error("Error saving quiz results:", error);
       throw error;
     }
 
     return data;
   } catch (error) {
-    console.error("Error in saveQuizResult:", error);
+    logger.error("Error in saveQuizResult:", error);
     throw error;
   }
 };
@@ -42,13 +43,13 @@ export const assignPromoCode = async (userEmail: string) => {
     });
 
     if (error) {
-      console.error("Error calling assign-promo-code function:", error);
+      logger.error("Error calling assign-promo-code function:", error);
       throw new Error("Failed to assign promo code");
     }
 
     return data.promoCode;
   } catch (error) {
-    console.error("Error assigning promo code:", error);
+    logger.error("Error assigning promo code:", error);
     throw error;
   }
 };
@@ -68,13 +69,13 @@ export const sendQuizResultsEmail = async (userData: UserData, quizResult: QuizR
     });
 
     if (response.error) {
-      console.error("Email sending failed:", response.error);
+      logger.error("Email sending failed:", response.error);
       return { success: false, error: "Erreur d'envoi d'email" };
     }
 
     return { success: true };
   } catch (error) {
-    console.error("Error sending quiz results email:", error);
+    logger.error("Error sending quiz results email:", error);
     return { 
       success: false, 
       error: error instanceof Error ? error.message : String(error)

@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { logger } from '@/lib/logger';
 
 // Fonction pour charger les ressources non critiques après le rendu initial
 const loadNonCriticalResources = () => {
@@ -60,7 +61,7 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
     navigator.serviceWorker
       .register('/sw.js')
       .then((registration) => {
-        console.log('[SW] Service Worker registered successfully:', registration.scope);
+        logger.debug('[SW] Service Worker registered successfully:', registration.scope);
 
         // Vérifier les mises à jour toutes les heures
         setInterval(() => {
@@ -68,7 +69,7 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
         }, 60 * 60 * 1000);
       })
       .catch((error) => {
-        console.log('[SW] Service Worker registration failed:', error);
+        logger.debug('[SW] Service Worker registration failed:', error);
       });
   });
 }

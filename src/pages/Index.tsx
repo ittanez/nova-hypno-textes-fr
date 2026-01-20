@@ -14,6 +14,7 @@ import { Helmet } from 'react-helmet';
 import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
+import { logger } from '@/lib/logger';
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
@@ -68,7 +69,7 @@ const Index: React.FC = () => {
           }),
         ]);
       } catch (error) {
-        console.error('Erreur lors du préchargement des données blog:', error);
+        logger.error('Erreur lors du prechargement des donnees blog:', error);
       }
     };
 

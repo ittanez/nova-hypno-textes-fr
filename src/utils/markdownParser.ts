@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
+import { logger } from '@/lib/logger';
 
 /**
  * Parse le contenu pour corriger les problèmes de formatage
@@ -57,7 +58,7 @@ export const parseMarkdownToHtml = (content: string): string => {
       ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id', 'target', 'rel']
     });
   } catch (error) {
-    console.error('Erreur lors du parsing Markdown:', error);
+    logger.error('Erreur lors du parsing Markdown:', error);
     // En cas d'erreur, retourner le contenu tel quel avec les paragraphes
     return `<p>${processed.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>`;
   }

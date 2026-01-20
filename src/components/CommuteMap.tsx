@@ -7,6 +7,7 @@ import Car from 'lucide-react/dist/esm/icons/car';
 import Train from 'lucide-react/dist/esm/icons/train';
 import Bike from 'lucide-react/dist/esm/icons/bike';
 import Footprints from 'lucide-react/dist/esm/icons/footprints';
+import { logger } from '@/lib/logger';
 
 // Coordonnées du cabinet (16 rue Saint Antoine, 75004 Paris)
 const CABINET_LOCATION = {
@@ -154,7 +155,7 @@ const CommuteMap: React.FC = () => {
       }
     } catch (err) {
       setError('Impossible de calculer l\'itinéraire. Veuillez vérifier l\'adresse.');
-      console.error('Directions error:', err);
+      logger.error('Directions error:', err);
     } finally {
       setLoading(false);
     }

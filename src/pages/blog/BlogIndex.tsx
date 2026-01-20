@@ -1,7 +1,6 @@
-// @ts-nocheck
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Article } from "@/lib/types/blog";
+import { Article, Category } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
 import SEOHead from "@/components/blog/SEOHead";
 import Breadcrumb from "@/components/blog/Breadcrumb";
@@ -13,6 +12,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import { useQuery } from "@tanstack/react-query";
+import { logger } from "@/lib/logger";
 
 const ARTICLES_PER_PAGE = 9;
 
@@ -30,11 +30,11 @@ const BlogIndex = () => {
   const { data: articlesData, isLoading: articlesLoading, isFetching: articlesFetching } = useQuery({
     queryKey: ['blog-articles'],
     queryFn: async () => {
-      console.log('📥 [Blog] Chargement des articles depuis Supabase...');
+      logger.debug('📥 [Blog] Chargement des articles depuis Supabase...');
       const startTime = performance.now();
       const result = await getAllArticlesNoPagination();
       const endTime = performance.now();
-      console.log(`✅ [Blog] Articles chargés en ${Math.round(endTime - startTime)}ms`);
+      logger.debug(`✅ [Blog] Articles chargés en ${Math.round(endTime - startTime)}ms`);
       return result.data || [];
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -44,11 +44,11 @@ const BlogIndex = () => {
   const { data: categoriesData, isLoading: categoriesLoading, isFetching: categoriesFetching } = useQuery({
     queryKey: ['blog-categories'],
     queryFn: async () => {
-      console.log('📥 [Blog] Chargement des catégories depuis Supabase...');
+      logger.debug('📥 [Blog] Chargement des catégories depuis Supabase...');
       const startTime = performance.now();
       const result = await getAllCategories();
       const endTime = performance.now();
-      console.log(`✅ [Blog] Catégories chargées en ${Math.round(endTime - startTime)}ms`);
+      logger.debug(`✅ [Blog] Catégories chargées en ${Math.round(endTime - startTime)}ms`);
       return result.data || [];
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -62,7 +62,7 @@ const BlogIndex = () => {
   // Afficher un indicateur si les données viennent du cache
   useEffect(() => {
     if (!isLoading && articles.length > 0) {
-      console.log('⚡ [Blog] Données affichées depuis le cache React Query');
+      logger.debug('⚡ [Blog] Données affichées depuis le cache React Query');
     }
   }, [isLoading, articles.length]);
 

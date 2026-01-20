@@ -4,6 +4,7 @@ import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
+import { logger } from '@/lib/logger';
 
 interface BlogArticle {
   id: string;
@@ -34,7 +35,7 @@ const BlogArticlesSlider: React.FC = () => {
   useEffect(() => {
     const fetchLatestArticles = async () => {
       try {
-        console.log('🔄 Récupération automatique des articles...');
+        logger.debug('Recuperation automatique des articles...');
         
         // ✅ Appel direct à Supabase depuis novahypnose.fr
         const response = await fetch(
@@ -53,7 +54,7 @@ const BlogArticlesSlider: React.FC = () => {
         }
 
         const data = await response.json();
-        console.log('📊 Articles récupérés automatiquement:', data.length);
+        logger.debug('Articles recuperes automatiquement:', data.length);
         
         // ✅ Transformer les données pour le slider
         const transformedArticles = data.map((article: BlogArticle) => ({
@@ -69,10 +70,10 @@ const BlogArticlesSlider: React.FC = () => {
         }));
         
         setArticles(transformedArticles);
-        console.log('✅ Articles transformés:', transformedArticles.length);
+        logger.debug('Articles transformes:', transformedArticles.length);
         
       } catch (err) {
-        console.error('❌ Erreur récupération automatique:', err);
+        logger.error('Erreur recuperation automatique:', err);
         setError('Impossible de charger les articles du blog');
       } finally {
         setIsLoading(false);

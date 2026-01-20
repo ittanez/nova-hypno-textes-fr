@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
 import { Article } from "@/lib/types/blog";
+import { logger } from '@/lib/logger';
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState<any[]>([]);
@@ -23,7 +24,7 @@ const CategoriesPage = () => {
         setCategories(categoriesResponse.data || []);
         setArticles(articlesResponse.data || []);
       } catch (error) {
-        console.error("Error loading categories:", error);
+        logger.error("Error loading categories:", error);
       } finally {
         setLoading(false);
       }

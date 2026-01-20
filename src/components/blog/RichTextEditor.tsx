@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Label } from "@/components/ui/label";
 import { Editor } from '@tinymce/tinymce-react';
 import { Textarea } from "@/components/ui/textarea";
+import { logger } from '@/lib/logger';
 
 // Import TinyMCE
 import 'tinymce/tinymce';
@@ -61,10 +62,10 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
 
   // Timeout après 10 secondes si TinyMCE ne charge pas
   useEffect(() => {
-    console.log('🔄 RichTextEditor: Démarrage du timeout (10s)');
+    logger.debug('RichTextEditor: Demarrage du timeout (10s)');
     const timer = setTimeout(() => {
       if (!isReady) {
-        console.warn('⚠️ TinyMCE n\'a pas chargé après 10s - Basculement sur textarea');
+        logger.warn('TinyMCE n\'a pas charge apres 10s - Basculement sur textarea');
         setLoadingTimeout(true);
       }
     }, 10000);
@@ -105,7 +106,7 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
       <div style={{ display: isReady ? 'block' : 'none' }}>
         <Editor
           onInit={(evt, editor) => {
-            console.log('✅ TinyMCE chargé avec succès (version locale)');
+            logger.debug('TinyMCE charge avec succes (version locale)');
             editorRef.current = editor as TinyMCEEditor;
             setIsReady(true);
           }}

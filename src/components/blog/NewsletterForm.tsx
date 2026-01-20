@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { toast } from "@/hooks/use-toast";
 import { addSubscriber } from "@/lib/services/blog/subscriberService";
 import Bell from 'lucide-react/dist/esm/icons/bell';
+import { logger } from '@/lib/logger';
 
 const NewsletterForm = () => {
   const [email, setEmail] = useState("");
@@ -37,11 +38,11 @@ const NewsletterForm = () => {
     setIsLoading(true);
     
     try {
-      console.log('Début de l\'inscription pour:', email);
+      logger.debug('Début de l\'inscription pour:', email);
       const { data, error } = await addSubscriber(email);
       
       if (error) {
-        console.error('Erreur reçue:', error);
+        logger.error('Erreur reçue:', error);
 
         // Gestion spécifique de l'erreur de duplication
         if (error.code === '23505') {
@@ -62,7 +63,7 @@ const NewsletterForm = () => {
       }
 
       if (data) {
-        console.log('Inscription réussie pour:', data);
+        logger.debug('Inscription réussie pour:', data);
         toast({
           title: "Inscription réussie !",
           description: "Vous recevrez désormais nos notifications d'articles."
@@ -70,7 +71,7 @@ const NewsletterForm = () => {
         setEmail("");
       }
     } catch (error) {
-      console.error("Exception lors de l'inscription:", error);
+      logger.error("Exception lors de l'inscription:", error);
       toast({
         title: "Erreur",
         description: "Une erreur inattendue est survenue. Veuillez réessayer.",
