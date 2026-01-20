@@ -39,12 +39,16 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   className="block relative group w-full text-left"
                 >
                   <img
-                    src="https://img.youtube.com/vi/r8OUp2OJRp4/hqdefault.jpg"
+                    src="https://i.ytimg.com/vi/r8OUp2OJRp4/oar2.jpg"
                     alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
                     width="480"
                     height="360"
                     className="w-full h-auto object-cover rounded-xl"
                     loading="lazy"
+                    onError={(e) => {
+                      // Fallback si l'image YouTube ne charge pas
+                      e.currentTarget.src = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=480&quality=75';
+                    }}
                   />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                     <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
