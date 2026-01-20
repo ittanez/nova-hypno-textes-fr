@@ -15,7 +15,7 @@ interface VideoModalProps {
 const VideoModal: React.FC<VideoModalProps> = ({
   isOpen,
   onClose,
-  videoId = '4VRNBAoAcAE'
+  videoId = 'r8OUp2OJRp4'
 }) => {
   if (!isOpen) return null;
 
