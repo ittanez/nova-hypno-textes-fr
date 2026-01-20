@@ -1,6 +1,6 @@
 /**
  * Video Modal - Modal pour afficher une vidéo YouTube
- * Extrait de src/pages/Index.tsx pour améliorer la maintenabilité
+ * Supporte les vidéos standard (16:9) et les Shorts (9:16)
  */
 
 import React from 'react';
@@ -10,12 +10,14 @@ interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
   videoId?: string;
+  isShort?: boolean;
 }
 
 const VideoModal: React.FC<VideoModalProps> = ({
   isOpen,
   onClose,
-  videoId = 'r8OUp2OJRp4'
+  videoId = 'r8OUp2OJRp4',
+  isShort = true
 }) => {
   if (!isOpen) return null;
 
@@ -25,7 +27,11 @@ const VideoModal: React.FC<VideoModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden"
+        className={`relative bg-black rounded-lg overflow-hidden ${
+          isShort
+            ? 'w-full max-w-[360px] h-[80vh] max-h-[640px]'
+            : 'w-full max-w-4xl'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -35,15 +41,28 @@ const VideoModal: React.FC<VideoModalProps> = ({
         >
           <X size={24} />
         </button>
-        <div className="relative pt-[56.25%]">
+
+        {isShort ? (
+          // YouTube Shorts - format vertical 9:16
           <iframe
-            className="absolute inset-0 w-full h-full"
+            className="w-full h-full"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
             title="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-        </div>
+        ) : (
+          // Vidéo standard - format horizontal 16:9
+          <div className="relative pt-[56.25%]">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+              title="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
       </div>
     </div>
   );
