@@ -69,7 +69,7 @@ const Program = () => {
   ];
 
   const practicalInfo = [
-    { label: "Date", value: "Dimanche 25 janvier 2026" },
+    { label: "Date", value: "Dimanche 12 avril 2026" },
     { label: "Horaires", value: "9h30 - 17h30 (accueil à partir de 9h00)" },
     { label: "Lieu", value: "Paris Bastille" },
     { label: "Adresse", value: "16 rue Saint Antoine, 75004 Paris" },

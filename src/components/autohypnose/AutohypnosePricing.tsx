@@ -59,7 +59,7 @@ const Pricing = () => {
             <CardHeader className="text-center p-6 bg-nova-blue-light rounded-t-xl">
               <CardTitle className="text-3xl font-bold text-nova-blue-dark">Formation Auto-hypnose Harmonia - Parcours Sérénité</CardTitle>
               <CardDescription className="text-lg text-nova-blue-dark">
-                Dimanche 25 janvier 2026 - Paris Bastille
+                Dimanche 12 avril 2026 - Paris Bastille
               </CardDescription>
             </CardHeader>
             <CardContent className="p-8">
