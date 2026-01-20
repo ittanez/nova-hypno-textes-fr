@@ -13,7 +13,7 @@ const ContentLayout = ({ children }: ContentLayoutProps) => {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         {children}
       </main>
       <ScrollToTop />

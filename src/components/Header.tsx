@@ -72,14 +72,23 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white shadow-md py-2'
-          : 'bg-white/95 backdrop-blur-sm shadow-sm py-2'
-      }`}
-    >
-      <div className="container mx-auto px-4">
+    <>
+      {/* Skip Link pour l'accessibilité clavier */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-nova-blue focus:text-white focus:rounded-md focus:outline-none focus:ring-2 focus:ring-nova-orange"
+      >
+        Aller au contenu principal
+      </a>
+
+      <header
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-white shadow-md py-2'
+            : 'bg-white/95 backdrop-blur-sm shadow-sm py-2'
+        }`}
+      >
+        <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -102,13 +111,14 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <MobileNav
-        isOpen={mobileMenuOpen}
-        onNavClick={handleNavClick}
-        onToggleMenu={toggleMobileMenu}
-      />
-    </header>
+        {/* Mobile Navigation */}
+        <MobileNav
+          isOpen={mobileMenuOpen}
+          onNavClick={handleNavClick}
+          onToggleMenu={toggleMobileMenu}
+        />
+      </header>
+    </>
   );
 };
 
