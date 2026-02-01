@@ -39,7 +39,7 @@ const Hero = memo(() => {
             <a
               href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
               className="px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               Inscrivez-vous maintenant
             </a>
@@ -74,7 +74,7 @@ const Hero = memo(() => {
 
       <div className="absolute bottom-10 w-full flex justify-center animate-bounce z-10">
         <a
-          href="#serenity-test"
+          href="#roadmap"
           className="focus:outline-none focus:ring-2 focus:ring-white rounded-full p-2"
         >
           <ChevronDown size={40} className="text-white" />
