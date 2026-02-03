@@ -15,8 +15,10 @@ const Pricing = () => {
   const features = [
     "✨ Journée complète de formation en petit groupe (max 6 participants)",
     "📚 Matériel pédagogique et support de cours complet",
+    "🎧 Audios guidés d'auto-hypnose à télécharger",
     "☕ Pauses café incluses",
     "📞 Entretien téléphonique de suivi personnalisé (1 mois après)",
+    "🎁 Accès 3 mois gratuit à NovaRespire (app de respiration & relaxation) avec protocole stress personnalisé",
     "💯 Garantie satisfait ou remboursé 14 jours"
   ];
 
@@ -65,9 +67,19 @@ const Pricing = () => {
             <CardContent className="p-8">
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <div className="bg-nova-blue text-white p-4 rounded-lg mb-6">
+                  <div className="bg-nova-blue text-white p-4 rounded-lg mb-4">
                     <p className="text-4xl font-bold mb-2 flex items-baseline">
                       180€ <span className="text-sm ml-2">TTC</span>
+                    </p>
+                  </div>
+
+                  <div className="bg-nova-green/10 p-4 rounded-lg mb-6 border-l-4 border-nova-green">
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <strong>Pour contexte :</strong> Une séance d'hypnothérapie en suivi individuel coûte 150-300€ par séance.
+                      Une formation en ligne coûte 500-800€. Vous retrouvez ici <strong>8h de formation intensive</strong>,
+                      en petit groupe, avec suivi, pour <strong>180€ seulement</strong>. <br/>
+                      <strong>ROI estimé :</strong> si vous retrouvez 2h par jour de productivité en réduisant l'anxiété,
+                      la formation est rentabilisée en 2-3 semaines.
                     </p>
                   </div>
 

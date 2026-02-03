@@ -31,9 +31,21 @@ const Hero = memo(() => {
             Auto-hypnose à Paris Bastille – Formation pour gérer le stress
           </h1>
 
-          <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed">
-            Apprenez les techniques de relaxation mentale et d'auto-régulation émotionnelle en une journée. Cet atelier bien-être Paris vous permettra de développer votre autonomie psychologique et de créer des ancrages positifs durables avec un hypnothérapeute certifié.
+          <p className="text-xl md:text-2xl mb-6 text-white font-semibold leading-relaxed">
+            Pour celles et ceux qui en ont assez de vivre sous tension permanente
           </p>
+
+          <div className="text-lg md:text-xl mb-12 text-white/90 leading-relaxed space-y-4">
+            <p>
+              Si vous êtes cadre stressé, entrepreneur anxieux, manager épuisé ou enseignant au bout du rouleau,
+              cette formation intensive de 1 journée vous offre les outils pour retrouver votre calme <strong>EN MOINS DE 5 MINUTES</strong>,
+              n'importe où, n'importe quand.
+            </p>
+            <p>
+              Apprenez les techniques d'auto-hypnose éprouvées pour accéder à votre inconscient, installer des ancrages
+              positifs durables et reprendre le contrôle face au stress, l'anxiété et l'insomnie.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a

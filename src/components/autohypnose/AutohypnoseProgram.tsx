@@ -9,61 +9,95 @@ import {
 const Program = () => {
   const schedule = [
     {
-      time: "Matin",
-      title: "Module 1: Fondamentaux de l'auto-hypnose",
-      items: [
-        "Accueil et présentation du programme",
-        "Qu'est-ce que l'hypnose et l'auto-hypnose?",
-        "Les mécanismes neurophysiologiques de l'hypnose",
-        "Mythes et réalités sur l'hypnose",
+      time: "🌅 Matin",
+      period: "9h30 - 11h00",
+      title: "Module 1 : Fondamentaux de l'auto-hypnose",
+      learnings: [
+        "Accueil et présentation du parcours",
+        "Définition : qu'est-ce que l'hypnose et l'auto-hypnose exactement ?",
+        "Les mécanismes neurophysiologiques derrière l'hypnose",
+        "Mythes et réalités : démystifier les croyances",
         "Les différents états de conscience et l'état hypnotique",
-        "Exercice pratique: Première expérience d'état modifié de conscience"
+        "Exercice pratique : votre première expérience modifiée de conscience"
+      ],
+      outcomes: [
+        "Comprendre ce qui se passe dans votre cerveau en hypnose",
+        "Identifier vos ressources personnelles pour l'auto-hypnose",
+        "Entrer dans un état de relaxation profonde"
       ]
     },
     {
-      time: "Matin",
-      title: "Module 2: Techniques d'induction hypnotique",
-      items: [
-        "Les différentes méthodes d'induction en auto-hypnose",
-        "Technique de la respiration consciente",
-        "Technique de la focalisation sensorielle",
-        "Technique de la relaxation progressive",
-        "Exercices pratiques: S'initier aux inductions hypnotiques",
-        "Questions et partage d'expériences"
+      time: "🌅 Matin",
+      period: "11h15 - 12h30",
+      title: "Module 2 : Techniques d'induction hypnotique",
+      learnings: [
+        "Les techniques ericksonniennes pour accéder à l'inconscient",
+        "Les ancres sensorielles et comment les utiliser",
+        "La progression progressive vers l'état hypnotique",
+        "Les signaux du corps qui indiquent que vous êtes en hypnose",
+        "Pratique guidée : induction simple et efficace à domicile",
+        "Les erreurs courantes et comment les éviter"
+      ],
+      outcomes: [
+        "Utiliser 2-3 techniques d'induction selon votre profil",
+        "Reconnaître quand vous êtes en état hypnotique",
+        "Installer une routine de relaxation rapide (5-10 min)"
       ]
     },
     {
-      time: "Après-midi",
-      title: "Module 3: Approfondissement de l'état hypnotique",
-      items: [
-        "Techniques d'approfondissement de la transe",
-        "Le lieu sûr et les ancrages",
-        "La communication avec l'inconscient",
-        "Exercices pratiques: Créer son lieu sûr et ses ancrages",
-        "Personnalisation des techniques selon vos besoins spécifiques"
+      time: "☀️ Après-midi",
+      period: "14h00 - 15h15",
+      title: "Module 3 : Approfondissement de l'état hypnotique",
+      learnings: [
+        "Aller plus profond : les niveaux d'hypnose",
+        "La méthode ESPERE de Jacques Salomé appliquée à l'hypnose",
+        "Comment explorer et transformer vos croyances limitantes",
+        "Créer des suggestions positives personnalisées",
+        "La notion de métaphores thérapeutiques",
+        "Exercice : construire votre script d'auto-hypnose personnel"
+      ],
+      outcomes: [
+        "Rédiger votre propre script d'auto-hypnose sur mesure",
+        "Identifier vos ancrages positifs (visuels, auditifs, kinesthésiques)",
+        "Approfondir votre pratique pour des résultats plus durables"
       ]
     },
     {
-      time: "Après-midi",
-      title: "Module 4: Applications pratiques pour la gestion du stress",
-      items: [
-        "Techniques spécifiques pour la gestion du stress",
-        "Scripts d'auto-hypnose pour l'anxiété",
-        "Techniques de visualisation positive",
-        "Méthodes d'auto-suggestion",
-        "Exercices pratiques: Créer ses propres séances d'auto-hypnose",
-        "Plan d'action personnalisé pour l'intégration dans la vie quotidienne"
+      time: "☀️ Après-midi",
+      period: "15h30 - 17h00",
+      title: "Module 4 : Applications pratiques pour la gestion du stress",
+      learnings: [
+        "Adapter l'auto-hypnose à VOS défis spécifiques : stress pro, anxiété, sommeil",
+        "Techniques \"flash\" : calmer un pic d'anxiété en 2 minutes",
+        "Protocoles pour dormir sans ruminations",
+        "Gérer la pression en réunion / avant un événement",
+        "Intégrer l'auto-hypnose à votre quotidien (routine du matin, du soir)",
+        "Les erreurs de pratique et comment les corriger",
+        "Suivi post-formation : comment progresser seul"
+      ],
+      outcomes: [
+        "Utiliser 3-4 techniques de gestion rapide du stress",
+        "Créer votre routine personnelle d'auto-hypnose",
+        "Continuer à progresser seul avec les outils et le support fourni"
       ]
     },
     {
-      time: "Fin de journée",
-      title: "Conclusion et perspectives",
-      items: [
-        "Synthèse des apprentissages",
-        "Questions et réponses",
-        "Présentation des ressources complémentaires",
-        "Planification du suivi individuel",
-        "Témoignages et partages d'expériences"
+      time: "🌆 Fin de journée",
+      period: "17h00 - 17h30",
+      title: "Module 5 : Conclusion et perspectives",
+      learnings: [
+        "Résumé des points clés et de votre progression",
+        "Vos prochaines étapes pour consolider votre pratique",
+        "Accès aux ressources bonus : audios guidés, fiches pratiques",
+        "Présentation du suivi téléphonique (1 mois après)",
+        "Questions-réponses finales",
+        "Moment symbolique : valider vos ancrages avant de partir"
+      ],
+      outcomes: [
+        "Un script d'auto-hypnose enregistré (si vous le souhaitez)",
+        "Fiches récapitulatives des techniques apprises",
+        "Accès 3 mois gratuit à NovaRespire avec protocole stress personnalisé",
+        "Garantie satisfait ou remboursé 14 jours"
       ]
     }
   ];
@@ -92,34 +126,57 @@ const Program = () => {
   return (
     <section id="program" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-nova-blue-dark font-serif">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-nova-blue-dark font-serif">
           Formation auto-hypnose Paris Harmonia : programme détaillé
         </h2>
+
+        <p className="text-center text-lg text-gray-700 mb-16 max-w-3xl mx-auto">
+          Un jour intensif pour maîtriser l'auto-hypnose et transformer votre gestion du stress
+        </p>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-10">
           {/* Colonne 1: Programme */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-6 text-nova-blue text-center lg:text-left">
-              Contenu de la formation
+              Programme détaillé
             </h3>
 
             <Accordion type="single" collapsible className="mb-10">
               {schedule.map((module, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
                   <AccordionTrigger className="text-lg font-medium">
-                    <span className="text-nova-blue mr-2">{module.time}</span> - {module.title}
+                    <div className="flex flex-col items-start text-left">
+                      <span className="text-nova-blue font-bold">{module.time} - {module.period}</span>
+                      <span>{module.title}</span>
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                      {module.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-nova-blue-dark mb-2">Ce que vous apprendrez :</h4>
+                        <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                          {module.learnings.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-nova-green/10 p-4 rounded-lg">
+                        <h4 className="font-bold text-nova-blue-dark mb-2">Ce que vous saurez faire à la fin :</h4>
+                        <ul className="space-y-1 text-gray-700">
+                          {module.outcomes.map((outcome, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <span className="text-nova-green mr-2">✓</span>
+                              <span>{outcome}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-            
+
           </div>
           
           {/* Colonne 2: Infos pratiques */}
