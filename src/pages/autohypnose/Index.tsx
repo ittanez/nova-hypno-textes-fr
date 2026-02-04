@@ -25,6 +25,7 @@ const AutohypnoseIndex = () => {
         <meta property="og:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
         <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
         <link rel="canonical" href="https://novahypnose.fr/autohypnose" />
+        <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0132/0442.js" async="async"></script>
       </Helmet>
 
       <Header />
