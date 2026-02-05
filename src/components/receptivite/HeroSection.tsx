@@ -33,15 +33,19 @@ const HeroSection = ({ onStartTest }: HeroSectionProps) => {
                 Test gratuit à Paris
               </span>
               <span className="block text-3xl md:text-4xl font-bold text-blue-500">
-                Découvrez votre réceptivité en 2 minutes
+                Découvrez votre réceptivité en quelques minutes
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-700 mb-2 leading-relaxed">
               <strong>Test de 30 questions pour évaluer votre réceptivité</strong> développé par un
               hypnothérapeute à Paris. Analysez votre réceptivité à l'hypnose et
               découvrez vos canaux sensoriels dominants (VAKOG).
+            </p>
+            <p className="text-base text-gray-600 mb-6 flex items-center gap-2">
+              <Clock className="h-5 w-5 text-blue-600" />
+              <span><strong>Durée estimée :</strong> 3-5 minutes</span>
             </p>
 
             {/* Benefits Grid */}
@@ -65,19 +69,24 @@ const HeroSection = ({ onStartTest }: HeroSectionProps) => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={onStartTest}
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-6 text-base rounded-lg shadow-md"
-              >
-                🧠 Test Gratuit
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <div className="flex flex-col gap-2">
+                <Button
+                  onClick={onStartTest}
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white font-bold px-8 py-7 text-lg rounded-lg shadow-lg transition-all duration-200"
+                >
+                  🧠 Test Gratuit
+                </Button>
+                <p className="text-sm text-gray-600 text-center">
+                  Gratuit • Résultats immédiats • Sans engagement
+                </p>
+              </div>
               <Button
                 onClick={() => window.location.href = 'https://novahypnose.fr'}
                 variant="outline"
                 size="lg"
-                className="border-2 border-purple-600 text-purple-700 hover:bg-purple-50 font-semibold px-6 py-6 text-base rounded-lg"
+                className="border-2 border-purple-400 text-purple-600 hover:bg-purple-50 font-medium px-6 py-6 text-base rounded-lg"
               >
                 Hypnothérapeute Paris - En savoir plus
               </Button>

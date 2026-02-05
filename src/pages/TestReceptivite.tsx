@@ -8,6 +8,7 @@ import StepsSection from '@/components/receptivite/StepsSection';
 import HowItWorksSection from '@/components/receptivite/HowItWorksSection';
 import TestimonialSection from '@/components/receptivite/TestimonialSection';
 import FAQSection from '@/components/receptivite/FAQSection';
+import FloatingCTASection from '@/components/receptivite/FloatingCTASection';
 import { QuestionStep } from '@/components/receptivite/test/QuestionStep';
 import { VAKOGStep } from '@/components/receptivite/test/VAKOGStep';
 import { EmailStep } from '@/components/receptivite/test/EmailStep';
@@ -147,6 +148,7 @@ const TestReceptivite = () => {
               <HowItWorksSection />
               <TestimonialSection />
               <FAQSection />
+              <FloatingCTASection onStartTest={handleStartTest} />
             </>
           ) : (
             <div className="container mx-auto px-4 py-16 bg-gray-50 min-h-screen">
