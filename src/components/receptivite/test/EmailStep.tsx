@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import Lock from 'lucide-react/dist/esm/icons/lock';
+import Mail from 'lucide-react/dist/esm/icons/mail';
 
 type EmailStepProps = {
   email: string;
@@ -65,6 +67,16 @@ export const EmailStep = ({
               required
               className="w-full"
             />
+            <div className="mt-3 space-y-2">
+              <div className="flex items-center gap-2 text-xs text-gray-600">
+                <Lock className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>Données sécurisées - Conforme RGPD</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-gray-600 italic">
+                <Mail className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                <span>Pas de spam, promis ! Désinscription possible à tout moment</span>
+              </div>
+            </div>
           </div>
 
           <div className="flex items-start gap-3">
