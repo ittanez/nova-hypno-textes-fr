@@ -72,7 +72,7 @@ const Contact = () => {
                       Réserver ma séance en ligne
                     </a>
                     <p className="text-xs text-gray-500 mt-2">
-                      Confirmation immédiate • Créneaux disponibles 7j/7
+                      Confirmation immédiate • Créneaux disponibles en ligne
                     </p>
                   </div>
                 </div>

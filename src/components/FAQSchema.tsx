@@ -51,7 +51,7 @@ const FAQSchema = () => {
         "name": "Est-ce que je fais les choses contre ma volonté en hypnose ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre subconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
+          "text": "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre inconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
         }
       },
       {

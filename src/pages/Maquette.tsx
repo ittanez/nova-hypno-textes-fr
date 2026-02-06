@@ -119,10 +119,10 @@ const Maquette = () => {
     },
     {
       question: "Est-ce que je fais les choses contre ma volonté en hypnose ?",
-      answer: "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre subconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
+      answer: "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre inconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
     },
     {
-      question: "Est-ce que je révèle des secrets intimes grâce à l'hypnose ?",
+      question: "Est-ce que je révèle des secrets intimes sous hypnose ?",
       answer: "Non, vous ne révélerez que ce que vous souhaitez partager. L'hypnose n'est pas un sérum de vérité et vous gardez votre libre arbitre pendant toute la séance."
     },
     {
@@ -959,7 +959,7 @@ const Maquette = () => {
                 ))}
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "Découvrir NOVA HYPNOSE est une expérience marquante. Alain propose de véritables parcours de transformation.
+                "Découvrir NovaHypnose est une expérience marquante. Alain propose de véritables parcours de transformation.
                 J'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."
               </p>
               <p className="font-semibold text-gray-900">Edward</p>
@@ -974,7 +974,7 @@ const Maquette = () => {
               </div>
               <p className="text-gray-700 mb-6 leading-relaxed italic">
                 "J'ai consulté pour un problème d'anxiété. Dès la première séance je me suis sentie apaisée.
-                Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."
+                Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."
               </p>
               <p className="font-semibold text-gray-900">Marie HERNANDEZ</p>
               <p className="text-sm text-gray-500">il y a 3 mois</p>

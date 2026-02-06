@@ -4,13 +4,13 @@ export const testimonials: Testimonial[] = [
   {
     name: "Edward Achour",
     date: "Il y a 2 semaines",
-    text: "Découvrir Nova Hypnose et le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles et renouer avec une forme de clarté personnelle.",
+    text: "Découvrir NovaHypnose et le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles et renouer avec une forme de clarté personnelle.",
     rating: 5
   },
   {
     name: "Marie Hernandez",
     date: "Il y a 8 semaines",
-    text: "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparue en 3 séances. Je recommande vivement.",
+    text: "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances. Je recommande vivement.",
     rating: 5
   },
   {

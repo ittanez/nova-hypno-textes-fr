@@ -20,12 +20,12 @@ const testimonials: Testimonial[] = [
   {
     name: 'Edward',
     date: 'il y a 2 mois',
-    text: '"Découvrir NOVA HYPNOSE est une expérience marquante. Alain propose de véritables parcours de transformation. J\'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."'
+    text: '"Découvrir NovaHypnose est une expérience marquante. Alain propose de véritables parcours de transformation. J\'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."'
   },
   {
     name: 'Marie',
     date: 'il y a 3 mois',
-    text: '"J\'ai consulté pour un problème d\'anxiété. Dès la première séance je me suis sentie apaisée. Mon anxiété a totalement disparue en 3 séances. Je recommande vivement."'
+    text: '"J\'ai consulté pour un problème d\'anxiété. Dès la première séance je me suis sentie apaisée. Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."'
   },
   {
     name: 'Philippe',

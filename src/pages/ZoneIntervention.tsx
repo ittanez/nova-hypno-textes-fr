@@ -107,6 +107,12 @@ const ZoneIntervention = () => {
           content="hypnothérapeute paris, cabinet hypnose bastille, hypnose marais, zone intervention paris, arrondissements paris, accès cabinet paris 4, hypnothérapie paris centre"
         />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
+        <meta property="og:title" content="Zone d'Intervention Paris - Cabinet Hypnothérapie | NovaHypnose" />
+        <meta property="og:description" content="Cabinet d'hypnothérapie Paris 4ème accessible depuis tous les arrondissements. Métro Bastille à 2 min. Séances au cabinet, à domicile ou en visio." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
       </Helmet>
 
       {/* Hero Section */}

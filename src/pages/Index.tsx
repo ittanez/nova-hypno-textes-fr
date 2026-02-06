@@ -89,7 +89,7 @@ const Index: React.FC = () => {
 
         {/* Open Graph - URL cohérente sans trailing slash */}
         <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
-        <meta property="og:description" content="Cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
+        <meta property="og:description" content="Vous cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -98,6 +98,10 @@ const Index: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@novahypnose" />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+
+        {/* Locale et site_name */}
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
 
         {/* Canonical - sans trailing slash pour cohérence */}
         <link rel="canonical" href="https://novahypnose.fr" />
