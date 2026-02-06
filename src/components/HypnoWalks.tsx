@@ -27,7 +27,7 @@ const HypnoWalks = () => {
               Les hypno-balades combinent les bienfaits de la marche et le pouvoir de l'hypnose. C'est une excellente façon de se détendre tout en explorant la beauté de la nature.
             </p>
             <p className="mb-6">
-              Pendant la promenade, Alain vous guidera à travers des exercices hypnotiques pour vous aider à vous recentrer plus profondément à vous-même.
+              Pendant la promenade, Alain vous guidera à travers des exercices hypnotiques pour vous aider à vous reconnecter plus profondément à vous-même.
             </p>
             
             <h4 className="text-nova-blue-dark text-xl font-semibold mb-4">La magnifique forêt de Senonches</h4>

@@ -41,7 +41,7 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'La formation est-elle adaptée aux personnes souffrant de troubles anxieux ?',
-      answer: 'Oui. L\'auto-hypnose est une excellente complémentaire pour l\'anxiété. Cependant, si vous souffrez d\'un trouble psychiatrique sérieux (trouble bipolaire, psychose, dépression sévère), veuillez en discuter avec Alain avant l\'inscription. La formation fonctionne mieux en complément (pas en remplacement) d\'un suivi médical ou psychologique pour les cas complexes.',
+      answer: 'Oui. L\'auto-hypnose est une excellente approche complémentaire pour l\'anxiété. Cependant, si vous souffrez d\'un trouble psychiatrique sérieux (trouble bipolaire, psychose, dépression sévère), veuillez en discuter avec Alain avant l\'inscription. La formation fonctionne mieux en complément (pas en remplacement) d\'un suivi médical ou psychologique pour les cas complexes.',
     },
   ];
 

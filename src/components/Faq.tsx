@@ -29,10 +29,10 @@ const faqItems = [
   },
   {
     question: "Est-ce que je fais les choses contre ma volonté en hypnose ?",
-    answer: "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre subconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
+    answer: "Absolument pas. Contrairement aux idées reçues ou aux spectacles d'hypnose de divertissement, en hypnothérapie vous gardez toujours le contrôle. Votre inconscient ne vous permettra jamais d'agir contre vos valeurs ou votre volonté."
   },
   {
-    question: "Est-ce que je révèle des secrets intimes grâce à l'hypnose ?",
+    question: "Est-ce que je révèle des secrets intimes sous hypnose ?",
     answer: "Non, vous ne révélerez que ce que vous souhaitez partager. L'hypnose n'est pas un sérum de vérité et vous gardez votre libre arbitre pendant toute la séance."
   },
   {

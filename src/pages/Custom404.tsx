@@ -27,7 +27,6 @@ const Custom404 = () => {
         <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
         <meta name="description" content="Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://novahypnose.fr/404" />
       </Helmet>
 
       <ContentLayout>
@@ -55,7 +54,7 @@ const Custom404 = () => {
                 <li><Link to="/" className="text-nova-blue hover:underline flex items-center"><Home className="w-4 h-4 mr-2" /> Accueil</Link></li>
                 <li><a href="/#about" className="text-nova-blue hover:underline">À propos</a></li>
                 <li><a href="/#applications" className="text-nova-blue hover:underline">Services d'hypnothérapie</a></li>
-                <li><a href="/#pricing" className="text-nova-blue hover:underline">Nos tarifs</a></li>
+                <li><a href="/#tarifs" className="text-nova-blue hover:underline">Nos tarifs</a></li>
                 <li><a href="/#contact" className="text-nova-blue hover:underline">Nous contacter</a></li>
                 <li><Link to="/blog" className="text-nova-blue hover:underline">Blog</Link></li>
                 <li><Link to="/autohypnose" className="text-nova-blue hover:underline">Auto-hypnose</Link></li>

@@ -10,13 +10,13 @@ const testimonials: Testimonial[] = [
   {
     name: "Edward",
     date: "il y a 2 mois",
-    text: "Découvrir NOVA HYPNOSE et le travail d'Alain Zenatti hypno thérapeute, est une expérience marquante. Alain propose bien plus que des séances, de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles, apaiser les tensions intérieures et renouer avec une forme de clarté personnelle. À travers ses packs de plusieurs séances, j'ai entamé un chemin riche en prises de conscience. J'ai laissé derrière moi certaines croyances figées, des idées préconçues qui conditionnaient mes pensées, et j'ai ouvert un espace intérieur plus souple, plus libre. Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.",
+    text: "Découvrir NovaHypnose et le travail d'Alain Zenatti hypno thérapeute, est une expérience marquante. Alain propose bien plus que des séances, de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles, apaiser les tensions intérieures et renouer avec une forme de clarté personnelle. À travers ses packs de plusieurs séances, j'ai entamé un chemin riche en prises de conscience. J'ai laissé derrière moi certaines croyances figées, des idées préconçues qui conditionnaient mes pensées, et j'ai ouvert un espace intérieur plus souple, plus libre. Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.",
     rating: 5
   },
   {
     name: "Marie HERNANDEZ",
     date: "il y a 3 mois",
-    text: "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparue en 3 séances. Je recommande vivement",
+    text: "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances. Je recommande vivement",
     rating: 5
   },
   {

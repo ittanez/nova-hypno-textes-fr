@@ -134,6 +134,13 @@ const TestReceptivite = () => {
       <Helmet>
         <title>Test de Réceptivité à l'Hypnose | NovaHypnose</title>
         <meta name="description" content="Évaluez votre réceptivité à l'hypnose avec notre test gratuit de 30 questions. Découvrez votre profil VAKOG et recevez des conseils personnalisés." />
+        <link rel="canonical" href="https://novahypnose.fr/test-receptivite" />
+        <meta property="og:title" content="Test de Réceptivité à l'Hypnose | NovaHypnose" />
+        <meta property="og:description" content="Évaluez votre réceptivité à l'hypnose avec notre test gratuit de 30 questions. Découvrez votre profil VAKOG." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/test-receptivite" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

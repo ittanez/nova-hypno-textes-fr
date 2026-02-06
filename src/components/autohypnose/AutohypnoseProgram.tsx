@@ -33,7 +33,7 @@ const Program = () => {
       learnings: [
         "Les techniques ericksonniennes pour accéder à l'inconscient",
         "Les ancres sensorielles et comment les utiliser",
-        "La progression progressive vers l'état hypnotique",
+        "L'entrée progressive dans l'état hypnotique",
         "Les signaux du corps qui indiquent que vous êtes en hypnose",
         "Pratique guidée : induction simple et efficace à domicile",
         "Les erreurs courantes et comment les éviter"
@@ -113,8 +113,8 @@ const Program = () => {
   const trainerInfo = {
     name: "Alain Zenatti",
     role: "Hypnothérapeute certifié",
-    experience: "4 ans d'expérience",
-    description: "J'accompagne depuis 4 ans des personnes souhaitant retrouver calme, sérénité et confiance face aux défis du quotidien.",
+    experience: "Plus de 5 ans d'expérience",
+    description: "J'accompagne depuis plus de 5 ans des personnes souhaitant retrouver calme, sérénité et confiance face aux défis du quotidien.",
     approach: "Mon approche combine différentes techniques pour vous permettre de développer des ressources intérieures durables et cultiver un état de bien-être au quotidien.",
     formations: [
       "Hypnose Ericksonienne",

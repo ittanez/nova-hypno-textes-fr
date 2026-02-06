@@ -204,7 +204,7 @@ const BlogArticlesSlider: React.FC = () => {
             Émergences – Hypnose Paris : explorez, transformez-vous
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez Émergences, le blog d'hypnose thérapeutique à Paris : articles sur les peurs, la transformation intérieure, le subconscient et le mieux-être.
+            Découvrez Émergences, le blog d'hypnose thérapeutique à Paris : articles sur les peurs, la transformation intérieure, l'inconscient et le mieux-être.
           </p>
         </div>
 
