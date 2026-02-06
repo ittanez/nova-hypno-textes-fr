@@ -25,7 +25,7 @@ const Custom404 = () => {
     <>
       <Helmet>
         <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
-        <meta name="description" content="Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies." />
+        <meta name="description" content="Cette page est introuvable, mais mon cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez mes services d'hypnose pour stress, sommeil, phobies." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -43,7 +43,7 @@ const Custom404 = () => {
               <span className="font-medium text-nova-blue-dark">Pas de stress, respirez profondément...</span> La page que vous recherchez n'est malheureusement pas disponible.
             </p>
             <p className="text-gray-700">
-              Notre cabinet d'hypnothérapie à Paris 4 est bien actif, mais cette page spécifique est introuvable.
+              Mon cabinet d'hypnothérapie à Paris 4 est bien actif, mais cette page spécifique est introuvable.
             </p>
           </div>
           

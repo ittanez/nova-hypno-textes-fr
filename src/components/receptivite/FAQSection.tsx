@@ -6,7 +6,7 @@ const FAQSection = () => {
     },
     {
       question: "Est-ce vraiment gratuit ou y a-t-il des frais cachés ?",
-      answer: "100% gratuit, zéro engagement. Ce test est notre cadeau pour vous aider à faire le premier pas vers une vie plus épanouie."
+      answer: "100% gratuit, zéro engagement. Ce test est mon cadeau pour vous aider à faire le premier pas vers une vie plus épanouie."
     },
     {
       question: "Pourquoi demandez-vous mon email ?",
@@ -14,11 +14,11 @@ const FAQSection = () => {
     },
     {
       question: "Ce test est-il scientifiquement valide ?",
-      answer: "Absolument ! Créé avec des experts en hypnothérapie clinique, notre test mesure avec précision votre potentiel hypnotique réel."
+      answer: "Absolument ! Créé avec des experts en hypnothérapie clinique, ce test mesure avec précision votre potentiel hypnotique réel."
     },
     {
       question: "Est-ce que le test fonctionne aussi pour les enfants/adolescents ?",
-      answer: "Le test est conçu pour les adultes (18 ans et plus). Pour les enfants et adolescents, nous recommandons une évaluation personnalisée avec un hypnothérapeute spécialisé dans l'accompagnement des jeunes."
+      answer: "Le test est conçu pour les adultes (18 ans et plus). Pour les enfants et adolescents, je recommande une évaluation personnalisée avec un hypnothérapeute spécialisé dans l'accompagnement des jeunes."
     },
     {
       question: "Puis-je refaire le test pour vérifier si mes réponses changent ?",
@@ -26,7 +26,7 @@ const FAQSection = () => {
     },
     {
       question: "Mes résultats resteront-ils confidentiels ?",
-      answer: "Oui, totalement ! Vos résultats sont strictement confidentiels et conformes au RGPD. Nous ne partageons jamais vos données avec des tiers. Vous êtes le seul à recevoir vos résultats par email."
+      answer: "Oui, totalement ! Vos résultats sont strictement confidentiels et conformes au RGPD. Je ne partage jamais vos données avec des tiers. Vous êtes le seul à recevoir vos résultats par email."
     },
     {
       question: "Comment utiliser mes résultats pour ma première séance ?",

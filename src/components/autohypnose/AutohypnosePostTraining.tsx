@@ -41,7 +41,7 @@ const AutohypnosePostTraining = () => {
               Ce qui se passe après la journée
             </h2>
             <p className="text-xl text-gray-700">
-              Vous n'êtes pas seul. Voici comment nous vous accompagnons :
+              Vous n'êtes pas seul. Voici comment je vous accompagne :
             </p>
           </div>
 
@@ -76,7 +76,7 @@ const AutohypnosePostTraining = () => {
                 Un accompagnement qui dure dans le temps
               </h3>
               <p className="text-lg text-gray-700 mb-6">
-                Notre objectif n'est pas seulement de vous former pendant une journée, mais de vous donner
+                Mon objectif n'est pas seulement de vous former pendant une journée, mais de vous donner
                 les outils et le soutien nécessaires pour que vous puissiez continuer à progresser de manière
                 autonome dans votre pratique de l'auto-hypnose.
               </p>

@@ -46,7 +46,7 @@ const SessionProcess = () => {
     },
     {
       title: "3. Retour progressif et débriefing (15 min)",
-      description: "Retour en douceur à l'état de veille normale. Nous échangeons sur vos ressentis, je réponds à vos questions et nous ancrons les bénéfices de la séance. Vous repartez avec une compréhension claire de ce qui s'est passé.",
+      description: "Retour en douceur à l'état de veille normale. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices de la séance. Vous repartez avec une compréhension claire de ce qui s'est passé.",
       Icon: Clock
     }
   ];

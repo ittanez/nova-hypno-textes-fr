@@ -15,7 +15,7 @@ interface SessionStep {
 const sessionSteps: SessionStep[] = [
   {
     title: 'Entretien initial',
-    content: 'Nous discutons de vos objectifs, de vos attentes et je vous explique le processus en détail. Vos questions sont les bienvenues.'
+    content: 'Je discute avec vous de vos objectifs, de vos attentes et je vous explique le processus en détail. Vos questions sont les bienvenues.'
   },
   {
     title: 'Induction hypnotique',
@@ -23,11 +23,11 @@ const sessionSteps: SessionStep[] = [
   },
   {
     title: 'Travail thérapeutique',
-    content: 'Nous travaillons sur vos objectifs en mobilisant vos ressources inconscientes. Approche personnalisée selon vos besoins.'
+    content: 'Je travaille sur vos objectifs en mobilisant vos ressources inconscientes. Approche personnalisée selon vos besoins.'
   },
   {
     title: 'Retour et débriefing',
-    content: 'Retour progressif à l\'état de veille. Nous échangeons sur votre expérience et les prochaines étapes.'
+    content: 'Retour progressif à l\'état de veille. J\'échange avec vous sur votre expérience et les prochaines étapes.'
   }
 ];
 

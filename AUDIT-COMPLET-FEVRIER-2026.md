@@ -380,7 +380,7 @@ Les témoignages utilisent des dates relatives ("Il y a 2 semaines", "Il y a 8 s
 
 ### Phase 2 — SEO et Performances (1 semaine)
 
-- [ ] Configurer `vite-ssg` pour le prerendering des pages statiques, ou adopter un framework SSR (Astro, Next.js)
+- [ ] **SSG/Prerendering** : `vite-ssg` a été retiré (package Vue-only, incompatible React). Options recommandées : activer Netlify Prerendering (Settings > Build > Prerendering), ou migrer vers un framework React SSG (Astro, Next.js, ou Vike)
 - [ ] Ajouter les balises OG complètes sur toutes les pages publiques
 - [ ] Ajouter `og:locale`, `og:site_name`, `hreflang` globalement
 - [ ] Résoudre l'inconsistance canonical (slash final)

@@ -24,7 +24,7 @@ const NotFound = () => {
     <>
       <Helmet>
         <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
-        <meta name="description" content="Cette page est introuvable, mais notre cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez nos services d'hypnose pour stress, sommeil, phobies." />
+        <meta name="description" content="Cette page est introuvable, mais mon cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez mes services d'hypnose pour stress, sommeil, phobies." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -49,7 +49,7 @@ const NotFound = () => {
             </p>
 
             <p className="text-lg text-gray-600 mb-12">
-              Notre cabinet d'hypnothérapie à Paris 4 est bien actif, mais cette page spécifique est introuvable.
+              Mon cabinet d'hypnothérapie à Paris 4 est bien actif, mais cette page spécifique est introuvable.
             </p>
 
             {/* Search Box */}

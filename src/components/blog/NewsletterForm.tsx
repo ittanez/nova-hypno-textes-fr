@@ -66,7 +66,7 @@ const NewsletterForm = () => {
         logger.debug('Inscription réussie pour:', data);
         toast({
           title: "Inscription réussie !",
-          description: "Vous recevrez désormais nos notifications d'articles."
+          description: "Vous recevrez désormais mes notifications d'articles."
         });
         setEmail("");
       }
@@ -88,7 +88,7 @@ const NewsletterForm = () => {
         <div className="flex justify-center mb-2">
           <Bell className="h-8 w-8 text-nova-600" />
         </div>
-        <CardTitle className="text-xl font-serif">Recevez nos notifications</CardTitle>
+        <CardTitle className="text-xl font-serif">Recevez mes notifications</CardTitle>
         <CardDescription>
           Soyez informé des nouveaux articles sur l'hypnose et le bien-être
         </CardDescription>

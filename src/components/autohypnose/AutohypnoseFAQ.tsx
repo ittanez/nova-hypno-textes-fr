@@ -13,7 +13,7 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'Faut-il avoir déjà pratiqué l\'hypnose pour suivre cette formation ?',
-      answer: 'Non, absolument pas. Cette formation est conçue pour les débutants comme pour ceux ayant une expérience antérieure. Nous commençons par les bases et vous avancez à votre rythme. Même les personnes qui pensaient être "non-hypnotisables" découvrent qu\'elles sont tout à fait capables. L\'important c\'est l\'envie d\'apprendre.',
+      answer: 'Non, absolument pas. Cette formation est conçue pour les débutants comme pour ceux ayant une expérience antérieure. Je commence par les bases et vous avancez à votre rythme. Même les personnes qui pensaient être "non-hypnotisables" découvrent qu\'elles sont tout à fait capables. L\'important c\'est l\'envie d\'apprendre.',
     },
     {
       question: 'Combien de temps faut-il pratiquer avant de voir des résultats ?',
@@ -21,11 +21,11 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'L\'auto-hypnose peut-elle vraiment aider à gérer le stress et l\'anxiété ?',
-      answer: 'Oui, de nombreuses études scientifiques le confirment. L\'hypnose réduit l\'activation du système nerveux sympathique (réaction "stress") et renforce le système parasympathique (relaxation). Dans notre formation, 95% des participants rapportent une amélioration dans la gestion de leur stress en sortant de la journée. Nos témoignages parlent d\'eux-mêmes.',
+      answer: 'Oui, de nombreuses études scientifiques le confirment. L\'hypnose réduit l\'activation du système nerveux sympathique (réaction "stress") et renforce le système parasympathique (relaxation). Dans ma formation, 95% des participants rapportent une amélioration dans la gestion de leur stress en sortant de la journée. Les témoignages parlent d\'eux-mêmes.',
     },
     {
       question: 'Pourquoi une formation en petit groupe plutôt qu\'en ligne ?',
-      answer: 'En petit groupe (max 6 participants), nous pouvons personnaliser chaque technique selon votre profil et vos défis spécifiques. Vous pratiquez ensemble, vous vous posez des questions en direct, et Alain peut ajuster son approche si vous bloquez sur quelque chose. Le contact humain est crucial pour construire la confiance. L\'expérience en présentiel permet aussi une mise en pratique immédiate et un ancrage plus profond des apprentissages.',
+      answer: 'En petit groupe (max 6 participants), je peux personnaliser chaque technique selon votre profil et vos défis spécifiques. Vous pratiquez ensemble, vous vous posez des questions en direct, et Alain peut ajuster son approche si vous bloquez sur quelque chose. Le contact humain est crucial pour construire la confiance. L\'expérience en présentiel permet aussi une mise en pratique immédiate et un ancrage plus profond des apprentissages.',
     },
     {
       question: 'Que contient le matériel pédagogique fourni ?',
@@ -33,11 +33,11 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'Y a-t-il un suivi après la formation ?',
-      answer: 'Oui ! Vous bénéficiez d\'un entretien téléphonique de 30 minutes environ 1 mois après la formation. C\'est l\'occasion de faire le point sur votre progression, clarifier les points qui vous bloquent, et affiner votre pratique. Vous pouvez aussi nous joindre par email si vous avez une question.',
+      answer: 'Oui ! Vous bénéficiez d\'un entretien téléphonique de 30 minutes environ 1 mois après la formation. C\'est l\'occasion de faire le point sur votre progression, clarifier les points qui vous bloquent, et affiner votre pratique. Vous pouvez aussi me joindre par email si vous avez une question.',
     },
     {
       question: 'Puis-je annuler ou reporter ma participation ?',
-      answer: 'Bien sûr. Si vous annulez plus de 15 jours avant, vous êtes remboursé intégralement. Entre 7 et 15 jours, remboursement de 50%. Moins de 7 jours, aucun remboursement (mais vous pouvez reporter sur une autre date si vous préférez). Nos places sont limitées, donc un report rapide est toujours possible.',
+      answer: 'Bien sûr. Si vous annulez plus de 15 jours avant, vous êtes remboursé intégralement. Entre 7 et 15 jours, remboursement de 50%. Moins de 7 jours, aucun remboursement (mais vous pouvez reporter sur une autre date si vous préférez). Les places sont limitées, donc un report rapide est toujours possible.',
     },
     {
       question: 'La formation est-elle adaptée aux personnes souffrant de troubles anxieux ?',
@@ -82,7 +82,7 @@ const AutohypnoseFAQ = () => {
               Vous avez d'autres questions ?
             </h3>
             <p className="text-gray-700 mb-6 text-center">
-              N'hésitez pas à nous contacter, nous serons ravis de vous répondre
+              N'hésitez pas à me contacter, je serai ravi de vous répondre
             </p>
             <div className="space-y-4">
               <div className="flex items-center justify-center gap-2 text-gray-700">

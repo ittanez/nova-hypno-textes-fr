@@ -35,7 +35,7 @@ export const VAKOGStep = ({ onAnswerChange, onNext, onPrevious, answers }: VAKOG
           Profil sensoriel VAKOG
         </h2>
         <p className="text-nova-neutral-dark">
-          Ces questions nous aident à comprendre votre canal sensoriel dominant pour personnaliser votre accompagnement.
+          Ces questions me permettent de comprendre votre canal sensoriel dominant pour personnaliser votre accompagnement.
         </p>
       </div>
 

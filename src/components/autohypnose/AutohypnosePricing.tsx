@@ -132,7 +132,7 @@ const Pricing = () => {
                   <div className="bg-nova-blue-light p-4 rounded-lg">
                     <h4 className="font-bold text-nova-blue-dark mb-2">Garantie de satisfaction</h4>
                     <p className="text-nova-blue-dark text-sm">
-                      Nous sommes tellement convaincus des bénéfices de la formation que nous vous proposons une garantie "Satisfait ou remboursé" de 14 jours après la formation. Si vous n'êtes pas satisfait, nous vous remboursons intégralement.
+                      Je suis tellement convaincu des bénéfices de la formation que je vous propose une garantie "Satisfait ou remboursé" de 14 jours après la formation. Si vous n'êtes pas satisfait, je vous rembourse intégralement.
                     </p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ const Pricing = () => {
             </CardContent>
             <CardFooter className="bg-gray-50 p-6 rounded-b-xl">
               <p className="text-gray-500 text-sm text-center w-full">
-                Pour toute question ou besoin d'information supplémentaire, n'hésitez pas à nous contacter à <a href="mailto:contact@novahypnose.fr" className="text-nova-blue hover:underline">contact@novahypnose.fr</a>
+                Pour toute question ou besoin d'information supplémentaire, n'hésitez pas à me contacter à <a href="mailto:contact@novahypnose.fr" className="text-nova-blue hover:underline">contact@novahypnose.fr</a>
               </p>
             </CardFooter>
           </Card>

@@ -9,7 +9,7 @@ const HowItWorksSection = () => {
     {
       image: "/images/envoi-securise.svg",
       title: "Laissez votre email",
-      description: "Recevez vos résultats personnalisés directement dans votre boîte de réception. Vos données sont sécurisées et conformes RGPD. Nous ne partageons jamais vos informations avec des tiers et vous pouvez vous désinscrire à tout moment.",
+      description: "Recevez vos résultats personnalisés directement dans votre boîte de réception. Vos données sont sécurisées et conformes RGPD. Je ne partage jamais vos informations avec des tiers et vous pouvez vous désinscrire à tout moment.",
       number: "2"
     },
     {

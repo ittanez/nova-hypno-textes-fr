@@ -191,6 +191,7 @@ const CommuteMap: React.FC = () => {
             ref={inputRef}
             type="text"
             placeholder="Entrez votre adresse de départ..."
+            aria-label="Adresse de départ"
             className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-nova-blue focus:outline-none transition-colors"
           />
         </div>
