@@ -107,7 +107,7 @@ const UserForm = ({ onSubmit, isSubmitting = false }: UserFormProps) => {
         </div>
         
         <p className="text-xs text-gray-500 text-center">
-          En soumettant ce formulaire, vous acceptez de recevoir vos résultats et des informations sur la formation Harmonia par email. Nous respectons votre vie privée et ne partagerons jamais vos données.
+          En soumettant ce formulaire, vous acceptez de recevoir vos résultats et des informations sur la formation Harmonia par email. Je respecte votre vie privée et ne partagerai jamais vos données.
         </p>
       </form>
     </div>

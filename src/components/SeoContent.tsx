@@ -8,7 +8,7 @@ const SeoContent = () => {
         <p className="mb-4">
           Bienvenue chez NovaHypnose, votre cabinet d'hypnothérapie de référence à Paris. Spécialiste en hypnose ericksonienne, 
           Alain Zenatti vous accompagne dans votre cheminement vers un mieux-être durable. Situé dans le 4ème arrondissement 
-          de Paris, près de Bastille, notre cabinet propose des séances d'hypnose thérapeutique personnalisées pour 
+          de Paris, près de Bastille, mon cabinet propose des séances d'hypnose thérapeutique personnalisées pour 
           répondre à vos besoins spécifiques.
         </p>
         
@@ -38,7 +38,7 @@ const SeoContent = () => {
 
         <h4 className="text-lg font-serif mt-5 mb-2">Services d'hypnothérapie à Paris - Solutions adaptées à vos besoins</h4>
         <p className="mb-4">
-          NovaHypnose vous offre un éventail de services thérapeutiques basés sur l'hypnose ericksonienne. Nos séances
+          NovaHypnose vous offre un éventail de services thérapeutiques basés sur l'hypnose ericksonienne. Mes séances
           sont conçues pour vous aider à surmonter différentes problématiques : anxiété, stress chronique, troubles du 
           sommeil, phobies, manque de confiance en soi, difficultés relationnelles, et bien plus encore.
         </p>

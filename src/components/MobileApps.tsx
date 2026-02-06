@@ -11,7 +11,7 @@ const MobileApps = () => {
         <div className="text-center mb-12">
           <h2 className="text-nova-blue-dark mb-4">Application Mobile</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Prolongez les bienfaits de vos séances d'hypnothérapie avec notre application mobile gratuite dédiée aux techniques de respiration.
+            Prolongez les bienfaits de vos séances d'hypnothérapie avec mon application mobile gratuite dédiée aux techniques de respiration.
           </p>
         </div>
 

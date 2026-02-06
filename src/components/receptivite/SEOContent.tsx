@@ -10,9 +10,9 @@ const SEOContent = () => {
             </h2>
 
             <p className="text-lg text-nova-neutral-dark mb-6 leading-relaxed">
-              Vous vous demandez "suis-je hypnotisable ?" Notre hypnothérapeute certifié à Paris a développé
+              Vous vous demandez "suis-je hypnotisable ?" En tant qu'hypnothérapeute certifié à Paris, j'ai développé
               ce test gratuit pour révéler votre potentiel hypnotique. L'hypnotisabilité est un phénomène
-              naturel que nous expérimentons tous quotidiennement.
+              naturel que vous expérimentez quotidiennement.
             </p>
           </div>
 
@@ -62,7 +62,7 @@ const SEOContent = () => {
 
               <div>
                 <h3 className="text-xl font-bold text-nova-blue-dark mb-3">
-                  Notre test évalue
+                  Ce test évalue
                 </h3>
                 <ul className="space-y-2">
                   {[

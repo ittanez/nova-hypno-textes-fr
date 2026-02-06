@@ -41,7 +41,6 @@ const loadNonCriticalResources = () => {
   };
   
   // Ajouter les préconnexions
-  addPreconnect('https://cdn.gpteng.co');
   addPreconnect('https://tools.luckyorange.com');
   
   // Chargement d'autres ressources non critiques

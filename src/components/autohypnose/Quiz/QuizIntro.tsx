@@ -17,7 +17,7 @@ const QuizIntro = ({ onStart }: QuizIntroProps) => {
         <h4 className="font-bold text-blue-800 mb-2">Pourquoi faire ce test ?</h4>
         <p className="text-blue-700 text-sm">
           Ce test vous aide à identifier vos forces et les domaines à améliorer avant votre formation. 
-          Il nous permet de personnaliser votre parcours d'apprentissage en auto-hypnose en fonction de vos besoins spécifiques. 
+          Il me permet de personnaliser votre parcours d'apprentissage en auto-hypnose en fonction de vos besoins spécifiques. 
           Vous recevrez des recommandations ciblées pour optimiser votre expérience de formation.
         </p>
       </div>

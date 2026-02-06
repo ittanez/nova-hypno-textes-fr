@@ -215,6 +215,7 @@ const BlogIndex = () => {
                 <input
                   type="text"
                   placeholder="Rechercher un article..."
+                  aria-label="Rechercher un article"
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);

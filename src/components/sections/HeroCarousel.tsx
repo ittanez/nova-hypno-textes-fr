@@ -13,15 +13,17 @@ import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
 
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-scroll du carrousel toutes les 4,5 secondes
+  // Auto-scroll du carrousel toutes les 4,5 secondes (WCAG 2.2.2 : pause sur hover/focus)
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
     }, 4500);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
@@ -39,7 +41,14 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green" style={{ minHeight: '600px', maxHeight: '95vh' }}>
+    <section
+      className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green"
+      style={{ minHeight: '600px', maxHeight: '95vh' }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
       {/* Carrousel d'images/vidéos - visible immédiatement */}
       <div className="absolute inset-0">
         {carouselSlides.map((slide, index) => {

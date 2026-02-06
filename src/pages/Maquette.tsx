@@ -510,10 +510,10 @@ const Maquette = () => {
 
           <div className="max-w-4xl mx-auto mb-16">
             <p className="text-center text-lg text-gray-700 mb-4">
-              L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients qui influencent notre manière de penser, de réagir, de vivre.
+              L'hypnose agit là où la volonté seule atteint ses limites : dans les mécanismes profonds, émotionnels et inconscients qui influencent votre manière de penser, de réagir, de vivre.
             </p>
             <p className="text-center text-lg text-gray-700 mb-4">
-              En travaillant avec votre inconscient, nous n'imposons rien : nous l'invitons à mobiliser ses propres ressources pour restaurer l'équilibre, alléger les tensions et soutenir vos capacités d'adaptation et de changement.
+              En travaillant avec votre inconscient, je n'impose rien : je l'invite à mobiliser ses propres ressources pour restaurer l'équilibre, alléger les tensions et soutenir vos capacités d'adaptation et de changement.
             </p>
             <p className="text-center text-lg text-gray-700">
               Chaque accompagnement s'adapte à votre réalité. Voici quelques domaines dans lesquels l'hypnose peut vous aider concrètement :
@@ -613,7 +613,7 @@ const Maquette = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">Entretien initial (15-20 min)</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Nous discutons de vos objectifs, de vos attentes et je vous explique le processus en détail.
+                      Je discute avec vous de vos objectifs, de vos attentes et je vous explique le processus en détail.
                       Vos questions sont les bienvenues.
                     </p>
                   </div>
@@ -642,7 +642,7 @@ const Maquette = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">Travail thérapeutique (30-40 min)</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Nous travaillons sur vos objectifs en mobilisant vos ressources inconscientes.
+                      Je travaille sur vos objectifs en mobilisant vos ressources inconscientes.
                       Approche personnalisée selon vos besoins.
                     </p>
                   </div>
@@ -657,7 +657,7 @@ const Maquette = () => {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">Retour et débriefing (5-10 min)</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Retour progressif à l'état de veille. Nous échangeons sur votre expérience et les prochaines étapes.
+                      Retour progressif à l'état de veille. J'échange avec vous sur votre expérience et les prochaines étapes.
                     </p>
                   </div>
                 </div>
