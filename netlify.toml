@@ -123,13 +123,6 @@
   status = 301
   force = true
 
-# Sitemap dynamique via Supabase Edge Function
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "https://akrlyzmfszumibwgocae.supabase.co/functions/v1/generate-sitemap"
-  status = 200
-  force = false
-
 # Fichiers HTML statiques ne doivent pas être redirigés
 [[redirects]]
   from = "/peurdelavion.html"
