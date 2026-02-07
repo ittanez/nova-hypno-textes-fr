@@ -102,34 +102,36 @@ const ApplicationsCarousel: React.FC = () => {
           </div>
 
           {/* Navigation en bas */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
             <button
               onClick={() => setCurrentApplication(prev => prev === 0 ? applications.length - 1 : prev - 1)}
-              className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              className="bg-white/60 hover:bg-white/80 p-2.5 rounded-full shadow-sm min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Application précédente"
             >
-              <ChevronLeft className="text-blue-500" size={14} />
+              <ChevronLeft className="text-blue-500" size={18} />
             </button>
 
-            <div className="flex gap-1.5">
+            <div className="flex gap-0">
               {applications.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentApplication(index)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    currentApplication === index ? 'w-4 bg-blue-500' : 'w-1.5 bg-gray-300'
-                  }`}
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={`Application ${index + 1}`}
-                />
+                >
+                  <span className={`block h-2 rounded-full transition-all ${
+                    currentApplication === index ? 'w-5 bg-blue-500' : 'w-2 bg-gray-500'
+                  }`} />
+                </button>
               ))}
             </div>
 
             <button
               onClick={() => setCurrentApplication(prev => prev === applications.length - 1 ? 0 : prev + 1)}
-              className="bg-white/60 hover:bg-white/80 p-1.5 rounded-full shadow-sm"
+              className="bg-white/60 hover:bg-white/80 p-2.5 rounded-full shadow-sm min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label="Application suivante"
             >
-              <ChevronRight className="text-blue-500" size={14} />
+              <ChevronRight className="text-blue-500" size={18} />
             </button>
           </div>
         </div>

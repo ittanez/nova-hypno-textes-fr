@@ -63,10 +63,12 @@ const MobileApps = () => {
                   className="inline-block hover:opacity-90 transition-opacity"
                   aria-label="Télécharger NovaRespire sur Google Play"
                 >
-                  <img 
+                  <img
                     src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
                     alt="Disponible sur Google Play"
-                    className="h-16"
+                    className="h-16 w-auto"
+                    width={646}
+                    height={250}
                   />
                 </a>
               </div>
@@ -74,11 +76,13 @@ const MobileApps = () => {
               {/* Capture d'écran de l'app */}
               <div className="text-center">
                 <div className="max-w-sm mx-auto">
-                  <img 
+                  <img
                     src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/Screenshot_20250809_102147.png"
                     alt="Interface de l'application NovaRespire - Techniques de respiration"
                     className="w-full h-auto rounded-2xl shadow-2xl"
                     loading="lazy"
+                    width={1080}
+                    height={2400}
                   />
                 </div>
               </div>

@@ -12,17 +12,20 @@
 
     <!-- Préconnexions pour les ressources tierces importantes -->
     <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co">
+    <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co" crossorigin>
     <link rel="preconnect" href="https://maps.googleapis.com">
     <link rel="preconnect" href="https://img.youtube.com">
 
     <!-- Polices auto-hébergées via @fontsource (chargées dans index.css) -->
 
-    <!-- Préchargement de l'image LCP (Hero carrousel) - Image alain-seance.webp -->
+    <!-- Préchargement de l'image LCP (Hero carrousel - slide 1: alaincab.webp) -->
     <link rel="preload"
-      href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-seance.webp"
+      href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/alaincab.webp?width=768&quality=60"
       as="image"
       fetchpriority="high"
-      type="image/webp">
+      type="image/webp"
+      imagesrcset="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/alaincab.webp?width=480&quality=40 480w, https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/alaincab.webp?width=768&quality=50 768w, https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/alaincab.webp?width=1024&quality=60 1024w, https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/alaincab.webp?width=1536&quality=70 1536w"
+      imagesizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw">
 
     <!-- Open Graph, Twitter et Canonical gérés par react-helmet -->
     <link rel="icon" type="image/png" href="/favicon.ico" />
