@@ -209,8 +209,16 @@ const BlogArticlesSlider: React.FC = () => {
         </div>
 
         {/* Slider */}
-        <div 
+        <div
           className="relative max-w-6xl mx-auto"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Articles du blog"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); goToPrevious(); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); goToNext(); }
+          }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           ref={sliderRef}

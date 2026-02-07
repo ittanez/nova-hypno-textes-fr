@@ -44,6 +44,14 @@ const HeroCarousel: React.FC = () => {
     <section
       className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-green"
       style={{ minHeight: '600px', maxHeight: '95vh' }}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Présentation NovaHypnose"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+      }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}

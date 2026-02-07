@@ -20,7 +20,16 @@ export const MobileCarousel: React.FC<MobileCarouselProps> = ({
   children,
 }) => {
   return (
-    <div className="md:hidden relative max-w-lg mx-auto pb-12 pt-4">
+    <div
+      className="md:hidden relative max-w-lg mx-auto pb-12 pt-4"
+      role="region"
+      aria-roledescription="carousel"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); onPrevious(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); onNext(); }
+      }}
+    >
       <div className="overflow-visible">
         <div
           className="flex transition-transform duration-500 ease-out"
