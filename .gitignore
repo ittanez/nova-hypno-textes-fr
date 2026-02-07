@@ -32,6 +32,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Generated sitemap (built by prebuild script)
+public/sitemap.xml
+
 # Local Netlify folder
 .netlify
 
