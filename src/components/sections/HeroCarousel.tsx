@@ -85,6 +85,8 @@ const HeroCarousel: React.FC = () => {
                     loading={index === 0 ? "eager" : "lazy"}
                     fetchPriority={index === 0 ? "high" : "low"}
                     decoding={index === 0 ? "sync" : "async"}
+                    width={1536}
+                    height={1024}
                   />
                 );
               })()}
@@ -146,34 +148,36 @@ const HeroCarousel: React.FC = () => {
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
         <button
           onClick={prevSlide}
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
+          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Slide précédent"
         >
-          <ChevronLeft className="text-white" size={16} />
+          <ChevronLeft className="text-white" size={18} />
         </button>
 
         {/* Indicateurs de pagination */}
-        <div className="flex gap-1.5">
+        <div className="flex gap-0">
           {carouselSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-1.5 h-1.5 rounded-full transition-all ${
-                index === currentSlide
-                  ? 'bg-white w-4'
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label={`Aller au slide ${index + 1}`}
-            />
+            >
+              <span className={`block h-2 rounded-full transition-all ${
+                index === currentSlide
+                  ? 'bg-white w-5'
+                  : 'w-2 bg-white/50 hover:bg-white/75'
+              }`} />
+            </button>
           ))}
         </div>
 
         <button
           onClick={nextSlide}
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-1.5 rounded-full transition-all"
+          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Slide suivant"
         >
-          <ChevronRight className="text-white" size={16} />
+          <ChevronRight className="text-white" size={18} />
         </button>
       </div>
     </section>

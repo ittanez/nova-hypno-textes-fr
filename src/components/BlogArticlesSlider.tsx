@@ -294,33 +294,35 @@ const BlogArticlesSlider: React.FC = () => {
               {/* Boutons précédent/suivant */}
               <button
                 onClick={goToPrevious}
-                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-1.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30"
+                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Article précédent"
               >
-                <ChevronLeft size={16} className="sm:w-6 sm:h-6" />
+                <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
               </button>
-              
+
               <button
                 onClick={goToNext}
-                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-1.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30"
+                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Article suivant"
               >
-                <ChevronRight size={16} className="sm:w-6 sm:h-6" />
+                <ChevronRight size={18} className="sm:w-6 sm:h-6" />
               </button>
 
               {/* Indicateurs */}
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-0 mt-6">
                 {articles.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentIndex 
-                        ? 'bg-purple-600 scale-125' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                     aria-label={`Aller à l'article ${index + 1}`}
-                  />
+                  >
+                    <span className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentIndex
+                        ? 'bg-purple-600 scale-125'
+                        : 'bg-gray-500 hover:bg-gray-600'
+                    }`} />
+                  </button>
                 ))}
               </div>
             </>
