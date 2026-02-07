@@ -125,7 +125,7 @@ const ArticlePage = () => {
           setCategories(categoriesResult.data);
         }
       } catch (err) {
-        console.error("Erreur lors du chargement:", err);
+        logger.error("Erreur lors du chargement", err);
         setError(err);
       } finally {
         setIsLoading(false);

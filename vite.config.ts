@@ -1,10 +1,10 @@
- 
-// @ts-nocheck
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+// @ts-expect-error -- local JS plugins without type declarations
 import { viteSeoHeaders } from "./vite-plugin-seo-headers.js";
+// @ts-expect-error -- local JS plugins without type declarations
 import { deferCss } from "./vite-plugin-defer-css.js";
 import analyze from "rollup-plugin-analyzer";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
@@ -82,12 +82,11 @@ export default defineConfig(({ mode }) => ({
           }
         },
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          const ext = info[info.length - 1];
-          if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name)) {
+          const name = assetInfo.name ?? '';
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(name)) {
             return `assets/images/[name]-[hash][extname]`;
           }
-          if (/\.css$/i.test(assetInfo.name)) {
+          if (/\.css$/i.test(name)) {
             return `assets/css/[name]-[hash][extname]`;
           }
           return `assets/[name]-[hash][extname]`;
