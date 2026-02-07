@@ -54,7 +54,17 @@ const AutohypnoseTestimonials = () => {
           </div>
 
           {/* Carousel pour mobile */}
-          <div className="md:hidden mb-12">
+          <div
+            className="md:hidden mb-12"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Témoignages formation Harmonia"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+              if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+            }}
+          >
             <div className="relative">
               <Card className="shadow-md border-nova-blue/20">
                 <CardContent className="p-6">
@@ -109,7 +119,17 @@ const AutohypnoseTestimonials = () => {
           </div>
 
           {/* Carousel pour desktop (3 témoignages à la fois) */}
-          <div className="hidden md:block mb-12">
+          <div
+            className="hidden md:block mb-12"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Témoignages formation Harmonia"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+              if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+            }}
+          >
             <div className="relative">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[0, 1, 2].map((offset) => {

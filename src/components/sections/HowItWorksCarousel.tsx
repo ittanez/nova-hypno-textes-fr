@@ -73,7 +73,17 @@ const HowItWorksCarousel: React.FC = () => {
         </div>
 
         {/* Mobile: Carousel */}
-        <div className="md:hidden relative max-w-lg mx-auto pb-12">
+        <div
+          className="md:hidden relative max-w-lg mx-auto pb-12"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Comment fonctionne l'hypnose"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); setCurrentHowItWorks(prev => prev === 0 ? 3 : prev - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); setCurrentHowItWorks(prev => prev === 3 ? 0 : prev + 1); }
+          }}
+        >
           <div className="overflow-hidden">
             <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentHowItWorks * 100}%)` }}>
               {howItWorksSteps.map((step, index) => {
