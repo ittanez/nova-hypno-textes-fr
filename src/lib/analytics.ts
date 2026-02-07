@@ -1,20 +1,8 @@
-// Stub analytics functions for compatibility
-export const trackQuizStep = (step: string, data?: any) => {
-  // No-op for now
-  console.log('Quiz step:', step, data);
-};
+// Stub analytics functions — replace with real tracking when needed
+export const trackQuizStep = (_step: string, _data?: unknown) => {};
 
-export const trackConversion = (data?: any) => {
-  // No-op for now
-  console.log('Conversion:', data);
-};
+export const trackConversion = (_data?: unknown) => {};
 
-export const trackFormInteraction = (field: string, action?: string, data?: any) => {
-  // No-op for now
-  console.log('Form interaction:', field, action, data);
-};
+export const trackFormInteraction = (_field: string, _action?: string, _data?: unknown) => {};
 
-export const trackCTAClick = (cta: string, location: string) => {
-  // No-op for now
-  console.log('CTA click:', cta, location);
-};
+export const trackCTAClick = (_cta: string, _location: string) => {};

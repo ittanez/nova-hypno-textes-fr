@@ -82,10 +82,6 @@ export const faqItems: FaqItem[] = [
     answer: "Le cabinet est très bien situé et facilement accessible depuis toutes les gares parisiennes :\n\n• Gare de Lyon : 5 minutes en métro (Ligne 1 directe jusqu'à Bastille)\n• Gare du Nord : 15 minutes (Ligne 5 directe depuis Gare du Nord jusqu'à Bastille)\n• Gare de l'Est : 15 minutes (Ligne 5 directe depuis Gare de l'Est jusqu'à Bastille)\n• Gare Montparnasse : 20-25 minutes (Ligne 6 puis 1, ou Ligne 4 puis 1)\n• Gare Saint-Lazare : 20 minutes (Ligne 14 puis 1, ou Ligne 3 puis 5)\n\nLa station Bastille étant un grand hub de correspondance (lignes 1, 5, 8), le cabinet est idéalement placé pour les patients venant de banlieue ou de province."
   },
   {
-    question: "Pourquoi choisir un pack de séances ?",
-    answer: "Le Pack 3 séances est particulièrement recommandé pour les problématiques les plus courantes qui nécessitent un accompagnement structuré : phobies, anxiété et confiance en soi. Ces trois domaines montrent les taux de réussite les plus élevés avec un suivi de 3 séances, permettant un travail progressif et l'ancrage durable des changements.\n\nLes packs offrent également un coût avantageux, un engagement à long terme et un plan de traitement structuré, créant les conditions optimales pour votre transformation."
-  },
-  {
     question: "Quelles sont les modalités de paiement et la politique d'annulation ?",
     answer: "Modalités de paiement :\n• Espèces, carte bancaire (cabinet), Wero, paiement en ligne\n• Carte bancaire (téléconsultations)\n\nRemarques importantes :\n• Pas de consultations pour enfants et mineurs\n\nPolitique d'annulation :\n• Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous\n• En cas d'annulation tardive (moins de 48h) ou d'absence, la séance sera facturée quelle que soit la raison"
   },

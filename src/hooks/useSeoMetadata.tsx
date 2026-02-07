@@ -21,7 +21,7 @@ type SeoProps = {
 
 const DEFAULT_TITLE = 'NovaHypnose | Hypnothérapie à Paris - Alain Zenatti, Maître en Hypnose Ericksonienne';
 const DEFAULT_DESCRIPTION = 'Vous cherchez un hypnothérapeute à Paris ? Cabinet d\'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89.';
-const DEFAULT_KEYWORDS = 'hypnothérapeute Paris, hypnose ericksonienne, Alain Zenatti, séance hypnose, cabinet hypnothérapie, stress, sommeil, confiance en soi, phobies, Hypno-Balade, forêt de Senonches';
+const DEFAULT_KEYWORDS = 'hypnothérapeute Paris, hypnose ericksonienne, Alain Zenatti, séance hypnose, cabinet hypnothérapie, stress, sommeil, confiance en soi, phobies, arrêt tabac, hypnose Marais Bastille';
 const DEFAULT_OG_IMAGE = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp';
 const DEFAULT_OG_TYPE = 'website';
 const BASE_URL = 'https://novahypnose.fr';
@@ -162,8 +162,8 @@ function getDefaultStructuredData() {
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "19:00"
+        "opens": "11:00",
+        "closes": "20:00"
       }
     ],
     "sameAs": [
@@ -184,26 +184,6 @@ function getDefaultStructuredData() {
           "price": "90",
           "priceCurrency": "EUR"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Pack 3 séances d'hypnose",
-            "description": "Pack de 3 séances d'hypnothérapie valable 6 mois"
-          },
-          "price": "255",
-          "priceCurrency": "EUR"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Hypno-Balade en Forêt de Senonches",
-            "description": "Expérience d'hypnose en pleine nature pour une reconnexion profonde"
-          },
-          "price": "120",
-          "priceCurrency": "EUR"
-        }
       ]
     },
     "aggregateRating": {

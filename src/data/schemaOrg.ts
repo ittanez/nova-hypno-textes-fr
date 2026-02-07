@@ -70,7 +70,27 @@ export const localBusinessSchema = {
     "bestRating": "5",
     "worstRating": "1",
     "reviewCount": "12"
-  }
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Edward Achour" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Découvrir NovaHypnose et le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Marie Hernandez" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Philippe Audoin" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail. En quelques séances, j'ai pu me libérer de certains blocages."
+    }
+  ]
 };
 
 export const personSchema = {
