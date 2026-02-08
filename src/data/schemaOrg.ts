@@ -1,6 +1,6 @@
 /**
  * Structured Data (Schema.org) pour le SEO
- * Extrait de src/pages/Index.tsx pour améliorer la maintenabilité
+ * Optimisé pour Google, AI Search (ChatGPT, Perplexity, Gemini) et Local Pack
  */
 
 import { faqItems } from './faqData';
@@ -11,10 +11,10 @@ export const localBusinessSchema = {
   "@id": "https://novahypnose.fr/#localbusiness",
   "name": "NovaHypnose - Hypnothérapeute Paris",
   "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
+  "additionalType": "https://en.wikipedia.org/wiki/Hypnotherapy",
   "url": "https://novahypnose.fr",
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
-  "servesCuisine": null,
   "hasMap": "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris",
   "address": {
     "@type": "PostalAddress",
@@ -39,28 +39,81 @@ export const localBusinessSchema = {
   ],
   "priceRange": "€€",
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-  "description": "Hypnothérapeute Paris 4ème - Cabinet d'hypnothérapie ericksonienne. Spécialiste stress, sommeil, phobies, confiance en soi. Maître Hypnologue certifié Alain Zenatti.",
+  "logo": "https://novahypnose.fr/favicon.ico",
+  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
+  "slogan": "Transformez votre vie par l'hypnose",
+  "knowsAbout": [
+    "Hypnose ericksonienne",
+    "Hypnothérapie",
+    "Gestion du stress",
+    "Traitement de l'anxiété",
+    "Traitement des phobies",
+    "Amélioration du sommeil",
+    "Confiance en soi",
+    "Arrêt du tabac",
+    "Gestion du poids",
+    "Auto-hypnose",
+    "Peur de parler en public",
+    "Procrastination"
+  ],
   "areaServed": [
     {
       "@type": "City",
-      "name": "Paris"
+      "name": "Paris",
+      "@id": "https://www.wikidata.org/wiki/Q90"
     },
     {
       "@type": "AdministrativeArea",
       "name": "Île-de-France"
     }
   ],
+  "sameAs": [
+    "https://www.instagram.com/novahypnose/",
+    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+    "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
+  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Services d'hypnothérapie",
+    "name": "Services d'hypnothérapie à Paris",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Séance d'hypnose individuelle",
-          "description": "Hypnothérapie ericksonienne personnalisée pour stress, anxiété, phobies, sommeil"
-        }
+          "name": "Séance d'hypnose au cabinet Paris 4ème",
+          "description": "Séance individuelle d'hypnose ericksonienne au cabinet Marais-Bastille pour stress, anxiété, phobies, sommeil, confiance en soi",
+          "serviceType": "Hypnothérapie",
+          "areaServed": { "@type": "City", "name": "Paris" },
+          "provider": { "@id": "https://novahypnose.fr/#person" }
+        },
+        "price": "90",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Téléconsultation d'hypnose",
+          "description": "Séance d'hypnose en visioconférence pour les personnes éloignées de Paris. Aussi efficace qu'en cabinet.",
+          "serviceType": "Hypnothérapie en ligne",
+          "areaServed": { "@type": "Country", "name": "France" },
+          "provider": { "@id": "https://novahypnose.fr/#person" }
+        },
+        "price": "90",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Séance d'hypnose à domicile Paris",
+          "description": "Séance d'hypnothérapie à domicile à Paris et proche banlieue pour les personnes à mobilité réduite ou préférant le confort de leur domicile",
+          "serviceType": "Hypnothérapie à domicile",
+          "areaServed": { "@type": "City", "name": "Paris" },
+          "provider": { "@id": "https://novahypnose.fr/#person" }
+        },
+        "price": "140",
+        "priceCurrency": "EUR"
       }
     ]
   },
@@ -69,7 +122,7 @@ export const localBusinessSchema = {
     "ratingValue": "5",
     "bestRating": "5",
     "worstRating": "1",
-    "reviewCount": "12"
+    "reviewCount": "40"
   },
   "review": [
     {
@@ -99,15 +152,50 @@ export const personSchema = {
   "@id": "https://novahypnose.fr/#person",
   "name": "Alain Zenatti",
   "jobTitle": "Maître Hypnologue",
-  "description": "Hypnothérapeute certifié spécialisé en hypnose ericksonienne à Paris",
+  "description": "Hypnothérapeute certifié à Paris 4ème, spécialisé en hypnose ericksonienne. Maître Hypnologue avec plus de 5 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille.",
   "url": "https://novahypnose.fr",
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "sameAs": [
     "https://www.instagram.com/novahypnose/",
     "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
   ],
+  "knowsAbout": [
+    "Hypnose ericksonienne",
+    "Hypnose directive",
+    "Hypnose spirituelle",
+    "Auto-hypnose",
+    "PNL",
+    "Gestion du stress par l'hypnose",
+    "Traitement des phobies par l'hypnose"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": "Maître Hypnologue",
+      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": "Maître Praticien Hypnose Ericksonienne",
+      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": "Hypnose Directive et Hyperemperia"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Certification",
+      "name": "Hypnose Spirituelle",
+      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+    }
+  ],
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
+  "worksFor": { "@id": "https://novahypnose.fr/#localbusiness" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "16 rue Saint-Antoine",
@@ -128,4 +216,17 @@ export const faqSchema = {
       "text": item.answer
     }
   }))
+};
+
+export const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://novahypnose.fr"
+    }
+  ]
 };

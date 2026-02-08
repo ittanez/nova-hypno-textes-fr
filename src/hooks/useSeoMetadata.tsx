@@ -133,20 +133,23 @@ function addOrUpdateStructuredData(data: StructuredData) {
   document.head.appendChild(script);
 }
 
-// Default structured data for the business
+// Default structured data for the business (fallback for non-homepage pages)
 function getDefaultStructuredData() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://novahypnose.fr/#organization",
-    "name": "NovaHypnose - Alain Zenatti",
+    "@type": ["LocalBusiness", "MedicalBusiness", "HealthAndBeautyBusiness"],
+    "@id": "https://novahypnose.fr/#localbusiness",
+    "name": "NovaHypnose - Hypnothérapeute Paris",
+    "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
+    "additionalType": "https://en.wikipedia.org/wiki/Hypnotherapy",
     "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-    "description": "Cabinet d'hypnothérapie à Paris. Alain Zenatti, Maître Hypnologue vous accompagne pour retrouver confiance, équilibre et vitalité.",
+    "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Spécialiste stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances.",
     "url": "https://novahypnose.fr",
     "telephone": "+33649358089",
+    "email": "contact@novahypnose.fr",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "16 rue St Antoine",
+      "streetAddress": "16 rue Saint-Antoine",
       "addressLocality": "Paris",
       "postalCode": "75004",
       "addressCountry": "FR",
@@ -154,8 +157,8 @@ function getDefaultStructuredData() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.8533575,
-      "longitude": 2.3644123
+      "latitude": 48.8534,
+      "longitude": 2.3656
     },
     "priceRange": "€€",
     "openingHoursSpecification": [
@@ -166,26 +169,15 @@ function getDefaultStructuredData() {
         "closes": "20:00"
       }
     ],
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "AdministrativeArea", "name": "Île-de-France" }
+    ],
     "sameAs": [
       "https://www.instagram.com/novahypnose/",
-      "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+      "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+      "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services d'hypnothérapie",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Séance d'Hypnose Individuelle",
-            "description": "Séance d'hypnose ericksonienne en cabinet ou téléconsultation"
-          },
-          "price": "90",
-          "priceCurrency": "EUR"
-        },
-      ]
-    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
