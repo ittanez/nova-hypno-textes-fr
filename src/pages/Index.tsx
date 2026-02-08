@@ -15,6 +15,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
+import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema } from '@/data/schemaOrg';
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
@@ -83,13 +84,13 @@ const Index: React.FC = () => {
     <>
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
-        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue</title>
-        <meta name="description" content="Hypnothérapeute Paris 4ème - Cabinet d'hypnose ericksonienne Marais-Bastille. Stress, anxiété, phobies, sommeil. Alain Zenatti certifié." />
-        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris" />
+        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue certifié</title>
+        <meta name="description" content="Hypnothérapeute à Paris 4ème, cabinet Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié en hypnose ericksonienne. Spécialiste stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances. Note 5/5." />
+        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris" />
 
         {/* Open Graph - URL cohérente sans trailing slash */}
-        <meta property="og:title" content="Hypnose Paris, Hypnothérapeute parisien thérapie par hypnose" />
-        <meta property="og:description" content="Vous cherchez un hypnothérapeute à Paris ? Cabinet d'hypnose pour traiter stress, sommeil, phobies. Consultation thérapie à Paris 4 Marais Bastille. Tél 06 49 35 80 89." />
+        <meta property="og:title" content="Hypnothérapeute Paris | Alain Zenatti - Hypnose ericksonienne Marais-Bastille" />
+        <meta property="og:description" content="Vous cherchez un hypnothérapeute à Paris ? Alain Zenatti, Maître Hypnologue certifié. Cabinet Paris 4ème Marais-Bastille. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances. Tél 06 49 35 80 89." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -105,6 +106,12 @@ const Index: React.FC = () => {
 
         {/* Canonical - sans trailing slash pour cohérence */}
         <link rel="canonical" href="https://novahypnose.fr" />
+
+        {/* Structured Data JSON-LD - LocalBusiness + Person + FAQ + Breadcrumb */}
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <ContentLayout>

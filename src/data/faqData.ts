@@ -10,6 +10,14 @@ export interface FaqItem {
 
 export const faqItems: FaqItem[] = [
   {
+    question: "Pourquoi consulter un hypnothérapeute à Paris ?",
+    answer: "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments. Au cabinet NovaHypnose Paris 4ème (Marais-Bastille), Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et bienveillant."
+  },
+  {
+    question: "Comment se déroule une séance d'hypnose à Paris chez NovaHypnose ?",
+    answer: "Une séance d'hypnose à Paris au cabinet NovaHypnose se déroule en 3 étapes : d'abord un entretien pour comprendre votre problématique et définir vos objectifs, puis la séance d'hypnose ericksonienne proprement dite (état de relaxation profonde guidée), et enfin un debriefing pour ancrer les changements. La première séance dure environ 1h30, les suivantes 1h. Le cabinet est situé au 16 rue Saint-Antoine, Paris 4ème, à 2 minutes du métro Bastille."
+  },
+  {
     question: "À quelle vitesse va-t-on remarquer des changements ?",
     answer: "Certaines personnes remarquent des changements après une seule séance, tandis que d'autres auront besoin de quelques séances pour observer des transformations significatives. Cela dépend de la problématique, de votre réceptivité à l'hypnose et de votre engagement dans le processus."
   },
