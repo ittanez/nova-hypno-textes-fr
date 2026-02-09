@@ -97,10 +97,10 @@ const ZoneIntervention = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Zone d'Intervention Paris - Cabinet Hypnothérapie Marais Bastille | NovaHypnose</title>
+        <title>Zone d'intervention Paris | Cabinet Hypnose Bastille</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie Paris 4ème accessible depuis tous les arrondissements. Métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet, à domicile (140€) ou en visio (90€). Consultez les temps de trajet depuis votre quartier."
+          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio."
         />
         <meta
           name="keywords"
