@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
@@ -23,43 +23,58 @@ interface MobileNavProps {
 interface MobileSectionProps {
   title: string;
   links: NavLink[];
+  isExpanded: boolean;
+  onToggleSection: () => void;
   onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, href: string) => void;
   onToggleMenu: () => void;
 }
 
-const MobileSection: React.FC<MobileSectionProps> = ({ title, links, onNavClick, onToggleMenu }) => (
+const MobileSection: React.FC<MobileSectionProps> = ({ title, links, isExpanded, onToggleSection, onNavClick, onToggleMenu }) => (
   <div className="border-t border-gray-200 pt-2">
-    <p className="font-medium text-nova-neutral-dark mb-2 flex items-center">
-      {title} <ChevronDown className="ml-1 h-4 w-4" />
-    </p>
-    <div className="pl-4 space-y-2">
-      {links.map((link) => (
-        <a
-          key={link.name}
-          href={link.href}
-          target={link.external ? "_blank" : ""}
-          rel={link.external ? "noopener noreferrer" : ""}
-          className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
-          onClick={(e) => {
-            if (!link.external) {
-              onNavClick(e, link.href);
-            } else {
-              onToggleMenu();
-            }
-          }}
-        >
-          {link.name}
-        </a>
-      ))}
-    </div>
+    <button
+      onClick={onToggleSection}
+      className="w-full font-medium text-nova-neutral-dark flex items-center justify-between py-1"
+      aria-expanded={isExpanded}
+    >
+      {title}
+      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+    </button>
+    {isExpanded && (
+      <div className="pl-4 space-y-2 mt-2">
+        {links.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            target={link.external ? "_blank" : ""}
+            rel={link.external ? "noopener noreferrer" : ""}
+            className="block text-nova-neutral-dark hover:text-nova-blue transition-colors"
+            onClick={(e) => {
+              if (!link.external) {
+                onNavClick(e, link.href);
+              } else {
+                onToggleMenu();
+              }
+            }}
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+    )}
   </div>
 );
 
 const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu }) => {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  const toggleSection = (title: string) => {
+    setOpenSection(openSection === title ? null : title);
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-white shadow-lg absolute w-full">
+    <div className="md:hidden bg-white shadow-lg absolute w-full max-h-[80vh] overflow-y-auto">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex flex-col space-y-4">
           {/* Liens principaux */}
@@ -76,10 +91,12 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
             </a>
           ))}
 
-          {/* Sections avec sous-menus */}
+          {/* Sections avec sous-menus (accordéon) */}
           <MobileSection
             title="À propos"
             links={aboutLinks}
+            isExpanded={openSection === 'À propos'}
+            onToggleSection={() => toggleSection('À propos')}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />
@@ -87,6 +104,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
           <MobileSection
             title="L'hypnose"
             links={hypnoseLinks}
+            isExpanded={openSection === "L'hypnose"}
+            onToggleSection={() => toggleSection("L'hypnose")}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />
@@ -94,6 +113,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
           <MobileSection
             title="Spécialités"
             links={specialitesLinks}
+            isExpanded={openSection === 'Spécialités'}
+            onToggleSection={() => toggleSection('Spécialités')}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />
@@ -101,6 +122,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
           <MobileSection
             title="Mes accompagnements"
             links={accompagnementsLinks}
+            isExpanded={openSection === 'Mes accompagnements'}
+            onToggleSection={() => toggleSection('Mes accompagnements')}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />
@@ -122,6 +145,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
           <MobileSection
             title="Infos pratiques"
             links={infosPratiquesLinks}
+            isExpanded={openSection === 'Infos pratiques'}
+            onToggleSection={() => toggleSection('Infos pratiques')}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />
