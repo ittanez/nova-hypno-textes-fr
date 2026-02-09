@@ -8,6 +8,7 @@ import {
   mainNavLinksAfter,
   aboutLinks,
   hypnoseLinks,
+  specialitesLinks,
   accompagnementsLinks,
   infosPratiquesLinks,
   externalLinks
@@ -86,6 +87,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
           <MobileSection
             title="L'hypnose"
             links={hypnoseLinks}
+            onNavClick={onNavClick}
+            onToggleMenu={onToggleMenu}
+          />
+
+          <MobileSection
+            title="Spécialités"
+            links={specialitesLinks}
             onNavClick={onNavClick}
             onToggleMenu={onToggleMenu}
           />

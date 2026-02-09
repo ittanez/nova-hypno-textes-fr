@@ -8,6 +8,7 @@ import {
   mainNavLinksAfter,
   aboutLinks,
   hypnoseLinks,
+  specialitesLinks,
   accompagnementsLinks,
   infosPratiquesLinks,
   externalLinks
@@ -52,6 +53,13 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ isDesktop, onNavClick }) => {
       <NavDropdown
         title="L'hypnose"
         links={hypnoseLinks}
+        isDesktop={isDesktop}
+        onNavClick={onNavClick}
+      />
+
+      <NavDropdown
+        title="Spécialités"
+        links={specialitesLinks}
         isDesktop={isDesktop}
         onNavClick={onNavClick}
       />
