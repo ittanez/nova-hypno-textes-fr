@@ -56,7 +56,7 @@ const CategoriesPage = () => {
     <>
       <Helmet>
         <title>Catégories d'Articles - Blog Hypnose | NovaHypnose</title>
-        <meta name="description" content="Explorez les catégories d'articles sur l'hypnose ericksonienne, le bien-être et la transformation personnelle. Trouvez les articles pertinents pour vos besoins." />
+        <meta name="description" content="Explorez les catégories d'articles sur l'hypnose ericksonienne et le bien-être. Trouvez les articles pertinents pour vos besoins." />
         <link rel="canonical" href="https://novahypnose.fr/blog/categories" />
         <meta property="og:title" content="Catégories d'Articles - Blog Hypnose | NovaHypnose" />
         <meta property="og:description" content="Explorez les catégories d'articles sur l'hypnose ericksonienne, le bien-être et la transformation personnelle." />

@@ -182,8 +182,8 @@ const BlogIndex = () => {
   return (
     <ContentLayout>
       <SEOHead
-        title="Émergences - Le blog de l'hypnose et du bien-être | NovaHypnose"
-        description="Découvrez des articles approfondis sur l'hypnose ericksonienne, le bien-être et la transformation personnelle. Conseils pratiques et témoignages par Alain Zenatti, Maître Hypnologue à Paris."
+        title="Blog Hypnose et Bien-être | NovaHypnose Paris"
+        description="Articles sur l'hypnose ericksonienne, le bien-être et la transformation personnelle. Conseils pratiques par Alain Zenatti, hypnothérapeute à Paris."
         type="website"
         keywords={["blog hypnose", "hypnose ericksonienne", "bien-être", "développement personnel", "auto-hypnose", "transformation personnelle"]}
         structuredData={[blogSchema, breadcrumbSchema]}

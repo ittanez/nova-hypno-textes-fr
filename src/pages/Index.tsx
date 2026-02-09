@@ -84,8 +84,8 @@ const Index: React.FC = () => {
     <>
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
-        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Maître Hypnologue certifié</title>
-        <meta name="description" content="Hypnothérapeute à Paris 4ème, cabinet Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié en hypnose ericksonienne. Spécialiste stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances. Note 5/5." />
+        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose</title>
+        <meta name="description" content="Hypnothérapeute à Paris 4ème, cabinet Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris" />
 
         {/* Open Graph - URL cohérente sans trailing slash */}

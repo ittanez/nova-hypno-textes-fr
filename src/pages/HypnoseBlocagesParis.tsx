@@ -35,8 +35,8 @@ const HypnoseBlocagesParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose blocages et troubles du comportement Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez vos blocages grâce à l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, onychophagie, addictions comportementales. Alain Zenatti, Maître Hypnologue. Cabinet Marais-Bastille." />
+        <title>Hypnose blocages et comportements Paris | Zenatti</title>
+        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue." />
         <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-paris" />
         <meta property="og:title" content="Hypnose blocages et troubles du comportement Paris | Alain Zenatti" />

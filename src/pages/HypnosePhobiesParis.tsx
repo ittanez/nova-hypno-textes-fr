@@ -35,8 +35,8 @@ const HypnosePhobiesParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose phobies et peurs Paris | Alain Zenatti - Hypnothérapeute</title>
-        <meta name="description" content="Libérez-vous de vos phobies grâce à l'hypnose à Paris 4ème. Phobie avion, arachnophobie, claustrophobie, peur de parler en public. Alain Zenatti, Maître Hypnologue. Résultats en 2 à 4 séances." />
+        <title>Hypnose phobies et peurs Paris | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats en 2 à 4 séances." />
         <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
         <meta property="og:title" content="Hypnose phobies et peurs Paris | Alain Zenatti" />

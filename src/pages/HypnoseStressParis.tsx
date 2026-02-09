@@ -35,8 +35,8 @@ const HypnoseStressParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose stress et anxiété Paris | Alain Zenatti - Hypnothérapeute</title>
-        <meta name="description" content="Libérez-vous du stress et de l'anxiété grâce à l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances. Cabinet Marais-Bastille." />
+        <title>Hypnose stress et anxiété Paris | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous du stress et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue. Résultats durables en 3 à 5 séances." />
         <meta name="keywords" content="hypnose stress paris, hypnose anxiété paris, hypnothérapeute stress paris, gestion stress hypnose, burn-out hypnose paris, anxiété hypnothérapie paris, stress travail hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:title" content="Hypnose stress et anxiété Paris | Alain Zenatti" />
