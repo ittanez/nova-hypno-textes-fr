@@ -102,7 +102,7 @@ const HeroCarousel: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl w-full">
             {/* H1 visible pour SEO et utilisateurs */}
-            <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3 md:mb-4 drop-shadow-lg">Hypnothérapeute à Paris – Hypnose ericksonienne</h1>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3 md:mb-4 drop-shadow-lg">Hypnothérapeute à Paris – Hypnose ericksonienne – Alain Zenatti</h1>
 
             {/* Contenu visuel dynamique du carrousel - hauteur fixe pour stabilité */}
             <div className="relative h-[240px] sm:h-[220px] md:h-[280px] lg:h-[320px]">
