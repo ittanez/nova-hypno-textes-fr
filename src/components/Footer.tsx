@@ -145,14 +145,16 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Troisième colonne: Ressources */}
+          {/* Troisième colonne: Spécialités */}
           <div>
-            <h3 className="font-serif text-xl mb-4">Ressources</h3>
+            <h3 className="font-serif text-xl mb-4">Spécialités</h3>
             <ul className="space-y-2">
-              <li><a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">NovaRespire App - Techniques de respiration</a></li>
-              <li><a href="https://peur-de-parler-en-public.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Peur de parler en public</a></li>
-              <li><a href="https://hypnokick.novahypnose.fr" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Suis-je Hypnotisable ?</a></li>
-              <li><a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Hypno Balade</a></li>
+              <li><Link to="/hypnose-stress-anxiete-paris" className="text-gray-300 hover:text-white transition-colors">Stress et anxiété</Link></li>
+              <li><Link to="/hypnose-phobies-paris" className="text-gray-300 hover:text-white transition-colors">Phobies et peurs</Link></li>
+              <li><Link to="/hypnose-sommeil-paris" className="text-gray-300 hover:text-white transition-colors">Troubles du sommeil</Link></li>
+              <li><Link to="/hypnose-gestion-emotions-paris" className="text-gray-300 hover:text-white transition-colors">Gestion des émotions</Link></li>
+              <li><Link to="/hypnose-blocages-paris" className="text-gray-300 hover:text-white transition-colors">Blocages et comportements</Link></li>
+              <li><Link to="/hypnose-confiance-en-soi-paris" className="text-gray-300 hover:text-white transition-colors">Confiance en soi</Link></li>
             </ul>
           </div>
           

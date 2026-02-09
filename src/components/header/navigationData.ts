@@ -35,6 +35,15 @@ export const hypnoseLinks: NavLink[] = [
   { name: 'Test de réceptivité', href: '/test-receptivite' },
 ];
 
+export const specialitesLinks: NavLink[] = [
+  { name: 'Stress et anxiété', href: '/hypnose-stress-anxiete-paris' },
+  { name: 'Phobies et peurs', href: '/hypnose-phobies-paris' },
+  { name: 'Troubles du sommeil', href: '/hypnose-sommeil-paris' },
+  { name: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { name: 'Blocages et comportements', href: '/hypnose-blocages-paris' },
+  { name: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
+];
+
 export const accompagnementsLinks: NavLink[] = [
   { name: 'Applications', href: '/#applications' },
   { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
@@ -52,6 +61,7 @@ export const infosPratiquesLinks: NavLink[] = [
 export const dropdownSections: NavSection[] = [
   { title: 'À propos', links: aboutLinks },
   { title: 'L\'hypnose', links: hypnoseLinks },
+  { title: 'Spécialités', links: specialitesLinks },
   { title: 'Mes accompagnements', links: accompagnementsLinks },
 ];
 
