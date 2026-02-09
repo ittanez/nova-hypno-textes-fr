@@ -37,6 +37,12 @@ export const hypnoseLinks: NavLink[] = [
 
 export const accompagnementsLinks: NavLink[] = [
   { name: 'Applications', href: '/#applications' },
+  { name: 'Stress et anxiété', href: '/hypnose-stress-anxiete-paris' },
+  { name: 'Phobies et peurs', href: '/hypnose-phobies-paris' },
+  { name: 'Troubles du sommeil', href: '/hypnose-sommeil-paris' },
+  { name: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { name: 'Blocages et comportements', href: '/hypnose-blocages-paris' },
+  { name: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
   { name: 'Offre Liberté Aérienne', href: '/peurdelavion.html' },
 ];
