@@ -53,8 +53,8 @@ const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
 const HypnoseStressParis = lazy(() => import("@/pages/HypnoseStressParis"));
 const HypnosePhobiesParis = lazy(() => import("@/pages/HypnosePhobiesParis"));
 const HypnoseSommeilParis = lazy(() => import("@/pages/HypnoseSommeilParis"));
-const HypnoseTabacParis = lazy(() => import("@/pages/HypnoseTabacParis"));
-const HypnosePoidsParis = lazy(() => import("@/pages/HypnosePoidsParis"));
+const HypnoseEmotionsParis = lazy(() => import("@/pages/HypnoseEmotionsParis"));
+const HypnoseBlocagesParis = lazy(() => import("@/pages/HypnoseBlocagesParis"));
 const HypnoseConfianceParis = lazy(() => import("@/pages/HypnoseConfianceParis"));
 
 // Composant pour forcer HTTPS en production et faire les redirections
@@ -115,8 +115,8 @@ function App() {
             <Route path="/hypnose-stress-anxiete-paris" element={<HypnoseStressParis />} />
             <Route path="/hypnose-phobies-paris" element={<HypnosePhobiesParis />} />
             <Route path="/hypnose-sommeil-paris" element={<HypnoseSommeilParis />} />
-            <Route path="/hypnose-arret-tabac-paris" element={<HypnoseTabacParis />} />
-            <Route path="/hypnose-perte-de-poids-paris" element={<HypnosePoidsParis />} />
+            <Route path="/hypnose-gestion-emotions-paris" element={<HypnoseEmotionsParis />} />
+            <Route path="/hypnose-blocages-paris" element={<HypnoseBlocagesParis />} />
             <Route path="/hypnose-confiance-en-soi-paris" element={<HypnoseConfianceParis />} />
 
             {/* Route de connexion admin blog */}

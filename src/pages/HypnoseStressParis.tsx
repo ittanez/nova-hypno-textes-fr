@@ -238,8 +238,8 @@ const HypnoseStressParis = () => {
               <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
                 Hypnose et sommeil <ArrowRight size={14} />
               </Link>
-              <Link to="/hypnose-arret-tabac-paris" className="hover:text-white underline flex items-center gap-1">
-                Arrêt du tabac <ArrowRight size={14} />
+              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline flex items-center gap-1">
+                Gestion des émotions <ArrowRight size={14} />
               </Link>
             </div>
           </div>

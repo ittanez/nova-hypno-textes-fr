@@ -236,8 +236,8 @@ const HypnoseConfianceParis = () => {
               <Link to="/hypnose-phobies-paris" className="hover:text-white underline flex items-center gap-1">
                 Hypnose et phobies <ArrowRight size={14} />
               </Link>
-              <Link to="/hypnose-perte-de-poids-paris" className="hover:text-white underline flex items-center gap-1">
-                Perte de poids <ArrowRight size={14} />
+              <Link to="/hypnose-blocages-paris" className="hover:text-white underline flex items-center gap-1">
+                Blocages et comportements <ArrowRight size={14} />
               </Link>
             </div>
           </div>
