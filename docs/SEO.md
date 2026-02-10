@@ -380,6 +380,67 @@ https://www.bing.com/webmasters
 # Ajouter site > Sitemaps > Soumettre sitemap
 ```
 
+### Notification automatique des moteurs de recherche
+
+#### Google Search Console
+
+**Edge Function** : `/supabase/functions/notify-google-sitemap/index.ts`
+
+```bash
+# Notifier Google automatiquement
+curl -X POST https://akrlyzmfszumibwgocae.supabase.co/functions/v1/notify-google-sitemap
+```
+
+Cette fonction ping Google pour lui signaler la mise à jour du sitemap.
+
+#### Bing via IndexNow API
+
+**Edge Function** : `/supabase/functions/notify-bing-indexnow/index.ts`
+
+IndexNow est un protocole ouvert qui permet de notifier instantanément Bing, Yandex et autres moteurs des nouvelles URLs ou mises à jour.
+
+**Configuration initiale** :
+
+```bash
+# 1. Générer la clé et créer le fichier de vérification
+./scripts/setup-indexnow.sh
+
+# 2. Configurer la variable d'environnement dans Supabase
+# INDEXNOW_KEY=votre_cle_generee
+
+# 3. Déployer avec le fichier de clé
+git add public/votre_cle.txt
+git commit -m "Add IndexNow key"
+git push
+```
+
+**Utilisation** :
+
+```bash
+# Notifier des URLs spécifiques
+curl -X POST https://akrlyzmfszumibwgocae.supabase.co/functions/v1/notify-bing-indexnow \
+  -H "Content-Type: application/json" \
+  -d '{
+    "urls": [
+      "https://novahypnose.fr/blog/nouvel-article",
+      "https://novahypnose.fr/autohypnose"
+    ]
+  }'
+
+# Notifier les URLs principales automatiquement
+curl -X POST https://akrlyzmfszumibwgocae.supabase.co/functions/v1/notify-bing-indexnow
+```
+
+**Avantages IndexNow** :
+- ✅ Indexation quasi-instantanée (quelques minutes vs plusieurs jours)
+- ✅ Notifie plusieurs moteurs en une seule requête (Bing, Yandex, Seznam)
+- ✅ Pas de limite de quota stricte
+- ✅ API gratuite et simple
+
+**Vérification** :
+- Bing Webmaster Tools > Outils > URL Submission
+- Voir l'historique des soumissions IndexNow
+
 ---
 
 ## Robots.txt
@@ -675,6 +736,7 @@ https://pagespeed.web.dev/
 ### Mensuel (maintenance SEO)
 
 - [ ] Vérifier positions Google (Search Console)
+- [ ] Vérifier positions Bing (Webmaster Tools)
 - [ ] Analyser trafic (Analytics)
 - [ ] Corriger erreurs 404
 - [ ] Mettre à jour contenu ancien
@@ -683,6 +745,7 @@ https://pagespeed.web.dev/
 - [ ] Optimiser pages faibles
 - [ ] Tester Core Web Vitals
 - [ ] Vérifier sitemap
+- [ ] Notifier Google et Bing des mises à jour (IndexNow)
 - [ ] Surveiller concurrence
 
 ---
