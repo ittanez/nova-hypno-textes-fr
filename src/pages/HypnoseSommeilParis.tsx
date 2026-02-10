@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
+import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import { sommeilFaqItems } from '@/data/specialtyFaqData';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -195,6 +197,14 @@ const HypnoseSommeilParis = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <SpecialtyFAQ
+        items={sommeilFaqItems}
+        title="Questions fréquentes sur l'hypnose et le sommeil"
+        accentColor="text-indigo-500"
+        pageUrl="https://novahypnose.fr/hypnose-sommeil-paris"
+      />
 
       {/* CTA final */}
       <section className="py-16 md:py-20 bg-indigo-600">
