@@ -1,46 +1,58 @@
 #!/usr/bin/env node
 
 /**
- * Script pour soumettre toutes les URLs du sitemap à IndexNow (Bing)
+ * Script pour soumettre toutes les URLs du sitemap a IndexNow (Bing, Yandex, Seznam)
  *
  * Usage:
- *   node scripts/submit-all-urls-indexnow.js
+ *   node scripts/submit-all-urls-indexnow.js              # Appel direct a IndexNow API
+ *   node scripts/submit-all-urls-indexnow.js --via-supabase  # Via la edge function Supabase
  *
- * Prérequis:
- *   - Le sitemap doit être accessible sur https://novahypnose.fr/sitemap.xml
- *   - La fonction Edge IndexNow doit être déployée
- *   - La clé IndexNow doit être configurée
+ * Prerequis:
+ *   - Le sitemap doit etre accessible sur https://novahypnose.fr/sitemap.xml
+ *   - Le fichier de cle doit etre deploye sur https://novahypnose.fr/{key}.txt
  */
 
 import https from 'https';
 import http from 'http';
 
-const SITEMAP_URL = 'https://novahypnose.fr/sitemap.xml';
+const SITE_HOST = 'novahypnose.fr';
+const SITE_URL = `https://${SITE_HOST}`;
+const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
+const INDEXNOW_KEY = '5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3';
+const INDEXNOW_API_URL = 'https://api.indexnow.org/indexnow';
 const EDGE_FUNCTION_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/notify-bing-indexnow';
 
+const USE_SUPABASE = process.argv.includes('--via-supabase');
+
 /**
- * Récupérer le contenu du sitemap
+ * Faire une requete HTTP/HTTPS
  */
-function fetchSitemap(url) {
+function httpRequest(url, options, body) {
   return new Promise((resolve, reject) => {
-    const client = url.startsWith('https') ? https : http;
+    const parsedUrl = new URL(url);
+    const client = parsedUrl.protocol === 'https:' ? https : http;
 
-    client.get(url, (res) => {
+    const req = client.request(parsedUrl, options, (res) => {
       let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => resolve({ status: res.statusCode, statusMessage: res.statusMessage, data }));
+    });
 
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          resolve(data);
-        } else {
-          reject(new Error(`HTTP ${res.statusCode}: ${res.statusMessage}`));
-        }
-      });
-    }).on('error', reject);
+    req.on('error', reject);
+    if (body) req.write(body);
+    req.end();
   });
+}
+
+/**
+ * Recuperer le contenu du sitemap
+ */
+async function fetchSitemap() {
+  const res = await httpRequest(SITEMAP_URL, { method: 'GET' });
+  if (res.status !== 200) {
+    throw new Error(`Sitemap HTTP ${res.status}: ${res.statusMessage}`);
+  }
+  return res.data;
 }
 
 /**
@@ -50,83 +62,89 @@ function extractUrls(sitemapXml) {
   const urlRegex = /<loc>(.*?)<\/loc>/g;
   const urls = [];
   let match;
-
   while ((match = urlRegex.exec(sitemapXml)) !== null) {
     urls.push(match[1]);
   }
-
   return urls;
 }
 
 /**
- * Soumettre les URLs à IndexNow
+ * Soumettre directement a IndexNow API (sans passer par Supabase)
  */
-function submitToIndexNow(urls) {
-  return new Promise((resolve, reject) => {
-    const payload = JSON.stringify({ urls });
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(payload)
-      }
-    };
-
-    const url = new URL(EDGE_FUNCTION_URL);
-    const client = url.protocol === 'https:' ? https : http;
-
-    const req = client.request(url, options, (res) => {
-      let data = '';
-
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-
-      res.on('end', () => {
-        if (res.statusCode === 200) {
-          try {
-            resolve(JSON.parse(data));
-          } catch (e) {
-            resolve(data);
-          }
-        } else {
-          reject(new Error(`HTTP ${res.statusCode}: ${data}`));
-        }
-      });
-    });
-
-    req.on('error', reject);
-    req.write(payload);
-    req.end();
+async function submitDirectToIndexNow(urls) {
+  const payload = JSON.stringify({
+    host: SITE_HOST,
+    key: INDEXNOW_KEY,
+    keyLocation: `${SITE_URL}/${INDEXNOW_KEY}.txt`,
+    urlList: urls
   });
+
+  const res = await httpRequest(INDEXNOW_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Content-Length': Buffer.byteLength(payload)
+    }
+  }, payload);
+
+  if (res.status === 200 || res.status === 202) {
+    return { success: true, message: `IndexNow accepte (HTTP ${res.status})`, urlsSubmitted: urls.length };
+  } else {
+    throw new Error(`IndexNow HTTP ${res.status}: ${res.data}`);
+  }
+}
+
+/**
+ * Soumettre via la edge function Supabase
+ */
+async function submitViaSupabase(urls) {
+  const payload = JSON.stringify({ urls });
+
+  const res = await httpRequest(EDGE_FUNCTION_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(payload)
+    }
+  }, payload);
+
+  if (res.status === 200) {
+    try {
+      return JSON.parse(res.data);
+    } catch {
+      return { success: true, message: res.data, urlsSubmitted: urls.length };
+    }
+  } else {
+    throw new Error(`Edge function HTTP ${res.status}: ${res.data}`);
+  }
 }
 
 /**
  * Fonction principale
  */
 async function main() {
-  console.log('🚀 Soumission des URLs à Bing via IndexNow');
-  console.log('===========================================\n');
+  const mode = USE_SUPABASE ? 'via Supabase Edge Function' : 'direct IndexNow API';
+  console.log(`Soumission des URLs a Bing via IndexNow (${mode})`);
+  console.log('='.repeat(60) + '\n');
 
   try {
-    // 1. Récupérer le sitemap
-    console.log(`📥 Récupération du sitemap: ${SITEMAP_URL}`);
-    const sitemapXml = await fetchSitemap(SITEMAP_URL);
-    console.log('✅ Sitemap récupéré\n');
+    // 1. Recuperer le sitemap
+    console.log(`Recuperation du sitemap: ${SITEMAP_URL}`);
+    const sitemapXml = await fetchSitemap();
+    console.log('Sitemap recupere\n');
 
     // 2. Extraire les URLs
-    console.log('🔍 Extraction des URLs...');
+    console.log('Extraction des URLs...');
     const urls = extractUrls(sitemapXml);
-    console.log(`✅ ${urls.length} URLs trouvées\n`);
+    console.log(`${urls.length} URLs trouvees\n`);
 
     if (urls.length === 0) {
-      console.log('⚠️  Aucune URL trouvée dans le sitemap');
+      console.log('Aucune URL trouvee dans le sitemap');
       return;
     }
 
-    // Afficher un échantillon des URLs
-    console.log('📋 Échantillon des URLs à soumettre:');
+    // Afficher un echantillon
+    console.log('URLs a soumettre:');
     urls.slice(0, 5).forEach(url => console.log(`   - ${url}`));
     if (urls.length > 5) {
       console.log(`   ... et ${urls.length - 5} autres\n`);
@@ -134,52 +152,45 @@ async function main() {
       console.log('');
     }
 
-    // 3. Soumettre à IndexNow
-    // Note: IndexNow accepte jusqu'à 10,000 URLs par requête
-    // Pour de très grands sitemaps, il faudrait diviser en lots
+    // 3. Soumettre a IndexNow (max 10000 URLs par requete)
     const MAX_URLS_PER_REQUEST = 10000;
+    const submitFn = USE_SUPABASE ? submitViaSupabase : submitDirectToIndexNow;
 
     if (urls.length > MAX_URLS_PER_REQUEST) {
-      console.log(`⚠️  Attention: ${urls.length} URLs > ${MAX_URLS_PER_REQUEST} (limite IndexNow)`);
-      console.log(`📦 Division en lots de ${MAX_URLS_PER_REQUEST} URLs\n`);
-
       const batches = [];
       for (let i = 0; i < urls.length; i += MAX_URLS_PER_REQUEST) {
         batches.push(urls.slice(i, i + MAX_URLS_PER_REQUEST));
       }
 
       for (let i = 0; i < batches.length; i++) {
-        console.log(`📤 Soumission du lot ${i + 1}/${batches.length} (${batches[i].length} URLs)...`);
-        const result = await submitToIndexNow(batches[i]);
-        console.log('✅', result.message || 'Soumis avec succès');
+        console.log(`Soumission du lot ${i + 1}/${batches.length} (${batches[i].length} URLs)...`);
+        const result = await submitFn(batches[i]);
+        console.log(result.message || 'Soumis avec succes');
 
-        // Petit délai entre les lots pour éviter le rate limiting
         if (i < batches.length - 1) {
-          console.log('⏳ Attente de 2 secondes...\n');
+          console.log('Attente de 2 secondes...\n');
           await new Promise(resolve => setTimeout(resolve, 2000));
         }
       }
     } else {
-      console.log(`📤 Soumission de ${urls.length} URLs à IndexNow...`);
-      const result = await submitToIndexNow(urls);
-      console.log('✅', result.message || 'Soumis avec succès');
-
+      console.log(`Soumission de ${urls.length} URLs a IndexNow...`);
+      const result = await submitFn(urls);
+      console.log(result.message || 'Soumis avec succes');
       if (result.urlsSubmitted) {
-        console.log(`📊 ${result.urlsSubmitted} URLs soumises`);
+        console.log(`${result.urlsSubmitted} URLs soumises`);
       }
     }
 
-    console.log('\n🎉 Toutes les URLs ont été soumises à Bing via IndexNow!');
-    console.log('\n📝 Prochaines étapes:');
-    console.log('   1. Vérifier dans Bing Webmaster Tools > URL Submission');
+    console.log('\nToutes les URLs ont ete soumises a Bing via IndexNow!');
+    console.log('\nProchaines etapes:');
+    console.log('   1. Verifier dans Bing Webmaster Tools > URL Submission');
     console.log('   2. Attendre quelques minutes pour l\'indexation');
-    console.log('   3. Vérifier l\'indexation: site:novahypnose.fr sur Bing\n');
+    console.log('   3. Verifier l\'indexation: site:novahypnose.fr sur Bing\n');
 
   } catch (error) {
-    console.error('\n❌ Erreur:', error.message);
+    console.error('\nErreur:', error.message);
     process.exit(1);
   }
 }
 
-// Exécuter le script
 main();
