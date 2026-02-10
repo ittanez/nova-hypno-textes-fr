@@ -12,8 +12,8 @@
  *   - La clé IndexNow doit être configurée
  */
 
-const https = require('https');
-const http = require('http');
+import https from 'https';
+import http from 'http';
 
 const SITEMAP_URL = 'https://novahypnose.fr/sitemap.xml';
 const EDGE_FUNCTION_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/notify-bing-indexnow';
