@@ -1,4 +1,9 @@
 
+export interface ArticleFaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface Article {
   id: string;
   created_at: string;
@@ -20,6 +25,7 @@ export interface Article {
   author: string;
   featured: boolean;
   storage_image_url: string;
+  faq?: ArticleFaqItem[];
 }
 
 export interface Tag {

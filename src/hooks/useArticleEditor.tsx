@@ -1,7 +1,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
-import { Article } from "@/lib/types/blog";
+import { Article, ArticleFaqItem } from "@/lib/types/blog";
 import { saveArticle, generateUniqueSlug, getArticleById } from "@/lib/services/blog/articleService";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from '@/integrations/supabase/client';
@@ -41,6 +41,7 @@ export const useArticleEditor = () => {
     author: "",
     featured: false,
     storage_image_url: "",
+    faq: [],
   });
   const [publishMode, setPublishMode] = useState<PublishMode>("draft");
 
@@ -163,6 +164,10 @@ export const useArticleEditor = () => {
 
   const handleKeywordsChange = (keywords: string[]) => {
     setArticle(prev => ({ ...prev, keywords }));
+  };
+
+  const handleFaqChange = (faq: ArticleFaqItem[]) => {
+    setArticle(prev => ({ ...prev, faq }));
   };
 
   const handlePublishModeChange = (mode: PublishMode) => {
@@ -417,6 +422,7 @@ export const useArticleEditor = () => {
     handleCategoriesChange,
     handleImageUpload,
     handleScheduledDateChange,
+    handleFaqChange,
     handleSubmit,
     getTagsForPreview,
   };

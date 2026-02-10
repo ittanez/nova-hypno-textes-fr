@@ -23,6 +23,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import RelatedArticles from "@/components/blog/RelatedArticles";
+import BlogArticleFAQ from "@/components/blog/BlogArticleFAQ";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
 import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
@@ -372,6 +373,14 @@ const ArticlePage = () => {
                 }}
               />
               
+              {/* ✅ FAQ DE L'ARTICLE */}
+              {article.faq && article.faq.length > 0 && (
+                <BlogArticleFAQ
+                  items={article.faq}
+                  articleUrl={getCanonicalUrl(article.slug)}
+                />
+              )}
+
               {/* ✅ ARTICLES CONNEXES */}
               <RelatedArticles
                 currentArticleId={article.id}

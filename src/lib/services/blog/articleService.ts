@@ -298,9 +298,7 @@ export const saveArticle = async (article: Partial<Article>): Promise<ArticleRes
   try {
     if (article.id) {
       // Mise à jour d'un article existant
-      const { data, error } = await supabase
-        .from('articles')
-        .update({
+      const updateData: Record<string, unknown> = {
           title: article.title,
           slug: article.slug,
           content: article.content,
@@ -317,7 +315,14 @@ export const saveArticle = async (article: Partial<Article>): Promise<ArticleRes
           storage_image_url: article.storage_image_url,
           categories: article.categories,
           scheduled_for: article.scheduled_for,
-        })
+        };
+      if (article.faq !== undefined) {
+        updateData.faq = article.faq;
+      }
+
+      const { data, error } = await supabase
+        .from('articles')
+        .update(updateData)
         .eq('id', article.id)
         .select()
         .single();
@@ -345,9 +350,7 @@ export const saveArticle = async (article: Partial<Article>): Promise<ArticleRes
       return { data: data as Article, error: null };
     } else {
       // Création d'un nouvel article
-      const { data, error } = await supabase
-        .from('articles')
-        .insert({
+      const insertData: Record<string, unknown> = {
           title: article.title,
           slug: article.slug,
           content: article.content,
@@ -364,7 +367,14 @@ export const saveArticle = async (article: Partial<Article>): Promise<ArticleRes
           storage_image_url: article.storage_image_url,
           categories: article.categories,
           scheduled_for: article.scheduled_for,
-        })
+        };
+      if (article.faq !== undefined && article.faq.length > 0) {
+        insertData.faq = article.faq;
+      }
+
+      const { data, error } = await supabase
+        .from('articles')
+        .insert(insertData)
         .select()
         .single();
 
