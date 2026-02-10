@@ -12,10 +12,9 @@ serve(async (req) => {
   try {
     const SITE_URL = 'https://novahypnose.fr'
 
-    // Générer une clé API unique (à conserver et placer dans /public/)
-    // Pour générer: openssl rand -hex 32
-    // Cette clé doit être la même que dans le fichier /public/{key}.txt
-    const INDEXNOW_KEY = Deno.env.get('INDEXNOW_KEY') || 'VOTRE_CLE_INDEXNOW'
+    // Clé IndexNow (publique par design - accessible via /public/{key}.txt)
+    // Peut être surchargée via variable d'environnement Supabase si besoin
+    const INDEXNOW_KEY = Deno.env.get('INDEXNOW_KEY') || '5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3'
 
     // Récupérer les URLs depuis le body (optionnel)
     let urlsToSubmit: string[] = []

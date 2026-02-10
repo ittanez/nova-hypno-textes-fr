@@ -21,6 +21,23 @@ serve(async (req) => {
     const SITE_URL = 'https://novahypnose.fr'
     const now = new Date().toISOString().split('T')[0]
 
+    // Pages statiques du site
+    const STATIC_PAGES = [
+      { loc: '/',                              changefreq: 'weekly',  priority: '1.0' },
+      { loc: '/autohypnose',                   changefreq: 'monthly', priority: '0.8' },
+      { loc: '/test-receptivite',              changefreq: 'monthly', priority: '0.7' },
+      { loc: '/zone-intervention',             changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-stress-anxiete-paris',  changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-phobies-paris',         changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-sommeil-paris',         changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-gestion-emotions-paris', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-blocages-paris',        changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-confiance-en-soi-paris', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
+      { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
+      { loc: '/mentions-legales',              changefreq: 'yearly',  priority: '0.3' },
+    ]
+
     console.log('🚀 Génération du sitemap...')
 
     // Récupérer tous les articles publiés
@@ -54,36 +71,29 @@ serve(async (req) => {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+`
 
-  <!-- Page d'accueil principale -->
-  <url>
-    <loc>${SITE_URL}/</loc>
+    // Pages statiques
+    for (const page of STATIC_PAGES) {
+      xml += `  <url>
+    <loc>${SITE_URL}${page.loc}</loc>
     <lastmod>${now}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>`
+
+      if (page.loc === '/') {
+        xml += `
     <image:image>
-      <image:loc>https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp</image:loc>
+      <image:loc>https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp</image:loc>
       <image:caption>Alain Zenatti, Hypnothérapeute à Paris</image:caption>
       <image:title>NovaHypnose - Cabinet d'hypnothérapie à Paris</image:title>
-    </image:image>
-  </url>
+    </image:image>`
+      }
 
-  <!-- Mentions légales -->
-  <url>
-    <loc>${SITE_URL}/mentions-legales</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- Page blog principale -->
-  <url>
-    <loc>${SITE_URL}/blog</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+      xml += `
   </url>
 `
+    }
 
     // Ajouter les catégories
     if (categories && categories.length > 0) {
@@ -137,7 +147,7 @@ serve(async (req) => {
 
     xml += `\n</urlset>`
 
-    console.log(`✅ Sitemap généré: ${2 + (categories?.length || 0) + (articles?.length || 0) + 1} URLs`)
+    console.log(`✅ Sitemap généré: ${STATIC_PAGES.length + (categories?.length || 0) + (articles?.length || 0)} URLs`)
 
     // Retourner le XML avec le bon content-type
     return new Response(xml, {

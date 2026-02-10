@@ -10,55 +10,33 @@ IndexNow est un protocole simple qui permet de notifier instantanément les mote
 - 💰 Gratuit et sans limite stricte
 - 🔧 Facile à intégrer
 
-## Configuration initiale (à faire une seule fois)
+## Configuration
 
-### Étape 1 : Générer la clé IndexNow
+La clé IndexNow est déjà configurée et intégrée :
 
-```bash
-./scripts/setup-indexnow.sh
-```
+- **Clé** : `5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3`
+- **Fichier de vérification** : `/public/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt`
+- **Edge Function** : La clé est intégrée en dur (publique par design)
 
-Ce script va :
-1. Générer une clé aléatoire unique
-2. Créer le fichier `/public/{clé}.txt`
-3. Afficher les instructions pour la suite
-
-### Étape 2 : Configurer Supabase
-
-1. Aller sur [Supabase Dashboard](https://supabase.com/dashboard/project/_/settings/functions)
-2. Créer un nouveau secret :
-   - **Nom** : `INDEXNOW_KEY`
-   - **Valeur** : La clé générée par le script
-
-### Étape 3 : Déployer
+### Vérifier que tout fonctionne
 
 ```bash
-# Commiter le fichier de clé
-git add public/*.txt
-git commit -m "Add IndexNow verification key"
-git push
-
-# Déployer sur Netlify (automatique)
-# Attendre 1-2 minutes
+# Vérifier que le fichier de clé est accessible
+curl https://novahypnose.fr/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt
 ```
 
-### Étape 4 : Vérifier
-
-Vérifier que la clé est accessible publiquement :
-
-```bash
-# Remplacer {clé} par votre clé générée
-curl https://novahypnose.fr/{clé}.txt
-```
-
-Devrait retourner la clé.
+> **Note** : La clé IndexNow est publique par design (Bing doit pouvoir y accéder pour vérification). Pas besoin de la configurer comme secret Supabase.
 
 ## Utilisation
 
-### Soumettre toutes les URLs du sitemap (première fois)
+### Soumettre toutes les URLs du sitemap
 
 ```bash
+# Appel direct à l'API IndexNow (recommandé, aucune dépendance)
 node scripts/submit-all-urls-indexnow.js
+
+# Ou via la edge function Supabase
+node scripts/submit-all-urls-indexnow.js --via-supabase
 ```
 
 Ce script va :
@@ -131,9 +109,10 @@ node scripts/submit-all-urls-indexnow.js
 Si vous changez de domaine ou restructurez le site :
 
 1. Générer une nouvelle clé : `./scripts/setup-indexnow.sh`
-2. Mettre à jour la variable d'environnement Supabase
-3. Redéployer
-4. Soumettre toutes les URLs : `node scripts/submit-all-urls-indexnow.js`
+2. Mettre à jour la clé dans `supabase/functions/notify-bing-indexnow/index.ts`
+3. Mettre à jour la clé dans `scripts/submit-all-urls-indexnow.js`
+4. Redéployer
+5. Soumettre toutes les URLs : `node scripts/submit-all-urls-indexnow.js`
 
 ## Troubleshooting
 
@@ -144,10 +123,7 @@ Si vous changez de domaine ou restructurez le site :
 **Solution** :
 ```bash
 # Vérifier que le fichier de clé est accessible
-curl https://novahypnose.fr/{votre-clé}.txt
-
-# Vérifier que la variable d'environnement est configurée
-# Dans Supabase Dashboard > Edge Functions > Secrets
+curl https://novahypnose.fr/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt
 ```
 
 ### Les URLs ne sont pas indexées
