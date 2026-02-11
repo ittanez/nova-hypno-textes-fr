@@ -90,6 +90,14 @@
       upgrade-insecure-requests;
     """
 
+# robots.txt - Content-Type correct et pas de cache pour permettre les mises à jour
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+    X-Robots-Tag = "nosnippet"
+
 # Cache pour les fichiers HTML - Force refresh 2025-01
 [[headers]]
   for = "/*.html"
@@ -108,6 +116,16 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     Service-Worker-Allowed = "/"
+
+# ═══════════════════════════════════════════════════════════════════════
+# Fichiers critiques pour le SEO - DOIVENT être servis en statique
+# Google bloque l'indexation de TOUT le site si robots.txt est inaccessible
+# ═══════════════════════════════════════════════════════════════════════
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = true
 
 # Redirection du sous-domaine emergences vers le domaine principal
 [[redirects]]

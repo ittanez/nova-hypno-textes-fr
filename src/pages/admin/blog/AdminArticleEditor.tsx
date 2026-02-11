@@ -11,6 +11,7 @@ import ArticleContentSection from "@/components/blog/admin/ArticleContentSection
 import ArticleMetaSection from "@/components/blog/admin/ArticleMetaSection";
 import ArticlePublishingSection from "@/components/blog/admin/ArticlePublishingSection";
 import ArticleSEOSection from "@/components/blog/admin/ArticleSEOSection";
+import ArticleFAQSection from "@/components/blog/admin/ArticleFAQSection";
 import { useArticleEditor } from "@/hooks/useArticleEditor";
 
 const AdminArticleEditor = () => {
@@ -33,6 +34,7 @@ const AdminArticleEditor = () => {
     handleCategoriesChange,
     handleImageUpload,
     handleScheduledDateChange,
+    handleFaqChange,
     handleSubmit,
     getTagsForPreview,
   } = useArticleEditor();
@@ -115,6 +117,14 @@ const AdminArticleEditor = () => {
                 article={article}
                 onFieldChange={handleChange}
                 onKeywordsChange={handleKeywordsChange}
+              />
+
+              <Separator className="my-6" />
+
+              {/* Section FAQ */}
+              <ArticleFAQSection
+                faqItems={article.faq || []}
+                onFaqChange={handleFaqChange}
               />
             </CardContent>
           </Card>
