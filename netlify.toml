@@ -127,6 +127,13 @@
   status = 200
   force = true
 
+# Clé de vérification IndexNow (Bing) - servir en statique
+[[redirects]]
+  from = "/*.txt"
+  to = "/:splat.txt"
+  status = 200
+  force = true
+
 # Redirection du sous-domaine emergences vers le domaine principal
 [[redirects]]
   from = "https://emergences.novahypnose.fr/*"
