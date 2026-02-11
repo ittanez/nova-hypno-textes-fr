@@ -2,10 +2,12 @@
 # Redirects from what the browser requests to what we serve
 
 # Static files - Ne JAMAIS rediriger vers index.html
-# NOTE: /sitemap.xml est géré par le proxy netlify.toml → Supabase Edge Function
 /robots.txt    /robots.txt    200
 /favicon.ico   /favicon.ico   200
 /*.txt         /:splat.txt    200
+
+# Sitemap dynamique - proxy vers Supabase Edge Function (DOIT être avant le catch-all /*)
+/sitemap.xml   https://akrlyzmfszumibwgocae.supabase.co/functions/v1/generate-sitemap   200
 
 /index-static    /    301
 
