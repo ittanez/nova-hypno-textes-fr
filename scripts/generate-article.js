@@ -6,17 +6,25 @@
  * Usage :
  *   node scripts/generate-article.js "La peur de parler en public"
  *   node scripts/generate-article.js "L'hypnose et le deuil" --publish
- *   node scripts/generate-article.js --from-json article.json
+ *   node scripts/generate-article.js "Sujet" --schedule "2026-03-01"
+ *   node scripts/generate-article.js "Sujet" --image photo.webp
+ *   node scripts/generate-article.js --from-json article.json --image photo.webp
+ *
+ * Options :
+ *   --publish              Publier immédiatement (sinon brouillon)
+ *   --schedule "YYYY-MM-DD" Planifier la publication à cette date
+ *   --image fichier.webp   Uploader l'image dans Supabase Storage
+ *   --from-json fichier    Importer depuis un fichier JSON (pas besoin de clé API)
  *
  * Prérequis :
- *   - ANTHROPIC_API_KEY dans .env (console.anthropic.com)
  *   - VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY dans .env
+ *   - ANTHROPIC_API_KEY dans .env (sauf --from-json)
  */
 
 import { createClient } from '@supabase/supabase-js';
 import { config } from 'dotenv';
 import { fileURLToPath } from 'url';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import path from 'path';
 import https from 'https';
 
@@ -29,12 +37,47 @@ const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = process.env.VITE_SUPABASE_ANON_KEY;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
+const STORAGE_BUCKET = 'images';
+const STORAGE_FOLDER = 'blog';
+const STORAGE_BASE_URL = `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}`;
+
 if (!SUPABASE_URL || !SUPABASE_KEY) {
   console.error('VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY requis dans .env');
   process.exit(1);
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ═══════════════════════════════════════════════════════════════════════
+// ARGUMENTS
+// ═══════════════════════════════════════════════════════════════════════
+
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const opts = {
+    publish: false,
+    schedule: null,
+    imagePath: null,
+    fromJson: null,
+    topic: ''
+  };
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--publish') {
+      opts.publish = true;
+    } else if (args[i] === '--schedule' && args[i + 1]) {
+      opts.schedule = args[++i];
+    } else if (args[i] === '--image' && args[i + 1]) {
+      opts.imagePath = args[++i];
+    } else if (args[i] === '--from-json' && args[i + 1]) {
+      opts.fromJson = args[++i];
+    } else if (!args[i].startsWith('--')) {
+      opts.topic += (opts.topic ? ' ' : '') + args[i];
+    }
+  }
+
+  return opts;
+}
 
 // ═══════════════════════════════════════════════════════════════════════
 // PROMPT DE GENERATION
@@ -190,18 +233,57 @@ function callClaudeAPI(prompt) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// UPLOAD IMAGE DANS SUPABASE STORAGE
+// ═══════════════════════════════════════════════════════════════════════
+
+async function uploadImage(imagePath, slug) {
+  if (!existsSync(imagePath)) {
+    throw new Error(`Image introuvable : ${imagePath}`);
+  }
+
+  const ext = path.extname(imagePath).toLowerCase();
+  const mimeTypes = {
+    '.webp': 'image/webp',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.png': 'image/png',
+    '.gif': 'image/gif',
+    '.avif': 'image/avif'
+  };
+
+  const contentType = mimeTypes[ext] || 'image/webp';
+  const fileName = `${STORAGE_FOLDER}/${slug}${ext}`;
+  const fileBuffer = readFileSync(imagePath);
+
+  console.log(`Upload image : ${imagePath} -> ${STORAGE_BUCKET}/${fileName}`);
+
+  const { data, error } = await supabase.storage
+    .from(STORAGE_BUCKET)
+    .upload(fileName, fileBuffer, {
+      contentType,
+      upsert: true
+    });
+
+  if (error) {
+    throw new Error(`Erreur upload image: ${error.message}`);
+  }
+
+  const publicUrl = `${STORAGE_BASE_URL}/${fileName}`;
+  console.log(`Image uploadee : ${publicUrl}\n`);
+  return publicUrl;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // PARSING ET VALIDATION
 // ═══════════════════════════════════════════════════════════════════════
 
 function parseArticleJSON(text) {
-  // Nettoyer le texte (enlever markdown code fences si présents)
   let cleaned = text.trim();
   cleaned = cleaned.replace(/^```json\s*/i, '').replace(/\s*```\s*$/, '');
   cleaned = cleaned.replace(/^```\s*/i, '').replace(/\s*```\s*$/, '');
 
   const article = JSON.parse(cleaned);
 
-  // Validation des champs requis
   const required = ['title', 'slug', 'content', 'excerpt', 'category', 'faq'];
   for (const field of required) {
     if (!article[field]) {
@@ -220,7 +302,9 @@ function parseArticleJSON(text) {
 // INSERTION SUPABASE
 // ═══════════════════════════════════════════════════════════════════════
 
-async function insertArticle(article, publish = false) {
+async function insertArticle(article, opts) {
+  const now = new Date().toISOString();
+
   const row = {
     title: article.title,
     content: article.content,
@@ -228,7 +312,7 @@ async function insertArticle(article, publish = false) {
     author: 'Alain Zenatti',
     categories: article.categories || [article.category],
     tags: article.tags || [],
-    published: publish,
+    published: opts.publish,
     featured: false,
     slug: article.slug,
     category: article.category,
@@ -237,15 +321,16 @@ async function insertArticle(article, publish = false) {
     read_time: article.read_time || 5,
     seo_description: article.seo_description || '',
     faq: article.faq,
-    image_url: null,
-    storage_image_url: null,
-    scheduled_for: null
+    image_url: opts.imageUrl || null,
+    storage_image_url: opts.imageUrl || null,
+    scheduled_for: opts.schedule ? new Date(opts.schedule + 'T09:00:00+01:00').toISOString() : null,
+    published_at: opts.publish ? now : null
   };
 
   const { data, error } = await supabase
     .from('articles')
     .insert(row)
-    .select('id, slug, title')
+    .select('id, slug, title, published, scheduled_for')
     .single();
 
   if (error) {
@@ -260,64 +345,83 @@ async function insertArticle(article, publish = false) {
 // ═══════════════════════════════════════════════════════════════════════
 
 async function main() {
-  const args = process.argv.slice(2);
-  const publish = args.includes('--publish');
-  const fromJsonIndex = args.indexOf('--from-json');
+  const opts = parseArgs();
+
+  // Validation des arguments
+  if (!opts.fromJson && !opts.topic) {
+    console.log('Usage :');
+    console.log('  node scripts/generate-article.js "Sujet de l\'article"');
+    console.log('  node scripts/generate-article.js "Sujet" --publish');
+    console.log('  node scripts/generate-article.js "Sujet" --schedule "2026-03-01"');
+    console.log('  node scripts/generate-article.js "Sujet" --image photo.webp');
+    console.log('  node scripts/generate-article.js --from-json article.json');
+    console.log('  node scripts/generate-article.js --from-json article.json --image photo.webp --schedule "2026-03-01"');
+    process.exit(1);
+  }
+
+  if (opts.schedule) {
+    const date = new Date(opts.schedule);
+    if (isNaN(date.getTime())) {
+      console.error(`Date invalide : ${opts.schedule} (format attendu : YYYY-MM-DD)`);
+      process.exit(1);
+    }
+  }
 
   let article;
 
-  if (fromJsonIndex !== -1) {
+  if (opts.fromJson) {
     // Mode import JSON
-    const jsonPath = args[fromJsonIndex + 1];
-    if (!jsonPath) {
-      console.error('Usage: node scripts/generate-article.js --from-json fichier.json');
-      process.exit(1);
-    }
-
-    console.log(`Import depuis ${jsonPath}...\n`);
-    const raw = readFileSync(jsonPath, 'utf-8');
+    console.log(`Import depuis ${opts.fromJson}...\n`);
+    const raw = readFileSync(opts.fromJson, 'utf-8');
     article = parseArticleJSON(raw);
   } else {
     // Mode génération avec Claude API
     if (!ANTHROPIC_API_KEY) {
       console.error('ANTHROPIC_API_KEY requis dans .env');
-      console.error('Obtenez une clé sur https://console.anthropic.com');
+      console.error('Obtenez une cle sur https://console.anthropic.com');
       console.error('\nAlternative : utilisez --from-json pour importer un article');
       process.exit(1);
     }
 
-    const topic = args.filter(a => !a.startsWith('--')).join(' ');
-    if (!topic) {
-      console.error('Usage:');
-      console.error('  node scripts/generate-article.js "Sujet de l\'article"');
-      console.error('  node scripts/generate-article.js "Sujet" --publish');
-      console.error('  node scripts/generate-article.js --from-json article.json');
-      process.exit(1);
-    }
-
-    console.log(`Sujet : ${topic}`);
+    console.log(`Sujet : ${opts.topic}`);
     console.log('Generation de l\'article avec Claude...\n');
 
-    const prompt = buildPrompt(topic);
+    const prompt = buildPrompt(opts.topic);
     const response = await callClaudeAPI(prompt);
 
     console.log('Reponse recue, parsing...\n');
     article = parseArticleJSON(response);
   }
 
+  // Upload image si fournie
+  let imageUrl = null;
+  if (opts.imagePath) {
+    imageUrl = await uploadImage(opts.imagePath, article.slug);
+  }
+  opts.imageUrl = imageUrl;
+
+  // Déterminer l'état de publication
+  let etat = 'BROUILLON';
+  if (opts.publish) {
+    etat = 'PUBLIE';
+  } else if (opts.schedule) {
+    etat = `PLANIFIE pour le ${opts.schedule}`;
+  }
+
   // Afficher un résumé
   console.log('='.repeat(60));
-  console.log(`Titre    : ${article.title}`);
-  console.log(`Slug     : ${article.slug}`);
-  console.log(`Categorie: ${article.category}`);
-  console.log(`Tags     : ${(article.tags || []).join(', ')}`);
-  console.log(`FAQ      : ${article.faq.length} questions`);
-  console.log(`Mots     : ~${Math.round(article.content.replace(/<[^>]*>/g, '').split(/\s+/).length)} mots`);
-  console.log(`Publier  : ${publish ? 'OUI' : 'NON (brouillon)'}`);
+  console.log(`Titre     : ${article.title}`);
+  console.log(`Slug      : ${article.slug}`);
+  console.log(`Categorie : ${article.category}`);
+  console.log(`Tags      : ${(article.tags || []).join(', ')}`);
+  console.log(`FAQ       : ${article.faq.length} questions`);
+  console.log(`Mots      : ~${Math.round(article.content.replace(/<[^>]*>/g, '').split(/\s+/).length)} mots`);
+  console.log(`Image     : ${imageUrl || 'aucune'}`);
+  console.log(`Etat      : ${etat}`);
   console.log('='.repeat(60));
 
   // Extrait
-  console.log(`\nExtrait  : ${article.excerpt}\n`);
+  console.log(`\nExtrait : ${article.excerpt}\n`);
 
   // FAQ preview
   console.log('FAQ :');
@@ -325,19 +429,29 @@ async function main() {
     console.log(`  ${i + 1}. ${f.question}`);
   });
 
-  // Prompt image si disponible
-  if (article.image_prompt) {
-    console.log(`\nPrompt image : ${article.image_prompt.substring(0, 100)}...`);
+  // Prompt image si pas d'image fournie
+  if (!imageUrl && article.image_prompt) {
+    console.log(`\nPrompt image (pour generation IA) :`);
+    console.log(`  ${article.image_prompt}`);
+    console.log(`  Alt: ${article.image_alt || ''}`);
   }
 
   // Insertion dans Supabase
   console.log('\nInsertion dans Supabase...');
-  const result = await insertArticle(article, publish);
+  const result = await insertArticle(article, opts);
   console.log(`\nArticle insere avec succes !`);
-  console.log(`  ID   : ${result.id}`);
-  console.log(`  Slug : ${result.slug}`);
-  console.log(`  URL  : https://novahypnose.fr/blog/article/${result.slug}`);
-  console.log(`  Etat : ${publish ? 'PUBLIE' : 'BROUILLON (modifiable dans /admin)'}`);
+  console.log(`  ID       : ${result.id}`);
+  console.log(`  Slug     : ${result.slug}`);
+  console.log(`  URL      : https://novahypnose.fr/blog/article/${result.slug}`);
+  console.log(`  Etat     : ${etat}`);
+  if (opts.schedule) {
+    console.log(`  Planifie : ${result.scheduled_for}`);
+  }
+  if (!imageUrl) {
+    console.log(`\n  Pour ajouter une image plus tard :`);
+    console.log(`  node scripts/generate-article.js --from-json article.json --image photo.webp`);
+    console.log(`  ou via l'admin : https://novahypnose.fr/admin/blog/edit/${result.slug}`);
+  }
 }
 
 main().catch((err) => {
