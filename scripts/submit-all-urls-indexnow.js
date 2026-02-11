@@ -17,6 +17,8 @@ import http from 'http';
 
 const SITE_HOST = 'novahypnose.fr';
 const SITE_URL = `https://${SITE_HOST}`;
+// Utiliser directement la Edge Function Supabase pour éviter les problèmes de cache/proxy Netlify
+const SITEMAP_DIRECT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/generate-sitemap';
 const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
 const INDEXNOW_KEY = '5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3';
 const INDEXNOW_API_URL = 'https://api.indexnow.org/indexnow';
@@ -128,9 +130,18 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 
   try {
-    // 1. Recuperer le sitemap
-    console.log(`Recuperation du sitemap: ${SITEMAP_URL}`);
-    const sitemapXml = await fetchSitemap();
+    // 1. Recuperer le sitemap (direct depuis Supabase pour avoir toutes les URLs)
+    console.log(`Recuperation du sitemap: ${SITEMAP_DIRECT_URL}`);
+    let sitemapXml;
+    try {
+      sitemapXml = await httpRequest(SITEMAP_DIRECT_URL, { method: 'GET' }).then(r => {
+        if (r.status !== 200) throw new Error(`HTTP ${r.status}`);
+        return r.data;
+      });
+    } catch (e) {
+      console.log(`Fallback sur ${SITEMAP_URL}...`);
+      sitemapXml = await fetchSitemap();
+    }
     console.log('Sitemap recupere\n');
 
     // 2. Extraire les URLs
