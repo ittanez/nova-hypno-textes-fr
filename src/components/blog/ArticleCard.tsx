@@ -77,7 +77,7 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
     <Card className="group hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <Link to={`/blog/article/${article.slug}`} className="block">
         {/* Container avec aspect-ratio fixe */}
-        <div className="aspect-video overflow-hidden relative bg-gray-100">
+        <div className="aspect-video md:aspect-[5/2] overflow-hidden relative bg-gray-100">
           <img
             src={article.image_url || "/placeholder.svg"}
             alt={`Article hypnothérapie - ${article.title}`}
