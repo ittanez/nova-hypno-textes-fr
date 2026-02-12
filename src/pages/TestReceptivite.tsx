@@ -141,6 +141,7 @@ const TestReceptivite = () => {
         <meta property="og:url" content="https://novahypnose.fr/test-receptivite" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
