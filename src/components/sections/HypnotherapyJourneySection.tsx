@@ -19,14 +19,14 @@ const HypnotherapyJourneySection: React.FC = () => {
           </p>
 
           {/* Image infographie originale */}
-          <div className="mb-12">
+          <div className="mb-12 flex justify-center">
             <img
               src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/hypnotherapie_realite.webp"
               alt="Infographie Le Parcours en Hypnothérapie : attentes (ligne droite) vs réalité (progression avec hauts et bas) - NovaHypnose Paris"
-              className="w-full h-auto rounded-2xl shadow-lg"
+              className="max-w-2xl w-full h-auto rounded-2xl shadow-lg"
               loading="lazy"
-              width={1200}
-              height={675}
+              width={600}
+              height={338}
             />
           </div>
 
