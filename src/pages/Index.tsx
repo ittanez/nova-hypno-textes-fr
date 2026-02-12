@@ -27,6 +27,7 @@ import WhyChooseSection from '@/components/sections/WhyChooseSection';
 const ApplicationsCarousel = lazy(() => import('@/components/sections/ApplicationsCarousel'));
 const HowItWorksCarousel = lazy(() => import('@/components/sections/HowItWorksCarousel'));
 const SessionFlowSection = lazy(() => import('@/components/sections/SessionFlowSection'));
+const HypnotherapyJourneySection = lazy(() => import('@/components/sections/HypnotherapyJourneySection'));
 const Pricing = lazy(() => import('@/components/Pricing'));
 const CTASection = lazy(() => import('@/components/sections/CTASection'));
 const TestimonialsCarousel = lazy(() => import('@/components/sections/TestimonialsCarousel'));
@@ -144,6 +145,11 @@ const Index: React.FC = () => {
         <Suspense fallback={<SectionLoader />}>
           {/* Section Déroulement d'une séance */}
           <SessionFlowSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          {/* Infographie Parcours Hypnothérapie : Attentes vs Réalité */}
+          <HypnotherapyJourneySection />
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
