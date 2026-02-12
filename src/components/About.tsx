@@ -1,8 +1,9 @@
- import React from 'react';
+import React from 'react';
 import Heart from 'lucide-react/dist/esm/icons/heart';
 import Award from 'lucide-react/dist/esm/icons/award';
 import LazyYouTube from './LazyYouTube';
 import { getImageKitUrl } from '@/lib/utils/imagekit';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 const About = () => {
   const diplomasByLevel = {
@@ -276,7 +277,7 @@ const About = () => {
               
               {/* Schema markup pour la vidéo */}
               <script type="application/ld+json">
-                {JSON.stringify({
+                {safeJSONStringify({
                   "@context": "https://schema.org",
                   "@type": "VideoObject",
                   "name": "Présentation d'Alain Zenatti - Maître Hypnologue Paris",

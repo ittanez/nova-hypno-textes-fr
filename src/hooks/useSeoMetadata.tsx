@@ -1,6 +1,7 @@
 
 import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 interface StructuredData {
   '@context'?: string;
@@ -129,7 +130,7 @@ function addOrUpdateStructuredData(data: StructuredData) {
   // Add new structured data
   const script = document.createElement('script');
   script.type = 'application/ld+json';
-  script.textContent = JSON.stringify(data);
+  script.textContent = safeJSONStringify(data);
   document.head.appendChild(script);
 }
 

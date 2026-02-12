@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
 import type { ArticleFaqItem } from '@/lib/types/blog';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 interface BlogArticleFAQProps {
   items: ArticleFaqItem[];
@@ -30,7 +31,7 @@ const BlogArticleFAQ: React.FC<BlogArticleFAQProps> = ({ items, articleUrl }) =>
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify(faqSchema);
+    script.text = safeJSONStringify(faqSchema);
     script.id = 'article-faq-structured-data';
     document.head.appendChild(script);
 

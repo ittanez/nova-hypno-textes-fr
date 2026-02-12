@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import Header from "@/components/Header";
+import { safeJSONStringify } from '@/lib/seo-utils';
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import SEOHead from "@/components/blog/SEOHead";
@@ -179,7 +180,7 @@ const ArticlePage = () => {
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
+    script.text = safeJSONStringify(structuredData);
     script.id = 'article-structured-data';
     document.head.appendChild(script);
 
