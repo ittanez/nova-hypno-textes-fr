@@ -37,8 +37,7 @@ const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = process.env.VITE_SUPABASE_ANON_KEY;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
-const STORAGE_BUCKET = 'images';
-const STORAGE_FOLDER = 'blog';
+const STORAGE_BUCKET = 'blog_images';
 const STORAGE_BASE_URL = `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}`;
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
@@ -252,7 +251,7 @@ async function uploadImage(imagePath, slug) {
   };
 
   const contentType = mimeTypes[ext] || 'image/webp';
-  const fileName = `${STORAGE_FOLDER}/${slug}${ext}`;
+  const fileName = `${slug}${ext}`;
   const fileBuffer = readFileSync(imagePath);
 
   console.log(`Upload image : ${imagePath} -> ${STORAGE_BUCKET}/${fileName}`);
