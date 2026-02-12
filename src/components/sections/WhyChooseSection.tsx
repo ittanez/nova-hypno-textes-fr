@@ -119,7 +119,7 @@ const WhyChooseSection: React.FC = () => {
           <a
             href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
           >
             <Calendar size={24} />

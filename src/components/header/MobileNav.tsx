@@ -156,7 +156,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
             <a
               href={externalLinks.instagram}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
               aria-label="Instagram"
             >
@@ -166,7 +166,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
             <a
               href={externalLinks.appointment}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors"
             >
               <Calendar size={16} />

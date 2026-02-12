@@ -66,7 +66,7 @@ const Contact = () => {
                     <a
                       href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="inline-block px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors"
                     >
                       Réserver ma séance en ligne
@@ -112,7 +112,7 @@ const Contact = () => {
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-block hover:opacity-80 transition-opacity"
                   aria-label="Télécharger NovaRespire sur Google Play"
                 >

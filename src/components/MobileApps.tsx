@@ -59,7 +59,7 @@ const MobileApps = () => {
                 <a 
                   href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-block hover:opacity-90 transition-opacity"
                   aria-label="Télécharger NovaRespire sur Google Play"
                 >

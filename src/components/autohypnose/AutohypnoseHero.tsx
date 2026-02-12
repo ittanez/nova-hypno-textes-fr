@@ -51,7 +51,7 @@ const Hero = memo(() => {
             <a
               href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
               className="px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
             >
               Inscrivez-vous maintenant
             </a>

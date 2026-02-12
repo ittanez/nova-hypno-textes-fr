@@ -16,6 +16,7 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
 import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema } from '@/data/schemaOrg';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
@@ -109,10 +110,10 @@ const Index: React.FC = () => {
         <link rel="canonical" href="https://novahypnose.fr" />
 
         {/* Structured Data JSON-LD - LocalBusiness + Person + FAQ + Breadcrumb */}
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <ContentLayout>

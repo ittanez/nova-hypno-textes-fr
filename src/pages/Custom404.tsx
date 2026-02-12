@@ -113,7 +113,7 @@ const Custom404 = () => {
             <a
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center bg-white text-nova-blue px-6 py-3 rounded-full hover:bg-gray-100 transition-colors shadow-md font-semibold"
             >
               <Calendar className="mr-2" size={20} />

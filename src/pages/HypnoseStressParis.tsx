@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import { stressFaqItems } from '@/data/specialtyFaqData';
+import { safeJSONStringify } from '@/lib/seo-utils';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -47,8 +48,8 @@ const HypnoseStressParis = () => {
         <meta property="og:url" content="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -67,7 +68,7 @@ const HypnoseStressParis = () => {
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
                 <Calendar size={20} />
@@ -227,7 +228,7 @@ const HypnoseStressParis = () => {
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 rounded-lg font-bold text-lg transition-all shadow-lg"
               >
                 <Calendar size={22} />

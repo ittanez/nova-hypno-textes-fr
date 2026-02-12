@@ -252,7 +252,7 @@ const Maquette = () => {
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Calendar size={24} />
@@ -489,7 +489,7 @@ const Maquette = () => {
                 <a
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <Calendar size={24} />
@@ -690,7 +690,7 @@ const Maquette = () => {
               <a
                 href="https://harmonia.novahypnose.fr"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <BookOpen className="mr-2" size={24} />
@@ -788,7 +788,7 @@ const Maquette = () => {
                 <a
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -836,7 +836,7 @@ const Maquette = () => {
                 <a
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -888,7 +888,7 @@ const Maquette = () => {
                 <a
                   href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -912,7 +912,7 @@ const Maquette = () => {
             <a
               href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Calendar size={24} />
@@ -1108,7 +1108,7 @@ const Maquette = () => {
                 <a
                   href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-block hover:opacity-80 transition-opacity"
                   aria-label="Télécharger NovaRespire sur Google Play"
                 >
@@ -1152,7 +1152,7 @@ const Maquette = () => {
               <a
                 href="https://harmonia.novahypnose.fr"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
                 <BookOpen size={24} />
