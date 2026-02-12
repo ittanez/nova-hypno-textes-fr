@@ -116,10 +116,11 @@ const Contact = () => {
                   className="inline-block hover:opacity-80 transition-opacity"
                   aria-label="Télécharger NovaRespire sur Google Play"
                 >
-                  <img 
+                  <img
                     src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
                     alt="Disponible sur Google Play"
                     className="h-14 mx-auto"
+                    loading="lazy"
                   />
                 </a>
               </div>

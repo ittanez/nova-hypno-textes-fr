@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Home from 'lucide-react/dist/esm/icons/home';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 interface BreadcrumbItem {
   name: string;
@@ -144,7 +145,7 @@ export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({
         <script 
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schemaMarkup)
+            __html: safeJSONStringify(schemaMarkup)
           }}
         />
       )}

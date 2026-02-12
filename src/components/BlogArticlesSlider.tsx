@@ -233,6 +233,7 @@ const BlogArticlesSlider: React.FC = () => {
                     src={currentArticle.image_url}
                     alt={`Article hypnothérapie - ${currentArticle.title}`}
                     className="w-full h-64 lg:h-96 object-cover rounded-l-2xl lg:rounded-l-2xl lg:rounded-r-none"
+                    loading="lazy"
                     width="600"
                     height="400"
                   />

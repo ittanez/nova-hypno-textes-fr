@@ -28,10 +28,11 @@ const ArticlePreview = ({ article, open, onClose }: ArticlePreviewProps) => {
         <div className="py-4">
           {article.image_url && (
             <div className="aspect-video w-full overflow-hidden rounded-lg mb-6">
-              <img 
-                src={article.image_url} 
-                alt={article.title || "Image de l'article"} 
+              <img
+                src={article.image_url}
+                alt={article.title || "Image de l'article"}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           )}
