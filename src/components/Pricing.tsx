@@ -99,7 +99,7 @@ const Pricing = () => {
                   <a
                     href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors ${
                       session.popular
                         ? 'bg-nova-green text-white hover:bg-nova-green-dark shadow-md'

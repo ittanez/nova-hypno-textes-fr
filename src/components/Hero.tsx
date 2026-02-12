@@ -38,7 +38,7 @@ const Hero = () => {
               <a
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 aria-label="Réserver ma première consultation avec Alain Zenatti, hypnothérapeute à Paris 4ème"
                 role="button"

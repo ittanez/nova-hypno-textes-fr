@@ -182,7 +182,7 @@ const MentionsLegales = () => {
                       key={index}
                       href={partner.url}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow"
                       className="flex items-center hover:text-nova-blue transition-colors"
                     >
                       <span>{partner.name}</span>

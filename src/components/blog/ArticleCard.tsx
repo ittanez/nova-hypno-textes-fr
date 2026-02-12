@@ -83,6 +83,8 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
             alt={`Article hypnothérapie - ${article.title}`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading={isFirst || isLCP ? "eager" : "lazy"}
+            width={1200}
+            height={675}
           />
         </div>
         

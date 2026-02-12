@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
 import type { SpecialtyFaqItem } from '@/data/specialtyFaqData';
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 interface SpecialtyFAQProps {
   items: SpecialtyFaqItem[];
@@ -35,7 +36,7 @@ const SpecialtyFAQ: React.FC<SpecialtyFAQProps> = ({
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
       </Helmet>
 
       <section className="py-16 md:py-20 bg-gray-50" aria-labelledby="specialty-faq-heading">

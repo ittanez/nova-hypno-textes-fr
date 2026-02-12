@@ -21,7 +21,7 @@ const CTASection: React.FC = () => {
           <a
             href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <Calendar size={24} />

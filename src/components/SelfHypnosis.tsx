@@ -20,7 +20,7 @@ const SelfHypnosis = () => {
               <a 
                 href="https://harmonia.novahypnose.fr" 
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="inline-flex items-center px-6 py-3 bg-nova-green text-white rounded-lg hover:bg-nova-green-dark transition-colors"
               >
                 <BookOpen className="mr-2" size={20} />

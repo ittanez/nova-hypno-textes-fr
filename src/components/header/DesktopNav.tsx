@@ -87,7 +87,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ isDesktop, onNavClick }) => {
       <a
         href={externalLinks.instagram}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
         aria-label="Instagram"
       >
@@ -98,7 +98,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ isDesktop, onNavClick }) => {
       <a
         href={externalLinks.appointment}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors ml-4"
       >
         <Calendar size={16} />
