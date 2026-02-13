@@ -138,11 +138,10 @@ function addOrUpdateStructuredData(data: StructuredData) {
 function getDefaultStructuredData() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "MedicalBusiness", "HealthAndBeautyBusiness"],
+    "@type": "HealthAndBeautyBusiness",
     "@id": "https://novahypnose.fr/#localbusiness",
     "name": "NovaHypnose - Hypnothérapeute Paris",
     "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
-    "additionalType": "https://en.wikipedia.org/wiki/Hypnotherapy",
     "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
     "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Spécialiste stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances.",
     "url": "https://novahypnose.fr",
@@ -166,8 +165,8 @@ function getDefaultStructuredData() {
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "11:00",
-        "closes": "20:00"
+        "opens": "09:00",
+        "closes": "19:00"
       }
     ],
     "areaServed": [
@@ -178,13 +177,6 @@ function getDefaultStructuredData() {
       "https://www.instagram.com/novahypnose/",
       "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
       "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "ratingCount": "40",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    ]
   };
 }
