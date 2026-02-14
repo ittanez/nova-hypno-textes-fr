@@ -121,6 +121,8 @@ const Contact = () => {
                     alt="Disponible sur Google Play"
                     className="h-14 mx-auto"
                     loading="lazy"
+                    width={646}
+                    height={250}
                   />
                 </a>
               </div>
