@@ -40,9 +40,9 @@ const loadNonCriticalResources = () => {
     document.head.appendChild(link);
   };
   
-  // Ajouter les préconnexions
-  addPreconnect('https://tools.luckyorange.com');
-  
+  // Lucky Orange est chargé avec setTimeout(8s) dans index.html,
+  // le preconnect n'est pas utile (la connexion sera établie au moment du chargement)
+
   // Chargement d'autres ressources non critiques
 };
 
