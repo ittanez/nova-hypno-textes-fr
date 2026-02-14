@@ -19,6 +19,48 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6 order-2 md:order-1">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <button
+                  onClick={onOpenVideoModal}
+                  className="block relative group w-full text-left"
+                >
+                  <img
+                    src="https://i.ytimg.com/vi/r8OUp2OJRp4/oar2.jpg"
+                    alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
+                    width="480"
+                    height="360"
+                    className="w-full h-auto object-cover rounded-xl"
+                    loading="lazy"
+                    onError={(e) => {
+                      // Fallback si l'image YouTube ne charge pas
+                      e.currentTarget.src = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=480&quality=75';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                    <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Lightbulb className="text-blue-600" size={24} />
+                  L'hypnose ericksonienne : une approche respectueuse
+                </h3>
+                <p className="text-gray-700 mb-3 leading-relaxed">
+                  L'hypnose que je pratique est issue de l'approche ericksonienne, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que l'inconscient de chaque personne est une source immense de solutions et de ressources. Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients.
+                </p>
+              </div>
+            </div>
+
             <div className="space-y-6 order-1 md:order-2">
               <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
                 Alain Zenatti, Hypnothérapeute à Paris
@@ -122,48 +164,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 <Calendar size={24} />
                 Prendre rendez-vous
               </a>
-            </div>
-
-            <div className="space-y-6 order-2 md:order-1">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <button
-                  onClick={onOpenVideoModal}
-                  className="block relative group w-full text-left"
-                >
-                  <img
-                    src="https://i.ytimg.com/vi/r8OUp2OJRp4/oar2.jpg"
-                    alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
-                    width="480"
-                    height="360"
-                    className="w-full h-auto object-cover rounded-xl"
-                    loading="lazy"
-                    onError={(e) => {
-                      // Fallback si l'image YouTube ne charge pas
-                      e.currentTarget.src = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=480&quality=75';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                    <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </button>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Lightbulb className="text-blue-600" size={24} />
-                  L'hypnose ericksonienne : une approche respectueuse
-                </h3>
-                <p className="text-gray-700 mb-3 leading-relaxed">
-                  L'hypnose que je pratique est issue de l'approche ericksonienne, du nom de Milton H. Erickson, psychiatre et hypnothérapeute reconnu pour avoir révolutionné l'utilisation de l'hypnose thérapeutique.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Contrairement aux approches directives classiques, l'hypnose ericksonienne repose sur l'idée que l'inconscient de chaque personne est une source immense de solutions et de ressources. Cette approche est douce, personnalisée, et respecte pleinement votre rythme et vos choix inconscients.
-                </p>
-              </div>
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <div key={index} className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow">
               <div className="mb-4 flex justify-center">
-                <img src={step.image} alt={step.title} className="w-20 h-20" loading="lazy" width={80} height={80} />
+                <img src={step.image} alt={step.title} className="w-20 h-20" loading="lazy" />
               </div>
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-3xl font-bold text-nova-blue bg-blue-50 rounded-full w-12 h-12 flex items-center justify-center">
