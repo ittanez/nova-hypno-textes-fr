@@ -114,6 +114,10 @@ const ZoneIntervention = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Zone d'Intervention Paris - Cabinet Hypnothérapie | NovaHypnose" />
+        <meta name="twitter:description" content="Cabinet d'hypnothérapie Paris 4ème accessible depuis tous les arrondissements. Métro Bastille à 2 min. Séances au cabinet, à domicile ou en visio." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>
 
       {/* Hero Section */}

@@ -14,6 +14,16 @@ const AutohypnoseQuiz = () => {
           content="Évaluez votre niveau de stress et découvrez comment l'auto-hypnose peut vous aider. Quiz gratuit et personnalisé."
         />
         <meta property="og:title" content="Quiz Auto-évaluation - Formation Auto-hypnose | NovaHypnose" />
+        <meta property="og:description" content="Évaluez votre niveau de stress et découvrez comment l'auto-hypnose peut vous aider. Quiz gratuit et personnalisé." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/autohypnose/quiz" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Quiz Auto-évaluation - Formation Auto-hypnose | NovaHypnose" />
+        <meta name="twitter:description" content="Évaluez votre niveau de stress et découvrez comment l'auto-hypnose peut vous aider. Quiz gratuit et personnalisé." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <link rel="canonical" href="https://novahypnose.fr/autohypnose/quiz" />
       </Helmet>
 
