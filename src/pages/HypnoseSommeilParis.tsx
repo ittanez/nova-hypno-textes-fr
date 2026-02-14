@@ -49,6 +49,10 @@ const HypnoseSommeilParis = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hypnose sommeil et insomnie Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Retrouvez un sommeil profond et réparateur grâce à l'hypnose ericksonienne à Paris. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>

@@ -49,6 +49,10 @@ const HypnoseBlocagesParis = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hypnose blocages et troubles du comportement Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez vos blocages et changez vos comportements grâce à l'hypnose ericksonienne à Paris. Procrastination, TOC, schémas répétitifs." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
