@@ -52,6 +52,8 @@ const SelfHypnosisSection: React.FC = () => {
                 alt="Formation auto-hypnose Paris - Apprendre l'auto-hypnose pour gérer le stress, l'anxiété et améliorer le sommeil"
                 className="w-full h-auto object-cover"
                 loading="lazy"
+                width={800}
+                height={600}
               />
             </div>
             <div className="absolute -bottom-4 -right-4 bg-blue-500 p-6 rounded-full shadow-lg">

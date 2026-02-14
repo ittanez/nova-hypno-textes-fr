@@ -70,6 +70,8 @@ const SessionProcess = () => {
               alt="Client en séance d'hypnose dans le cabinet d'hypnothérapie NovaHypnose Paris 4ème - Hypnose ericksonienne"
               className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
               loading="lazy"
+              width={600}
+              height={400}
               style={{ maxHeight: '400px' }}
             />
           </div>
