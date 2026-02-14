@@ -113,6 +113,8 @@ const ContactSection: React.FC = () => {
                   alt="Disponible sur Google Play"
                   className="h-16 mx-auto w-auto object-contain"
                   loading="lazy"
+                  width={646}
+                  height={250}
                 />
               </a>
             </div>
