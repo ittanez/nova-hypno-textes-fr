@@ -7,10 +7,11 @@ import { faqItems } from './faqData';
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
+  "@type": ["LocalBusiness", "MedicalBusiness", "HealthAndBeautyBusiness"],
   "@id": "https://novahypnose.fr/#localbusiness",
   "name": "NovaHypnose - Hypnothérapeute Paris",
   "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
+  "additionalType": "https://en.wikipedia.org/wiki/Hypnotherapy",
   "url": "https://novahypnose.fr",
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
@@ -118,8 +119,6 @@ export const localBusinessSchema = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "@id": "https://novahypnose.fr/#aggregateRating",
-    "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
     "ratingValue": "5",
     "bestRating": "5",
     "worstRating": "1",
@@ -128,26 +127,20 @@ export const localBusinessSchema = {
   "review": [
     {
       "@type": "Review",
-      "@id": "https://novahypnose.fr/#review-1",
       "author": { "@type": "Person", "name": "Edward Achour" },
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-1", "ratingValue": "5", "bestRating": "5" },
-      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "Découvrir NovaHypnose et le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit."
     },
     {
       "@type": "Review",
-      "@id": "https://novahypnose.fr/#review-2",
       "author": { "@type": "Person", "name": "Marie Hernandez" },
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-2", "ratingValue": "5", "bestRating": "5" },
-      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."
     },
     {
       "@type": "Review",
-      "@id": "https://novahypnose.fr/#review-3",
       "author": { "@type": "Person", "name": "Philippe Audoin" },
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-3", "ratingValue": "5", "bestRating": "5" },
-      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
       "reviewBody": "Un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail. En quelques séances, j'ai pu me libérer de certains blocages."
     }
   ]

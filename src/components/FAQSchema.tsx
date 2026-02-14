@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { safeJSONStringify } from '@/lib/seo-utils';
 
 const FAQSchema = () => {
   const faqSchemaData = {
@@ -69,7 +68,7 @@ const FAQSchema = () => {
   return (
     <Helmet>
       <script type="application/ld+json">
-        {safeJSONStringify(faqSchemaData)}
+        {JSON.stringify(faqSchemaData, null, 2)}
       </script>
     </Helmet>
   );

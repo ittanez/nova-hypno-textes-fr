@@ -142,10 +142,6 @@ const TestReceptivite = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Test de Réceptivité à l'Hypnose | NovaHypnose" />
-        <meta name="twitter:description" content="Évaluez votre réceptivité à l'hypnose avec notre test gratuit de 30 questions. Découvrez votre profil VAKOG." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
