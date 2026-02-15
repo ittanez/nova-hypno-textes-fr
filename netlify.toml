@@ -58,6 +58,27 @@
 #     '**/admin/**'
 #   ]
 
+# ═══════════════════════════════════════════════════════════════════════
+# Edge Function SEO : pré-rendu HTML pour les bots sur les pages blog
+# Les visiteurs normaux reçoivent la SPA React, les crawlers reçoivent
+# un HTML complet avec meta tags, structured data et contenu.
+# ═══════════════════════════════════════════════════════════════════════
+[[edge_functions]]
+  path = "/blog"
+  function = "seo-prerender"
+
+[[edge_functions]]
+  path = "/blog/article/*"
+  function = "seo-prerender"
+
+[[edge_functions]]
+  path = "/blog/categorie/*"
+  function = "seo-prerender"
+
+[[edge_functions]]
+  path = "/blog/categories"
+  function = "seo-prerender"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"

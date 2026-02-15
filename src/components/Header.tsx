@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Menu from 'lucide-react/dist/esm/icons/menu';
 import X from 'lucide-react/dist/esm/icons/x';
-import { DesktopNav, MobileNav } from './header';
+import { DesktopNav, MobileNav } from './header/index';
 
 /**
  * Header principal du site NovaHypnose
