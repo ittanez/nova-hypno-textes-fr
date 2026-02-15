@@ -163,8 +163,8 @@ const Footer = () => {
             <h3 className="font-serif text-xl mb-4">Contact</h3>
             <p className="text-sm mb-1">16 rue St Antoine, 75004 Paris</p>
             <p className="text-sm mb-1">Quartier le Marais - Bastille</p>
-            <a href="tel:0649358089" className="text-sm text-gray-300 hover:text-white block mb-1">06 49 35 80 89</a>
-            <a href="mailto:contact@novahypnose.fr" className="text-sm text-gray-300 hover:text-white block mb-3">contact@novahypnose.fr</a>
+            <a href="tel:0649358089" className="text-sm text-gray-300 hover:text-white block mb-1" aria-label="Appeler le 06 49 35 80 89">06 49 35 80 89</a>
+            <a href="mailto:contact@novahypnose.fr" className="text-sm text-gray-300 hover:text-white block mb-3" aria-label="Envoyer un email à contact@novahypnose.fr">contact@novahypnose.fr</a>
 
             <Link to="/mentions-legales" className="text-sm text-gray-300 hover:text-white block mb-4">Mentions légales</Link>
 
@@ -173,6 +173,7 @@ const Footer = () => {
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="px-4 py-2 bg-nova-green text-white rounded-md hover:bg-nova-green-dark transition-colors text-sm inline-block"
               >
                 Prendre rendez-vous

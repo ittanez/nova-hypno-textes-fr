@@ -148,6 +148,7 @@ const About = () => {
                   href="https://hypnokick.novahypnose.fr"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
+                  aria-label="Test de réceptivité hypnotique (nouvel onglet)"
                   className="px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-center"
                 >
                   Suis-je hypnotisable ?
@@ -255,6 +256,7 @@ const About = () => {
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-block px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-lg font-medium"
               >
                 Discuter de mon besoin avec Alain

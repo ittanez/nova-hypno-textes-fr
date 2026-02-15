@@ -37,7 +37,7 @@ const Contact = () => {
                   <Phone className="text-nova-blue mt-1 mr-4 flex-shrink-0" size={24} />
                   <div>
                     <p className="font-semibold text-gray-700">Téléphone</p>
-                    <a href="tel:0649358089" className="text-nova-blue hover:underline">06 49 35 80 89</a>
+                    <a href="tel:0649358089" className="text-nova-blue hover:underline" aria-label="Appeler le 06 49 35 80 89">06 49 35 80 89</a>
                   </div>
                 </div>
                 
@@ -67,6 +67,7 @@ const Contact = () => {
                       href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                       target="_blank"
                       rel="noopener noreferrer nofollow"
+                      aria-label="Réserver une séance sur Resalib (nouvel onglet)"
                       className="inline-block px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors"
                     >
                       Réserver ma séance en ligne

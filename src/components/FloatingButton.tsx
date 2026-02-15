@@ -7,8 +7,8 @@ const FloatingButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button when scrolled down 300px
-      setVisible(window.scrollY > 300);
+      // Show button after scrolling past 60% of viewport height
+      setVisible(window.scrollY > window.innerHeight * 0.6);
     };
 
     window.addEventListener('scroll', handleScroll);

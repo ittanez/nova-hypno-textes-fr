@@ -39,8 +39,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({ title, links, isExpanded,
       {title}
       <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
     </button>
-    {isExpanded && (
-      <div className="pl-4 space-y-2 mt-2">
+    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
         {links.map((link) => (
           <a
             key={link.name}
@@ -60,7 +59,6 @@ const MobileSection: React.FC<MobileSectionProps> = ({ title, links, isExpanded,
           </a>
         ))}
       </div>
-    )}
   </div>
 );
 
@@ -71,10 +69,8 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
     setOpenSection(openSection === title ? null : title);
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="md:hidden bg-white shadow-lg absolute w-full max-h-[80vh] overflow-y-auto">
+    <div className={`md:hidden bg-white shadow-lg absolute w-full overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[80vh] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
       <div className="container mx-auto px-4 py-4">
         <nav className="flex flex-col space-y-4">
           {/* Liens principaux */}
@@ -167,6 +163,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
               href={externalLinks.appointment}
               target="_blank"
               rel="noopener noreferrer nofollow"
+              aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
               className="inline-flex items-center gap-2 px-4 py-2 bg-nova-orange text-white rounded-md font-medium hover:bg-nova-orange-dark transition-colors"
             >
               <Calendar size={16} />

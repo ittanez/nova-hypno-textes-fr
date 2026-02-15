@@ -72,6 +72,7 @@ const HypnosePhobiesParis = () => {
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
                 <Calendar size={20} />
@@ -79,6 +80,7 @@ const HypnosePhobiesParis = () => {
               </a>
               <a
                 href="tel:+33649358089"
+                aria-label="Appeler le 06 49 35 80 89"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-lg font-semibold transition-all shadow-md border border-gray-200"
               >
                 <Phone size={20} />
@@ -241,6 +243,7 @@ const HypnosePhobiesParis = () => {
                 href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
+                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-purple-600 rounded-lg font-bold text-lg transition-all shadow-lg"
               >
                 <Calendar size={22} />
@@ -248,6 +251,7 @@ const HypnosePhobiesParis = () => {
               </a>
               <a
                 href="tel:+33649358089"
+                aria-label="Appeler le 06 49 35 80 89"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-400 text-white rounded-lg font-bold text-lg transition-all shadow-lg border border-purple-400"
               >
                 <Phone size={22} />

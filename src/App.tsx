@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-route
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Create a client with cache configuration
 const queryClient = new QueryClient({
@@ -84,6 +85,7 @@ function App() {
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <AppRedirects />
         
+        <ErrorBoundary>
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-nova-blue"></div></div>}>
           <Routes>
             {/* Route principale */}
@@ -171,6 +173,7 @@ function App() {
             <Route path="*" element={<Custom404 />} />
           </Routes>
         </Suspense>
+        </ErrorBoundary>
 
         <Toaster />
         </BrowserRouter>
