@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import { emotionsFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
@@ -237,6 +238,13 @@ const HypnoseEmotionsParis = () => {
         title="Questions fréquentes sur l'hypnose et les émotions"
         accentColor="text-rose-500"
         pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
+      />
+
+      <SpecialtyBlogArticles
+        keywords={["émotion", "colère", "amoureux", "deuil"]}
+        categories={["Gestion des émotions & bien-être"]}
+        title="Articles sur la gestion des émotions"
+        accentColor="text-rose-600"
       />
 
       {/* CTA final */}

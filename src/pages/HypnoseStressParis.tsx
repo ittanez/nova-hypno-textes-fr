@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
@@ -213,6 +214,13 @@ const HypnoseStressParis = () => {
         title="Questions fréquentes sur l'hypnose et le stress"
         accentColor="text-blue-500"
         pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
+      />
+
+      <SpecialtyBlogArticles
+        keywords={["stress", "anxiété", "anxieux"]}
+        categories={["Gestion du Stress", "Troubles Anxieux"]}
+        title="Articles sur le stress et l'anxiété"
+        accentColor="text-blue-600"
       />
 
       {/* CTA final */}

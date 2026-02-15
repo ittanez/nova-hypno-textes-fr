@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
@@ -216,6 +217,13 @@ const HypnosePhobiesParis = () => {
         title="Questions fréquentes sur l'hypnose et les phobies"
         accentColor="text-purple-500"
         pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
+      />
+
+      <SpecialtyBlogArticles
+        keywords={["phobie", "peur", "phobique"]}
+        categories={["Troubles Anxieux"]}
+        title="Articles sur les phobies"
+        accentColor="text-purple-600"
       />
 
       {/* CTA final */}

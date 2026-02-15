@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import { blocagesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
@@ -237,6 +238,12 @@ const HypnoseBlocagesParis = () => {
         title="Questions fréquentes sur l'hypnose et les blocages"
         accentColor="text-teal-500"
         pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
+      />
+
+      <SpecialtyBlogArticles
+        keywords={["blocage", "potentiel", "zone de confort", "procrastin"]}
+        title="Articles sur les blocages"
+        accentColor="text-teal-600"
       />
 
       {/* CTA final */}
