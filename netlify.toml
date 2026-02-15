@@ -111,12 +111,17 @@
       upgrade-insecure-requests;
     """
 
-# robots.txt - Content-Type correct et pas de cache pour permettre les mises à jour
+# Fichiers .txt (robots.txt, clé IndexNow) - Content-Type explicite
 [[headers]]
-  for = "/robots.txt"
+  for = "/*.txt"
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
     Cache-Control = "public, max-age=86400"
+
+# robots.txt - header supplémentaire nosnippet
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
     X-Robots-Tag = "nosnippet"
 
 # Cache pour les fichiers HTML - Force refresh 2025-01

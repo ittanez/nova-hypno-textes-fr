@@ -14,7 +14,7 @@ serve(async (req) => {
 
     // Clé IndexNow (publique par design - accessible via /public/{key}.txt)
     // Peut être surchargée via variable d'environnement Supabase si besoin
-    const INDEXNOW_KEY = Deno.env.get('INDEXNOW_KEY') || '5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3'
+    const INDEXNOW_KEY = Deno.env.get('INDEXNOW_KEY') || '1290617b03634f6a91131c77a141c8c6'
 
     // Récupérer les URLs depuis le body (optionnel)
     let urlsToSubmit: string[] = []
