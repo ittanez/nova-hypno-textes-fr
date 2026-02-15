@@ -21,7 +21,30 @@ serve(async (req) => {
 
     if (req.method === 'POST') {
       const body = await req.json()
-      urlsToSubmit = body.urls || []
+
+      // Support du format Database Webhook Supabase
+      // { type: "INSERT"|"UPDATE", table: "articles", record: { slug, published, ... } }
+      if (body.type && body.record?.slug) {
+        const slug = body.record.slug
+        const isPublished = body.record.published === true
+
+        if (isPublished) {
+          urlsToSubmit = [
+            `${SITE_URL}/blog/article/${slug}`,
+            `${SITE_URL}/blog`, // Rafraîchir l'index blog aussi
+          ]
+          console.log(`📝 Webhook: article "${slug}" ${body.type} → soumission IndexNow`)
+        } else {
+          console.log(`⏭️ Webhook: article "${slug}" non publié, skip IndexNow`)
+          return new Response(
+            JSON.stringify({ success: true, message: 'Article non publié, IndexNow non notifié', skipped: true }),
+            { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
+          )
+        }
+      } else {
+        // Format classique : { urls: [...] }
+        urlsToSubmit = body.urls || []
+      }
     }
 
     // Si pas d'URLs spécifiques, soumettre les URLs principales
