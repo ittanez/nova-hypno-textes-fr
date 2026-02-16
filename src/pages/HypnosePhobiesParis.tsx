@@ -179,11 +179,100 @@ const HypnosePhobiesParis = () => {
 
             <div className="mt-8 prose prose-lg text-gray-700 leading-relaxed">
               <p>
-                Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, spécialisé dans le traitement
+                Sur le plan neurologique, la phobie est une réponse conditionnée gérée par l'amygdale cérébrale,
+                le centre de détection des menaces dans le cerveau. Lorsque vous êtes confronté au stimulus phobique,
+                l'amygdale déclenche instantanément une cascade de réactions de survie — accélération cardiaque,
+                sudation, envie de fuir — avant même que votre cortex rationnel n'ait le temps d'analyser la situation.
+                C'est pourquoi vous savez que votre peur est disproportionnée, mais ne parvenez pas à la contrôler
+                par la volonté seule.
+              </p>
+              <p>
+                L'hypnose agit directement sur ce circuit en désensibilisant la réponse phobique. En état
+                hypnotique, votre cerveau devient particulièrement réceptif à la création de <strong>nouveaux chemins
+                neuronaux</strong>. Je guide votre inconscient pour qu'il associe progressivement le stimulus
+                (l'avion, l'araignée, la prise de parole) à un état de calme et de sécurité plutôt qu'à la panique.
+                Ce processus de reconditionnement est rapide car il s'adresse directement à la mémoire émotionnelle,
+                sans passer par le filtre analytique qui, justement, est impuissant face à la phobie.
+              </p>
+              <p>
+                En tant qu'<strong>hypnothérapeute phobies Paris 4</strong>, je constate régulièrement que cette
+                approche produit des changements profonds et durables, souvent dès la première séance. Je suis
+                <strong> Alain Zenatti, Maître Hypnologue certifié</strong>, spécialisé dans le traitement
                 des phobies par l'hypnose. Mon cabinet est situé à <strong>Paris 4ème, quartier Marais-Bastille</strong>.
                 Chaque accompagnement est personnalisé selon votre phobie spécifique et votre histoire.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Peur de l'avion</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Thomas*, consultant international, refusait systématiquement les missions nécessitant
+                  un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
+                  menaçait désormais sa carrière.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
+                  traumatique initial et installé un état de calme associé au vol. Thomas a repris
+                  l'avion le mois suivant pour un déplacement à Londres — sereinement.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Arachnophobie sévère</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
+                  minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
+                  Elle évitait les sorties en nature et les caves, ce qui pesait sur son quotidien.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
+                  araignées avait radicalement changé. La peur intense s'était transformée en simple
+                  indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Peur de parler en public</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
+                  investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie de la
+                  prise de parole freinait le développement de sa startup.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
+                  confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
+                  avec succès trois mois plus tard.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-purple-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-purple-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de
+                déterminer les axes de travail, les points d'amélioration, les émotions limitantes.
+                En quelques séances, j'ai pu me libérer de certains blocages et entamer des
+                changements pérennes.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Philippe A., avis Google vérifié</footer>
+            </blockquote>
           </div>
         </div>
       </section>

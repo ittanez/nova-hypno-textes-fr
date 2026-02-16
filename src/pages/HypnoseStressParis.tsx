@@ -130,6 +130,16 @@ const HypnoseStressParis = () => {
                 l'hypnose traite le mécanisme à sa source.
               </p>
               <p>
+                Les neurosciences confirment aujourd'hui ce que les hypnothérapeutes observent en cabinet depuis des
+                années. En état d'hypnose, le cerveau réduit naturellement la production de <strong>cortisol</strong>,
+                l'hormone du stress, tout en activant le <strong>système nerveux parasympathique</strong> — celui qui
+                permet au corps de se régénérer et de retrouver son équilibre. Des études en imagerie cérébrale montrent
+                que l'hypnose modifie l'activité du cortex préfrontal et de l'amygdale, les zones impliquées dans la
+                gestion des émotions et la réponse au danger. Concrètement, cela signifie que votre cerveau
+                réapprend à distinguer un vrai danger d'une simple pression du quotidien, et cesse de déclencher
+                des réactions de stress disproportionnées.
+              </p>
+              <p>
                 En état d'hypnose, votre cerveau entre dans un mode de fonctionnement particulier qui permet de :
               </p>
             </div>
@@ -177,6 +187,76 @@ const HypnoseStressParis = () => {
                 significatif dès cette première rencontre.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Stress professionnel chronique</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Sophie*, cadre dans la finance à Paris, ne dormait plus que 4 heures par nuit. Les tensions au
+                  bureau avaient envahi toute sa vie : maux de tête, irritabilité, incapacité à décrocher le soir.
+                  Elle avait consulté son médecin, essayé le yoga, mais le stress revenait toujours.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié et neutralisé les
+                  mécanismes inconscients qui maintenaient son hypervigilance. Sophie a retrouvé un sommeil
+                  réparateur et une capacité à poser des limites saines au travail.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Crises d'angoisse dans les transports</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Marc*, 35 ans, évitait le métro depuis un an après une première crise de panique en heure de
+                  pointe. Il prenait des taxis pour aller travailler, ce qui pesait sur son budget et renforçait
+                  son sentiment d'impuissance face à l'anxiété.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  Après 3 séances d'hypnose ericksonienne, Marc a repris le métro — d'abord aux heures creuses,
+                  puis normalement. La technique d'auto-hypnose rapide que je lui ai enseignée lui permet de
+                  gérer toute montée d'anxiété en quelques respirations.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Anxiété liée aux examens</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Léa*, étudiante en droit, se paralysait systématiquement devant ses copies d'examen.
+                  Elle connaissait son cours, mais le trac lui faisait perdre tous ses moyens. Son stress
+                  anticipatoire commençait des semaines avant chaque épreuve.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances, nous avons reprogrammé sa réponse au stress d'examen et ancré un état de
+                  concentration calme qu'elle peut activer avant chaque épreuve. Ses résultats se sont
+                  nettement améliorés dès la session suivante.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-blue-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-blue-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie
+                apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances.
+                Je recommande vivement.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Marie H., avis Google vérifié</footer>
+            </blockquote>
           </div>
         </div>
       </section>

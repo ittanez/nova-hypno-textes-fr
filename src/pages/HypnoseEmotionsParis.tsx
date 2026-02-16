@@ -209,6 +209,77 @@ const HypnoseEmotionsParis = () => {
         </div>
       </section>
 
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Colères incontrôlables</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  David*, chef de projet, explosait régulièrement au travail et à la maison. Ses accès
+                  de colère disproportionnés abîmaient ses relations avec sa compagne et ses collègues.
+                  Il se sentait coupable après chaque épisode mais ne parvenait pas à se contrôler.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié l'origine
+                  de cette colère — une blessure d'enfance non traitée — et retraité la mémoire
+                  émotionnelle. David réagit désormais de manière proportionnée et ses relations
+                  se sont considérablement améliorées.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Deuil difficile</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Anne*, 50 ans, était figée dans son deuil depuis la perte de sa mère un an plus tôt.
+                  Elle ne parvenait plus à éprouver de joie, s'isolait, et avait perdu tout intérêt
+                  pour ses activités. La tristesse omniprésente l'empêchait de vivre.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 5 séances d'hypnose ericksonienne, nous avons accompagné le processus de deuil en
+                  douceur, en transformant la douleur en souvenirs apaisés et en gratitude. Anne a
+                  retrouvé progressivement goût à la vie tout en gardant un lien serein avec sa mère.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Hypersensibilité envahissante</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir,
+                  elle était vidée, submergée par les émotions des autres au point de ne plus savoir
+                  distinguer les siennes. Son hypersensibilité devenait un handicap professionnel.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances, nous avons installé une &laquo;&nbsp;bulle de protection émotionnelle&nbsp;&raquo;
+                  lui permettant de rester empathique sans être envahie. Sarah continue d'exercer
+                  avec passion, mais sans se vider émotionnellement.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-rose-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-rose-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines
+                croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre.
+                Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Edward, avis Google vérifié</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* Résultats */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">

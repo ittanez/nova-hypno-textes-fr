@@ -209,6 +209,77 @@ const HypnoseBlocagesParis = () => {
         </div>
       </section>
 
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Procrastination chronique</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Vincent*, développeur freelance, repoussait systématiquement ses projets importants.
+                  Malgré des deadlines serrées, il se retrouvait à faire tout sauf ce qu'il devait faire.
+                  Ce schéma récurrent menaçait sa carrière et générait une culpabilité permanente.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances d'hypnose dans mon cabinet Paris 4ème, nous avons découvert que sa
+                  procrastination cachait une peur de l'échec liée à des attentes parentales trop élevées.
+                  Une fois cette croyance transformée, Vincent a retrouvé sa productivité naturelle
+                  et la satisfaction d'avancer sur ses projets.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Schémas relationnels répétitifs</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Caroline*, 38 ans, enchaînait les relations avec le même profil de partenaire et
+                  la même issue douloureuse. Elle savait que quelque chose se répétait mais ne
+                  comprenait pas pourquoi, malgré un travail en psychothérapie.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances, l'hypnose a permis d'identifier et de transformer un schéma
+                  inconscient hérité de la dynamique familiale. Caroline a pu enfin choisir
+                  différemment et construire une relation épanouissante.
+                </p>
+              </div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Peur du changement</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Antoine*, 45 ans, rêvait de quitter son poste pour créer son entreprise depuis
+                  10 ans. Chaque fois qu'il s'en approchait, une peur paralysante le ramenait dans
+                  sa zone de confort. Il se sentait prisonnier d'une vie qui ne lui ressemblait plus.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 5 séances, nous avons travaillé sur ses croyances limitantes autour de la
+                  sécurité et de la réussite, puis ancré les ressources de courage et de confiance
+                  nécessaires. Antoine a lancé son activité six mois plus tard.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-teal-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-teal-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                En quelques séances, avec son accompagnement, ses techniques d'hypnose et sa
+                connaissance de la PNL, j'ai pu me libérer de certains blocages et entamer des
+                changements pérennes. Cela m'a fait beaucoup de bien.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Philippe A., avis Google vérifié</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* Résultats */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">

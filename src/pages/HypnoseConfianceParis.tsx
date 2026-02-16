@@ -183,6 +183,79 @@ const HypnoseConfianceParis = () => {
         </div>
       </section>
 
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Syndrome de l'imposteur</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Camille*, directrice marketing, avait le sentiment permanent de ne pas mériter sa
+                  place malgré 15 ans de succès professionnels. Chaque réunion avec sa direction
+                  déclenchait une peur d'être &laquo;&nbsp;démasquée&nbsp;&raquo;. Elle minimisait systématiquement
+                  ses accomplissements.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié et
+                  transformé les croyances installées dans l'enfance (&laquo;&nbsp;tu n'es jamais assez bien&nbsp;&raquo;).
+                  Camille assume désormais ses compétences avec assurance et a obtenu la promotion
+                  qu'elle n'osait pas demander.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Timidité sociale paralysante</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Romain*, 30 ans, évitait toutes les situations sociales : dîners, fêtes,
+                  networking professionnel. Même en réunion d'équipe, il ne prenait jamais la parole
+                  de peur d'être jugé. Sa timidité l'isolait et freinait sa carrière.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances d'hypnose ericksonienne, nous avons travaillé sur les expériences
+                  de moquerie qui avaient fondé cette peur du jugement, puis ancré un état d'aisance
+                  sociale. Romain participe désormais activement aux réunions et a élargi son
+                  cercle social.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Estime de soi après une rupture</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Inès*, 34 ans, avait perdu toute confiance en elle après une rupture difficile.
+                  Les paroles dévalorisantes de son ex continuaient à résonner dans sa tête. Elle
+                  se sentait incapable de plaire, de réussir, de mériter l'amour.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances, nous avons neutralisé l'impact émotionnel de ces paroles toxiques
+                  et reconstruit une image de soi positive. Inès a retrouvé confiance en sa valeur
+                  et s'est ouverte à de nouvelles rencontres avec sérénité.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-amber-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-amber-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                Alain propose de véritables parcours de transformation conçus pour libérer l'esprit
+                et dépasser les freins invisibles. J'ai laissé derrière moi certaines croyances figées
+                et ouvert un espace intérieur plus souple, plus libre.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Edward, avis Google vérifié</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* Résultats */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">

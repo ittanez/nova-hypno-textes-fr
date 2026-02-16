@@ -178,6 +178,77 @@ const HypnoseSommeilParis = () => {
         </div>
       </section>
 
+      {/* Cas concrets */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Exemples de parcours au cabinet
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Insomnie chronique liée au travail</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Laurent*, directeur commercial, ne dormait plus que 3 à 4 heures par nuit depuis
+                  18 mois. Son cerveau continuait à &laquo;&nbsp;travailler&nbsp;&raquo; la nuit, repassant en boucle
+                  les problèmes du bureau. La fatigue accumulée affectait sa concentration et sa santé.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 4 séances d'hypnose dans mon cabinet de Paris 4ème, nous avons installé un
+                  &laquo;&nbsp;interrupteur mental&nbsp;&raquo; lui permettant de couper ses pensées professionnelles
+                  le soir. Laurent dort désormais 7 heures par nuit et se réveille reposé.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Réveils nocturnes et ruminations</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Nathalie*, 42 ans, se réveillait chaque nuit vers 3h du matin avec des pensées
+                  anxieuses impossibles à stopper. Elle avait consulté un médecin du sommeil sans
+                  résultat probant. Le manque de sommeil avait des répercussions sur son humeur
+                  et ses relations familiales.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 3 séances, nous avons traité la source de l'anxiété nocturne par l'hypnose
+                  ericksonienne et je lui ai transmis une technique d'auto-hypnose pour se rendormir
+                  en quelques minutes. Ses réveils nocturnes ont cessé dès la deuxième semaine.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h3 className="font-semibold text-gray-900 mb-2">Sevrage des somnifères</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  Patrick*, 55 ans, prenait des somnifères depuis 8 ans. Il voulait arrêter mais
+                  n'y arrivait pas seul : sans médicament, l'endormissement devenait impossible.
+                  Son médecin l'a orienté vers l'hypnose comme alternative naturelle.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-2">
+                  En 5 séances progressives, nous avons réappris à son inconscient à s'endormir
+                  naturellement. Patrick a pu réduire puis arrêter complètement ses somnifères,
+                  en accord avec son médecin. Il retrouve un sommeil naturel et réparateur.
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Témoignage */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="relative bg-indigo-50 p-8 rounded-xl">
+              <div className="absolute top-4 left-6 text-6xl text-indigo-200 font-serif leading-none">"</div>
+              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
+                Excellente séance avec Alain qui sait comprendre nos besoins puis faire en sorte
+                que l'on atteigne nos objectifs. Après des mois d'insomnie, j'ai retrouvé des
+                nuits complètes en quelques séances seulement.
+              </p>
+              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Jaouad M., avis Google vérifié</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* Résultats */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
