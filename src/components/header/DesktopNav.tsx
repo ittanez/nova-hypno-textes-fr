@@ -1,5 +1,5 @@
 import React from 'react';
-import Instagram from 'lucide-react/dist/esm/icons/instagram';
+import Linkedin from 'lucide-react/dist/esm/icons/linkedin';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import NavDropdown from './NavDropdown';
 import {
@@ -83,15 +83,15 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ isDesktop, onNavClick }) => {
         onNavClick={onNavClick}
       />
 
-      {/* Instagram */}
+      {/* LinkedIn */}
       <a
-        href={externalLinks.instagram}
+        href={externalLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer nofollow"
         className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
-        aria-label="Instagram"
+        aria-label="LinkedIn"
       >
-        <Instagram size={24} />
+        <Linkedin size={24} />
       </a>
 
       {/* Bouton RDV */}

@@ -47,7 +47,6 @@ export const specialitesLinks: NavLink[] = [
 export const accompagnementsLinks: NavLink[] = [
   { name: 'Applications', href: '/#applications' },
   { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
-  { name: 'Offre Liberté Aérienne', href: '/peurdelavion.html' },
 ];
 
 export const infosPratiquesLinks: NavLink[] = [
@@ -73,5 +72,6 @@ export const infosPratiquesSection: NavSection = {
 // URLs externes
 export const externalLinks = {
   instagram: 'https://www.instagram.com/novahypnose/',
+  linkedin: 'https://www.linkedin.com/in/zenatti/',
   appointment: 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris',
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Instagram from 'lucide-react/dist/esm/icons/instagram';
+import Linkedin from 'lucide-react/dist/esm/icons/linkedin';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 import {
@@ -147,16 +147,16 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
             onToggleMenu={onToggleMenu}
           />
 
-          {/* Footer avec Instagram et RDV */}
+          {/* Footer avec LinkedIn et RDV */}
           <div className="flex items-center justify-between pt-2 border-t border-gray-200">
             <a
-              href={externalLinks.instagram}
+              href={externalLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="text-nova-neutral-dark hover:text-nova-blue transition-colors"
-              aria-label="Instagram"
+              aria-label="LinkedIn"
             >
-              <Instagram size={24} />
+              <Linkedin size={24} />
             </a>
 
             <a
