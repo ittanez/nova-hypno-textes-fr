@@ -272,7 +272,7 @@ const GuideEbook: React.FC = () => {
         {/* Right: ebook cover */}
         <div className="flex justify-center items-center px-6 md:px-12 py-10 md:py-20 order-1 md:order-2 animate-fade-in">
           <img
-            src="/images/couverture-guide.webp"
+            src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
             alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
             className="max-w-[280px] md:max-w-[340px] w-full rounded shadow-2xl -rotate-1 hover:rotate-0 hover:scale-[1.02] transition-transform duration-500"
             loading="eager"
