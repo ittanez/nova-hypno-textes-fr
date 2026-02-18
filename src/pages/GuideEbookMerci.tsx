@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -14,21 +14,12 @@ import MapPin from 'lucide-react/dist/esm/icons/map-pin';
    Page isolée (pas de Header / Footer)
    ───────────────────────────────────────────── */
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
-    };
-  }
-}
-
 const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
 
 const GuideEbookMerci: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prenom = (location.state as { prenom?: string })?.prenom || '';
-  const calendlyRef = useRef<HTMLDivElement>(null);
 
   // Redirect if accessed directly without form submission
   useEffect(() => {
@@ -36,40 +27,6 @@ const GuideEbookMerci: React.FC = () => {
       navigate('/guide-emotions-travail', { replace: true });
     }
   }, [location.state, navigate]);
-
-  // Load Calendly script then init the widget
-  useEffect(() => {
-    if (!location.state) return;
-
-    const initWidget = () => {
-      if (window.Calendly && calendlyRef.current) {
-        window.Calendly.initInlineWidget({
-          url: CALENDLY_URL,
-          parentElement: calendlyRef.current,
-        });
-      }
-    };
-
-    // If script already loaded (e.g. hot reload), init immediately
-    if (window.Calendly) {
-      initWidget();
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = initWidget;
-    document.head.appendChild(script);
-
-    // Also load the Calendly CSS
-    if (!document.querySelector('link[href*="calendly"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://assets.calendly.com/assets/external/widget.css';
-      document.head.appendChild(link);
-    }
-  }, [location.state]);
 
   if (!location.state) return null;
 
@@ -191,11 +148,13 @@ const GuideEbookMerci: React.FC = () => {
             </p>
           </div>
 
-          {/* Calendly inline widget — initialisé via JS */}
-          <div
-            ref={calendlyRef}
-            className="rounded-2xl overflow-hidden shadow-lg bg-white"
-            style={{ minWidth: '320px', height: '700px' }}
+          {/* Calendly via iframe — fiable dans une SPA React */}
+          <iframe
+            src={CALENDLY_URL}
+            title="Prendre rendez-vous avec Alain Zenatti"
+            className="rounded-2xl shadow-lg bg-white border-0"
+            style={{ width: '100%', minWidth: '320px', height: '700px' }}
+            loading="lazy"
           />
         </div>
       </section>
