@@ -50,9 +50,10 @@ const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
 // Zone d'intervention
 const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
 
-// Landing page lead magnet (page isolée, pas dans la navigation)
+// Landing pages (pages isolées, pas dans la navigation)
 const GuideEbook = lazy(() => import("@/pages/GuideEbook"));
 const GuideEbookMerci = lazy(() => import("@/pages/GuideEbookMerci"));
+const LandingProfessionnels = lazy(() => import("@/pages/LandingProfessionnels"));
 
 // Pages de spécialités SEO
 const HypnoseStressParis = lazy(() => import("@/pages/HypnoseStressParis"));
@@ -117,9 +118,10 @@ function App() {
             {/* Zone d'intervention */}
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
 
-            {/* Landing page lead magnet — pas de header/footer, noindex */}
+            {/* Landing pages — pas de header/footer, noindex */}
             <Route path="/guide-emotions-travail" element={<GuideEbook />} />
             <Route path="/guide-emotions-travail/merci" element={<GuideEbookMerci />} />
+            <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
 
             {/* Pages de spécialités */}
             <Route path="/hypnose-stress-anxiete-paris" element={<HypnoseStressParis />} />

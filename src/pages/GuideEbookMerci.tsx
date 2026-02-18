@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -10,18 +10,16 @@ import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 
 /* ─────────────────────────────────────────────
    Thank You page — après soumission du formulaire guide
-   Inclut : confirmation, widget Calendly
+   Inclut : confirmation, iframe Calendly (embed direct)
    Page isolée (pas de Header / Footer)
    ───────────────────────────────────────────── */
 
-const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
+const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1&embed_type=Inline';
 
 const GuideEbookMerci: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prenom = (location.state as { prenom?: string })?.prenom || '';
-  const calendlyRef = useRef<HTMLDivElement>(null);
-  const [scriptReady, setScriptReady] = useState(false);
 
   // Redirect if accessed directly without form submission
   useEffect(() => {
@@ -29,53 +27,6 @@ const GuideEbookMerci: React.FC = () => {
       navigate('/guide-emotions-travail', { replace: true });
     }
   }, [location.state, navigate]);
-
-  // 1. Load Calendly CSS + JS
-  useEffect(() => {
-    if (!location.state) return;
-
-    // CSS
-    if (!document.querySelector('link[href*="assets.calendly.com"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://assets.calendly.com/assets/external/widget.css';
-      document.head.appendChild(link);
-    }
-
-    // JS
-    const win = window as unknown as Record<string, unknown>;
-    if (win.Calendly) {
-      setScriptReady(true);
-      return;
-    }
-
-    const existing = document.querySelector('script[src*="assets.calendly.com"]');
-    if (existing) {
-      existing.addEventListener('load', () => setScriptReady(true));
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = () => setScriptReady(true);
-    document.head.appendChild(script);
-  }, [location.state]);
-
-  // 2. Init widget once script is ready AND container is mounted
-  useEffect(() => {
-    if (!scriptReady || !calendlyRef.current) return;
-
-    const win = window as unknown as Record<string, { initInlineWidget: (o: unknown) => void }>;
-    if (win.Calendly) {
-      // Clear any previous content
-      calendlyRef.current.innerHTML = '';
-      win.Calendly.initInlineWidget({
-        url: CALENDLY_URL,
-        parentElement: calendlyRef.current,
-      });
-    }
-  }, [scriptReady]);
 
   if (!location.state) return null;
 
@@ -197,11 +148,13 @@ const GuideEbookMerci: React.FC = () => {
             </p>
           </div>
 
-          {/* Calendly widget — initialisé via initInlineWidget */}
-          <div
-            ref={calendlyRef}
-            className="rounded-2xl overflow-hidden shadow-lg bg-white"
-            style={{ minWidth: '320px', height: '700px' }}
+          {/* Calendly — iframe direct (plus fiable que widget.js) */}
+          <iframe
+            src={CALENDLY_URL}
+            title="Réserver un appel téléphonique gratuit avec Alain Zenatti"
+            className="rounded-2xl shadow-lg bg-white"
+            style={{ minWidth: '320px', width: '100%', height: '700px', border: 'none' }}
+            loading="lazy"
           />
         </div>
       </section>

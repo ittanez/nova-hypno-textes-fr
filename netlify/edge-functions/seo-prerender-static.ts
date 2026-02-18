@@ -610,6 +610,61 @@ const PAGES: Record<string, PageData> = {
     <a class="cta" href="${SITE_URL}/autohypnose">Découvrir l'auto-hypnose</a>
     `,
   },
+
+  "/hypnose-professionnels-paris": {
+    title: "Hypnose pour professionnels Paris | Stress, burn-out, performance — Alain Zenatti",
+    description:
+      "Vous êtes performant mais épuisé ? L'hypnose ericksonienne aide les cadres et managers à retrouver énergie, sommeil et clarté. Résultats en 3-5 séances. Paris 4ème.",
+    canonicalPath: "/hypnose-professionnels-paris",
+    h1: "Vous êtes performant. Mais à quel prix ?",
+    jsonLd: [
+      serviceLd(
+        "Hypnose pour les professionnels — stress, burn-out, performance — Paris",
+        "Accompagnement en hypnose ericksonienne pour les cadres, managers et indépendants. Stress chronique, burn-out, syndrome de l'imposteur. Résultats en 3 à 5 séances.",
+        `${SITE_URL}/hypnose-professionnels-paris`
+      ),
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Hypnose professionnels Paris", path: "/hypnose-professionnels-paris" },
+      ]),
+    ],
+    content: `
+    <p>L'hypnose ericksonienne aide les cadres, managers et indépendants à <strong>retrouver énergie, sommeil et clarté mentale</strong> — sans médicament, en 3 à 5 séances.</p>
+
+    <h2>Vous vous reconnaissez ?</h2>
+    <ul>
+      <li><strong>Pensées en boucle la nuit</strong> — Vous travaillez mentalement même quand vous êtes au lit, sous la douche ou en famille</li>
+      <li><strong>Irritabilité</strong> — Un mail anodin vous agace, un retard vous met en colère. Ce n'est pas vous.</li>
+      <li><strong>Syndrome de l'imposteur</strong> — Malgré vos résultats, vous avez la sensation constante de ne pas être à la hauteur</li>
+      <li><strong>Le corps parle</strong> — Oppression thoracique, mâchoire serrée, dos bloqué, maux de ventre</li>
+      <li><strong>Tout essayé</strong> — Sport, méditation, coaching... ça aide un temps, puis le mécanisme se réenclenche</li>
+    </ul>
+
+    <h2>Ce qui change après l'hypnose</h2>
+    <p>Pas de miracle. Pas de pensée positive forcée. Juste un recalibrage profond de votre système nerveux. Votre inconscient cesse de tourner en mode urgence — et votre corps suit.</p>
+    <ul>
+      <li>Vous dormez enfin — vraiment. Et vous vous réveillez reposé.</li>
+      <li>Les pensées en boucle se taisent. Vous retrouvez le silence mental.</li>
+      <li>Vous prenez du recul face à la pression, sans perdre en performance.</li>
+      <li>Votre corps se relâche : mâchoire décrispée, respiration fluide.</li>
+      <li>Vous retrouvez le plaisir de travailler — sans l'urgence permanente.</li>
+    </ul>
+
+    <h2>Comment je vous accompagne</h2>
+    <p>Mon approche combine l'hypnose ericksonienne et la PNL pour aller directement à la racine du problème. En 3 à 5 séances, votre système nerveux se recalibre et les changements s'installent durablement.</p>
+    <ul>
+      <li><strong>Séance 1 : Diagnostic profond (1h30)</strong> — Identification de la source réelle du stress et première séance d'hypnose</li>
+      <li><strong>Séances 2-3 : Reprogrammation</strong> — Travail sur les automatismes de stress et les croyances limitantes</li>
+      <li><strong>Séances 4-5 : Ancrage & autonomie</strong> — Consolidation et apprentissage de l'auto-hypnose</li>
+    </ul>
+    <p><strong>90 € par séance</strong> — Cabinet Paris 4e (Marais-Bastille), téléconsultation ou domicile (140 €).</p>
+
+    <h2>Pourquoi me faire confiance</h2>
+    <p>Alain Zenatti, Maître Hypnologue certifié avec 9 certifications professionnelles. Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver un appel gratuit</a>
+    `,
+  },
 };
 
 // ─── Main handler ──────────────────────────────────────────────────────────
