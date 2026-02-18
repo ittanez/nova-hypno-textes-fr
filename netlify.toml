@@ -120,6 +120,10 @@
   path = "/autohypnose"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-professionnels-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
