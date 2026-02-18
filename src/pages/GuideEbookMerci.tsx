@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -10,14 +10,25 @@ import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 
 /* ─────────────────────────────────────────────
    Thank You page — après soumission du formulaire guide
-   Inclut : confirmation, vidéo, widget Calendly
+   Inclut : confirmation, widget Calendly
    Page isolée (pas de Header / Footer)
    ───────────────────────────────────────────── */
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void;
+    };
+  }
+}
+
+const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
 
 const GuideEbookMerci: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prenom = (location.state as { prenom?: string })?.prenom || '';
+  const calendlyRef = useRef<HTMLDivElement>(null);
 
   // Redirect if accessed directly without form submission
   useEffect(() => {
@@ -26,17 +37,39 @@ const GuideEbookMerci: React.FC = () => {
     }
   }, [location.state, navigate]);
 
-  // Load Calendly script
+  // Load Calendly script then init the widget
   useEffect(() => {
-    if (document.querySelector('script[src*="calendly"]')) return;
+    if (!location.state) return;
+
+    const initWidget = () => {
+      if (window.Calendly && calendlyRef.current) {
+        window.Calendly.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement: calendlyRef.current,
+        });
+      }
+    };
+
+    // If script already loaded (e.g. hot reload), init immediately
+    if (window.Calendly) {
+      initWidget();
+      return;
+    }
+
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+    script.onload = initWidget;
+    document.head.appendChild(script);
+
+    // Also load the Calendly CSS
+    if (!document.querySelector('link[href*="calendly"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(link);
+    }
+  }, [location.state]);
 
   if (!location.state) return null;
 
@@ -158,10 +191,10 @@ const GuideEbookMerci: React.FC = () => {
             </p>
           </div>
 
-          {/* Calendly inline widget */}
+          {/* Calendly inline widget — initialisé via JS */}
           <div
-            className="calendly-inline-widget rounded-2xl overflow-hidden shadow-lg bg-white"
-            data-url="https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1"
+            ref={calendlyRef}
+            className="rounded-2xl overflow-hidden shadow-lg bg-white"
             style={{ minWidth: '320px', height: '700px' }}
           />
         </div>
