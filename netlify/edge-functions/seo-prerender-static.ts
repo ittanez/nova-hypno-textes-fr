@@ -612,57 +612,74 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-professionnels-paris": {
-    title: "Hypnose pour professionnels Paris | Stress, burn-out, performance — Alain Zenatti",
+    title: "Accompagnement hypnose professionnels Paris | Stress, burn-out, sommeil — Alain Zenatti",
     description:
-      "Vous êtes performant mais épuisé ? L'hypnose ericksonienne aide les cadres et managers à retrouver énergie, sommeil et clarté. Résultats en 3-5 séances. Paris 4ème.",
+      "Vous êtes en souffrance au travail ? Un accompagnement individuel en hypnose, auto-hypnose et communication relationnelle pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit. Paris 4ème.",
     canonicalPath: "/hypnose-professionnels-paris",
-    h1: "Vous êtes performant. Mais à quel prix ?",
+    h1: "Vous tenez au travail. Mais à quel prix ?",
     jsonLd: [
-      serviceLd(
-        "Hypnose pour les professionnels — stress, burn-out, performance — Paris",
-        "Accompagnement en hypnose ericksonienne pour les cadres, managers et indépendants. Stress chronique, burn-out, syndrome de l'imposteur. Résultats en 3 à 5 séances.",
-        `${SITE_URL}/hypnose-professionnels-paris`
-      ),
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Accompagnement hypnose pour professionnels en souffrance au travail — Paris",
+        description: "Accompagnement individuel en hypnose ericksonienne, auto-hypnose et communication relationnelle pour les salariés et professionnels en souffrance au travail. Stress, burn-out, sommeil, émotions, relations. Cabinet Paris 4ème.",
+        url: `${SITE_URL}/hypnose-professionnels-paris`,
+        provider: { "@type": "Person", name: "Alain Zenatti", url: SITE_URL },
+        areaServed: { "@type": "City", name: "Paris" },
+        serviceType: "Hypnothérapie — accompagnement professionnel",
+      },
       breadcrumbLd([
         { name: "Accueil", path: "/" },
-        { name: "Hypnose professionnels Paris", path: "/hypnose-professionnels-paris" },
+        { name: "Accompagnement professionnels", path: "/hypnose-professionnels-paris" },
       ]),
     ],
     content: `
-    <p>L'hypnose ericksonienne aide les cadres, managers et indépendants à <strong>retrouver énergie, sommeil et clarté mentale</strong> — sans médicament, en 3 à 5 séances.</p>
+    <p>Un accompagnement individuel qui combine <strong>hypnose ericksonienne, auto-hypnose et communication relationnelle</strong> pour vous aider à <strong>retrouver énergie, sommeil et sérénité</strong> — durablement.</p>
 
-    <h2>Vous vous reconnaissez ?</h2>
+    <h2>Ce que vous vivez en ce moment</h2>
+    <p>Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe, vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, pression de résultats, tensions relationnelles.</p>
     <ul>
-      <li><strong>Pensées en boucle la nuit</strong> — Vous travaillez mentalement même quand vous êtes au lit, sous la douche ou en famille</li>
-      <li><strong>Irritabilité</strong> — Un mail anodin vous agace, un retard vous met en colère. Ce n'est pas vous.</li>
-      <li><strong>Syndrome de l'imposteur</strong> — Malgré vos résultats, vous avez la sensation constante de ne pas être à la hauteur</li>
-      <li><strong>Le corps parle</strong> — Oppression thoracique, mâchoire serrée, dos bloqué, maux de ventre</li>
-      <li><strong>Tout essayé</strong> — Sport, méditation, coaching... ça aide un temps, puis le mécanisme se réenclenche</li>
+      <li><strong>Épuisement mental</strong> — Impossible de « couper ». Vos pensées tournent en boucle, même au lit, sous la douche, en famille.</li>
+      <li><strong>Fatigue persistante</strong> — Irritabilité, perte d'enthousiasme. L'épuisement ne passe plus, même le week-end.</li>
+      <li><strong>Le corps parle</strong> — Oppression thoracique, mâchoire serrée, dos bloqué, sommeil perturbé.</li>
+      <li><strong>Relations dégradées</strong> — Vous n'osez plus poser de limites, ou vous explosez. Au travail comme à la maison.</li>
+      <li><strong>Tout essayé</strong> — Sport, méditation, coaching... ça aide un temps, puis le mécanisme se réenclenche.</li>
     </ul>
 
-    <h2>Ce qui change après l'hypnose</h2>
-    <p>Pas de miracle. Pas de pensée positive forcée. Juste un recalibrage profond de votre système nerveux. Votre inconscient cesse de tourner en mode urgence — et votre corps suit.</p>
+    <h2>Ce que vous souhaitez retrouver</h2>
+    <p>Sortir du mode survie. Retrouver une énergie stable, dormir mieux, se réveiller plus clair et disponible. Poser des limites sans culpabilité. Améliorer vos relations au travail. Revenir à un mode plus aligné et plus respectueux de vous.</p>
     <ul>
-      <li>Vous dormez enfin — vraiment. Et vous vous réveillez reposé.</li>
-      <li>Les pensées en boucle se taisent. Vous retrouvez le silence mental.</li>
-      <li>Vous prenez du recul face à la pression, sans perdre en performance.</li>
-      <li>Votre corps se relâche : mâchoire décrispée, respiration fluide.</li>
-      <li>Vous retrouvez le plaisir de travailler — sans l'urgence permanente.</li>
+      <li>Moins de stress, moins de tensions internes</li>
+      <li>Un sommeil qui redevient réparateur</li>
+      <li>Des émotions que vous traversez sans en être submergé</li>
+      <li>Plus d'énergie, plus de clarté au quotidien</li>
+      <li>Des relations plus apaisées — au travail comme à la maison</li>
+      <li>Une posture professionnelle plus posée, plus juste pour vous</li>
     </ul>
 
-    <h2>Comment je vous accompagne</h2>
-    <p>Mon approche combine l'hypnose ericksonienne et la PNL pour aller directement à la racine du problème. En 3 à 5 séances, votre système nerveux se recalibre et les changements s'installent durablement.</p>
+    <h2>L'accompagnement — trois piliers complémentaires</h2>
+    <p>Un accompagnement structuré, individuel, sur mesure — conçu pour les professionnels qui veulent des résultats concrets. En quelques semaines, vous passez du mode « tenir » au mode « avancer ».</p>
+    <h3>Hypnose Ericksonienne</h3>
+    <p>Apaiser le stress, améliorer le sommeil, alléger la charge mentale — en agissant là où la volonté seule ne suffit pas.</p>
+    <h3>Auto-Hypnose</h3>
+    <p>Des outils simples que vous utilisez au quotidien pour devenir autonome dans la gestion de votre stress et de vos émotions.</p>
+    <h3>Communication Relationnelle (approche Jacques Salomé)</h3>
+    <p>Oser dire, poser des limites, clarifier vos besoins — avec une méthode concrète et respectueuse.</p>
     <ul>
-      <li><strong>Séance 1 : Diagnostic profond (1h30)</strong> — Identification de la source réelle du stress et première séance d'hypnose</li>
-      <li><strong>Séances 2-3 : Reprogrammation</strong> — Travail sur les automatismes de stress et les croyances limitantes</li>
-      <li><strong>Séances 4-5 : Ancrage & autonomie</strong> — Consolidation et apprentissage de l'auto-hypnose</li>
+      <li>Séances individuelles, adaptées à votre réalité</li>
+      <li>Un parcours structuré sur quelques semaines</li>
+      <li>En présentiel (Paris 4e) ou en visio</li>
+      <li>Des pratiques simples entre les séances (10-15 min/jour)</li>
+      <li>Un suivi par messages si besoin entre les rendez-vous</li>
     </ul>
-    <p><strong>90 € par séance</strong> — Cabinet Paris 4e (Marais-Bastille), téléconsultation ou domicile (140 €).</p>
+
+    <h2>Comment savoir si c'est fait pour vous ?</h2>
+    <p>Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p>Alain Zenatti, Maître Hypnologue certifié avec 9 certifications professionnelles. Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
+    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
 
-    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver un appel gratuit</a>
+    <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
     `,
   },
 };
