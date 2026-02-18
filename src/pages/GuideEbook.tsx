@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 import { submitGuideLead } from '@/lib/services/guideLeadService';
 import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
 import Shield from 'lucide-react/dist/esm/icons/shield';
-import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import X from 'lucide-react/dist/esm/icons/x';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
@@ -21,7 +21,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 // ── Inline form component ──
 interface LeadFormProps {
   id: string;
-  onSuccess: () => void;
+  onSuccess: (prenom: string) => void;
   buttonLabel?: string;
   compact?: boolean;
 }
@@ -46,7 +46,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
 
     setLoading(false);
     if (result.success) {
-      onSuccess();
+      onSuccess(prenom);
     } else {
       setErrorMsg(result.error || 'Une erreur est survenue. Veuillez réessayer.');
     }
@@ -114,22 +114,6 @@ const LeadForm: React.FC<LeadFormProps> = ({
   );
 };
 
-// ── Success message ──
-const SuccessMessage: React.FC = () => (
-  <div className="text-center py-8 animate-fade-in">
-    <div className="w-16 h-16 bg-nova-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-      <CheckCircle className="text-nova-green" size={36} />
-    </div>
-    <h3 className="text-xl font-serif font-bold text-nova-blue-dark mb-2">
-      C'est envoyé !
-    </h3>
-    <p className="text-gray-500 text-sm leading-relaxed">
-      Vérifiez votre boîte email dans quelques instants.
-      <br />À très bientôt.
-    </p>
-  </div>
-);
-
 // ── Pain-point card ──
 const PainCard: React.FC<{ text: string }> = ({ text }) => (
   <div className="bg-white rounded-xl p-6 border-l-4 border-nova-orange shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
@@ -156,10 +140,12 @@ const ChapterRow: React.FC<{ num: number; title: string; desc: string }> = ({
 
 // ── Main page component ──
 const GuideEbook: React.FC = () => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const [heroSuccess, setHeroSuccess] = useState(false);
-  const [finalSuccess, setFinalSuccess] = useState(false);
-  const [modalSuccess, setModalSuccess] = useState(false);
+
+  const handleSuccess = useCallback((prenom: string) => {
+    navigate('/guide-emotions-travail/merci', { state: { prenom } });
+  }, [navigate]);
 
   // Scroll-reveal observer
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -192,7 +178,6 @@ const GuideEbook: React.FC = () => {
 
   const closeModal = useCallback(() => {
     setModalOpen(false);
-    setModalSuccess(false);
     document.body.style.overflow = '';
   }, []);
 
@@ -253,19 +238,13 @@ const GuideEbook: React.FC = () => {
 
           {/* Inline form */}
           <div className="bg-white rounded-2xl p-7 shadow-lg max-w-md">
-            {heroSuccess ? (
-              <SuccessMessage />
-            ) : (
-              <>
-                <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
-                  Recevez votre guide gratuitement
-                </p>
-                <p className="text-gray-400 text-sm mb-5">
-                  Remplissez le formulaire — accès immédiat par email
-                </p>
-                <LeadForm id="hero-form" onSuccess={() => setHeroSuccess(true)} />
-              </>
-            )}
+            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
+              Recevez votre guide gratuitement
+            </p>
+            <p className="text-gray-400 text-sm mb-5">
+              Remplissez le formulaire — accès immédiat par email
+            </p>
+            <LeadForm id="hero-form" onSuccess={handleSuccess} />
           </div>
         </div>
 
@@ -385,10 +364,12 @@ const GuideEbook: React.FC = () => {
       {/* ═══════════ AUTEUR ═══════════ */}
       <section className="py-20 px-6 bg-nova-neutral">
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-start">
-          {/* Photo placeholder */}
-          <div className="w-28 h-28 rounded-full bg-gradient-to-br from-nova-blue to-nova-blue-dark flex items-center justify-center text-white text-2xl font-serif font-bold mx-auto md:mx-0 flex-shrink-0 shadow-lg">
-            AZ
-          </div>
+          <img
+            src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+            alt="Alain Zenatti — Hypnothérapeute Paris"
+            className="w-28 h-28 rounded-full object-cover mx-auto md:mx-0 flex-shrink-0 shadow-lg"
+            loading="lazy"
+          />
 
           <div className="text-center md:text-left">
             <h3 className="font-serif text-xl font-bold text-nova-blue-dark mb-1">
@@ -415,25 +396,19 @@ const GuideEbook: React.FC = () => {
       {/* ═══════════ FORM FINAL ═══════════ */}
       <section className="py-20 px-6 bg-gradient-to-b from-nova-blue-light/20 to-white">
         <div className="max-w-md mx-auto bg-white rounded-2xl p-8 sm:p-10 shadow-xl text-center">
-          {finalSuccess ? (
-            <SuccessMessage />
-          ) : (
-            <>
-              <h2 className="font-serif text-2xl font-bold text-nova-blue-dark mb-2 leading-snug">
-                Recevez votre guide
-                <br />
-                gratuitement
-              </h2>
-              <p className="text-gray-400 text-sm mb-7 leading-relaxed">
-                Téléchargement immédiat après validation. Aucun spam, désabonnement en un clic.
-              </p>
-              <LeadForm
-                id="final-form"
-                onSuccess={() => setFinalSuccess(true)}
-                buttonLabel="Recevoir le guide"
-              />
-            </>
-          )}
+          <h2 className="font-serif text-2xl font-bold text-nova-blue-dark mb-2 leading-snug">
+            Recevez votre guide
+            <br />
+            gratuitement
+          </h2>
+          <p className="text-gray-400 text-sm mb-7 leading-relaxed">
+            Téléchargement immédiat après validation. Aucun spam, désabonnement en un clic.
+          </p>
+          <LeadForm
+            id="final-form"
+            onSuccess={handleSuccess}
+            buttonLabel="Recevoir le guide"
+          />
         </div>
       </section>
 
@@ -463,24 +438,18 @@ const GuideEbook: React.FC = () => {
               <X size={22} />
             </button>
 
-            {modalSuccess ? (
-              <SuccessMessage />
-            ) : (
-              <>
-                <h3 className="font-serif text-xl font-bold text-nova-blue-dark mb-1">
-                  Télécharger le guide
-                </h3>
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  Entrez vos coordonnées pour recevoir votre guide immédiatement par email.
-                </p>
-                <LeadForm
-                  id="modal-form"
-                  onSuccess={() => setModalSuccess(true)}
-                  buttonLabel="Recevoir le guide"
-                  compact
-                />
-              </>
-            )}
+            <h3 className="font-serif text-xl font-bold text-nova-blue-dark mb-1">
+              Télécharger le guide
+            </h3>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              Entrez vos coordonnées pour recevoir votre guide immédiatement par email.
+            </p>
+            <LeadForm
+              id="modal-form"
+              onSuccess={handleSuccess}
+              buttonLabel="Recevoir le guide"
+              compact
+            />
           </div>
         </div>
       )}

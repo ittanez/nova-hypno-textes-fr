@@ -52,6 +52,7 @@ const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
 
 // Landing page lead magnet (page isolée, pas dans la navigation)
 const GuideEbook = lazy(() => import("@/pages/GuideEbook"));
+const GuideEbookMerci = lazy(() => import("@/pages/GuideEbookMerci"));
 
 // Pages de spécialités SEO
 const HypnoseStressParis = lazy(() => import("@/pages/HypnoseStressParis"));
@@ -118,6 +119,7 @@ function App() {
 
             {/* Landing page lead magnet — pas de header/footer, noindex */}
             <Route path="/guide-emotions-travail" element={<GuideEbook />} />
+            <Route path="/guide-emotions-travail/merci" element={<GuideEbookMerci />} />
 
             {/* Pages de spécialités */}
             <Route path="/hypnose-stress-anxiete-paris" element={<HypnoseStressParis />} />
