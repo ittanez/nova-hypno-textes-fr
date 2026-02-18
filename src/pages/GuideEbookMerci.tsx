@@ -80,12 +80,59 @@ const GuideEbookMerci: React.FC = () => {
         </div>
       </section>
 
-      {/* ═══════════ VIDEO ═══════════ */}
+      {/* ═══════════ TEXTE D'ACCOMPAGNEMENT ═══════════ */}
       <section className="py-16 px-6 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3">
+        <div className="max-w-2xl mx-auto">
+          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
             En attendant votre guide
           </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-6 text-center">
+            Pourquoi je vous ai préparé ce guide
+          </h2>
+
+          <div className="space-y-4 text-gray-600 text-[0.95rem] leading-relaxed">
+            <p>
+              {prenom ? `${prenom}, c` : 'C'}haque semaine, je reçois à mon cabinet des personnes qui me disent la même chose :
+              <strong className="text-nova-blue-dark"> « Je ne comprends plus ce qui m'arrive. »</strong>
+            </p>
+            <p>
+              Des cadres, des managers, des indépendants. Des gens brillants, compétents, engagés.
+              Mais qui, un matin, se réveillent avec cette sensation que quelque chose a lâché à l'intérieur
+              — sans savoir quoi, ni pourquoi.
+            </p>
+            <p>
+              Ce guide, je l'ai écrit pour eux. Et pour vous, si vous vous reconnaissez.
+            </p>
+            <p>
+              Il ne remplace pas un accompagnement. Mais il pose les <strong className="text-nova-blue-dark">bons mots sur ce que vous vivez</strong>.
+              Et parfois, c'est exactement ce qu'il faut pour que les choses commencent à bouger.
+            </p>
+          </div>
+
+          {/* Photo + signature */}
+          <div className="mt-10 flex items-center gap-5 bg-nova-neutral rounded-xl p-5">
+            <img
+              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+              alt="Alain Zenatti — Hypnothérapeute Paris"
+              className="w-20 h-20 rounded-full object-cover flex-shrink-0 shadow-md"
+              loading="lazy"
+            />
+            <div>
+              <p className="font-serif font-bold text-nova-blue-dark mb-0.5">Alain Zenatti</p>
+              <p className="text-sm text-gray-500 mb-1">
+                Maître Praticien en Hypnose Ericksonienne
+              </p>
+              <p className="text-sm text-gray-400 italic">
+                « Mon rôle n'est pas de vous faire changer — c'est de vous aider à redevenir vous-même. »
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ VIDEO ═══════════ */}
+      <section className="py-16 px-6 bg-nova-neutral">
+        <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-3">
             Découvrez mon approche en vidéo
           </h2>
@@ -95,7 +142,7 @@ const GuideEbookMerci: React.FC = () => {
           </p>
 
           {/* Video player placeholder — replace src with actual video URL */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl bg-nova-blue-dark aspect-video max-w-2xl mx-auto group">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl bg-nova-blue-dark aspect-video max-w-2xl mx-auto group cursor-pointer">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <Play className="text-nova-blue-dark ml-1" size={32} />
@@ -120,10 +167,11 @@ const GuideEbookMerci: React.FC = () => {
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
             Envie d'aller plus loin ?
           </h2>
-          <p className="text-white/70 max-w-lg mx-auto text-[0.95rem] leading-relaxed mb-2">
-            Réservez un échange gratuit de 30 minutes — sans engagement.
+          <p className="text-white/70 max-w-lg mx-auto text-[0.95rem] leading-relaxed">
+            Un premier échange téléphonique — gratuit, sans engagement.
             <br />
-            Un moment pour faire le point sur ce que vous traversez, en toute confidentialité.
+            Pour faire le point sur votre situation, poser vos questions,
+            et voir si un accompagnement a du sens pour vous.
           </p>
         </div>
       </section>
@@ -136,14 +184,14 @@ const GuideEbookMerci: React.FC = () => {
               Choisissez un créneau qui vous convient
             </h3>
             <p className="text-gray-500 text-sm">
-              Consultation gratuite &middot; 30 minutes &middot; En cabinet ou en visio
+              Appel téléphonique gratuit &middot; Sans engagement
             </p>
           </div>
 
           {/* Calendly inline widget */}
           <div
             className="calendly-inline-widget rounded-2xl overflow-hidden shadow-lg bg-white"
-            data-url="https://calendly.com/zenatti/consultationhypnose?hide_event_type_details=1&hide_gdpr_banner=1"
+            data-url="https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1"
             style={{ minWidth: '320px', height: '700px' }}
           />
         </div>
