@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
@@ -13,20 +14,19 @@ import Star from 'lucide-react/dist/esm/icons/star';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Users from 'lucide-react/dist/esm/icons/users';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
-import Target from 'lucide-react/dist/esm/icons/target';
-import Moon from 'lucide-react/dist/esm/icons/moon';
-import Flame from 'lucide-react/dist/esm/icons/flame';
+import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import MessagesSquare from 'lucide-react/dist/esm/icons/messages-square';
-import Anchor from 'lucide-react/dist/esm/icons/anchor';
 
 /* ─────────────────────────────────────────────
-   Landing page — Offre accompagnement 6 séances
-   Avatar : salariés & professionnels en souffrance au travail
-   Hypnose Ericksonienne + Auto-hypnose + Communication Relationnelle (J. Salomé)
+   Landing page — Offre accompagnement professionnels
+   Objectif unique : réserver un appel découverte (Calendly)
+   Secondaire : télécharger le guide ebook
+   PAS de prix affiché (donné à l'oral après l'appel)
+   PAS de protocole détaillé séance par séance
    ───────────────────────────────────────────── */
 
-const RESALIB_URL = 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris';
+const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
 const WHATSAPP_URL = 'https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20';
 const PHONE_URL = 'tel:0649358089';
 
@@ -35,16 +35,10 @@ const LandingProfessionnels: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Accompagnement hypnose pour professionnels en souffrance au travail — Paris",
-    "description": "Programme de 6 séances d'hypnose ericksonienne, auto-hypnose et communication relationnelle pour les salariés et professionnels en souffrance au travail. Stress, burn-out, sommeil, émotions, relations. 997 € — Cabinet Paris 4ème.",
+    "description": "Accompagnement individuel en hypnose ericksonienne, auto-hypnose et communication relationnelle pour les salariés et professionnels en souffrance au travail. Stress, burn-out, sommeil, émotions, relations. Cabinet Paris 4ème.",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
-    "serviceType": "Hypnothérapie — accompagnement professionnel",
-    "offers": {
-      "@type": "Offer",
-      "price": "997",
-      "priceCurrency": "EUR",
-      "description": "Programme complet de 6 séances individuelles sur 10 à 12 semaines"
-    }
+    "serviceType": "Hypnothérapie — accompagnement professionnel"
   };
 
   const breadcrumbSchema = {
@@ -59,12 +53,12 @@ const LandingProfessionnels: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Accompagnement hypnose professionnels Paris | Stress, burn-out — 6 séances — Alain Zenatti</title>
-        <meta name="description" content="Programme de 6 séances pour les professionnels en souffrance au travail. Hypnose ericksonienne, auto-hypnose, communication relationnelle. Retrouvez énergie, sommeil et sérénité. 997 €. Paris 4ème." />
-        <meta name="keywords" content="hypnose professionnels paris, burn-out hypnose, souffrance travail hypnose, stress cadres, syndrome imposteur, accompagnement hypnose paris, communication relationnelle Jacques Salomé" />
+        <title>Accompagnement hypnose professionnels Paris | Stress, burn-out, sommeil — Alain Zenatti</title>
+        <meta name="description" content="Vous êtes en souffrance au travail ? Un accompagnement individuel en hypnose, auto-hypnose et communication relationnelle pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit. Paris 4ème." />
+        <meta name="keywords" content="hypnose professionnels paris, burn-out hypnose, souffrance travail hypnose, stress cadres, accompagnement hypnose paris, communication relationnelle Jacques Salomé, auto-hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-professionnels-paris" />
-        <meta property="og:title" content="Accompagnement hypnose — 6 séances pour sortir de la souffrance au travail | NovaHypnose Paris" />
-        <meta property="og:description" content="Programme complet pour les professionnels en souffrance au travail. Hypnose, auto-hypnose, communication relationnelle. 997 € — 6 séances sur 10-12 semaines." />
+        <meta property="og:title" content="Accompagnement hypnose pour professionnels en souffrance au travail | NovaHypnose Paris" />
+        <meta property="og:description" content="Un accompagnement individuel pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit — sans engagement." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-professionnels-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -80,40 +74,27 @@ const LandingProfessionnels: React.FC = () => {
 
         <div className="relative max-w-4xl mx-auto px-6 py-20 sm:py-28 text-center">
           <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-nova-orange mb-5">
-            Accompagnement en 6 séances — Paris 4e
+            Accompagnement individuel — Paris 4e & visio
           </span>
 
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Transformez la souffrance au travail<br />
-            <span className="text-teal-300">en une énergie plus sereine.</span>
+            Vous tenez au travail.<br />
+            <span className="text-teal-300">Mais à quel prix ?</span>
           </h1>
 
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-            Un programme de <strong className="text-white">6 séances sur mesure</strong> qui combine
-            hypnose ericksonienne, auto-hypnose et communication relationnelle
-            pour vous aider à <strong className="text-white">retrouver sommeil, clarté et sérénité</strong> — durablement.
+            Un accompagnement individuel qui combine hypnose, auto-hypnose et communication relationnelle pour vous aider à <strong className="text-white">retrouver énergie, sommeil et sérénité</strong> — durablement.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <a
-              href={RESALIB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-lg shadow-lg shadow-orange-500/25"
-            >
-              Demander un appel gratuit
-              <ArrowRight size={20} />
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#1da851] text-white font-semibold rounded-xl transition-colors"
-            >
-              <MessageCircle size={18} />
-              Discuter sur WhatsApp
-            </a>
-          </div>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-lg shadow-lg shadow-orange-500/25 mb-10"
+          >
+            Réserver un appel découverte gratuit
+            <ArrowRight size={20} />
+          </a>
 
           {/* Pour qui */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center text-white/60 text-sm">
@@ -127,7 +108,7 @@ const LandingProfessionnels: React.FC = () => {
             </span>
             <span className="flex items-center gap-2 justify-center">
               <CheckCircle size={16} className="text-teal-400" />
-              Salariés au bord du craquage
+              Salariés en souffrance au travail
             </span>
           </div>
         </div>
@@ -137,32 +118,32 @@ const LandingProfessionnels: React.FC = () => {
       <section className="py-16 sm:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
-            Ce que vous vivez en ce moment
+            Vous vous reconnaissez ?
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-4 text-center">
             Le masque tient. Mais derrière, quelque chose s'effrite.
           </h2>
           <p className="text-gray-500 text-[0.95rem] leading-relaxed text-center max-w-2xl mx-auto mb-10">
-            Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe, vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, réorganisations, pression de résultats, tensions relationnelles, sentiment de ne jamais en faire assez.
+            Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe — vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, pression de résultats, tensions relationnelles, sentiment de ne jamais en faire assez.
           </p>
 
           <div className="space-y-5">
             {[
               {
                 icon: Brain,
-                text: "Le stress chronique vous épuise mentalement. Ruminations, pensées en boucle, difficulté à se concentrer. Vous travaillez mentalement même au lit, sous la douche, en famille. Impossible de « couper ».",
+                text: "Impossible de « couper ». Vos pensées tournent en boucle — au lit, sous la douche, en famille. Vous travaillez mentalement même quand vous n'êtes plus au bureau.",
               },
               {
                 icon: Zap,
-                text: "Vous êtes irritable, à fleur de peau. Un mail anodin vous agace, un retard vous met en colère. L'enthousiasme a disparu — remplacé par une fatigue persistante que même le week-end ne répare pas.",
+                text: "La fatigue ne passe plus. Vous êtes irritable, à fleur de peau. L'enthousiasme a disparu — remplacé par un épuisement que même le week-end ne répare pas.",
               },
               {
                 icon: Heart,
-                text: "Votre corps parle à votre place. Oppression thoracique, mâchoire serrée, dos bloqué, maux de ventre. Le stress s'est installé physiquement. Votre sommeil est perturbé.",
+                text: "Votre corps parle à votre place. Oppression thoracique, mâchoire serrée, dos bloqué, sommeil perturbé. Le stress s'est installé physiquement.",
               },
               {
                 icon: Shield,
-                text: "Vos relations en pâtissent — au travail comme à la maison. Vous n'osez plus poser de limites, ou vous explosez. Le syndrome de l'imposteur rôde. Vous pouvez vous sentir au bord du craquage.",
+                text: "Vos relations en pâtissent — au travail comme à la maison. Vous n'osez plus poser de limites, ou vous explosez. Vous pouvez vous sentir au bord du craquage.",
               },
               {
                 icon: Clock,
@@ -188,7 +169,7 @@ const LandingProfessionnels: React.FC = () => {
       <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-teal-50 to-blue-50">
         <div className="max-w-3xl mx-auto">
           <span className="block text-[11px] font-medium tracking-widest uppercase text-teal-600 mb-3 text-center">
-            Ce que vous souhaitez
+            Ce que vous voulez vraiment
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
             Sortir du mode survie. Revenir à quelque chose de plus vivant.
@@ -196,25 +177,21 @@ const LandingProfessionnels: React.FC = () => {
 
           <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
             <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-4">
-              Vous aspirez à vivre votre travail autrement. Pas à tout quitter — mais à <strong className="text-nova-blue-dark">retrouver une énergie stable</strong>, dormir mieux, vous réveiller plus clair et disponible. Poser des limites sans culpabilité. Améliorer vos relations au travail. Retrouver du sens dans ce que vous faites.
+              Vous aspirez à vivre votre travail autrement. Pas à tout quitter — mais à <strong className="text-nova-blue-dark">retrouver une énergie stable</strong>, dormir mieux, vous réveiller plus clair et disponible.
             </p>
             <p className="text-gray-600 text-[0.95rem] leading-relaxed">
-              Vous voulez sortir du mode survie pour revenir à un mode <strong className="text-nova-blue-dark">plus aligné et plus respectueux de vous</strong>.
+              Poser des limites sans culpabilité. Améliorer vos relations au travail. Retrouver du sens dans ce que vous faites. Revenir à un mode <strong className="text-nova-blue-dark">plus aligné et plus respectueux de vous</strong>.
             </p>
           </div>
 
-          <h3 className="font-serif text-lg font-bold text-nova-blue-dark mb-5 text-center">
-            Ce que l'accompagnement change concrètement
-          </h3>
-
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "Votre niveau de stress et de tensions internes diminue nettement.",
-              "Votre sommeil s'améliore — endormissement, qualité, récupération.",
-              "Vous vivez mieux vos émotions : peur, colère, culpabilité, anxiété.",
-              "Vous gagnez en autonomie grâce aux outils d'auto-hypnose au quotidien.",
-              "Vous améliorez votre communication au travail — oser dire, poser des limites, clarifier vos besoins.",
-              "Vous retrouvez une posture plus posée et alignée dans votre vie professionnelle.",
+              "Moins de stress, moins de tensions internes.",
+              "Un sommeil qui redevient réparateur.",
+              "Des émotions que vous traversez sans en être submergé.",
+              "Plus d'énergie, plus de clarté au quotidien.",
+              "Des relations plus apaisées — au travail comme à la maison.",
+              "Une posture professionnelle plus posée, plus juste pour vous.",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-lg p-4">
                 <CheckCircle size={18} className="text-teal-500 flex-shrink-0 mt-0.5" />
@@ -222,186 +199,103 @@ const LandingProfessionnels: React.FC = () => {
               </div>
             ))}
           </div>
-
-          <p className="text-center text-nova-blue-dark text-[0.95rem] font-medium mt-8">
-            Vous gagnez en clarté, en énergie, en qualité de relation — et vous sortez progressivement d'un fonctionnement d'épuisement.
-          </p>
         </div>
       </section>
 
-      {/* ═══════════ 4. L'ACCOMPAGNEMENT — 6 SÉANCES ═══════════ */}
+      {/* ═══════════ 4. COMMENT JE VOUS ACCOMPAGNE (sans détailler chaque séance) ═══════════ */}
       <section className="py-16 sm:py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
             L'accompagnement
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-4 text-center">
-            6 séances. 10 à 12 semaines. Un vrai parcours de transformation.
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
+            Un chemin concret entre là où vous en êtes<br className="hidden sm:block" /> et là où vous voulez aller.
           </h2>
 
-          <div className="bg-nova-neutral rounded-2xl p-6 sm:p-8 mb-10">
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-4">
-              Ce n'est pas de la thérapie sans fin. C'est un <strong className="text-nova-blue-dark">programme structuré</strong> qui combine trois approches complémentaires, adaptées à votre réalité professionnelle :
+          <div className="bg-nova-neutral rounded-2xl p-6 sm:p-8 mb-8">
+            <p className="text-gray-600 text-[0.95rem] leading-relaxed">
+              Ce n'est pas de la thérapie sans fin. C'est un <strong className="text-nova-blue-dark">accompagnement structuré, individuel, sur mesure</strong> — conçu pour les professionnels qui veulent des résultats concrets. En quelques semaines, vous passez du mode « tenir » au mode « avancer ».
             </p>
-            <div className="grid sm:grid-cols-3 gap-4 mt-4">
-              <div className="bg-white rounded-xl p-4 text-center">
-                <Brain className="text-nova-blue mx-auto mb-2" size={24} />
-                <p className="font-semibold text-nova-blue-dark text-sm">Hypnose Ericksonienne</p>
-                <p className="text-gray-400 text-xs mt-1">Désactiver les automatismes de stress</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 text-center">
-                <Headphones className="text-nova-blue mx-auto mb-2" size={24} />
-                <p className="font-semibold text-nova-blue-dark text-sm">Auto-Hypnose</p>
-                <p className="text-gray-400 text-xs mt-1">Devenir autonome au quotidien</p>
-              </div>
-              <div className="bg-white rounded-xl p-4 text-center">
-                <MessagesSquare className="text-nova-blue mx-auto mb-2" size={24} />
-                <p className="font-semibold text-nova-blue-dark text-sm">Communication Relationnelle</p>
-                <p className="text-gray-400 text-xs mt-1">Approche Jacques Salomé</p>
-              </div>
+          </div>
+
+          {/* Les 3 piliers */}
+          <div className="grid sm:grid-cols-3 gap-5 mb-8">
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
+              <Brain className="text-nova-blue mx-auto mb-3" size={28} />
+              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Hypnose Ericksonienne</p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Apaiser le stress, améliorer le sommeil, alléger la charge mentale — en agissant là où la volonté seule ne suffit pas.
+              </p>
             </div>
-          </div>
-
-          {/* Les 6 séances */}
-          <div className="space-y-5">
-            {[
-              {
-                num: 1,
-                icon: Target,
-                title: 'Libération du stress',
-                subtitle: 'Mettre à plat et souffler — environ 1h30',
-                desc: "Échange approfondi pour comprendre votre situation : sources de stress, impact sur le corps, le sommeil, les émotions, les relations. Clarification de vos objectifs prioritaires. Première séance d'hypnothérapie pour alléger les tensions. Installation d'un premier outil d'auto-hypnose + audio adapté.",
-              },
-              {
-                num: 2,
-                icon: Moon,
-                title: 'Sommeil réparateur',
-                subtitle: 'Couper avec le travail — retrouver le lâcher-prise',
-                desc: "Hypnothérapie ciblée sur l'endormissement, la qualité du sommeil et le lâcher-prise mental. Mise en place d'un rituel du soir intégré à votre rythme. Audio spécifique pour le coucher.",
-              },
-              {
-                num: 3,
-                icon: Flame,
-                title: 'Émotions et charge mentale',
-                subtitle: 'Alléger le poids — transformer les ressentis',
-                desc: "Hypnothérapie centrée sur vos ressentis et vos représentations (porter tout, ne pas avoir le droit de flancher...). Travail sur une ou deux situations particulièrement lourdes. Mise en place d'un outil de régulation émotionnelle dans la journée.",
-              },
-              {
-                num: 4,
-                icon: Headphones,
-                title: 'Auto-hypnose — Autonomie au quotidien',
-                subtitle: 'Vous rendre autonome dans la gestion de votre stress',
-                desc: "Transmission de techniques d'auto-hypnose adaptées à votre terrain : visualisation, ancrages. Adaptation à vos contextes réels (réunions, mails, entretiens, déplacements). Construction de 2 ou 3 scénarios types d'utilisation.",
-              },
-              {
-                num: 5,
-                icon: MessagesSquare,
-                title: 'Communication relationnelle au travail',
-                subtitle: 'Approche Jacques Salomé — dire, poser des limites, clarifier',
-                desc: "Travail sur une ou deux situations relationnelles sources de tension. Outils de Communication Relationnelle : parler à partir de soi, poser des demandes claires, dire non sans agressivité, différencier ce qui vous appartient de ce qui appartient à l'autre. Possibilité de rejouer des scènes en séance.",
-              },
-              {
-                num: 6,
-                icon: Anchor,
-                title: 'Ancrage durable et nouvelle posture',
-                subtitle: 'Consolider les changements — incarner votre nouvelle manière d\'être',
-                desc: "Hypnothérapie orientée sur la posture intérieure que vous souhaitez incarner. Ancrage des ressources développées : calme, clarté, confiance, capacité à poser des limites. Plan de continuité : pratiques à garder, signaux d'alerte, quoi faire si les tensions remontent. Bilan global avant/après.",
-              },
-            ].map(({ num, icon: Icon, title, subtitle, desc }) => (
-              <div key={num} className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-nova-blue to-nova-blue-dark rounded-xl flex items-center justify-center">
-                    <Icon className="text-white" size={22} />
-                  </div>
-                  <p className="text-center text-[10px] font-bold text-nova-blue mt-1">S{num}</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-0.5">{title}</p>
-                  <p className="text-nova-orange text-xs font-medium mb-2">{subtitle}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Suivi entre séances */}
-          <div className="mt-8 bg-teal-50 border border-teal-200 rounded-xl p-5 flex items-start gap-4">
-            <MessageCircle className="text-teal-600 flex-shrink-0 mt-0.5" size={20} />
-            <div>
-              <p className="font-semibold text-nova-blue-dark text-sm mb-1">Suivi entre les séances</p>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                Par messages si besoin, pour ajuster les pratiques ou vous soutenir dans un moment clé. Vous n'êtes pas seul entre les rendez-vous.
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
+              <Headphones className="text-nova-blue mx-auto mb-3" size={28} />
+              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Auto-Hypnose</p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Des outils simples que vous utilisez au quotidien pour devenir autonome dans la gestion de votre stress et de vos émotions.
+              </p>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
+              <MessagesSquare className="text-nova-blue mx-auto mb-3" size={28} />
+              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Communication Relationnelle</p>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Oser dire, poser des limites, clarifier vos besoins — avec l'approche de Jacques Salomé.
               </p>
             </div>
           </div>
 
-          {/* Conditions de succès */}
-          <div className="mt-8 bg-gray-50 rounded-xl p-5">
-            <p className="font-semibold text-nova-blue-dark text-sm mb-3">Votre engagement fait la différence</p>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Pratique régulière de 10 à 15 minutes par jour des outils transmis (auto-hypnose, exercices de communication, petits rituels de régulation). Chaque séance a une intention claire et s'inscrit dans un parcours cohérent : <strong className="text-gray-700">soulager, stabiliser, rendre autonome, transformer</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ PRIX ═══════════ */}
-      <section className="py-14 px-6 bg-gradient-to-br from-nova-blue-dark to-nova-blue">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
-            Investissement
-          </h2>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-6">
-            <p className="text-teal-300 text-5xl sm:text-6xl font-bold mb-2">997 €</p>
-            <p className="text-white/70 text-[0.95rem]">
-              pour l'ensemble du parcours — 6 séances individuelles
-            </p>
-            <hr className="border-white/10 my-5" />
-            <div className="grid sm:grid-cols-2 gap-3 text-left text-sm">
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>6 séances individuelles (1h à 1h30)</span>
-              </div>
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>10 à 12 semaines d'accompagnement</span>
-              </div>
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Audios d'auto-hypnose personnalisés</span>
-              </div>
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Suivi par messages entre les séances</span>
-              </div>
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>En présentiel (Paris 4e) ou en visio</span>
-              </div>
-              <div className="flex items-start gap-2 text-white/70">
-                <CheckCircle size={16} className="text-teal-400 flex-shrink-0 mt-0.5" />
-                <span>Plan de continuité à la fin du parcours</span>
-              </div>
+          {/* Le cadre concret */}
+          <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
+            <h3 className="font-serif text-lg font-bold text-nova-blue-dark mb-4">Le cadre</h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                "Séances individuelles, adaptées à votre réalité",
+                "Un parcours structuré sur quelques semaines",
+                "En présentiel (Paris 4e) ou en visio",
+                "Des pratiques simples entre les séances (10-15 min/jour)",
+                "Un suivi par messages si besoin entre les rendez-vous",
+                "Un programme cohérent : soulager, stabiliser, rendre autonome",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <CheckCircle size={16} className="text-nova-blue flex-shrink-0 mt-0.5" />
+                  <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <p className="text-white/40 text-xs">
-            Certaines mutuelles remboursent partiellement les séances d'hypnose — renseignez-vous auprès de la vôtre.
-          </p>
+
+          {/* Appel découverte */}
+          <div className="mt-8 bg-teal-50 border border-teal-200 rounded-xl p-6 text-center">
+            <p className="text-nova-blue-dark text-[0.95rem] font-medium mb-2">
+              Comment savoir si c'est fait pour vous ?
+            </p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4 max-w-lg mx-auto">
+              Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.
+            </p>
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors shadow-md"
+            >
+              Réserver mon appel découverte
+              <ArrowRight size={18} />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ═══════════ 5. PREUVE / CRÉDIBILITÉ ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-white">
+      <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-nova-blue-dark to-nova-blue">
         <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
-            Pourquoi me faire confiance
+          <span className="block text-[11px] font-medium tracking-widest uppercase text-teal-300 mb-3 text-center">
+            Qui vous accompagne
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-10 text-center">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-10 text-center">
             Ce n'est pas mon premier professionnel épuisé.
           </h2>
 
           {/* Alain card */}
-          <div className="bg-nova-neutral rounded-2xl p-6 sm:p-8 mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8">
             <div className="flex items-start gap-5 mb-6">
               <img
                 src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
@@ -410,15 +304,15 @@ const LandingProfessionnels: React.FC = () => {
                 loading="lazy"
               />
               <div>
-                <p className="font-serif font-bold text-nova-blue-dark text-lg">Alain Zenatti</p>
-                <p className="text-gray-500 text-sm mb-1">Maître Praticien en Hypnose Ericksonienne & en Auto-Hypnose</p>
-                <p className="text-gray-400 text-sm">Praticien en Communication Relationnelle (approche Jacques Salomé)</p>
+                <p className="font-serif font-bold text-white text-lg">Alain Zenatti</p>
+                <p className="text-white/60 text-sm mb-1">Maître Praticien en Hypnose Ericksonienne & en Auto-Hypnose</p>
+                <p className="text-white/50 text-sm">Praticien en Communication Relationnelle (approche Jacques Salomé)</p>
               </div>
             </div>
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-4">
-              Chaque semaine, je reçois à mon cabinet du Marais des professionnels comme vous : brillants, engagés — et épuisés. Mon objectif est de vous accompagner à <strong className="text-nova-blue-dark">transformer ce poids quotidien en une énergie plus sereine, stable et soutenante</strong>.
+            <p className="text-white/80 text-[0.95rem] leading-relaxed mb-4">
+              Chaque semaine, je reçois à mon cabinet du Marais des professionnels comme vous : brillants, engagés — et épuisés. Mon objectif est de vous accompagner à <strong className="text-white">transformer ce poids quotidien en une énergie plus sereine, stable et soutenante</strong>.
             </p>
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed">
+            <p className="text-white/80 text-[0.95rem] leading-relaxed">
               Je vous accompagne à chaque étape, avec bienveillance et clarté, pour que vous puissiez enfin vivre votre travail avec plus de sérénité et moins de souffrance.
             </p>
           </div>
@@ -428,75 +322,64 @@ const LandingProfessionnels: React.FC = () => {
             {[
               { value: '5/5', label: 'Note moyenne', icon: Star },
               { value: '40+', label: 'Avis vérifiés', icon: Users },
-              { value: '6', label: 'Séances complètes', icon: Clock },
               { value: '90%', label: 'Amélioration S1', icon: Zap },
+              { value: '9', label: 'Certifications', icon: Shield },
             ].map(({ value, label, icon: Icon }, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-xl p-4 text-center">
-                <Icon className="text-nova-blue mx-auto mb-2" size={20} />
-                <p className="text-nova-blue-dark font-bold text-xl">{value}</p>
-                <p className="text-gray-400 text-xs">{label}</p>
+              <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
+                <Icon className="text-teal-300 mx-auto mb-2" size={20} />
+                <p className="text-white font-bold text-xl">{value}</p>
+                <p className="text-white/50 text-xs">{label}</p>
               </div>
             ))}
           </div>
 
           {/* Testimonials */}
           <div className="space-y-4">
-            <div className="bg-gray-50 rounded-xl p-5">
+            <div className="bg-white/10 rounded-xl p-5">
               <div className="flex gap-1 mb-2">
                 {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed italic mb-2">
+              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
                 « J'ai consulté pour un problème d'anxiété. Dès la première séance, j'ai ressenti un apaisement. En 3 séances, l'anxiété a complètement disparu. Je recommande vivement. »
               </p>
-              <p className="text-gray-400 text-xs">Marie H. — Avis Google vérifié</p>
+              <p className="text-white/50 text-xs">Marie H. — Avis Google vérifié</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-5">
+            <div className="bg-white/10 rounded-xl p-5">
               <div className="flex gap-1 mb-2">
                 {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed italic mb-2">
+              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
                 « M. Zenatti est posé et réfléchi. Son écoute attentive a permis de cibler les zones d'amélioration, les émotions limitantes. En quelques séances, je me suis libéré de mes blocages et j'ai amorcé des changements durables. »
               </p>
-              <p className="text-gray-400 text-xs">Philippe A. — Avis Google vérifié</p>
+              <p className="text-white/50 text-xs">Philippe A. — Avis Google vérifié</p>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-5">
+            <div className="bg-white/10 rounded-xl p-5">
               <div className="flex gap-1 mb-2">
                 {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed italic mb-2">
+              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
                 « Alain m'a aidée à retrouver un sommeil réparateur en 2 séances. Je vous le recommande. »
               </p>
-              <p className="text-gray-400 text-xs">Isabelle M. — Avis Google vérifié</p>
+              <p className="text-white/50 text-xs">Isabelle M. — Avis Google vérifié</p>
             </div>
           </div>
 
-          {/* Future proof placeholders */}
-          <div className="mt-6 bg-gray-50 border border-dashed border-gray-200 rounded-xl p-4 text-center">
-            <p className="text-gray-400 text-xs">
-              Emplacements réservés : témoignages vidéo de professionnels accompagnés &middot; étude de cas détaillée avant/après &middot; chiffres de satisfaction post-parcours
-            </p>
-          </div>
-
-          {/* Contexte chiffré */}
-          <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-5">
-            <p className="text-nova-blue-dark text-sm font-semibold mb-2">Le constat est préoccupant</p>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Selon l'étude AESIO Mutuelle sur la santé des dirigeants et l'Observatoire MMA de la santé des dirigeants 2025, le stress chronique, l'épuisement et les troubles du sommeil touchent une majorité de professionnels — souvent dans le silence. Ce programme a été conçu pour répondre précisément à cette réalité.
-            </p>
-          </div>
+          <p className="text-white/30 text-xs text-center mt-6">
+            Emplacements réservés : témoignages vidéo de professionnels accompagnés &middot; étude de cas avant/après
+          </p>
         </div>
       </section>
 
-      {/* ═══════════ 6. CTA FINAL ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-teal-50 to-blue-50">
+      {/* ═══════════ 6. CTA FINAL — Appel découverte ═══════════ */}
+      <section className="py-16 sm:py-20 px-6 bg-white">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-4">
             Vous n'avez pas besoin de « tenir » plus longtemps.
           </h2>
           <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4 max-w-lg mx-auto">
-            Un premier échange — gratuit, sans engagement — pour faire le point sur votre situation et voir si cet accompagnement peut vous aider.
+            Un appel découverte — gratuit, sans engagement — pour faire le point sur votre situation, répondre à vos questions, et voir ensemble si cet accompagnement est le bon chemin pour vous.
           </p>
           <p className="text-nova-blue-dark text-[0.95rem] font-medium mb-8 max-w-lg mx-auto">
             Même en 15 minutes, je peux vous donner une première clé.
@@ -504,12 +387,12 @@ const LandingProfessionnels: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
-              href={RESALIB_URL}
+              href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-lg shadow-lg shadow-orange-500/25"
             >
-              Demander un appel gratuit
+              Réserver mon appel découverte
               <ArrowRight size={20} />
             </a>
             <a
@@ -527,8 +410,34 @@ const LandingProfessionnels: React.FC = () => {
             ou appelez directement : <a href={PHONE_URL} className="text-nova-blue hover:underline font-medium">06 49 35 80 89</a>
           </p>
           <p className="text-gray-300 text-xs">
-            Cabinet Paris 4e (Marais-Bastille) &middot; Visio disponible &middot; Je réponds personnellement
+            Je réponds personnellement &middot; Cabinet Paris 4e (Marais-Bastille) &middot; Visio disponible
           </p>
+        </div>
+      </section>
+
+      {/* ═══════════ 7. TEASING EBOOK ═══════════ */}
+      <section className="py-14 px-6 bg-nova-neutral">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex-shrink-0 w-16 h-16 bg-nova-orange/10 rounded-2xl flex items-center justify-center">
+              <BookOpen className="text-nova-orange" size={32} />
+            </div>
+            <div className="text-center sm:text-left flex-1">
+              <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
+                Vous tenez. Mais jusqu'à quand ?
+              </p>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                Un guide gratuit de 19 pages pour comprendre vos émotions au travail — avant que votre corps décide à votre place. 3 pratiques simples applicables dès ce soir.
+              </p>
+              <Link
+                to="/guide-emotions-travail"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-nova-blue-dark hover:bg-nova-blue text-white font-medium rounded-lg transition-colors text-sm"
+              >
+                Recevoir le guide gratuit
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
