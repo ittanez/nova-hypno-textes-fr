@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Clock from 'lucide-react/dist/esm/icons/clock';
-import Play from 'lucide-react/dist/esm/icons/play';
+
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 
@@ -127,36 +127,6 @@ const GuideEbookMerci: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ═══════════ VIDEO ═══════════ */}
-      <section className="py-16 px-6 bg-nova-neutral">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-3">
-            Découvrez mon approche en vidéo
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto mb-8 text-[0.95rem] leading-relaxed">
-            Prenez 2 minutes pour comprendre comment l'hypnose ericksonienne peut vous aider à retrouver
-            un rapport apaisé à vos émotions.
-          </p>
-
-          {/* Video player placeholder — replace src with actual video URL */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl bg-nova-blue-dark aspect-video max-w-2xl mx-auto group cursor-pointer">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Play className="text-nova-blue-dark ml-1" size={32} />
-              </div>
-            </div>
-            <img
-              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
-              alt="Alain Zenatti — Présentation"
-              className="w-full h-full object-cover opacity-60"
-            />
-          </div>
-          <p className="text-xs text-gray-400 mt-3">
-            Vidéo de présentation — Alain Zenatti, Hypnothérapeute Paris 4e
-          </p>
         </div>
       </section>
 
