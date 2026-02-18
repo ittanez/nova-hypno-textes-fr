@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
+import { submitGuideLead } from '@/lib/services/guideLeadService';
 import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
@@ -34,17 +35,21 @@ const LeadForm: React.FC<LeadFormProps> = ({
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMsg('');
 
-    // TODO: connecter à votre service d'email (Mailchimp, ConvertKit, Supabase…)
-    // Exemple : await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ prenom, email }) });
-    await new Promise((r) => setTimeout(r, 1200));
+    const result = await submitGuideLead(prenom, email);
 
     setLoading(false);
-    onSuccess();
+    if (result.success) {
+      onSuccess();
+    } else {
+      setErrorMsg(result.error || 'Une erreur est survenue. Veuillez réessayer.');
+    }
   };
 
   const inputClasses =
@@ -102,6 +107,9 @@ const LeadForm: React.FC<LeadFormProps> = ({
         <Lock size={12} />
         Aucun spam. Vos données restent confidentielles.
       </p>
+      {errorMsg && (
+        <p className="text-xs text-red-500 text-center mt-2">{errorMsg}</p>
+      )}
     </form>
   );
 };
