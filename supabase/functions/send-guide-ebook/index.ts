@@ -114,6 +114,20 @@ serve(async (req) => {
                 </a>
               </div>
 
+              <!-- WhatsApp -->
+              <div style="background: #f0faf0; border: 1px solid #25D366; border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
+                <p style="margin: 0 0 12px 0; font-size: 15px; color: #555; line-height: 1.7;">
+                  Parfois, mettre des mots sur ce que l'on vit est le premier pas pour arrêter de se battre contre soi-même. Si vous préférez la spontanéité d'un échange par message plutôt qu'un rendez-vous formel, ma porte WhatsApp est ouverte.
+                </p>
+                <a href="https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20"
+                   style="display: inline-block; padding: 14px 28px; background: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
+                  Discuter avec Alain sur WhatsApp
+                </a>
+                <p style="margin: 12px 0 0 0; font-size: 13px; color: #888; line-height: 1.5;">
+                  Je réponds personnellement dès que je quitte mon cabinet.
+                </p>
+              </div>
+
               <p style="font-size: 15px; line-height: 1.7; color: #555;">
                 À très bientôt,<br>
                 <strong style="color: #233C67;">Alain Zenatti</strong><br>
