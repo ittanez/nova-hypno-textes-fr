@@ -612,57 +612,54 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-professionnels-paris": {
-    title: "Hypnose pour professionnels Paris | Stress, burn-out, performance — Alain Zenatti",
+    title: "Accompagnement hypnose professionnels Paris | Stress, burn-out — 6 séances — Alain Zenatti",
     description:
-      "Vous êtes performant mais épuisé ? L'hypnose ericksonienne aide les cadres et managers à retrouver énergie, sommeil et clarté. Résultats en 3-5 séances. Paris 4ème.",
+      "Programme de 6 séances pour les professionnels en souffrance au travail. Hypnose ericksonienne, auto-hypnose, communication relationnelle. Retrouvez énergie, sommeil et sérénité. 997 €. Paris 4ème.",
     canonicalPath: "/hypnose-professionnels-paris",
-    h1: "Vous êtes performant. Mais à quel prix ?",
+    h1: "Transformez la souffrance au travail en une énergie plus sereine.",
     jsonLd: [
       serviceLd(
-        "Hypnose pour les professionnels — stress, burn-out, performance — Paris",
-        "Accompagnement en hypnose ericksonienne pour les cadres, managers et indépendants. Stress chronique, burn-out, syndrome de l'imposteur. Résultats en 3 à 5 séances.",
+        "Accompagnement hypnose pour professionnels en souffrance au travail — Paris",
+        "Programme de 6 séances d'hypnose ericksonienne, auto-hypnose et communication relationnelle pour les salariés et professionnels en souffrance au travail. 997 € — Cabinet Paris 4ème.",
         `${SITE_URL}/hypnose-professionnels-paris`
       ),
       breadcrumbLd([
         { name: "Accueil", path: "/" },
-        { name: "Hypnose professionnels Paris", path: "/hypnose-professionnels-paris" },
+        { name: "Accompagnement professionnels", path: "/hypnose-professionnels-paris" },
       ]),
     ],
     content: `
-    <p>L'hypnose ericksonienne aide les cadres, managers et indépendants à <strong>retrouver énergie, sommeil et clarté mentale</strong> — sans médicament, en 3 à 5 séances.</p>
+    <p>Un programme de <strong>6 séances sur mesure</strong> qui combine hypnose ericksonienne, auto-hypnose et communication relationnelle (approche Jacques Salomé) pour vous aider à <strong>retrouver sommeil, clarté et sérénité</strong> — durablement.</p>
 
-    <h2>Vous vous reconnaissez ?</h2>
+    <h2>Ce que vous vivez en ce moment</h2>
+    <p>Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe, vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, réorganisations, pression de résultats, tensions relationnelles.</p>
     <ul>
-      <li><strong>Pensées en boucle la nuit</strong> — Vous travaillez mentalement même quand vous êtes au lit, sous la douche ou en famille</li>
-      <li><strong>Irritabilité</strong> — Un mail anodin vous agace, un retard vous met en colère. Ce n'est pas vous.</li>
-      <li><strong>Syndrome de l'imposteur</strong> — Malgré vos résultats, vous avez la sensation constante de ne pas être à la hauteur</li>
+      <li><strong>Épuisement mental</strong> — Ruminations, pensées en boucle, impossible de « couper » avec le travail</li>
+      <li><strong>Fatigue persistante</strong> — Irritabilité, perte d'enthousiasme, sommeil perturbé</li>
       <li><strong>Le corps parle</strong> — Oppression thoracique, mâchoire serrée, dos bloqué, maux de ventre</li>
-      <li><strong>Tout essayé</strong> — Sport, méditation, coaching... ça aide un temps, puis le mécanisme se réenclenche</li>
+      <li><strong>Relations dégradées</strong> — Au travail comme à la maison, syndrome de l'imposteur</li>
+      <li><strong>Tout essayé</strong> — Sport, méditation, coaching... le mécanisme se réenclenche</li>
     </ul>
 
-    <h2>Ce qui change après l'hypnose</h2>
-    <p>Pas de miracle. Pas de pensée positive forcée. Juste un recalibrage profond de votre système nerveux. Votre inconscient cesse de tourner en mode urgence — et votre corps suit.</p>
-    <ul>
-      <li>Vous dormez enfin — vraiment. Et vous vous réveillez reposé.</li>
-      <li>Les pensées en boucle se taisent. Vous retrouvez le silence mental.</li>
-      <li>Vous prenez du recul face à la pression, sans perdre en performance.</li>
-      <li>Votre corps se relâche : mâchoire décrispée, respiration fluide.</li>
-      <li>Vous retrouvez le plaisir de travailler — sans l'urgence permanente.</li>
-    </ul>
+    <h2>Ce que vous souhaitez</h2>
+    <p>Retrouver une énergie stable, dormir mieux, poser des limites sans culpabilité, améliorer vos relations au travail, retrouver du sens. Sortir du mode survie pour revenir à un mode plus aligné et plus respectueux de vous.</p>
 
-    <h2>Comment je vous accompagne</h2>
-    <p>Mon approche combine l'hypnose ericksonienne et la PNL pour aller directement à la racine du problème. En 3 à 5 séances, votre système nerveux se recalibre et les changements s'installent durablement.</p>
+    <h2>L'accompagnement — 6 séances, 997 €</h2>
+    <p>Programme structuré sur 10 à 12 semaines combinant trois approches : Hypnose Ericksonienne, Auto-Hypnose, et Communication Relationnelle selon l'approche de Jacques Salomé.</p>
     <ul>
-      <li><strong>Séance 1 : Diagnostic profond (1h30)</strong> — Identification de la source réelle du stress et première séance d'hypnose</li>
-      <li><strong>Séances 2-3 : Reprogrammation</strong> — Travail sur les automatismes de stress et les croyances limitantes</li>
-      <li><strong>Séances 4-5 : Ancrage & autonomie</strong> — Consolidation et apprentissage de l'auto-hypnose</li>
+      <li><strong>Séance 1 — Libération du stress</strong> : Diagnostic approfondi, première hypnothérapie, premier outil d'auto-hypnose + audio adapté</li>
+      <li><strong>Séance 2 — Sommeil réparateur</strong> : Hypnothérapie ciblée endormissement, rituel du soir, audio pour le coucher</li>
+      <li><strong>Séance 3 — Émotions et charge mentale</strong> : Travail sur les ressentis, outil de régulation émotionnelle</li>
+      <li><strong>Séance 4 — Auto-hypnose et autonomie</strong> : Techniques adaptées à vos contextes réels (réunions, mails, entretiens)</li>
+      <li><strong>Séance 5 — Communication relationnelle</strong> : Approche Jacques Salomé — parler à partir de soi, poser des limites, dire non</li>
+      <li><strong>Séance 6 — Ancrage durable</strong> : Consolidation, ancrage des ressources, plan de continuité, bilan avant/après</li>
     </ul>
-    <p><strong>90 € par séance</strong> — Cabinet Paris 4e (Marais-Bastille), téléconsultation ou domicile (140 €).</p>
+    <p>Suivi par messages entre les séances. 6 séances individuelles (1h à 1h30). En présentiel (Paris 4e) ou en visio.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p>Alain Zenatti, Maître Hypnologue certifié avec 9 certifications professionnelles. Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
+    <p>Alain Zenatti, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
 
-    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver un appel gratuit</a>
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Demander un appel gratuit</a>
     `,
   },
 };
