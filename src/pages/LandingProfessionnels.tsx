@@ -53,17 +53,21 @@ const LandingProfessionnels: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Accompagnement hypnose professionnels Paris | Stress, burn-out, sommeil — Alain Zenatti</title>
-        <meta name="description" content="Vous êtes en souffrance au travail ? Un accompagnement individuel en hypnose, auto-hypnose et communication relationnelle pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit. Paris 4ème." />
+        <title>Hypnose stress au travail Paris | Alain Zenatti</title>
+        <meta name="description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit. Cabinet Paris 4ème." />
         <meta name="keywords" content="hypnose professionnels paris, burn-out hypnose, souffrance travail hypnose, stress cadres, accompagnement hypnose paris, communication relationnelle Jacques Salomé, auto-hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-professionnels-paris" />
-        <meta property="og:title" content="Accompagnement hypnose pour professionnels en souffrance au travail | NovaHypnose Paris" />
-        <meta property="og:description" content="Un accompagnement individuel pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit — sans engagement." />
+        <meta property="og:title" content="Hypnose stress au travail Paris | Alain Zenatti" />
+        <meta property="og:description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-professionnels-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hypnose stress au travail Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil. Appel découverte gratuit." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>

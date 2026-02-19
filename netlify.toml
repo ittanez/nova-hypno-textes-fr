@@ -121,6 +121,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/zone-intervention"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/hypnose-professionnels-paris"
   function = "seo-prerender-static"
 

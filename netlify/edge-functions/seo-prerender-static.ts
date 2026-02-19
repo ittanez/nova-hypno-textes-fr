@@ -611,10 +611,52 @@ const PAGES: Record<string, PageData> = {
     `,
   },
 
-  "/hypnose-professionnels-paris": {
-    title: "Accompagnement hypnose professionnels Paris | Stress, burn-out, sommeil — Alain Zenatti",
+  "/zone-intervention": {
+    title: "Zone d'intervention Paris | Cabinet Hypnose Bastille",
     description:
-      "Vous êtes en souffrance au travail ? Un accompagnement individuel en hypnose, auto-hypnose et communication relationnelle pour retrouver énergie, sommeil et sérénité. Appel découverte gratuit. Paris 4ème.",
+      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio. Accessible depuis tous les arrondissements.",
+    canonicalPath: "/zone-intervention",
+    h1: "Zone d'Intervention — Cabinet d'Hypnothérapie à Paris",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Zone d'intervention", path: "/zone-intervention" },
+      ]),
+    ],
+    content: `
+    <p>Mon cabinet d'hypnothérapie situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong>, est facilement accessible depuis tous les arrondissements parisiens grâce à son emplacement stratégique à <strong>Bastille</strong> (métro lignes 1, 5, 8).</p>
+
+    <h2>Accès au cabinet</h2>
+    <ul>
+      <li><strong>Métro Bastille</strong> (Lignes 1, 5, 8) — 2 min à pied</li>
+      <li><strong>Métro Saint-Paul</strong> (Ligne 1) — 5 min à pied</li>
+      <li><strong>Bus</strong> — Lignes 69, 76, 86, 87, 91</li>
+    </ul>
+
+    <h2>Zones desservies</h2>
+    <ul>
+      <li><strong>Paris Centre</strong> (1er, 2ème, 3ème, 4ème) — 5-10 min</li>
+      <li><strong>Paris Est</strong> (10ème, 11ème, 12ème) — 5-15 min</li>
+      <li><strong>Paris Nord</strong> (18ème, 19ème, 20ème) — 15-25 min</li>
+      <li><strong>Paris Sud</strong> (5ème, 13ème, 14ème) — 15-25 min</li>
+      <li><strong>Paris Ouest</strong> (7ème, 8ème, 15ème, 16ème, 17ème) — 20-30 min</li>
+    </ul>
+
+    <h2>Tarifs</h2>
+    <ul>
+      <li>Séance au cabinet : <strong>90 €</strong></li>
+      <li>Séance à domicile : <strong>140 €</strong> (Paris et proche banlieue)</li>
+      <li>Séance en visio : <strong>90 €</strong></li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+  },
+
+  "/hypnose-professionnels-paris": {
+    title: "Hypnose stress au travail Paris | Alain Zenatti",
+    description:
+      "Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit. Cabinet Paris 4ème.",
     canonicalPath: "/hypnose-professionnels-paris",
     h1: "Vous tenez au travail. Mais à quel prix ?",
     jsonLd: [
