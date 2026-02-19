@@ -56,7 +56,7 @@ const SEOHead = ({
   structuredData,
   breadcrumbs = []
 }: SEOHeadProps) => {
-  const siteTitle = "Émergences - le blog de NovaHypnose";
+  const siteTitle = "Blog NovaHypnose";
 
   // Fonction pour tronquer le titre si trop long (max 60 caractères total)
   const truncateTitle = (title: string, maxLength: number = 45): string => {

@@ -5,7 +5,7 @@ const SUPABASE_URL = "https://akrlyzmfszumibwgocae.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30";
 const SITE_URL = "https://novahypnose.fr";
-const SITE_NAME = "Émergences - le blog de NovaHypnose";
+const SITE_NAME = "Blog NovaHypnose";
 const STORAGE_URL =
   "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public";
 const DEFAULT_IMAGE = `${STORAGE_URL}/images/emergences-hypnose.webp`;
