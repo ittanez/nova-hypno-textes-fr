@@ -10,6 +10,8 @@ const DEFAULT_IMAGE = `${STORAGE_URL}/images/alain-nov2025.webp`;
 const BOT_USER_AGENTS = [
   "googlebot",
   "bingbot",
+  "msnbot",        // Bing legacy crawler
+  "bingpreview",   // Bing preview/thumbnail bot
   "yandex",
   "baiduspider",
   "duckduckbot",

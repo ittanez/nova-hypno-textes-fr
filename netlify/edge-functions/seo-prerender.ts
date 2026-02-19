@@ -13,6 +13,8 @@ const DEFAULT_IMAGE = `${STORAGE_URL}/images/emergences-hypnose.webp`;
 const BOT_USER_AGENTS = [
   "googlebot",
   "bingbot",
+  "msnbot",        // Bing legacy crawler
+  "bingpreview",   // Bing preview/thumbnail bot
   "yandex",
   "baiduspider",
   "duckduckbot",
