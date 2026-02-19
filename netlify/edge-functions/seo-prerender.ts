@@ -92,6 +92,16 @@ function truncateTitle(title: string, maxLength = 45): string {
   return title.substring(0, maxLength).trim() + "...";
 }
 
+function ensureDescriptionLength(desc: string, minLength = 120, maxLength = 160): string {
+  if (desc.length >= minLength && desc.length <= maxLength) return desc;
+  if (desc.length < minLength) {
+    const suffix = " Découvrez nos articles par Alain Zenatti, hypnothérapeute ericksonien à Paris 4ème.";
+    return (desc + suffix).substring(0, maxLength);
+  }
+  if (desc.length > maxLength) return desc.substring(0, maxLength - 3) + "...";
+  return desc;
+}
+
 function getImageUrl(article: Article): string {
   return article.storage_image_url || article.image_url || DEFAULT_IMAGE;
 }
@@ -555,11 +565,13 @@ function renderCategoryPage(
     <ul class="article-list">${articlesHtml}</ul>
     <p><a href="${SITE_URL}/blog">&larr; Retour au blog</a></p>`;
 
+  const rawDescription =
+    category.description ||
+    `Articles sur ${category.name}. Conseils et techniques d'hypnose par Alain Zenatti, hypnothérapeute à Paris.`;
+
   return htmlShell({
     title: `${category.name} - Blog hypnose`,
-    description:
-      category.description ||
-      `Articles sur ${category.name}. Conseils et techniques d'hypnose par Alain Zenatti, hypnothérapeute à Paris.`,
+    description: ensureDescriptionLength(rawDescription),
     canonicalUrl,
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [collectionLd, breadcrumbLd],

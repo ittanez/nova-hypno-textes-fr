@@ -83,9 +83,9 @@ const SEOHead = ({
 
   const currentUrl = normalizeUrl(url || window.location.href);
 
-  // Garantir une longueur minimale de description (70-160 caractères)
+  // Garantir une longueur minimale de description (120-160 caractères)
   const ensureDescriptionLength = (desc: string): string => {
-    const minLength = 70;
+    const minLength = 120;
     const maxLength = 160;
 
     if (desc.length >= minLength && desc.length <= maxLength) {

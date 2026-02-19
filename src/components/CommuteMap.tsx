@@ -246,7 +246,7 @@ const CommuteMap: React.FC = () => {
 
       {/* Carte */}
       <div className="relative rounded-lg overflow-hidden shadow-lg h-64 sm:h-80 md:h-96">
-        <div ref={mapRef} className="w-full h-full" />
+        <div ref={mapRef} className="w-full h-full" role="application" aria-label="Carte interactive - Zone d'intervention NovaHypnose, cabinet Paris 4ème Bastille" />
         {loading && (
           <div className="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center">
             <div className="text-center">
