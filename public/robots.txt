@@ -2,16 +2,15 @@
 # https://novahypnose.fr/
 
 User-agent: *
-# Bloquer uniquement les zones privées et API
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-Disallow: /*.json$
+Disallow: /*.json
+Crawl-delay: 1
 
-# Autoriser le reste (comportement par défaut, mais explicite)
 Allow: /
 
-# Réseaux sociaux (OK pour toutes les pages autorisées)
+# Social media bots
 User-agent: Twitterbot
 Allow: /
 
@@ -21,7 +20,7 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# Crawlers IA - Autorisation explicite pour plateformes d'intelligence artificielle
+# AI crawlers
 User-agent: GPTBot
 Allow: /
 
@@ -67,8 +66,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-# Sitemap des pages autorisées uniquement
 Sitemap: https://novahypnose.fr/sitemap.xml
-
-# Crawl-delay pour éviter la surcharge
-Crawl-delay: 1
