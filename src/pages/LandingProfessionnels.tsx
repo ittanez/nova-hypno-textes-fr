@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
-import Phone from 'lucide-react/dist/esm/icons/phone';
+
 import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
 import Shield from 'lucide-react/dist/esm/icons/shield';
 import Brain from 'lucide-react/dist/esm/icons/brain';
@@ -14,7 +14,7 @@ import Star from 'lucide-react/dist/esm/icons/star';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Users from 'lucide-react/dist/esm/icons/users';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
-import BookOpen from 'lucide-react/dist/esm/icons/book-open';
+
 import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import MessagesSquare from 'lucide-react/dist/esm/icons/messages-square';
 
@@ -82,8 +82,11 @@ const LandingProfessionnels: React.FC = () => {
             <span className="text-teal-300">Mais à quel prix ?</span>
           </h1>
 
-          <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
-            Un accompagnement individuel qui combine hypnose, auto-hypnose et communication relationnelle pour vous aider à <strong className="text-white">retrouver énergie, sommeil et sérénité</strong> — durablement.
+          <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-4">
+            Je propose un accompagnement individuel sur plusieurs séances, spécifiquement dédié aux personnes en souffrance au travail (stress, épuisement, troubles du sommeil).
+          </p>
+          <p className="text-white/55 text-base max-w-2xl mx-auto leading-relaxed mb-8">
+            Hypnose, auto-hypnose et communication relationnelle pour vous aider à <strong className="text-white">retrouver énergie, sommeil et sérénité</strong> — durablement.
           </p>
 
           <a
@@ -209,7 +212,7 @@ const LandingProfessionnels: React.FC = () => {
             L'accompagnement
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
-            Un chemin concret entre là où vous en êtes<br className="hidden sm:block" /> et là où vous voulez aller.
+            Un accompagnement individuel sur 10 à 12 semaines
           </h2>
 
           <div className="bg-nova-neutral rounded-2xl p-6 sm:p-8 mb-8">
@@ -284,6 +287,70 @@ const LandingProfessionnels: React.FC = () => {
         </div>
       </section>
 
+      {/* ═══════════ 4b. CE QUE N'EST PAS / CE QUE C'EST ═══════════ */}
+      <section className="py-12 sm:py-16 px-6 bg-nova-neutral">
+        <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
+          <div className="bg-white rounded-2xl p-6 border border-gray-100">
+            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-3">Ce que n'est pas cet accompagnement</p>
+            <p className="text-gray-500 text-[0.95rem] leading-relaxed">
+              Il ne s'agit pas d'un coaching de performance pour « tenir plus » ou « faire encore plus avec moins de ressources ». C'est un accompagnement thérapeutique par l'hypnose, centré sur la souffrance que vous vivez (stress, épuisement, troubles du sommeil, surcharge émotionnelle) et sur la manière dont votre corps et vos émotions tirent la sonnette d'alarme.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 border border-teal-200">
+            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-3">Ce que c'est</p>
+            <p className="text-gray-500 text-[0.95rem] leading-relaxed">
+              Un parcours de 6 séances pour apaiser les symptômes, retrouver de l'espace intérieur, remettre du sens et poser un cadre plus respectueux de vous dans votre vie professionnelle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ 4c. EBOOK MID-PAGE ═══════════ */}
+      <section className="py-12 sm:py-16 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
+            Avant de décider
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
+            Pas encore prêt pour un appel ? Commencez ici.
+          </h2>
+
+          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8">
+            <img
+              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
+              alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
+              className="w-[180px] sm:w-[200px] rounded-lg shadow-xl flex-shrink-0 -rotate-1 hover:rotate-0 hover:scale-[1.02] transition-transform duration-500"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.background = 'linear-gradient(135deg, #233C67, #4470AD)';
+                target.style.width = '200px';
+                target.style.height = '280px';
+                target.style.borderRadius = '8px';
+              }}
+            />
+            <div className="text-center sm:text-left flex-1">
+              <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-3">
+                J'ai écrit un guide de 19 pages pour les professionnels qui sentent que quelque chose ne va plus — mais qui ne savent pas encore exactement ce qui se passe en eux.
+              </p>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                Vous y trouverez des repères concrets pour comprendre vos émotions au travail, identifier ce que votre corps essaie de vous dire, et trois pratiques simples applicables dès ce soir.
+              </p>
+              <p className="text-gray-400 text-sm italic mb-5">
+                C'est gratuit. C'est sans engagement. Et ça peut déjà changer quelque chose.
+              </p>
+              <Link
+                to="/guide-emotions-travail"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-nova-blue-dark hover:bg-nova-blue text-white font-semibold rounded-xl transition-colors"
+              >
+                Recevoir le guide gratuit
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ 5. PREUVE / CRÉDIBILITÉ ═══════════ */}
       <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-nova-blue-dark to-nova-blue">
         <div className="max-w-3xl mx-auto">
@@ -296,14 +363,14 @@ const LandingProfessionnels: React.FC = () => {
 
           {/* Alain card */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8">
-            <div className="flex items-start gap-5 mb-6">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6">
               <img
                 src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
                 alt="Alain Zenatti — Hypnothérapeute Paris"
-                className="w-20 h-20 rounded-full object-cover flex-shrink-0 shadow-md"
+                className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover flex-shrink-0 shadow-lg ring-2 ring-white/20"
                 loading="lazy"
               />
-              <div>
+              <div className="text-center sm:text-left">
                 <p className="font-serif font-bold text-white text-lg">Alain Zenatti</p>
                 <p className="text-white/60 text-sm mb-1">Maître Praticien en Hypnose Ericksonienne & en Auto-Hypnose</p>
                 <p className="text-white/50 text-sm">Praticien en Communication Relationnelle (approche Jacques Salomé)</p>
@@ -419,9 +486,19 @@ const LandingProfessionnels: React.FC = () => {
       <section className="py-14 px-6 bg-nova-neutral">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-nova-orange/10 rounded-2xl flex items-center justify-center">
-              <BookOpen className="text-nova-orange" size={32} />
-            </div>
+            <img
+              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
+              alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
+              className="w-[120px] sm:w-[140px] rounded-lg shadow-md flex-shrink-0"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.background = 'linear-gradient(135deg, #233C67, #4470AD)';
+                target.style.width = '140px';
+                target.style.height = '196px';
+                target.style.borderRadius = '8px';
+              }}
+            />
             <div className="text-center sm:text-left flex-1">
               <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
                 Vous tenez. Mais jusqu'à quand ?
