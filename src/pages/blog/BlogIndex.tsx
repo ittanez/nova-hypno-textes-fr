@@ -260,6 +260,13 @@ const BlogIndex = () => {
                 {name} ({count})
               </Link>
             ))}
+
+            <Link
+              to="/blog/categories"
+              className="px-6 py-2 rounded-full text-sm font-medium transition-all bg-gray-50 text-blue-600 hover:bg-blue-50 border border-blue-200"
+            >
+              Toutes les catégories
+            </Link>
           </div>
         </div>
       </section>
