@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import LazyCommuteMap from '@/components/LazyCommuteMap';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
@@ -325,6 +326,29 @@ const ZoneIntervention = () => {
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spécialités disponibles */}
+      <section className="py-16 md:py-20 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Domaines traités au cabinet</h2>
+            <p className="text-blue-100 mb-10 text-lg">
+              Consultations au cabinet Paris 4ème, en visio ou à domicile — pour tous vos besoins en hypnothérapie.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-blue-100">
+              <Link to="/hypnose-stress-anxiete-paris" className="hover:text-white underline">Stress et anxiété</Link>
+              <Link to="/hypnose-phobies-paris" className="hover:text-white underline">Phobies et peurs</Link>
+              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline">Sommeil et insomnie</Link>
+              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline">Gestion des émotions</Link>
+              <Link to="/hypnose-blocages-paris" className="hover:text-white underline">Blocages et comportements</Link>
+              <Link to="/hypnose-confiance-en-soi-paris" className="hover:text-white underline">Confiance en soi</Link>
+              <Link to="/hypnose-professionnels-paris" className="hover:text-white underline">Stress au travail</Link>
+              <Link to="/test-receptivite" className="hover:text-white underline">Tester ma réceptivité</Link>
+              <Link to="/blog" className="hover:text-white underline">Blog hypnose</Link>
             </div>
           </div>
         </div>

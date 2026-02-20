@@ -339,6 +339,21 @@ const HypnoseConfianceParis = () => {
               <Link to="/hypnose-blocages-paris" className="hover:text-white underline flex items-center gap-1">
                 Blocages et comportements <ArrowRight size={14} />
               </Link>
+              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline flex items-center gap-1">
+                Gestion des émotions <ArrowRight size={14} />
+              </Link>
+              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
+                Hypnose et sommeil <ArrowRight size={14} />
+              </Link>
+              <Link to="/hypnose-professionnels-paris" className="hover:text-white underline flex items-center gap-1">
+                Confiance au travail <ArrowRight size={14} />
+              </Link>
+              <Link to="/test-receptivite" className="hover:text-white underline flex items-center gap-1">
+                Tester ma réceptivité <ArrowRight size={14} />
+              </Link>
+              <Link to="/blog" className="hover:text-white underline flex items-center gap-1">
+                Blog hypnose <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
         </div>
