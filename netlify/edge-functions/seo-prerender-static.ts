@@ -86,6 +86,7 @@ function htmlShell(page: PageData): string {
   <meta name="description" content="${safeDesc}">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
   <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${fullTitle}">
