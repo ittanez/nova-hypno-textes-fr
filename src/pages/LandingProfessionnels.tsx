@@ -54,7 +54,7 @@ const LandingProfessionnels: React.FC = () => {
     <>
       <Helmet>
         <title>Hypnose stress au travail Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit. Cabinet Paris 4ème." />
+        <meta name="description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème." />
         <meta name="keywords" content="hypnose professionnels paris, burn-out hypnose, souffrance travail hypnose, stress cadres, accompagnement hypnose paris, communication relationnelle Jacques Salomé, auto-hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-professionnels-paris" />
         <meta property="og:title" content="Hypnose stress au travail Paris | Alain Zenatti" />

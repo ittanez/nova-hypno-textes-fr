@@ -100,7 +100,7 @@ const ZoneIntervention = () => {
         <title>Zone d'intervention Paris | Cabinet Hypnose Bastille</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio."
+          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio. Accessible depuis toute la région parisienne."
         />
         <meta
           name="keywords"

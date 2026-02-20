@@ -303,7 +303,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-stress-anxiete-paris": {
     title: "Hypnose stress et anxiété Paris | Alain Zenatti",
     description:
-      "Libérez-vous du stress et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue. Résultats durables en 3 à 5 séances.",
+      "Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances.",
     canonicalPath: "/hypnose-stress-anxiete-paris",
     h1: "Hypnose et stress — Retrouvez la sérénité à Paris",
     jsonLd: [
@@ -348,7 +348,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-phobies-paris": {
     title: "Hypnose phobies et peurs Paris | Alain Zenatti",
     description:
-      "Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats en 2 à 4 séances.",
+      "Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€.",
     canonicalPath: "/hypnose-phobies-paris",
     h1: "Hypnose et phobies — Libérez-vous de vos peurs à Paris",
     jsonLd: [
@@ -391,7 +391,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-sommeil-paris": {
     title: "Hypnose sommeil et insomnie Paris | Alain Zenatti",
     description:
-      "Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. 3 à 5 séances.",
+      "Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances.",
     canonicalPath: "/hypnose-sommeil-paris",
     h1: "Hypnose et sommeil — Retrouvez des nuits sereines à Paris",
     jsonLd: [
@@ -431,7 +431,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
-      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié.",
+      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié. Résultats en 3 à 5 séances.",
     canonicalPath: "/hypnose-gestion-emotions-paris",
     h1: "Hypnose et gestion des émotions — Retrouvez votre équilibre à Paris",
     jsonLd: [
@@ -472,7 +472,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-blocages-paris": {
     title: "Hypnose blocages et comportements Paris | Zenatti",
     description:
-      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue.",
+      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions comportementales. Alain Zenatti, Maître Hypnologue. 3 à 5 séances.",
     canonicalPath: "/hypnose-blocages-paris",
     h1: "Blocages et troubles du comportement — Libérez-vous par l'hypnose à Paris",
     jsonLd: [
@@ -617,7 +617,7 @@ const PAGES: Record<string, PageData> = {
   "/zone-intervention": {
     title: "Zone d'intervention Paris | Cabinet Hypnose Bastille",
     description:
-      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio. Accessible depuis tous les arrondissements.",
+      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio. Accessible depuis toute la région parisienne.",
     canonicalPath: "/zone-intervention",
     h1: "Zone d'Intervention — Cabinet d'Hypnothérapie à Paris",
     jsonLd: [
@@ -659,7 +659,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-professionnels-paris": {
     title: "Hypnose stress au travail Paris | Alain Zenatti",
     description:
-      "Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit. Cabinet Paris 4ème.",
+      "Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème.",
     canonicalPath: "/hypnose-professionnels-paris",
     h1: "Vous tenez au travail. Mais à quel prix ?",
     jsonLd: [

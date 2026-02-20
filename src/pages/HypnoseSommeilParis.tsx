@@ -40,7 +40,7 @@ const HypnoseSommeilParis = () => {
     <ContentLayout>
       <Helmet>
         <title>Hypnose sommeil et insomnie Paris | Alain Zenatti</title>
-        <meta name="description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. 3 à 5 séances." />
+        <meta name="description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:title" content="Hypnose sommeil et insomnie Paris | Alain Zenatti" />

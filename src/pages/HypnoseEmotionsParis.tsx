@@ -40,7 +40,7 @@ const HypnoseEmotionsParis = () => {
     <ContentLayout>
       <Helmet>
         <title>Hypnose gestion des émotions Paris | Alain Zenatti</title>
-        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié." />
+        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:title" content="Hypnose gestion des émotions Paris | Alain Zenatti" />
