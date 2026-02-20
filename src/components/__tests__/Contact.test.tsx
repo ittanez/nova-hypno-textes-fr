@@ -26,7 +26,7 @@ describe('Contact Component', () => {
   it('affiche l\'adresse du cabinet', () => {
     render(<Contact />);
     // Vérifie que l'adresse complète est affichée (peut apparaître plusieurs fois)
-    const rueElements = screen.getAllByText(/16 rue St Antoine/i);
+    const rueElements = screen.getAllByText(/16 rue Saint-Antoine/i);
     const parisElements = screen.getAllByText(/75004 Paris/i);
 
     expect(rueElements.length).toBeGreaterThan(0);

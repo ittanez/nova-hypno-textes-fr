@@ -54,7 +54,7 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-gray-700">Adresse</p>
                     <p>Quartier le Marais - Bastille</p>
-                    <p>16 rue St Antoine, 75004 Paris</p>
+                    <p>16 rue Saint-Antoine, 75004 Paris</p>
                   </div>
                 </div>
                 

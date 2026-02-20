@@ -51,7 +51,7 @@ const MentionsLegales = () => {
                   <li><strong>Adhérent :</strong> SDMH (Syndicat des Métiers de l'Hypnose)</li>
                   <li><strong>Forme juridique :</strong> Entrepreneur individuel</li>
                   <li><strong>Responsable éditorial :</strong> Alain ZENATTI</li>
-                  <li><strong>Adresse :</strong> 16 Rue Saint Antoine, 75004 Paris, France</li>
+                  <li><strong>Adresse :</strong> 16 rue Saint-Antoine, 75004 Paris, France</li>
                   <li><strong>Téléphone :</strong> 0649358089</li>
                   <li><strong>Email :</strong> contact@novahypnose.fr</li>
                   <li><strong>Site Web :</strong> novahypnose.fr</li>
@@ -80,7 +80,7 @@ const MentionsLegales = () => {
                 <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Développement</h2>
                 <ul className="space-y-2 text-gray-700">
                   <li><strong>Société :</strong> Alain ZENATTI EI</li>
-                  <li><strong>Adresse :</strong> 16 Rue Saint Antoine 75004 Paris</li>
+                  <li><strong>Adresse :</strong> 16 rue Saint-Antoine 75004 Paris</li>
                 </ul>
               </section>
               

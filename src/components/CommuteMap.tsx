@@ -9,11 +9,11 @@ import Bike from 'lucide-react/dist/esm/icons/bike';
 import Footprints from 'lucide-react/dist/esm/icons/footprints';
 import { logger } from '@/lib/logger';
 
-// Coordonnées du cabinet (16 rue Saint Antoine, 75004 Paris)
+// Coordonnées du cabinet (16 rue Saint-Antoine, 75004 Paris)
 const CABINET_LOCATION = {
   lat: 48.8534,
   lng: 2.3664,
-  address: '16 rue Saint Antoine, 75004 Paris'
+  address: '16 rue Saint-Antoine, 75004 Paris'
 };
 
 const TRAVEL_MODES = {

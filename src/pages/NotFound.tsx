@@ -98,7 +98,7 @@ const NotFound = () => {
                   </li>
                   <li>
                     <a href="/#tarifs" className="text-blue-600 hover:text-blue-700">
-                      Nos tarifs
+                      Mes tarifs
                     </a>
                   </li>
                   <li>

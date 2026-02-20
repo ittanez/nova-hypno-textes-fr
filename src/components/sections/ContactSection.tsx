@@ -68,7 +68,7 @@ const ContactSection: React.FC = () => {
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">Adresse</p>
                     <p className="text-gray-600 text-lg">
-                      16 rue St Antoine<br />
+                      16 rue Saint-Antoine<br />
                       75004 Paris (Marais - Bastille)
                     </p>
                   </div>

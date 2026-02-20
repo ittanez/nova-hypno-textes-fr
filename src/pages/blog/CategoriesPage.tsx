@@ -74,7 +74,7 @@ const CategoriesPage = () => {
           <div className="mb-12 text-center">
             <h1 className="font-serif mb-4">Catégories</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explorez nos articles par thématique
+            Explorez mes articles par thématique
           </p>
         </div>
         
