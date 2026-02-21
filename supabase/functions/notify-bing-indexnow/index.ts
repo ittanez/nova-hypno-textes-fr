@@ -53,9 +53,15 @@ serve(async (req) => {
         `${SITE_URL}/`,
         `${SITE_URL}/blog`,
         `${SITE_URL}/autohypnose`,
-        `${SITE_URL}/applications`,
-        `${SITE_URL}/tarifs`,
-        `${SITE_URL}/contact`,
+        `${SITE_URL}/hypnose-stress-anxiete-paris`,
+        `${SITE_URL}/hypnose-phobies-paris`,
+        `${SITE_URL}/hypnose-sommeil-paris`,
+        `${SITE_URL}/hypnose-gestion-emotions-paris`,
+        `${SITE_URL}/hypnose-blocages-paris`,
+        `${SITE_URL}/hypnose-confiance-en-soi-paris`,
+        `${SITE_URL}/hypnose-professionnels-paris`,
+        `${SITE_URL}/test-receptivite`,
+        `${SITE_URL}/zone-intervention`,
       ]
     }
 

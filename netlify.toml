@@ -209,6 +209,105 @@
   status = 200
   force = true
 
+# ═══════════════════════════════════════════════════════════════════════
+# Redirections 301 — Anciennes URLs WordPress encore indexées par Bing
+# Évite le contenu dupliqué et consolide l'autorité vers le nouveau site
+# ═══════════════════════════════════════════════════════════════════════
+
+# Pages principales WordPress → Accueil
+[[redirects]]
+  from = "/index.php/nova-hypnose-alain-zenatti/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.php/hypnose/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.php/bandeauentest/"
+  to = "/"
+  status = 301
+  force = true
+
+# FAQ WordPress → Blog (contenu équivalent)
+[[redirects]]
+  from = "/index.php/faq/"
+  to = "/blog"
+  status = 301
+  force = true
+
+# Audio/MP3 hypnose → Autohypnose
+[[redirects]]
+  from = "/index.php/mp3-hypnose/"
+  to = "/autohypnose"
+  status = 301
+  force = true
+
+# Estime de soi → Page confiance en soi
+[[redirects]]
+  from = "/index.php/lestime-de-soi-nova-hypnose/"
+  to = "/hypnose-confiance-en-soi-paris"
+  status = 301
+  force = true
+
+# Applications → Autohypnose
+[[redirects]]
+  from = "/index.php/applications-nova-hypnose/"
+  to = "/autohypnose"
+  status = 301
+  force = true
+
+# Guide auto-hypnose → Autohypnose
+[[redirects]]
+  from = "/index.php/jatteins-mes-objectifs-avec-lauto-hypnose-2/"
+  to = "/autohypnose"
+  status = 301
+  force = true
+
+# Hypno-cafés → Blog
+[[redirects]]
+  from = "/index.php/hypno-cafes/"
+  to = "/blog"
+  status = 301
+  force = true
+
+# Contact WordPress → Accueil
+[[redirects]]
+  from = "/index.php/contact-nova-hypnose/"
+  to = "/"
+  status = 301
+  force = true
+
+# Articles WordPress datés (ex: /2024/03/26/...) → Blog
+[[redirects]]
+  from = "/2024/*"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/2023/*"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/2022/*"
+  to = "/blog"
+  status = 301
+  force = true
+
+# Catch-all pour toutes les autres URLs WordPress index.php
+[[redirects]]
+  from = "/index.php/*"
+  to = "/"
+  status = 301
+  force = true
+
 # Redirection du sous-domaine emergences vers le domaine principal
 [[redirects]]
   from = "https://emergences.novahypnose.fr/*"

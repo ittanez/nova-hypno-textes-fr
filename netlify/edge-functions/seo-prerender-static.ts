@@ -170,7 +170,7 @@ const localBusinessLd = {
   geo: {
     "@type": "GeoCoordinates",
     latitude: 48.8534,
-    longitude: 2.3648,
+    longitude: 2.3656,
   },
   openingHoursSpecification: [
     {
@@ -180,7 +180,7 @@ const localBusinessLd = {
       closes: "19:00",
     },
   ],
-  priceRange: "90€ - 140€",
+  priceRange: "€€",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
