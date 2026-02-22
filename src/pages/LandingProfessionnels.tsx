@@ -14,6 +14,7 @@ import Star from 'lucide-react/dist/esm/icons/star';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Users from 'lucide-react/dist/esm/icons/users';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
 
 import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import MessagesSquare from 'lucide-react/dist/esm/icons/messages-square';
@@ -41,6 +42,33 @@ const LandingProfessionnels: React.FC = () => {
     "serviceType": "Hypnothérapie — accompagnement professionnel"
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "L'hypnose est-elle efficace pour le stress et le burn-out ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'hypnose ericksonienne agit directement sur les mécanismes inconscients du stress. Elle permet de relâcher les tensions accumulées, d'améliorer le sommeil et de modifier durablement les schémas émotionnels — là où la volonté seule ne suffit pas. La plupart des personnes accompagnées ressentent un mieux-être dès les premières séances." }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de séances sont nécessaires ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "L'accompagnement comprend 6 séances individuelles, réparties sur 10 à 12 semaines. Ce rythme permet de travailler en profondeur tout en laissant le temps d'intégrer chaque étape entre les rendez-vous." }
+      },
+      {
+        "@type": "Question",
+        "name": "Les séances sont-elles disponibles en visio ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui. Vous pouvez suivre l'accompagnement en présentiel au cabinet Paris 4e (Marais-Bastille) ou en visioconférence. Les deux formats sont tout aussi efficaces." }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment savoir si cet accompagnement est fait pour moi ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Un appel découverte gratuit et sans engagement permet de faire le point sur votre situation en 15 à 20 minutes. Alain Zenatti vous explique comment l'accompagnement fonctionne et vous donne une première orientation concrète." }
+      }
+    ]
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -54,7 +82,7 @@ const LandingProfessionnels: React.FC = () => {
     <>
       <Helmet>
         <title>Hypnose stress au travail Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème." />
+        <meta name="description" content="Hypnose pour professionnels en burn-out ou stress au travail. Accompagnement individuel — Paris 4e & visio. Appel découverte gratuit, sans engagement." />
         <meta name="keywords" content="hypnose professionnels paris, burn-out hypnose, souffrance travail hypnose, stress cadres, accompagnement hypnose paris, communication relationnelle Jacques Salomé, auto-hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-professionnels-paris" />
         <meta property="og:title" content="Hypnose stress au travail Paris | Alain Zenatti" />
@@ -70,6 +98,7 @@ const LandingProfessionnels: React.FC = () => {
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
       </Helmet>
 
       {/* ═══════════ 1. HERO ═══════════ */}
@@ -82,8 +111,8 @@ const LandingProfessionnels: React.FC = () => {
           </span>
 
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Vous tenez au travail.<br />
-            <span className="text-teal-300">Mais à quel prix ?</span>
+            Hypnose pour professionnels à Paris<br />
+            <span className="text-teal-300">Vous tenez. Mais à quel prix ?</span>
           </h1>
 
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-4">
@@ -303,7 +332,7 @@ const LandingProfessionnels: React.FC = () => {
           <div className="bg-white rounded-2xl p-6 border border-teal-200">
             <p className="font-serif font-bold text-nova-blue-dark text-lg mb-3">Ce que c'est</p>
             <p className="text-gray-500 text-[0.95rem] leading-relaxed">
-              Un parcours de 6 séances pour apaiser les symptômes, retrouver de l'espace intérieur, remettre du sens et poser un cadre plus respectueux de vous dans votre vie professionnelle.
+              Un parcours de 6 séances sur 10 à 12 semaines pour apaiser les symptômes, retrouver de l'espace intérieur, remettre du sens et poser un cadre plus respectueux de vous dans votre vie professionnelle.
             </p>
           </div>
         </div>
@@ -393,7 +422,7 @@ const LandingProfessionnels: React.FC = () => {
             {[
               { value: '5/5', label: 'Note moyenne', icon: Star },
               { value: '40+', label: 'Avis vérifiés', icon: Users },
-              { value: '90%', label: 'Amélioration S1', icon: Zap },
+              { value: '85%', label: 'Clients soulagés', icon: Zap },
               { value: '9', label: 'Certifications', icon: Shield },
             ].map(({ value, label, icon: Icon }, i) => (
               <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
@@ -437,9 +466,46 @@ const LandingProfessionnels: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-white/30 text-xs text-center mt-6">
-            Emplacements réservés : témoignages vidéo de professionnels accompagnés &middot; étude de cas avant/après
-          </p>
+        </div>
+      </section>
+
+      {/* ═══════════ FAQ ═══════════ */}
+      <section className="py-16 sm:py-20 px-6 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
+            Questions fréquentes
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-10 text-center">
+            Vos questions, mes réponses
+          </h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: "L'hypnose est-elle efficace pour le stress et le burn-out ?",
+                a: "Oui. L'hypnose ericksonienne agit directement sur les mécanismes inconscients du stress. Elle permet de relâcher les tensions accumulées, d'améliorer le sommeil et de modifier durablement les schémas émotionnels — là où la volonté seule ne suffit pas. La plupart des personnes accompagnées ressentent un mieux-être dès les premières séances.",
+              },
+              {
+                q: "Combien de séances sont nécessaires ?",
+                a: "L'accompagnement comprend 6 séances individuelles, réparties sur 10 à 12 semaines. Ce rythme permet de travailler en profondeur tout en laissant le temps d'intégrer chaque étape entre les rendez-vous.",
+              },
+              {
+                q: "Les séances sont-elles disponibles en visio ?",
+                a: "Oui. Vous pouvez suivre l'accompagnement en présentiel au cabinet Paris 4e (Marais-Bastille) ou en visioconférence. Les deux formats sont tout aussi efficaces.",
+              },
+              {
+                q: "Comment savoir si cet accompagnement est fait pour moi ?",
+                a: "Un appel découverte gratuit et sans engagement permet de faire le point sur votre situation en 15 à 20 minutes. Alain Zenatti vous explique comment l'accompagnement fonctionne et vous donne une première orientation concrète.",
+              },
+            ].map(({ q, a }, i) => (
+              <details key={i} className="bg-white rounded-xl border border-gray-100 group open:shadow-sm">
+                <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-semibold text-nova-blue-dark text-[0.95rem] select-none">
+                  {q}
+                  <ChevronDown size={18} className="flex-shrink-0 text-gray-400 group-open:rotate-180 transition-transform duration-200" />
+                </summary>
+                <p className="px-5 pb-5 text-gray-500 text-sm leading-relaxed">{a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
