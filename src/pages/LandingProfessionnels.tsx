@@ -48,18 +48,18 @@ const LandingProfessionnels: React.FC = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "L'hypnose est-elle efficace pour le stress et le burn-out ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'hypnose ericksonienne agit directement sur les mécanismes inconscients du stress. Elle permet de relâcher les tensions accumulées, d'améliorer le sommeil et de modifier durablement les schémas émotionnels — là où la volonté seule ne suffit pas. La plupart des personnes accompagnées ressentent un mieux-être dès les premières séances." }
+        "name": "Pourquoi l'hypnose plutôt qu'un coaching ou une thérapie classique ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "L'hypnose ericksonienne agit là où les approches cognitives atteignent leurs limites : sur les schémas inconscients qui entretiennent le stress. Contrairement au coaching qui travaille sur la performance, cet accompagnement vise à libérer ce qui bloque en profondeur — stress chronique, tensions émotionnelles, troubles du sommeil. Les résultats sont souvent plus rapides et plus durables, car on travaille directement sur les ressources intérieures." }
       },
       {
         "@type": "Question",
-        "name": "Combien de séances sont nécessaires ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "L'accompagnement comprend 6 séances individuelles, réparties sur 10 à 12 semaines. Ce rythme permet de travailler en profondeur tout en laissant le temps d'intégrer chaque étape entre les rendez-vous." }
+        "name": "En quoi consiste l'accompagnement ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "L'accompagnement comprend 6 séances individuelles réparties sur 10 à 12 semaines, auxquelles s'ajoute une séance de suivi à 3 mois pour ancrer les changements dans la durée. C'est une offre premium, pensée pour des résultats profonds et durables — pas un simple suivi de confort." }
       },
       {
         "@type": "Question",
-        "name": "Les séances sont-elles disponibles en visio ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Oui. Vous pouvez suivre l'accompagnement en présentiel au cabinet Paris 4e (Marais-Bastille) ou en visioconférence. Les deux formats sont tout aussi efficaces." }
+        "name": "Peut-on faire les séances en visio ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "La première séance se fait de préférence en présentiel au cabinet Paris 4e (Marais-Bastille), pour établir un cadre de confiance solide. Les séances suivantes peuvent se poursuivre en visioconférence, selon votre situation et vos contraintes." }
       },
       {
         "@type": "Question",
@@ -422,7 +422,7 @@ const LandingProfessionnels: React.FC = () => {
             {[
               { value: '5/5', label: 'Note moyenne', icon: Star },
               { value: '40+', label: 'Avis vérifiés', icon: Users },
-              { value: '85%', label: 'Clients soulagés', icon: Zap },
+              { value: '85%', label: 'Vie transformée', icon: Zap },
               { value: '9', label: 'Certifications', icon: Shield },
             ].map(({ value, label, icon: Icon }, i) => (
               <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
@@ -481,16 +481,16 @@ const LandingProfessionnels: React.FC = () => {
           <div className="space-y-3">
             {[
               {
-                q: "L'hypnose est-elle efficace pour le stress et le burn-out ?",
-                a: "Oui. L'hypnose ericksonienne agit directement sur les mécanismes inconscients du stress. Elle permet de relâcher les tensions accumulées, d'améliorer le sommeil et de modifier durablement les schémas émotionnels — là où la volonté seule ne suffit pas. La plupart des personnes accompagnées ressentent un mieux-être dès les premières séances.",
+                q: "Pourquoi l'hypnose plutôt qu'un coaching ou une thérapie classique ?",
+                a: "L'hypnose ericksonienne agit là où les approches cognitives atteignent leurs limites : sur les schémas inconscients qui entretiennent le stress. Contrairement au coaching qui travaille sur la performance, cet accompagnement vise à libérer ce qui bloque en profondeur — stress chronique, tensions émotionnelles, troubles du sommeil. Les résultats sont souvent plus rapides et plus durables, car on travaille directement sur les ressources intérieures.",
               },
               {
-                q: "Combien de séances sont nécessaires ?",
-                a: "L'accompagnement comprend 6 séances individuelles, réparties sur 10 à 12 semaines. Ce rythme permet de travailler en profondeur tout en laissant le temps d'intégrer chaque étape entre les rendez-vous.",
+                q: "En quoi consiste l'accompagnement ?",
+                a: "L'accompagnement comprend 6 séances individuelles réparties sur 10 à 12 semaines, auxquelles s'ajoute une séance de suivi à 3 mois pour ancrer les changements dans la durée. C'est une offre premium, pensée pour des résultats profonds et durables — pas un simple suivi de confort.",
               },
               {
-                q: "Les séances sont-elles disponibles en visio ?",
-                a: "Oui. Vous pouvez suivre l'accompagnement en présentiel au cabinet Paris 4e (Marais-Bastille) ou en visioconférence. Les deux formats sont tout aussi efficaces.",
+                q: "Peut-on faire les séances en visio ?",
+                a: "La première séance se fait de préférence en présentiel au cabinet Paris 4e (Marais-Bastille), pour établir un cadre de confiance solide. Les séances suivantes peuvent se poursuivre en visioconférence, selon votre situation et vos contraintes.",
               },
               {
                 q: "Comment savoir si cet accompagnement est fait pour moi ?",
