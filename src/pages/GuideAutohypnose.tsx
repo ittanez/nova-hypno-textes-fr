@@ -374,19 +374,9 @@ const GuideAutohypnose: React.FC = () => {
                 </li>
               </ul>
 
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              <p className="text-gray-500 text-sm leading-relaxed">
                 Mon objectif : démocratiser l'autohypnose auprès des professionnels qui n'ont pas le temps pour du développement personnel classique, mais qui ont besoin d'outils concrets, efficaces, et immédiatement applicables.
               </p>
-
-              <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-nova-orange text-white font-semibold text-sm hover:bg-nova-orange-dark active:scale-[0.98] transition-all shadow-md hover:shadow-lg"
-              >
-                Réserver une séance
-                <ArrowRight size={16} />
-              </a>
             </div>
           </div>
         </div>
