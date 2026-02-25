@@ -4,6 +4,7 @@ import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Video from 'lucide-react/dist/esm/icons/video';
 import Home from 'lucide-react/dist/esm/icons/home';
 import Check from 'lucide-react/dist/esm/icons/check';
+import { trackCTAClick } from '@/lib/analytics';
 
 const Pricing = () => {
   const sessions = [
@@ -105,6 +106,7 @@ const Pricing = () => {
                         ? 'bg-nova-green text-white hover:bg-nova-green-dark shadow-md'
                         : 'bg-nova-green text-white hover:bg-nova-green-dark'
                     }`}
+                    onClick={() => trackCTAClick('resalib_booking', `pricing_${session.title.toLowerCase().replace(/\s+/g, '_')}`)}
                   >
                     {session.ctaText}
                   </a>

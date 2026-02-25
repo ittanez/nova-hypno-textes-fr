@@ -6,6 +6,7 @@
 import React from 'react';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
+import { trackCTAClick } from '@/lib/analytics';
 
 const CTASection: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const CTASection: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            onClick={() => trackCTAClick('resalib_booking', 'cta_section')}
           >
             <Calendar size={24} />
             Prendre rendez-vous
@@ -30,6 +32,7 @@ const CTASection: React.FC = () => {
           <a
             href="tel:0649358089"
             className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition-all"
+            onClick={() => trackCTAClick('phone_call', 'cta_section')}
           >
             <Phone size={24} />
             Appeler maintenant
