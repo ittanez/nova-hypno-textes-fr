@@ -33,9 +33,15 @@ echo ""
 echo "2️⃣ Déploiement: notify-google-sitemap"
 npx supabase functions deploy notify-google-sitemap
 
+# Fonction d'envoi du guide autohypnose
+echo ""
+echo "3️⃣ Déploiement: send-guide-autohypnose"
+npx supabase functions deploy send-guide-autohypnose
+
 echo ""
 echo "✅ Déploiement terminé!"
 echo ""
 echo "📊 Pour vérifier les logs:"
 echo "   npx supabase functions logs generate-sitemap"
 echo "   npx supabase functions logs notify-google-sitemap"
+echo "   npx supabase functions logs send-guide-autohypnose"

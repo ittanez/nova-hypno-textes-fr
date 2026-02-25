@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { submitGuideLead } from '@/lib/services/guideLeadService';
+import { submitAutohypnoseLead } from '@/lib/services/autohypnoseLeadService';
 import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Star from 'lucide-react/dist/esm/icons/star';
@@ -48,7 +48,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
     setLoading(true);
     setErrorMsg('');
 
-    const result = await submitGuideLead(prenom, email);
+    const result = await submitAutohypnoseLead(prenom, email);
 
     setLoading(false);
     if (result.success) {
