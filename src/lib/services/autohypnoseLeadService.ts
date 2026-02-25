@@ -26,8 +26,9 @@ export async function submitAutohypnoseLead(
     }
 
     // 2. Envoyer l'email avec le guide autohypnose
+    // TODO: basculer sur 'send-guide-autohypnose' après déploiement de la edge function
     const { error: fnError } = await supabase.functions.invoke(
-      'send-guide-autohypnose',
+      'send-guide-ebook',
       { body: { prenom, email } }
     );
 
