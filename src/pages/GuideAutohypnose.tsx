@@ -206,30 +206,30 @@ const GuideAutohypnose: React.FC = () => {
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
-      <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 items-center bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-blue-dark relative overflow-hidden">
+      <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-blue-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.08),transparent_70%)] pointer-events-none" />
 
         {/* Left: content */}
-        <div className="px-6 md:px-12 lg:px-16 py-16 md:py-20 order-2 md:order-1 relative z-10">
+        <div className="px-6 md:px-12 lg:px-16 xl:px-24 py-16 md:py-20 order-2 lg:order-1 relative z-10">
           <span className="inline-block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-5">
             Guide gratuit &middot; 30 pages &middot; 9 protocoles
           </span>
 
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.8rem] font-bold leading-[1.15] text-white mb-5">
-            Reprenez la main sur votre{' '}
-            <span className="text-nova-orange italic">bien-être intérieur</span>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-5xl font-bold leading-[1.15] text-white mb-5">
+            Reprenez la main<br />sur votre{' '}
+            <span className="text-nova-orange italic">bien-être</span>
           </h1>
 
-          <h2 className="text-xl font-medium text-white/90 mb-4">
-            Recevez gratuitement "L'Autohypnose au Quotidien"
+          <h2 className="text-lg sm:text-xl font-medium text-white/90 mb-4">
+            Le guide d'autohypnose pour les professionnels sous pression
           </h2>
 
           <p className="text-white/60 text-[1.05rem] leading-relaxed mb-8 max-w-lg">
-            Le guide pratique qui a déjà aidé des centaines de professionnels à transformer leur relation au stress.
+            30 pages, 9 protocoles testés — recevez-le gratuitement par email.
           </p>
 
           {/* Inline form */}
-          <div className="bg-white rounded-2xl p-7 shadow-lg max-w-md">
+          <div className="bg-white rounded-2xl p-7 shadow-lg max-w-md lg:max-w-lg">
             <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
               Recevez votre guide gratuitement
             </p>
@@ -241,8 +241,8 @@ const GuideAutohypnose: React.FC = () => {
         </div>
 
         {/* Right: ebook cover */}
-        <div className="flex justify-center items-center px-6 md:px-12 py-10 md:py-20 order-1 md:order-2 relative z-10">
-          <div className="w-[260px] sm:w-[300px] h-[370px] sm:h-[420px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform duration-500">
+        <div className="flex justify-center items-center px-6 md:px-12 py-10 md:py-20 order-1 lg:order-2 relative z-10">
+          <div className="w-[260px] sm:w-[300px] lg:w-[340px] h-[370px] sm:h-[420px] lg:h-[470px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform duration-500">
             <div className="text-center px-6">
               <BookOpen size={48} className="text-nova-orange mx-auto mb-4" />
               <p className="font-serif text-white font-bold text-lg leading-snug mb-2">L'Autohypnose<br />au Quotidien</p>
@@ -254,8 +254,8 @@ const GuideAutohypnose: React.FC = () => {
       </section>
 
       {/* ═══════════ BÉNÉFICES ═══════════ */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-20 px-6 lg:py-24 bg-white">
+        <div className="max-w-6xl mx-auto">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark text-center mb-12">
             Ce que vous allez découvrir en 30 pages
           </h3>
@@ -276,13 +276,13 @@ const GuideAutohypnose: React.FC = () => {
       </section>
 
       {/* ═══════════ SOMMAIRE ═══════════ */}
-      <section className="py-20 px-6 bg-nova-neutral">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-20 px-6 lg:py-24 bg-nova-neutral">
+        <div className="max-w-4xl mx-auto">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark text-center mb-10">
             Sommaire détaillé
           </h3>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {chapters.map((ch, i) => (
               <div
                 key={i}
@@ -302,8 +302,8 @@ const GuideAutohypnose: React.FC = () => {
       </section>
 
       {/* ═══════════ TÉMOIGNAGES ═══════════ */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-6 lg:py-24 bg-white">
+        <div className="max-w-5xl mx-auto">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark text-center mb-12">
             Ce qu'en disent les lecteurs
           </h3>
@@ -329,8 +329,8 @@ const GuideAutohypnose: React.FC = () => {
       </section>
 
       {/* ═══════════ AUTEUR ═══════════ */}
-      <section className="py-20 px-6 bg-nova-neutral">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-20 px-6 lg:py-24 bg-nova-neutral">
+        <div className="max-w-4xl mx-auto">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark text-center mb-10">
             Qui suis-je ?
           </h3>
@@ -383,8 +383,8 @@ const GuideAutohypnose: React.FC = () => {
       </section>
 
       {/* ═══════════ CTA FINAL AVEC FORMULAIRE ═══════════ */}
-      <section id="telecharger" className="py-20 px-6 bg-gradient-to-b from-nova-blue-light/20 to-white">
-        <div className="max-w-md mx-auto bg-white rounded-2xl p-8 sm:p-10 shadow-xl text-center">
+      <section id="telecharger" className="py-20 px-6 lg:py-24 bg-gradient-to-b from-nova-blue-light/20 to-white">
+        <div className="max-w-lg mx-auto bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-xl text-center">
           <h3 className="font-serif text-2xl font-bold text-nova-blue-dark mb-2 leading-snug">
             Prêt à transformer<br />votre quotidien ?
           </h3>
