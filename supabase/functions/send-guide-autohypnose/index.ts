@@ -129,8 +129,9 @@ serve(async (req) => {
 
               <p style="font-size: 15px; line-height: 1.7; color: #555;">
                 À très bientôt,<br>
-                <strong style="color: #233C67;">Alain Zenatti</strong><br>
-                <span style="font-size: 13px; color: #888;">Maître Praticien en Hypnose Ericksonienne — Paris 4e</span>
+                <strong style="color: #233C67;">Alain Zenatti — NovaHypnose</strong><br>
+                <span style="font-size: 13px; color: #888;">Maître Praticien en Hypnose Ericksonienne — Paris 4e</span><br>
+                <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none; font-size: 13px;">novahypnose.fr</a>
               </p>
             </div>
 
@@ -138,9 +139,10 @@ serve(async (req) => {
             <hr style="border: none; border-top: 1px solid #eee; margin: 0 30px;">
             <div style="padding: 20px 30px; text-align: center; color: #999; font-size: 12px;">
               <p style="margin: 5px 0;">
-                <strong>Alain Zenatti</strong> — Hypnothérapeute<br>
+                <strong>Alain Zenatti — NovaHypnose</strong><br>
                 16 rue Saint-Antoine, 75004 Paris<br>
-                <a href="tel:0649358089" style="color: #4470AD; text-decoration: none;">06 49 35 80 89</a>
+                <a href="tel:0649358089" style="color: #4470AD; text-decoration: none;">06 49 35 80 89</a> ·
+                <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none;">novahypnose.fr</a>
               </p>
               <p style="margin: 10px 0 0 0; font-size: 11px; color: #bbb;">
                 Vous recevez cet email car vous avez téléchargé le guide « L'Autohypnose au Quotidien »<br>

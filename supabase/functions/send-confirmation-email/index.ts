@@ -91,9 +91,10 @@ serve(async (req) => {
 
             <div style="text-align: center; color: #999; font-size: 13px;">
               <p style="margin: 5px 0;">
-                <strong>Alain Zenatti</strong> - Hypnothérapeute<br>
+                <strong>Alain Zenatti — NovaHypnose</strong><br>
                 16 rue St Antoine, 75004 Paris<br>
-                <a href="tel:0649358089" style="color: #3498db; text-decoration: none;">06 49 35 80 89</a>
+                <a href="tel:0649358089" style="color: #3498db; text-decoration: none;">06 49 35 80 89</a> ·
+                <a href="https://novahypnose.fr" style="color: #3498db; text-decoration: none;">novahypnose.fr</a>
               </p>
               <p style="margin: 15px 0 5px 0; font-size: 12px;">
                 Vous recevez cet email car vous vous êtes abonné à la newsletter Émergences.<br>
