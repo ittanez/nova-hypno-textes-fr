@@ -55,6 +55,9 @@ const GuideEbook = lazy(() => import("@/pages/GuideEbook"));
 const GuideEbookMerci = lazy(() => import("@/pages/GuideEbookMerci"));
 const LandingProfessionnels = lazy(() => import("@/pages/LandingProfessionnels"));
 
+// Guide autohypnose (page dans la navigation)
+const GuideAutohypnose = lazy(() => import("@/pages/GuideAutohypnose"));
+
 // Pages de spécialités SEO
 const HypnoseStressParis = lazy(() => import("@/pages/HypnoseStressParis"));
 const HypnosePhobiesParis = lazy(() => import("@/pages/HypnosePhobiesParis"));
@@ -117,6 +120,9 @@ function App() {
 
             {/* Zone d'intervention */}
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
+
+            {/* Guide autohypnose */}
+            <Route path="/guide-autohypnose" element={<GuideAutohypnose />} />
 
             {/* Landing pages — pas de header/footer, noindex */}
             <Route path="/guide-emotions-travail" element={<GuideEbook />} />
