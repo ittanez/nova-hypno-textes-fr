@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
-import ContentLayout from '@/components/layout/ContentLayout';
+import { useNavigate } from 'react-router-dom';
+import { submitGuideLead } from '@/lib/services/guideLeadService';
 import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Star from 'lucide-react/dist/esm/icons/star';
@@ -9,14 +10,117 @@ import Briefcase from 'lucide-react/dist/esm/icons/briefcase';
 import BarChart3 from 'lucide-react/dist/esm/icons/bar-chart-3';
 import Wrench from 'lucide-react/dist/esm/icons/wrench';
 import Target from 'lucide-react/dist/esm/icons/target';
-import Download from 'lucide-react/dist/esm/icons/download';
 import FileText from 'lucide-react/dist/esm/icons/file-text';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Shield from 'lucide-react/dist/esm/icons/shield';
-import MapPin from 'lucide-react/dist/esm/icons/map-pin';
-import Phone from 'lucide-react/dist/esm/icons/phone';
+import Lock from 'lucide-react/dist/esm/icons/lock';
 import Mail from 'lucide-react/dist/esm/icons/mail';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 
+/* ─────────────────────────────────────────────
+   Landing page isolée — Guide "L'Autohypnose au Quotidien"
+   Pas de Header / Footer — page isolée
+   Formulaire prénom/email → envoi par email → page merci
+   ───────────────────────────────────────────── */
+
+// ── Inline lead form ──
+interface LeadFormProps {
+  id: string;
+  onSuccess: (prenom: string) => void;
+  buttonLabel?: string;
+  compact?: boolean;
+}
+
+const LeadForm: React.FC<LeadFormProps> = ({
+  id,
+  onSuccess,
+  buttonLabel = 'Recevoir le guide gratuitement',
+  compact = false,
+}) => {
+  const [prenom, setPrenom] = useState('');
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg('');
+
+    const result = await submitGuideLead(prenom, email);
+
+    setLoading(false);
+    if (result.success) {
+      onSuccess(prenom);
+    } else {
+      setErrorMsg(result.error || 'Une erreur est survenue. Veuillez réessayer.');
+    }
+  };
+
+  const inputClasses =
+    'w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-nova-neutral-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-nova-blue/40 focus:border-nova-blue transition-all text-[0.95rem]';
+
+  return (
+    <form id={id} onSubmit={handleSubmit} className="space-y-3">
+      <div>
+        {!compact && (
+          <label htmlFor={`${id}-prenom`} className="block text-sm font-medium text-nova-neutral-dark mb-1.5">
+            Prénom
+          </label>
+        )}
+        <input
+          id={`${id}-prenom`}
+          type="text"
+          value={prenom}
+          onChange={(e) => setPrenom(e.target.value)}
+          placeholder="Votre prénom"
+          required
+          className={inputClasses}
+        />
+      </div>
+      <div>
+        {!compact && (
+          <label htmlFor={`${id}-email`} className="block text-sm font-medium text-nova-neutral-dark mb-1.5">
+            Email
+          </label>
+        )}
+        <input
+          id={`${id}-email`}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="votre@email.fr"
+          required
+          className={inputClasses}
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full py-3.5 rounded-lg bg-nova-orange text-white font-semibold text-[0.95rem] hover:bg-nova-orange-dark active:scale-[0.98] transition-all shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-wait flex items-center justify-center gap-2"
+      >
+        {loading ? (
+          'Envoi en cours…'
+        ) : (
+          <>
+            {buttonLabel}
+            <ArrowRight size={18} />
+          </>
+        )}
+      </button>
+      <p className="text-xs text-gray-400 text-center pt-1 flex items-center justify-center gap-1">
+        <Lock size={12} />
+        Aucun spam. Vos données restent confidentielles.
+      </p>
+      {errorMsg && (
+        <p className="text-xs text-red-500 text-center mt-2">{errorMsg}</p>
+      )}
+    </form>
+  );
+};
+
+// ── Data ──
 const benefits = [
   {
     icon: Target,
@@ -81,60 +185,69 @@ const testimonials = [
   },
 ];
 
+// ── Main page component ──
 const GuideAutohypnose: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSuccess = useCallback((prenom: string) => {
+    navigate('/guide-autohypnose/merci', { state: { prenom } });
+  }, [navigate]);
+
   return (
-    <ContentLayout>
+    <>
       <Helmet>
         <title>Télécharger "L'Autohypnose au Quotidien" - Guide Gratuit | NovaHypnose</title>
         <meta
           name="description"
-          content="Téléchargez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 30 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
+          content="Recevez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 30 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
         />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
-      <section className="relative bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-blue-dark overflow-hidden">
+      <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 items-center bg-gradient-to-br from-nova-blue-dark via-nova-blue to-nova-blue-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.08),transparent_70%)] pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-          {/* Left: content */}
-          <div className="text-center md:text-left">
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white mb-6">
-              Reprenez la main sur votre{' '}
-              <span className="text-nova-orange">bien-être intérieur</span>
-            </h1>
-            <h2 className="text-xl sm:text-2xl font-medium text-white/90 mb-4">
-              Téléchargez gratuitement<br />
-              "L'Autohypnose au Quotidien"
-            </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">
-              Le guide pratique qui a déjà aidé des centaines de professionnels à transformer leur relation au stress.
-            </p>
+        {/* Left: content */}
+        <div className="px-6 md:px-12 lg:px-16 py-16 md:py-20 order-2 md:order-1 relative z-10">
+          <span className="inline-block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-5">
+            Guide gratuit &middot; 30 pages &middot; 9 protocoles
+          </span>
 
-            <a
-              href="#telecharger"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-nova-orange text-white font-semibold rounded-lg text-lg hover:bg-nova-orange-dark hover:-translate-y-0.5 hover:shadow-xl transition-all"
-            >
-              <Download size={20} />
-              Téléchargement gratuit immédiat
-            </a>
-            <p className="mt-4 text-white/50 text-sm flex flex-wrap justify-center md:justify-start gap-4">
-              <span className="flex items-center gap-1"><CheckCircle size={14} /> Aucune inscription</span>
-              <span className="flex items-center gap-1"><CheckCircle size={14} /> Pas de newsletter</span>
-              <span className="flex items-center gap-1"><CheckCircle size={14} /> Accès direct au PDF</span>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.8rem] font-bold leading-[1.15] text-white mb-5">
+            Reprenez la main sur votre{' '}
+            <span className="text-nova-orange italic">bien-être intérieur</span>
+          </h1>
+
+          <h2 className="text-xl font-medium text-white/90 mb-4">
+            Recevez gratuitement "L'Autohypnose au Quotidien"
+          </h2>
+
+          <p className="text-white/60 text-[1.05rem] leading-relaxed mb-8 max-w-lg">
+            Le guide pratique qui a déjà aidé des centaines de professionnels à transformer leur relation au stress.
+          </p>
+
+          {/* Inline form */}
+          <div className="bg-white rounded-2xl p-7 shadow-lg max-w-md">
+            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
+              Recevez votre guide gratuitement
             </p>
+            <p className="text-gray-400 text-sm mb-5">
+              Remplissez le formulaire — le guide arrive par email en quelques minutes
+            </p>
+            <LeadForm id="hero-form" onSuccess={handleSuccess} />
           </div>
+        </div>
 
-          {/* Right: ebook cover placeholder */}
-          <div className="flex justify-center">
-            <div className="w-[260px] sm:w-[300px] h-[370px] sm:h-[420px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform duration-500">
-              <div className="text-center px-6">
-                <BookOpen size={48} className="text-nova-orange mx-auto mb-4" />
-                <p className="font-serif text-white font-bold text-lg leading-snug mb-2">L'Autohypnose<br />au Quotidien</p>
-                <p className="text-white/50 text-sm">Alain Zenatti</p>
-                <p className="text-white/40 text-xs mt-2">30 pages &middot; 9 protocoles</p>
-              </div>
+        {/* Right: ebook cover */}
+        <div className="flex justify-center items-center px-6 md:px-12 py-10 md:py-20 order-1 md:order-2 relative z-10">
+          <div className="w-[260px] sm:w-[300px] h-[370px] sm:h-[420px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="text-center px-6">
+              <BookOpen size={48} className="text-nova-orange mx-auto mb-4" />
+              <p className="font-serif text-white font-bold text-lg leading-snug mb-2">L'Autohypnose<br />au Quotidien</p>
+              <p className="text-white/50 text-sm">Alain Zenatti</p>
+              <p className="text-white/40 text-xs mt-2">30 pages &middot; 9 protocoles</p>
             </div>
           </div>
         </div>
@@ -269,70 +382,55 @@ const GuideAutohypnose: React.FC = () => {
         </div>
       </section>
 
-      {/* ═══════════ CTA FINAL ═══════════ */}
-      <section id="telecharger" className="py-20 px-6 bg-gradient-to-br from-nova-blue-dark to-nova-blue text-center">
-        <div className="max-w-xl mx-auto">
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4">
-            Prêt à transformer votre quotidien ?
+      {/* ═══════════ CTA FINAL AVEC FORMULAIRE ═══════════ */}
+      <section id="telecharger" className="py-20 px-6 bg-gradient-to-b from-nova-blue-light/20 to-white">
+        <div className="max-w-md mx-auto bg-white rounded-2xl p-8 sm:p-10 shadow-xl text-center">
+          <h3 className="font-serif text-2xl font-bold text-nova-blue-dark mb-2 leading-snug">
+            Prêt à transformer<br />votre quotidien ?
           </h3>
-          <p className="text-white/70 text-lg mb-8">
-            Ce guide vous donne tout ce qu'il faut pour commencer <strong className="text-white">dès ce soir</strong>.
+          <p className="text-gray-400 text-sm mb-7 leading-relaxed">
+            Recevez le guide directement dans votre boîte mail. Aucun spam, vos données restent confidentielles.
           </p>
+          <LeadForm
+            id="final-form"
+            onSuccess={handleSuccess}
+            buttonLabel="Recevoir le guide"
+          />
 
-          <a
-            href="/autohypnose-au-quotidien.pdf"
-            download
-            className="inline-flex items-center gap-2 px-10 py-5 bg-nova-orange text-white font-bold rounded-lg text-lg hover:bg-nova-orange-dark hover:-translate-y-0.5 hover:shadow-xl transition-all"
-          >
-            <Download size={22} />
-            Oui, je télécharge le guide gratuit
-          </a>
-
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-white/70 text-sm">
-            <div className="flex flex-col items-center gap-1.5">
-              <FileText size={20} className="text-nova-orange" />
-              <span>PDF haute qualité</span>
-              <span className="text-white/40 text-xs">30 pages</span>
+          <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 gap-4 text-gray-500 text-xs">
+            <div className="flex flex-col items-center gap-1">
+              <FileText size={16} className="text-nova-orange" />
+              <span>PDF &middot; 30 pages</span>
             </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <Clock size={20} className="text-nova-orange" />
-              <span>Téléchargement</span>
-              <span className="text-white/40 text-xs">Immédiat</span>
+            <div className="flex flex-col items-center gap-1">
+              <Mail size={16} className="text-nova-orange" />
+              <span>Envoi par email</span>
             </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <Download size={20} className="text-nova-orange" />
-              <span>Prix</span>
-              <span className="text-white/40 text-xs">0&euro; (valeur 27&euro;)</span>
+            <div className="flex flex-col items-center gap-1">
+              <Clock size={16} className="text-nova-orange" />
+              <span>Réception en ~7 min</span>
             </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <Shield size={20} className="text-nova-orange" />
-              <span>Confidentialité</span>
-              <span className="text-white/40 text-xs">Aucune donnée</span>
+            <div className="flex flex-col items-center gap-1">
+              <Shield size={16} className="text-nova-orange" />
+              <span>0&euro; &middot; Sans engagement</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ MINI FOOTER CONTACT ═══════════ */}
-      <section className="py-10 px-6 bg-nova-neutral text-center">
-        <p className="text-gray-500 text-sm flex flex-wrap justify-center gap-4">
-          <span className="flex items-center gap-1.5">
-            <MapPin size={14} />
-            16 rue Saint-Antoine, 75004 Paris
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Phone size={14} />
-            06 49 35 80 89
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Mail size={14} />
-            <a href="mailto:alain.zenatti@novahypnose.fr" className="text-nova-blue hover:underline">
-              alain.zenatti@novahypnose.fr
-            </a>
-          </span>
+      {/* ═══════════ MINI FOOTER ═══════════ */}
+      <div className="bg-nova-blue-dark text-white/50 text-xs text-center py-5 px-4">
+        <p className="mb-1 flex items-center justify-center gap-1.5">
+          <MapPin size={12} />
+          16 rue Saint-Antoine, 75004 Paris
         </p>
-      </section>
-    </ContentLayout>
+        <p className="mb-0">
+          &copy; {new Date().getFullYear()} NovaHypnose &middot; Alain Zenatti &middot; Hypnothérapeute Paris 4e
+          <br />
+          Conformément au RGPD — Désabonnement libre à tout moment.
+        </p>
+      </div>
+    </>
   );
 };
 
