@@ -10,6 +10,7 @@ import Mail from 'lucide-react/dist/esm/icons/mail';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import LazyCommuteMap from '@/components/LazyCommuteMap';
+import { trackCTAClick } from '@/lib/analytics';
 
 const ContactSection: React.FC = () => {
   return (
@@ -43,7 +44,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">Téléphone</p>
-                    <a href="tel:0649358089" className="text-blue-600 hover:underline text-lg">
+                    <a href="tel:0649358089" className="text-blue-600 hover:underline text-lg" onClick={() => trackCTAClick('phone_call', 'contact_section')}>
                       06 49 35 80 89
                     </a>
                   </div>
@@ -55,7 +56,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">Email</p>
-                    <a href="mailto:contact@novahypnose.fr" className="text-blue-600 hover:underline text-lg">
+                    <a href="mailto:contact@novahypnose.fr" className="text-blue-600 hover:underline text-lg" onClick={() => trackCTAClick('email_contact', 'contact_section')}>
                       contact@novahypnose.fr
                     </a>
                   </div>

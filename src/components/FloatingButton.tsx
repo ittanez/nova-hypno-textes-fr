@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import CalendarPlus from 'lucide-react/dist/esm/icons/calendar-plus';
+import { trackCTAClick } from '@/lib/analytics';
 
 const FloatingButton = () => {
   const [visible, setVisible] = useState(false);
@@ -24,6 +25,7 @@ const FloatingButton = () => {
       className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-all transform ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
       }`}
+      onClick={() => trackCTAClick('resalib_booking', 'floating_button')}
     >
       <CalendarPlus size={20} />
       <span className="font-medium">Prendre rendez-vous</span>
