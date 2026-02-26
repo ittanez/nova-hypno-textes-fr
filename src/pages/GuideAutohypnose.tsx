@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { submitAutohypnoseLead } from '@/lib/services/autohypnoseLeadService';
-import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Star from 'lucide-react/dist/esm/icons/star';
 import Brain from 'lucide-react/dist/esm/icons/brain';
@@ -242,14 +241,12 @@ const GuideAutohypnose: React.FC = () => {
 
         {/* Right: ebook cover */}
         <div className="flex justify-center items-center px-6 md:px-12 py-10 md:py-20 order-1 lg:order-2 relative z-10">
-          <div className="w-[260px] sm:w-[300px] lg:w-[340px] h-[370px] sm:h-[420px] lg:h-[470px] rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 shadow-2xl flex items-center justify-center -rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div className="text-center px-6">
-              <BookOpen size={48} className="text-nova-orange mx-auto mb-4" />
-              <p className="font-serif text-white font-bold text-lg leading-snug mb-2">L'Autohypnose<br />au Quotidien</p>
-              <p className="text-white/50 text-sm">Alain Zenatti</p>
-              <p className="text-white/40 text-xs mt-2">37 pages &middot; 9 protocoles</p>
-            </div>
-          </div>
+          <img
+            src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ebookautohypnose.webp"
+            alt="Guide L'Autohypnose au Quotidien — 37 pages, 9 protocoles"
+            className="w-[260px] sm:w-[300px] lg:w-[340px] rounded-xl shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-500"
+            loading="eager"
+          />
         </div>
       </section>
 
