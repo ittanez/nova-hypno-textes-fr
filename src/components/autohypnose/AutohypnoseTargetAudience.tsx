@@ -84,7 +84,7 @@ const AutohypnoseTargetAudience = () => {
                   href="#pricing"
                   className="inline-block px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
                 >
-                  Je réserve ma place - 180€
+                  Je réserve ma place - 180€*
                 </a>
               </CardContent>
             </Card>

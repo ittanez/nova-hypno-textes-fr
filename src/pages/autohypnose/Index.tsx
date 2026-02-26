@@ -19,7 +19,7 @@ const AutohypnoseIndex = () => {
         <title>Formation Auto-hypnose Paris - Harmonia | NovaHypnose</title>
         <meta
           name="description"
-          content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié. Groupe de 6 max. 180€"
+          content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié. Groupe de 6 max. 180€ (jusqu'au 14 mars)"
         />
         <meta property="og:title" content="Formation Auto-hypnose Paris - Harmonia | NovaHypnose" />
         <meta property="og:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />

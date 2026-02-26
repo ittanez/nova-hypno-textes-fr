@@ -84,7 +84,7 @@ const AutohypnosePostTraining = () => {
                 href="#pricing"
                 className="inline-block px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
               >
-                Je commence mon parcours - 180€
+                Je commence mon parcours - 180€*
               </a>
             </CardContent>
           </Card>

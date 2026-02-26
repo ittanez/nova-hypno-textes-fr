@@ -46,7 +46,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'NovaHypnose <contact@updates.novahypnose.fr>',
+        from: 'Alain Zenatti - NovaHypnose <contact@updates.novahypnose.fr>',
         to: [email],
         bcc: ['a.zenatti@gmail.com'],
         subject: '\u{1F381} Votre guide "Autohypnose au Quotidien" est prêt — + 2 protocoles exclusifs\u{00A0}!',
@@ -59,7 +59,7 @@ serve(async (req) => {
                 Votre guide est prêt
               </h1>
               <p style="color: rgba(255,255,255,0.8); font-size: 15px; margin: 0;">
-                L'Autohypnose au Quotidien — 30 pages + 2 protocoles exclusifs
+                L'Autohypnose au Quotidien — 37 pages + 2 protocoles exclusifs
               </p>
             </div>
 
@@ -70,7 +70,7 @@ serve(async (req) => {
               </p>
 
               <p style="font-size: 16px; line-height: 1.7; color: #333; margin: 0 0 20px 0;">
-                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 30 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, sans vous prendre plus de 30 minutes par jour.
+                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 37 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, sans vous prendre plus de 30 minutes par jour.
               </p>
 
               <p style="font-size: 15px; line-height: 1.7; color: #555; margin: 0 0 24px 0;">
@@ -117,6 +117,24 @@ serve(async (req) => {
                 <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #555; font-style: italic;">
                   « Grâce à ces techniques, 85% de mes clients réduisent leur stress en 4 séances. Et le meilleur\u{00A0}? Vous pouvez commencer dès ce soir, chez vous, sans matériel. »
                 </p>
+              </div>
+
+              <!-- Formation Paris -->
+              <div style="background: linear-gradient(135deg, #233C67 0%, #4470AD 100%); border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
+                <p style="margin: 0 0 8px 0; font-size: 17px; font-weight: 600; color: #ffffff;">
+                  🎓 Prochaine formation à Paris
+                </p>
+                <p style="margin: 0 0 16px 0; font-size: 22px; color: #ffffff; font-weight: 700;">
+                  12 avril 2025
+                </p>
+                <p style="margin: 0 0 16px 0; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">
+                  Apprenez l'autohypnose en présentiel avec Alain Zenatti.<br>
+                  Tous les détails sur le site.
+                </p>
+                <a href="https://novahypnose.fr/autohypnose"
+                   style="display: inline-block; padding: 14px 32px; background: #F37336; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
+                  Découvrir la formation
+                </a>
               </div>
 
               <!-- Offre appel gratuit -->

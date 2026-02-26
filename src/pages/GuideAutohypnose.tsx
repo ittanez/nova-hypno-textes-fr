@@ -199,7 +199,7 @@ const GuideAutohypnose: React.FC = () => {
         <title>Télécharger "L'Autohypnose au Quotidien" - Guide Gratuit | NovaHypnose</title>
         <meta
           name="description"
-          content="Recevez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 30 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
+          content="Recevez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 37 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
         />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />
@@ -212,7 +212,7 @@ const GuideAutohypnose: React.FC = () => {
         {/* Left: content */}
         <div className="px-6 md:px-12 lg:px-16 xl:px-24 py-16 md:py-20 order-2 lg:order-1 relative z-10">
           <span className="inline-block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-5">
-            Guide gratuit &middot; 30 pages &middot; 9 protocoles
+            Guide gratuit &middot; 37 pages &middot; 9 protocoles
           </span>
 
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-5xl font-bold leading-[1.15] text-white mb-5">
@@ -225,7 +225,7 @@ const GuideAutohypnose: React.FC = () => {
           </h2>
 
           <p className="text-white/60 text-[1.05rem] leading-relaxed mb-8 max-w-lg">
-            30 pages, 9 protocoles testés — recevez-le gratuitement par email.
+            37 pages, 9 protocoles testés — recevez-le gratuitement par email.
           </p>
 
           {/* Inline form */}
@@ -247,7 +247,7 @@ const GuideAutohypnose: React.FC = () => {
               <BookOpen size={48} className="text-nova-orange mx-auto mb-4" />
               <p className="font-serif text-white font-bold text-lg leading-snug mb-2">L'Autohypnose<br />au Quotidien</p>
               <p className="text-white/50 text-sm">Alain Zenatti</p>
-              <p className="text-white/40 text-xs mt-2">30 pages &middot; 9 protocoles</p>
+              <p className="text-white/40 text-xs mt-2">37 pages &middot; 9 protocoles</p>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@ const GuideAutohypnose: React.FC = () => {
       <section className="py-20 px-6 lg:py-24 bg-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark text-center mb-12">
-            Ce que vous allez découvrir en 30 pages
+            Ce que vous allez découvrir en 37 pages
           </h3>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -400,7 +400,7 @@ const GuideAutohypnose: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 gap-4 text-gray-500 text-xs">
             <div className="flex flex-col items-center gap-1">
               <FileText size={16} className="text-nova-orange" />
-              <span>PDF &middot; 30 pages</span>
+              <span>PDF &middot; 37 pages</span>
             </div>
             <div className="flex flex-col items-center gap-1">
               <Mail size={16} className="text-nova-orange" />
