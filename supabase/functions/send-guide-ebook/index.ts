@@ -46,7 +46,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'NovaHypnose <contact@updates.novahypnose.fr>',
+        from: 'Alain Zenatti - NovaHypnose <contact@updates.novahypnose.fr>',
         to: [email],
         bcc: ['a.zenatti@gmail.com'],
         subject: 'Votre guide : Vous tenez. Mais jusqu\'à quand ?',

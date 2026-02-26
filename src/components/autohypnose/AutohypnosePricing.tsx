@@ -69,7 +69,10 @@ const Pricing = () => {
                 <div>
                   <div className="bg-nova-blue text-white p-4 rounded-lg mb-4">
                     <p className="text-4xl font-bold mb-2 flex items-baseline">
-                      180€ <span className="text-sm ml-2">TTC</span>
+                      180€<span className="text-lg">*</span> <span className="text-sm ml-2">TTC</span>
+                    </p>
+                    <p className="text-sm text-white/80 mt-1">
+                      * Tarif valable jusqu'au 14 mars. Ensuite 240€.
                     </p>
                   </div>
 
@@ -105,7 +108,8 @@ const Pricing = () => {
                   </div>
 
                   <p className="text-sm text-gray-500 mb-6">
-                    Places limitées à 6 participants. Réservez rapidement pour garantir votre place.
+                    Places limitées à 6 participants. Réservez rapidement pour garantir votre place.<br />
+                    <span className="text-nova-orange font-medium">* Tarif de 180€ valable jusqu'au 14 mars, ensuite 240€.</span>
                   </p>
 
                   <a
@@ -115,7 +119,7 @@ const Pricing = () => {
                     aria-label="Réserver ma place pour l'atelier auto-hypnose à 180€ (nouvel onglet)"
                     className="block w-full text-center px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
                   >
-                    Réserver ma place - 180€
+                    Réserver ma place - 180€*
                   </a>
                 </div>
                 
