@@ -18,7 +18,6 @@ const Pricing = () => {
     "🎧 Audios guidés d'auto-hypnose à télécharger",
     "☕ Pauses café incluses",
     "📞 Entretien téléphonique de suivi personnalisé (1 mois après)",
-    "🎁 Accès 3 mois gratuit à NovaRespire (app de respiration & relaxation) avec protocole stress personnalisé",
     "💯 Garantie satisfait ou remboursé 14 jours"
   ];
 

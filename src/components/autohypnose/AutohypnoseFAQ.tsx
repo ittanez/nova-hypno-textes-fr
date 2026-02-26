@@ -29,7 +29,7 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'Que contient le matériel pédagogique fourni ?',
-      answer: '📚 Fascicule complet avec les techniques et scripts d\'auto-hypnose\n🎧 Audios guidés enregistrés (à télécharger après la formation)\n📋 Fiches pratiques pour chaque module (à imprimer ou garder en PDF)\n🔗 Accès à un espace client avec ressources bonus\n🎁 BONUS : 3 mois gratuits sur NovaRespire avec protocole stress personnalisé\nTout est conçu pour que vous puissiez continuer seul après la journée.',
+      answer: '📚 Fascicule complet avec les techniques et scripts d\'auto-hypnose\n🎧 Audios guidés enregistrés (à télécharger après la formation)\n📋 Fiches pratiques pour chaque module (à imprimer ou garder en PDF)\n🔗 Accès à un espace client avec ressources bonus\nTout est conçu pour que vous puissiez continuer seul après la journée.',
     },
     {
       question: 'Y a-t-il un suivi après la formation ?',

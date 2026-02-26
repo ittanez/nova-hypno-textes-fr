@@ -54,7 +54,7 @@ const GuideAutohypnoseMerci: React.FC = () => {
               </div>
               <div>
                 <p className="font-semibold text-nova-blue-dark text-lg mb-1">
-                  Votre guide "L'Autohypnose au Quotidien" arrive par email
+                  Votre guide « Reprenez la main sur votre bien-être » arrive par email
                 </p>
                 <p className="text-gray-500 text-[0.95rem] leading-relaxed">
                   Vérifiez votre boîte de réception (et vos spams) dans les prochaines minutes.
