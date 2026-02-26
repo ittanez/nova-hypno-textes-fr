@@ -3,8 +3,7 @@ import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 
-// URL du PDF — temporairement le guide émotions, à remplacer par le vrai PDF autohypnose
-const GUIDE_PDF_URL = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/guide-emotions-travail.pdf'
+const GUIDE_PDF_URL = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/pdf/REPRENEZ_LA_MAIN_COMPLET.pdf'
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req)
