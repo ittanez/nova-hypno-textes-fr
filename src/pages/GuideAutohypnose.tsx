@@ -139,7 +139,7 @@ const benefits = [
   {
     icon: Brain,
     title: 'Méthode NovaHypnose',
-    desc: "Aperçu exclusif de mes protocoles propriétaires, utilisés en cabinet depuis 15 ans.",
+    desc: "Aperçu exclusif de mes protocoles propriétaires, utilisés en cabinet depuis 5 ans.",
   },
   {
     icon: BarChart3,
@@ -351,7 +351,7 @@ const GuideAutohypnose: React.FC = () => {
               <ul className="space-y-2 text-gray-600 text-sm leading-relaxed mb-4">
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-nova-green flex-shrink-0 mt-0.5" />
-                  <span><strong>15 ans</strong> d'expérience en cabinet (Paris 4e)</span>
+                  <span><strong>5 ans</strong> d'expérience en cabinet (Paris 4e)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-nova-green flex-shrink-0 mt-0.5" />

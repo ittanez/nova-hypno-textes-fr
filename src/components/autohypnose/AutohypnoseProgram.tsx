@@ -96,7 +96,6 @@ const Program = () => {
       outcomes: [
         "Un script d'auto-hypnose enregistré (si vous le souhaitez)",
         "Fiches récapitulatives des techniques apprises",
-        "Accès 3 mois gratuit à NovaRespire avec protocole stress personnalisé",
         "Garantie satisfait ou remboursé 14 jours"
       ]
     }
