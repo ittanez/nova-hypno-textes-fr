@@ -122,7 +122,7 @@ function App() {
             {/* Zone d'intervention */}
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
 
-            {/* Landing pages — pas de header/footer, noindex */}
+            {/* Landing pages — pas de header/footer */}
             <Route path="/guide-emotions-travail" element={<GuideEbook />} />
             <Route path="/guide-emotions-travail/merci" element={<GuideEbookMerci />} />
             <Route path="/guide-autohypnose" element={<GuideAutohypnose />} />

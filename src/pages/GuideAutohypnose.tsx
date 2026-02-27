@@ -200,7 +200,7 @@ const GuideAutohypnose: React.FC = () => {
           name="description"
           content="Recevez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 37 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
         />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />
       </Helmet>
 
