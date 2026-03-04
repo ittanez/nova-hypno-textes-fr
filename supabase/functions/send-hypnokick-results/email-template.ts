@@ -32,7 +32,7 @@ export function generateEmailContent(
                 <tr>
                   <td align="center" style="padding-bottom: 15px;">
                     <a href="https://novahypnose.fr" style="color: #3b82f6; text-decoration: none; font-size: 16px; margin-right: 15px;">novahypnose.fr</a>
-                    <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" style="background-color: #3b82f6; color: white; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 500; font-size: 16px; display: inline-block;">Prendre rendez-vous</a>
+                    <a href="https://calendly.com/zenatti/rdvtelephonique" style="background-color: #3b82f6; color: white; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 500; font-size: 16px; display: inline-block;">Prendre rendez-vous</a>
                   </td>
                 </tr>
                 <tr>
@@ -155,7 +155,7 @@ export function generateEmailContent(
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
                   <td align="center" style="padding: 25px 0 0 0;">
-                    <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris" style="background-color: #3b82f6; color: white; text-decoration: none; padding: 14px 30px; border-radius: 6px; font-weight: 500; font-size: 16px; display: inline-block;">Prendre rendez-vous</a>
+                    <a href="https://calendly.com/zenatti/rdvtelephonique" style="background-color: #3b82f6; color: white; text-decoration: none; padding: 14px 30px; border-radius: 6px; font-weight: 500; font-size: 16px; display: inline-block;">Prendre rendez-vous</a>
                   </td>
                 </tr>
               </table>
@@ -168,7 +168,7 @@ export function generateEmailContent(
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
                   <td align="center">
-                    <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">
+                    <a href="https://calendly.com/zenatti/rdvtelephonique">
                       <img src="${seanceHypnoseImageUrl}" alt="Séance d'hypnose avec Alain Zenatti" style="max-width: 100%; height: auto; display: block; border-radius: 8px;" width="540" />
                     </a>
                   </td>
