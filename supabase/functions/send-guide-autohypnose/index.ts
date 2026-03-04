@@ -134,7 +134,7 @@ serve(async (req) => {
                 <p style="margin: 0 0 16px 0; font-size: 15px; color: #555; line-height: 1.6;">
                   Réservez dès maintenant votre <strong>séance découverte gratuite de 30 minutes</strong> — et découvrez comment adapter ces protocoles à <strong>votre</strong> situation.
                 </p>
-                <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                <a href="https://calendly.com/zenatti/rdvtelephonique"
                    style="display: inline-block; padding: 14px 32px; background: #233C67; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
                   \u{1F4C5} Réserver mon créneau gratuit
                 </a>

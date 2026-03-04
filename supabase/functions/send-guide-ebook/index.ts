@@ -108,7 +108,7 @@ serve(async (req) => {
                 <p style="margin: 0 0 16px 0; font-size: 15px; color: #555; line-height: 1.6;">
                   Je vous propose un échange gratuit de 30 minutes<br>pour faire le point — sans engagement.
                 </p>
-                <a href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                <a href="https://calendly.com/zenatti/rdvtelephonique"
                    style="display: inline-block; padding: 12px 28px; background: #233C67; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600;">
                   Réserver un créneau gratuit
                 </a>
