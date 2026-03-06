@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from "@/components/ErrorBoundary";
-import CookieConsent from "@/components/CookieConsent";
 
 // Create a client with cache configuration
 const queryClient = new QueryClient({
@@ -192,7 +191,6 @@ function App() {
         </Suspense>
         </ErrorBoundary>
 
-        <CookieConsent />
         <Toaster />
         </BrowserRouter>
       </AuthProvider>
