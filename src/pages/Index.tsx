@@ -92,7 +92,7 @@ const Index: React.FC = () => {
 
         {/* Open Graph - URL cohérente sans trailing slash */}
         <meta property="og:title" content="Hypnothérapeute Paris | Alain Zenatti - Hypnose ericksonienne Marais-Bastille" />
-        <meta property="og:description" content="Vous cherchez un hypnothérapeute à Paris ? Alain Zenatti, Maître Hypnologue certifié. Cabinet Paris 4ème Marais-Bastille. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances. Tél 06 49 35 80 89." />
+        <meta property="og:description" content="Hypnothérapeute à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
