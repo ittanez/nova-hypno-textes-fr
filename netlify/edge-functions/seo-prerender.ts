@@ -1,9 +1,8 @@
 import type { Context } from "https://edge.netlify.com";
 
 // ─── Configuration ─────────────────────────────────────────────────────────
-const SUPABASE_URL = "https://akrlyzmfszumibwgocae.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrcmx5em1mc3p1bWlid2dvY2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI3NjUyNDcsImV4cCI6MjA1ODM0MTI0N30.UDVk1wzm36OJGK0usCHEtvmkC2QxABvG9KQ8p2lKz30";
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
+const SUPABASE_ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 const SITE_URL = "https://novahypnose.fr";
 const SITE_NAME = "Blog NovaHypnose";
 const STORAGE_URL =
