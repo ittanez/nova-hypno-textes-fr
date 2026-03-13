@@ -1,10 +1,11 @@
- import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import { logger } from '@/lib/logger';
+import { publicSupabase } from '@/integrations/supabase/public-client';
 
 interface BlogArticle {
   id: string;
@@ -27,37 +28,25 @@ const BlogArticlesSlider: React.FC = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
-  // Configuration Supabase via variables d'environnement
-  const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-  const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
   const AUTOPLAY_DELAY = 5000;
 
   useEffect(() => {
     const fetchLatestArticles = async () => {
       try {
         logger.debug('Recuperation automatique des articles...');
-        
-        // ✅ Appel direct à Supabase depuis novahypnose.fr
-        const response = await fetch(
-          `${SUPABASE_URL}/rest/v1/articles?published=eq.true&order=published_at.desc,created_at.desc&limit=6`,
-          {
-            headers: {
-              'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'Content-Type': 'application/json'
-            }
-          }
-        );
-        
-        if (!response.ok) {
-          throw new Error(`Erreur ${response.status}: ${response.statusText}`);
-        }
 
-        const data = await response.json();
-        logger.debug('Articles recuperes automatiquement:', data.length);
-        
-        // ✅ Transformer les données pour le slider
-        const transformedArticles = data.map((article: BlogArticle) => ({
+        const { data, error } = await publicSupabase
+          .from('articles')
+          .select('id, title, slug, excerpt, image_url, published_at, created_at, categories, read_time')
+          .eq('published', true)
+          .order('published_at', { ascending: false })
+          .order('created_at', { ascending: false })
+          .limit(6);
+
+        if (error) throw error;
+        logger.debug('Articles recuperes automatiquement:', data?.length);
+
+        const transformedArticles = (data ?? []).map((article: BlogArticle) => ({
           id: article.id,
           title: article.title,
           excerpt: article.excerpt,
