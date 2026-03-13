@@ -56,22 +56,55 @@ if (!updates.slug) {
   process.exit(1);
 }
 
-// Recherche de l'article existant
+// Recherche de l'article existant — d'abord exact, puis ilike
 console.log(`Recherche de l'article avec le slug : ${updates.slug}`);
-const { data: existing, error: fetchError } = await supabase
+let existing = null;
+
+const { data: exactMatch, error: exactError } = await supabase
   .from('articles')
   .select('id, title, slug, published')
-  .eq('slug', updates.slug)
-  .single();
+  .eq('slug', updates.slug);
 
-if (fetchError) {
-  console.error('Erreur lors de la recherche :', fetchError.message);
+if (exactError) {
+  console.error('Erreur lors de la recherche exacte :', exactError.message);
   process.exit(1);
 }
 
-if (!existing) {
-  console.error(`Article introuvable avec le slug : ${updates.slug}`);
+if (exactMatch && exactMatch.length === 1) {
+  existing = exactMatch[0];
+} else if (exactMatch && exactMatch.length > 1) {
+  console.error(`Plusieurs articles trouvés avec le slug exact "${updates.slug}" :`);
+  exactMatch.forEach(a => console.log(`  - ${a.id} | ${a.slug} | ${a.title}`));
   process.exit(1);
+} else {
+  // Fallback : recherche approximative
+  const keyword = updates.slug.split('-').slice(0, 3).join('%');
+  console.log(`Slug exact introuvable, recherche approximative avec : %${keyword}%`);
+  const { data: fuzzy, error: fuzzyError } = await supabase
+    .from('articles')
+    .select('id, title, slug, published')
+    .ilike('slug', `%${keyword}%`);
+
+  if (fuzzyError) {
+    console.error('Erreur lors de la recherche approximative :', fuzzyError.message);
+    process.exit(1);
+  }
+
+  if (!fuzzy || fuzzy.length === 0) {
+    console.error(`Aucun article trouvé avec le slug : ${updates.slug}`);
+    console.error('Vérifiez le slug dans le fichier JSON.');
+    process.exit(1);
+  }
+
+  if (fuzzy.length > 1) {
+    console.log(`Plusieurs articles correspondent, choisissez le bon slug :`);
+    fuzzy.forEach(a => console.log(`  - "${a.slug}" | ${a.title}`));
+    console.error('\nMettez à jour le champ "slug" dans le fichier JSON avec le slug exact ci-dessus.');
+    process.exit(1);
+  }
+
+  existing = fuzzy[0];
+  console.log(`Article trouvé par recherche approximative (slug réel : "${existing.slug}")`);
 }
 
 console.log(`Article trouvé :`);
