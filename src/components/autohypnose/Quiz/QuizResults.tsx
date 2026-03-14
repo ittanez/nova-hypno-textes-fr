@@ -54,7 +54,7 @@ const QuizResults = ({ result, onRestart, promoCode, emailSent, emailError }: Qu
   };
 
   const openStripeCheckout = () => {
-    window.open("https://buy.stripe.com/28og292uN30p3XW3cc", "_blank");
+    window.open("https://buy.stripe.com/28EcN40B71nZ6ZagCA4ko0g", "_blank");
   };
 
   return (
