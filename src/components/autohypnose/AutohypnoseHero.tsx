@@ -49,7 +49,7 @@ const Hero = memo(() => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
+              href="https://buy.stripe.com/28EcN40B71nZ6ZagCA4ko0g"
               className="px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
               rel="noopener noreferrer nofollow"
             >

@@ -246,7 +246,7 @@ function generateClientEmailHtml(firstName, quizResults, promoCode) {
         <span style="font-size: 14px;">(150€ au lieu de 300€)</span>
       </p>
       <p style="font-size: 15px; margin-bottom: 20px;">Formation débutant le <strong>26 octobre</strong></p>
-      <a href="https://buy.stripe.com/28og292uN30p3XW3cc" style="display: inline-block; background-color: white; color: #6d5dac; text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: bold;">
+      <a href="https://buy.stripe.com/28EcN40B71nZ6ZagCA4ko0g" style="display: inline-block; background-color: white; color: #6d5dac; text-decoration: none; padding: 12px 25px; border-radius: 30px; font-weight: bold;">
         S'INSCRIRE MAINTENANT
       </a>
     </div>

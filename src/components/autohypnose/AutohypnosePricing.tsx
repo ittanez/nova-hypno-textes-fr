@@ -68,10 +68,7 @@ const Pricing = () => {
                 <div>
                   <div className="bg-nova-blue text-white p-4 rounded-lg mb-4">
                     <p className="text-4xl font-bold mb-2 flex items-baseline">
-                      180€<span className="text-lg">*</span> <span className="text-sm ml-2">TTC</span>
-                    </p>
-                    <p className="text-sm text-white/80 mt-1">
-                      * Tarif valable jusqu'au 14 mars. Ensuite 240€.
+                      240€ <span className="text-sm ml-2">TTC</span>
                     </p>
                   </div>
 
@@ -79,7 +76,7 @@ const Pricing = () => {
                     <p className="text-sm text-gray-700 leading-relaxed">
                       <strong>Pour contexte :</strong> Une séance d'hypnothérapie en suivi individuel coûte 150-300€ par séance.
                       Une formation en ligne coûte 500-800€. Vous retrouvez ici <strong>8h de formation intensive</strong>,
-                      en petit groupe, avec suivi, pour <strong>180€ seulement</strong>. <br/>
+                      en petit groupe, avec suivi, pour <strong>240€ seulement</strong>. <br/>
                       <strong>ROI estimé :</strong> si vous retrouvez 2h par jour de productivité en réduisant l'anxiété,
                       la formation est rentabilisée en 2-3 semaines.
                     </p>
@@ -101,24 +98,23 @@ const Pricing = () => {
                     <stripe-buy-button
                       buy-button-id="buy_btn_1RD8bAANRwaqPj2NLAMafpVx"
                       publishable-key="pk_live_51RCQyrANRwaqPj2NZIKGZiadw33A3msp4preGmKVLNV258KoGe0eadZL65pKs74NOA0TxnKdEY2KqshyYnBWeO9H00DIad5mNU"
-                      data-href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
+                      data-href="https://buy.stripe.com/28EcN40B71nZ6ZagCA4ko0g"
                     >
                     </stripe-buy-button>
                   </div>
 
                   <p className="text-sm text-gray-500 mb-6">
-                    Places limitées à 6 participants. Réservez rapidement pour garantir votre place.<br />
-                    <span className="text-nova-orange font-medium">* Tarif de 180€ valable jusqu'au 14 mars, ensuite 240€.</span>
+                    Places limitées à 6 participants. Réservez rapidement pour garantir votre place.
                   </p>
 
                   <a
-                    href="https://buy.stripe.com/aFa7sK2JfeaLerC1HG4ko0f"
+                    href="https://buy.stripe.com/28EcN40B71nZ6ZagCA4ko0g"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
-                    aria-label="Réserver ma place pour l'atelier auto-hypnose à 180€ (nouvel onglet)"
+                    aria-label="Réserver ma place pour l'atelier auto-hypnose à 240€ (nouvel onglet)"
                     className="block w-full text-center px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold"
                   >
-                    Réserver ma place - 180€*
+                    Réserver ma place - 240€
                   </a>
                 </div>
                 
