@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -123,8 +124,9 @@ const AdminLogin = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <Header />
-      
+
       <main className="flex-grow container mx-auto px-4 py-12 flex items-center justify-center">
         <Card className="w-full max-w-md">
           <CardHeader>

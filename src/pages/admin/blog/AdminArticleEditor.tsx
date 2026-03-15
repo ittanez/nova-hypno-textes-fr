@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Eye from 'lucide-react/dist/esm/icons/eye';
@@ -53,6 +54,7 @@ const AdminArticleEditor = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8 pt-24">
