@@ -33,7 +33,7 @@ const GuideEbookMerci: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Merci ! Votre guide arrive — NovaHypnose</title>
+        <title>Merci ! Guide Émotions au Travail envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 

@@ -32,7 +32,7 @@ const GuideAutohypnoseMerci: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Merci ! Votre guide arrive — NovaHypnose</title>
+        <title>Merci ! Guide Autohypnose au Quotidien envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
