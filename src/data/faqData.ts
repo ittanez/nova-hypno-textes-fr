@@ -95,6 +95,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Comment reconnaître un hypnothérapeute qualifié ?",
-    answer: "❌ Signes d'alarme à éviter :\n• Promesses de guérison miraculeuse\n• Refus d'expliquer la méthode\n• Formation insuffisante ou floue\n• Approche directive sans respect du client\n• Tarifs anormalement bas ou élevés\n\n✅ Garanties d'un expert qualifié :\n• Formation certifiée et continue\n• Transparence sur la méthode\n• Approche personnalisée et respectueuse\n• Explication claire du processus\n• Déontologie professionnelle stricte\n\nMa promesse de transparence : Je m'engage à vous expliquer chaque étape, à répondre à toutes vos questions et à respecter votre rythme. Aucune séance ne commence sans que vous compreniez exactement ce qui va se passer."
+    answer: "Signes d'alarme à éviter :\n• Promesses de guérison miraculeuse\n• Refus d'expliquer la méthode\n• Formation insuffisante ou floue\n• Approche directive sans respect du client\n• Tarifs anormalement bas ou élevés\n\nGaranties d'un expert qualifié :\n• Formation certifiée et continue\n• Transparence sur la méthode\n• Approche personnalisée et respectueuse\n• Explication claire du processus\n• Déontologie professionnelle stricte\n\nMa promesse de transparence : Je m'engage à vous expliquer chaque étape, à répondre à toutes vos questions et à respecter votre rythme. Aucune séance ne commence sans que vous compreniez exactement ce qui va se passer."
   }
 ];

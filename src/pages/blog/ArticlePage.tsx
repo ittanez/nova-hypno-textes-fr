@@ -149,7 +149,7 @@ const ArticlePage = () => {
     const authorName = article.author?.name || article.author || "Alain Zenatti";
     const structuredData = {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "BlogPosting",
       "headline": article.title,
       "description": article.seo_description || article.excerpt,
       "image": article.image_url || "",
@@ -165,7 +165,7 @@ const ArticlePage = () => {
         "name": "NovaHypnose",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+          "url": "https://novahypnose.fr/favicon.ico"
         }
       },
       "mainEntityOfPage": {

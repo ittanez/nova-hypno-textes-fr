@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';
@@ -209,6 +210,9 @@ const Maquette = () => {
 
   return (
     <ContentLayout>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Hero Section avec Carrousel */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Carrousel d'images */}

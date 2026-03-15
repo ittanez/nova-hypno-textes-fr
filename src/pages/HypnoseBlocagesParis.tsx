@@ -17,6 +17,7 @@ const HypnoseBlocagesParis = () => {
     "@type": "Service",
     "name": "Hypnose pour les blocages et troubles du comportement à Paris",
     "description": "Libérez-vous de vos blocages et troubles du comportement grâce à l'hypnose ericksonienne à Paris. Procrastination, TOC, addictions, schémas répétitifs. Cabinet Paris 4ème.",
+    "url": "https://novahypnose.fr/hypnose-blocages-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie blocages comportementaux",
@@ -40,11 +41,11 @@ const HypnoseBlocagesParis = () => {
     <ContentLayout>
       <Helmet>
         <title>Hypnose blocages et comportements Paris | Zenatti</title>
-        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions comportementales. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
+        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-paris" />
-        <meta property="og:title" content="Hypnose blocages et troubles du comportement Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez vos blocages et changez vos comportements grâce à l'hypnose ericksonienne à Paris. Procrastination, TOC, schémas répétitifs." />
+        <meta property="og:title" content="Hypnose blocages et comportements Paris | Zenatti" />
+        <meta property="og:description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-blocages-paris" />
         <meta property="og:locale" content="fr_FR" />

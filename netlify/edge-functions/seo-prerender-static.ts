@@ -547,7 +547,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
-      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié. Résultats en 3 à 5 séances.",
+      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances.",
     canonicalPath: "/hypnose-gestion-emotions-paris",
     h1: "Hypnose et gestion des émotions — Retrouvez votre équilibre à Paris",
     jsonLd: [
@@ -627,7 +627,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-blocages-paris": {
     title: "Hypnose blocages et comportements Paris | Zenatti",
     description:
-      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions comportementales. Alain Zenatti, Maître Hypnologue. 3 à 5 séances.",
+      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances.",
     canonicalPath: "/hypnose-blocages-paris",
     h1: "Blocages et troubles du comportement — Libérez-vous par l'hypnose à Paris",
     jsonLd: [
@@ -815,9 +815,9 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/autohypnose": {
-    title: "Auto-hypnose et entraînement | NovaHypnose",
+    title: "Formation Auto-hypnose Paris - Harmonia | NovaHypnose",
     description:
-      "Découvrez l'auto-hypnose avec NovaHypnose. Quiz personnalisé, techniques guidées et exercices pratiques pour développer vos compétences en auto-hypnose.",
+      "Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti. Groupe max 6. 240€.",
     canonicalPath: "/autohypnose",
     h1: "Auto-hypnose — Développez vos compétences",
     jsonLd: [
@@ -851,7 +851,7 @@ const PAGES: Record<string, PageData> = {
   "/zone-intervention": {
     title: "Zone d'intervention Paris | Cabinet Hypnose Bastille",
     description:
-      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille (lignes 1, 5, 8) à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio. Accessible depuis toute la région parisienne.",
+      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio.",
     canonicalPath: "/zone-intervention",
     h1: "Zone d'Intervention — Cabinet d'Hypnothérapie à Paris",
     jsonLd: [
@@ -893,7 +893,7 @@ const PAGES: Record<string, PageData> = {
   "/hypnose-professionnels-paris": {
     title: "Hypnose stress au travail Paris | Alain Zenatti",
     description:
-      "Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème.",
+      "Hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème.",
     canonicalPath: "/hypnose-professionnels-paris",
     h1: "Vous tenez au travail. Mais à quel prix ?",
     jsonLd: [

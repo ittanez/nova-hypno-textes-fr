@@ -17,6 +17,7 @@ const HypnoseSommeilParis = () => {
     "@type": "Service",
     "name": "Hypnose pour les troubles du sommeil à Paris",
     "description": "Retrouvez un sommeil profond et réparateur grâce à l'hypnose ericksonienne. Insomnie, réveils nocturnes, endormissement difficile. Cabinet Paris 4ème.",
+    "url": "https://novahypnose.fr/hypnose-sommeil-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie sommeil",
@@ -44,7 +45,7 @@ const HypnoseSommeilParis = () => {
         <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:title" content="Hypnose sommeil et insomnie Paris | Alain Zenatti" />
-        <meta property="og:description" content="Retrouvez un sommeil profond et réparateur grâce à l'hypnose ericksonienne à Paris. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:locale" content="fr_FR" />

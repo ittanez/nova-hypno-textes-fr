@@ -17,6 +17,7 @@ const HypnoseConfianceParis = () => {
     "@type": "Service",
     "name": "Hypnose pour la confiance en soi à Paris",
     "description": "Développez votre confiance en soi grâce à l'hypnose ericksonienne à Paris. Prise de parole, estime de soi, syndrome de l'imposteur. Cabinet Paris 4ème Marais-Bastille.",
+    "url": "https://novahypnose.fr/hypnose-confiance-en-soi-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie confiance en soi",
@@ -44,7 +45,7 @@ const HypnoseConfianceParis = () => {
         <meta name="keywords" content="hypnose confiance en soi paris, estime de soi hypnose paris, syndrome imposteur hypnose paris, prise de parole hypnose paris, hypnothérapeute confiance paris, timidité hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
         <meta property="og:title" content="Hypnose confiance en soi Paris | Alain Zenatti" />
-        <meta property="og:description" content="Développez votre confiance en soi grâce à l'hypnose ericksonienne à Paris. Syndrome de l'imposteur, prise de parole, estime de soi." />
+        <meta property="og:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
         <meta property="og:locale" content="fr_FR" />
