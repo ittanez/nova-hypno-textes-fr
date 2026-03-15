@@ -282,7 +282,20 @@
   status = 301
   force = true
 
-# Articles WordPress datés (ex: /2024/03/26/...) → Blog
+# Articles WordPress datés — Redirections spécifiques vers les articles du nouveau blog
+[[redirects]]
+  from = "/2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/"
+  to = "/blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/2024/06/24/hypnose-aphantasie-bienfaits-adaptation/"
+  to = "/blog/article/hypnose-aphantasie-bienfaits-adaptation"
+  status = 301
+  force = true
+
+# Articles WordPress datés (catch-all) → Blog
 [[redirects]]
   from = "/2024/*"
   to = "/blog"
