@@ -66,6 +66,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
         <input
           id={`${id}-prenom`}
           type="text"
+          autoComplete="given-name"
           value={prenom}
           onChange={(e) => setPrenom(e.target.value)}
           placeholder="Votre prénom"
@@ -82,6 +83,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
         <input
           id={`${id}-email`}
           type="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="votre@email.fr"
