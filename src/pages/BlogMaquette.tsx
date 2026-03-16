@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Article, Category } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
@@ -107,6 +108,9 @@ const BlogMaquette = () => {
 
   return (
     <ContentLayout>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative bg-nova-blue-dark text-white py-20">
         <div className="absolute inset-0 bg-black/10"></div>

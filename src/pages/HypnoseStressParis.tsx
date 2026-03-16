@@ -17,6 +17,7 @@ const HypnoseStressParis = () => {
     "@type": "Service",
     "name": "Hypnose pour le stress et l'anxiété à Paris",
     "description": "Séances d'hypnose ericksonienne pour traiter le stress, l'anxiété et le burn-out. Cabinet Paris 4ème Marais-Bastille. Résultats en 3 à 5 séances.",
+    "url": "https://novahypnose.fr/hypnose-stress-anxiete-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie anti-stress",
@@ -44,7 +45,7 @@ const HypnoseStressParis = () => {
         <meta name="keywords" content="hypnose stress paris, hypnose anxiété paris, hypnothérapeute stress paris, gestion stress hypnose, burn-out hypnose paris, anxiété hypnothérapie paris, stress travail hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:title" content="Hypnose stress et anxiété Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous du stress et de l'anxiété grâce à l'hypnose ericksonienne à Paris. Résultats durables en 3 à 5 séances." />
+        <meta property="og:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -52,7 +53,7 @@ const HypnoseStressParis = () => {
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose stress et anxiété Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous du stress et de l'anxiété par l'hypnose à Paris 4ème. Résultats durables en 3 à 5 séances." />
+        <meta name="twitter:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

@@ -17,6 +17,7 @@ const HypnoseEmotionsParis = () => {
     "@type": "Service",
     "name": "Hypnose pour la gestion des émotions à Paris",
     "description": "Apprenez à gérer vos émotions grâce à l'hypnose ericksonienne à Paris. Colère, hypersensibilité, deuil, frustration. Cabinet Paris 4ème Marais-Bastille.",
+    "url": "https://novahypnose.fr/hypnose-gestion-emotions-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie gestion des émotions",
@@ -40,11 +41,11 @@ const HypnoseEmotionsParis = () => {
     <ContentLayout>
       <Helmet>
         <title>Hypnose gestion des émotions Paris | Alain Zenatti</title>
-        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue certifié. Résultats en 3 à 5 séances." />
+        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:title" content="Hypnose gestion des émotions Paris | Alain Zenatti" />
-        <meta property="og:description" content="Apprenez à gérer vos émotions grâce à l'hypnose ericksonienne à Paris. Colère, hypersensibilité, deuil, frustration." />
+        <meta property="og:description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -52,7 +53,7 @@ const HypnoseEmotionsParis = () => {
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose gestion des émotions Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Maître Hypnologue certifié." />
+        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

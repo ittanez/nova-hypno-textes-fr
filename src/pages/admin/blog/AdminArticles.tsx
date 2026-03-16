@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -134,6 +135,7 @@ const AdminArticles = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <Header />
 
       <main className="flex-grow container mx-auto p-6 pt-24">

@@ -17,6 +17,7 @@ const HypnosePhobiesParis = () => {
     "@type": "Service",
     "name": "Hypnose pour les phobies à Paris",
     "description": "Traitement des phobies et des peurs par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille. Résultats rapides en 2 à 4 séances.",
+    "url": "https://novahypnose.fr/hypnose-phobies-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": { "@type": "City", "name": "Paris" },
     "serviceType": "Hypnothérapie phobies",
@@ -44,7 +45,7 @@ const HypnosePhobiesParis = () => {
         <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
         <meta property="og:title" content="Hypnose phobies et peurs Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos phobies grâce à l'hypnose ericksonienne à Paris. Résultats rapides en 2 à 4 séances." />
+        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-phobies-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -52,7 +53,7 @@ const HypnosePhobiesParis = () => {
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose phobies et peurs Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie. Résultats en 2 à 4 séances." />
+        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

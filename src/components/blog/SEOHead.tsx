@@ -2,27 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { SchemaMarkup } from "@/types/schema";
-import { logger } from '@/lib/logger';
-
-// Fonction pour sécuriser le JSON-LD et éviter les erreurs de syntaxe JavaScript
-const safeJSONStringify = (data: unknown): string => {
-  try {
-    return JSON.stringify(data)
-      // Échapper les caractères HTML dangereux
-      .replace(/</g, '\\u003c')
-      .replace(/>/g, '\\u003e')
-      .replace(/&/g, '\\u0026')
-      // Échapper les caractères problématiques pour JSON-LD
-      .replace(/\u2028/g, '\\u2028')
-      .replace(/\u2029/g, '\\u2029')
-      // Supprimer les caractères de contrôle qui peuvent casser le JavaScript
-      // eslint-disable-next-line no-control-regex
-      .replace(/[\u0000-\u001f\u007f-\u009f]/g, '');
-  } catch (error) {
-    logger.error('Erreur JSON.stringify:', error);
-    return '{}';
-  }
-};
+import { safeJSONStringify } from '@/lib/seo-utils';
 
 interface SEOHeadProps {
   title: string;

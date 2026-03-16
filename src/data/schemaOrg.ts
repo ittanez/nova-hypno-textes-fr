@@ -25,8 +25,8 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "48.8534",
-    "longitude": "2.3656"
+    "latitude": 48.8534,
+    "longitude": 2.3656
   },
   "openingHoursSpecification": [
     {
@@ -120,10 +120,10 @@ export const localBusinessSchema = {
     "@type": "AggregateRating",
     "@id": "https://novahypnose.fr/#aggregateRating",
     "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
-    "ratingValue": "5",
-    "bestRating": "5",
-    "worstRating": "1",
-    "reviewCount": "40"
+    "ratingValue": 5,
+    "bestRating": 5,
+    "worstRating": 1,
+    "reviewCount": 3
   },
   "review": [
     {

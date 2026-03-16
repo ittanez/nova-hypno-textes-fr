@@ -175,6 +175,7 @@ const AdminSubscribers = () => {
     <>
       <Helmet>
         <title>Gestion des abonnés | NovaHypnose Blog Admin</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       
       <div className="container mx-auto px-4 py-8">

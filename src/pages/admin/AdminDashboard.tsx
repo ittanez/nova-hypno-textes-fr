@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -8,6 +9,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="container mx-auto p-4">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <h1 className="text-2xl font-bold mb-6">Tableau de bord administrateur</h1>
       
       {user && (

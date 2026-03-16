@@ -1,12 +1,14 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
 const AdminArticlesList = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="container mx-auto px-4 py-8">
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
       <h1 className="text-2xl font-bold mb-4">Articles List</h1>
       <p>This feature has been removed.</p>
       <button 
