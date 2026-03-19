@@ -8,7 +8,7 @@ interface GuideLeadResult {
 /**
  * Inscrit un lead pour le guide autohypnose et déclenche l'envoi par email.
  * 1. INSERT dans guide_leads (Supabase)
- * 2. Appelle la Edge Function send-guide-autohypnose (Resend)
+ * 2. Appelle la Edge Function send-ebook-brevo (Brevo)
  */
 export async function submitAutohypnoseLead(
   prenom: string,
@@ -27,12 +27,12 @@ export async function submitAutohypnoseLead(
 
     // 2. Envoyer l'email avec le guide autohypnose
     const { error: fnError } = await supabase.functions.invoke(
-      'send-guide-autohypnose',
-      { body: { prenom, email } }
+      'send-ebook-brevo',
+      { body: { firstName: prenom, email } }
     );
 
     if (fnError) {
-      console.error('Erreur Edge Function send-guide-autohypnose:', fnError);
+      console.error('Erreur Edge Function send-ebook-brevo:', fnError);
       return { success: false, error: "L'envoi de l'email a échoué. Veuillez réessayer." };
     }
 
