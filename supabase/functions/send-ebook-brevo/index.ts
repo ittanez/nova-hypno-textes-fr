@@ -80,7 +80,9 @@ serve(async (req) => {
           updateEnabled: true,
         }),
       })
-      console.log('Brevo contact upsert — status:', contactRes.status)
+      const contactResText = await contactRes.text()
+      console.log('Brevo contact upsert — status:', contactRes.status, '— body:', contactResText)
+      console.log('Brevo contact upsert — attributes envoyés:', JSON.stringify(contactAttributes))
     } catch (contactErr) {
       console.error('Brevo contact upsert — erreur non bloquante:', contactErr)
     }
