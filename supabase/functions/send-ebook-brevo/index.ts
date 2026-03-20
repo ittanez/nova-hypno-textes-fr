@@ -64,12 +64,7 @@ serve(async (req) => {
 
     // Créer/mettre à jour le contact dans Brevo (isolé — n'interrompt pas l'envoi email)
     try {
-      const contactAttributes = locationSafe
-        ? { PRENOM: prenomSafe, LOCALISATION: locationSafe }
-        : { PRENOM: prenomSafe }
-
-      console.log('Brevo contact — payload:', JSON.stringify({ email, attributes: contactAttributes, listIds: [3] }))
-
+      // Étape 1 : Créer le contact avec PRENOM + liste 3 (attributs fiables uniquement)
       const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: {
@@ -78,7 +73,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           email,
-          attributes: contactAttributes,
+          attributes: { PRENOM: prenomSafe },
           listIds: [3],
           updateEnabled: true,
         }),
@@ -86,20 +81,25 @@ serve(async (req) => {
       const contactResText = await contactRes.text()
       console.log('Brevo contact POST — status:', contactRes.status, '— body:', contactResText)
 
-      // PUT explicite pour s'assurer que les attributs sont bien mis à jour
-      const putRes = await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
-        method: 'PUT',
-        headers: {
-          'api-key': BREVO_API_KEY,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          attributes: contactAttributes,
-          listIds: [3],
-        }),
-      })
-      const putResText = await putRes.text()
-      console.log('Brevo contact PUT — status:', putRes.status, '— body:', putResText)
+      // Étape 2 : Mettre à jour LOCALISATION séparément (si l'attribut existe dans Brevo)
+      if (locationSafe) {
+        try {
+          const putRes = await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
+            method: 'PUT',
+            headers: {
+              'api-key': BREVO_API_KEY,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              attributes: { LOCALISATION: locationSafe },
+            }),
+          })
+          const putResText = await putRes.text()
+          console.log('Brevo LOCALISATION PUT — status:', putRes.status, '— body:', putResText)
+        } catch (locErr) {
+          console.error('Brevo LOCALISATION PUT — erreur non bloquante:', locErr)
+        }
+      }
     } catch (contactErr) {
       console.error('Brevo contact upsert — erreur non bloquante:', contactErr)
     }
