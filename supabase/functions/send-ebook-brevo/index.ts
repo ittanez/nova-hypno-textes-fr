@@ -63,8 +63,9 @@ serve(async (req) => {
       : ''
 
     // Créer/mettre à jour le contact dans Brevo (updateEnabled évite l'erreur si le contact existe déjà)
-    const contactAttributes: Record<string, string> = { PRENOM: prenomSafe }
-    if (locationSafe) contactAttributes.LOCALISATION = locationSafe
+    const contactAttributes = locationSafe
+      ? { PRENOM: prenomSafe, LOCALISATION: locationSafe }
+      : { PRENOM: prenomSafe }
 
     const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
