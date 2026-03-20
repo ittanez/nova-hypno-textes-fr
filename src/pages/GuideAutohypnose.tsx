@@ -39,15 +39,20 @@ const LeadForm: React.FC<LeadFormProps> = ({
 }) => {
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
+  const [location, setLocation] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!location) {
+      setErrorMsg('Veuillez sélectionner votre localisation.');
+      return;
+    }
     setLoading(true);
     setErrorMsg('');
 
-    const result = await submitAutohypnoseLead(prenom, email);
+    const result = await submitAutohypnoseLead(prenom, email, location);
 
     setLoading(false);
     if (result.success) {
@@ -93,6 +98,42 @@ const LeadForm: React.FC<LeadFormProps> = ({
           required
           className={inputClasses}
         />
+      </div>
+      <div>
+        {!compact && (
+          <p className="block text-sm font-medium text-nova-neutral-dark mb-1.5">
+            Où êtes-vous situé(e) ?
+          </p>
+        )}
+        {compact && (
+          <p className="block text-sm font-medium text-nova-neutral-dark mb-1.5">
+            Où êtes-vous situé(e) ?
+          </p>
+        )}
+        <div className="flex flex-col gap-2">
+          <label className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all text-[0.95rem] ${location === 'Paris Île-de-France' ? 'border-nova-blue bg-nova-blue/5 text-nova-blue-dark font-medium' : 'border-gray-200 bg-white text-nova-neutral-dark'}`}>
+            <input
+              type="radio"
+              name={`${id}-location`}
+              value="Paris Île-de-France"
+              checked={location === 'Paris Île-de-France'}
+              onChange={(e) => setLocation(e.target.value)}
+              className="accent-nova-blue"
+            />
+            Paris Île-de-France
+          </label>
+          <label className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all text-[0.95rem] ${location === 'Autre, étranger' ? 'border-nova-blue bg-nova-blue/5 text-nova-blue-dark font-medium' : 'border-gray-200 bg-white text-nova-neutral-dark'}`}>
+            <input
+              type="radio"
+              name={`${id}-location`}
+              value="Autre, étranger"
+              checked={location === 'Autre, étranger'}
+              onChange={(e) => setLocation(e.target.value)}
+              className="accent-nova-blue"
+            />
+            Autre, étranger
+          </label>
+        </div>
       </div>
       <button
         type="submit"

@@ -7,28 +7,17 @@ interface GuideLeadResult {
 
 /**
  * Inscrit un lead pour le guide autohypnose et déclenche l'envoi par email.
- * 1. INSERT dans guide_leads (Supabase)
- * 2. Appelle la Edge Function send-ebook-brevo (Brevo)
+ * Appelle la Edge Function send-ebook-brevo qui crée/met à jour le contact Brevo et envoie l'email.
  */
 export async function submitAutohypnoseLead(
   prenom: string,
-  email: string
+  email: string,
+  location: string
 ): Promise<GuideLeadResult> {
   try {
-    // 1. Enregistrer le lead en base
-    const { error: dbError } = await supabase
-      .from('guide_leads')
-      .upsert([{ prenom, email, source: 'autohypnose' }], { onConflict: 'email' });
-
-    if (dbError) {
-      console.error('Erreur insertion guide_leads:', dbError);
-      // On continue quand même pour envoyer l'email
-    }
-
-    // 2. Envoyer l'email avec le guide autohypnose
     const { error: fnError } = await supabase.functions.invoke(
       'send-ebook-brevo',
-      { body: { firstName: prenom, email } }
+      { body: { firstName: prenom, email, location } }
     );
 
     if (fnError) {
