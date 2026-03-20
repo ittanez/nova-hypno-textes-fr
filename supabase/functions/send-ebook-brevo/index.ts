@@ -77,6 +77,7 @@ serve(async (req) => {
         body: JSON.stringify({
           email,
           attributes: contactAttributes,
+          listIds: [3],
           updateEnabled: true,
         }),
       })
