@@ -62,24 +62,24 @@ serve(async (req) => {
          </p>`
       : ''
 
-    // Créer/mettre à jour le contact dans Brevo avec la localisation
-    if (locationSafe) {
-      await fetch('https://api.brevo.com/v3/contacts', {
-        method: 'POST',
-        headers: {
-          'api-key': BREVO_API_KEY,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          attributes: {
-            PRENOM: prenomSafe,
-            LOCALISATION: locationSafe,
-          },
-          updateEnabled: true,
-        }),
-      })
-    }
+    // Créer/mettre à jour le contact dans Brevo (updateEnabled évite l'erreur si le contact existe déjà)
+    const contactAttributes: Record<string, string> = { PRENOM: prenomSafe }
+    if (locationSafe) contactAttributes.LOCALISATION = locationSafe
+
+    const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'api-key': BREVO_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        attributes: contactAttributes,
+        updateEnabled: true,
+      }),
+    })
+    const contactData = await contactRes.json()
+    console.log('Brevo contact upsert — status:', contactRes.status, '— data:', JSON.stringify(contactData))
 
     // Appel API Brevo pour envoyer l'email transactionnel
     const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
