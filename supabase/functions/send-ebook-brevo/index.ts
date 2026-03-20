@@ -62,25 +62,28 @@ serve(async (req) => {
          </p>`
       : ''
 
-    // Créer/mettre à jour le contact dans Brevo (updateEnabled évite l'erreur si le contact existe déjà)
-    const contactAttributes = locationSafe
-      ? { PRENOM: prenomSafe, LOCALISATION: locationSafe }
-      : { PRENOM: prenomSafe }
+    // Créer/mettre à jour le contact dans Brevo (isolé — n'interrompt pas l'envoi email)
+    try {
+      const contactAttributes = locationSafe
+        ? { PRENOM: prenomSafe, LOCALISATION: locationSafe }
+        : { PRENOM: prenomSafe }
 
-    const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        'api-key': BREVO_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        attributes: contactAttributes,
-        updateEnabled: true,
-      }),
-    })
-    const contactData = await contactRes.json()
-    console.log('Brevo contact upsert — status:', contactRes.status, '— data:', JSON.stringify(contactData))
+      const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: {
+          'api-key': BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          attributes: contactAttributes,
+          updateEnabled: true,
+        }),
+      })
+      console.log('Brevo contact upsert — status:', contactRes.status)
+    } catch (contactErr) {
+      console.error('Brevo contact upsert — erreur non bloquante:', contactErr)
+    }
 
     // Appel API Brevo pour envoyer l'email transactionnel
     const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
