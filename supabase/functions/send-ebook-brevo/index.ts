@@ -68,6 +68,8 @@ serve(async (req) => {
         ? { PRENOM: prenomSafe, LOCALISATION: locationSafe }
         : { PRENOM: prenomSafe }
 
+      console.log('Brevo contact — payload:', JSON.stringify({ email, attributes: contactAttributes, listIds: [3] }))
+
       const contactRes = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: {
@@ -82,8 +84,22 @@ serve(async (req) => {
         }),
       })
       const contactResText = await contactRes.text()
-      console.log('Brevo contact upsert — status:', contactRes.status, '— body:', contactResText)
-      console.log('Brevo contact upsert — attributes envoyés:', JSON.stringify(contactAttributes))
+      console.log('Brevo contact POST — status:', contactRes.status, '— body:', contactResText)
+
+      // PUT explicite pour s'assurer que les attributs sont bien mis à jour
+      const putRes = await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
+        method: 'PUT',
+        headers: {
+          'api-key': BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          attributes: contactAttributes,
+          listIds: [3],
+        }),
+      })
+      const putResText = await putRes.text()
+      console.log('Brevo contact PUT — status:', putRes.status, '— body:', putResText)
     } catch (contactErr) {
       console.error('Brevo contact upsert — erreur non bloquante:', contactErr)
     }
