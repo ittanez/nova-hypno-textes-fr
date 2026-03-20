@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Clock from 'lucide-react/dist/esm/icons/clock';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 
 /* ─────────────────────────────────────────────
@@ -12,8 +11,6 @@ import MapPin from 'lucide-react/dist/esm/icons/map-pin';
    guide "L'Autohypnose au Quotidien"
    Page isolée (pas de Header / Footer)
    ───────────────────────────────────────────── */
-
-const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1&embed_type=Inline';
 
 const GuideAutohypnoseMerci: React.FC = () => {
   const location = useLocation();
@@ -66,44 +63,6 @@ const GuideAutohypnoseMerci: React.FC = () => {
               <span>Délai de réception : environ 7 minutes</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ═══════════ TRANSITION VERS CALENDLY ═══════════ */}
-      <section className="bg-gradient-to-br from-nova-blue-dark to-nova-blue py-14 px-6 text-center">
-        <div className="max-w-2xl mx-auto">
-          <Calendar className="text-white/80 mx-auto mb-4" size={36} />
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
-            Envie d'aller plus loin ?
-          </h2>
-          <p className="text-white/70 max-w-lg mx-auto text-[0.95rem] leading-relaxed">
-            En attendant votre guide, pourquoi ne pas réserver un appel découverte ?
-            <br />
-            Un premier échange téléphonique — <strong className="text-white">gratuit, sans engagement</strong> — pour
-            faire le point sur votre situation et voir comment l'hypnose peut vous aider concrètement.
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════ CALENDLY WIDGET ═══════════ */}
-      <section className="py-16 px-6 bg-nova-neutral">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="font-serif text-xl font-bold text-nova-blue-dark mb-2">
-              Choisissez un créneau qui vous convient
-            </h3>
-            <p className="text-gray-500 text-sm">
-              Appel téléphonique gratuit &middot; Sans engagement
-            </p>
-          </div>
-
-          <iframe
-            src={CALENDLY_URL}
-            title="Réserver un appel découverte gratuit avec Alain Zenatti"
-            className="rounded-2xl shadow-lg bg-white"
-            style={{ minWidth: '320px', width: '100%', height: '700px', border: 'none' }}
-            loading="lazy"
-          />
         </div>
       </section>
 
