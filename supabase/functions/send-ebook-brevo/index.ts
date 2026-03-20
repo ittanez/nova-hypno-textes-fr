@@ -29,7 +29,7 @@ serve(async (req) => {
       throw new Error('Body vide')
     }
 
-    const { firstName, email, animal } = JSON.parse(body)
+    const { firstName, email, animal, location } = JSON.parse(body)
 
     if (!email) {
       throw new Error('Email manquant')
@@ -51,8 +51,9 @@ serve(async (req) => {
 
     const prenomSafe = sanitizeString(firstName, 100)
     const animalSafe = sanitizeString(animal || '', 100)
+    const locationSafe = sanitizeString(location || '', 100)
 
-    console.log('Envoi ebook à:', email, '— Prénom:', prenomSafe, '— Animal:', animalSafe)
+    console.log('Envoi ebook à:', email, '— Prénom:', prenomSafe, '— Localisation:', locationSafe)
 
     // Phrase optionnelle sur l'animal
     const animalLine = animalSafe
@@ -60,6 +61,25 @@ serve(async (req) => {
            Votre animal préféré est <strong>${animalSafe}</strong> — un beau choix ! 🐾
          </p>`
       : ''
+
+    // Créer/mettre à jour le contact dans Brevo avec la localisation
+    if (locationSafe) {
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: {
+          'api-key': BREVO_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          attributes: {
+            PRENOM: prenomSafe,
+            LOCALISATION: locationSafe,
+          },
+          updateEnabled: true,
+        }),
+      })
+    }
 
     // Appel API Brevo pour envoyer l'email transactionnel
     const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {

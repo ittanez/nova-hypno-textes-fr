@@ -12,13 +12,14 @@ interface GuideLeadResult {
  */
 export async function submitAutohypnoseLead(
   prenom: string,
-  email: string
+  email: string,
+  location: string
 ): Promise<GuideLeadResult> {
   try {
     // 1. Enregistrer le lead en base
     const { error: dbError } = await supabase
       .from('guide_leads')
-      .upsert([{ prenom, email, source: 'autohypnose' }], { onConflict: 'email' });
+      .upsert([{ prenom, email, source: 'autohypnose', location }], { onConflict: 'email' });
 
     if (dbError) {
       console.error('Erreur insertion guide_leads:', dbError);
@@ -28,7 +29,7 @@ export async function submitAutohypnoseLead(
     // 2. Envoyer l'email avec le guide autohypnose
     const { error: fnError } = await supabase.functions.invoke(
       'send-ebook-brevo',
-      { body: { firstName: prenom, email } }
+      { body: { firstName: prenom, email, location } }
     );
 
     if (fnError) {
