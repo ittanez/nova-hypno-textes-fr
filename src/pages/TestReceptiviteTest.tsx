@@ -9,31 +9,31 @@ import HowItWorksSection from '@/components/receptivite/HowItWorksSection';
 import TestimonialSection from '@/components/receptivite/TestimonialSection';
 import FAQSection from '@/components/receptivite/FAQSection';
 import FloatingCTASection from '@/components/receptivite/FloatingCTASection';
-import { QuestionStep } from '@/components/receptivite/test/QuestionStep';
-import { VAKOGStep } from '@/components/receptivite/test/VAKOGStep';
+import { QuestionStepTest } from '@/components/receptivite/test/QuestionStepTest';
 import { EmailStep } from '@/components/receptivite/test/EmailStep';
-import { ResultsStep } from '@/components/receptivite/test/ResultsStep';
-import { Answer, calculateScore, TestResult } from '@/utils/receptivite/calculateScore';
+import { ResultsStepTest } from '@/components/receptivite/test/ResultsStepTest';
+import { AnswerTest, calculateScoreTest } from '@/utils/receptivite/calculateScoreTest';
+import { receptiviteQuestionsTest } from '@/data/receptivite/questionsTest';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { logger } from '@/lib/logger';
 
 const TestReceptiviteTest = () => {
-  const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'vakog' | 'email' | 'results'>('intro');
+  const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'email' | 'results'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Answer[]>([]);
+  const [answers, setAnswers] = useState<AnswerTest[]>([]);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [gdprConsent, setGdprConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [results, setResults] = useState<TestResult | null>(null);
 
   const handleStartTest = () => {
     setCurrentStep('questions');
+    setCurrentQuestionIndex(0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleAnswerSelect = (questionId: number, value: number) => {
+  const handleAnswerSelect = (questionId: string, value: number) => {
     setAnswers(prev => {
       const existing = prev.findIndex(a => a.questionId === questionId);
       if (existing >= 0) {
@@ -43,39 +43,31 @@ const TestReceptiviteTest = () => {
       }
       return [...prev, { questionId, value }];
     });
-  };
 
-  const handleVAKOGAnswerChange = (questionId: string, value: number) => {
-    setAnswers(prev => {
-      const existing = prev.findIndex(a => a.questionId === questionId);
-      if (existing >= 0) {
-        const updated = [...prev];
-        updated[existing] = { questionId, value };
-        return updated;
-      }
-      return [...prev, { questionId, value }];
-    });
-  };
-
-  const handleQuestionNext = () => {
-    if (currentQuestionIndex < 10) {
-      setCurrentQuestionIndex(10);
-    } else if (currentQuestionIndex < 20) {
-      setCurrentStep('vakog');
+    // Avancement automatique vers la question suivante ou l'étape email
+    if (currentQuestionIndex < receptiviteQuestionsTest.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setCurrentStep('email');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  const handleVAKOGNext = () => {
-    setCurrentStep('email');
-  };
-
-  const handleVAKOGPrevious = () => {
-    setCurrentQuestionIndex(10);
-    setCurrentStep('questions');
+  const handleQuestionPrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setCurrentStep('intro');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleEmailPrevious = () => {
-    setCurrentStep('vakog');
+    setCurrentQuestionIndex(receptiviteQuestionsTest.length - 1);
+    setCurrentStep('questions');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -83,8 +75,7 @@ const TestReceptiviteTest = () => {
     setIsSubmitting(true);
 
     try {
-      const testResults = calculateScore(answers);
-      setResults(testResults);
+      const testResults = calculateScoreTest(answers);
 
       const { error: insertError } = await supabase
         .from('hypnokick_results')
@@ -152,44 +143,34 @@ const TestReceptiviteTest = () => {
               <FloatingCTASection onStartTest={handleStartTest} />
             </>
           ) : (
-            <div className="container mx-auto px-4 py-16 bg-gray-50 min-h-screen">
+            <div className="bg-gray-50 min-h-screen">
               {currentStep === 'questions' && (
-                <QuestionStep
+                <QuestionStepTest
                   currentQuestionIndex={currentQuestionIndex}
                   onAnswerSelect={handleAnswerSelect}
-                  onNext={handleQuestionNext}
-                  answers={answers}
-                />
-              )}
-
-              {currentStep === 'vakog' && (
-                <VAKOGStep
-                  onAnswerChange={handleVAKOGAnswerChange}
-                  onNext={handleVAKOGNext}
-                  onPrevious={handleVAKOGPrevious}
+                  onPrevious={handleQuestionPrevious}
                   answers={answers}
                 />
               )}
 
               {currentStep === 'email' && (
-                <EmailStep
-                  email={email}
-                  firstName={firstName}
-                  gdprConsent={gdprConsent}
-                  onEmailChange={setEmail}
-                  onFirstNameChange={setFirstName}
-                  onGdprChange={setGdprConsent}
-                  onSubmit={handleEmailSubmit}
-                  onPrevious={handleEmailPrevious}
-                  isSubmitting={isSubmitting}
-                />
+                <div className="container mx-auto px-4 py-16">
+                  <EmailStep
+                    email={email}
+                    firstName={firstName}
+                    gdprConsent={gdprConsent}
+                    onEmailChange={setEmail}
+                    onFirstNameChange={setFirstName}
+                    onGdprChange={setGdprConsent}
+                    onSubmit={handleEmailSubmit}
+                    onPrevious={handleEmailPrevious}
+                    isSubmitting={isSubmitting}
+                  />
+                </div>
               )}
 
-              {currentStep === 'results' && results && (
-                <ResultsStep
-                  results={results}
-                  email={email}
-                />
+              {currentStep === 'results' && (
+                <ResultsStepTest firstName={firstName} />
               )}
             </div>
           )}
