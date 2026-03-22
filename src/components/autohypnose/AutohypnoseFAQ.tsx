@@ -105,14 +105,6 @@ const AutohypnoseFAQ = () => {
                   06 49 35 80 89
                 </a>
               </div>
-              <div className="text-center pt-4">
-                <a
-                  href="/#contact"
-                  className="inline-block px-8 py-3 bg-nova-blue text-white rounded-full hover:bg-nova-blue-dark transition-colors font-semibold"
-                >
-                  💬 Prendre RDV pour une conversation de 15 min
-                </a>
-              </div>
             </div>
           </div>
         </div>
