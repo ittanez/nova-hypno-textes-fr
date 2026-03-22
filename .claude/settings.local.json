@@ -25,7 +25,8 @@
       "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__get_logs",
       "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__list_projects",
       "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__deploy_edge_function",
-      "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__get_edge_function"
+      "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__get_edge_function",
+      "mcp__4d62556b-5bd5-4cb2-b9fa-21f99e585207__execute_sql"
     ],
     "deny": [],
     "ask": []
