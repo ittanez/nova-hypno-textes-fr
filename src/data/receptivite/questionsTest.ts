@@ -4,7 +4,7 @@ export type QuestionTest = {
   canal: 'V' | 'A' | 'K' | 'O' | 'G';
 };
 
-// 20 questions VAKOG, affichées en ordre intercalé (V1, A1, K1, O1, G1, V2, ...)
+// 30 questions VAKOG, affichées en ordre intercalé (V1, A1, K1, O1, G1, V2, ...)
 export const receptiviteQuestionsTest: QuestionTest[] = [
   {
     id: 'V1',
@@ -105,5 +105,55 @@ export const receptiviteQuestionsTest: QuestionTest[] = [
     id: 'G4',
     canal: 'G',
     text: "Je remarque facilement les nuances de goût dans ce que je consomme."
+  },
+  {
+    id: 'V5',
+    canal: 'V',
+    text: "Lorsque je me souviens d'un événement passé, je revois les images clairement dans ma tête."
+  },
+  {
+    id: 'A5',
+    canal: 'A',
+    text: "Je peux facilement entendre mentalement une musique ou une voix que je connais."
+  },
+  {
+    id: 'K5',
+    canal: 'K',
+    text: "Je peux rester concentré(e) sur une seule chose pendant une longue période sans effort particulier."
+  },
+  {
+    id: 'O5',
+    canal: 'O',
+    text: "Je perçois des odeurs que d'autres personnes ne remarquent pas."
+  },
+  {
+    id: 'G5',
+    canal: 'G',
+    text: "La saveur d'un aliment peut me faire revivre un moment passé avec précision."
+  },
+  {
+    id: 'V6',
+    canal: 'V',
+    text: "Je peux aisément imaginer un endroit que l'on me décrit sans l'avoir vu."
+  },
+  {
+    id: 'A6',
+    canal: 'A',
+    text: "Le silence ou le bruit de fond dans un lieu influence fortement mon état intérieur."
+  },
+  {
+    id: 'K6',
+    canal: 'K',
+    text: "Mon corps réagit rapidement aux suggestions ou aux ambiances (chaleur, détente, légèreté)."
+  },
+  {
+    id: 'O6',
+    canal: 'O',
+    text: "Une odeur agréable suffit à me mettre dans un état de bien-être."
+  },
+  {
+    id: 'G6',
+    canal: 'G',
+    text: "Je suis sensible aux changements subtils de texture ou de goût dans mes aliments."
   }
 ];
