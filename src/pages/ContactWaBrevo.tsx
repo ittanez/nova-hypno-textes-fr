@@ -12,7 +12,16 @@ const WA_URL =
 const ContactWaBrevo: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.replace(WA_URL);
+      try {
+        if (window.top && window.top !== window.self) {
+          window.top.location.href = WA_URL;
+        } else {
+          window.location.href = WA_URL;
+        }
+      } catch {
+        // Accès à window.top bloqué (cross-origin) : on redirige localement
+        window.location.href = WA_URL;
+      }
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
