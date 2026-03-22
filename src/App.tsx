@@ -60,6 +60,9 @@ const LandingProfessionnels = lazy(() => import("@/pages/LandingProfessionnels")
 const GuideAutohypnose = lazy(() => import("@/pages/GuideAutohypnose"));
 const GuideAutohypnoseMerci = lazy(() => import("@/pages/GuideAutohypnoseMerci"));
 
+// Page de redirection WhatsApp (emails Brevo)
+const ContactWaBrevo = lazy(() => import("@/pages/ContactWaBrevo"));
+
 // Page de test ebook (isolée, pas dans le menu)
 const TestEbook = lazy(() => import("@/pages/TestEbook"));
 
@@ -136,6 +139,9 @@ function App() {
 
             {/* Page de test ebook — pas dans le menu */}
             <Route path="/test-ebook" element={<TestEbook />} />
+
+            {/* Page de redirection WhatsApp — emails Brevo */}
+            <Route path="/contact-wa-brevo" element={<ContactWaBrevo />} />
 
             {/* Pages de spécialités */}
             <Route path="/hypnose-stress-anxiete-paris" element={<HypnoseStressParis />} />
