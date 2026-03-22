@@ -5,24 +5,37 @@ import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 
+export type Localisation = 'paris' | 'idf' | 'autre' | 'etranger' | '';
+
 type EmailStepProps = {
   email: string;
   firstName: string;
+  localisation: Localisation;
   gdprConsent: boolean;
   onEmailChange: (email: string) => void;
   onFirstNameChange: (firstName: string) => void;
+  onLocalisationChange: (localisation: Localisation) => void;
   onGdprChange: (checked: boolean) => void;
   onSubmit: (e: React.FormEvent) => void;
   onPrevious: () => void;
   isSubmitting: boolean;
 };
 
+const localisationOptions: { value: Localisation; label: string }[] = [
+  { value: 'paris', label: 'Paris' },
+  { value: 'idf', label: 'Île-de-France' },
+  { value: 'autre', label: 'Autre ville en France' },
+  { value: 'etranger', label: 'Étranger' },
+];
+
 export const EmailStep = ({
   email,
   firstName,
+  localisation,
   gdprConsent,
   onEmailChange,
   onFirstNameChange,
+  onLocalisationChange,
   onGdprChange,
   onSubmit,
   onPrevious,
@@ -79,6 +92,29 @@ export const EmailStep = ({
             </div>
           </div>
 
+          {/* Localisation */}
+          <div>
+            <label className="block text-sm font-medium text-nova-neutral-dark mb-3">
+              Où vous trouvez-vous ?
+            </label>
+            <div className="grid grid-cols-2 gap-3">
+              {localisationOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => onLocalisationChange(opt.value)}
+                  className={`py-3 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 text-left ${
+                    localisation === opt.value
+                      ? 'bg-nova-blue text-white border-nova-blue'
+                      : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="flex items-start gap-3">
             <Checkbox
               id="gdpr"
@@ -105,7 +141,7 @@ export const EmailStep = ({
 
             <Button
               type="submit"
-              disabled={isSubmitting || !gdprConsent}
+              disabled={isSubmitting || !gdprConsent || !localisation}
               className="bg-nova-blue hover:bg-nova-blue-dark"
             >
               {isSubmitting ? "Envoi en cours..." : "Voir mes résultats"}

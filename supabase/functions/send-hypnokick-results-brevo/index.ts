@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { corsHeaders, fromAddress, fromName } from './config.ts';
+import { getCorsHeaders } from '../_shared/cors.ts';
+import { fromAddress, fromName } from './config.ts';
 import { getCategoryContent } from './content-generator.ts';
 
 const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
@@ -7,6 +8,8 @@ const BREVO_TEMPLATE_ID = 23;
 const BREVO_LIST_ID = 8;
 
 serve(async (req) => {
+  const corsHeaders = getCorsHeaders(req);
+
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }
@@ -17,9 +20,16 @@ serve(async (req) => {
       'Content-Type': 'application/json'
     };
 
-    const { email, firstName, score, category, senseDominant, vakogScores, timestamp } = await req.json();
+    const body = await req.text();
+    console.log('send-hypnokick-results-brevo — Body reçu:', body);
 
-    console.log('send-hypnokick-results-brevo — Request:', JSON.stringify({ email, firstName, score, category, senseDominant, timestamp }, null, 2));
+    if (!body) {
+      throw new Error('Body vide');
+    }
+
+    const { email, firstName, localisation, score, category, senseDominant, vakogScores } = JSON.parse(body);
+
+    console.log('Données parsées:', JSON.stringify({ email, firstName, localisation, score, category, senseDominant }, null, 2));
 
     if (!email) {
       throw new Error('Email is required');
@@ -42,6 +52,7 @@ serve(async (req) => {
         email,
         attributes: {
           PRENOM: firstName,
+          LOCALISATION: localisation || '',
           HYPNOKICK_SCORE: score,
           HYPNOKICK_CATEGORIE: category,
           HYPNOKICK_SENS_DOMINANT: senseDominant,
@@ -68,6 +79,7 @@ serve(async (req) => {
         bcc: [{ email: 'a.zenatti@gmail.com' }],
         params: {
           PRENOM: firstName,
+          LOCALISATION: localisation || '',
           SCORE: score,
           CATEGORIE: category,
           SENS_DOMINANT: senseDominant,
@@ -117,7 +129,7 @@ serve(async (req) => {
       }),
       {
         status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders }
+        headers: { "Content-Type": "application/json", ...getCorsHeaders(req) }
       }
     );
   }

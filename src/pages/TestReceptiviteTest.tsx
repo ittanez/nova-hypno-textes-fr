@@ -10,7 +10,7 @@ import TestimonialSection from '@/components/receptivite/TestimonialSection';
 import FAQSection from '@/components/receptivite/FAQSection';
 import FloatingCTASection from '@/components/receptivite/FloatingCTASection';
 import { QuestionStepTest } from '@/components/receptivite/test/QuestionStepTest';
-import { EmailStep } from '@/components/receptivite/test/EmailStep';
+import { EmailStep, Localisation } from '@/components/receptivite/test/EmailStep';
 import { ResultsStepTest } from '@/components/receptivite/test/ResultsStepTest';
 import { AnswerTest, calculateScoreTest } from '@/utils/receptivite/calculateScoreTest';
 import { receptiviteQuestionsTest } from '@/data/receptivite/questionsTest';
@@ -18,12 +18,20 @@ import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { logger } from '@/lib/logger';
 
+const localisationLabels: Record<string, string> = {
+  paris: 'Paris',
+  idf: 'Île-de-France',
+  autre: 'Autre ville en France',
+  etranger: 'Étranger',
+};
+
 const TestReceptiviteTest = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'email' | 'results'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<AnswerTest[]>([]);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [localisation, setLocalisation] = useState<Localisation>('');
   const [gdprConsent, setGdprConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -44,7 +52,6 @@ const TestReceptiviteTest = () => {
       return [...prev, { questionId, value }];
     });
 
-    // Avancement automatique vers la question suivante ou l'étape email
     if (currentQuestionIndex < receptiviteQuestionsTest.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -76,12 +83,15 @@ const TestReceptiviteTest = () => {
 
     try {
       const testResults = calculateScoreTest(answers);
+      const localisationLabel = localisationLabels[localisation] || localisation;
 
+      // Sauvegarde en base (non bloquant si la table n'existe pas encore)
       const { error: insertError } = await supabase
         .from('hypnokick_results')
         .insert({
           user_email: email,
           first_name: firstName,
+          localisation: localisationLabel,
           score: testResults.score,
           category: testResults.category,
           dominant_sense: testResults.senseDominant,
@@ -89,14 +99,15 @@ const TestReceptiviteTest = () => {
         });
 
       if (insertError) {
-        logger.error('Error saving results:', insertError);
+        logger.error('Error saving results to DB:', insertError);
       }
 
-      // Appel vers la nouvelle edge function Brevo (test)
-      const { error: emailError } = await supabase.functions.invoke('send-hypnokick-results-brevo', {
+      // Envoi email via Brevo
+      const { error: emailError, data: emailData } = await supabase.functions.invoke('send-hypnokick-results-brevo', {
         body: {
           email,
           firstName,
+          localisation: localisationLabel,
           score: testResults.score,
           category: testResults.category,
           description: testResults.description,
@@ -106,9 +117,10 @@ const TestReceptiviteTest = () => {
       });
 
       if (emailError) {
-        logger.error('Error sending email:', emailError);
+        logger.error('Error sending email via Brevo:', emailError);
         toast.error("Une erreur est survenue lors de l'envoi de l'email");
       } else {
+        logger.info('Brevo response:', emailData);
         toast.success('Email envoyé avec succès !');
       }
 
@@ -158,9 +170,11 @@ const TestReceptiviteTest = () => {
                   <EmailStep
                     email={email}
                     firstName={firstName}
+                    localisation={localisation}
                     gdprConsent={gdprConsent}
                     onEmailChange={setEmail}
                     onFirstNameChange={setFirstName}
+                    onLocalisationChange={setLocalisation}
                     onGdprChange={setGdprConsent}
                     onSubmit={handleEmailSubmit}
                     onPrevious={handleEmailPrevious}
