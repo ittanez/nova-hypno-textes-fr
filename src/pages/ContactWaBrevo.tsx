@@ -11,7 +11,10 @@ const WA_URL =
 
 const ContactWaBrevo: React.FC = () => {
   useEffect(() => {
-    window.location.replace(WA_URL);
+    const timer = setTimeout(() => {
+      window.location.replace(WA_URL);
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
