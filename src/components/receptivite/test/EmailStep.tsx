@@ -5,7 +5,7 @@ import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 
-export type Localisation = 'paris' | 'idf' | 'autre' | 'etranger' | '';
+export type Localisation = 'IDF' | 'AUTRE' | '';
 
 type EmailStepProps = {
   email: string;
@@ -20,13 +20,6 @@ type EmailStepProps = {
   onPrevious: () => void;
   isSubmitting: boolean;
 };
-
-const localisationOptions: { value: Localisation; label: string }[] = [
-  { value: 'paris', label: 'Paris' },
-  { value: 'idf', label: 'Île-de-France' },
-  { value: 'autre', label: 'Autre ville en France' },
-  { value: 'etranger', label: 'Étranger' },
-];
 
 export const EmailStep = ({
   email,
@@ -92,26 +85,34 @@ export const EmailStep = ({
             </div>
           </div>
 
-          {/* Localisation */}
+          {/* Localisation — 2 choix */}
           <div>
             <label className="block text-sm font-medium text-nova-neutral-dark mb-3">
               Où vous trouvez-vous ?
             </label>
             <div className="grid grid-cols-2 gap-3">
-              {localisationOptions.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  onClick={() => onLocalisationChange(opt.value)}
-                  className={`py-3 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 text-left ${
-                    localisation === opt.value
-                      ? 'bg-nova-blue text-white border-nova-blue'
-                      : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
+              <button
+                type="button"
+                onClick={() => onLocalisationChange('IDF')}
+                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 ${
+                  localisation === 'IDF'
+                    ? 'bg-nova-blue text-white border-nova-blue'
+                    : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'
+                }`}
+              >
+                Paris / Île-de-France
+              </button>
+              <button
+                type="button"
+                onClick={() => onLocalisationChange('AUTRE')}
+                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 ${
+                  localisation === 'AUTRE'
+                    ? 'bg-nova-blue text-white border-nova-blue'
+                    : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'
+                }`}
+              >
+                Autre / Étranger
+              </button>
             </div>
           </div>
 
