@@ -147,11 +147,11 @@
     # Content-Security-Policy - Protection XSS avancée
     Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://tools.luckyorange.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://assets.calendly.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://assets.calendly.com;
       style-src 'self' 'unsafe-inline' https://maps.googleapis.com https://assets.calendly.com;
       img-src 'self' data: https: blob:;
       font-src 'self' data:;
-      connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://region1.analytics.google.com https://www.google.com https://tools.luckyorange.com https://settings.luckyorange.com https://maps.googleapis.com https://calendly.com https://assets.calendly.com;
+      connect-src 'self' https://akrlyzmfszumibwgocae.supabase.co https://www.google-analytics.com https://region1.analytics.google.com https://www.google.com https://maps.googleapis.com https://calendly.com https://assets.calendly.com;
       media-src 'self' https://akrlyzmfszumibwgocae.supabase.co blob:;
       frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://www.googletagmanager.com https://calendly.com;
       frame-ancestors 'none';

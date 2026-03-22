@@ -20,25 +20,6 @@ export function viteSeoHeaders() {
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2" as="font" type="font/woff2" crossorigin>`
           );
           
-          // Optimiser Lucky Orange pour charger après interaction
-          html = html.replace(
-            /setTimeout\(function\(\)\{\s*const script=document\.createElement\('script'\);\s*script\.src='https:\/\/tools\.luckyorange\.com\/core\/lo\.js\?site-id=856f311d';\s*document\.head\.appendChild\(script\);\s*\},5000\);/,
-            `let luckyOrangeLoaded = false;
-      function loadLuckyOrange() {
-        if (!luckyOrangeLoaded) {
-          luckyOrangeLoaded = true;
-          const script = document.createElement('script');
-          script.src = 'https://tools.luckyorange.com/core/lo.js?site-id=856f311d';
-          document.head.appendChild(script);
-        }
-      }
-      // Charger après interaction ou 10s
-      setTimeout(loadLuckyOrange, 10000);
-      ['scroll', 'click', 'mousemove', 'keydown'].forEach(event => {
-        document.addEventListener(event, loadLuckyOrange, { once: true, passive: true });
-      });`
-          );
-          
           // Ajouter les polices critiques dans le CSS inline
           html = html.replace(
             'body{font-family:\'Poppins\',sans-serif;margin:0;padding:0;line-height:1.6}',
