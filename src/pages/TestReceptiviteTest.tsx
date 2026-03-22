@@ -18,13 +18,6 @@ import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { logger } from '@/lib/logger';
 
-const localisationLabels: Record<string, string> = {
-  paris: 'Paris',
-  idf: 'Île-de-France',
-  autre: 'Autre ville en France',
-  etranger: 'Étranger',
-};
-
 const TestReceptiviteTest = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'email' | 'results'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -83,15 +76,13 @@ const TestReceptiviteTest = () => {
 
     try {
       const testResults = calculateScoreTest(answers);
-      const localisationLabel = localisationLabels[localisation] || localisation;
-
       // Sauvegarde en base (non bloquant si la table n'existe pas encore)
       const { error: insertError } = await supabase
         .from('hypnokick_results')
         .insert({
           user_email: email,
           first_name: firstName,
-          localisation: localisationLabel,
+          localisation,
           score: testResults.score,
           category: testResults.category,
           dominant_sense: testResults.senseDominant,
@@ -107,7 +98,7 @@ const TestReceptiviteTest = () => {
         body: {
           email,
           firstName,
-          localisation: localisationLabel,
+          localisation,
           score: testResults.score,
           category: testResults.category,
           description: testResults.description,
