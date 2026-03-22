@@ -212,6 +212,8 @@ export const getPopularArticles = async (limit: number = 3): Promise<ArticlesRes
     const { data, error } = await supabase
       .from('articles')
       .select('*')
+      .eq('published', true)
+      .order('published_at', { ascending: false })
       .order('created_at', { ascending: false })
       .limit(limit);
 
