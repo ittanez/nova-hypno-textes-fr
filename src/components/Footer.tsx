@@ -1,33 +1,11 @@
 
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const handleSectionClick = (sectionId: string) => {
-    if (location.pathname === '/') {
-      // On est déjà sur la page d'accueil, on scroll juste vers la section
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // On est sur une autre page, on navigue vers la page d'accueil
-      navigate('/');
-      // On attend que la navigation soit terminée avant de scroller
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-  };
-  
   return (
     <footer className="bg-nova-blue-dark text-white py-8">
       <div className="container mx-auto px-4">
@@ -79,68 +57,44 @@ const Footer = () => {
             <h3 className="font-serif text-xl mb-4">Navigation rapide</h3>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => handleSectionClick('about')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#about" className="text-gray-300 hover:text-white transition-colors block">
                   À propos
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('applications')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#applications" className="text-gray-300 hover:text-white transition-colors block">
                   Applications
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('self-hypnosis')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#self-hypnosis" className="text-gray-300 hover:text-white transition-colors block">
                   Auto-hypnose
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('sessions')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#sessions" className="text-gray-300 hover:text-white transition-colors block">
                   Déroulement des séances
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('pricing')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#pricing" className="text-gray-300 hover:text-white transition-colors block">
                   Tarifs
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('faq')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#faq" className="text-gray-300 hover:text-white transition-colors block">
                   FAQ
-                </button>
+                </Link>
               </li>
               <li>
-                <Link
-                  to="/blog"
-                  className="text-gray-300 hover:text-white transition-colors block"
-                >
+                <Link to="/blog" className="text-gray-300 hover:text-white transition-colors block">
                   Blog & Actualités
                 </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleSectionClick('contact')}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
+                <Link to="/#contact" className="text-gray-300 hover:text-white transition-colors block">
                   Contact
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

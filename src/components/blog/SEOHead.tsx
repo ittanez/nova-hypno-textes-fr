@@ -129,12 +129,6 @@ const SEOHead = ({
         <meta property="article:author" content={author} />
       )}
 
-      {/* Twitter Cards */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={finalDescription} />
-      <meta name="twitter:image" content={image} />
-      
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
       

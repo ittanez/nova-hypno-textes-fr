@@ -46,7 +46,7 @@ export const specialitesLinks: NavLink[] = [
 
 export const accompagnementsLinks: NavLink[] = [
   { name: 'Applications', href: '/#applications' },
-  { name: 'Formation auto-hypnose', href: 'https://novahypnose.fr/autohypnose', external: true },
+  { name: 'Formation auto-hypnose', href: '/autohypnose' },
 ];
 
 export const infosPratiquesLinks: NavLink[] = [
