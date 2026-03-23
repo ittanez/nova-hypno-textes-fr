@@ -38,7 +38,7 @@ export const localBusinessSchema = {
   ],
   "priceRange": "€€",
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-  "logo": "https://novahypnose.fr/favicon.ico",
+  "logo": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
   "slogan": "Transformez votre vie par l'hypnose",
   "knowsAbout": [

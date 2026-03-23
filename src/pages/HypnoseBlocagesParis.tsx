@@ -37,14 +37,24 @@ const HypnoseBlocagesParis = () => {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": blocagesFaqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  };
+
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose blocages et comportements Paris | Zenatti</title>
+        <title>Hypnose blocages et comportements Paris | Alain Zenatti</title>
         <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-paris" />
-        <meta property="og:title" content="Hypnose blocages et comportements Paris | Zenatti" />
+        <meta property="og:title" content="Hypnose blocages et comportements Paris | Alain Zenatti" />
         <meta property="og:description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-blocages-paris" />
@@ -52,11 +62,13 @@ const HypnoseBlocagesParis = () => {
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose blocages et comportements Paris | Zenatti" />
+        <meta name="twitter:site" content="@novahypnose" />
+        <meta name="twitter:title" content="Hypnose blocages et comportements Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero */}

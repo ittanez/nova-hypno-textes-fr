@@ -2,7 +2,7 @@ import React from 'react';
 
 const SeoContent = () => {
   return (
-    <section aria-hidden="true" className="py-8 px-4 bg-gray-50">
+    <section className="py-8 px-4 bg-gray-50">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-2xl font-serif mb-4">L'hypnothérapie à Paris avec Alain Zenatti - Votre Hypnothérapeute Certifié</h2>
         <p className="mb-4">
