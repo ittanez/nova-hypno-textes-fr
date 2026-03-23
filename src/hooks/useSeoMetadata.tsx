@@ -65,12 +65,6 @@ export function useSeoMetadata({
     updateMetaTag('og:type', ogType, 'property');
     updateMetaTag('og:url', actualOgUrl, 'property');
     
-    // Update Twitter meta tags
-    updateMetaTag('twitter:card', 'summary_large_image', 'name');
-    updateMetaTag('twitter:title', title, 'name');
-    updateMetaTag('twitter:description', description, 'name');
-    updateMetaTag('twitter:image', ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`, 'name');
-    
     // Update canonical URL
     let canonicalElement = document.querySelector('link[rel="canonical"]');
     if (!canonicalElement) {
