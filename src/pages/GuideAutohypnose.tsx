@@ -396,10 +396,6 @@ const GuideAutohypnose: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={16} className="text-nova-green flex-shrink-0 mt-0.5" />
-                  <span><strong>1000+ clients</strong> accompagnés individuellement</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-nova-green flex-shrink-0 mt-0.5" />
                   <span><strong>Formations entreprises</strong> : finance, santé, tech, industrie</span>
                 </li>
                 <li className="flex items-start gap-2">
