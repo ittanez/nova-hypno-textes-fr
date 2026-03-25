@@ -13,7 +13,7 @@ import { fr } from 'date-fns/locale';
 
 /* ─────────────────────────────────────────────
    Thank You page — après soumission du formulaire
-   guide "Le Sommeil, mon allié secret"
+   guide "Le Sommeil, Votre Allié Secret"
    Page isolée (pas de Header / Footer)
    ───────────────────────────────────────────── */
 
@@ -29,7 +29,6 @@ const GuideSommeilMerci: React.FC = () => {
     });
   }, []);
 
-  // Redirect if accessed directly without form submission
   useEffect(() => {
     if (!location.state) {
       navigate('/guide-sommeil', { replace: true });
@@ -41,7 +40,7 @@ const GuideSommeilMerci: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Merci ! Guide "Le Sommeil, mon allié secret" envoyé — NovaHypnose</title>
+        <title>Merci ! Guide Le Sommeil, Votre Allié Secret envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -63,7 +62,7 @@ const GuideSommeilMerci: React.FC = () => {
               </div>
               <div>
                 <p className="font-semibold text-nova-blue-dark text-lg mb-1">
-                  Votre guide « Le Sommeil, mon allié secret » arrive par email
+                  Votre guide « Le Sommeil, Votre Allié Secret » arrive par email
                 </p>
                 <p className="text-gray-500 text-[0.95rem] leading-relaxed">
                   Vérifiez votre boîte de réception (et vos spams) dans les prochaines minutes.
