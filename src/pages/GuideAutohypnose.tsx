@@ -9,11 +9,7 @@ import Briefcase from 'lucide-react/dist/esm/icons/briefcase';
 import BarChart3 from 'lucide-react/dist/esm/icons/bar-chart-3';
 import Wrench from 'lucide-react/dist/esm/icons/wrench';
 import Target from 'lucide-react/dist/esm/icons/target';
-import FileText from 'lucide-react/dist/esm/icons/file-text';
-import Clock from 'lucide-react/dist/esm/icons/clock';
-import Shield from 'lucide-react/dist/esm/icons/shield';
 import Lock from 'lucide-react/dist/esm/icons/lock';
-import Mail from 'lucide-react/dist/esm/icons/mail';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 
@@ -411,42 +407,6 @@ const GuideAutohypnose: React.FC = () => {
               <p className="text-gray-500 text-sm leading-relaxed">
                 Mon objectif : démocratiser l'autohypnose auprès des professionnels qui n'ont pas le temps pour du développement personnel classique, mais qui ont besoin d'outils concrets, efficaces, et immédiatement applicables.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ CTA FINAL AVEC FORMULAIRE ═══════════ */}
-      <section id="telecharger" className="py-20 px-6 lg:py-24 bg-gradient-to-b from-nova-blue-light/20 to-white">
-        <div className="max-w-lg mx-auto bg-white rounded-2xl p-8 sm:p-10 lg:p-12 shadow-xl text-center">
-          <h3 className="font-serif text-2xl font-bold text-nova-blue-dark mb-2 leading-snug">
-            Prêt à transformer<br />votre quotidien ?
-          </h3>
-          <p className="text-gray-400 text-sm mb-7 leading-relaxed">
-            Recevez le guide directement dans votre boîte mail. Aucun spam, vos données restent confidentielles.
-          </p>
-          <LeadForm
-            id="final-form"
-            onSuccess={handleSuccess}
-            buttonLabel="Recevoir le guide"
-          />
-
-          <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 gap-4 text-gray-500 text-xs">
-            <div className="flex flex-col items-center gap-1">
-              <FileText size={16} className="text-nova-orange" />
-              <span>PDF &middot; 37 pages</span>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <Mail size={16} className="text-nova-orange" />
-              <span>Envoi par email</span>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <Clock size={16} className="text-nova-orange" />
-              <span>Réception en ~7 min</span>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <Shield size={16} className="text-nova-orange" />
-              <span>0&euro; &middot; Sans engagement</span>
             </div>
           </div>
         </div>
