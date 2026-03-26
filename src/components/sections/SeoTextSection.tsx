@@ -56,15 +56,16 @@ const SeoTextSection: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Arrêt du tabac par hypnose à Paris
+                Blocages, procrastination et performance
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                L'hypnose est l'une des méthodes les plus efficaces pour{' '}
-                <Link to="/hypnose-stress-anxiete-paris" className="text-blue-600 hover:underline">
-                  arrêter de fumer définitivement
-                </Link>
-                . En mobilisant les ressources de votre inconscient, Alain Zenatti vous libère
-                de la dépendance au tabac, souvent en 1 à 3 séances seulement.
+                Blocages créatifs, procrastination chronique, perfectionnisme paralysant,
+                préparation mentale aux examens ou prises de parole…{' '}
+                <Link to="/hypnose-blocages-paris" className="text-blue-600 hover:underline">
+                  L'hypnose contre les blocages
+                </Link>{' '}
+                libère votre potentiel en agissant directement sur les schémas
+                inconscients qui vous freinent.
               </p>
             </div>
 
@@ -239,7 +240,7 @@ const SeoTextSection: React.FC = () => {
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 La plupart des problématiques se résolvent en 3 à 5 séances.
-                L'arrêt du tabac et certaines phobies simples peuvent se traiter en
+                Certaines phobies simples ou blocages spécifiques peuvent se traiter en
                 1 à 2 séances. La thérapie est brève et orientée solutions, sans
                 exploration interminable.
               </p>

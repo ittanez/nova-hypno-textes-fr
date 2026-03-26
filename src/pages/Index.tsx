@@ -88,12 +88,12 @@ const Index: React.FC = () => {
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
         <title>Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose</title>
-        <meta name="description" content="NovaHypnose – Cabinet d'hypnothérapie Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris" />
 
         {/* Open Graph - URL cohérente sans trailing slash */}
         <meta property="og:title" content="Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose" />
-        <meta property="og:description" content="NovaHypnose – Cabinet d'hypnothérapie Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -108,7 +108,7 @@ const Index: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose" />
-        <meta name="twitter:description" content="NovaHypnose – Cabinet d'hypnothérapie Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="twitter:description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
 
         {/* Canonical - sans trailing slash pour cohérence */}
