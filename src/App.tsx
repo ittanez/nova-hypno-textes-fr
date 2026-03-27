@@ -60,6 +60,9 @@ const LandingProfessionnels = lazy(() => import("@/pages/LandingProfessionnels")
 const GuideAutohypnose = lazy(() => import("@/pages/GuideAutohypnose"));
 const GuideAutohypnoseMerci = lazy(() => import("@/pages/GuideAutohypnoseMerci"));
 
+// Script autohypnose Gratitude (page isolée)
+const AutohypnoseGratitude = lazy(() => import("@/pages/AutohypnoseGratitude"));
+
 // Guide sommeil (landing page isolée)
 const GuideSommeil = lazy(() => import("@/pages/GuideSommeil"));
 const GuideSommeilMerci = lazy(() => import("@/pages/GuideSommeilMerci"));
@@ -139,6 +142,7 @@ function App() {
             <Route path="/guide-emotions-travail/merci" element={<GuideEbookMerci />} />
             <Route path="/guide-autohypnose" element={<GuideAutohypnose />} />
             <Route path="/guide-autohypnose/merci" element={<GuideAutohypnoseMerci />} />
+            <Route path="/autohypnose-gratitude" element={<AutohypnoseGratitude />} />
             <Route path="/guide-sommeil" element={<GuideSommeil />} />
             <Route path="/guide-sommeil/merci" element={<GuideSommeilMerci />} />
             <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
