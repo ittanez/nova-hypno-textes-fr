@@ -12,6 +12,7 @@ const STATIC_PAGES = [
   { loc: '/',                  changefreq: 'weekly',  priority: '1.0' },
   { loc: '/autohypnose',       changefreq: 'monthly', priority: '0.8' },
   { loc: '/test-receptivite',  changefreq: 'monthly', priority: '0.7' },
+  { loc: '/test-receptivite-archive', changefreq: 'monthly', priority: '0.3' },
   { loc: '/zone-intervention', changefreq: 'monthly', priority: '0.7' },
   { loc: '/hypnose-stress-anxiete-paris',  changefreq: 'monthly', priority: '0.8' },
   { loc: '/hypnose-phobies-paris',         changefreq: 'monthly', priority: '0.8' },
