@@ -152,6 +152,7 @@ function App() {
 
             {/* Page de redirection WhatsApp — emails Brevo */}
             <Route path="/contact-wa-brevo" element={<ContactWaBrevo />} />
+            <Route path="/wa" element={<ContactWaBrevo />} />
 
             {/* Pages de spécialités */}
             <Route path="/hypnose-stress-anxiete-paris" element={<HypnoseStressParis />} />
