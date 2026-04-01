@@ -814,6 +814,23 @@ const PAGES: Record<string, PageData> = {
     `,
   },
 
+  "/test-receptivite-archive": {
+    title: "Test de Réceptivité à l'Hypnose (Archive) | NovaHypnose",
+    description:
+      "Version archivée du test de réceptivité à l'hypnose. Veuillez accéder à la version actuelle.",
+    canonicalPath: "/test-receptivite-archive",
+    h1: "Test de Réceptivité à l'Hypnose (Archive)",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Test de réceptivité (Archive)", path: "/test-receptivite-archive" },
+      ]),
+    ],
+    content: `
+    <p>Cette page est une version archivée. Veuillez accéder à la <a href="${SITE_URL}/test-receptivite">version actuelle du test de réceptivité</a>.</p>
+    `,
+  },
+
   "/autohypnose": {
     title: "Formation Auto-hypnose Paris - Harmonia | NovaHypnose",
     description:

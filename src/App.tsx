@@ -131,8 +131,8 @@ function App() {
             <Route path="/autohypnose/quiz" element={<AutohypnoseQuiz />} />
 
             {/* Test de réceptivité */}
-            <Route path="/test-receptivite" element={<TestReceptivite />} />
-            <Route path="/test-receptivite-test" element={<TestReceptiviteTest />} />
+            <Route path="/test-receptivite" element={<TestReceptiviteTest />} />
+            <Route path="/test-receptivite-archive" element={<TestReceptivite />} />
 
             {/* Zone d'intervention */}
             <Route path="/zone-intervention" element={<ZoneIntervention />} />

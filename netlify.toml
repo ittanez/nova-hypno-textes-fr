@@ -117,6 +117,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/test-receptivite-archive"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/autohypnose"
   function = "seo-prerender-static"
 

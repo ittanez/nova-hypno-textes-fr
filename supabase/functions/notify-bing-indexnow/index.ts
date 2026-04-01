@@ -61,6 +61,7 @@ serve(async (req) => {
         `${SITE_URL}/hypnose-confiance-en-soi-paris`,
         `${SITE_URL}/hypnose-professionnels-paris`,
         `${SITE_URL}/test-receptivite`,
+        `${SITE_URL}/test-receptivite-archive`,
         `${SITE_URL}/zone-intervention`,
       ]
     }
