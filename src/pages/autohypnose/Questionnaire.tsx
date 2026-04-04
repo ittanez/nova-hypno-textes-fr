@@ -10,6 +10,7 @@ const AutohypnoseQuestionnaire = () => {
   const searchParams = new URLSearchParams(window.location.search);
   const emailFromUrl = searchParams.get("email") ?? "";
 
+  const [email, setEmail] = useState(emailFromUrl);
   const [region, setRegion] = useState("");
   const [jour, setJour] = useState("");
   const [theme, setTheme] = useState("");
@@ -24,7 +25,7 @@ const AutohypnoseQuestionnaire = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: emailFromUrl,
+          email,
           region,
           jour_prefere: jour,
           theme_prioritaire: theme,
@@ -69,6 +70,24 @@ const AutohypnoseQuestionnaire = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-8 space-y-8">
+
+              {/* Email — affiché si absent de l'URL */}
+              {!emailFromUrl && (
+                <div>
+                  <label htmlFor="q-email" className="block text-base font-semibold text-gray-800 mb-3">
+                    Votre email
+                  </label>
+                  <input
+                    id="q-email"
+                    type="email"
+                    placeholder="votre@email.fr"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue"
+                  />
+                </div>
+              )}
 
               {/* Question 1 — Région */}
               <fieldset>

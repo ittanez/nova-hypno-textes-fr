@@ -130,10 +130,12 @@ Je confirme votre inscription sur la liste d'attente pour la prochaine formation
 
 Vous serez parmi les premiers informés dès que la date sera annoncée — les places sont limitées à 6 participants.
 
+Une dernière chose : si vous avez 30 secondes, indiquez-moi vos préférences (région, jour, thème) pour que je puisse préparer la session la plus adaptée :
+→ https://novahypnose.fr/autohypnose-questionnaire?email=${encodeURIComponent(email)}
+
 À très bientôt,
 Alain Zenatti
-NovaHypnose — 06 49 35 80 89
-https://novahypnose.fr/autohypnose`,
+NovaHypnose — 06 49 35 80 89`,
       }),
     });
 
