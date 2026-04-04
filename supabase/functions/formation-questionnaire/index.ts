@@ -37,6 +37,8 @@ serve(async (req) => {
     const theme_prioritaire = sanitizeString(String(body.theme_prioritaire ?? ""), 50).trim();
     const commentaire_libre = sanitizeString(String(body.commentaire_libre ?? ""), 2000).trim();
 
+    console.log("formation-questionnaire — body reçu:", JSON.stringify({ email, region, jour_prefere, theme_prioritaire, commentaire_libre }));
+
     if (!email || !isValidEmail(email)) {
       return new Response(
         JSON.stringify({ error: "Email invalide ou manquant" }),

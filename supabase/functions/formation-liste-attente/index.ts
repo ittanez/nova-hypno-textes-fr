@@ -110,6 +110,7 @@ serve(async (req) => {
     }
 
     console.log("formation-liste-attente — contact Brevo OK:", email);
+    // L'email de confirmation est géré par l'automation Brevo (liste #17)
 
     // ── 4. RÉPONSE 200 ────────────────────────────────────────────────────────
     return new Response(
