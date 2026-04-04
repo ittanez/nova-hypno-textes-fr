@@ -43,6 +43,7 @@ const AdminBlogLogin = lazy(() => import("@/pages/admin/blog/AdminLogin"));
 // Auto-hypnose pages
 const AutohypnoseIndex = lazy(() => import("@/pages/autohypnose/Index"));
 const AutohypnoseQuiz = lazy(() => import("@/pages/autohypnose/Quiz"));
+const AutohypnoseQuestionnaire = lazy(() => import("@/pages/autohypnose/Questionnaire"));
 
 // Test de réceptivité
 const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
@@ -129,6 +130,7 @@ function App() {
             {/* Routes Auto-hypnose */}
             <Route path="/autohypnose" element={<AutohypnoseIndex />} />
             <Route path="/autohypnose/quiz" element={<AutohypnoseQuiz />} />
+            <Route path="/autohypnose-questionnaire" element={<AutohypnoseQuestionnaire />} />
 
             {/* Test de réceptivité */}
             <Route path="/test-receptivite" element={<TestReceptiviteTest />} />
