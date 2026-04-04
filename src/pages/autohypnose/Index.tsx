@@ -6,7 +6,7 @@ import AutohypnoseHero from '@/components/autohypnose/AutohypnoseHero';
 import AutohypnoseTargetAudience from '@/components/autohypnose/AutohypnoseTargetAudience';
 import AutohypnoseRoadmap from '@/components/autohypnose/AutohypnoseRoadmap';
 import AutohypnoseProgram from '@/components/autohypnose/AutohypnoseProgram';
-import AutohypnosePricing from '@/components/autohypnose/AutohypnosePricing';
+import AutohypnoseWaitlist from '@/components/autohypnose/AutohypnoseWaitlist';
 import AutohypnosePostTraining from '@/components/autohypnose/AutohypnosePostTraining';
 import AutohypnoseFAQ from '@/components/autohypnose/AutohypnoseFAQ';
 import AutohypnoseTestimonials from '@/components/autohypnose/AutohypnoseTestimonials';
@@ -19,7 +19,7 @@ const AutohypnoseIndex = () => {
         <title>Formation Auto-hypnose Paris - Harmonia | NovaHypnose</title>
         <meta
           name="description"
-          content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti. Groupe max 6. 240€."
+          content="Formation Auto-hypnose à Paris avec Alain Zenatti. Maîtrisez l'auto-hypnose en 1 journée, petit groupe max 6. Prochaine date à venir — rejoignez la liste d'attente."
         />
         <meta property="og:title" content="Formation Auto-hypnose Paris - Harmonia | NovaHypnose" />
         <meta property="og:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
@@ -36,7 +36,7 @@ const AutohypnoseIndex = () => {
         <AutohypnoseTargetAudience />
         <AutohypnoseRoadmap />
         <AutohypnoseProgram />
-        <AutohypnosePricing />
+        <AutohypnoseWaitlist />
         <AutohypnosePostTraining />
         <AutohypnoseTestimonials />
         <AutohypnoseFAQ />
