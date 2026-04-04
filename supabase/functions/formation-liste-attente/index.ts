@@ -111,7 +111,41 @@ serve(async (req) => {
 
     console.log("formation-liste-attente — contact Brevo OK:", email);
 
-    // ── 4. RÉPONSE 200 ────────────────────────────────────────────────────────
+    // ── 4. EMAIL DE CONFIRMATION ──────────────────────────────────────────────
+    const prenomAffiche = prenom.charAt(0).toUpperCase() + prenom.slice(1);
+
+    const confirmRes = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": BREVO_API_KEY,
+      },
+      body: JSON.stringify({
+        sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
+        to: [{ email }],
+        subject: `${prenomAffiche}, vous êtes sur la liste d'attente ✓`,
+        textContent: `Bonjour ${prenomAffiche},
+
+Je confirme votre inscription sur la liste d'attente pour la prochaine formation en auto-hypnose.
+
+Vous serez parmi les premiers informés dès que la date sera annoncée — les places sont limitées à 6 participants.
+
+À très bientôt,
+Alain Zenatti
+NovaHypnose — 06 49 35 80 89
+https://novahypnose.fr/autohypnose`,
+      }),
+    });
+
+    if (!confirmRes.ok) {
+      // Non bloquant — l'inscription est enregistrée, on logue sans faire échouer
+      const errText = await confirmRes.text();
+      console.error("formation-liste-attente — Erreur email confirmation:", errText);
+    } else {
+      console.log("formation-liste-attente — email confirmation envoyé à:", email);
+    }
+
+    // ── 5. RÉPONSE 200 ────────────────────────────────────────────────────────
     return new Response(
       JSON.stringify({ success: true, message: "Inscription enregistrée" }),
       { status: 200, headers: responseHeaders }
