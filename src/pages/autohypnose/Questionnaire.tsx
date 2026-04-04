@@ -16,6 +16,7 @@ const AutohypnoseQuestionnaire = () => {
   const [theme, setTheme] = useState("");
   const [commentaire, setCommentaire] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +36,8 @@ const AutohypnoseQuestionnaire = () => {
       if (res.ok) {
         setStatus("success");
       } else {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg(data.error ?? `Erreur ${res.status}`);
         setStatus("error");
       }
     } catch {
@@ -183,7 +186,7 @@ const AutohypnoseQuestionnaire = () => {
 
               {status === "error" && (
                 <p className="text-red-600 text-sm">
-                  Une erreur est survenue. Écrivez-moi à{" "}
+                  {errorMsg || "Une erreur est survenue."}{" "}
                   <a href="mailto:contact@novahypnose.fr" className="underline">
                     contact@novahypnose.fr
                   </a>
