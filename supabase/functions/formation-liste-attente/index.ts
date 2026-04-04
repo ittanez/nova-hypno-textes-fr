@@ -6,8 +6,8 @@ const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
-// ID de la liste Brevo "liste d'attente formation" — à mettre à jour si besoin
-const BREVO_LIST_ID_FORMATION_ATTENTE = Number(Deno.env.get("BREVO_LIST_ID_FORMATION_ATTENTE") ?? "0");
+// ID de la liste Brevo "Attente Formation Présentielle"
+const BREVO_LIST_ID_FORMATION_ATTENTE = 17;
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req);
@@ -82,9 +82,7 @@ serve(async (req) => {
       updateEnabled: true,
     };
 
-    if (BREVO_LIST_ID_FORMATION_ATTENTE > 0) {
-      brevoBody.listIds = [BREVO_LIST_ID_FORMATION_ATTENTE];
-    }
+    brevoBody.listIds = [BREVO_LIST_ID_FORMATION_ATTENTE];
 
     const brevoRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
