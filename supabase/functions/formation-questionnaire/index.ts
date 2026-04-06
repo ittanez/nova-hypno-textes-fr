@@ -142,7 +142,7 @@ NovaHypnose — 06 49 35 80 89`,
       },
       body: JSON.stringify({
         sender: { name: "NovaHypnose", email: "contact@novahypnose.fr" },
-        to: [{ email: "contact@novahypnose.fr" }],
+        to: [{ email: "a.zenatti@gmail.com" }],
         subject: "🔔 Nouveau répondant — Formation liste d'attente",
         textContent: `Nouveau répondant au questionnaire formation :
 
