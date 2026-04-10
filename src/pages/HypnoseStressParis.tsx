@@ -186,13 +186,16 @@ const HypnoseStressParis = () => {
             <div className="prose prose-lg text-gray-700 leading-relaxed">
               <p>
                 Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème
-                dans le quartier Marais-Bastille. Depuis plusieurs années, j'accompagne des personnes comme vous
+                dans le quartier Marais-Bastille. Depuis <strong>plus de 5 ans</strong>, j'accompagne des personnes comme vous
                 qui souffrent de stress et d'anxiété.
               </p>
               <p>
                 Ma méthode combine <strong>l'hypnose ericksonienne</strong> — une approche douce et respectueuse —
-                avec des techniques de PNL et d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien.
+                avec des techniques d'auto-hypnose et d'autres approches complémentaires que vous pourrez réutiliser seul(e) au quotidien.
                 Chaque séance est personnalisée selon votre situation.
+              </p>
+              <p>
+                <strong>Déroulement des séances :</strong> La première séance dure environ <strong>1h30</strong> et comprend un entretien approfondi pour identifier vos déclencheurs de stress, la séance d'hypnose proprement dite, et un debriefing. Les séances suivantes durent <strong>1 heure</strong>. Vous pouvez suivre vos séances en cabinet à Paris 4ème ou en <strong>téléconsultation (Zoom, Skype, Google Meet)</strong>.
               </p>
               <p>
                 Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous
@@ -323,10 +326,10 @@ const HypnoseStressParis = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Prenez rendez-vous dès aujourd'hui
+              Prêt à retrouver la sérénité ?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances en cabinet ou en téléconsultation • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
