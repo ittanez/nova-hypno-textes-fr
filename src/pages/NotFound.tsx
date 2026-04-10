@@ -177,7 +177,7 @@ const NotFound = () => {
                 </a>
               </div>
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors"

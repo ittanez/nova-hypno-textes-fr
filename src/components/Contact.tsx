@@ -64,7 +64,7 @@ const Contact = () => {
                     <p className="font-semibold text-gray-700">Réservation en ligne</p>
                     <p className="mb-2">Plateforme sécurisée Resalib</p>
                     <a
-                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                      href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                       target="_blank"
                       rel="noopener noreferrer nofollow"
                       aria-label="Réserver une séance sur Resalib (nouvel onglet)"

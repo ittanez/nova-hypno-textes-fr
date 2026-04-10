@@ -156,7 +156,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
               </div>
 
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"

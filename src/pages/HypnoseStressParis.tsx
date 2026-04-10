@@ -80,7 +80,7 @@ const HypnoseStressParis = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
@@ -329,7 +329,7 @@ const HypnoseStressParis = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"

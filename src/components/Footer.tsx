@@ -124,7 +124,7 @@ const Footer = () => {
 
             <div className="mt-2">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"

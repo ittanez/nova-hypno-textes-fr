@@ -36,7 +36,7 @@ const Hero = () => {
             </a>
             <div className="flex flex-col items-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"

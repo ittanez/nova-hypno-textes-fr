@@ -169,7 +169,7 @@ function getDefaultStructuredData() {
     ],
     "sameAs": [
       "https://www.instagram.com/novahypnose/",
-      "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+      "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
       "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
     ]
   };

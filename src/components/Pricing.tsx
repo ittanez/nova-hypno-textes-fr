@@ -98,7 +98,7 @@ const Pricing = () => {
 
                 <div className="space-y-2">
                   <a
-                    href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+                    href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors ${

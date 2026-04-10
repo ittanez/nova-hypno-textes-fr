@@ -113,7 +113,7 @@ const ProfessionalProblemsSection: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+              href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"

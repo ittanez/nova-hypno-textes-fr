@@ -39,7 +39,7 @@ export const ResultsStepTest = ({ firstName }: ResultsStepTestProps) => {
         </p>
 
         <Button
-          onClick={() => window.location.href = 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris'}
+          onClick={() => window.location.href = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr'}
           className="bg-nova-blue hover:bg-nova-blue-dark text-white px-8 py-3 text-base"
         >
           Prendre rendez-vous →
