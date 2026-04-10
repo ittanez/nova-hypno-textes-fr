@@ -11,5 +11,8 @@
 
 /index-static    /    301
 
+# URL aliases for specialty pages
+/anxiete-hypnose-paris    /hypnose-stress-anxiete-paris    301
+
 # SPA fallback - Toutes les autres routes vers index.html
 /*    /index.html   200
