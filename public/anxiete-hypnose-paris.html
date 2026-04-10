@@ -6,8 +6,6 @@
     <meta name="description" content="Hypnose pour l'anxiété à Paris. Approche ericksonienne bienveillante. Praticien certifié, résultats en 3-5 séances.">
     <meta name="google-site-verification" content="">
     <title>Hypnose pour l'Anxiété Générale à Paris | NovaHypnose</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -603,7 +601,7 @@
                 Praticien certifié, approche bienveillante et rigoureuse.
             </p>
             <div class="hero-cta">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rdvModal" title="Prendre rendez-vous">Voir mes disponibilités</button>
+                <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" class="btn btn-primary" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
                 <a href="https://wa.me/33649358089?text=Bonjour,%20je%20souhaite%20plus%20d'informations%20sur%20vos%20séances%20d'hypnose%20pour%20l'anxiété" class="btn btn-secondary" title="Discuter par WhatsApp">Discuter par WhatsApp</a>
             </div>
             <div class="trust-indicators">
@@ -832,7 +830,7 @@
                 Ensemble, nous construirons votre chemin vers plus de sérénité.
             </p>
             <div class="cta-final-buttons">
-                <button type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#rdvModal" title="Prendre rendez-vous">Voir mes disponibilités</button>
+                <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" class="btn btn-white" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
                 <a href="https://wa.me/33649358089?text=Bonjour,%20j'aimerais%20discuter%20de%20l'hypnose%20pour%20mon%20anxiété" class="btn btn-white" title="Contacter par WhatsApp">Contacter par WhatsApp</a>
             </div>
         </section>
@@ -855,49 +853,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- === MODAL PRISE DE RDV === -->
-    <div class="modal fade" id="rdvModal" tabindex="-1" aria-labelledby="rdvModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #2c2416; color: white;">
-                    <h5 class="modal-title" id="rdvModalLabel">Prendre un rendez-vous</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="rdvForm" onsubmit="handleRdvSubmit(event)">
-                        <div class="mb-3">
-                            <label for="nom" class="form-label">Nom <span style="color: #8b4513;">*</span></label>
-                            <input type="text" class="form-control" id="nom" name="nom" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="prenom" class="form-label">Prénom <span style="color: #8b4513;">*</span></label>
-                            <input type="text" class="form-control" id="prenom" name="prenom" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email <span style="color: #8b4513;">*</span></label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telephone" class="form-label">Téléphone <span style="color: #8b4513;">*</span></label>
-                            <input type="tel" class="form-control" id="telephone" name="telephone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message (optionnel)</label>
-                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Parlez-moi de votre situation..."></textarea>
-                        </div>
-                        <div class="alert alert-info" role="alert">
-                            <small>Après validation, vous recevrez un email de confirmation avec les créneaux disponibles.</small>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" form="rdvForm" class="btn" style="background: #2c2416; color: white;">Demander un RDV</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- === FAQ INTERACTIVITÉ === -->
     <script>
@@ -932,53 +887,7 @@
             // Exemple: gtag('event', 'page_view', { 'page_path': '/landing-anxiety-ads' });
         });
 
-        // Fallback: Ajouter des click handlers manuels pour les boutons modaux
-        document.addEventListener('DOMContentLoaded', function() {
-            const modalButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
-            modalButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('data-bs-target');
-                    if (targetId) {
-                        const modalElement = document.querySelector(targetId);
-                        if (modalElement && window.bootstrap) {
-                            const modal = new bootstrap.Modal(modalElement);
-                            modal.show();
-                        }
-                    }
-                });
-            });
-        });
-
-        // Gestion du formulaire de RDV
-        function handleRdvSubmit(event) {
-            event.preventDefault();
-
-            const formData = new FormData(document.getElementById('rdvForm'));
-            const data = Object.fromEntries(formData);
-
-            // Envoyer les données par email via WhatsApp ou formulaire backend
-            const message = `Nouveau RDV demandé:\nNom: ${data.nom}\nPrénom: ${data.prenom}\nEmail: ${data.email}\nTéléphone: ${data.telephone}\nMessage: ${data.message}`;
-
-            // Option 1: Rediriger vers WhatsApp avec les infos
-            const whatsappUrl = `https://wa.me/33649358089?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-
-            // Fermer la modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('rdvModal'));
-            if (modal) {
-                modal.hide();
-            }
-
-            // Réinitialiser le formulaire
-            document.getElementById('rdvForm').reset();
-
-            // Message de confirmation
-            alert('Merci ! Votre demande a été envoyée par WhatsApp.');
-        }
     </script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
