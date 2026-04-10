@@ -27,7 +27,7 @@ const ProfessionalProblemsSection: React.FC = () => {
             Vous êtes en permanence sous pression ?
           </h2>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Ces défis sont réels. Ces sentiments sont légitimes. Et surtout, il existe une solution pour en sortir.
+            Vous n'êtes pas seul. De nombreux professionnels vivent ces mêmes défis au quotidien.
           </p>
         </div>
 
@@ -108,11 +108,11 @@ const ProfessionalProblemsSection: React.FC = () => {
         {/* Call to action avec messaging orienté résultats */}
         <div className="max-w-3xl mx-auto bg-gradient-to-r from-blue-600 to-blue-700 p-8 md:p-10 rounded-2xl text-white text-center shadow-xl">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Imaginez retrouver votre énergie et votre focus
+            Retrouvez votre énergie et votre focus
           </h3>
           <p className="text-lg md:text-xl mb-6 text-white/95 leading-relaxed">
-            L'hypnose ericksonienne vous aide à <strong>sortir définitivement de ce cercle vicieux</strong> en seulement <strong>3 à 5 séances</strong>.
-            Sans médicaments, sans années de thérapie. Juste des <strong>résultats concrets et durables</strong> que vous verrez dès la première séance.
+            L'hypnose ericksonienne vous aide à <strong>sortir de ce cercle vicieux</strong> en quelques séances.
+            Sans médicaments, sans thérapie interminable. Juste des résultats concrets et durables.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -120,13 +120,13 @@ const ProfessionalProblemsSection: React.FC = () => {
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
             >
-              Réserver une séance
+              Premier échange gratuit (15 min)
             </a>
             <a
               href="#about"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg text-lg font-semibold hover:bg-white/10 transition-all"
             >
-              Comment ça fonctionne
+              Découvrir la méthode
             </a>
           </div>
         </div>
