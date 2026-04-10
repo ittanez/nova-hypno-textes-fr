@@ -90,6 +90,10 @@ export const faqItems: FaqItem[] = [
     answer: "Le cabinet est très bien situé et facilement accessible depuis toutes les gares parisiennes :\n\n• Gare de Lyon : 5 minutes en métro (Ligne 1 directe jusqu'à Bastille)\n• Gare du Nord : 15 minutes (Ligne 5 directe depuis Gare du Nord jusqu'à Bastille)\n• Gare de l'Est : 15 minutes (Ligne 5 directe depuis Gare de l'Est jusqu'à Bastille)\n• Gare Montparnasse : 20-25 minutes (Ligne 6 puis 1, ou Ligne 4 puis 1)\n• Gare Saint-Lazare : 20 minutes (Ligne 14 puis 1, ou Ligne 3 puis 5)\n\nLa station Bastille étant un grand hub de correspondance (lignes 1, 5, 8), le cabinet est idéalement placé pour les patients venant de banlieue ou de province."
   },
   {
+    question: "Quel est le tarif des séances d'hypnothérapie ?",
+    answer: "Les tarifs de NovaHypnose sont les suivants :\n\n• Première séance : 90€ (durée 1h30)\n• Séances suivantes : 90€ (durée 1h)\n• Téléconsultation : 90€ (même tarif)\n\nCes tarifs reflètent mon engagement envers des résultats durables et une approche personnalisée. Certaines mutuelles remboursent partiellement ou totalement l'hypnothérapie - n'hésitez pas à consulter votre contrat."
+  },
+  {
     question: "Quelles sont les modalités de paiement et la politique d'annulation ?",
     answer: "Modalités de paiement :\n• Espèces, carte bancaire (cabinet), Wero, paiement en ligne\n• Carte bancaire (téléconsultations)\n\nRemarques importantes :\n• Pas de consultations pour enfants et mineurs\n\nPolitique d'annulation :\n• Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous\n• En cas d'annulation tardive (moins de 48h) ou d'absence, la séance sera facturée quelle que soit la raison"
   },

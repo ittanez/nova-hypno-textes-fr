@@ -20,11 +20,11 @@ const WhyChooseSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
-            Pourquoi choisir un hypnothérapeute à Paris qualifié ?
+            Pourquoi NovaHypnose se démarque
           </h2>
           <p className="text-xl text-gray-600 leading-relaxed">
-            Trouver le meilleur hypnothérapeute à Paris est essentiel pour garantir un accompagnement sûr et efficace.
-            Voici ce qui fait la différence.
+            Tous les hypnothérapeutes ne sont pas égaux. Voici ce qui fait vraiment la différence
+            et pourquoi vos résultats dépendent de qui vous choisissez.
           </p>
         </div>
 
