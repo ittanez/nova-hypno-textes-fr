@@ -153,7 +153,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={24} />
                   <div>
                     <p className="font-semibold text-gray-900">Techniques validées scientifiquement</p>
-                    <p className="text-gray-600">Hypnose ericksonienne, PNL, hypnose directive et spirituelle</p>
+                    <p className="text-gray-600">Hypnose ericksonienne, hypnose directive et approches complémentaires</p>
                   </div>
                 </div>
               </div>
