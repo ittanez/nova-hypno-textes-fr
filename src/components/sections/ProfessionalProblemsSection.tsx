@@ -10,12 +10,15 @@
  */
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import BrainCircuit from 'lucide-react/dist/esm/icons/brain-circuit';
 import Zap from 'lucide-react/dist/esm/icons/zap';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import TrendingUp from 'lucide-react/dist/esm/icons/trending-up';
 
 const ProfessionalProblemsSection: React.FC = () => {
+  const { openResalibPopup } = useResalibPopup();
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container mx-auto px-4">
@@ -114,8 +117,7 @@ const ProfessionalProblemsSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
             >
               Premier échange gratuit (15 min)

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Heart from 'lucide-react/dist/esm/icons/heart';
 import Award from 'lucide-react/dist/esm/icons/award';
 import LazyYouTube from './LazyYouTube';
@@ -6,6 +7,13 @@ import { getImageKitUrl } from '@/lib/utils/imagekit';
 import { safeJSONStringify } from '@/lib/seo-utils';
 
 const About = () => {
+  const { openResalibPopup } = useResalibPopup();
+
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    openResalibPopup();
+  };
+
   const diplomasByLevel = {
     maitrises: [
       "Maître Hypnologue - École Psynapse (2025)",
@@ -254,10 +262,9 @@ const About = () => {
             <div className="text-center my-8">
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-block px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-lg font-medium"
+                onClick={handleBookingClick}
+                aria-label="Prendre rendez-vous sur Resalib"
+                className="inline-block px-8 py-4 bg-nova-blue text-white rounded-lg shadow-lg hover:bg-nova-blue-dark transition-colors text-lg font-medium cursor-pointer"
               >
                 Discuter de mon besoin avec Alain
               </a>

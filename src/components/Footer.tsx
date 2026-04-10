@@ -1,9 +1,11 @@
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link } from 'react-router-dom';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 
 const Footer = () => {
+  const { openResalibPopup } = useResalibPopup();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -125,8 +127,7 @@ const Footer = () => {
             <div className="mt-2">
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="px-4 py-2 bg-nova-green text-white rounded-md hover:bg-nova-green-dark transition-colors text-sm inline-block"
               >

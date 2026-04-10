@@ -1,4 +1,5 @@
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
@@ -12,6 +13,7 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 
 const HypnoseStressParis = () => {
+  const { openResalibPopup } = useResalibPopup();
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -81,8 +83,7 @@ const HypnoseStressParis = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
@@ -330,8 +331,7 @@ const HypnoseStressParis = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 rounded-lg font-bold text-lg transition-all shadow-lg"
               >

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Header from "@/components/Header";
@@ -10,6 +11,7 @@ import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 
 const NotFound = () => {
+  const { openResalibPopup } = useResalibPopup();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -178,8 +180,7 @@ const NotFound = () => {
               </div>
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors"
               >
                 <Calendar size={20} />

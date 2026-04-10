@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Lightbulb from 'lucide-react/dist/esm/icons/lightbulb';
@@ -14,6 +15,8 @@ interface AboutSectionProps {
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
+  const { openResalibPopup } = useResalibPopup();
+
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-blue-50 to-white">
       <div className="container mx-auto px-4">
@@ -157,8 +160,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
 
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Calendar size={24} />

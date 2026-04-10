@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
@@ -35,6 +36,7 @@ import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import ContentLayout from '@/components/layout/ContentLayout';
 
 const Maquette = () => {
+  const { openResalibPopup } = useResalibPopup();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -255,8 +257,7 @@ const Maquette = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Calendar size={24} />
@@ -492,8 +493,7 @@ const Maquette = () => {
 
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <Calendar size={24} />
@@ -791,8 +791,7 @@ const Maquette = () => {
 
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -839,8 +838,7 @@ const Maquette = () => {
 
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -891,8 +889,7 @@ const Maquette = () => {
 
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="block w-full text-center px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg"
                 >
                   Réserver
@@ -915,8 +912,7 @@ const Maquette = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Calendar size={24} />

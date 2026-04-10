@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Award from 'lucide-react/dist/esm/icons/award';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Heart from 'lucide-react/dist/esm/icons/heart';
@@ -12,6 +13,8 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 
 const WhyChooseSection: React.FC = () => {
+  const { openResalibPopup } = useResalibPopup();
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -118,8 +121,7 @@ const WhyChooseSection: React.FC = () => {
           </p>
           <a
             href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
           >
             <Calendar size={24} />
