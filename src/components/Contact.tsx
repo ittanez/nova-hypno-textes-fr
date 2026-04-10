@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
@@ -7,6 +8,13 @@ import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import LazyCommuteMap from './LazyCommuteMap';
 
 const Contact = () => {
+  const { openResalibPopup } = useResalibPopup();
+
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    openResalibPopup();
+  };
+
   return (
     <section id="contact" className="section-padding bg-nova-neutral">
       <div className="container mx-auto px-4">
@@ -64,11 +72,10 @@ const Contact = () => {
                     <p className="font-semibold text-gray-700">Réservation en ligne</p>
                     <p className="mb-2">Plateforme sécurisée Resalib</p>
                     <a
-                      href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      aria-label="Réserver une séance sur Resalib (nouvel onglet)"
-                      className="inline-block px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors"
+                      href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                      onClick={handleBookingClick}
+                      aria-label="Réserver une séance sur Resalib"
+                      className="inline-block px-4 py-2 bg-nova-blue text-white rounded-md hover:bg-nova-blue-dark transition-colors cursor-pointer"
                     >
                       Réserver ma séance en ligne
                     </a>

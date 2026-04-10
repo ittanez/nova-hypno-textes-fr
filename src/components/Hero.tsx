@@ -1,8 +1,18 @@
 
 import React from 'react';
 import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
+import { trackCTAClick } from '@/lib/analytics';
 
 const Hero = () => {
+  const { openResalibPopup } = useResalibPopup();
+
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    trackCTAClick('resalib_booking', 'hero_booking');
+    openResalibPopup();
+  };
+
   return (
     <section id="intro" className="min-h-screen flex flex-col justify-center md:justify-start relative overflow-hidden">
       {/* Suppression de l'image d'arrière-plan pour améliorer les performances */}
@@ -36,9 +46,8 @@ const Hero = () => {
             </a>
             <div className="flex flex-col items-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={handleBookingClick}
                 className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 aria-label="Réserver ma première consultation avec Alain Zenatti, hypnothérapeute à Paris 4ème"
                 role="button"

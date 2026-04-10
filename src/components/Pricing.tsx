@@ -5,8 +5,10 @@ import Video from 'lucide-react/dist/esm/icons/video';
 import Home from 'lucide-react/dist/esm/icons/home';
 import Check from 'lucide-react/dist/esm/icons/check';
 import { trackCTAClick } from '@/lib/analytics';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 
 const Pricing = () => {
+  const { openResalibPopup } = useResalibPopup();
   const sessions = [
     {
       icon: MapPin,
@@ -98,15 +100,17 @@ const Pricing = () => {
 
                 <div className="space-y-2">
                   <a
-                    href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors ${
+                    href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                    className={`block w-full text-center px-6 py-2.5 rounded-lg font-medium transition-colors cursor-pointer ${
                       session.popular
                         ? 'bg-nova-green text-white hover:bg-nova-green-dark shadow-md'
                         : 'bg-nova-green text-white hover:bg-nova-green-dark'
                     }`}
-                    onClick={() => trackCTAClick('resalib_booking', `pricing_${session.title.toLowerCase().replace(/\s+/g, '_')}`)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      trackCTAClick('resalib_booking', `pricing_${session.title.toLowerCase().replace(/\s+/g, '_')}`);
+                      openResalibPopup();
+                    }}
                   >
                     {session.ctaText}
                   </a>

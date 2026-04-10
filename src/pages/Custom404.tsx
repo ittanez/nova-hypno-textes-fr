@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
@@ -11,6 +12,7 @@ import Home from 'lucide-react/dist/esm/icons/home';
 import ContentLayout from '../components/layout/ContentLayout';
 
 const Custom404 = () => {
+  const { openResalibPopup } = useResalibPopup();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -111,9 +113,8 @@ const Custom404 = () => {
               </a>
             </div>
             <a
-              href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
+              href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
               className="inline-flex items-center bg-white text-nova-blue px-6 py-3 rounded-full hover:bg-gray-100 transition-colors shadow-md font-semibold"
             >
               <Calendar className="mr-2" size={20} />

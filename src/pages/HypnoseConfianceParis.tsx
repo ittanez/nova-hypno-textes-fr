@@ -1,4 +1,5 @@
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
@@ -12,6 +13,7 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 
 const HypnoseConfianceParis = () => {
+  const { openResalibPopup } = useResalibPopup();
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -81,9 +83,8 @@ const HypnoseConfianceParis = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
               >
@@ -319,9 +320,8 @@ const HypnoseConfianceParis = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                target="_blank"
-                rel="noopener noreferrer nofollow"
+                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                 aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-amber-600 rounded-lg font-bold text-lg transition-all shadow-lg"
               >

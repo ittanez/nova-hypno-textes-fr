@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
@@ -26,6 +27,7 @@ const HeroCarousel: React.FC = () => {
   }, [isPaused]);
 
   const nextSlide = () => {
+    const { openResalibPopup } = useResalibPopup();
     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
   };
 
@@ -126,9 +128,8 @@ const HeroCarousel: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <div className="flex flex-col items-center sm:items-start">
                 <a
-                  href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-base font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105"
                   onClick={() => { if (typeof window.gtag === 'function') window.gtag('event', 'cta_click', { event_category: 'conversion', event_label: 'hero_prendre_rdv', cta_location: 'hero' }); }}
                 >

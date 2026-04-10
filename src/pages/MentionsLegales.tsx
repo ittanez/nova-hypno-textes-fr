@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';

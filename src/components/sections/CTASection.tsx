@@ -4,11 +4,14 @@
  */
 
 import React from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import { trackCTAClick } from '@/lib/analytics';
 
 const CTASection: React.FC = () => {
+  const { openResalibPopup } = useResalibPopup();
+
   return (
     <section id="cta" className="py-20 bg-nova-blue-dark">
       <div className="container mx-auto px-4 text-center">
@@ -20,9 +23,8 @@ const CTASection: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
+            href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             onClick={() => trackCTAClick('resalib_booking', 'cta_section')}
           >

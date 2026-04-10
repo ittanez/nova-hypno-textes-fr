@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -39,7 +40,7 @@ export const ResultsStepTest = ({ firstName }: ResultsStepTestProps) => {
         </p>
 
         <Button
-          onClick={() => window.location.href = 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris'}
+          onClick={() => window.location.href = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr'}
           className="bg-nova-blue hover:bg-nova-blue-dark text-white px-8 py-3 text-base"
         >
           Prendre rendez-vous →

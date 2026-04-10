@@ -73,5 +73,5 @@ export const infosPratiquesSection: NavSection = {
 export const externalLinks = {
   instagram: 'https://www.instagram.com/novahypnose/',
   linkedin: 'https://www.linkedin.com/in/zenatti/',
-  appointment: 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris',
+  appointment: 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr',
 };

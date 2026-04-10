@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { TestResult } from '@/utils/receptivite/calculateScore';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 
@@ -130,7 +131,7 @@ export const ResultsStep = ({ results, email }: ResultsStepProps) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
-              onClick={() => window.location.href = 'https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris'}
+              onClick={() => window.location.href = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr'}
               className="bg-nova-green hover:bg-nova-green-dark"
             >
               Prendre rendez-vous
