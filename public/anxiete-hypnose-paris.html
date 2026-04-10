@@ -832,7 +832,7 @@
                 Ensemble, nous construirons votre chemin vers plus de sérénité.
             </p>
             <div class="cta-final-buttons">
-                <a href="https://resalib.fr/p/47325" class="btn btn-white" title="Voir les créneaux disponibles">Voir mes créneaux</a>
+                <button type="button" class="btn btn-white" data-bs-toggle="modal" data-bs-target="#rdvModal" title="Prendre rendez-vous">Voir mes disponibilités</button>
                 <a href="https://wa.me/33649358089?text=Bonjour,%20j'aimerais%20discuter%20de%20l'hypnose%20pour%20mon%20anxiété" class="btn btn-white" title="Contacter par WhatsApp">Contacter par WhatsApp</a>
             </div>
         </section>
@@ -932,6 +932,23 @@
             // Exemple: gtag('event', 'page_view', { 'page_path': '/landing-anxiety-ads' });
         });
 
+        // Fallback: Ajouter des click handlers manuels pour les boutons modaux
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalButtons = document.querySelectorAll('[data-bs-toggle="modal"]');
+            modalButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('data-bs-target');
+                    if (targetId) {
+                        const modalElement = document.querySelector(targetId);
+                        if (modalElement && window.bootstrap) {
+                            const modal = new bootstrap.Modal(modalElement);
+                            modal.show();
+                        }
+                    }
+                });
+            });
+        });
+
         // Gestion du formulaire de RDV
         function handleRdvSubmit(event) {
             event.preventDefault();
@@ -948,7 +965,9 @@
 
             // Fermer la modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('rdvModal'));
-            modal.hide();
+            if (modal) {
+                modal.hide();
+            }
 
             // Réinitialiser le formulaire
             document.getElementById('rdvForm').reset();
