@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0f0f1a;--ink2:#3a3a55;--cream:#faf9f5;--fog:#f3f2ee;
+  --sage:#2d6b4f;--sage-l:#e8f4ed;--sage-d:#1e4d38;
+  --red:#c0392b;--red-l:#fdf0ef;
+  --gold:#c8962c;--wave:#e2e0da;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden}
+
+/* STICKY CTA BAR */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--sage);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.sticky-bar p{color:#fff;font-size:.85rem;font-weight:400}
+.sticky-bar p strong{font-weight:600}
+.sticky-btn{background:#fff;color:var(--sage);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;padding:.65rem 1.6rem;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;transition:transform .15s}
+.sticky-btn:hover{transform:scale(1.03)}
+
+/* NAV */
+nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5vw;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ink)}
+.logo span{color:var(--sage)}
+.nav-tel{font-size:.85rem;color:var(--ink2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--sage);color:#fff;border:none;padding:.55rem 1.3rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;cursor:pointer}
+
+/* HERO */
+.hero{padding:4rem 5vw 3rem;max-width:860px;margin:0 auto;text-align:center}
+.hero-eyebrow{display:inline-block;background:var(--red-l);color:var(--red);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.5rem;border:1px solid #f5c6c2}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:var(--sage)}
+.hero-pain{font-size:1.1rem;color:var(--ink2);font-weight:300;max-width:620px;margin:0 auto 2rem;line-height:1.75}
+.hero-pain strong{color:var(--ink);font-weight:500}
+.hero-cta-group{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:2rem}
+.btn-hero{background:var(--sage);color:#fff;border:none;padding:1.05rem 2.8rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 24px rgba(45,107,79,.3)}
+.btn-hero:hover{background:var(--sage-d);transform:translateY(-2px)}
+.btn-hero-sub{font-size:.78rem;color:var(--ink2);font-weight:300}
+.social-proof-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding-top:1.5rem;border-top:1px solid var(--wave)}
+.proof-item{display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.proof-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--sage);line-height:1}
+.proof-label{font-size:.72rem;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;text-align:center}
+
+/* PAIN SECTION */
+.pain-section{background:var(--ink);padding:4rem 5vw}
+.pain-inner{max-width:800px;margin:0 auto}
+.pain-section .tag{color:var(--sage-l);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:1rem;display:block}
+.pain-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:#f5f4f0;margin-bottom:1.5rem;line-height:1.3}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-bottom:2.5rem}
+.pain-list li{display:flex;align-items:flex-start;gap:.85rem;font-size:.95rem;color:rgba(245,244,240,.75);font-weight:300;line-height:1.65}
+.pain-list li::before{content:'';flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--red);margin-top:.5rem}
+.pain-section .bridge{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:#f5f4f0;border-left:3px solid var(--sage);padding-left:1.25rem;line-height:1.65}
+
+/* SOLUTION */
+.solution-section{padding:4.5rem 5vw;max-width:900px;margin:0 auto}
+.section-tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sage);font-weight:600;margin-bottom:.75rem;display:block}
+.solution-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--ink);margin-bottom:.75rem;line-height:1.25}
+.solution-section p{color:var(--ink2);font-weight:300;max-width:640px;margin-bottom:2.5rem;font-size:1rem}
+.steps{display:flex;flex-direction:column;gap:1rem}
+.step{display:flex;align-items:flex-start;gap:1.25rem;background:#fff;border:1px solid var(--wave);border-radius:14px;padding:1.25rem 1.5rem}
+.step-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--sage-l);color:var(--sage);font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.step-content h3{font-weight:600;font-size:.95rem;margin-bottom:.3rem;color:var(--ink)}
+.step-content p{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.65;margin:0}
+
+/* PROOF */
+.proof-section{background:var(--fog);padding:4.5rem 5vw}
+.proof-inner{max-width:900px;margin:0 auto}
+.proof-inner h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--ink);margin-bottom:.5rem}
+.proof-inner .sub{color:var(--ink2);font-weight:300;margin-bottom:2.5rem}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.review{background:#fff;border:1px solid var(--wave);border-radius:14px;padding:1.25rem}
+.review-stars{color:var(--gold);font-size:.85rem;margin-bottom:.6rem}
+.review-text{font-size:.875rem;color:var(--ink);font-weight:300;line-height:1.7;margin-bottom:.75rem;font-family:'Playfair Display',serif;font-style:italic}
+.review-author{font-size:.75rem;color:var(--ink2);font-weight:500}
+.before-after{margin-top:2rem;background:#fff;border:1px solid var(--wave);border-radius:14px;overflow:hidden}
+.ba-header{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--wave)}
+.ba-col{padding:1rem 1.5rem}
+.ba-col:first-child{border-right:1px solid var(--wave)}
+.ba-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:.75rem}
+.ba-col:first-child .ba-label{color:var(--red)}
+.ba-col:last-child .ba-label{color:var(--sage)}
+.ba-items{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.ba-items li{font-size:.83rem;color:var(--ink2);display:flex;gap:.6rem;font-weight:300}
+.ba-items li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;margin-top:.45rem}
+.ba-col:first-child .ba-items li::before{background:var(--red)}
+.ba-col:last-child .ba-items li::before{background:var(--sage)}
+
+/* MID CTA */
+.mid-cta{background:var(--sage);padding:3.5rem 5vw;text-align:center}
+.mid-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:#fff;margin-bottom:.6rem}
+.mid-cta p{color:rgba(255,255,255,.75);font-weight:300;margin-bottom:1.75rem;font-size:.95rem}
+.btn-white{background:#fff;color:var(--sage);border:none;padding:1rem 2.5rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .15s}
+.btn-white:hover{transform:translateY(-2px)}
+.mid-cta .tel{color:rgba(255,255,255,.7);font-size:.82rem;margin-top:.75rem}
+
+/* ABOUT */
+.about-section{padding:4.5rem 5vw;max-width:900px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:start}
+.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:var(--sage-l);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3rem;color:var(--sage)}
+.about-content h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--ink);margin-bottom:.75rem}
+.about-content p{color:var(--ink2);font-weight:300;font-size:.95rem;line-height:1.75;margin-bottom:.75rem}
+.about-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{background:var(--sage-l);color:var(--sage-d);font-size:.75rem;font-weight:500;padding:.3rem .85rem;border-radius:50px;border:1px solid #c0ddd0}
+
+/* URGENCY */
+.urgency-section{background:var(--red-l);border-top:1px solid #f5c6c2;border-bottom:1px solid #f5c6c2;padding:2.5rem 5vw;text-align:center}
+.urgency-section h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.5rem}
+.urgency-section p{color:var(--ink2);font-weight:300;font-size:.9rem;max-width:520px;margin:0 auto 1.5rem}
+
+/* FAQ */
+.faq-section{padding:4rem 5vw;max-width:740px;margin:0 auto}
+.faq-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--ink);margin-bottom:2rem}
+.faq-item{border-bottom:1px solid var(--wave);padding:1.25rem 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:.92rem;color:var(--ink);gap:1rem}
+.faq-q::after{content:'+';font-size:1.4rem;color:var(--sage);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
+.faq-item.open .faq-a{max-height:280px;padding-top:.6rem}
+
+/* FINAL CTA */
+.final-cta{background:var(--ink);padding:5rem 5vw;text-align:center}
+.final-cta .tag{color:rgba(255,255,255,.4);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;display:block}
+.final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#f5f4f0;margin-bottom:.75rem;line-height:1.3}
+.final-cta p{color:rgba(245,244,240,.55);font-weight:300;margin-bottom:2.5rem;font-size:.95rem}
+.final-cta-box{display:inline-flex;flex-direction:column;align-items:center;gap:.85rem}
+.btn-final{background:var(--sage);color:#fff;border:none;padding:1.1rem 3rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 28px rgba(45,107,79,.4)}
+.btn-final:hover{background:var(--sage-d);transform:translateY(-2px)}
+.final-tel{color:rgba(245,244,240,.5);font-size:.85rem}
+.guarantee{margin-top:1.25rem;font-size:.78rem;color:rgba(245,244,240,.35);display:flex;align-items:center;gap:.4rem;justify-content:center}
+.guarantee::before{content:'✓';color:var(--sage)}
+
+footer{background:#0a0a14;color:rgba(255,255,255,.25);padding:1.5rem 5vw;display:flex;justify-content:space-between;font-size:.75rem}
+footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
+
+@media(max-width:800px){
+  .reviews{grid-template-columns:1fr}
+  .about-section{grid-template-columns:1fr}
+  .about-avatar{width:80px;height:80px;font-size:2rem}
+  .ba-header{grid-template-columns:1fr}
+  .ba-col:first-child{border-right:none;border-bottom:1px solid var(--wave)}
+  .sticky-bar p{display:none}
+  footer{flex-direction:column;gap:.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Nova<span>Hypnose</span></div>
+  <a href="tel:0649359869" class="nav-tel">📞 06 49 35 98 69</a>
+  <button class="nav-cta">Mes disponibilités</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">⚠️ Vous n'êtes pas obligé de vivre comme ça</div>
+  <h1>Le stress vous <em>dévore</em> la vie —<br>il existe une issue en 3 séances</h1>
+  <p class="hero-pain">Vous vous réveillez déjà épuisé. <strong>L'anxiété est là avant même que la journée commence.</strong> Vous avez essayé la méditation, le sport, les thérapies. Ça soulage — puis ça revient. Et si le problème n'était pas votre manque de volonté, mais une réaction automatique encodée dans votre cerveau ?</p>
+  <div class="hero-cta-group">
+    <button class="btn-hero">Mes disponibilités →</button>
+    <span class="btn-hero-sub">Consultation à Paris 4 Marais-Bastille ou VISIO · Réponse rapide · Sans engagement</span>
+  </div>
+  <div class="social-proof-row">
+    <div class="proof-item"><span class="proof-num">90%</span><span class="proof-label">Amélioration dès<br>la 1re séance</span></div>
+    <div class="proof-item"><span class="proof-num">3–5</span><span class="proof-label">Séances pour un<br>résultat durable</span></div>
+    <div class="proof-item"><span class="proof-num">5/5</span><span class="proof-label">Note Google<br>vérifiée</span></div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <span class="tag">Vous reconnaissez-vous ?</span>
+    <h2>Ce que le stress vous fait vivre chaque jour</h2>
+    <ul class="pain-list">
+      <li>Vous vous réveillez à 3h du matin avec des pensées qui s'emballent et ne vous lâchent plus</li>
+      <li>Au travail, la moindre réunion ou deadline déclenche une tension physique dans la poitrine</li>
+      <li>Vous êtes irritable avec vos proches sans vraiment savoir pourquoi — et vous culpabilisez</li>
+      <li>Vous avez l'impression d'être "à bout" en permanence, même après un week-end de repos</li>
+      <li>Vous avez peur que ça empire — burn-out, dépression — et cette peur amplifie tout</li>
+    </ul>
+    <p class="bridge">« Le stress chronique n'est pas un manque de caractère. C'est une réaction automatique que votre cerveau a apprise — et qu'il peut désapprendre. »</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution-section">
+  <span class="section-tag">La méthode</span>
+  <h2>Pourquoi l'hypnose là où le reste a échoué</h2>
+  <p>La méditation, le sport et les anxiolytiques agissent sur les symptômes. L'hypnose clinique agit sur la source : les automatismes inconscients qui maintiennent votre cerveau en état d'alerte.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Séance 1 — Identifier et cibler</h3>
+        <p>On cartographie ensemble vos déclencheurs de stress. Le cerveau entre en état de réceptivité profonde. Vous repartez avec une technique d'ancrage immédiate, utilisable dès le lendemain.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Séances 2–3 — Reprogrammer les réactions</h3>
+        <p>L'inconscient réécrit les associations émotionnelles liées aux situations stressantes. Ce qui déclenchait l'anxiété commence à devenir neutre.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Séances 4–5 — Ancrer et autonomiser</h3>
+        <p>On consolide les nouveaux automatismes. Vous êtes équipé pour gérer seul les situations futures. Les résultats sont durables — pas une béquille.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <span class="section-tag">Ils l'ont vécu</span>
+    <h2>Des résultats réels, pas des promesses</h2>
+    <p class="sub">Prénoms modifiés pour confidentialité. Avis Google disponibles sur demande.</p>
+    <div class="reviews">
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Dès la première séance je me suis sentie apaisée. Alain est à l'écoute et non-invasif. En 3 séances, le résultat est là. Je recommande chaudement. »</p>
+        <div class="review-author">Marie G. — Anxiété chronique</div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« 4 heures de sommeil par nuit depuis des années. Après 5 séances, je dors normalement. Je n'aurais jamais cru que c'était possible sans médicaments. »</p>
+        <div class="review-author">Sagnori T. — Stress professionnel</div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">« Je ne pouvais plus prendre le métro. Après 3 séances, j'ai repris les transports normalement. C'est comme si une pression avait été retirée. »</p>
+        <div class="review-author">Inès M. — Crises d'angoisse</div>
+      </div>
+    </div>
+    <div class="before-after">
+      <div class="ba-header">
+        <div class="ba-col">
+          <div class="ba-label">Avant l'hypnose</div>
+          <ul class="ba-items">
+            <li>Réveil nocturne avec ruminations</li>
+            <li>Tensions physiques au travail</li>
+            <li>Irritabilité et culpabilité</li>
+            <li>Sentiment d'épuisement permanent</li>
+            <li>Peur des crises d'angoisse</li>
+          </ul>
+        </div>
+        <div class="ba-col">
+          <div class="ba-label">Après 3 à 5 séances</div>
+          <ul class="ba-items">
+            <li>Sommeil profond et récupérateur</li>
+            <li>Calme face aux situations de pression</li>
+            <li>Relations apaisées</li>
+            <li>Énergie stable dans la journée</li>
+            <li>Confiance dans sa capacité à gérer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<section class="mid-cta">
+  <h2>Prêt à arrêter de subir ?</h2>
+  <p>1ère Séance de 1h30 à Paris 4 Marais-Bastille ou VISIO.</p>
+  <button class="btn-white">Réserver ma séance maintenant →</button>
+  <p class="tel">ou appelez directement : 06 49 35 98 69</p>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-avatar">AZ</div>
+  <div class="about-content">
+    <span class="section-tag">Votre thérapeute</span>
+    <h2>Alain Zenatti — Maître Hypnologue certifié</h2>
+    <p>Formé depuis plus de 5 ans, j'accompagne des cadres et particuliers qui n'en peuvent plus du stress. Ma méthode combine l'hypnose ericksonienne et des techniques cognitives pour des résultats rapides et durables.</p>
+    <p>Je ne vous promets pas la magie. Je vous propose une méthode prouvée, avec un suivi personnalisé à chaque séance. Si je pense que vous avez besoin d'un autre type d'accompagnement, je vous le dis.</p>
+    <div class="about-badges">
+      <span class="badge">Maître Hypnologue certifié</span>
+      <span class="badge">Hypnose ericksonienne</span>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section class="urgency-section">
+  <h3>Le moment idéal, c'est maintenant</h3>
+  <p>Le stress s'installe, les automatismes se renforcent. Plus vous attendez, plus la reprogrammation demande du temps. Chaque semaine compte. Faites le premier pas aujourd'hui.</p>
+  <button class="btn-hero">Je prends rendez-vous →</button>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <h2>Vos questions, mes réponses</h2>
+  <div class="faq-item">
+    <div class="faq-q">Combien de séances faut-il vraiment ?</div>
+    <div class="faq-a">90% de mes patients constatent une amélioration significative dès la première séance. Un résultat durable nécessite en général 3 à 5 séances. Certains cas complexes (burn-out avancé, traumatismes) peuvent nécessiter plus. Je vous donne une estimation honnête lors de la première consultation.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Est-ce que ça marche vraiment ou c'est du charlatanisme ?</div>
+    <div class="faq-a">L'hypnose clinique est reconnue par l'INSERM et l'HAS comme thérapeutique efficace pour l'anxiété et la gestion du stress. Elle est pratiquée en milieu hospitalier (anesthésie, douleur chronique). Ce n'est pas de la magie : c'est une technique d'accès à l'inconscient, documentée et reproductible.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Vais-je perdre le contrôle pendant la séance ?</div>
+    <div class="faq-a">Non. L'hypnose n'est pas le sommeil et vous ne perdez pas conscience. Vous restez lucide et acteur à tout moment. Vous pouvez mettre fin à la séance quand vous voulez. L'état hypnotique est proche de la concentration intense que vous avez en lisant un livre.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Peut-on combiner avec un suivi psy ou des médicaments ?</div>
+    <div class="faq-a">Oui, et c'est souvent conseillé. L'hypnose est complémentaire à la psychothérapie et aux traitements médicamenteux. Si vous prenez des anxiolytiques, il est préférable d'en informer votre médecin avant d'entamer un suivi en hypnose — une réduction progressive peut devenir possible.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Quel est le tarif d'une séance ?</div>
+    <div class="faq-a">Le tarif est de 90 € la séance en présentiel ou en visio. La première séance dure 1h30, les suivantes une heure. Certaines mutuelles remboursent partiellement les séances d'hypnose — renseignez-vous auprès de la vôtre.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <span class="tag">Dernière étape</span>
+  <h2>Dans 3 semaines, vous pouvez<br>vous réveiller sans cette oppression</h2>
+  <p>Le seul risque, c'est de ne rien faire. La première séance est sans engagement.</p>
+  <div class="final-cta-box">
+    <button class="btn-final">Prendre rendez-vous maintenant →</button>
+    <span class="final-tel">ou 06 49 35 98 69 · Cabinet Paris 4 Marais-Bastille · Métro Saint-Paul ou Bastille</span>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">NovaHypnose</span>
+  <span>© 2024 Alain Zenatti — Maître Hypnologue certifié · Paris 4ème</span>
+  <span>Mentions légales</span>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <p><strong>Vous méritez de respirer librement</strong> — Paris 4 ou séances en ligne</p>
+  <button class="sticky-btn">Réserver maintenant →</button>
+</div>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(i=>{
+  i.querySelector('.faq-q').addEventListener('click',()=>{
+    const o=i.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));
+    if(!o)i.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
