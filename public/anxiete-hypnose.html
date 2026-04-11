@@ -126,6 +126,24 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .faq-a{font-size:.875rem;color:var(--ink2);font-weight:300;line-height:1.75;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
 .faq-item.open .faq-a{max-height:280px;padding-top:.6rem}
 
+/* PRACTICAL INFO */
+.practical-info{background:var(--fog);padding:4rem 5vw;margin:3rem 0}
+.practical-info-inner{max-width:900px;margin:0 auto}
+.practical-info-header{text-align:center;margin-bottom:3rem}
+.practical-info-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--ink);margin-bottom:.5rem}
+.practical-info-header p{color:var(--ink2);font-weight:300;font-size:1rem;max-width:600px;margin:0 auto}
+.practical-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2rem}
+.practical-card{background:#fff;border:1px solid var(--wave);border-radius:14px;padding:2rem;text-align:center}
+.practical-card .icon{font-size:2rem;margin-bottom:.75rem;display:block}
+.practical-card h3{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.5rem}
+.practical-card p{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.65}
+.practical-card .highlight{font-weight:600;color:var(--sage);font-size:1.1rem}
+.practical-note{background:#fff;border:2px solid var(--sage-l);border-radius:14px;padding:2rem;text-align:center;margin-top:1rem}
+.practical-note .icon{font-size:1.8rem;margin-bottom:.75rem}
+.practical-note h3{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.5rem}
+.practical-note p{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.65;max-width:700px;margin:0 auto}
+.practical-note p strong{color:var(--sage);font-weight:600}
+
 /* FINAL CTA */
 .final-cta{background:var(--ink);padding:5rem 5vw;text-align:center}
 .final-cta .tag{color:rgba(255,255,255,.4);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;display:block}
@@ -159,6 +177,7 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
   .final-cta-buttons{flex-direction:column}
   .btn-final,.btn-final-secondary{width:100%}
   .urgency-buttons{flex-direction:column}
+  .practical-info-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -341,6 +360,38 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
   <div class="faq-item">
     <div class="faq-q">Quel est le tarif d'une séance ?</div>
     <div class="faq-a">Le tarif est de 90 € la séance en présentiel ou en visio. La première séance dure 1h30, les suivantes une heure. Certaines mutuelles remboursent partiellement les séances d'hypnose — renseignez-vous auprès de la vôtre.</div>
+  </div>
+</section>
+
+<!-- PRACTICAL INFO -->
+<section class="practical-info">
+  <div class="practical-info-inner">
+    <div class="practical-info-header">
+      <h2>Infos pratiques de votre séance</h2>
+      <p>Tout ce qu'il faut savoir avant de réserver</p>
+    </div>
+    <div class="practical-info-grid">
+      <div class="practical-card">
+        <span class="icon">💰</span>
+        <h3>Tarif</h3>
+        <p><span class="highlight">90 €</span><br>par séance<br>en présentiel ou en visio</p>
+      </div>
+      <div class="practical-card">
+        <span class="icon">⏱️</span>
+        <h3>Durée</h3>
+        <p>1ère séance : <strong>1h30</strong><br>Séances suivantes : <strong>1h</strong></p>
+      </div>
+      <div class="practical-card">
+        <span class="icon">📍</span>
+        <h3>Localisation</h3>
+        <p><strong>Paris 4 Marais-Bastille</strong><br>Métro Saint-Paul ou Bastille<br>Ou séances en ligne</p>
+      </div>
+    </div>
+    <div class="practical-note">
+      <span class="icon">✉️</span>
+      <h3>Informations complètes</h3>
+      <p>Après votre réservation, <strong>toutes les informations pratiques</strong> (adresse exacte, plan d'accès, instructions pour la visio, conditions d'annulation) <strong>vous seront envoyées directement par email</strong>. Aucune surprise.</p>
+    </div>
   </div>
 </section>
 
