@@ -132,6 +132,10 @@
   path = "/hypnose-professionnels-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/anxiete-hypnose"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
@@ -362,6 +366,18 @@
 [[redirects]]
   from = "/mentions-legales.html"
   to = "/mentions-legales.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/anxiete-hypnose.html"
+  to = "/anxiete-hypnose.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/anxiete-hypnose"
+  to = "/anxiete-hypnose.html"
   status = 200
   force = true
 
