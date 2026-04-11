@@ -104,7 +104,7 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 
 /* ABOUT */
 .about-section{padding:4.5rem 5vw;max-width:900px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:start}
-.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:var(--sage-l);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:3rem;color:var(--sage)}
+.about-avatar{width:100%;aspect-ratio:1;border-radius:16px;background:var(--sage-l);object-fit:cover;display:block}
 .about-content h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--ink);margin-bottom:.75rem}
 .about-content p{color:var(--ink2);font-weight:300;font-size:.95rem;line-height:1.75;margin-bottom:.75rem}
 .about-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
@@ -135,11 +135,12 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .practical-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2rem}
 .practical-card{background:#fff;border:1px solid var(--wave);border-radius:14px;padding:2rem;text-align:center}
 .practical-card .icon{font-size:2rem;margin-bottom:.75rem;display:block}
+.practical-card .icon-text{display:none}
 .practical-card h3{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.5rem}
 .practical-card p{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.65}
 .practical-card .highlight{font-weight:600;color:var(--sage);font-size:1.1rem}
 .practical-note{background:#fff;border:2px solid var(--sage-l);border-radius:14px;padding:2rem;text-align:center;margin-top:1rem}
-.practical-note .icon{font-size:1.8rem;margin-bottom:.75rem}
+.practical-note .icon-text{display:none}
 .practical-note h3{font-weight:600;font-size:1rem;color:var(--ink);margin-bottom:.5rem}
 .practical-note p{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.65;max-width:700px;margin:0 auto}
 .practical-note p strong{color:var(--sage);font-weight:600}
@@ -165,7 +166,7 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 @media(max-width:800px){
   .reviews{grid-template-columns:1fr}
   .about-section{grid-template-columns:1fr}
-  .about-avatar{width:80px;height:80px;font-size:2rem}
+  .about-avatar{width:120px;height:120px;border-radius:12px}
   .ba-header{grid-template-columns:1fr}
   .ba-col:first-child{border-right:none;border-bottom:1px solid var(--wave)}
   .sticky-bar p{display:none}
@@ -185,13 +186,13 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 
 <nav>
   <div class="logo">Nova<span>Hypnose</span></div>
-  <a href="tel:0649359869" class="nav-tel">📞 06 49 35 98 69</a>
+  <a href="tel:0649359869" class="nav-tel">06 49 35 98 69</a>
   <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="nav-cta">Mes disponibilités</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">⚠️ Vous n'êtes pas obligé de vivre comme ça</div>
+  <div class="hero-eyebrow">Vous n'êtes pas obligé de vivre comme ça</div>
   <h1>Le stress vous <em>dévore</em> la vie —<br>il existe une issue en 3 séances</h1>
   <p class="hero-pain">Vous vous réveillez déjà épuisé. <strong>L'anxiété est là avant même que la journée commence.</strong> Vous avez essayé la méditation, le sport, les thérapies. Ça soulage — puis ça revient. Et si le problème n'était pas votre manque de volonté, mais une réaction automatique encodée dans votre cerveau ?</p>
   <div class="hero-cta-group">
@@ -315,7 +316,7 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 
 <!-- ABOUT -->
 <section class="about-section">
-  <div class="about-avatar">AZ</div>
+  <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" alt="Alain Zenatti" class="about-avatar">
   <div class="about-content">
     <span class="section-tag">Votre thérapeute</span>
     <h2>Alain Zenatti — Maître Hypnologue certifié</h2>
@@ -372,23 +373,40 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
     </div>
     <div class="practical-info-grid">
       <div class="practical-card">
-        <span class="icon">💰</span>
+        <span class="icon-text">Tarif</span>
         <h3>Tarif</h3>
         <p><span class="highlight">90 €</span><br>par séance<br>en présentiel ou en visio</p>
       </div>
       <div class="practical-card">
-        <span class="icon">⏱️</span>
+        <span class="icon-text">Durée</span>
         <h3>Durée</h3>
         <p>1ère séance : <strong>1h30</strong><br>Séances suivantes : <strong>1h</strong></p>
       </div>
       <div class="practical-card">
-        <span class="icon">📍</span>
+        <span class="icon-text">Localisation</span>
         <h3>Localisation</h3>
         <p><strong>Paris 4 Marais-Bastille</strong><br>Métro Saint-Paul ou Bastille<br>Ou séances en ligne</p>
       </div>
     </div>
+    <div class="practical-info-grid">
+      <div class="practical-card">
+        <span class="icon-text">Paiement</span>
+        <h3>Modes de paiement</h3>
+        <p><strong>Carte bancaire</strong><br><strong>Wero</strong><br><strong>Espèces</strong></p>
+      </div>
+      <div class="practical-card">
+        <span class="icon-text">Mutuelle</span>
+        <h3>Remboursement mutuelle</h3>
+        <p>Une facture vous sera remise pour votre mutuelle <strong>(certaines remboursent les séances d'hypnose)</strong></p>
+      </div>
+      <div class="practical-card">
+        <span class="icon-text">Infos</span>
+        <h3>Après réservation</h3>
+        <p>Toutes les informations pratiques vous seront envoyées par email</p>
+      </div>
+    </div>
     <div class="practical-note">
-      <span class="icon">✉️</span>
+      <span class="icon-text">Email</span>
       <h3>Informations complètes</h3>
       <p>Après votre réservation, <strong>toutes les informations pratiques</strong> (adresse exacte, plan d'accès, instructions pour la visio, conditions d'annulation) <strong>vous seront envoyées directement par email</strong>. Aucune surprise.</p>
     </div>
