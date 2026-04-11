@@ -19,7 +19,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);l
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--sage);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .sticky-bar p{color:#fff;font-size:.85rem;font-weight:400}
 .sticky-bar p strong{font-weight:600}
-.sticky-btn{background:#fff;color:var(--sage);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;padding:.65rem 1.6rem;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;transition:transform .15s}
+.sticky-btn{background:#fff;color:var(--sage);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;padding:.65rem 1.6rem;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;transition:transform .15s;text-decoration:none;display:inline-block}
 .sticky-btn:hover{transform:scale(1.03)}
 
 /* NAV */
@@ -36,10 +36,12 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .hero h1 em{font-style:italic;color:var(--sage)}
 .hero-pain{font-size:1.1rem;color:var(--ink2);font-weight:300;max-width:620px;margin:0 auto 2rem;line-height:1.75}
 .hero-pain strong{color:var(--ink);font-weight:500}
-.hero-cta-group{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:2rem}
-.btn-hero{background:var(--sage);color:#fff;border:none;padding:1.05rem 2.8rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 24px rgba(45,107,79,.3)}
+.hero-cta-group{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn-hero{background:var(--sage);color:#fff;border:none;padding:1.05rem 2.8rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 24px rgba(45,107,79,.3);text-decoration:none;display:inline-block}
 .btn-hero:hover{background:var(--sage-d);transform:translateY(-2px)}
-.btn-hero-sub{font-size:.78rem;color:var(--ink2);font-weight:300}
+.btn-hero-secondary{background:#fff;color:var(--sage);border:2px solid var(--sage);padding:1.05rem 2.8rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;text-decoration:none;display:inline-block}
+.btn-hero-secondary:hover{background:rgba(45,107,79,.05);transform:translateY(-2px)}
+.btn-hero-sub{font-size:.78rem;color:var(--ink2);font-weight:300;width:100%}
 .social-proof-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;padding-top:1.5rem;border-top:1px solid var(--wave)}
 .proof-item{display:flex;flex-direction:column;align-items:center;gap:.15rem}
 .proof-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--sage);line-height:1}
@@ -93,9 +95,12 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .mid-cta{background:var(--sage);padding:3.5rem 5vw;text-align:center}
 .mid-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:#fff;margin-bottom:.6rem}
 .mid-cta p{color:rgba(255,255,255,.75);font-weight:300;margin-bottom:1.75rem;font-size:.95rem}
-.btn-white{background:#fff;color:var(--sage);border:none;padding:1rem 2.5rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .15s}
+.mid-cta-buttons{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.btn-white{background:#fff;color:var(--sage);border:none;padding:1rem 2.5rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .15s;text-decoration:none;display:inline-block}
 .btn-white:hover{transform:translateY(-2px)}
-.mid-cta .tel{color:rgba(255,255,255,.7);font-size:.82rem;margin-top:.75rem}
+.btn-white-secondary{background:rgba(255,255,255,.2);color:#fff;border:2px solid #fff;padding:1rem 2.5rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .15s;text-decoration:none;display:inline-block}
+.btn-white-secondary:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+.mid-cta .tel{color:rgba(255,255,255,.7);font-size:.82rem}
 
 /* ABOUT */
 .about-section{padding:4.5rem 5vw;max-width:900px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:start}
@@ -109,6 +114,7 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .urgency-section{background:var(--red-l);border-top:1px solid #f5c6c2;border-bottom:1px solid #f5c6c2;padding:2.5rem 5vw;text-align:center}
 .urgency-section h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.5rem}
 .urgency-section p{color:var(--ink2);font-weight:300;font-size:.9rem;max-width:520px;margin:0 auto 1.5rem}
+.urgency-buttons{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
 
 /* FAQ */
 .faq-section{padding:4rem 5vw;max-width:740px;margin:0 auto}
@@ -126,8 +132,11 @@ nav{background:var(--cream);border-bottom:1px solid var(--wave);padding:.9rem 5v
 .final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#f5f4f0;margin-bottom:.75rem;line-height:1.3}
 .final-cta p{color:rgba(245,244,240,.55);font-weight:300;margin-bottom:2.5rem;font-size:.95rem}
 .final-cta-box{display:inline-flex;flex-direction:column;align-items:center;gap:.85rem}
-.btn-final{background:var(--sage);color:#fff;border:none;padding:1.1rem 3rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 28px rgba(45,107,79,.4)}
+.final-cta-buttons{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:.85rem}
+.btn-final{background:var(--sage);color:#fff;border:none;padding:1.1rem 3rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 6px 28px rgba(45,107,79,.4);text-decoration:none;display:inline-block}
 .btn-final:hover{background:var(--sage-d);transform:translateY(-2px)}
+.btn-final-secondary{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);padding:1.1rem 3rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.05rem;cursor:pointer;transition:background .2s,transform .15s;text-decoration:none;display:inline-block}
+.btn-final-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
 .final-tel{color:rgba(245,244,240,.5);font-size:.85rem}
 .guarantee{margin-top:1.25rem;font-size:.78rem;color:rgba(245,244,240,.35);display:flex;align-items:center;gap:.4rem;justify-content:center}
 .guarantee::before{content:'✓';color:var(--sage)}
@@ -143,6 +152,13 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
   .ba-col:first-child{border-right:none;border-bottom:1px solid var(--wave)}
   .sticky-bar p{display:none}
   footer{flex-direction:column;gap:.5rem}
+  .hero-cta-group{flex-direction:column}
+  .btn-hero,.btn-hero-secondary{width:100%}
+  .mid-cta-buttons{flex-direction:column}
+  .btn-white,.btn-white-secondary{width:100%}
+  .final-cta-buttons{flex-direction:column}
+  .btn-final,.btn-final-secondary{width:100%}
+  .urgency-buttons{flex-direction:column}
 }
 </style>
 </head>
@@ -151,7 +167,7 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 <nav>
   <div class="logo">Nova<span>Hypnose</span></div>
   <a href="tel:0649359869" class="nav-tel">📞 06 49 35 98 69</a>
-  <button class="nav-cta">Mes disponibilités</button>
+  <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="nav-cta">Mes disponibilités</a>
 </nav>
 
 <!-- HERO -->
@@ -160,9 +176,10 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
   <h1>Le stress vous <em>dévore</em> la vie —<br>il existe une issue en 3 séances</h1>
   <p class="hero-pain">Vous vous réveillez déjà épuisé. <strong>L'anxiété est là avant même que la journée commence.</strong> Vous avez essayé la méditation, le sport, les thérapies. Ça soulage — puis ça revient. Et si le problème n'était pas votre manque de volonté, mais une réaction automatique encodée dans votre cerveau ?</p>
   <div class="hero-cta-group">
-    <button class="btn-hero">Mes disponibilités →</button>
-    <span class="btn-hero-sub">Consultation à Paris 4 Marais-Bastille ou VISIO · Réponse rapide · Sans engagement</span>
+    <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn-hero">Mes disponibilités →</a>
+    <a href="https://novahypnose.fr/wa" class="btn-hero-secondary">Discuter par WhatsApp →</a>
   </div>
+  <span class="btn-hero-sub">Paris 4 Marais-Bastille ou VISIO · Réponse rapide · Sans engagement</span>
   <div class="social-proof-row">
     <div class="proof-item"><span class="proof-num">90%</span><span class="proof-label">Amélioration dès<br>la 1re séance</span></div>
     <div class="proof-item"><span class="proof-num">3–5</span><span class="proof-label">Séances pour un<br>résultat durable</span></div>
@@ -270,7 +287,10 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 <section class="mid-cta">
   <h2>Prêt à arrêter de subir ?</h2>
   <p>1ère Séance de 1h30 à Paris 4 Marais-Bastille ou VISIO.</p>
-  <button class="btn-white">Réserver ma séance maintenant →</button>
+  <div class="mid-cta-buttons">
+    <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn-white">Réserver ma séance →</a>
+    <a href="https://novahypnose.fr/wa" class="btn-white-secondary">Discuter par WhatsApp</a>
+  </div>
   <p class="tel">ou appelez directement : 06 49 35 98 69</p>
 </section>
 
@@ -293,7 +313,10 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 <section class="urgency-section">
   <h3>Le moment idéal, c'est maintenant</h3>
   <p>Le stress s'installe, les automatismes se renforcent. Plus vous attendez, plus la reprogrammation demande du temps. Chaque semaine compte. Faites le premier pas aujourd'hui.</p>
-  <button class="btn-hero">Je prends rendez-vous →</button>
+  <div class="urgency-buttons">
+    <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn-hero">Je réserve mon créneau →</a>
+    <a href="https://novahypnose.fr/wa" class="btn-hero-secondary">Discuter par WhatsApp</a>
+  </div>
 </section>
 
 <!-- FAQ -->
@@ -327,7 +350,10 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
   <h2>Dans 3 semaines, vous pouvez<br>vous réveiller sans cette oppression</h2>
   <p>Le seul risque, c'est de ne rien faire. La première séance est sans engagement.</p>
   <div class="final-cta-box">
-    <button class="btn-final">Prendre rendez-vous maintenant →</button>
+    <div class="final-cta-buttons">
+      <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn-final">Prendre rendez-vous →</a>
+      <a href="https://novahypnose.fr/wa" class="btn-final-secondary">Discuter par WhatsApp</a>
+    </div>
     <span class="final-tel">ou 06 49 35 98 69 · Cabinet Paris 4 Marais-Bastille · Métro Saint-Paul ou Bastille</span>
   </div>
 </section>
@@ -341,7 +367,7 @@ footer .logo{color:rgba(255,255,255,.5);font-family:'Playfair Display',serif}
 <!-- STICKY BAR -->
 <div class="sticky-bar">
   <p><strong>Vous méritez de respirer librement</strong> — Paris 4 ou séances en ligne</p>
-  <button class="sticky-btn">Réserver maintenant →</button>
+  <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="sticky-btn">Réserver maintenant →</a>
 </div>
 
 <script>
