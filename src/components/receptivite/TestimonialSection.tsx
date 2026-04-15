@@ -3,12 +3,12 @@ const TestimonialSection = () => {
     {
       name: "Marie L.",
       quote: "J'étais sceptique avant de faire ce test, mais les résultats étaient étonnamment précis ! J'ai enfin compris pourquoi certaines techniques fonctionnaient mieux que d'autres pour moi.",
-      image: "https://novahypnose.fr/wp-content/uploads/2025/04/image_fx-13.png"
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=marie"
     },
     {
       name: "Thomas B.",
       quote: "Grâce à ce test, j'ai économisé du temps et de l'argent en choisissant un hypnothérapeute qui utilise des méthodes adaptées à mon profil. Résultat : 3 séances au lieu de 10 !",
-      image: "https://novahypnose.fr/wp-content/uploads/2025/04/image_fx-9.png"
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=thomas"
     }
   ];
 
