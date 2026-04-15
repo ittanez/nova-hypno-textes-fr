@@ -163,6 +163,19 @@ const SeoTextSection: React.FC = () => {
             la flexibilité du domicile.
           </p>
 
+          {/* ── Qu'est-ce que l'hypnose ericksonienne ── */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-8 border-l-4 border-blue-500">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Qu'est-ce que l'hypnose ericksonienne ?
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              L'<strong>hypnose ericksonienne</strong> est une approche thérapeutique développée par <strong>Milton H. Erickson</strong>, psychiatre et psychologue américain pionnier de l'hypnothérapie moderne. Contrairement aux formes anciennes et directrices d'hypnose, l'hypnose ericksonienne est une méthode <strong>non-autoritaire et adaptée à chaque patient</strong>. Elle utilise un état de conscience modifié pour accéder aux ressources de l'inconscient et faciliter le changement thérapeutique.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Cette approche repose sur trois principes fondamentaux : le <strong>respect de l'autonomie du patient</strong> (vous gardez toujours le contrôle), l'<strong>utilisation des ressources inconscientes</strong> (votre inconscient détient déjà les solutions), et l'<strong>adaptation personnalisée</strong> (chaque personne reçoit une suggestion formulée pour sa situation unique). L'hypnose ericksonienne est reconnue comme une thérapie brève et efficace, particulièrement adaptée aux problèmes de stress, d'anxiété, de phobies et de troubles du sommeil.
+            </p>
+          </div>
+
           {/* ── Infos pratiques ── */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Informations pratiques – Cabinet Paris 4ème Marais-Bastille
@@ -211,7 +224,16 @@ const SeoTextSection: React.FC = () => {
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Oui. L'hypnose ericksonienne est une thérapie brève validée scientifiquement,
-                reconnue par l'INSERM et pratiquée en milieu hospitalier (anesthésie, douleurs
+                reconnue par{' '}
+                <a
+                  href="https://www.inserm.fr/rapport/evaluation-de-lefficacite-de-la-pratique-de-lhypnose-2015/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  l'INSERM
+                </a>
+                {' '}et pratiquée en milieu hospitalier (anesthésie, douleurs
                 chroniques, oncologie). Les résultats sont concrets et mesurables, généralement
                 visibles dès les premières séances. Consultez notre{' '}
                 <Link to="/blog" className="text-blue-600 hover:underline">
