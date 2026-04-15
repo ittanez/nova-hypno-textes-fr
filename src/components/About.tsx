@@ -177,7 +177,7 @@ const About = () => {
                 Plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
               </p>
               <p className="leading-relaxed">
-                Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée.
+                Vous profitez d'une formation approfondie (9 certifications) et d'une approche reconnue — l'hypnose ericksonienne est validée par l'INSERM et utilisée en milieu hospitalier.
               </p>
               <p className="leading-relaxed">
                 Un accompagnement professionnel de haut niveau garanti.
@@ -224,7 +224,7 @@ const About = () => {
               <ul className="space-y-2 text-base">
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
-                  <span><strong>95% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                  <span><a href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline"><strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 22 avis 5/5 laissés sur Google</strong></a></span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
@@ -246,7 +246,7 @@ const About = () => {
                 Ma méthode expliquée
               </h3>
               <p className="leading-relaxed">
-                Vous bénéficiez de l'hypnose ericksonienne, une approche scientifiquement validée.
+                Vous bénéficiez de l'hypnose ericksonienne, reconnue par l'INSERM et utilisée dans les hôpitaux.
               </p>
               <p className="leading-relaxed">
                 Elle respecte votre rythme intérieur.

@@ -48,8 +48,8 @@ const ApplicationsCarousel: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:underline"
                 >
-                  <strong>95% des clients</strong>
-                </a> constatent une amélioration significative dès les 3 premières séances</span>
+                  <strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 22 avis 5/5 laissés sur Google</strong>
+                </a></span>
               </li>
             </ul>
           </div>

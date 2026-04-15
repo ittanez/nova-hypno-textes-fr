@@ -126,10 +126,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                       href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline font-semibold"
+                      className="text-blue-600 hover:underline"
                     >
-                      <strong>95% des clients</strong>
-                    </a> constatent une amélioration significative dès les 3 premières séances</span>
+                      <strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 22 avis 5/5 laissés sur Google</strong>
+                    </a></span>
                   </li>
                 </ul>
               </div>
@@ -159,8 +159,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 <div className="flex items-start gap-3">
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={24} />
                   <div>
-                    <p className="font-semibold text-gray-900">Techniques validées scientifiquement</p>
-                    <p className="text-gray-600">Hypnose ericksonienne, PNL, hypnose directive et spirituelle</p>
+                    <p className="font-semibold text-gray-900">Approches complémentaires reconnues</p>
+                    <p className="text-gray-600">L'hypnose ericksonienne, socle de ma pratique, est reconnue par l'INSERM et utilisée en milieu hospitalier. J'y intègre des outils issus de la PNL et de l'hypnose directive pour adapter chaque accompagnement à votre profil.</p>
                   </div>
                 </div>
               </div>
