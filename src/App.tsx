@@ -34,6 +34,7 @@ const BlogIndex = lazy(() => import("@/pages/blog/BlogIndex"));
 const ArticlePage = lazy(() => import("@/pages/blog/ArticlePage"));
 const CategoryPage = lazy(() => import("@/pages/blog/CategoryPage"));
 const CategoriesPage = lazy(() => import("@/pages/blog/CategoriesPage"));
+const AuthorPage = lazy(() => import("@/pages/AuthorPage"));
 
 // Blog admin pages
 const AdminArticles = lazy(() => import("@/pages/admin/blog/AdminArticles"));
@@ -126,6 +127,9 @@ function App() {
             <Route path="/blog/article/:slug" element={<ArticlePage />} />
             <Route path="/blog/categorie/:slug" element={<CategoryPage />} />
             <Route path="/blog/categories" element={<CategoriesPage />} />
+
+            {/* Profil Auteur */}
+            <Route path="/alain-zenatti" element={<AuthorPage />} />
 
             {/* Routes Auto-hypnose */}
             <Route path="/autohypnose" element={<AutohypnoseIndex />} />

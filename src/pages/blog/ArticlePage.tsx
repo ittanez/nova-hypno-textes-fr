@@ -158,7 +158,10 @@ const ArticlePage = () => {
       "author": {
         "@type": "Person",
         "name": authorName,
-        "url": "https://novahypnose.fr"
+        "@id": "https://novahypnose.fr/alain-zenatti",
+        "url": "https://novahypnose.fr/alain-zenatti",
+        "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+        "jobTitle": "Maître Hypnologue certifié"
       },
       "publisher": {
         "@type": "Organization",
