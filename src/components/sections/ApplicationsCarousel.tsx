@@ -42,7 +42,14 @@ const ApplicationsCarousel: React.FC = () => {
               </li>
               <li className="flex items-start">
                 <span className="text-nova-green mr-3 mt-1 font-bold">✓</span>
-                <span><strong>95% des clients</strong> constatent une amélioration significative dès les 3 premières séances</span>
+                <span><a
+                  href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  <strong>95% des clients</strong>
+                </a> constatent une amélioration significative dès les 3 premières séances</span>
               </li>
             </ul>
           </div>
