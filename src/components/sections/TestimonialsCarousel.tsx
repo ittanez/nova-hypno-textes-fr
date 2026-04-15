@@ -55,7 +55,16 @@ const TestimonialsCarousel: React.FC = () => {
             ))}
           </div>
           <p className="text-xl text-gray-600">
-            Note moyenne de 5/5 sur Google My Business & Resalib
+            Note moyenne de{' '}
+            <a
+              href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-blue-600 hover:underline"
+            >
+              5/5 sur Google My Business
+            </a>
+            {' '}& Resalib
           </p>
         </div>
 

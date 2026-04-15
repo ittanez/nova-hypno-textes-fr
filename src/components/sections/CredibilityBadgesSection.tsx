@@ -62,17 +62,22 @@ const CredibilityBadgesSection: React.FC = () => {
             </div>
 
             {/* Badge 4 : Note 5/5 */}
-            <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-blue-300 transition-colors">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mb-3">
+            <a
+              href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-yellow-300 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <Shield className="text-white" size={32} />
               </div>
               <p className="font-bold text-gray-900 text-sm md:text-base">
                 Note 5/5
               </p>
               <p className="text-xs text-gray-600 mt-1">
-                Avis vérifiés clients
+                Avis vérifiés Google
               </p>
-            </div>
+            </a>
           </div>
 
           {/* Liste des certifications détaillées */}
