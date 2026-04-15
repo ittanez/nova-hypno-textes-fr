@@ -15,22 +15,37 @@ interface Testimonial {
   text: string;
 }
 
-// Témoignages recommandés : 2-3 maximum (source : "Design web pour hypnothérapeutes 2024-2025")
+// Avis authentiques extraits de Google My Business - 6 sélectionnés parmi les 22 avis 5/5
 const testimonials: Testimonial[] = [
   {
-    name: 'Edward',
-    date: 'il y a 2 mois',
-    text: '"Découvrir NovaHypnose est une expérience marquante. Alain propose de véritables parcours de transformation. J\'ai laissé derrière moi certaines croyances figées et ouvert un espace intérieur plus libre."'
+    name: 'Karine B.',
+    date: 'mars 2023',
+    text: '"Grâce à Alain j\'ai pris le dessus sur ma phobie. Dès le premier contact téléphonique il a su être à mon écoute, et toutes les séances ont été bienveillantes — mes bulles de bien-être."'
   },
   {
-    name: 'Marie',
-    date: 'il y a 3 mois',
-    text: '"J\'ai consulté pour un problème d\'anxiété. Dès la première séance je me suis sentie apaisée. Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."'
+    name: 'Isabelle M.',
+    date: 'novembre 2024',
+    text: '"Alain m\'a aidée à retrouver un sommeil réparateur en 2 séances. Je vous le recommande."'
   },
   {
-    name: 'Philippe',
-    date: 'il y a 3 mois',
-    text: '"Un praticien calme et réfléchi. En quelques séances, j\'ai pu me libérer de certains blocages et entamer des changements pérennes. Merci pour cette évolution importante."'
+    name: 'Marie H.',
+    date: 'mars 2025',
+    text: '"J\'ai consulté pour un problème d\'anxiété. Dès la première séance je me suis sentie apaisée et sereine. Mon anxiété a totalement disparu en 3 séances. Je recommande vivement."'
+  },
+  {
+    name: 'Arthur P.',
+    date: 'août 2022',
+    text: '"Phobique de l\'avion, M. Zenatti a su m\'aider avant un voyage important. Merci encore pour ce que vous avez fait !"'
+  },
+  {
+    name: 'Régis G.',
+    date: 'novembre 2024',
+    text: '"Première séance d\'hypnose de ma vie qui a permis de solutionner un problème que j\'avais depuis de nombreuses années. Un grand merci et bravo."'
+  },
+  {
+    name: 'Edward A.',
+    date: 'avril 2025',
+    text: '"J\'ai laissé derrière moi certaines croyances figées qui conditionnaient mes pensées, et j\'ai ouvert un espace intérieur plus souple, plus libre."'
   }
 ];
 
