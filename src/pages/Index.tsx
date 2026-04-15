@@ -36,6 +36,7 @@ const TestimonialsCarousel = lazy(() => import('@/components/sections/Testimonia
 const CredibilityBadgesSection = lazy(() => import('@/components/sections/CredibilityBadgesSection'));
 const ContactSection = lazy(() => import('@/components/sections/ContactSection'));
 const SelfHypnosisSection = lazy(() => import('@/components/sections/SelfHypnosisSection'));
+const TherapyComparisonSection = lazy(() => import('@/components/sections/TherapyComparisonSection'));
 const FAQSection = lazy(() => import('@/components/sections/FAQSection'));
 const VideoModal = lazy(() => import('@/components/sections/VideoModal'));
 
@@ -189,6 +190,11 @@ const Index: React.FC = () => {
         <Suspense fallback={<SectionLoader />}>
           {/* Section Auto-Hypnose */}
           <SelfHypnosisSection />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoader />}>
+          {/* Section Comparaison Hypnose vs Autres Thérapies - GEO */}
+          <TherapyComparisonSection />
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
