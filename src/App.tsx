@@ -69,6 +69,10 @@ const AutohypnoseGratitude = lazy(() => import("@/pages/AutohypnoseGratitude"));
 const GuideSommeil = lazy(() => import("@/pages/GuideSommeil"));
 const GuideSommeilMerci = lazy(() => import("@/pages/GuideSommeilMerci"));
 
+// Guide procrastination (landing page isolée)
+const GuideProcrastination = lazy(() => import("@/pages/GuideProcrastination"));
+const GuideProcrastinationMerci = lazy(() => import("@/pages/GuideProcrastinationMerci"));
+
 // Page de redirection WhatsApp (emails Brevo)
 const ContactWaBrevo = lazy(() => import("@/pages/ContactWaBrevo"));
 
@@ -151,6 +155,8 @@ function App() {
             <Route path="/autohypnose-gratitude" element={<AutohypnoseGratitude />} />
             <Route path="/guide-sommeil" element={<GuideSommeil />} />
             <Route path="/guide-sommeil/merci" element={<GuideSommeilMerci />} />
+            <Route path="/guide-procrastination" element={<GuideProcrastination />} />
+            <Route path="/guide-procrastination/merci" element={<GuideProcrastinationMerci />} />
             <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
 
             {/* Page de test ebook — pas dans le menu */}
