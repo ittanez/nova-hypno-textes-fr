@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts"
+import { getCorsHeaders, isValidEmail, sanitizeString } from "./cors.ts"
 
 const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY')
 const BREVO_LIST_ID = 18
