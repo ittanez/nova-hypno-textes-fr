@@ -60,11 +60,22 @@ serve(async (req) => {
       },
       body: JSON.stringify(createPayload),
     })
-    const createData = await createRes.json()
-    console.log('Reponse Brevo creation contact:', createData)
 
-    if (!createRes.ok && createRes.status !== 400) {
-      throw new Error(createData?.message || "Erreur lors de la creation du contact")
+    // FIX: Brevo renvoie 204 No Content (body vide) quand updateEnabled:true met a jour
+    // un contact existant. await createRes.json() plantait alors avec SyntaxError et
+    // empechait un utilisateur deja present dans Brevo de s'inscrire a un second ebook.
+    // On parse le body de maniere defensive.
+    const createText = await createRes.text()
+    let createData: { message?: string } | null = null
+    if (createText) {
+      try { createData = JSON.parse(createText) } catch { /* body non-JSON */ }
+    }
+    console.log('Reponse Brevo creation contact:', createRes.status, createData)
+
+    // FIX: on ne masque plus les 400 — avec updateEnabled:true le cas "duplicate" devient
+    // 204, donc un 400 residuel est une vraie erreur de validation a surfacer.
+    if (!createRes.ok) {
+      throw new Error(createData?.message || "Impossible d'enregistrer votre email. Veuillez reessayer.")
     }
 
     // ETAPE 2 : Ajouter a la liste 18 (ebook-procrastination) pour declencher le workflow Brevo
@@ -80,10 +91,18 @@ serve(async (req) => {
       },
       body: JSON.stringify(listPayload),
     })
-    const listData = await listRes.json()
-    console.log('Reponse Brevo ajout liste:', listData)
+    const listText = await listRes.text()
+    let listData: { code?: string; message?: string } | null = null
+    if (listText) {
+      try { listData = JSON.parse(listText) } catch { /* body non-JSON */ }
+    }
+    console.log('Reponse Brevo ajout liste:', listRes.status, listData)
 
-    if (!listRes.ok) {
+    // FIX: Brevo renvoie 400 "Contact already in list and/or does not exist" quand le
+    // contact est deja dans la liste cible (cas d'une re-inscription au meme ebook).
+    // C'est un succes fonctionnel — on ne throw pas.
+    const alreadyInList = listRes.status === 400 && listData?.code === 'invalid_parameter'
+    if (!listRes.ok && !alreadyInList) {
       console.error('Erreur ajout liste Brevo:', listData)
       throw new Error(listData?.message || "Erreur lors de l'ajout a la liste")
     }
