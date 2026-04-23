@@ -25,8 +25,8 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 48.8534,
-    "longitude": 2.3656
+    "latitude": 48.8566,
+    "longitude": 2.3685
   },
   "openingHoursSpecification": [
     {
@@ -69,7 +69,30 @@ export const localBusinessSchema = {
     {
       "@type": "AdministrativeArea",
       "name": "Île-de-France"
-    }
+    },
+    { "@type": "City", "name": "Paris 1er arrondissement" },
+    { "@type": "City", "name": "Paris 2e arrondissement" },
+    { "@type": "City", "name": "Paris 3e arrondissement" },
+    { "@type": "City", "name": "Paris 4e arrondissement" },
+    { "@type": "City", "name": "Paris 5e arrondissement" },
+    { "@type": "City", "name": "Paris 6e arrondissement" },
+    { "@type": "City", "name": "Paris 7e arrondissement" },
+    { "@type": "City", "name": "Paris 8e arrondissement" },
+    { "@type": "City", "name": "Paris 9e arrondissement" },
+    { "@type": "City", "name": "Paris 10e arrondissement" },
+    { "@type": "City", "name": "Paris 11e arrondissement" },
+    { "@type": "City", "name": "Paris 12e arrondissement" },
+    { "@type": "City", "name": "Paris 13e arrondissement" },
+    { "@type": "City", "name": "Paris 14e arrondissement" },
+    { "@type": "City", "name": "Paris 15e arrondissement" },
+    { "@type": "City", "name": "Paris 16e arrondissement" },
+    { "@type": "City", "name": "Paris 17e arrondissement" },
+    { "@type": "City", "name": "Paris 18e arrondissement" },
+    { "@type": "City", "name": "Paris 19e arrondissement" },
+    { "@type": "City", "name": "Paris 20e arrondissement" },
+    { "@type": "Place", "name": "Marais" },
+    { "@type": "Place", "name": "Bastille" },
+    { "@type": "Place", "name": "Le Marais-Bastille" }
   ],
   "sameAs": [
     "https://www.instagram.com/novahypnose/",

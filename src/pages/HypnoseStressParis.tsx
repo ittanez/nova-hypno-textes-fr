@@ -7,6 +7,7 @@ import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
+import { localBusinessSchema } from '@/data/schemaOrg';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -66,6 +67,7 @@ const HypnoseStressParis = () => {
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
       </Helmet>
 
       {/* Hero */}
