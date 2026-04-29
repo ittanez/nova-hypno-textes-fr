@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -31,6 +31,7 @@ import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "
 import { Article, Category } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 import { logger } from "@/lib/logger";
+import { useQuery } from "@tanstack/react-query";
 
 // ✅ FONCTION POUR OBTENIR LES ARTICLES ADJACENTS
 const getAdjacentArticles = (currentArticle: Article, allArticles: Article[]) => {
@@ -87,11 +88,6 @@ const ArticlePage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { isAdmin } = useAuth();
-  const [article, setArticle] = useState<Article | null>(null);
-  const [allArticles, setAllArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
 
   // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
   const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';
@@ -100,44 +96,33 @@ const ArticlePage = () => {
   // ✅ CONSTRUIRE L'URL CANONIQUE DE L'ARTICLE
   const getCanonicalUrl = (slug: string) => `${canonicalBaseUrl}/blog/article/${slug}`;
 
-  // ✅ CHARGEMENT DE L'ARTICLE ET DE TOUS LES ARTICLES
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
+  // ✅ REACT QUERY — article courant (cache 5 min, clé unique par slug)
+  const { data: articleResult, isLoading: articleLoading, error: articleError } = useQuery({
+    queryKey: ['blog-article', slug],
+    queryFn: () => getArticleBySlug(slug!),
+    enabled: !!slug,
+    staleTime: 5 * 60 * 1000,
+  });
 
-        // Charger l'article actuel, tous les articles et les catégories en parallèle
-        const [articleResult, allResult, categoriesResult] = await Promise.all([
-          getArticleBySlug(slug!),
-          getAllArticlesNoPagination(),
-          getAllCategories()
-        ]);
+  // ✅ REACT QUERY — tous les articles (cache partagé avec BlogIndex)
+  const { data: allResult, isLoading: allLoading } = useQuery({
+    queryKey: ['blog-articles'],
+    queryFn: () => getAllArticlesNoPagination(),
+    staleTime: 5 * 60 * 1000,
+  });
 
-        if (articleResult.data) {
-          setArticle(articleResult.data);
-        } else {
-          setError("Article non trouvé");
-        }
+  // ✅ REACT QUERY — catégories (cache partagé avec BlogIndex)
+  const { data: categoriesResult } = useQuery({
+    queryKey: ['blog-categories'],
+    queryFn: () => getAllCategories(),
+    staleTime: 5 * 60 * 1000,
+  });
 
-        if (allResult.data) {
-          setAllArticles(allResult.data.filter(a => a.published));
-        }
-
-        if (categoriesResult.data) {
-          setCategories(categoriesResult.data);
-        }
-      } catch (err) {
-        logger.error("Erreur lors du chargement", err);
-        setError(err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (slug) {
-      fetchData();
-    }
-  }, [slug]);
+  const article = articleResult?.data ?? null;
+  const allArticles = (allResult?.data ?? []).filter((a: Article) => a.published);
+  const categories = categoriesResult?.data ?? [];
+  const isLoading = articleLoading || allLoading;
+  const error = articleError || (!articleLoading && !article ? new Error("Article non trouvé") : null);
 
   // ✅ OBTENIR LES ARTICLES PRÉCÉDENT ET SUIVANT
   const { previousArticle, nextArticle } = article ? getAdjacentArticles(article, allArticles) : { previousArticle: null, nextArticle: null };
