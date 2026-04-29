@@ -235,7 +235,7 @@ const GuideAutohypnose: React.FC = () => {
         <title>Télécharger "L'Autohypnose au Quotidien" - Guide Gratuit | NovaHypnose</title>
         <meta
           name="description"
-          content="Recevez gratuitement le guide complet d'autohypnose d'Alain Zenatti. 37 pages, 9 protocoles testés pour gérer le stress, retrouver confiance et améliorer votre bien-être professionnel."
+          content="Recevez gratuitement le guide d'autohypnose d'Alain Zenatti. 37 pages, 9 protocoles pour gérer le stress, retrouver confiance et améliorer votre bien-être."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />

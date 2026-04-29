@@ -115,8 +115,17 @@ const SEOHead = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:url" content={currentUrl} />
-      <meta property="og:site_name" content={siteTitle} />
+      <meta property="og:locale" content="fr_FR" />
+      <meta property="og:site_name" content="NovaHypnose" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:image" content={image} />
 
       {/* Article spécifique */}
       {type === "article" && publishedTime && (

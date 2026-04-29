@@ -105,10 +105,23 @@ const AuthorPage: React.FC = () => {
         <title>Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose</title>
         <meta
           name="description"
-          content="Alain Zenatti, Maître Hypnologue certifié. Spécialiste en hypnose ericksonienne. 5+ ans d'expérience. Cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
+          content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
         />
         <meta name="keywords" content="Alain Zenatti, Maître Hypnologue, hypnothérapeute Paris, hypnose ericksonienne" />
         <link rel="canonical" href="https://novahypnose.fr/alain-zenatti" />
+        <meta property="og:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
+        <meta property="og:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/alain-zenatti" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
+        <meta name="twitter:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>
 
       <ContentLayout>

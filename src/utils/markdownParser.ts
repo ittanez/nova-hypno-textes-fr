@@ -34,6 +34,9 @@ export const parseMarkdownToHtml = (content: string): string => {
     const styleRegex = /<style[^>]*>[\s\S]*?<\/style>/gi;
     processed = processed.replace(styleRegex, '');
 
+    // Ajouter alt="" aux <img> sans attribut alt (accessibilité SEO)
+    processed = processed.replace(/<img\b(?![^>]*\balt=)([^>]*)(\/?>)/gi, '<img$1 alt=""$2');
+
     // Nettoyer le HTML pour la sécurité
     return DOMPurify.sanitize(processed, {
       ALLOWED_TAGS: ['article', 'p', 'br', 'strong', 'em', 'b', 'i', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'hr', 'div', 'span'],
@@ -50,7 +53,10 @@ export const parseMarkdownToHtml = (content: string): string => {
     });
 
     // Convertir Markdown en HTML
-    const html = marked.parse(processed) as string;
+    let html = marked.parse(processed) as string;
+
+    // Ajouter alt="" aux <img> sans attribut alt (accessibilité SEO)
+    html = html.replace(/<img\b(?![^>]*\balt=)([^>]*)(\/?>)/gi, '<img$1 alt=""$2');
 
     // Nettoyer le HTML pour la sécurité
     return DOMPurify.sanitize(html, {
