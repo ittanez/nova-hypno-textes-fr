@@ -52,7 +52,7 @@ const AutohypnoseGratitude: React.FC = () => {
         <title>Script d'autohypnose Gratitude — Téléchargement gratuit | NovaHypnose</title>
         <meta
           name="description"
-          content="Téléchargez gratuitement le script d'autohypnose « Vivre dans un état de gratitude » d'Alain Zenatti. Un protocole hypnotique complet pour cultiver la reconnaissance et le mieux-être au quotidien."
+          content="Téléchargez le script d'autohypnose Gratitude d'Alain Zenatti. Un protocole hypnotique pour cultiver la reconnaissance et le bien-être au quotidien."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/autohypnose-gratitude" />
