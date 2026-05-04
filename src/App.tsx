@@ -79,6 +79,9 @@ const ContactWaBrevo = lazy(() => import("@/pages/ContactWaBrevo"));
 // Page de test ebook (isolée, pas dans le menu)
 const TestEbook = lazy(() => import("@/pages/TestEbook"));
 
+// Questionnaire ebook (page isolée, pas dans le menu)
+const QuestionnaireEbook = lazy(() => import("@/pages/QuestionnaireEbook"));
+
 // Pages de spécialités SEO
 const HypnoseStressParis = lazy(() => import("@/pages/HypnoseStressParis"));
 const HypnosePhobiesParis = lazy(() => import("@/pages/HypnosePhobiesParis"));
@@ -161,6 +164,9 @@ function App() {
 
             {/* Page de test ebook — pas dans le menu */}
             <Route path="/test-ebook" element={<TestEbook />} />
+
+            {/* Questionnaire post-téléchargement ebook — page isolée */}
+            <Route path="/questionnaire-ebook" element={<QuestionnaireEbook />} />
 
             {/* Page de redirection WhatsApp — emails Brevo */}
             <Route path="/contact-wa-brevo" element={<ContactWaBrevo />} />
