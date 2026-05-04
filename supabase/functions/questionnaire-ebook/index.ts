@@ -6,14 +6,15 @@ const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
-const EBOOKS_VALIDES = ["autohypnose", "sommeil", "procrastination"];
+const RESERVATION_URL = "https://novahypnose.fr/#contact";
+
 const EBOOKS_LABELS: Record<string, string> = {
   autohypnose: "Auto-hypnose",
   sommeil: "Sommeil",
   procrastination: "Procrastination",
 };
 
-// Génère un code promo court et unique : EBOOK-XXXXXX
+// Code lisible : EBOOK-XXXXXX (pas de 0/O, 1/I)
 function generatePromoCode(): string {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "EBOOK-";
@@ -23,10 +24,10 @@ function generatePromoCode(): string {
   return code;
 }
 
-// Date de validité : 6 mois à partir d'aujourd'hui
+// Validité : J+180 (6 mois)
 function getValidityDate(): { iso: string; fr: string } {
   const d = new Date();
-  d.setMonth(d.getMonth() + 6);
+  d.setDate(d.getDate() + 180);
   const iso = d.toISOString().slice(0, 10);
   const fr = d.toLocaleDateString("fr-FR", {
     day: "2-digit",
@@ -38,11 +39,9 @@ function getValidityDate(): { iso: string; fr: string } {
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req);
-
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
-
   const responseHeaders = { ...corsHeaders, "Content-Type": "application/json" };
 
   try {
@@ -56,25 +55,17 @@ serve(async (req) => {
       );
     }
 
+    // ── Champs (entonnoir inversé : besoins → utilité → frein → admin) ──
     const ebook_telecharge = sanitizeString(String(body.ebook_telecharge ?? ""), 50).trim().toLowerCase();
-    const utilisation_ebook = sanitizeString(String(body.utilisation_ebook ?? ""), 200).trim();
-    const progression = sanitizeString(String(body.progression ?? ""), 200).trim();
-    const deja_consulte_hypnotherapeute = sanitizeString(String(body.deja_consulte_hypnotherapeute ?? ""), 50).trim();
-    const freins_consultation = sanitizeString(String(body.freins_consultation ?? ""), 500).trim();
-    const besoin_si_consultation = sanitizeString(String(body.besoin_si_consultation ?? ""), 500).trim();
-    const prochain_ebook_souhaite = sanitizeString(String(body.prochain_ebook_souhaite ?? ""), 500).trim();
-    const zone_geographique = sanitizeString(String(body.zone_geographique ?? ""), 50).trim();
-    const genre = sanitizeString(String(body.genre ?? ""), 50).trim();
-    const tranche_age = sanitizeString(String(body.tranche_age ?? ""), 50).trim();
+    const sujet_principal = sanitizeString(String(body.sujet_principal ?? ""), 500).trim();
+    const pepite_ebook = sanitizeString(String(body.pepite_ebook ?? ""), 500).trim();
+    const pratique_ressenti = sanitizeString(String(body.pratique_ressenti ?? ""), 1000).trim();
+    const interrogation_principale = sanitizeString(String(body.interrogation_principale ?? ""), 500).trim();
+    const deja_seance = sanitizeString(String(body.deja_seance ?? ""), 10).trim().toLowerCase();
+    const prochain_guide = sanitizeString(String(body.prochain_guide ?? ""), 500).trim();
+    const localisation = sanitizeString(String(body.localisation ?? ""), 50).trim();
     const emailRaw = sanitizeString(String(body.email ?? ""), 254).trim().toLowerCase();
     const email = emailRaw || null;
-
-    if (!EBOOKS_VALIDES.includes(ebook_telecharge)) {
-      return new Response(
-        JSON.stringify({ error: `Ebook invalide. Valeurs acceptées : ${EBOOKS_VALIDES.join(", ")}` }),
-        { status: 400, headers: responseHeaders }
-      );
-    }
 
     if (email && !isValidEmail(email)) {
       return new Response(
@@ -87,20 +78,19 @@ serve(async (req) => {
 
     const code_promo = generatePromoCode();
     const validity = getValidityDate();
+    const ebookLabel = EBOOKS_LABELS[ebook_telecharge] ?? "votre ebook";
 
     const { error: dbError } = await supabase
       .from("questionnaire_ebook")
       .insert({
-        ebook_telecharge,
-        utilisation_ebook: utilisation_ebook || null,
-        progression: progression || null,
-        deja_consulte_hypnotherapeute: deja_consulte_hypnotherapeute || null,
-        freins_consultation: freins_consultation || null,
-        besoin_si_consultation: besoin_si_consultation || null,
-        prochain_ebook_souhaite: prochain_ebook_souhaite || null,
-        zone_geographique: zone_geographique || null,
-        genre: genre || null,
-        tranche_age: tranche_age || null,
+        ebook_telecharge: ebook_telecharge || null,
+        sujet_principal: sujet_principal || null,
+        pepite_ebook: pepite_ebook || null,
+        pratique_ressenti: pratique_ressenti || null,
+        interrogation_principale: interrogation_principale || null,
+        deja_seance: deja_seance || null,
+        prochain_guide: prochain_guide || null,
+        localisation: localisation || null,
         email,
         questionnaire_complete: true,
         code_promo,
@@ -113,99 +103,132 @@ serve(async (req) => {
       throw new Error(`Erreur base de données : ${dbError.message}`);
     }
 
-    // Envoi du bon de réduction par email si l'utilisateur a fourni son email
-    if (email) {
-      if (!BREVO_API_KEY) {
-        console.error("questionnaire-ebook — BREVO_API_KEY non configurée");
-      } else {
-        const ebookLabel = EBOOKS_LABELS[ebook_telecharge] ?? ebook_telecharge;
-
-        const htmlContent = `
+    // ── Email "Cadeau de bienvenue" au répondant ──
+    if (email && BREVO_API_KEY) {
+      const htmlContent = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
-<body style="font-family: 'Helvetica Neue', Arial, sans-serif; background:#f6f7fb; margin:0; padding:24px;">
-  <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.06);">
-    <div style="background: linear-gradient(135deg,#1a3a5f,#3b6fa8); color:#fff; padding:28px 32px;">
-      <h1 style="margin:0; font-family:'Playfair Display', Georgia, serif; font-size:26px;">Merci pour vos réponses</h1>
-      <p style="margin:8px 0 0; opacity:.9;">Votre bon de 10€ vous attend ci-dessous.</p>
-    </div>
-    <div style="padding:28px 32px; color:#333;">
-      <p>Bonjour,</p>
-      <p>Merci d'avoir pris le temps de répondre au questionnaire concernant l'ebook <strong>${ebookLabel}</strong>. Vos retours sont précieux et m'aideront à concevoir des contenus encore plus utiles.</p>
-      <p>Comme promis, voici votre <strong>bon de 10€</strong> à utiliser sur votre première séance d'hypnothérapie (en cabinet à Paris ou en visio).</p>
+<body style="font-family: 'Helvetica Neue', Arial, sans-serif; background:#f6f7fb; margin:0; padding:24px; color:#333;">
+  <div style="max-width:580px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.06);">
 
-      <div style="margin:24px 0; padding:20px; border:2px dashed #f57c00; border-radius:12px; text-align:center; background:#fff8ee;">
-        <div style="font-size:14px; color:#666; text-transform:uppercase; letter-spacing:1px;">Votre code</div>
-        <div style="font-size:28px; font-weight:bold; color:#1a3a5f; margin:8px 0; font-family:'Courier New',monospace;">${code_promo}</div>
-        <div style="font-size:14px; color:#666;">Valable jusqu'au <strong>${validity.fr}</strong></div>
+    <div style="background: linear-gradient(135deg,#1a3a5f,#3b6fa8); color:#fff; padding:32px;">
+      <div style="font-size:38px; line-height:1; margin-bottom:8px;">🎁</div>
+      <h1 style="margin:0; font-family:'Playfair Display', Georgia, serif; font-size:26px; line-height:1.3;">
+        Votre cadeau de bienvenue
+      </h1>
+      <p style="margin:8px 0 0; opacity:.92;">…et un grand merci pour votre aide.</p>
+    </div>
+
+    <div style="padding:32px;">
+      <p style="margin:0 0 16px;">Bonjour,</p>
+
+      <p style="margin:0 0 16px; line-height:1.6;">
+        Comme promis, voici votre <strong>crédit de 10€</strong> à valoir sur votre première séance d'hypnose,
+        en cabinet à Paris ou en visio.
+      </p>
+
+      <p style="margin:0 0 24px; line-height:1.6;">
+        <em>Vous avez fait le premier pas en lisant mon guide « ${ebookLabel} ».
+        Le second est souvent le plus transformateur.</em>
+      </p>
+
+      <div style="margin:24px 0; padding:24px; border:2px dashed #f57c00; border-radius:14px; text-align:center; background:#fff8ee;">
+        <div style="font-size:13px; color:#666; text-transform:uppercase; letter-spacing:1.5px;">
+          Votre crédit
+        </div>
+        <div style="font-size:30px; font-weight:bold; color:#1a3a5f; margin:10px 0; font-family:'Courier New',monospace; letter-spacing:1px;">
+          ${code_promo}
+        </div>
+        <div style="font-size:14px; color:#666;">
+          Valable jusqu'au <strong>${validity.fr}</strong>
+        </div>
       </div>
 
-      <p><strong>Comment l'utiliser ?</strong><br>
-      Mentionnez ce code lors de la prise de rendez-vous, par téléphone, email ou sur le site novahypnose.fr. La réduction sera appliquée sur votre première séance.</p>
+      <div style="text-align:center; margin:32px 0;">
+        <a href="${RESERVATION_URL}?code=${code_promo}"
+           style="display:inline-block; background:#f57c00; color:#fff; text-decoration:none; padding:16px 32px; border-radius:999px; font-weight:600; font-size:16px; box-shadow:0 4px 14px rgba(245,124,0,0.35);">
+          Réserver ma séance avec mon crédit
+        </a>
+      </div>
 
-      <p style="margin-top:28px;">À très bientôt peut-être,<br>
-      <strong>Alain Zenatti</strong><br>
-      <span style="color:#666;">NovaHypnose — 06 49 35 80 89</span></p>
+      <p style="margin:24px 0 0; line-height:1.6; font-size:14px; color:#555;">
+        Mentionnez ce code lors de la prise de rendez-vous, le crédit sera déduit
+        automatiquement de votre première séance.
+      </p>
+
+      <p style="margin:32px 0 0; line-height:1.6;">
+        Au plaisir de vous accompagner,<br>
+        <strong>Alain Zenatti</strong><br>
+        <span style="color:#666;">NovaHypnose — 06 49 35 80 89</span>
+      </p>
     </div>
+
     <div style="background:#f6f7fb; padding:16px 32px; font-size:12px; color:#888; text-align:center;">
-      Bon non cumulable, valable une fois, sur la première séance uniquement.
+      Crédit non cumulable, valable une fois, sur la première consultation uniquement.
     </div>
   </div>
 </body>
 </html>`;
 
-        const emailRes = await fetch("https://api.brevo.com/v3/smtp/email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-key": BREVO_API_KEY,
-          },
-          body: JSON.stringify({
-            sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
-            to: [{ email }],
-            subject: `Votre bon de 10€ — code ${code_promo}`,
-            htmlContent,
-          }),
-        });
+      const emailRes = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": BREVO_API_KEY,
+        },
+        body: JSON.stringify({
+          sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
+          to: [{ email }],
+          subject: "🎁 Votre cadeau de bienvenue (et un grand merci)",
+          htmlContent,
+        }),
+      });
 
-        if (!emailRes.ok) {
-          const errText = await emailRes.text();
-          console.error("questionnaire-ebook — Erreur envoi email:", errText);
-        }
+      if (!emailRes.ok) {
+        const errText = await emailRes.text();
+        console.error("questionnaire-ebook — Erreur envoi email:", errText);
       }
+    }
 
-      // Notification admin
-      if (BREVO_API_KEY) {
-        await fetch("https://api.brevo.com/v3/smtp/email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-key": BREVO_API_KEY,
-          },
-          body: JSON.stringify({
-            sender: { name: "NovaHypnose", email: "contact@novahypnose.fr" },
-            to: [{ email: "a.zenatti@gmail.com" }],
-            subject: `🔔 Nouveau questionnaire ebook — ${EBOOKS_LABELS[ebook_telecharge]}`,
-            textContent: `Nouveau répondant au questionnaire ebook :
+    // ── Notification admin ──
+    if (BREVO_API_KEY) {
+      await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": BREVO_API_KEY,
+        },
+        body: JSON.stringify({
+          sender: { name: "NovaHypnose", email: "contact@novahypnose.fr" },
+          to: [{ email: "a.zenatti@gmail.com" }],
+          subject: `🔔 Nouveau questionnaire — ${ebookLabel}`,
+          textContent: `Nouveau répondant au questionnaire ebook :
 
-Ebook : ${EBOOKS_LABELS[ebook_telecharge]}
+Ebook : ${ebookLabel}
 Email : ${email ?? "(non fourni)"}
-Zone : ${zone_geographique || "(non précisé)"}
-Genre : ${genre || "(non précisé)"}
-Âge : ${tranche_age || "(non précisé)"}
+Localisation : ${localisation || "(non précisé)"}
 
-Utilisation : ${utilisation_ebook || "(non précisé)"}
-Progression : ${progression || "(non précisé)"}
-Déjà consulté un hypnothérapeute : ${deja_consulte_hypnotherapeute || "(non précisé)"}
-Freins : ${freins_consultation || "(aucun)"}
-Besoin éventuel : ${besoin_si_consultation || "(aucun)"}
-Prochain ebook souhaité : ${prochain_ebook_souhaite || "(aucun)"}
+— Q1. Sujet qui occupe le plus :
+${sujet_principal || "(non précisé)"}
 
-Code promo généré : ${code_promo} (valable jusqu'au ${validity.fr})`,
-          }),
-        }).catch((err) => console.error("questionnaire-ebook — Erreur notif admin:", err));
-      }
+— Q2. Pépite de l'ebook :
+${pepite_ebook || "(non précisé)"}
+
+— Q3. Mise en pratique / ressenti :
+${pratique_ressenti || "(non précisé)"}
+
+— Q4. Principale interrogation à consulter :
+${interrogation_principale || "(non précisé)"}
+
+— Q5. Déjà vécu une séance d'hypnose : ${deja_seance || "(non précisé)"}
+
+— Q6. Prochain guide souhaité :
+${prochain_guide || "(aucun)"}
+
+Crédit de bienvenue : ${code_promo} (valable jusqu'au ${validity.fr})`,
+        }),
+      }).catch((err) => console.error("questionnaire-ebook — Erreur notif admin:", err));
     }
 
     return new Response(

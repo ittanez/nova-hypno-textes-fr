@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet";
 
 const SUPABASE_FUNCTION_URL =
@@ -14,29 +14,25 @@ const EBOOK_LABELS: Record<EbookKey, string> = {
 
 interface FormState {
   ebook_telecharge: EbookKey | "";
-  utilisation_ebook: string;
-  progression: string;
-  deja_consulte_hypnotherapeute: string;
-  freins_consultation: string;
-  besoin_si_consultation: string;
-  prochain_ebook_souhaite: string;
-  zone_geographique: string;
-  genre: string;
-  tranche_age: string;
-  email: string;
+  sujet_principal: string;       // Q1 multi-choix
+  pepite_ebook: string;          // Q2 libre court
+  pratique_ressenti: string;     // Q3 libre
+  interrogation_principale: string; // Q4 multi-choix
+  deja_seance: string;           // Q5 oui/non
+  prochain_guide: string;        // Q6 libre
+  localisation: string;          // Q7
+  email: string;                 // Q8
 }
 
 const INITIAL_STATE: FormState = {
   ebook_telecharge: "",
-  utilisation_ebook: "",
-  progression: "",
-  deja_consulte_hypnotherapeute: "",
-  freins_consultation: "",
-  besoin_si_consultation: "",
-  prochain_ebook_souhaite: "",
-  zone_geographique: "",
-  genre: "",
-  tranche_age: "",
+  sujet_principal: "",
+  pepite_ebook: "",
+  pratique_ressenti: "",
+  interrogation_principale: "",
+  deja_seance: "",
+  prochain_guide: "",
+  localisation: "",
   email: "",
 };
 
@@ -59,237 +55,172 @@ const QuestionnaireEbook = () => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  // Étapes du carrousel — chaque step est une "slide"
-  const steps = [
-    {
-      key: "ebook_telecharge",
-      title: "Quel ebook avez-vous téléchargé ?",
-      required: true,
-      render: () => (
-        <RadioGroup
-          name="ebook"
-          value={form.ebook_telecharge}
-          onChange={(v) => update("ebook_telecharge", v as EbookKey)}
-          options={[
-            { label: "L'auto-hypnose", value: "autohypnose" },
-            { label: "Le sommeil", value: "sommeil" },
-            { label: "La procrastination", value: "procrastination" },
-          ]}
-        />
-      ),
-      isValid: () => form.ebook_telecharge !== "",
-    },
-    {
-      key: "utilisation_ebook",
-      title: "Comment l'avez-vous utilisé ?",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="utilisation"
-          value={form.utilisation_ebook}
-          onChange={(v) => update("utilisation_ebook", v)}
-          options={[
-            { label: "Je l'ai lu en entier et appliqué les exercices", value: "lu_applique" },
-            { label: "Je l'ai lu mais peu pratiqué les exercices", value: "lu_peu_pratique" },
-            { label: "Je l'ai survolé", value: "survole" },
-            { label: "Je ne l'ai pas encore ouvert", value: "pas_ouvert" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "progression",
-      title: "Où en êtes-vous aujourd'hui ?",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="progression"
-          value={form.progression}
-          onChange={(v) => update("progression", v)}
-          options={[
-            { label: "J'ai vu de vrais changements", value: "changements" },
-            { label: "J'ai des progrès partiels", value: "progres_partiels" },
-            { label: "Je n'ai pas encore vu de différence", value: "aucun_changement" },
-            { label: "Je n'ai pas commencé", value: "pas_commence" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "deja_consulte_hypnotherapeute",
-      title: "Avez-vous déjà consulté un hypnothérapeute ?",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="consulte"
-          value={form.deja_consulte_hypnotherapeute}
-          onChange={(v) => update("deja_consulte_hypnotherapeute", v)}
-          options={[
-            { label: "Oui, plusieurs fois", value: "oui_plusieurs" },
-            { label: "Oui, une fois", value: "oui_une" },
-            { label: "Non, jamais", value: "non" },
-            { label: "Non, mais j'y pense", value: "non_y_pense" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "freins_consultation",
-      title: "Qu'est-ce qui vous freine à consulter un hypnothérapeute ?",
-      subtitle: "Plusieurs choix possibles",
-      required: false,
-      render: () => (
-        <CheckboxGroup
-          value={form.freins_consultation}
-          onChange={(v) => update("freins_consultation", v)}
-          options={[
-            "Le prix",
-            "La distance / pas de praticien proche",
-            "Je ne sais pas comment choisir",
-            "J'ai peur que ça ne marche pas",
-            "J'ai peur de perdre le contrôle",
-            "Le manque de temps",
-            "Je préfère gérer seul·e",
-            "Aucun frein particulier",
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "besoin_si_consultation",
-      title: "Si vous deviez consulter, ce serait pour quel besoin ?",
-      subtitle: "Plusieurs choix possibles",
-      required: false,
-      render: () => (
-        <CheckboxGroup
-          value={form.besoin_si_consultation}
-          onChange={(v) => update("besoin_si_consultation", v)}
-          options={[
-            "Stress / anxiété",
-            "Sommeil",
-            "Confiance en soi",
-            "Phobie",
-            "Douleur",
-            "Procrastination",
-            "Émotions difficiles",
-            "Comportement alimentaire",
-            "Arrêt du tabac",
-            "Autre",
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "prochain_ebook_souhaite",
-      title: "Si je sortais un nouvel ebook, sur quel sujet le voudriez-vous ?",
-      subtitle: "Réponse libre — exemples : douleur, confiance en soi, phobie…",
-      required: false,
-      render: () => (
-        <textarea
-          rows={4}
-          value={form.prochain_ebook_souhaite}
-          onChange={(e) => update("prochain_ebook_souhaite", e.target.value)}
-          placeholder="Votre suggestion…"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "zone_geographique",
-      title: "Où habitez-vous ?",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="zone"
-          value={form.zone_geographique}
-          onChange={(v) => update("zone_geographique", v)}
-          options={[
-            { label: "Paris / Île-de-France", value: "Paris-IDF" },
-            { label: "Ailleurs en France", value: "Hors-IDF" },
-            { label: "À l'étranger", value: "Etranger" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "genre",
-      title: "Vous êtes…",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="genre"
-          value={form.genre}
-          onChange={(v) => update("genre", v)}
-          options={[
-            { label: "Une femme", value: "femme" },
-            { label: "Un homme", value: "homme" },
-            { label: "Autre / Préfère ne pas dire", value: "autre" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "tranche_age",
-      title: "Votre tranche d'âge",
-      required: false,
-      render: () => (
-        <RadioGroup
-          name="age"
-          value={form.tranche_age}
-          onChange={(v) => update("tranche_age", v)}
-          options={[
-            { label: "Moins de 25 ans", value: "<25" },
-            { label: "25 – 34 ans", value: "25-34" },
-            { label: "35 – 44 ans", value: "35-44" },
-            { label: "45 – 54 ans", value: "45-54" },
-            { label: "55 – 64 ans", value: "55-64" },
-            { label: "65 ans et plus", value: "65+" },
-          ]}
-        />
-      ),
-      isValid: () => true,
-    },
-    {
-      key: "email",
-      title: "Recevez votre bon de 10€",
-      subtitle:
-        "Laissez-moi votre email pour recevoir un bon de 10€ valable sur votre première séance d'hypnothérapie (en cabinet à Paris ou en visio). Email facultatif.",
-      required: false,
-      render: () => (
-        <input
-          type="email"
-          value={form.email}
-          onChange={(e) => update("email", e.target.value)}
-          placeholder="votre@email.fr"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue"
-        />
-      ),
-      isValid: () => form.email === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email),
-    },
-  ];
+  // ── Méthode "Entonnoir inversé" : besoins → utilité → frein → admin ──
+  const steps = useMemo(
+    () => [
+      // Q1 — Le crochet : besoin actuel
+      {
+        title: "Aujourd'hui, quel est le sujet qui vous occupe le plus ?",
+        subtitle: "Plusieurs choix possibles — il n'y a pas de mauvaise réponse.",
+        render: () => (
+          <CheckboxGroup
+            value={form.sujet_principal}
+            onChange={(v) => update("sujet_principal", v)}
+            options={[
+              "Stress / anxiété",
+              "Sommeil",
+              "Confiance en soi",
+              "Phobie",
+              "Douleur",
+              "Procrastination",
+              "Émotions difficiles",
+              "Autre",
+            ]}
+          />
+        ),
+        isValid: () => form.sujet_principal.length > 0,
+      },
+      // Q2 — L'utilité : la pépite
+      {
+        title: "Concernant l'ebook que vous avez téléchargé,\nquelle est la « pépite » que vous avez trouvée la plus utile ?",
+        subtitle: "Le conseil, l'exercice ou la phrase qui vous a parlé.",
+        render: () => (
+          <input
+            type="text"
+            value={form.pepite_ebook}
+            onChange={(e) => update("pepite_ebook", e.target.value)}
+            placeholder="Ex. l'exercice du lieu sûr, l'idée que…"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue"
+          />
+        ),
+        isValid: () => true,
+      },
+      // Q3 — Le progrès
+      {
+        title: "Avez-vous réussi à mettre en pratique un exercice ?",
+        subtitle: "Si oui, qu'avez-vous ressenti ? Sinon, qu'est-ce qui vous a freiné·e ?",
+        render: () => (
+          <textarea
+            rows={5}
+            value={form.pratique_ressenti}
+            onChange={(e) => update("pratique_ressenti", e.target.value)}
+            placeholder="Quelques mots suffisent…"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
+          />
+        ),
+        isValid: () => true,
+      },
+      // Q4 — Le frein
+      {
+        title: "Si vous deviez consulter un hypnothérapeute demain,\nquelle serait votre principale interrogation ?",
+        subtitle: "Plusieurs choix possibles.",
+        render: () => (
+          <CheckboxGroup
+            value={form.interrogation_principale}
+            onChange={(v) => update("interrogation_principale", v)}
+            options={[
+              "Le prix",
+              "La peur de perdre le contrôle",
+              "La distance",
+              "Le manque de temps",
+              "Comment choisir le bon praticien",
+              "Est-ce que ça va vraiment marcher pour moi",
+              "Autre",
+            ]}
+          />
+        ),
+        isValid: () => true,
+      },
+      // Q5 — L'antécédent
+      {
+        title: "Avez-vous déjà vécu une séance d'hypnose auparavant ?",
+        render: () => (
+          <RadioGroup
+            name="deja_seance"
+            value={form.deja_seance}
+            onChange={(v) => update("deja_seance", v)}
+            options={[
+              { label: "Oui", value: "oui" },
+              { label: "Non, ce serait une première", value: "non" },
+            ]}
+          />
+        ),
+        isValid: () => form.deja_seance !== "",
+      },
+      // Q6 — Le futur
+      {
+        title: "Quel sujet aimeriez-vous que je traite\ndans mon prochain guide ?",
+        subtitle: "Votre suggestion guidera mes prochains contenus.",
+        render: () => (
+          <textarea
+            rows={4}
+            value={form.prochain_guide}
+            onChange={(e) => update("prochain_guide", e.target.value)}
+            placeholder="Ex. la confiance en soi, la douleur chronique…"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
+          />
+        ),
+        isValid: () => true,
+      },
+      // Q7 — Profil ultra-simplifié
+      {
+        title: "Où êtes-vous situé·e ?",
+        subtitle: "Pour adapter mes propositions (cabinet à Paris ou visio).",
+        render: () => (
+          <RadioGroup
+            name="localisation"
+            value={form.localisation}
+            onChange={(v) => update("localisation", v)}
+            options={[
+              { label: "Paris / Île-de-France", value: "Paris" },
+              { label: "Province", value: "Province" },
+              { label: "Étranger", value: "Etranger" },
+            ]}
+          />
+        ),
+        isValid: () => form.localisation !== "",
+      },
+      // Q8 — La récompense
+      {
+        title: "À quelle adresse souhaitez-vous recevoir\nvotre chèque cadeau de 10€ ?",
+        subtitle: "Valable 6 mois sur votre première consultation. Vos données restent confidentielles.",
+        render: () => (
+          <input
+            type="email"
+            value={form.email}
+            onChange={(e) => update("email", e.target.value)}
+            placeholder="votre@email.fr"
+            autoFocus
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue"
+          />
+        ),
+        isValid: () =>
+          form.email === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email),
+      },
+    ],
+    [form]
+  );
 
   const totalSteps = steps.length;
   const current = steps[step];
   const progress = Math.round(((step + 1) / totalSteps) * 100);
 
-  // Permet de valider avec Entrée (sauf textarea)
+  // Estimation du temps restant (~10s par question)
+  const minutesRemaining = Math.max(1, Math.ceil(((totalSteps - step - 1) * 12) / 60));
+  const reassuringTime =
+    step === 0
+      ? "Cela vous prendra moins de 2 minutes."
+      : step >= totalSteps - 2
+      ? "Vous y êtes presque !"
+      : `Encore ${minutesRemaining} minute${minutesRemaining > 1 ? "s" : ""}…`;
+
+  // Validation par Entrée (sauf textarea)
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Enter" && (e.target as HTMLElement).tagName !== "TEXTAREA") {
         if (status === "idle" && current.isValid()) {
-          if (step < totalSteps - 1) {
-            setStep((s) => s + 1);
-          } else {
-            handleSubmit();
-          }
+          if (step < totalSteps - 1) setStep((s) => s + 1);
+          else handleSubmit();
         }
       }
     };
@@ -334,48 +265,60 @@ const QuestionnaireEbook = () => {
     }
   };
 
+  // ── Écran de remerciement ──
   if (status === "success") {
     return (
       <>
         <Helmet>
-          <title>Merci ! — Questionnaire NovaHypnose</title>
+          <title>Merci ! — Votre crédit de bienvenue NovaHypnose</title>
           <meta name="robots" content="noindex" />
         </Helmet>
         <main className="min-h-screen bg-gradient-to-b from-nova-blue-light to-white flex items-center justify-center px-4 py-16">
           <div className="bg-white rounded-2xl shadow-xl p-10 max-w-xl w-full text-center">
             <div className="text-5xl mb-4">🎁</div>
             <h1 className="text-3xl font-serif font-bold text-nova-blue-dark mb-3">
-              Merci pour vos réponses !
+              Merci pour votre temps.
             </h1>
             <p className="text-gray-700 mb-6 leading-relaxed">
               Vos retours sont précieux et m'aideront à concevoir de meilleurs contenus.
             </p>
             {result?.code_promo ? (
-              <div className="bg-orange-50 border-2 border-dashed border-nova-orange rounded-xl p-6 mb-6">
-                <div className="text-sm text-gray-600 uppercase tracking-wider mb-1">
-                  Votre bon de 10€
+              <>
+                <div className="bg-orange-50 border-2 border-dashed border-nova-orange rounded-xl p-6 mb-6">
+                  <div className="text-sm text-gray-600 uppercase tracking-wider mb-1">
+                    Votre crédit de bienvenue
+                  </div>
+                  <div className="text-3xl font-bold text-nova-blue-dark font-mono mb-2">
+                    {result.code_promo}
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Valable jusqu'au <strong>{result.bon_valide_jusqu_au}</strong>
+                  </div>
                 </div>
-                <div className="text-3xl font-bold text-nova-blue-dark font-mono mb-2">
-                  {result.code_promo}
-                </div>
-                <div className="text-sm text-gray-600">
-                  Valable jusqu'au <strong>{result.bon_valide_jusqu_au}</strong>
-                </div>
-                <p className="text-sm text-gray-700 mt-4">
-                  Un email de confirmation avec ce code vient de vous être envoyé.
+                <p className="text-sm text-gray-700 mb-6">
+                  Un email vient de vous être envoyé avec votre code et un lien
+                  pour réserver votre séance.
                 </p>
-              </div>
+                <a
+                  href={`https://novahypnose.fr/#contact?code=${result.code_promo}`}
+                  className="inline-block px-8 py-3 bg-nova-orange text-white rounded-full hover:bg-nova-orange-dark transition-colors font-semibold shadow-lg"
+                >
+                  Réserver ma séance avec mon crédit
+                </a>
+              </>
             ) : (
-              <p className="text-gray-700 mb-6">
-                Vos réponses ont bien été enregistrées.
-              </p>
+              <>
+                <p className="text-gray-700 mb-6">
+                  Vos réponses ont bien été enregistrées.
+                </p>
+                <a
+                  href="https://novahypnose.fr"
+                  className="inline-block px-8 py-3 bg-nova-blue text-white rounded-full hover:bg-nova-blue-dark transition-colors font-semibold"
+                >
+                  Retour sur novahypnose.fr
+                </a>
+              </>
             )}
-            <a
-              href="https://novahypnose.fr"
-              className="inline-block px-8 py-3 bg-nova-blue text-white rounded-full hover:bg-nova-blue-dark transition-colors font-semibold"
-            >
-              Retour sur novahypnose.fr
-            </a>
           </div>
         </main>
       </>
@@ -385,20 +328,38 @@ const QuestionnaireEbook = () => {
   return (
     <>
       <Helmet>
-        <title>Questionnaire — NovaHypnose</title>
+        <title>Votre avis m'est précieux — NovaHypnose</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <main className="min-h-screen bg-gradient-to-b from-nova-blue-light to-white flex flex-col items-center justify-center px-4 py-12">
         <div className="w-full max-w-2xl">
-          {/* Barre de progression */}
-          <div className="mb-8">
+          {/* ── Hero / Accroche ── */}
+          <div className="text-center mb-8 px-2">
+            <h1 className="text-2xl md:text-3xl font-serif font-bold text-nova-blue-dark leading-tight mb-3">
+              Votre avis m'est précieux.
+            </h1>
+            <p className="text-gray-700 leading-relaxed max-w-xl mx-auto">
+              Pour vous remercier de votre aide, je crédite{" "}
+              <strong className="text-nova-orange">10€ sur votre compte</strong>{" "}
+              pour votre première séance d'hypnose à la fin de ce court formulaire.
+            </p>
+          </div>
+
+          {/* ── Barre de progression rassurante ── */}
+          <div className="mb-6">
             <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
-              <span>
-                Question {step + 1} / {totalSteps}
+              <span className="font-medium">
+                Étape {step + 1} / {totalSteps}
               </span>
-              <span className="text-nova-orange font-semibold">🎁 10€ offerts à la fin</span>
+              <span className="text-nova-blue-dark italic">{reassuringTime}</span>
             </div>
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-2 bg-gray-200 rounded-full overflow-hidden"
+              role="progressbar"
+              aria-valuenow={progress}
+              aria-valuemin={0}
+              aria-valuemax={100}
+            >
               <div
                 className="h-full bg-gradient-to-r from-nova-blue to-nova-orange transition-all duration-500 ease-out"
                 style={{ width: `${progress}%` }}
@@ -406,14 +367,11 @@ const QuestionnaireEbook = () => {
             </div>
           </div>
 
-          {/* Carte question */}
-          <div
-            key={step}
-            className="bg-white rounded-2xl shadow-xl p-8 md:p-10 animate-fadeIn"
-          >
-            <h1 className="text-2xl md:text-3xl font-serif font-bold text-nova-blue-dark mb-3 leading-tight">
+          {/* ── Carte question ── */}
+          <div key={step} className="bg-white rounded-2xl shadow-xl p-8 md:p-10 animate-fadeIn">
+            <h2 className="text-xl md:text-2xl font-serif font-bold text-nova-blue-dark mb-3 leading-snug whitespace-pre-line">
               {current.title}
-            </h1>
+            </h2>
             {current.subtitle && (
               <p className="text-gray-600 mb-6 leading-relaxed">{current.subtitle}</p>
             )}
@@ -429,7 +387,7 @@ const QuestionnaireEbook = () => {
               </p>
             )}
 
-            {/* Navigation */}
+            {/* ── Navigation ── */}
             <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
               <button
                 type="button"
@@ -440,35 +398,24 @@ const QuestionnaireEbook = () => {
                 ← Précédent
               </button>
 
-              <div className="flex items-center gap-3">
-                {!current.required && step < totalSteps - 1 && (
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    disabled={status === "loading"}
-                    className="px-5 py-2 text-gray-500 hover:text-gray-700 transition-colors text-sm"
-                  >
-                    Passer
-                  </button>
-                )}
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  disabled={!current.isValid() || status === "loading"}
-                  className="px-8 py-3 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  {status === "loading"
-                    ? "Envoi…"
-                    : step === totalSteps - 1
-                    ? "Recevoir mon bon de 10€"
-                    : "Suivant →"}
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={!current.isValid() || status === "loading"}
+                className="px-8 py-3 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {status === "loading"
+                  ? "Envoi…"
+                  : step === totalSteps - 1
+                  ? "Recevoir mon crédit de 10€"
+                  : "Suivant →"}
+              </button>
             </div>
           </div>
 
           <p className="text-center text-xs text-gray-500 mt-6">
-            Vos réponses sont anonymes et utilisées uniquement pour améliorer mes contenus.
+            Vos réponses restent confidentielles et servent uniquement à
+            améliorer mes contenus.
           </p>
         </div>
       </main>
@@ -478,9 +425,7 @@ const QuestionnaireEbook = () => {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fadeIn {
-          animation: fadeIn 0.35s ease-out;
-        }
+        .animate-fadeIn { animation: fadeIn 0.35s ease-out; }
       `}</style>
     </>
   );
@@ -498,7 +443,7 @@ interface RadioGroupProps {
 }
 
 const RadioGroup = ({ name, value, onChange, options }: RadioGroupProps) => (
-  <div className="space-y-3">
+  <div className="space-y-3" role="radiogroup" aria-label={name}>
     {options.map((opt) => {
       const selected = value === opt.value;
       return (
