@@ -11,32 +11,33 @@
 CREATE TABLE IF NOT EXISTS questionnaire_ebook (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 
-  -- Ebook source (récupéré via le paramètre ?ebook= du lien)
+  -- Q1 — Ebook(s) téléchargé(s) (multi-choix, séparés par | : "autohypnose|sommeil")
   ebook_telecharge TEXT,
 
-  -- Q1 — Sujet qui occupe le plus la personne (multi-choix, séparé par |)
+  -- Q2 — Sujet qui occupe le plus la personne (multi-choix, séparé par |)
   sujet_principal TEXT,
 
-  -- Q2 — La « pépite » trouvée dans l'ebook (champ libre court)
+  -- Q3 — La « pépite » trouvée dans l'ebook (champ libre court)
   pepite_ebook TEXT,
 
-  -- Q3 — Mise en pratique + ressenti (champ libre)
+  -- Q4 — Mise en pratique + ressenti (champ libre)
   pratique_ressenti TEXT,
 
-  -- Q4 — Principale interrogation / hésitation à consulter (multi-choix)
+  -- Q5 — Principale interrogation / hésitation à consulter (multi-choix)
   interrogation_principale TEXT,
 
-  -- Q5 — Déjà vécu une séance d'hypnose (oui / non)
+  -- Q6 — Déjà vécu une séance d'hypnose (oui / non)
   deja_seance TEXT,
-
-  -- Q6 — Sujet souhaité pour le prochain guide (champ libre)
-  prochain_guide TEXT,
 
   -- Q7 — Localisation (Paris / Province / Étranger)
   localisation TEXT,
 
   -- Q8 — Email pour recevoir le chèque cadeau
   email TEXT,
+
+  -- Q9 — Mot libre de fin (ouverture : suggestion prochain guide, retour, etc.)
+  -- Stocké dans la colonne `prochain_guide` pour rétro-compatibilité
+  prochain_guide TEXT,
 
   -- Crédit de bienvenue
   questionnaire_complete BOOLEAN DEFAULT false,

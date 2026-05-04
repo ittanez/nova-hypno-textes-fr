@@ -4,47 +4,37 @@ import { Helmet } from "react-helmet";
 const SUPABASE_FUNCTION_URL =
   "https://akrlyzmfszumibwgocae.supabase.co/functions/v1/questionnaire-ebook";
 
-type EbookKey = "autohypnose" | "sommeil" | "procrastination";
-
-const EBOOK_LABELS: Record<EbookKey, string> = {
-  autohypnose: "Auto-hypnose",
-  sommeil: "Sommeil",
-  procrastination: "Procrastination",
-};
-
 interface FormState {
-  ebook_telecharge: EbookKey | "";
-  sujet_principal: string;       // Q1 multi-choix
-  pepite_ebook: string;          // Q2 libre court
-  pratique_ressenti: string;     // Q3 libre
-  interrogation_principale: string; // Q4 multi-choix
-  deja_seance: string;           // Q5 oui/non
-  prochain_guide: string;        // Q6 libre
+  ebooks_telecharges: string;    // Q1 multi-choix (1 à 3 valeurs séparées par |)
+  sujet_principal: string;       // Q2 multi-choix
+  pepite_ebook: string;          // Q3 libre court
+  pratique_ressenti: string;     // Q4 libre
+  interrogation_principale: string; // Q5 multi-choix
+  deja_seance: string;           // Q6 oui/non
   localisation: string;          // Q7
   email: string;                 // Q8
+  message_libre: string;         // Q9 question ouverte de fin
 }
 
 const INITIAL_STATE: FormState = {
-  ebook_telecharge: "",
+  ebooks_telecharges: "",
   sujet_principal: "",
   pepite_ebook: "",
   pratique_ressenti: "",
   interrogation_principale: "",
   deja_seance: "",
-  prochain_guide: "",
   localisation: "",
   email: "",
+  message_libre: "",
 };
 
 const QuestionnaireEbook = () => {
   const searchParams = new URLSearchParams(window.location.search);
-  const ebookFromUrl = searchParams.get("ebook") as EbookKey | null;
   const emailFromUrl = searchParams.get("email") ?? "";
 
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>({
     ...INITIAL_STATE,
-    ebook_telecharge: ebookFromUrl && EBOOK_LABELS[ebookFromUrl] ? ebookFromUrl : "",
     email: emailFromUrl,
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -55,10 +45,27 @@ const QuestionnaireEbook = () => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
-  // ── Méthode "Entonnoir inversé" : besoins → utilité → frein → admin ──
+  // ── Méthode "Entonnoir inversé" : ebook → besoins → utilité → frein → admin → ouverture ──
   const steps = useMemo(
     () => [
-      // Q1 — Le crochet : besoin actuel
+      // Q1 — Identification de l'ebook (1 à 3, multi-choix)
+      {
+        title: "Pour commencer, quel(s) ebook(s) avez-vous téléchargé(s) ?",
+        subtitle: "Plusieurs choix possibles si vous en avez téléchargé plusieurs.",
+        render: () => (
+          <CheckboxGroup
+            value={form.ebooks_telecharges}
+            onChange={(v) => update("ebooks_telecharges", v)}
+            options={[
+              "L'auto-hypnose",
+              "Le sommeil",
+              "La procrastination",
+            ]}
+          />
+        ),
+        isValid: () => form.ebooks_telecharges.length > 0,
+      },
+      // Q2 — Le crochet : besoin actuel
       {
         title: "Aujourd'hui, quel est le sujet qui vous occupe le plus ?",
         subtitle: "Plusieurs choix possibles — il n'y a pas de mauvaise réponse.",
@@ -80,9 +87,9 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () => form.sujet_principal.length > 0,
       },
-      // Q2 — L'utilité : la pépite
+      // Q3 — L'utilité : la pépite
       {
-        title: "Concernant l'ebook que vous avez téléchargé,\nquelle est la « pépite » que vous avez trouvée la plus utile ?",
+        title: "Quelle est la « pépite » que vous avez trouvée\nla plus utile dans cet ebook ?",
         subtitle: "Le conseil, l'exercice ou la phrase qui vous a parlé.",
         render: () => (
           <input
@@ -95,7 +102,7 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () => true,
       },
-      // Q3 — Le progrès
+      // Q4 — Le progrès
       {
         title: "Avez-vous réussi à mettre en pratique un exercice ?",
         subtitle: "Si oui, qu'avez-vous ressenti ? Sinon, qu'est-ce qui vous a freiné·e ?",
@@ -110,7 +117,7 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () => true,
       },
-      // Q4 — Le frein
+      // Q5 — Le frein
       {
         title: "Si vous deviez consulter un hypnothérapeute demain,\nquelle serait votre principale interrogation ?",
         subtitle: "Plusieurs choix possibles.",
@@ -131,7 +138,7 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () => true,
       },
-      // Q5 — L'antécédent
+      // Q6 — L'antécédent
       {
         title: "Avez-vous déjà vécu une séance d'hypnose auparavant ?",
         render: () => (
@@ -146,21 +153,6 @@ const QuestionnaireEbook = () => {
           />
         ),
         isValid: () => form.deja_seance !== "",
-      },
-      // Q6 — Le futur
-      {
-        title: "Quel sujet aimeriez-vous que je traite\ndans mon prochain guide ?",
-        subtitle: "Votre suggestion guidera mes prochains contenus.",
-        render: () => (
-          <textarea
-            rows={4}
-            value={form.prochain_guide}
-            onChange={(e) => update("prochain_guide", e.target.value)}
-            placeholder="Ex. la confiance en soi, la douleur chronique…"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
-          />
-        ),
-        isValid: () => true,
       },
       // Q7 — Profil ultra-simplifié
       {
@@ -180,7 +172,7 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () => form.localisation !== "",
       },
-      // Q8 — La récompense
+      // Q8 — La récompense (email pour recevoir le crédit)
       {
         title: "À quelle adresse souhaitez-vous recevoir\nvotre chèque cadeau de 10€ ?",
         subtitle: "Valable 6 mois sur votre première consultation. Vos données restent confidentielles.",
@@ -196,6 +188,22 @@ const QuestionnaireEbook = () => {
         ),
         isValid: () =>
           form.email === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email),
+      },
+      // Q9 — Question ouverte de fin (champ libre, le mot de la fin)
+      {
+        title: "Et pour finir…\nY a-t-il quelque chose que vous aimeriez me dire ?",
+        subtitle:
+          "Une suggestion de prochain guide, un retour, une attente, un mot libre — tout est bienvenu (facultatif).",
+        render: () => (
+          <textarea
+            rows={5}
+            value={form.message_libre}
+            onChange={(e) => update("message_libre", e.target.value)}
+            placeholder="Votre message…"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
+          />
+        ),
+        isValid: () => true,
       },
     ],
     [form]

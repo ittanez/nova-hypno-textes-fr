@@ -12,10 +12,11 @@ const RESERVATION_URL = "https://www.resalib.fr/p/47325";
 // Code universel à mentionner en commentaire de la réservation Resalib
 const PROMO_CODE = "ebook10";
 
-const EBOOKS_LABELS: Record<string, string> = {
-  autohypnose: "Auto-hypnose",
-  sommeil: "Sommeil",
-  procrastination: "Procrastination",
+// Mapping des libellés affichés dans le questionnaire vers des clés normalisées
+const EBOOK_LABEL_TO_KEY: Record<string, string> = {
+  "L'auto-hypnose": "autohypnose",
+  "Le sommeil": "sommeil",
+  "La procrastination": "procrastination",
 };
 
 // Validité : J+180 (6 mois)
@@ -49,17 +50,25 @@ serve(async (req) => {
       );
     }
 
-    // ── Champs (entonnoir inversé : besoins → utilité → frein → admin) ──
-    const ebook_telecharge = sanitizeString(String(body.ebook_telecharge ?? ""), 50).trim().toLowerCase();
+    // ── Champs (entonnoir inversé : ebook → besoins → utilité → frein → admin → ouverture) ──
+    const ebooks_raw = sanitizeString(String(body.ebooks_telecharges ?? ""), 200).trim();
     const sujet_principal = sanitizeString(String(body.sujet_principal ?? ""), 500).trim();
     const pepite_ebook = sanitizeString(String(body.pepite_ebook ?? ""), 500).trim();
     const pratique_ressenti = sanitizeString(String(body.pratique_ressenti ?? ""), 1000).trim();
     const interrogation_principale = sanitizeString(String(body.interrogation_principale ?? ""), 500).trim();
     const deja_seance = sanitizeString(String(body.deja_seance ?? ""), 10).trim().toLowerCase();
-    const prochain_guide = sanitizeString(String(body.prochain_guide ?? ""), 500).trim();
     const localisation = sanitizeString(String(body.localisation ?? ""), 50).trim();
+    const message_libre = sanitizeString(String(body.message_libre ?? ""), 2000).trim();
     const emailRaw = sanitizeString(String(body.email ?? ""), 254).trim().toLowerCase();
     const email = emailRaw || null;
+
+    // Normalisation des ebooks téléchargés ("L'auto-hypnose|Le sommeil" → "autohypnose|sommeil")
+    const ebooks_keys = ebooks_raw
+      .split("|")
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .map((label) => EBOOK_LABEL_TO_KEY[label] ?? label.toLowerCase());
+    const ebook_telecharge = ebooks_keys.join("|");
 
     if (email && !isValidEmail(email)) {
       return new Response(
@@ -72,7 +81,18 @@ serve(async (req) => {
 
     const code_promo = PROMO_CODE;
     const validity = getValidityDate();
-    const ebookLabel = EBOOKS_LABELS[ebook_telecharge] ?? "votre ebook";
+
+    // Libellé naturel des ebooks pour l'affichage dans les emails
+    const ebooksLabels = ebooks_raw
+      .split("|")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const ebookLabel =
+      ebooksLabels.length === 0
+        ? "votre ebook"
+        : ebooksLabels.length === 1
+        ? ebooksLabels[0]
+        : ebooksLabels.slice(0, -1).join(", ") + " et " + ebooksLabels[ebooksLabels.length - 1];
 
     const { error: dbError } = await supabase
       .from("questionnaire_ebook")
@@ -83,7 +103,7 @@ serve(async (req) => {
         pratique_ressenti: pratique_ressenti || null,
         interrogation_principale: interrogation_principale || null,
         deja_seance: deja_seance || null,
-        prochain_guide: prochain_guide || null,
+        prochain_guide: message_libre || null,
         localisation: localisation || null,
         email,
         questionnaire_complete: true,
@@ -218,8 +238,8 @@ ${interrogation_principale || "(non précisé)"}
 
 — Q5. Déjà vécu une séance d'hypnose : ${deja_seance || "(non précisé)"}
 
-— Q6. Prochain guide souhaité :
-${prochain_guide || "(aucun)"}
+— Q6. Mot libre / suggestion prochain guide :
+${message_libre || "(aucun)"}
 
 Crédit de bienvenue : ${code_promo} (valable jusqu'au ${validity.fr})`,
         }),
