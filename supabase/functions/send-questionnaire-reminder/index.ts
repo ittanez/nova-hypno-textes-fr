@@ -20,7 +20,7 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const CRON_SECRET = Deno.env.get("CRON_SECRET");
 
-const RESERVATION_URL = "https://novahypnose.fr/#contact";
+const RESERVATION_URL = "https://www.resalib.fr/p/47325";
 
 function frDate(iso: string): string {
   return new Date(iso).toLocaleDateString("fr-FR", {
@@ -108,11 +108,16 @@ serve(async (req) => {
       </div>
 
       <div style="text-align:center; margin:32px 0;">
-        <a href="${RESERVATION_URL}?code=${row.code_promo}"
+        <a href="${RESERVATION_URL}"
            style="display:inline-block; background:#f57c00; color:#fff; text-decoration:none; padding:16px 32px; border-radius:999px; font-weight:600; font-size:16px; box-shadow:0 4px 14px rgba(245,124,0,0.35);">
           Réserver ma séance avec mon crédit
         </a>
       </div>
+
+      <p style="margin:24px 0 0; line-height:1.6; font-size:14px; color:#555;">
+        Pensez à indiquer le code <strong style="color:#1a3a5f;">${row.code_promo}</strong>
+        en commentaire lors de la réservation sur Resalib.
+      </p>
 
       <p style="margin:24px 0 0; line-height:1.6;">
         Au plaisir,<br>

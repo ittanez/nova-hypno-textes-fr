@@ -296,11 +296,17 @@ const QuestionnaireEbook = () => {
                   </div>
                 </div>
                 <p className="text-sm text-gray-700 mb-6">
-                  Un email vient de vous être envoyé avec votre code et un lien
-                  pour réserver votre séance.
+                  Un email vient de vous être envoyé avec votre code et le lien
+                  pour réserver. Pensez à mentionner{" "}
+                  <strong className="text-nova-blue-dark font-mono">
+                    {result.code_promo}
+                  </strong>{" "}
+                  en commentaire de votre réservation Resalib.
                 </p>
                 <a
-                  href={`https://novahypnose.fr/#contact?code=${result.code_promo}`}
+                  href="https://www.resalib.fr/p/47325"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block px-8 py-3 bg-nova-orange text-white rounded-full hover:bg-nova-orange-dark transition-colors font-semibold shadow-lg"
                 >
                   Réserver ma séance avec mon crédit

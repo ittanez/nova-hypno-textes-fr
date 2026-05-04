@@ -6,23 +6,17 @@ const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
-const RESERVATION_URL = "https://novahypnose.fr/#contact";
+// Lien direct vers la prise de RDV Resalib
+const RESERVATION_URL = "https://www.resalib.fr/p/47325";
+
+// Code universel à mentionner en commentaire de la réservation Resalib
+const PROMO_CODE = "ebook10";
 
 const EBOOKS_LABELS: Record<string, string> = {
   autohypnose: "Auto-hypnose",
   sommeil: "Sommeil",
   procrastination: "Procrastination",
 };
-
-// Code lisible : EBOOK-XXXXXX (pas de 0/O, 1/I)
-function generatePromoCode(): string {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "EBOOK-";
-  for (let i = 0; i < 6; i++) {
-    code += alphabet[Math.floor(Math.random() * alphabet.length)];
-  }
-  return code;
-}
 
 // Validité : J+180 (6 mois)
 function getValidityDate(): { iso: string; fr: string } {
@@ -76,7 +70,7 @@ serve(async (req) => {
 
     const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
 
-    const code_promo = generatePromoCode();
+    const code_promo = PROMO_CODE;
     const validity = getValidityDate();
     const ebookLabel = EBOOKS_LABELS[ebook_telecharge] ?? "votre ebook";
 
@@ -146,15 +140,16 @@ serve(async (req) => {
       </div>
 
       <div style="text-align:center; margin:32px 0;">
-        <a href="${RESERVATION_URL}?code=${code_promo}"
+        <a href="${RESERVATION_URL}"
            style="display:inline-block; background:#f57c00; color:#fff; text-decoration:none; padding:16px 32px; border-radius:999px; font-weight:600; font-size:16px; box-shadow:0 4px 14px rgba(245,124,0,0.35);">
           Réserver ma séance avec mon crédit
         </a>
       </div>
 
       <p style="margin:24px 0 0; line-height:1.6; font-size:14px; color:#555;">
-        Mentionnez ce code lors de la prise de rendez-vous, le crédit sera déduit
-        automatiquement de votre première séance.
+        Au moment de réserver sur Resalib, indiquez simplement le code
+        <strong style="color:#1a3a5f;">${code_promo}</strong> dans le champ
+        « commentaire » : je déduirai les 10€ de votre première séance.
       </p>
 
       <p style="margin:32px 0 0; line-height:1.6;">
