@@ -119,6 +119,7 @@ serve(async (req) => {
 
     // ── Email "Cadeau de bienvenue" au répondant ──
     if (email && BREVO_API_KEY) {
+      console.log("questionnaire-ebook — envoi email cadeau à:", email);
       const htmlContent = `
 <!DOCTYPE html>
 <html>
@@ -172,11 +173,33 @@ serve(async (req) => {
         « commentaire » : je déduirai les 10€ de votre première séance.
       </p>
 
-      <p style="margin:32px 0 0; line-height:1.6;">
-        Au plaisir de vous accompagner,<br>
-        <strong>Alain Zenatti</strong><br>
-        <span style="color:#666;">NovaHypnose — 06 49 35 80 89</span>
-      </p>
+      <p style="margin:32px 0 16px; line-height:1.6;">Au plaisir de vous accompagner,</p>
+
+      <!-- SIGNATURE -->
+      <table style="font-family:Arial, sans-serif; color:#333; line-height:1.4; border-top:1px solid #eee; padding-top:15px; margin-top:8px; width:100%;" border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+          <td style="padding-right:20px;" valign="middle">
+            <img style="display:block; width:100px; height:auto; border-radius:4px;"
+                 src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+                 alt="Alain Zenatti" width="100" />
+          </td>
+          <td style="padding-right:30px; min-width:150px;" valign="middle">
+            <div style="font-size:18px; font-weight:bold; color:#000; margin:0;">Alain Zenatti</div>
+            <div style="font-size:14px; color:#666; margin:0;">Hypnothérapeute</div>
+          </td>
+          <td style="border-left:2px solid #e91e63; padding-left:20px;" valign="middle">
+            <div style="font-size:12px; margin-bottom:2px;">
+              <span style="font-weight:bold;">06 49 35 80 89</span></div>
+            <div style="font-size:12px; margin-bottom:2px;">
+              <a style="color:#333; text-decoration:none;" href="mailto:alain.zenatti@novahypnose.fr">alain.zenatti@novahypnose.fr</a></div>
+            <div style="font-size:12px; margin-bottom:2px;">
+              <a style="color:#333; text-decoration:none;" href="https://novahypnose.fr" target="_blank">novahypnose.fr</a></div>
+            <div style="font-size:12px; margin-bottom:4px; color:#666;">16 rue Saint-Antoine, 75004 Paris</div>
+            <div style="margin-top:5px;">
+              <a style="font-size:12px; color:#333; text-decoration:underline; font-weight:bold;" href="https://resalib.fr/p/47325" target="_blank">Prendre rendez-vous en ligne</a></div>
+          </td>
+        </tr></tbody>
+      </table>
     </div>
 
     <div style="background:#f6f7fb; padding:16px 32px; font-size:12px; color:#888; text-align:center;">
@@ -206,9 +229,14 @@ serve(async (req) => {
       }
     }
 
-    // ── Notification admin ──
+    if (!BREVO_API_KEY) {
+      console.warn("questionnaire-ebook — BREVO_API_KEY manquante : aucun email ne sera envoyé");
+    }
+
+    // ── Notification admin (envoyée systématiquement, même sans email) ──
     if (BREVO_API_KEY) {
-      await fetch("https://api.brevo.com/v3/smtp/email", {
+      console.log("questionnaire-ebook — envoi notif admin");
+      const adminRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -243,7 +271,17 @@ ${message_libre || "(aucun)"}
 
 Crédit de bienvenue : ${code_promo} (valable jusqu'au ${validity.fr})`,
         }),
-      }).catch((err) => console.error("questionnaire-ebook — Erreur notif admin:", err));
+      });
+
+      if (!adminRes.ok) {
+        const errText = await adminRes.text().catch(() => "");
+        console.error(
+          `questionnaire-ebook — Erreur notif admin Brevo (${adminRes.status}):`,
+          errText
+        );
+      } else {
+        console.log("questionnaire-ebook — notif admin envoyée OK");
+      }
     }
 
     return new Response(
