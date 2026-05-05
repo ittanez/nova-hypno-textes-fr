@@ -220,7 +220,7 @@ serve(async (req) => {
           to: [{ email }],
           // BCC pour qu'Alain reçoive une copie de chaque mail cadeau envoyé
           // (plus fiable que la notif admin séparée — moins filtré par Gmail)
-          bcc: [{ email: "a.zenatti@gmail.com" }],
+          bcc: [{ email: "contact@novahypnose.fr" }],
           replyTo: { name: "Alain Zenatti", email: "alain.zenatti@novahypnose.fr" },
           subject: "🎁 Votre cadeau de bienvenue (et un grand merci)",
           htmlContent,
@@ -238,10 +238,9 @@ serve(async (req) => {
     }
 
     // ── Récap admin (HTML, expéditeur "Alain", envoyé systématiquement) ──
-    // Note : on a déjà mis a.zenatti@gmail.com en BCC du mail cadeau ci-dessus,
+    // Note : on a déjà mis contact@novahypnose.fr en BCC du mail cadeau ci-dessus,
     // donc Alain reçoit dans tous les cas une copie. Ce mail-ci n'est qu'un
-    // récap structuré des réponses (utile pour l'analyse). Si Gmail le filtre,
-    // ce n'est pas grave : la copie BCC arrive aussi.
+    // récap structuré des réponses (utile pour l'analyse).
     if (BREVO_API_KEY) {
       console.log("questionnaire-ebook — envoi récap admin");
 
@@ -274,7 +273,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
-          to: [{ email: "a.zenatti@gmail.com" }],
+          to: [{ email: "contact@novahypnose.fr" }],
           replyTo: { name: "Alain Zenatti", email: "alain.zenatti@novahypnose.fr" },
           subject: `Récap questionnaire — ${ebookLabel}`,
           htmlContent: recapHtml,
