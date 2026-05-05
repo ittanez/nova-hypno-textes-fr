@@ -218,6 +218,10 @@ serve(async (req) => {
         body: JSON.stringify({
           sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
           to: [{ email }],
+          // BCC pour qu'Alain reçoive une copie de chaque mail cadeau envoyé
+          // (plus fiable que la notif admin séparée — moins filtré par Gmail)
+          bcc: [{ email: "contact@novahypnose.fr" }],
+          replyTo: { name: "Alain Zenatti", email: "alain.zenatti@novahypnose.fr" },
           subject: "🎁 Votre cadeau de bienvenue (et un grand merci)",
           htmlContent,
         }),
@@ -233,9 +237,34 @@ serve(async (req) => {
       console.warn("questionnaire-ebook — BREVO_API_KEY manquante : aucun email ne sera envoyé");
     }
 
-    // ── Notification admin (envoyée systématiquement, même sans email) ──
+    // ── Récap admin (HTML, expéditeur "Alain", envoyé systématiquement) ──
+    // Note : on a déjà mis contact@novahypnose.fr en BCC du mail cadeau ci-dessus,
+    // donc Alain reçoit dans tous les cas une copie. Ce mail-ci n'est qu'un
+    // récap structuré des réponses (utile pour l'analyse).
     if (BREVO_API_KEY) {
-      console.log("questionnaire-ebook — envoi notif admin");
+      console.log("questionnaire-ebook — envoi récap admin");
+
+      const recapHtml = `
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:'Helvetica Neue',Arial,sans-serif; color:#333; padding:24px;">
+  <h2 style="color:#1a3a5f; font-family:'Playfair Display',Georgia,serif;">Récap réponse questionnaire ebook</h2>
+  <table style="width:100%; border-collapse:collapse;">
+    <tr><td style="padding:8px 0; color:#666; width:40%;">Ebook(s) téléchargé(s)</td><td style="padding:8px 0;"><strong>${ebookLabel}</strong></td></tr>
+    <tr><td style="padding:8px 0; color:#666;">Email</td><td style="padding:8px 0;"><strong>${email ?? "(non fourni)"}</strong></td></tr>
+    <tr><td style="padding:8px 0; color:#666;">Localisation</td><td style="padding:8px 0;">${localisation || "—"}</td></tr>
+    <tr><td style="padding:8px 0; color:#666;">Déjà vécu une séance</td><td style="padding:8px 0;">${deja_seance || "—"}</td></tr>
+  </table>
+  <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
+  <p><strong>Sujet qui occupe le plus :</strong><br>${sujet_principal || "—"}</p>
+  <p><strong>Pépite de l'ebook :</strong><br>${pepite_ebook || "—"}</p>
+  <p><strong>Mise en pratique / ressenti :</strong><br>${pratique_ressenti || "—"}</p>
+  <p><strong>Principale interrogation pour consulter :</strong><br>${interrogation_principale || "—"}</p>
+  <p><strong>Mot libre / suggestion prochain guide :</strong><br>${message_libre || "—"}</p>
+  <hr style="border:none; border-top:1px solid #eee; margin:20px 0;">
+  <p style="color:#666; font-size:13px;">Crédit de bienvenue : <strong>${code_promo}</strong> — valable jusqu'au ${validity.fr}</p>
+</body></html>`;
+
       const adminRes = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -243,44 +272,22 @@ serve(async (req) => {
           "api-key": BREVO_API_KEY,
         },
         body: JSON.stringify({
-          sender: { name: "NovaHypnose", email: "contact@novahypnose.fr" },
-          to: [{ email: "a.zenatti@gmail.com" }],
-          subject: `🔔 Nouveau questionnaire — ${ebookLabel}`,
-          textContent: `Nouveau répondant au questionnaire ebook :
-
-Ebook : ${ebookLabel}
-Email : ${email ?? "(non fourni)"}
-Localisation : ${localisation || "(non précisé)"}
-
-— Q1. Sujet qui occupe le plus :
-${sujet_principal || "(non précisé)"}
-
-— Q2. Pépite de l'ebook :
-${pepite_ebook || "(non précisé)"}
-
-— Q3. Mise en pratique / ressenti :
-${pratique_ressenti || "(non précisé)"}
-
-— Q4. Principale interrogation à consulter :
-${interrogation_principale || "(non précisé)"}
-
-— Q5. Déjà vécu une séance d'hypnose : ${deja_seance || "(non précisé)"}
-
-— Q6. Mot libre / suggestion prochain guide :
-${message_libre || "(aucun)"}
-
-Crédit de bienvenue : ${code_promo} (valable jusqu'au ${validity.fr})`,
+          sender: { name: "Alain — NovaHypnose", email: "contact@novahypnose.fr" },
+          to: [{ email: "contact@novahypnose.fr" }],
+          replyTo: { name: "Alain Zenatti", email: "alain.zenatti@novahypnose.fr" },
+          subject: `Récap questionnaire — ${ebookLabel}`,
+          htmlContent: recapHtml,
         }),
       });
 
       if (!adminRes.ok) {
         const errText = await adminRes.text().catch(() => "");
         console.error(
-          `questionnaire-ebook — Erreur notif admin Brevo (${adminRes.status}):`,
+          `questionnaire-ebook — Erreur récap admin Brevo (${adminRes.status}):`,
           errText
         );
       } else {
-        console.log("questionnaire-ebook — notif admin envoyée OK");
+        console.log("questionnaire-ebook — récap admin envoyé OK");
       }
     }
 
