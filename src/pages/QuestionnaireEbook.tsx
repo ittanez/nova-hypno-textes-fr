@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet";
-
-const SUPABASE_FUNCTION_URL =
-  "https://akrlyzmfszumibwgocae.supabase.co/functions/v1/questionnaire-ebook";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormState {
   ebooks_telecharges: string;    // Q1 multi-choix (1 à 3 valeurs séparées par |)
@@ -251,22 +249,23 @@ const QuestionnaireEbook = () => {
     setStatus("loading");
     setErrorMsg("");
     try {
-      const res = await fetch(SUPABASE_FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+      // On utilise supabase.functions.invoke pour que l'apikey + Authorization
+      // (clé anon) soient envoyés automatiquement (sinon : 401 Unauthorized)
+      const { data, error } = await supabase.functions.invoke("questionnaire-ebook", {
+        body: form,
       });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok) {
-        setResult({
-          code_promo: data.code_promo ?? null,
-          bon_valide_jusqu_au: data.bon_valide_jusqu_au ?? "",
-        });
-        setStatus("success");
-      } else {
-        setErrorMsg(data.error ?? `Erreur ${res.status}`);
+
+      if (error) {
+        setErrorMsg(error.message ?? "Erreur lors de l'envoi");
         setStatus("error");
+        return;
       }
+
+      setResult({
+        code_promo: data?.code_promo ?? null,
+        bon_valide_jusqu_au: data?.bon_valide_jusqu_au ?? "",
+      });
+      setStatus("success");
     } catch {
       setErrorMsg("Impossible de contacter le serveur. Réessayez dans un instant.");
       setStatus("error");
