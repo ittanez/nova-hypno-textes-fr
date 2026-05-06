@@ -306,3 +306,28 @@ export const createBreadcrumbSchema = (
 
 // Default homepage breadcrumb (kept for back-compat with Index.tsx).
 export const breadcrumbSchema = createBreadcrumbSchema();
+
+/**
+ * WebSite schema — déclare l'entité site, l'éditeur, et la search action
+ * que les moteurs (Google, Bing) peuvent exposer en sitelinks searchbox.
+ * Référencé par les autres schémas via @id.
+ */
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://novahypnose.fr/#website",
+  "url": "https://novahypnose.fr",
+  "name": "NovaHypnose",
+  "alternateName": "Alain Zenatti Hypnothérapeute Paris",
+  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, phobies, sommeil, confiance en soi.",
+  "inLanguage": "fr-FR",
+  "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://novahypnose.fr/blog?search={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};

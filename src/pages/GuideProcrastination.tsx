@@ -239,6 +239,30 @@ const GuideProcrastination: React.FC = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "@id": "https://novahypnose.fr/guide-procrastination#book",
+          "name": "Vaincre la Procrastination par l'Hypnose",
+          "alternateName": "Guide anti-procrastination",
+          "description": "Guide pratique pour arrêter de procrastiner grâce à l'hypnose. 8 techniques concrètes et protocoles pratiques par Alain Zenatti.",
+          "url": "https://novahypnose.fr/guide-procrastination",
+          "inLanguage": "fr-FR",
+          "bookFormat": "https://schema.org/EBook",
+          "isAccessibleForFree": true,
+          "author": { "@id": "https://novahypnose.fr/#person" },
+          "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "about": ["Procrastination", "Hypnose ericksonienne", "Productivité", "Motivation"],
+          "audience": { "@type": "Audience", "audienceType": "Adultes francophones" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://novahypnose.fr/guide-procrastination"
+          }
+        })}</script>
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}

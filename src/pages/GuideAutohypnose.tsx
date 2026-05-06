@@ -239,6 +239,31 @@ const GuideAutohypnose: React.FC = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "@id": "https://novahypnose.fr/guide-autohypnose#book",
+          "name": "L'Autohypnose au Quotidien",
+          "alternateName": "Guide d'autohypnose",
+          "description": "Guide pratique d'auto-hypnose en 37 pages : 9 protocoles pour gérer le stress, retrouver confiance et améliorer son bien-être au quotidien.",
+          "url": "https://novahypnose.fr/guide-autohypnose",
+          "inLanguage": "fr-FR",
+          "bookFormat": "https://schema.org/EBook",
+          "numberOfPages": 37,
+          "isAccessibleForFree": true,
+          "author": { "@id": "https://novahypnose.fr/#person" },
+          "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "about": ["Auto-hypnose", "Gestion du stress", "Confiance en soi", "Bien-être"],
+          "audience": { "@type": "Audience", "audienceType": "Adultes francophones" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://novahypnose.fr/guide-autohypnose"
+          }
+        })}</script>
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}

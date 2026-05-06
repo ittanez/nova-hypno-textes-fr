@@ -56,7 +56,7 @@ export const buildWebPageSchema = (props: Props) => ({
   name: props.pageTitle,
   description: props.pageDescription,
   inLanguage: 'fr-FR',
-  isPartOf: { '@id': 'https://novahypnose.fr/#localbusiness' },
+  isPartOf: { '@id': 'https://novahypnose.fr/#website' },
   about: {
     '@type': 'MedicalCondition',
     name: props.topic,

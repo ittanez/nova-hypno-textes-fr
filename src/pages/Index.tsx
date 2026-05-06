@@ -15,7 +15,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
-import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema } from '@/data/schemaOrg';
 import { safeJSONStringify } from '@/lib/seo-utils';
 
 // Composants critiques (above the fold) - Chargés immédiatement
@@ -115,7 +115,8 @@ const Index: React.FC = () => {
         {/* Canonical - sans trailing slash pour cohérence */}
         <link rel="canonical" href="https://novahypnose.fr" />
 
-        {/* Structured Data JSON-LD - LocalBusiness + Person + FAQ + Breadcrumb */}
+        {/* Structured Data JSON-LD - WebSite + LocalBusiness + Person + FAQ + Breadcrumb */}
+        <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
