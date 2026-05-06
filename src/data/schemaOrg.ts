@@ -37,11 +37,9 @@ export const localBusinessSchema = {
     }
   ],
   "priceRange": "€€",
-  // TODO E-E-A-T: renseigner le n° SIRET de l'entreprise (fort signal de confiance
-  // pour les moteurs IA sur les sujets santé). Décommenter et compléter :
-  // "identifier": [
-  //   { "@type": "PropertyValue", "propertyID": "SIRET", "value": "XXXXXXXXXXXXXX" }
-  // ],
+  "identifier": [
+    { "@type": "PropertyValue", "propertyID": "SIRET", "value": "89489890700015" }
+  ],
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "logo": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
@@ -212,7 +210,7 @@ export const personSchema = {
   "alumniOf": {
     "@type": "EducationalOrganization",
     "name": "École Psynapse",
-    "url": "https://www.psynapse-formation.com/"
+    "url": "https://psynapse.fr/"
   },
   "hasCredential": [
     {
@@ -222,7 +220,7 @@ export const personSchema = {
       "recognizedBy": {
         "@type": "EducationalOrganization",
         "name": "École Psynapse",
-        "url": "https://www.psynapse-formation.com/"
+        "url": "https://psynapse.fr/"
       }
     },
     {
@@ -232,7 +230,7 @@ export const personSchema = {
       "recognizedBy": {
         "@type": "EducationalOrganization",
         "name": "École Psynapse",
-        "url": "https://www.psynapse-formation.com/"
+        "url": "https://psynapse.fr/"
       }
     },
     {
@@ -247,7 +245,7 @@ export const personSchema = {
       "recognizedBy": {
         "@type": "EducationalOrganization",
         "name": "École Psynapse",
-        "url": "https://www.psynapse-formation.com/"
+        "url": "https://psynapse.fr/"
       }
     }
   ],

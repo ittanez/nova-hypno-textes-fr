@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
+import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { confianceFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -314,6 +315,37 @@ const HypnoseConfianceParis = () => {
         keywords={["confiance", "estime", "timidité", "public"]}
         title="Articles sur la confiance en soi"
         accentColor="text-amber-600"
+      />
+
+      <SpecialtyReferences
+        pageUrl="https://novahypnose.fr/hypnose-confiance-en-soi-paris"
+        pageTitle="Hypnose pour la confiance en soi à Paris"
+        pageDescription="Hypnose ericksonienne pour renforcer l'estime de soi, surmonter le syndrome de l'imposteur et la prise de parole en public au cabinet Paris 4ème."
+        topic="la confiance en soi et l'estime de soi"
+        dateModified="2026-05-06"
+        references={[
+          {
+            authors: "Inserm",
+            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+            source: "Rapport d'expertise collective",
+            year: 2015,
+            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+          },
+          {
+            authors: "Schoenberger NE",
+            title: "Research on hypnosis as an adjunct to cognitive-behavioral psychotherapy",
+            source: "International Journal of Clinical and Experimental Hypnosis",
+            year: 2000,
+            url: "https://pubmed.ncbi.nlm.nih.gov/10769983/",
+          },
+          {
+            authors: "Hartland J",
+            title: "The value of \"ego-strengthening\" procedures prior to direct symptom-removal under hypnosis",
+            source: "American Journal of Clinical Hypnosis",
+            year: 1965,
+            url: "https://pubmed.ncbi.nlm.nih.gov/14322227/",
+          },
+        ]}
       />
 
       {/* CTA final */}
