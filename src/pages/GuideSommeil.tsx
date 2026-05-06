@@ -180,6 +180,31 @@ const GuideSommeil: React.FC = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "@id": "https://novahypnose.fr/guide-sommeil#book",
+          "name": "Le Sommeil, Votre Allié Secret",
+          "alternateName": "Guide sommeil et hypnose",
+          "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond et réparateur, sans médicaments.",
+          "url": "https://novahypnose.fr/guide-sommeil",
+          "inLanguage": "fr-FR",
+          "bookFormat": "https://schema.org/EBook",
+          "numberOfPages": 17,
+          "isAccessibleForFree": true,
+          "author": { "@id": "https://novahypnose.fr/#person" },
+          "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "about": ["Hypnose et sommeil", "Insomnie", "Auto-hypnose", "Hygiène du sommeil"],
+          "audience": { "@type": "Audience", "audienceType": "Adultes francophones" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://novahypnose.fr/guide-sommeil"
+          }
+        })}</script>
       </Helmet>
 
       {/* ═══════════ HERO ═══════════ */}
