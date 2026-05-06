@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
+import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { blocagesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -338,6 +339,37 @@ const HypnoseBlocagesParis = () => {
         keywords={["blocage", "potentiel", "zone de confort", "procrastin"]}
         title="Articles sur les blocages"
         accentColor="text-teal-600"
+      />
+
+      <SpecialtyReferences
+        pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
+        pageTitle="Hypnose pour les blocages personnels à Paris"
+        pageDescription="Hypnose ericksonienne pour lever les blocages décisionnels, les schémas répétitifs et les freins inconscients au cabinet Paris 4ème."
+        topic="les blocages personnels et schémas répétitifs"
+        dateModified="2026-05-06"
+        references={[
+          {
+            authors: "Inserm",
+            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+            source: "Rapport d'expertise collective",
+            year: 2015,
+            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+          },
+          {
+            authors: "Lynn SJ, Kirsch I, Barabasz A, Cardeña E, Patterson D",
+            title: "Hypnosis as an empirically supported clinical intervention: The state of the evidence and a look to the future",
+            source: "International Journal of Clinical and Experimental Hypnosis",
+            year: 2000,
+            url: "https://pubmed.ncbi.nlm.nih.gov/10769981/",
+          },
+          {
+            authors: "Vanhaudenhuyse A, Laureys S, Faymonville ME",
+            title: "Neurophysiology of hypnosis",
+            source: "Neurophysiologie Clinique / Clinical Neurophysiology",
+            year: 2014,
+            url: "https://pubmed.ncbi.nlm.nih.gov/24502922/",
+          },
+        ]}
       />
 
       {/* CTA final */}

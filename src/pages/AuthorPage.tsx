@@ -39,28 +39,28 @@ const AuthorPage: React.FC = () => {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "Certification",
           "name": "Maître Hypnologue",
-          "recognizedBy": { "@type": "Organization", "name": "École Psynapse" },
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
           "dateIssued": "2025-01-01"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "Certification",
           "name": "Maître Praticien Hypnose Ericksonienne",
-          "recognizedBy": { "@type": "Organization", "name": "École Psynapse" },
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
           "dateIssued": "2023-06-01"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "Certification",
           "name": "Hypnose Ericksonienne",
-          "recognizedBy": { "@type": "Organization", "name": "École Psynapse" },
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
           "dateIssued": "2021-01-01"
         },
         {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "Certification",
           "name": "Hypnose Spirituelle",
-          "recognizedBy": { "@type": "Organization", "name": "École Psynapse" },
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
           "dateIssued": "2023-01-01"
         }
       ],

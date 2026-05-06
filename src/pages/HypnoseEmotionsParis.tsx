@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
+import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { emotionsFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -339,6 +340,37 @@ const HypnoseEmotionsParis = () => {
         categories={["Gestion des émotions & bien-être"]}
         title="Articles sur la gestion des émotions"
         accentColor="text-rose-600"
+      />
+
+      <SpecialtyReferences
+        pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
+        pageTitle="Hypnose et gestion des émotions à Paris"
+        pageDescription="Hypnose ericksonienne pour la régulation émotionnelle, l'hypersensibilité, la colère et le deuil au cabinet Paris 4ème."
+        topic="la gestion des émotions"
+        dateModified="2026-05-06"
+        references={[
+          {
+            authors: "Inserm",
+            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+            source: "Rapport d'expertise collective",
+            year: 2015,
+            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+          },
+          {
+            authors: "Vanhaudenhuyse A, Laureys S, Faymonville ME",
+            title: "Neurophysiology of hypnosis",
+            source: "Neurophysiologie Clinique / Clinical Neurophysiology",
+            year: 2014,
+            url: "https://pubmed.ncbi.nlm.nih.gov/24502922/",
+          },
+          {
+            authors: "Lynn SJ, Kirsch I, Hallquist MN",
+            title: "Social cognitive theories of hypnosis",
+            source: "Oxford Handbook of Hypnosis",
+            year: 2008,
+            url: "https://pubmed.ncbi.nlm.nih.gov/18687481/",
+          },
+        ]}
       />
 
       {/* CTA final */}

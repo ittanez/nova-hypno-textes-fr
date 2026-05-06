@@ -37,6 +37,9 @@ export const localBusinessSchema = {
     }
   ],
   "priceRange": "€€",
+  "identifier": [
+    { "@type": "PropertyValue", "propertyID": "SIRET", "value": "89489890700015" }
+  ],
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "logo": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
@@ -192,6 +195,7 @@ export const personSchema = {
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "sameAs": [
     "https://www.instagram.com/novahypnose/",
+    "https://www.linkedin.com/in/alain-zenatti/",
     "https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
   ],
   "knowsAbout": [
@@ -203,18 +207,31 @@ export const personSchema = {
     "Gestion du stress par l'hypnose",
     "Traitement des phobies par l'hypnose"
   ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "École Psynapse",
+    "url": "https://psynapse.fr/"
+  },
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Certification",
       "name": "Maître Hypnologue",
-      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "École Psynapse",
+        "url": "https://psynapse.fr/"
+      }
     },
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Certification",
       "name": "Maître Praticien Hypnose Ericksonienne",
-      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "École Psynapse",
+        "url": "https://psynapse.fr/"
+      }
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -225,7 +242,11 @@ export const personSchema = {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Certification",
       "name": "Hypnose Spirituelle",
-      "recognizedBy": { "@type": "Organization", "name": "École Psynapse" }
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "École Psynapse",
+        "url": "https://psynapse.fr/"
+      }
     }
   ],
   "telephone": "+33649358089",
@@ -253,7 +274,18 @@ export const faqSchema = {
   }))
 };
 
-export const breadcrumbSchema = {
+/**
+ * Breadcrumb helper. Pass an ordered list of { name, url } items from the
+ * site root down to the current page (the homepage entry is added automatically).
+ *
+ *   createBreadcrumbSchema([
+ *     { name: "Blog", url: "https://novahypnose.fr/blog" },
+ *     { name: "Hypnose et stress", url: "https://novahypnose.fr/blog/hypnose-stress" },
+ *   ])
+ */
+export const createBreadcrumbSchema = (
+  trail: Array<{ name: string; url: string }> = []
+) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
@@ -262,6 +294,15 @@ export const breadcrumbSchema = {
       "position": 1,
       "name": "Accueil",
       "item": "https://novahypnose.fr"
-    }
+    },
+    ...trail.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": item.name,
+      "item": item.url
+    }))
   ]
-};
+});
+
+// Default homepage breadcrumb (kept for back-compat with Index.tsx).
+export const breadcrumbSchema = createBreadcrumbSchema();

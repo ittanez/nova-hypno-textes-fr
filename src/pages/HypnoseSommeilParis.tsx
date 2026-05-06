@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
+import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { sommeilFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -307,6 +308,37 @@ const HypnoseSommeilParis = () => {
         keywords={["sommeil", "insomnie", "dormir"]}
         title="Articles sur le sommeil"
         accentColor="text-indigo-600"
+      />
+
+      <SpecialtyReferences
+        pageUrl="https://novahypnose.fr/hypnose-sommeil-paris"
+        pageTitle="Hypnose pour le sommeil à Paris"
+        pageDescription="Hypnose ericksonienne pour traiter l'insomnie, les réveils nocturnes et les difficultés d'endormissement au cabinet Paris 4ème."
+        topic="les troubles du sommeil"
+        dateModified="2026-05-06"
+        references={[
+          {
+            authors: "Inserm",
+            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+            source: "Rapport d'expertise collective",
+            year: 2015,
+            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+          },
+          {
+            authors: "Cordi MJ, Schlarb AA, Rasch B",
+            title: "Deepening sleep by hypnotic suggestion",
+            source: "Sleep",
+            year: 2014,
+            url: "https://pubmed.ncbi.nlm.nih.gov/24882908/",
+          },
+          {
+            authors: "Chamine I, Atchley R, Oken BS",
+            title: "Hypnosis Intervention Effects on Sleep Outcomes: A Systematic Review",
+            source: "Journal of Clinical Sleep Medicine",
+            year: 2018,
+            url: "https://pubmed.ncbi.nlm.nih.gov/29198290/",
+          },
+        ]}
       />
 
       {/* CTA final */}

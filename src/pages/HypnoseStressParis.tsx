@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SpecialtyFAQ from '@/components/SpecialtyFAQ';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
+import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -327,6 +328,37 @@ const HypnoseStressParis = () => {
         categories={["Gestion du Stress", "Troubles Anxieux"]}
         title="Articles sur le stress et l'anxiété"
         accentColor="text-blue-600"
+      />
+
+      <SpecialtyReferences
+        pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
+        pageTitle="Hypnose stress et anxiété à Paris"
+        pageDescription="Hypnose ericksonienne pour traiter le stress chronique et l'anxiété au cabinet Paris 4ème."
+        topic="le stress et l'anxiété"
+        dateModified="2026-05-06"
+        references={[
+          {
+            authors: "Inserm",
+            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+            source: "Rapport d'expertise collective",
+            year: 2015,
+            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+          },
+          {
+            authors: "Valentine KE, Milling LS, Clark LJ, Moriarty CL",
+            title: "The Efficacy of Hypnosis as a Treatment for Anxiety: A Meta-Analysis",
+            source: "International Journal of Clinical and Experimental Hypnosis",
+            year: 2019,
+            url: "https://pubmed.ncbi.nlm.nih.gov/31251710/",
+          },
+          {
+            authors: "Hammond DC",
+            title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
+            source: "Expert Review of Neurotherapeutics",
+            year: 2010,
+            url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
+          },
+        ]}
       />
 
       {/* CTA final */}
