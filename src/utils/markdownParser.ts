@@ -65,8 +65,11 @@ export const parseMarkdownToHtml = (content: string): string => {
     });
   } catch (error) {
     logger.error('Erreur lors du parsing Markdown:', error);
-    // En cas d'erreur, retourner le contenu tel quel avec les paragraphes
-    return `<p>${processed.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>`;
+    const fallback = `<p>${processed.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>')}</p>`;
+    return DOMPurify.sanitize(fallback, {
+      ALLOWED_TAGS: ['article', 'p', 'br', 'strong', 'em', 'b', 'i', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'hr', 'div', 'span'],
+      ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'id', 'target', 'rel']
+    });
   }
 };
 
