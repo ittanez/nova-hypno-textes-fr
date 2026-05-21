@@ -31,6 +31,7 @@ import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "
 import { Article, Category } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 import { logger } from "@/lib/logger";
+import { createBreadcrumbSchema } from "@/data/schemaOrg";
 
 // ✅ FONCTION POUR OBTENIR LES ARTICLES ADJACENTS
 const getAdjacentArticles = (currentArticle: Article, allArticles: Article[]) => {
@@ -158,8 +159,8 @@ const ArticlePage = () => {
       "author": {
         "@type": "Person",
         "name": authorName,
-        "@id": "https://novahypnose.fr/alain-zenatti",
-        "url": "https://novahypnose.fr/alain-zenatti",
+        "@id": "https://novahypnose.fr/#person",
+        "url": "https://novahypnose.fr",
         "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
         "jobTitle": "Maître Hypnologue certifié"
       },
@@ -187,11 +188,27 @@ const ArticlePage = () => {
     script.id = 'article-structured-data';
     document.head.appendChild(script);
 
+    const categoryName = article.categories?.[0];
+    const breadcrumbTrail = categoryName
+      ? [
+          { name: 'Blog', url: 'https://novahypnose.fr/blog' },
+          { name: categoryName, url: `https://novahypnose.fr/blog` },
+          { name: article.title, url: `https://novahypnose.fr/blog/article/${article.slug}` },
+        ]
+      : [
+          { name: 'Blog', url: 'https://novahypnose.fr/blog' },
+          { name: article.title, url: `https://novahypnose.fr/blog/article/${article.slug}` },
+        ];
+
+    const breadcrumbScript = document.createElement('script');
+    breadcrumbScript.type = 'application/ld+json';
+    breadcrumbScript.text = safeJSONStringify(createBreadcrumbSchema(breadcrumbTrail));
+    breadcrumbScript.id = 'article-breadcrumb-data';
+    document.head.appendChild(breadcrumbScript);
+
     return () => {
-      const existingScript = document.getElementById('article-structured-data');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
-      }
+      document.getElementById('article-structured-data')?.remove();
+      document.getElementById('article-breadcrumb-data')?.remove();
     };
   }, [article]);
 

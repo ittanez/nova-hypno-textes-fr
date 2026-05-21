@@ -115,6 +115,10 @@ const Index: React.FC = () => {
         {/* Canonical - sans trailing slash pour cohérence */}
         <link rel="canonical" href="https://novahypnose.fr" />
 
+        {/* Hreflang - signal géographique et linguistique explicite */}
+        <link rel="alternate" hreflang="fr" href="https://novahypnose.fr" />
+        <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
+
         {/* Structured Data JSON-LD - WebSite + LocalBusiness + Person + FAQ + Breadcrumb */}
         <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
