@@ -25,8 +25,8 @@ export const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 48.8566,
-    "longitude": 2.3685
+    "latitude": 48.8534,
+    "longitude": 2.3664
   },
   "openingHoursSpecification": [
     {
@@ -251,6 +251,14 @@ export const personSchema = {
   ],
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+33649358089",
+    "email": "contact@novahypnose.fr",
+    "contactType": "customer service",
+    "areaServed": "FR",
+    "availableLanguage": "French"
+  },
   "worksFor": { "@id": "https://novahypnose.fr/#localbusiness" },
   "address": {
     "@type": "PostalAddress",
