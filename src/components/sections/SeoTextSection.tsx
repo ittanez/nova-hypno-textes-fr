@@ -160,11 +160,9 @@ const SeoTextSection: React.FC = () => {
           <p className="text-gray-700 leading-relaxed mb-8">
             Vous n'habitez pas à Paris ? Les séances d'{' '}
             <Link to="/hypnose-en-ligne" className="text-blue-600 hover:underline">
-              hypnose en visioconférence
+              hypnose en visioconférence (Google Meet)
             </Link>{' '}
-            sont disponibles <strong>partout en France</strong>, aussi efficaces qu'en cabinet.
-            Le travail hypnotique passe par la voix et la relation&nbsp;: il se transmet
-            parfaitement en visio (Zoom, Google Meet, Skype), sans aucun déplacement.
+            sont aussi efficaces qu'en cabinet, sans aucun déplacement.
           </p>
 
           {/* ── Qu'est-ce que l'hypnose ericksonienne ── */}

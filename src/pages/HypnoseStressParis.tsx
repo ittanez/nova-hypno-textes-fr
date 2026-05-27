@@ -31,7 +31,7 @@ const HypnoseStressParis = () => {
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
     },
     "offers": {
       "@type": "Offer",
@@ -214,7 +214,7 @@ const HypnoseStressParis = () => {
                 Chaque séance est personnalisée selon votre situation.
               </p>
               <p>
-                <strong>Déroulement des séances :</strong> La première séance dure environ <strong>1h30</strong> et comprend un entretien approfondi pour identifier vos déclencheurs de stress, la séance d'hypnose proprement dite, et un debriefing. Les séances suivantes durent <strong>1 heure</strong>. Vous pouvez suivre vos séances en cabinet à Paris 4ème ou en <strong>téléconsultation (Zoom, Skype, Google Meet)</strong>.
+                <strong>Déroulement des séances :</strong> La première séance dure environ <strong>1h30</strong> et comprend un entretien approfondi pour identifier vos déclencheurs de stress, la séance d'hypnose proprement dite, et un debriefing. Les séances suivantes durent <strong>1 heure</strong>. Vous pouvez suivre vos séances en cabinet à Paris 4ème ou en <strong>téléconsultation (Google Meet)</strong>.
               </p>
               <p>
                 Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous

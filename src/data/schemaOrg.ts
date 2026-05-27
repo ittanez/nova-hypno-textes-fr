@@ -129,13 +129,13 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Téléconsultation d'hypnose en visio",
-          "description": "Séance d'hypnose en visioconférence partout en France, aussi efficace qu'en cabinet. Plateformes Zoom, Google Meet ou Skype.",
+          "description": "Séance d'hypnose en visioconférence partout en France, aussi efficace qu'en cabinet. Plateforme Google Meet.",
           "serviceType": "Hypnothérapie en ligne",
           "areaServed": { "@type": "Country", "name": "France" },
           "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-            "name": "Visioconférence (Zoom, Google Meet, Skype)"
+            "name": "Visioconférence (Google Meet)"
           },
           "provider": { "@id": "https://novahypnose.fr/#person" }
         },
@@ -213,7 +213,7 @@ export const visioServiceSchema = {
   "availableChannel": {
     "@type": "ServiceChannel",
     "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-    "name": "Téléconsultation par visioconférence (Zoom, Google Meet, Skype)",
+    "name": "Téléconsultation par visioconférence (Google Meet)",
     "availableLanguage": { "@type": "Language", "name": "French" }
   },
   "offers": {

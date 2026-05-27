@@ -18,7 +18,7 @@ export const carouselSlides: CarouselSlide[] = [
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/alain.mp4',
     poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/alaincab.webp',
     title: 'TRANSFORMEZ VOTRE VIE PAR L\'HYPNOSE',
-    description: 'Thérapie brève orientée solutions • 3 à 5 séances • Au cabinet Paris 4ème ou en visio partout en France',
+    description: 'Thérapie brève orientée solutions • 3 à 5 séances • Alain ZENATTI, Maître Hypnologue Paris 4ème',
     alt: 'Alain Zenatti, hypnothérapeute à Paris 4ème dans son cabinet d\'hypnose Marais-Bastille'
   },
   {

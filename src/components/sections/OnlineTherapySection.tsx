@@ -44,8 +44,7 @@ const OnlineTherapySection: React.FC = () => {
               <Globe className="mb-3" size={28} />
               <h3 className="text-lg font-bold mb-2">Partout en France</h3>
               <p className="text-white/85 text-sm leading-relaxed">
-                Métropole, DOM-TOM et Français de l'étranger : un simple lien sécurisé (Zoom, Google
-                Meet, Skype) suffit.
+                Métropole, DOM-TOM et Français de l'étranger : un simple lien Google Meet suffit.
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/15">
