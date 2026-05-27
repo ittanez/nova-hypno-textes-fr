@@ -89,6 +89,7 @@ const HypnoseSommeilParis = lazy(() => import("@/pages/HypnoseSommeilParis"));
 const HypnoseEmotionsParis = lazy(() => import("@/pages/HypnoseEmotionsParis"));
 const HypnoseBlocagesParis = lazy(() => import("@/pages/HypnoseBlocagesParis"));
 const HypnoseConfianceParis = lazy(() => import("@/pages/HypnoseConfianceParis"));
+const HypnoseEnLigne = lazy(() => import("@/pages/HypnoseEnLigne"));
 
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
@@ -179,6 +180,7 @@ function App() {
             <Route path="/hypnose-gestion-emotions-paris" element={<HypnoseEmotionsParis />} />
             <Route path="/hypnose-blocages-paris" element={<HypnoseBlocagesParis />} />
             <Route path="/hypnose-confiance-en-soi-paris" element={<HypnoseConfianceParis />} />
+            <Route path="/hypnose-en-ligne" element={<HypnoseEnLigne />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />

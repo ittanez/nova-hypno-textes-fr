@@ -23,8 +23,16 @@ const HypnosePhobiesParis = () => {
     "description": "Traitement des phobies et des peurs par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille. Résultats rapides en 2 à 4 séances.",
     "url": "https://novahypnose.fr/hypnose-phobies-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie phobies",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnosePhobiesParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose phobies et peurs Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
-        <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris" />
+        <title>Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris, hypnose phobie en ligne, séance hypnose phobie visio France, hypnose peur à distance, téléconsultation hypnose phobie" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
-        <meta property="og:title" content="Hypnose phobies et peurs Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta property="og:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-phobies-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnosePhobiesParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose phobies et peurs" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose phobies et peurs Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta name="twitter:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -89,7 +97,8 @@ const HypnosePhobiesParis = () => {
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Peur de l'avion, des araignées, du vide, des espaces clos, de parler en public…
               Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-              efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>.
+              efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
+              Paris 4ème ou en <strong>visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -379,7 +388,7 @@ const HypnosePhobiesParis = () => {
               Libérez-vous de vos phobies
             </h2>
             <p className="text-xl text-purple-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

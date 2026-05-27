@@ -23,8 +23,16 @@ const HypnoseStressParis = () => {
     "description": "Séances d'hypnose ericksonienne pour traiter le stress, l'anxiété et le burn-out. Cabinet Paris 4ème Marais-Bastille. Résultats en 3 à 5 séances.",
     "url": "https://novahypnose.fr/hypnose-stress-anxiete-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie anti-stress",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnoseStressParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose stress et anxiété Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
-        <meta name="keywords" content="hypnose stress paris, hypnose anxiété paris, hypnothérapeute stress paris, gestion stress hypnose, burn-out hypnose paris, anxiété hypnothérapie paris, stress travail hypnose" />
+        <title>Hypnose stress & anxiété à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
+        <meta name="keywords" content="hypnose stress paris, hypnose anxiété paris, hypnothérapeute stress paris, gestion stress hypnose, burn-out hypnose paris, anxiété hypnothérapie paris, stress travail hypnose, hypnose stress en ligne, séance hypnose anxiété visio France, hypnose stress à distance, téléconsultation hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
-        <meta property="og:title" content="Hypnose stress et anxiété Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose stress & anxiété à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnoseStressParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose stress et anxiété" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose stress et anxiété Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose stress & anxiété à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -88,7 +96,8 @@ const HypnoseStressParis = () => {
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode
-              naturelle et efficace pour retrouver le calme intérieur. <strong>Résultats durables en 3 à 5 séances</strong>.
+              naturelle et efficace pour retrouver le calme intérieur. <strong>Résultats durables en 3 à 5 séances</strong>,
+              au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -370,7 +379,7 @@ const HypnoseStressParis = () => {
               Prêt à retrouver la sérénité ?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances en cabinet ou en téléconsultation • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

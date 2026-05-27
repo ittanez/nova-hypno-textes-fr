@@ -16,8 +16,9 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-xl mb-4">À propos de NovaHypnose</h3>
             <p className="text-sm text-gray-300 mb-4">
-              Cabinet d'hypnothérapie à Paris spécialisé en hypnose ericksonienne. 
-              Alain Zenatti vous accompagne pour retrouver confiance, équilibre et vitalité.
+              Cabinet d'hypnothérapie à Paris 4ème et consultations en visio partout en France,
+              spécialisé en hypnose ericksonienne. Alain Zenatti vous accompagne pour retrouver
+              confiance, équilibre et vitalité.
             </p>
             <div className="flex items-center mt-3 space-x-4">
               <a 
@@ -111,6 +112,7 @@ const Footer = () => {
               <li><Link to="/hypnose-gestion-emotions-paris" className="text-gray-300 hover:text-white transition-colors">Gestion des émotions</Link></li>
               <li><Link to="/hypnose-blocages-paris" className="text-gray-300 hover:text-white transition-colors">Blocages et comportements</Link></li>
               <li><Link to="/hypnose-confiance-en-soi-paris" className="text-gray-300 hover:text-white transition-colors">Confiance en soi</Link></li>
+              <li><Link to="/hypnose-en-ligne" className="text-gray-300 hover:text-white transition-colors">Hypnose en ligne (visio)</Link></li>
             </ul>
           </div>
           

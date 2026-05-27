@@ -65,6 +65,11 @@ export const localBusinessSchema = {
   ],
   "areaServed": [
     {
+      "@type": "Country",
+      "name": "France",
+      "@id": "https://www.wikidata.org/wiki/Q142"
+    },
+    {
       "@type": "City",
       "name": "Paris",
       "@id": "https://www.wikidata.org/wiki/Q90"
@@ -123,10 +128,15 @@ export const localBusinessSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Téléconsultation d'hypnose",
-          "description": "Séance d'hypnose en visioconférence pour les personnes éloignées de Paris. Aussi efficace qu'en cabinet.",
+          "name": "Téléconsultation d'hypnose en visio",
+          "description": "Séance d'hypnose en visioconférence partout en France, aussi efficace qu'en cabinet. Plateformes Zoom, Google Meet ou Skype.",
           "serviceType": "Hypnothérapie en ligne",
           "areaServed": { "@type": "Country", "name": "France" },
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+            "name": "Visioconférence (Zoom, Google Meet, Skype)"
+          },
           "provider": { "@id": "https://novahypnose.fr/#person" }
         },
         "price": "90",
@@ -182,6 +192,35 @@ export const localBusinessSchema = {
       "reviewBody": "Un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail. En quelques séances, j'ai pu me libérer de certains blocages."
     }
   ]
+};
+
+/**
+ * Service dédié à la consultation en visioconférence, disponible partout en France.
+ * Complète le référencement local (cabinet Paris 4ème) par un signal national pour
+ * Google et les moteurs de réponse IA (areaServed + serviceArea = France).
+ */
+export const visioServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://novahypnose.fr/#service-visio",
+  "name": "Hypnose en visioconférence partout en France",
+  "description": "Consultations d'hypnose ericksonienne en visio (téléconsultation), accessibles partout en France. Stress, anxiété, phobies, sommeil, confiance en soi. Aussi efficaces qu'au cabinet, sans aucun déplacement.",
+  "url": "https://novahypnose.fr/hypnose-en-ligne",
+  "serviceType": "Hypnothérapie en ligne",
+  "provider": { "@id": "https://novahypnose.fr/#person" },
+  "areaServed": { "@type": "Country", "name": "France" },
+  "serviceArea": { "@type": "Country", "name": "France" },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+    "name": "Téléconsultation par visioconférence (Zoom, Google Meet, Skype)",
+    "availableLanguage": { "@type": "Language", "name": "French" }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "90",
+    "priceCurrency": "EUR"
+  }
 };
 
 export const personSchema = {

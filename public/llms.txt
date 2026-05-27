@@ -1,12 +1,13 @@
 # NovaHypnose — Alain Zenatti, hypnothérapeute à Paris
 
-> Cabinet d'hypnose ericksonienne situé au 16 rue Saint-Antoine, Paris 4ème (Marais-Bastille). Alain Zenatti, Maître Hypnologue certifié par l'École Psynapse, accompagne adultes et adolescents sur le stress, l'anxiété, les phobies, le sommeil, la confiance en soi, la gestion des émotions et les blocages personnels. Approche douce, non-directive, en français. Résultats généralement obtenus en 3 à 5 séances.
+> Cabinet d'hypnose ericksonienne situé au 16 rue Saint-Antoine, Paris 4ème (Marais-Bastille), et consultations en visioconférence partout en France (téléconsultation Zoom, Google Meet ou Skype, aussi efficace qu'en présentiel). Alain Zenatti, Maître Hypnologue certifié par l'École Psynapse, accompagne adultes et adolescents sur le stress, l'anxiété, les phobies, le sommeil, la confiance en soi, la gestion des émotions et les blocages personnels. Approche douce, non-directive, en français. Résultats généralement obtenus en 3 à 5 séances.
 
 Informations clés :
 - Praticien : Alain Zenatti, Maître Hypnologue (École Psynapse, 9 certifications)
 - Adresse : 16 rue Saint-Antoine, 75004 Paris, France
 - Téléphone : +33 6 49 35 80 89
 - Email : contact@novahypnose.fr
+- Zone desservie : cabinet à Paris 4ème (présentiel) + visioconférence partout en France et pour les francophones à l'étranger
 - Horaires : lundi-vendredi 11h-20h
 - Tarifs : 90–140 € selon le type de séance
 - Langue : français
@@ -14,6 +15,7 @@ Informations clés :
 ## Pages principales
 
 - [Accueil](https://novahypnose.fr/) : présentation du cabinet, des spécialités et de la démarche en hypnose ericksonienne.
+- [Hypnose en ligne (visio, toute la France)](https://novahypnose.fr/hypnose-en-ligne) : consultations d'hypnose à distance en visioconférence, partout en France, aussi efficaces qu'au cabinet.
 - [À propos — Alain Zenatti](https://novahypnose.fr/alain-zenatti) : parcours, formation, certifications et philosophie d'accompagnement.
 - [Zone d'intervention](https://novahypnose.fr/zone-intervention) : tous les arrondissements de Paris et villes proches desservies.
 - [Mentions légales](https://novahypnose.fr/mentions-legales) : informations légales du cabinet.

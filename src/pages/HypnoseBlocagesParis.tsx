@@ -23,8 +23,16 @@ const HypnoseBlocagesParis = () => {
     "description": "Libérez-vous de vos blocages et troubles du comportement grâce à l'hypnose ericksonienne à Paris. Procrastination, TOC, addictions, schémas répétitifs. Cabinet Paris 4ème.",
     "url": "https://novahypnose.fr/hypnose-blocages-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie blocages comportementaux",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnoseBlocagesParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose blocages et comportements Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
-        <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose" />
+        <title>Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
+        <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose, hypnose blocage en ligne, séance hypnose procrastination visio France, hypnose blocages à distance, téléconsultation hypnose blocages" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-paris" />
-        <meta property="og:title" content="Hypnose blocages et comportements Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-blocages-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnoseBlocagesParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose blocages et comportements" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose blocages et comportements Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -89,7 +97,8 @@ const HypnoseBlocagesParis = () => {
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Vous procrastinez, vous répétez les mêmes erreurs, vous n'arrivez pas à changer
               malgré votre volonté ? Ces comportements ne sont pas un choix — ce sont des
-              <strong> programmes inconscients</strong> que l'hypnose peut débloquer.
+              <strong> programmes inconscients</strong> que l'hypnose peut débloquer, au cabinet à
+              Paris 4ème ou en <strong>visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -381,7 +390,7 @@ const HypnoseBlocagesParis = () => {
               Libérez-vous de vos blocages
             </h2>
             <p className="text-xl text-teal-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

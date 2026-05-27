@@ -23,8 +23,16 @@ const HypnoseSommeilParis = () => {
     "description": "Retrouvez un sommeil profond et réparateur grâce à l'hypnose ericksonienne. Insomnie, réveils nocturnes, endormissement difficile. Cabinet Paris 4ème.",
     "url": "https://novahypnose.fr/hypnose-sommeil-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie sommeil",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnoseSommeilParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose sommeil et insomnie Paris | Alain Zenatti</title>
-        <meta name="description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
-        <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris" />
+        <title>Hypnose sommeil & insomnie à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris, hypnose sommeil en ligne, séance hypnose insomnie visio France, hypnose sommeil à distance, téléconsultation hypnose sommeil" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-sommeil-paris" />
-        <meta property="og:title" content="Hypnose sommeil et insomnie Paris | Alain Zenatti" />
-        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose sommeil & insomnie à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnoseSommeilParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose troubles du sommeil" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose sommeil et insomnie Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose sommeil & insomnie à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -89,7 +97,8 @@ const HypnoseSommeilParis = () => {
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Insomnie, réveils nocturnes, difficultés d'endormissement, sommeil non réparateur…
               L'hypnose est une alternative naturelle et efficace aux somnifères.
-              <strong> Retrouvez le sommeil en 3 à 5 séances</strong>.
+              <strong> Retrouvez le sommeil en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en
+              <strong> visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -350,7 +359,7 @@ const HypnoseSommeilParis = () => {
               Retrouvez enfin le sommeil
             </h2>
             <p className="text-xl text-indigo-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

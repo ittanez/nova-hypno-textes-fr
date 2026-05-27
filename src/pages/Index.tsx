@@ -15,13 +15,14 @@ import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
-import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
 import { safeJSONStringify } from '@/lib/seo-utils';
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
 import ProfessionalProblemsSection from '@/components/sections/ProfessionalProblemsSection';
 import AboutSection from '@/components/sections/AboutSection';
+import OnlineTherapySection from '@/components/sections/OnlineTherapySection';
 import WhyChooseSection from '@/components/sections/WhyChooseSection';
 import SeoTextSection from '@/components/sections/SeoTextSection';
 
@@ -88,13 +89,13 @@ const Index: React.FC = () => {
     <>
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
-        <title>Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose</title>
-        <meta name="description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
-        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris" />
+        <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
+        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris, hypnose en ligne, hypnothérapeute en ligne, hypnose visio, séance hypnose visio France, hypnose à distance, téléconsultation hypnose" />
 
         {/* Open Graph - URL cohérente sans trailing slash */}
-        <meta property="og:title" content="Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose" />
-        <meta property="og:description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -108,8 +109,8 @@ const Index: React.FC = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose" />
-        <meta name="twitter:description" content="NovaHypnose – Hypnothérapie Paris 4ème, Marais-Bastille. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
 
         {/* Canonical - sans trailing slash pour cohérence */}
@@ -122,6 +123,7 @@ const Index: React.FC = () => {
         {/* Structured Data JSON-LD - WebSite + LocalBusiness + Person + FAQ + Breadcrumb */}
         <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -138,6 +140,9 @@ const Index: React.FC = () => {
 
         {/* Section À propos */}
         <AboutSection onOpenVideoModal={() => setIsVideoModalOpen(true)} />
+
+        {/* Bandeau + section "Consultations en visio, partout en France" */}
+        <OnlineTherapySection />
 
         {/* Section Pourquoi choisir */}
         <WhyChooseSection />
