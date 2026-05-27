@@ -23,8 +23,16 @@ const HypnoseConfianceParis = () => {
     "description": "Développez votre confiance en soi grâce à l'hypnose ericksonienne à Paris. Prise de parole, estime de soi, syndrome de l'imposteur. Cabinet Paris 4ème Marais-Bastille.",
     "url": "https://novahypnose.fr/hypnose-confiance-en-soi-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie confiance en soi",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnoseConfianceParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose confiance en soi Paris | Alain Zenatti</title>
-        <meta name="description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
-        <meta name="keywords" content="hypnose confiance en soi paris, estime de soi hypnose paris, syndrome imposteur hypnose paris, prise de parole hypnose paris, hypnothérapeute confiance paris, timidité hypnose paris" />
+        <title>Hypnose confiance en soi à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnose confiance en soi paris, estime de soi hypnose paris, syndrome imposteur hypnose paris, prise de parole hypnose paris, hypnothérapeute confiance paris, timidité hypnose paris, hypnose confiance en soi en ligne, séance hypnose confiance visio France, hypnose estime de soi à distance, téléconsultation hypnose confiance" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
-        <meta property="og:title" content="Hypnose confiance en soi Paris | Alain Zenatti" />
-        <meta property="og:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose confiance en soi à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnoseConfianceParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose confiance en soi" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose confiance en soi Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose confiance en soi à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -89,7 +97,8 @@ const HypnoseConfianceParis = () => {
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Vous doutez de vous, vous n'osez pas prendre la parole, vous vous sentez illégitime ?
               L'hypnose reprogramme les croyances limitantes qui sabotent votre confiance.
-              <strong> Résultats visibles en 3 à 5 séances</strong>.
+              <strong> Résultats visibles en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en
+              <strong> visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -357,7 +366,7 @@ const HypnoseConfianceParis = () => {
               Révélez la confiance qui est en vous
             </h2>
             <p className="text-xl text-amber-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

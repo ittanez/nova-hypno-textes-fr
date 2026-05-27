@@ -23,8 +23,16 @@ const HypnoseEmotionsParis = () => {
     "description": "Apprenez à gérer vos émotions grâce à l'hypnose ericksonienne à Paris. Colère, hypersensibilité, deuil, frustration. Cabinet Paris 4ème Marais-Bastille.",
     "url": "https://novahypnose.fr/hypnose-gestion-emotions-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Country", "name": "France" }
+    ],
     "serviceType": "Hypnothérapie gestion des émotions",
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+    },
     "offers": {
       "@type": "Offer",
       "price": "90",
@@ -54,12 +62,12 @@ const HypnoseEmotionsParis = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnose gestion des émotions Paris | Alain Zenatti</title>
-        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
-        <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris" />
+        <title>Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris, hypnose émotions en ligne, séance hypnose émotions visio France, hypnose gestion émotions à distance, téléconsultation hypnose émotions" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
-        <meta property="og:title" content="Hypnose gestion des émotions Paris | Alain Zenatti" />
-        <meta property="og:description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -69,8 +77,8 @@ const HypnoseEmotionsParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose gestion des émotions" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose gestion des émotions Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -89,7 +97,8 @@ const HypnoseEmotionsParis = () => {
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Colère incontrôlable, hypersensibilité, deuil difficile, frustration permanente…
               Vos émotions vous submergent et vous ne savez plus comment les gérer ?
-              L'hypnose vous aide à <strong>retrouver un équilibre émotionnel durable</strong>.
+              L'hypnose vous aide à <strong>retrouver un équilibre émotionnel durable</strong>, au
+              cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -382,7 +391,7 @@ const HypnoseEmotionsParis = () => {
               Reprenez le contrôle de vos émotions
             </h2>
             <p className="text-xl text-rose-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille • Métro Bastille (lignes 1, 5, 8) • 90&nbsp;€ la séance
+              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

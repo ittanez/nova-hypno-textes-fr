@@ -158,9 +158,13 @@ const SeoTextSection: React.FC = () => {
             1h30&nbsp;; les séances suivantes 1h. Tarif&nbsp;: 90&nbsp;€ la séance.
           </p>
           <p className="text-gray-700 leading-relaxed mb-8">
-            Des séances en téléconsultation sont également disponibles, aussi efficaces
-            qu'en cabinet, pour les personnes éloignées de Paris ou préférant
-            la flexibilité du domicile.
+            Vous n'habitez pas à Paris ? Les séances d'{' '}
+            <Link to="/hypnose-en-ligne" className="text-blue-600 hover:underline">
+              hypnose en visioconférence
+            </Link>{' '}
+            sont disponibles <strong>partout en France</strong>, aussi efficaces qu'en cabinet.
+            Le travail hypnotique passe par la voix et la relation&nbsp;: il se transmet
+            parfaitement en visio (Zoom, Google Meet, Skype), sans aucun déplacement.
           </p>
 
           {/* ── Qu'est-ce que l'hypnose ericksonienne ── */}

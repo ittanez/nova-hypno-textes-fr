@@ -101,7 +101,7 @@ const ZoneIntervention = () => {
         <title>Zone d'intervention Paris | Cabinet Hypnose Bastille</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio."
+          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€."
         />
         <meta
           name="keywords"
@@ -109,7 +109,7 @@ const ZoneIntervention = () => {
         />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
         <meta property="og:title" content="Zone d'intervention Paris | Cabinet Hypnose Bastille" />
-        <meta property="og:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio." />
+        <meta property="og:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
         <meta property="og:locale" content="fr_FR" />
@@ -119,7 +119,7 @@ const ZoneIntervention = () => {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Zone d'intervention Paris | Cabinet Hypnose Bastille" />
-        <meta name="twitter:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio." />
+        <meta name="twitter:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>
 
@@ -193,7 +193,11 @@ const ZoneIntervention = () => {
                     </h3>
                     <p className="text-gray-700 leading-relaxed">
                       Vous habitez en dehors de Paris ou préférez consulter depuis chez vous ?
-                      <strong> Les séances d'hypnose en visio</strong> sont tout aussi efficaces.
+                      <strong> Les séances d'hypnose en visio sont disponibles partout en France</strong> et
+                      tout aussi efficaces qu'au cabinet.{' '}
+                      <Link to="/hypnose-en-ligne" className="text-blue-600 hover:underline font-medium">
+                        Découvrir l'hypnose en ligne
+                      </Link>.
                     </p>
                     <p className="text-2xl font-bold text-gray-900 mt-3">
                       90 € la séance

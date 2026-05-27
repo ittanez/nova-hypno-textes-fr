@@ -52,6 +52,7 @@ export const accompagnementsLinks: NavLink[] = [
 export const infosPratiquesLinks: NavLink[] = [
   { name: 'Tarifs', href: '/#tarifs' },
   { name: 'FAQ', href: '/#faq' },
+  { name: 'Hypnose en ligne (visio)', href: '/hypnose-en-ligne' },
   { name: 'Zone d\'intervention', href: '/zone-intervention' },
   { name: 'Contact', href: '/#contact' },
 ];
