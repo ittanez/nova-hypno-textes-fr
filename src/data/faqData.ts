@@ -83,7 +83,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Hypnose en visio : comment consulter depuis chez vous, partout en France ?",
-    answer: "Oui, je propose des séances d'hypnose en visioconférence partout en France — métropole, DOM-TOM et Français de l'étranger francophones. Où que vous soyez (Lyon, Marseille, Bordeaux, zone rurale…), vous bénéficiez du même accompagnement qu'au cabinet. Les séances en ligne sont tout aussi efficaces qu'en présentiel, notamment pour :\n\n• Gestion du stress et de l'anxiété\n• Amélioration du sommeil\n• Confiance en soi\n• Préparation mentale\n• Arrêt du tabac\n\nLes séances se déroulent via une plateforme sécurisée (Zoom, Skype, ou Google Meet). Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable, et d'un casque ou écouteurs pour une meilleure immersion."
+    answer: "Oui, je propose des séances d'hypnose en visioconférence partout en France — métropole, DOM-TOM et Français de l'étranger francophones. Où que vous soyez (Lyon, Marseille, Bordeaux, zone rurale…), vous bénéficiez du même accompagnement qu'au cabinet. Les séances en ligne sont tout aussi efficaces qu'en présentiel, notamment pour :\n\n• Gestion du stress et de l'anxiété\n• Amélioration du sommeil\n• Confiance en soi\n• Préparation mentale\n• Arrêt du tabac\n\nLes séances se déroulent via une plateforme sécurisée (Google Meet). Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable, et d'un casque ou écouteurs pour une meilleure immersion."
   },
   {
     question: "Quel est le temps de trajet pour rejoindre votre cabinet depuis les principales gares parisiennes ?",

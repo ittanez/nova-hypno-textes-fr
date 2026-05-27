@@ -31,7 +31,7 @@ const HypnoseSommeilParis = () => {
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-      "name": "Au cabinet Paris 4ème ou en visioconférence (Zoom, Google Meet, Skype)"
+      "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
     },
     "offers": {
       "@type": "Offer",

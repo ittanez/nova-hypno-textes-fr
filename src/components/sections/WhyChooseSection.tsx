@@ -61,17 +61,13 @@ const WhyChooseSection: React.FC = () => {
               <MapPin className="text-white" size={28} />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Au cabinet à Paris ou en visio
+              Localisation idéale à Paris
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Cabinet au cœur de Paris 4ème (Marais-Bastille), facilement accessible en métro —
-              ou en visioconférence partout en France. À vous de choisir le format qui vous convient.
+              Cabinet situé au cœur de Paris 4ème, quartier Marais-Bastille, facilement accessible en métro.
+              Cadre chaleureux et confidentiel pour vos séances.
             </p>
             <ul className="space-y-2 text-gray-600 text-sm">
-              <li className="flex items-start gap-2">
-                <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
-                <span>Visio partout en France (Zoom, Google Meet)</span>
-              </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
                 <span>Métro Bastille (lignes 1, 5, 8)</span>
@@ -79,6 +75,10 @@ const WhyChooseSection: React.FC = () => {
               <li className="flex items-start gap-2">
                 <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
                 <span>Horaires flexibles (11h-20h)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
+                <span>Visio (Google Meet) disponible</span>
               </li>
             </ul>
           </div>

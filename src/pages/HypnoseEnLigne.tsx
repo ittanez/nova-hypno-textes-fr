@@ -20,7 +20,7 @@ const visioFaqItems = [
   },
   {
     question: "Comment se déroule concrètement une séance d'hypnose en ligne ?",
-    answer: "Vous recevez un lien de connexion sécurisé (Zoom, Google Meet ou Skype). La première séance dure environ 1h30 : entretien pour cerner votre objectif, séance d'hypnose guidée par la voix, puis debriefing. Les séances suivantes durent 1h. Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable et d'un casque ou d'écouteurs.",
+    answer: "Vous recevez un lien de connexion sécurisé (Google Meet). La première séance dure environ 1h30 : entretien pour cerner votre objectif, séance d'hypnose guidée par la voix, puis debriefing. Les séances suivantes durent 1h. Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable et d'un casque ou d'écouteurs.",
   },
   {
     question: "Dans quelles régions de France consultez-vous en visio ?",
@@ -56,7 +56,7 @@ const HypnoseEnLigne = () => {
     <ContentLayout>
       <Helmet>
         <title>Hypnose en ligne & visioconférence partout en France | NovaHypnose</title>
-        <meta name="description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne (Zoom, Google Meet) aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue. 90 € la séance." />
+        <meta name="description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne (Google Meet) aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue. 90 € la séance." />
         <meta name="keywords" content="hypnose en ligne, hypnothérapeute en ligne, hypnose visio, séance hypnose visio France, hypnose à distance, téléconsultation hypnose, hypnothérapeute à distance, hypnose en ligne France, consultation hypnose visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-en-ligne" />
         <meta property="og:title" content="Hypnose en ligne & visioconférence partout en France | NovaHypnose" />
@@ -129,7 +129,7 @@ const HypnoseEnLigne = () => {
               <p>
                 Une séance d'hypnose en visio se déroule exactement comme au cabinet — la seule
                 différence est que vous restez dans le confort de votre domicile. Vous recevez un
-                <strong> lien de connexion sécurisé</strong> (Zoom, Google Meet ou Skype) et nous
+                <strong> lien de connexion sécurisé</strong> (Google Meet) et nous
                 échangeons en face à face, par vidéo.
               </p>
               <p>
