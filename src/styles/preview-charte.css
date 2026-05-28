@@ -390,6 +390,121 @@
 .cz .foot em { font-family: var(--f-serif); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 14px; color: var(--amber); margin: 0 10px; }
 
 /* ============================================================
+   CARD — icône lucide (applications)
+   ============================================================ */
+.cz .card__icon-lc {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(242,161,46,.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   TARIFS
+   ============================================================ */
+.cz .tarifs-sect { background: var(--lin-2); }
+.cz .tarifs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 64px;
+}
+.cz .tarif-card {
+  background: var(--paper);
+  border-radius: 24px;
+  padding: 40px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  border: 1px solid rgba(43,75,160,.08);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.cz .tarif-card:hover { transform: translateY(-4px); box-shadow: 8px 8px 0 rgba(43,75,160,.12); }
+.cz .tarif-card--featured { background: var(--cobalt); }
+.cz .tarif-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--amber);
+  color: var(--cobalt-2);
+  font-family: var(--f-sans);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(242,161,46,.35);
+}
+.cz .tarif-card h3 {
+  font-family: var(--f-serif);
+  font-size: 26px; font-weight: 400;
+  color: var(--texte); margin: 12px 0 0;
+}
+.cz .tarif-card--featured h3 { color: var(--lin); }
+.cz .tarif-price {
+  font-family: var(--f-serif);
+  font-size: 64px; font-weight: 300;
+  color: var(--cobalt); line-height: 1;
+  display: flex; align-items: baseline; gap: 4px;
+}
+.cz .tarif-price sup { font-size: 28px; }
+.cz .tarif-card--featured .tarif-price { color: var(--amber); }
+.cz .tarif-desc { font-size: 13px; color: var(--gris); margin: 0; }
+.cz .tarif-card--featured .tarif-desc { color: rgba(240,236,227,.6); }
+.cz .tarif-card ul {
+  list-style: none; padding: 0; margin: 8px 0 16px;
+  border-top: 1px solid rgba(28,43,74,.1);
+  padding-top: 16px; flex: 1;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cz .tarif-card--featured ul { border-color: rgba(240,236,227,.2); }
+.cz .tarif-card li {
+  font-size: 14px; color: var(--texte); opacity: .8;
+  padding-left: 20px; position: relative; line-height: 1.4;
+}
+.cz .tarif-card li::before { content: '—'; position: absolute; left: 0; color: var(--amber); font-size: 12px; }
+.cz .tarif-card--featured li { color: var(--lin); opacity: .85; }
+.cz .tarifs-note {
+  margin: 48px auto 0; text-align: center;
+  font-size: 14px; color: var(--gris);
+  max-width: 580px; line-height: 1.7;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.cz .faq-sect { background: var(--lin); }
+.cz .faq-list { margin-top: 56px; max-width: 800px; }
+.cz .faq-item { border-bottom: 1px solid rgba(28,43,74,.1); }
+.cz .faq-q {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 24px; width: 100%; background: none; border: none; cursor: pointer;
+  font-family: var(--f-sans); font-size: 17px; font-weight: 400;
+  color: var(--texte); text-align: left;
+  padding: 24px 0; line-height: 1.5;
+  transition: color .25s var(--ease);
+}
+.cz .faq-q:hover, .cz .faq-q.open { color: var(--cobalt); }
+.cz .faq-chevron {
+  font-size: 24px; flex-shrink: 0;
+  color: var(--amber); font-weight: 300;
+  line-height: 1; margin-top: 1px;
+  font-family: var(--f-serif);
+  display: inline-block;
+  transition: transform .25s var(--ease);
+}
+.cz .faq-q.open .faq-chevron { transform: rotate(45deg); }
+.cz .faq-a {
+  font-size: 15px; line-height: 1.8; color: var(--texte);
+  opacity: .75; padding-bottom: 24px; white-space: pre-line;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 980px) {
@@ -403,6 +518,7 @@
   .cz .contact__grid { grid-template-columns: 1fr; }
   .cz .charte__grid { gap: 56px; }
   .cz .cards { grid-template-columns: 1fr; }
+  .cz .tarifs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
 }
 @media (max-width: 760px) {
   .cz .nav__links { display: none; }

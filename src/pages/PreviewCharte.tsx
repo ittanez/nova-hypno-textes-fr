@@ -1,25 +1,22 @@
 /**
- * PreviewCharte — page de prévisualisation de la nouvelle charte graphique
- * « ZENatti / risographie ». Page autoportante (pas de header/footer du site),
- * styles scopés sous .cz (src/styles/preview-charte.css) pour ne pas affecter
- * le reste de l'application.
- *
- * Données réelles du cabinet (et non les placeholders de la maquette) :
- * adresse 16 rue Saint-Antoine 75004, « Hypnothérapeute », tarif 90 €, etc.
- * NOTE : page en noindex — c'est un essai visuel, pas une page publique.
+ * PreviewCharte — aperçu de la charte graphique « ZENatti / risographie »
+ * Page autoportante (noindex), styles scopés .cz, contenu réel du site.
  */
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
+import { testimonials } from '@/data/testimonials';
+import { applications } from '@/data/applicationsData';
+import { faqItems } from '@/data/faqData';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  // Reveal-on-scroll (scopé aux éléments de cette page)
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
@@ -29,14 +26,9 @@ const PreviewCharte: React.FC = () => {
       return;
     }
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) {
-            en.target.classList.add('in');
-            io.unobserve(en.target);
-          }
-        });
-      },
+      (entries) => entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      }),
       { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
     );
     els.forEach((el) => io.observe(el));
@@ -57,7 +49,7 @@ const PreviewCharte: React.FC = () => {
       </Helmet>
 
       <div className="cz" ref={rootRef}>
-        {/* ===== SVG defs — filtres risographie (montés une fois) ===== */}
+        {/* ── SVG defs (filtres risographie) ── */}
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>
             <filter id="riso-full">
@@ -75,7 +67,7 @@ const PreviewCharte: React.FC = () => {
           </defs>
         </svg>
 
-        {/* ===== NAV ===== */}
+        {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
             <a className="brand" href="#hero">
@@ -83,9 +75,10 @@ const PreviewCharte: React.FC = () => {
             </a>
             <div className="nav__links">
               <a href="#about">À propos</a>
-              <a href="#seances">Séances</a>
-              <a href="#temoignages">Récits</a>
-              <a href="#charte">Charte</a>
+              <a href="#applications">Domaines</a>
+              <a href="#temoignages">Avis</a>
+              <a href="#tarifs">Tarifs</a>
+              <a href="#faq">FAQ</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -94,7 +87,7 @@ const PreviewCharte: React.FC = () => {
           </div>
         </nav>
 
-        {/* ===== HERO ===== */}
+        {/* ── HERO ── */}
         <section className="hero" id="hero">
           <div className="hero__bg" aria-hidden="true">
             <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
@@ -119,19 +112,19 @@ const PreviewCharte: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Hypnothérapeute — Paris 4 · Marais</div>
+              <div className="tag">Hypnothérapeute — Paris 4 · Bastille · Marais</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
                 <span className="full"><span className="zen">Zen</span><span className="atti">atti</span></span>
               </h1>
               <div className="hero__rule"></div>
               <p className="hero__lead">
-                Retrouvez votre équilibre <em>ZEN</em>.<br />
-                Une approche <em>ZENith</em> de vous-même,<br />
-                dans un cabinet pensé comme une parenthèse.
+                Stress · anxiété · phobies · sommeil.<br />
+                <em>Maître Hypnologue certifié.</em><br />
+                Résultats durables en 3 à 5 séances.
               </p>
               <div className="hero__sub">
-                <span style={{ color: 'var(--cobalt)' }}>novahypnose.fr</span> · 06 49 35 80 89
+                Cabinet Paris 4ème (Marais-Bastille) &amp; visio partout en France
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -143,15 +136,16 @@ const PreviewCharte: React.FC = () => {
 
             <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
               <div className="hero__card-label">Première séance</div>
-              <p className="hero__card-quote">« Une parenthèse. Un dialogue. À votre rythme. »</p>
+              <p className="hero__card-quote">« Vous êtes accueilli sans jugement, accompagné à votre rythme. »</p>
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
               <div className="hero__card-row"><span>Tarif</span><span>90 €</span></div>
-              <div className="hero__card-row"><span>Lieu</span><span>16 rue Saint-Antoine, Paris 4e &amp; visio</span></div>
+              <div className="hero__card-row"><span>Cabinet</span><span>16 rue Saint-Antoine, Paris 4e</span></div>
+              <div className="hero__card-row"><span>Visio</span><span>Partout en France</span></div>
             </aside>
           </div>
         </section>
 
-        {/* ===== À PROPOS ===== */}
+        {/* ── À PROPOS ── */}
         <section className="about" id="about">
           <div className="about__bg" aria-hidden="true"></div>
           <div className="container about__grid">
@@ -159,120 +153,239 @@ const PreviewCharte: React.FC = () => {
             <div className="about__copy reveal" style={{ transitionDelay: '.15s' }}>
               <div className="section-tag">À propos</div>
               <h2 className="section-title">
-                Une parenthèse <span className="zenith">ZENith</span><br />
-                au cœur du Marais.
+                Alain Zenatti,<br /><em>Hypnothérapeute à Paris.</em>
               </h2>
               <p>
-                Hypnothérapeute certifié, Maître Hypnologue formé à l'École Psynapse, je reçois
-                dans un cabinet pensé comme une zone de dépose — un endroit pour ralentir, écouter
-                ce qui se dit à l'intérieur, et accompagner ce qui demande à bouger.
+                <strong>Maître Hypnologue certifié</strong>, je vous accompagne au cœur de Paris avec
+                plus de 5 années d'expérience en hypnose ericksonienne. Mon cabinet dans le Marais
+                (Paris 4ème) offre un accompagnement professionnel de haut niveau, alliant formation
+                approfondie et approche entièrement personnalisée.
               </p>
               <p>
-                L'hypnose ericksonienne n'est pas un tour de force. C'est un dialogue permissif avec
-                la part de vous qui sait déjà. Vous gardez le contrôle, du premier instant au dernier.
+                L'hypnose ericksonienne repose sur l'idée que l'inconscient de chaque personne est
+                une source immense de solutions. Cette approche est douce, permissive, et respecte
+                pleinement votre rythme. Vous n'êtes pas dirigé — vous êtes accompagné dans un
+                dialogue avec votre propre ressource intérieure. Vous gardez le contrôle,
+                du premier instant au dernier.
+              </p>
+              <p>
+                Contrairement aux thérapies longues traditionnelles, l'hypnose ericksonienne est une
+                <strong> thérapie brève orientée solutions</strong> : la plupart des accompagnements
+                aboutissent en <strong>3 à 5 séances</strong>. Des résultats concrets, pas
+                d'exploration sans fin.
               </p>
               <div className="about__stat">
-                <div>
-                  <div className="about__stat-n">5+</div>
-                  <div className="about__stat-l">années d'expérience</div>
-                </div>
-                <div>
-                  <div className="about__stat-n">9</div>
-                  <div className="about__stat-l">certifications</div>
-                </div>
-                <div>
-                  <div className="about__stat-n">5/5</div>
-                  <div className="about__stat-l">22 avis Google</div>
-                </div>
+                <div><div className="about__stat-n">5+</div><div className="about__stat-l">années d'expérience</div></div>
+                <div><div className="about__stat-n">9</div><div className="about__stat-l">certifications</div></div>
+                <div><div className="about__stat-n">5/5</div><div className="about__stat-l">22 avis Google</div></div>
+              </div>
+              <div style={{ marginTop: 32 }}>
+                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Prendre rendez-vous <span className="arrow">→</span>
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ===== SÉANCES ===== */}
-        <section className="seances" id="seances">
+        {/* ── DOMAINES D'APPLICATION ── */}
+        <section className="seances" id="applications">
           <div className="container">
             <div className="seances__head reveal">
               <div>
-                <div className="section-tag">Séances</div>
+                <div className="section-tag">Domaines d'application</div>
                 <h2 className="section-title">
-                  Retrouvez <em>votre ZEN</em>.<br />
-                  Sur trois terrains.
+                  L'hypnose <em>pour quoi ?</em>
                 </h2>
               </div>
               <p>
-                Trois motifs de consultation parmi les plus fréquents au cabinet —
-                l'hypnose ericksonienne s'adapte à un large éventail de situations.
+                L'hypnose ericksonienne s'adapte à un large éventail de problématiques.
+                Voici les motifs les plus fréquents en consultation.
               </p>
             </div>
 
             <div className="cards">
-              <article className="card reveal" style={{ transitionDelay: '.1s' }}>
-                <svg className="card__icon" viewBox="0 0 100 100" aria-hidden="true">
-                  <g filter="url(#riso-full)">
-                    <path d="M 50 12 C 78 12, 90 32, 88 56 C 86 80, 64 90, 44 86 C 24 82, 12 62, 16 42 C 20 24, 32 12, 50 12 Z" fill="#F2A12E" opacity=".92" />
-                  </g>
-                </svg>
-                <h3 className="card__title"><em>Anxiété</em> &amp; stress</h3>
-                <p className="card__desc">Désactiver le mode alerte chronique, restaurer une respiration ample, désamorcer les ruminations.</p>
-                <div className="card__link">3 — 5 séances →</div>
-              </article>
-
-              <article className="card reveal" style={{ transitionDelay: '.25s' }}>
-                <svg className="card__icon" viewBox="0 0 100 100" aria-hidden="true">
-                  <g filter="url(#riso-full)">
-                    <path d="M 16 50 C 16 26, 38 12, 60 16 C 84 22, 92 44, 84 66 C 76 86, 52 92, 32 80 C 18 70, 14 60, 16 50 Z" fill="#F2A12E" opacity=".92" />
-                  </g>
-                </svg>
-                <h3 className="card__title"><em>Sommeil</em> retrouvé</h3>
-                <p className="card__desc">Reprogrammer en douceur les cycles, apaiser les ruminations du soir, retrouver un sommeil réparateur.</p>
-                <div className="card__link">3 séances en moyenne →</div>
-              </article>
-
-              <article className="card reveal" style={{ transitionDelay: '.4s' }}>
-                <svg className="card__icon" viewBox="0 0 100 100" aria-hidden="true">
-                  <g filter="url(#riso-full)">
-                    <path d="M 24 24 C 44 8, 72 14, 84 36 C 96 58, 84 84, 60 88 C 36 92, 14 76, 12 54 C 11 42, 16 32, 24 24 Z" fill="#F2A12E" opacity=".92" />
-                  </g>
-                </svg>
-                <h3 className="card__title"><em>Confiance</em> en soi</h3>
-                <p className="card__desc">Travailler les croyances limitantes, redéployer un sentiment juste de sa propre valeur.</p>
-                <div className="card__link">4 — 6 séances →</div>
-              </article>
+              {applications.map((app, i) => {
+                const Icon = app.icon;
+                return (
+                  <article className="card reveal" key={app.title} style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
+                    <div className="card__icon-lc">
+                      <Icon size={26} strokeWidth={1.5} style={{ color: 'var(--amber)' }} />
+                    </div>
+                    <h3 className="card__title">{app.title}</h3>
+                    <p className="card__desc">{app.description}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* ===== TÉMOIGNAGES ===== */}
+        {/* ── TÉMOIGNAGES ── */}
         <section className="temoignages" id="temoignages">
           <div className="container">
             <div className="reveal" style={{ textAlign: 'center' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Récits</div>
-              <h2 className="section-title">Ce qu'<em>on en dit</em>.</h2>
+              <div className="section-tag" style={{ justifyContent: 'center' }}>Avis clients</div>
+              <h2 className="section-title">Ce qu'<em>on en dit.</em></h2>
             </div>
 
             <div className="temoignages__list">
-              <div className="temoignage reveal">
-                <p className="temoignage__quote">« Un univers singulier coloré, installé au cœur du Marais. Y accéder à pied, repartir en flânant place des Vosges — la parenthèse se referme avec douceur. »</p>
-                <div className="temoignage__author"><strong>Dominique B.</strong> · Avril 2025 · Resalib</div>
-              </div>
-              <div className="wave reveal" aria-hidden="true"></div>
-
-              <div className="temoignage reveal">
-                <p className="temoignage__quote">« Le travail thérapeutique a été très rapide et efficace. L'hypnose est vraiment un outil puissant — je me suis sentie en confiance tout au long du chemin. »</p>
-                <div className="temoignage__author"><strong>Marina L.</strong> · Mars 2025 · Google</div>
-              </div>
-              <div className="wave reveal" aria-hidden="true"></div>
-
-              <div className="temoignage reveal">
-                <p className="temoignage__quote">« Praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail. En quelques séances, libéré de blocages. »</p>
-                <div className="temoignage__author"><strong>Pierre H.</strong> · Février 2025 · Resalib</div>
-              </div>
+              {[testimonials[1], testimonials[2], testimonials[8]].map((t, i) => (
+                <React.Fragment key={t.name}>
+                  <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
+                    <p className="temoignage__quote">« {t.text} »</p>
+                    <div className="temoignage__author">
+                      <strong>{t.name}</strong> · {t.date} · Google
+                    </div>
+                  </div>
+                  {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ===== CHARTE — palette & typographie ===== */}
+        {/* ── TARIFS ── */}
+        <section className="tarifs-sect" id="tarifs">
+          <div className="container">
+            <div className="reveal">
+              <div className="section-tag">Tarifs</div>
+              <h2 className="section-title">Choisissez <em>votre formule.</em></h2>
+            </div>
+
+            <div className="tarifs-grid">
+              {/* Cabinet */}
+              <article className="tarif-card tarif-card--featured reveal">
+                <div className="tarif-badge">⭐ RECOMMANDÉE</div>
+                <h3>Cabinet Paris Bastille</h3>
+                <div className="tarif-price">90<sup>€</sup></div>
+                <p className="tarif-desc">Au cœur de Paris</p>
+                <ul>
+                  <li>1h30 (première séance)</li>
+                  <li>1h (séances suivantes)</li>
+                  <li>Métro Bastille, St Paul, Sully-Morland</li>
+                </ul>
+                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver au cabinet <span className="arrow">→</span>
+                </a>
+              </article>
+
+              {/* Visio */}
+              <article className="tarif-card reveal" style={{ transitionDelay: '.15s' }}>
+                <h3>Téléconsultation</h3>
+                <div className="tarif-price">90<sup>€</sup></div>
+                <p className="tarif-desc">Depuis chez vous</p>
+                <ul>
+                  <li>1h30 (première séance)</li>
+                  <li>1h (séances suivantes)</li>
+                  <li>Connexion sécurisée (Google Meet)</li>
+                  <li>Partout en France &amp; à l'étranger</li>
+                </ul>
+                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver en visio <span className="arrow">→</span>
+                </a>
+              </article>
+
+              {/* Domicile */}
+              <article className="tarif-card reveal" style={{ transitionDelay: '.3s' }}>
+                <div className="tarif-badge" style={{ background: 'var(--cobalt)', color: 'var(--lin)' }}>NOUVEAU</div>
+                <h3>À Domicile</h3>
+                <div className="tarif-price">140<sup>€</sup></div>
+                <p className="tarif-desc">Paris Centre</p>
+                <ul>
+                  <li>1h30 (première séance)</li>
+                  <li>1h (séances suivantes)</li>
+                  <li>Arrondissements 1–4, 9–11</li>
+                </ul>
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver à domicile <span className="arrow">→</span>
+                </a>
+              </article>
+            </div>
+
+            <p className="tarifs-note reveal">
+              Paiement par carte bancaire, espèces, Wero ou en ligne via Stripe.
+              Certaines mutuelles remboursent partiellement les séances — renseignez-vous auprès de la vôtre.
+              Annulation sans frais jusqu'à 48h avant le rendez-vous.
+            </p>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="faq-sect" id="faq">
+          <div className="container">
+            <div className="reveal">
+              <div className="section-tag">Questions fréquentes</div>
+              <h2 className="section-title">Vos <em>questions.</em></h2>
+            </div>
+
+            <div className="faq-list">
+              {faqItems.slice(0, 6).map((item, i) => (
+                <div className="faq-item reveal" key={i} style={{ transitionDelay: `${i * 0.07}s` }}>
+                  <button
+                    className={`faq-q${openFaq === i ? ' open' : ''}`}
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
+                  >
+                    {item.question}
+                    <span className="faq-chevron">+</span>
+                  </button>
+                  {openFaq === i && (
+                    <div className="faq-a">{item.answer}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CONTACT ── */}
+        <section className="contact" id="contact">
+          <div className="contact__blob" aria-hidden="true"></div>
+          <div className="container contact__grid">
+            <div className="reveal">
+              <div className="section-tag">Contact</div>
+              <h2 className="section-title">Prenons <em>contact.</em></h2>
+              <p className="contact__lead">
+                Un appel suffit. Nous échangeons quelques minutes sur votre demande, je réponds à vos
+                questions, et nous fixons une première séance si vous le souhaitez.
+              </p>
+              <dl className="contact__dl">
+                <div className="contact__row"><dt>Tél.</dt><dd>06 49 35 80 89</dd></div>
+                <div className="contact__row"><dt>Site</dt><dd>novahypnose.fr</dd></div>
+                <div className="contact__row"><dt>Adresse</dt><dd>16 rue Saint-Antoine, 75004 Paris</dd></div>
+                <div className="contact__row"><dt>Horaires</dt><dd>Lun. — Ven. · 11h — 20h</dd></div>
+              </dl>
+            </div>
+
+            <form
+              className="contact__form reveal"
+              style={{ transitionDelay: '.2s' }}
+              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            >
+              <div className="field">
+                <label htmlFor="cz-nom">Votre nom</label>
+                <input id="cz-nom" type="text" placeholder="Marie Dupont" required />
+              </div>
+              <div className="field">
+                <label htmlFor="cz-email">Email</label>
+                <input id="cz-email" type="email" placeholder="marie@exemple.fr" required />
+              </div>
+              <div className="field">
+                <label htmlFor="cz-tel">Téléphone</label>
+                <input id="cz-tel" type="tel" placeholder="06 12 34 56 78" />
+              </div>
+              <div className="field">
+                <label htmlFor="cz-msg">Message</label>
+                <textarea id="cz-msg" placeholder="Quelques mots sur votre demande…" rows={3}></textarea>
+              </div>
+              <button className="btn btn--amber" type="submit">Envoyer <span className="arrow">→</span></button>
+              {sent && <p className="contact__success">Merci — je vous recontacte sous 24h.</p>}
+            </form>
+          </div>
+        </section>
+
+        {/* ── CHARTE — palette & typographie ── */}
         <section className="charte" id="charte">
           <div className="container">
             <div className="reveal">
@@ -329,64 +442,8 @@ const PreviewCharte: React.FC = () => {
                   <div className="typo-row__sample-3">Body · Hypnothérapeute à Paris 4. Réservations en ligne.</div>
                   <div className="typo-row__role">Texte courant · modernité douce, lisibilité.</div>
                 </div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— Échelle d'usage</div>
-                  <ul className="typo-scale">
-                    <li><strong style={{ fontFamily: 'var(--f-serif)', fontSize: 16, fontWeight: 400, fontStyle: 'italic' }}>Display</strong> — Cormorant 72–156 px · ZEN en italic</li>
-                    <li><strong style={{ fontFamily: 'var(--f-serif)', fontSize: 16, fontWeight: 400, fontStyle: 'italic' }}>H2 — section</strong> — Cormorant 40–72 px</li>
-                    <li><strong style={{ fontFamily: 'var(--f-serif)', fontSize: 14, fontWeight: 400, fontStyle: 'italic' }}>Lead</strong> — Cormorant italic 22–26 px</li>
-                    <li><strong style={{ fontFamily: 'var(--f-sans)', fontSize: 14 }}>Body</strong> — DM Sans 16 px · line-height 1.75</li>
-                    <li><strong style={{ fontFamily: 'var(--f-sans)', fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase' }}>TAG</strong> — DM Sans 11 px · 0.22em letter-spacing</li>
-                  </ul>
-                </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ===== CONTACT ===== */}
-        <section className="contact" id="contact">
-          <div className="contact__blob" aria-hidden="true"></div>
-          <div className="container contact__grid">
-            <div className="reveal">
-              <div className="section-tag">Contact</div>
-              <h2 className="section-title">Au cœur <em>du ZEN.</em></h2>
-              <p className="contact__lead">
-                Un appel suffit. Nous échangeons quelques minutes sur votre demande, je réponds à vos
-                questions, et nous fixons une première séance si vous le souhaitez.
-              </p>
-              <dl className="contact__dl">
-                <div className="contact__row"><dt>Tél.</dt><dd>06 49 35 80 89</dd></div>
-                <div className="contact__row"><dt>Email</dt><dd>contact@novahypnose.fr</dd></div>
-                <div className="contact__row"><dt>Adresse</dt><dd>16 rue Saint-Antoine, 75004 Paris</dd></div>
-                <div className="contact__row"><dt>Horaires</dt><dd>Lun. — Ven. · 11h — 20h</dd></div>
-              </dl>
-            </div>
-
-            <form
-              className="contact__form reveal"
-              style={{ transitionDelay: '.2s' }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-            >
-              <div className="field">
-                <label htmlFor="cz-nom">Votre nom</label>
-                <input id="cz-nom" type="text" placeholder="Marie Dupont" required />
-              </div>
-              <div className="field">
-                <label htmlFor="cz-email">Email</label>
-                <input id="cz-email" type="email" placeholder="marie@exemple.fr" required />
-              </div>
-              <div className="field">
-                <label htmlFor="cz-tel">Téléphone</label>
-                <input id="cz-tel" type="tel" placeholder="06 12 34 56 78" />
-              </div>
-              <div className="field">
-                <label htmlFor="cz-msg">Message</label>
-                <textarea id="cz-msg" placeholder="Quelques mots sur votre demande…" rows={3}></textarea>
-              </div>
-              <button className="btn btn--amber" type="submit">Envoyer <span className="arrow">→</span></button>
-              {sent && <p className="contact__success">Merci — je vous recontacte sous 24h.</p>}
-            </form>
           </div>
         </section>
 
