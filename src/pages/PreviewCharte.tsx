@@ -1,9 +1,7 @@
 /**
- * PreviewCharte — aperçu de la charte « ZENatti ».
- * Technique risographie (grain, aplats organiques, surimpression, Cormorant + DM Sans)
- * ré-habillée dans une palette « bien-être haut de gamme » :
- *   Lin chaud #FAF8F5 · Encre bleu profond #1B2D4F · Terracotta #C4714A · Gris ardoise #6B7280
- * Ton apaisé, aéré, orienté états recherchés (et non listes de symptômes).
+ * PreviewCharte — aperçu de la charte « ZENatti / risographie ».
+ * Palette risographie : ambre #F2A12E · cobalt #2B4BA0 · lin #F0ECE3 · encre #1C2B4A.
+ * Contenu au ton apaisé, aéré, orienté états recherchés (et non listes de symptômes).
  * Page autoportante, noindex, styles scopés .cz.
  */
 
@@ -81,7 +79,7 @@ const PreviewCharte: React.FC = () => {
             </filter>
             <filter id="paperGrain" x="0" y="0" width="100%" height="100%">
               <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves={4} seed={1} />
-              <feColorMatrix values="0 0 0 0 .42  0 0 0 0 .30  0 0 0 0 .22  0 0 0 .13 0" />
+              <feColorMatrix values="0 0 0 0 .15  0 0 0 0 .12  0 0 0 0 .08  0 0 0 .15 0" />
             </filter>
           </defs>
         </svg>
@@ -110,15 +108,15 @@ const PreviewCharte: React.FC = () => {
           <div className="hero__bg" aria-hidden="true">
             <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
               <g filter="url(#riso-full)">
-                <path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#C4714A" opacity="0.9" />
+                <path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#F2A12E" opacity="0.95" />
               </g>
               <g filter="url(#riso-full)">
-                <path d="M 280 480 C 400 460, 500 510, 510 600 C 520 690, 460 750, 360 750 C 260 750, 180 690, 180 600 C 180 530, 220 490, 280 480 Z" fill="#C4714A" opacity="0.9" />
+                <path d="M 280 480 C 400 460, 500 510, 510 600 C 520 690, 460 750, 360 750 C 260 750, 180 690, 180 600 C 180 530, 220 490, 280 480 Z" fill="#F2A12E" opacity="0.95" />
               </g>
               <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                <path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2E4470" opacity="0.9" />
+                <path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2B4BA0" opacity="0.92" />
               </g>
-              <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".3" />
+              <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".25" />
             </svg>
           </div>
 
@@ -213,12 +211,12 @@ const PreviewCharte: React.FC = () => {
             <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#C4714A" opacity="0.88" />
+                  <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#F2A12E" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                  <path d="M 170 180 C 290 130, 390 180, 410 290 C 425 380, 360 450, 260 450 C 160 450, 110 370, 120 280 C 126 222, 140 196, 170 180 Z" fill="#2E4470" opacity="0.85" />
+                  <path d="M 170 180 C 290 130, 390 180, 410 290 C 425 380, 360 450, 260 450 C 160 450, 110 370, 120 280 C 126 222, 140 196, 170 180 Z" fill="#2B4BA0" opacity="0.9" />
                 </g>
-                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".28" />
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
               <div className="cabinet__addr">16 rue Saint-Antoine · 75004 Paris</div>
             </div>
@@ -294,7 +292,7 @@ const PreviewCharte: React.FC = () => {
                   <li>1h — séances suivantes</li>
                   <li>Métro Bastille &amp; Saint-Paul</li>
                 </ul>
-                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
                   Réserver <span className="arrow">→</span>
                 </a>
               </article>
@@ -401,7 +399,7 @@ const PreviewCharte: React.FC = () => {
                 <label htmlFor="cz-msg">Message</label>
                 <textarea id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}></textarea>
               </div>
-              <button className="btn btn--primary" type="submit">Envoyer <span className="arrow">→</span></button>
+              <button className="btn btn--amber" type="submit">Envoyer <span className="arrow">→</span></button>
               {sent && <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>}
             </form>
           </div>
@@ -417,29 +415,32 @@ const PreviewCharte: React.FC = () => {
 
             <div className="charte__grid">
               <div className="reveal" style={{ transitionDelay: '.1s' }}>
-                <div className="charte__block-label">① Palette</div>
+                <div className="charte__block-label">① Palette risographie</div>
                 <div className="swatches">
-                  <div className="swatch" style={{ background: '#FAF8F5', color: '#1B2D4F', border: '1px solid rgba(27,45,79,.12)' }}>
-                    <div><div className="swatch__name">Lin chaud</div><div className="swatch__hex">#FAF8F5</div></div>
-                    <div className="swatch__role">Fond, respiration</div>
+                  <div className="swatch swatch--filtered" style={{ background: '#F2A12E', color: '#1C2B4A' }}>
+                    <div><div className="swatch__name">Ambre</div><div className="swatch__hex">#F2A12E</div></div>
+                    <div className="swatch__role">Chaleur, éveil</div>
                   </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#1B2D4F', color: '#FAF8F5' }}>
-                    <div><div className="swatch__name">Encre</div><div className="swatch__hex">#1B2D4F</div></div>
-                    <div className="swatch__role">Titres, sécurité</div>
+                  <div className="swatch swatch--filtered" style={{ background: '#2B4BA0', color: '#F0ECE3' }}>
+                    <div><div className="swatch__name">Cobalt</div><div className="swatch__hex">#2B4BA0</div></div>
+                    <div className="swatch__role">Profondeur, calme</div>
                   </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#C4714A', color: '#FAF8F5' }}>
-                    <div><div className="swatch__name">Terracotta</div><div className="swatch__hex">#C4714A</div></div>
-                    <div className="swatch__role">Action, déclic</div>
+                  <div className="swatch swatch--filtered" style={{ background: '#8A9BB8', color: '#1C2B4A' }}>
+                    <div><div className="swatch__name">Brume</div><div className="swatch__hex">#8A9BB8</div></div>
+                    <div className="swatch__role">Intersection riso</div>
                   </div>
-                  <div className="swatch" style={{ background: '#6B7280', color: '#FAF8F5' }}>
-                    <div><div className="swatch__name">Ardoise</div><div className="swatch__hex">#6B7280</div></div>
-                    <div className="swatch__role">Texte, lecture douce</div>
+                  <div className="swatch" style={{ background: '#F0ECE3', color: '#1C2B4A', border: '1px solid rgba(28,43,74,.1)' }}>
+                    <div><div className="swatch__name">Lin</div><div className="swatch__hex">#F0ECE3</div></div>
+                    <div className="swatch__role">Papier, espace</div>
+                  </div>
+                  <div className="swatch" style={{ background: '#1C2B4A', color: '#F0ECE3' }}>
+                    <div><div className="swatch__name">Profond</div><div className="swatch__hex">#1C2B4A</div></div>
+                    <div className="swatch__role">Texte, nuit</div>
                   </div>
                 </div>
-                <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.7, maxWidth: 520, color: 'var(--corps)' }}>
-                  Un fond crème qui remplace le blanc pur pour un confort enveloppant. L'encre bleu
-                  profond porte la structure et le sérieux thérapeutique ; la terracotta, réservée aux
-                  actions, signale la chaleur et le <em>déclic</em>. Le grain n'est jamais retiré : il
+                <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.7, maxWidth: 520, color: 'var(--corps)', opacity: .8 }}>
+                  Deux encres principales — ambre et cobalt — qui, en se superposant, font apparaître
+                  la brume. Le lin est le papier qui les accueille. Le grain n'est jamais retiré : il
                   dit que ce qu'on regarde a été <em>imprimé</em>.
                 </p>
               </div>
@@ -454,7 +455,7 @@ const PreviewCharte: React.FC = () => {
                 <div className="typo-row">
                   <div className="typo-row__label">— Cormorant Garamond · Italic · le fil ZEN</div>
                   <div className="typo-row__sample-2"><em>Zen</em><span className="at">atti</span></div>
-                  <div className="typo-row__role">ZEN en italic encre — atti en romain terracotta.</div>
+                  <div className="typo-row__role">ZEN en italic cobalt — atti en romain ambre.</div>
                 </div>
                 <div className="typo-row">
                   <div className="typo-row__label">— DM Sans · Regular</div>
