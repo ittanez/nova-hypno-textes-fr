@@ -11,14 +11,29 @@ import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
+const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share';
 
 const domaines = [
-  { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
-  { t: 'Des nuits apaisées', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
-  { t: 'Habiter sa confiance', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
-  { t: 'Se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
-  { t: 'Apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
-  { t: "Aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
+  { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien.", href: '/hypnose-stress-anxiete-paris' },
+  { t: 'Des nuits apaisées', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur.", href: '/hypnose-sommeil-paris' },
+  { t: 'Habiter sa confiance', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur.", href: '/hypnose-confiance-en-soi-paris' },
+  { t: 'Se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance.", href: '/hypnose-phobies-paris' },
+  { t: 'Apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité.", href: '/hypnose-gestion-emotions-paris' },
+  { t: "Aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment.", href: '/hypnose-blocages-paris' },
+];
+
+const certifications = [
+  { t: 'Maître Hypnologue', s: 'École Psynapse · 2025' },
+  { t: 'Maître Praticien — Hypnose Ericksonienne', s: '2023' },
+  { t: 'Hypnose Directive & Hyperemperia', s: '2025' },
+  { t: 'Hypnose Ericksonienne', s: 'École Psynapse · 2021' },
+  { t: 'Hypnose spirituelle', s: 'École Psynapse · 2023' },
+];
+
+const articles = [
+  { cat: 'Stress & anxiété', t: "L'anxiété n'est pas une fatalité : ce que l'hypnose change vraiment", min: '6 min' },
+  { cat: 'Sommeil', t: 'Retrouver un sommeil réparateur, sans somnifères', min: '5 min' },
+  { cat: 'Confiance', t: "Habiter sa confiance : le rôle discret de l'inconscient", min: '7 min' },
 ];
 
 const faq = [
@@ -33,6 +48,8 @@ const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const avis = [testimonials[0], testimonials[1], testimonials[2], testimonials[3], testimonials[8], testimonials[5]];
+  const [avisIdx, setAvisIdx] = useState(0);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -93,8 +110,11 @@ const PreviewCharte: React.FC = () => {
             <div className="nav__links">
               <a href="#about">À propos</a>
               <a href="#cabinet">Le cabinet</a>
-              <a href="#domaines">Accompagnement</a>
+              <a href="#domaines">Spécialités</a>
+              <a href="#autohypnose">Auto-hypnose</a>
+              <a href="#balades">Hypno-balades</a>
               <a href="#temoignages">Avis</a>
+              <a href="#blog">Blog</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -221,6 +241,25 @@ const PreviewCharte: React.FC = () => {
               <div className="cabinet__addr">16 rue Saint-Antoine · 75004 Paris</div>
             </div>
           </div>
+
+          <div className="container cabinet__access reveal">
+            <div className="access__item">
+              <div className="access__k">Métro</div>
+              <div className="access__v">Bastille (1 · 5 · 8) à 2 min · Saint-Paul (1)</div>
+            </div>
+            <div className="access__item">
+              <div className="access__k">Bus &amp; Vélib’</div>
+              <div className="access__v">Lignes 69 · 76 · 86 · 87 · 96 · stations Bastille</div>
+            </div>
+            <div className="access__item">
+              <div className="access__k">Stationnement</div>
+              <div className="access__v">Parking Bastille Saint-Antoine, à 50 m</div>
+            </div>
+            <div className="access__item">
+              <div className="access__k">Le jour J</div>
+              <div className="access__v">Code &amp; étage transmis avec la confirmation</div>
+            </div>
+          </div>
         </section>
 
         {/* ── DOMAINES D'ACCOMPAGNEMENT (états recherchés) ── */}
@@ -228,7 +267,7 @@ const PreviewCharte: React.FC = () => {
           <div className="container">
             <div className="seances__head reveal">
               <div>
-                <div className="section-tag">Accompagnement</div>
+                <div className="section-tag">Spécialités</div>
                 <h2 className="section-title">Là où l'hypnose <em>vous porte.</em></h2>
               </div>
               <p>
@@ -239,35 +278,76 @@ const PreviewCharte: React.FC = () => {
 
             <div className="cards">
               {domaines.map((d, i) => (
-                <article className="card reveal" key={d.t} style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
+                <a className="card reveal" key={d.t} href={d.href} style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
                   <span className="card__num">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="card__title">{d.t}</h3>
                   <p className="card__desc">{d.d}</p>
-                </article>
+                  <span className="card__link">En savoir plus <span className="arrow">→</span></span>
+                </a>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── TÉMOIGNAGES ── */}
-        <section className="temoignages" id="temoignages">
-          <div className="container">
-            <div className="reveal" style={{ textAlign: 'center' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Ils en parlent</div>
-              <h2 className="section-title">Des mots, <em>après.</em></h2>
+        {/* ── AUTO-HYPNOSE — autonomie ── */}
+        <section className="autohypnose" id="autohypnose">
+          <div className="container autoh__grid">
+            <div className="autoh__copy reveal">
+              <div className="section-tag">Auto-hypnose</div>
+              <h2 className="section-title">Devenir acteur<br /><em>de votre changement.</em></h2>
+              <p>
+                Mon rôle n'est pas de vous rendre dépendant d'un cabinet. C'est de vous transmettre
+                des clés — des techniques d'auto-hypnose simples, à pratiquer chez vous.
+              </p>
+              <p>
+                Entre deux séances, et bien après, vous gardez la main : quelques minutes suffisent
+                pour retrouver le calme, vous ré-ancrer, prolonger le travail engagé ensemble.
+              </p>
+              <div className="autoh__app">
+                <div className="autoh__app-txt">
+                  <strong>NovaRespire</strong>
+                  <span>Mon application de respiration &amp; d'auto-hypnose guidée, pour pratiquer au quotidien.</span>
+                </div>
+                <a className="btn btn--ghost" href={NOVARESPIRE_URL} target="_blank" rel="noopener noreferrer">
+                  Découvrir l'app <span className="arrow">→</span>
+                </a>
+              </div>
             </div>
+            <div className="autoh__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+              <svg viewBox="0 0 480 480" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <circle cx="240" cy="240" r="170" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
+                  <circle cx="240" cy="240" r="110" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <rect width="480" height="480" filter="url(#paperGrain)" opacity=".22" />
+              </svg>
+            </div>
+          </div>
+        </section>
 
-            <div className="temoignages__list">
-              {[testimonials[0], testimonials[3], testimonials[8]].map((t, i) => (
-                <React.Fragment key={t.name}>
-                  <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
-                    <p className="temoignage__quote">« {t.text} »</p>
-                    <div className="temoignage__author"><strong>{t.name}</strong> · {t.date} · Google</div>
-                  </div>
-                  {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
-                </React.Fragment>
-              ))}
+        {/* ── HYPNO-BALADES — Perche ── */}
+        <section className="balades" id="balades">
+          <div className="balades__bg" aria-hidden="true"></div>
+          <div className="container balades__inner">
+            <div className="reveal" style={{ maxWidth: 640 }}>
+              <div className="section-tag">Hors les murs</div>
+              <h2 className="section-title">Les hypno-balades,<br /><em>dans le Perche.</em></h2>
+              <p className="balades__lead">
+                Une autre façon de pratiquer : marcher en pleine nature, dans la forêt domaniale de
+                Senonches, guidé par la voix, entre relaxation profonde et grand air.
+              </p>
             </div>
+            <div className="balades__cards">
+              <div className="balade-card reveal"><span className="balade-card__k">En groupe</span><span className="balade-card__v">25 €</span><span className="balade-card__d">7 personnes max · 1h30 à 2h</span></div>
+              <div className="balade-card reveal" style={{ transitionDelay: '.1s' }}><span className="balade-card__k">En solo</span><span className="balade-card__v">75 €</span><span className="balade-card__d">Promenade individualisée</span></div>
+              <div className="balade-card reveal" style={{ transitionDelay: '.2s' }}><span className="balade-card__k">En couple</span><span className="balade-card__v">120 €</span><span className="balade-card__d">À deux, à votre rythme</span></div>
+            </div>
+            <p className="balades__note reveal">
+              Forêt domaniale de Senonches · point de rendez-vous communiqué à l'inscription ·
+              <a href="mailto:contact@novahypnose.fr"> contact@novahypnose.fr</a> · 06 49 35 80 89
+            </p>
           </div>
         </section>
 
@@ -330,6 +410,78 @@ const PreviewCharte: React.FC = () => {
               Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
               participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.
             </p>
+          </div>
+        </section>
+
+        {/* ── TÉMOIGNAGES — carrousel ── */}
+        <section className="temoignages" id="temoignages">
+          <div className="container">
+            <div className="reveal" style={{ textAlign: 'center' }}>
+              <div className="section-tag" style={{ justifyContent: 'center' }}>Ils en parlent</div>
+              <h2 className="section-title">Des mots, <em>après.</em></h2>
+              <div className="avis-rating">
+                <span className="avis-stars" aria-hidden="true">★★★★★</span>
+                <span>5/5 · avis vérifiés Google</span>
+              </div>
+            </div>
+
+            <div className="avis-carousel reveal">
+              <button className="avis-nav avis-nav--prev" aria-label="Avis précédent"
+                onClick={() => setAvisIdx((avisIdx - 1 + avis.length) % avis.length)}>‹</button>
+              <blockquote className="avis-quote" key={avisIdx}>
+                <p>« {avis[avisIdx].text} »</p>
+                <footer><strong>{avis[avisIdx].name}</strong> · {avis[avisIdx].date} · Google</footer>
+              </blockquote>
+              <button className="avis-nav avis-nav--next" aria-label="Avis suivant"
+                onClick={() => setAvisIdx((avisIdx + 1) % avis.length)}>›</button>
+            </div>
+            <div className="avis-dots">
+              {avis.map((_, i) => (
+                <button key={i} className={`avis-dot${i === avisIdx ? ' on' : ''}`}
+                  aria-label={`Avis ${i + 1}`} onClick={() => setAvisIdx(i)} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CERTIFICATIONS — bandeau ── */}
+        <section className="certifs" id="certifs">
+          <div className="container">
+            <div className="certifs__head reveal">
+              <div className="section-tag" style={{ justifyContent: 'center' }}>Formation &amp; éthique</div>
+              <p className="certifs__intro">Une pratique encadrée, nourrie par <strong>9 certifications</strong> et la formation continue.</p>
+            </div>
+            <div className="certifs__band reveal">
+              {certifications.map((c) => (
+                <div className="certif" key={c.t}>
+                  <span className="certif__t">{c.t}</span>
+                  <span className="certif__s">{c.s}</span>
+                </div>
+              ))}
+              <div className="certif certif__more"><span className="certif__t">+ 4 autres</span><span className="certif__s">formation continue</span></div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── BLOG — derniers articles ── */}
+        <section className="blog" id="blog">
+          <div className="container">
+            <div className="blog__head reveal">
+              <div>
+                <div className="section-tag">Le journal</div>
+                <h2 className="section-title">Lire, <em>à tête reposée.</em></h2>
+              </div>
+              <a className="btn btn--ghost" href="/blog">Tous les articles <span className="arrow">→</span></a>
+            </div>
+            <div className="blog__grid">
+              {articles.map((a, i) => (
+                <a className="post reveal" key={a.t} href="/blog" style={{ transitionDelay: `${i * 0.12}s` }}>
+                  <div className="post__cat">{a.cat}</div>
+                  <h3 className="post__title">{a.t}</h3>
+                  <div className="post__meta">Lecture {a.min} <span className="arrow">→</span></div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -468,7 +620,18 @@ const PreviewCharte: React.FC = () => {
         </section>
 
         <footer className="foot">
-          © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
+          <div className="container foot__inner">
+            <div className="foot__brand">
+              <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
+              <span className="foot__tag">— pour aller à votre rythme</span>
+            </div>
+            <nav className="foot__links">
+              <a href="/mentions-legales">Mentions légales</a>
+              <a href="/mentions-legales">Politique de confidentialité</a>
+              <a href="/mentions-legales">CGV</a>
+            </nav>
+          </div>
+          <div className="foot__copy">© MMXXVI · NovaHypnose · 16 rue Saint-Antoine, 75004 Paris</div>
         </footer>
       </div>
     </>
