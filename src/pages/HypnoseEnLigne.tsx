@@ -23,8 +23,8 @@ const visioFaqItems = [
     answer: "Vous recevez un lien de connexion sécurisé (Google Meet). La première séance dure environ 1h30 : entretien pour cerner votre objectif, séance d'hypnose guidée par la voix, puis debriefing. Les séances suivantes durent 1h. Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable et d'un casque ou d'écouteurs.",
   },
   {
-    question: "Dans quelles régions de France consultez-vous en visio ?",
-    answer: "Partout en France métropolitaine et dans les DOM-TOM, ainsi que pour les Français de l'étranger francophones. Que vous soyez à Lyon, Marseille, Bordeaux, Lille, Nantes, Toulouse, Strasbourg, en zone rurale ou à l'international, vous accédez au même accompagnement que les patients du cabinet parisien.",
+    question: "Depuis où peut-on consulter en visio ?",
+    answer: "Depuis n'importe où dans le monde ! La séance en visio n'a pas de frontières : que vous soyez en France, à l'étranger ou en voyage, la seule condition est de disposer d'une connexion internet stable et d'un endroit calme et confortable. C'est l'un des grands avantages du format en ligne.",
   },
   {
     question: "De quel matériel ai-je besoin pour une téléconsultation d'hypnose ?",
@@ -32,7 +32,7 @@ const visioFaqItems = [
   },
   {
     question: "Comment payer une séance d'hypnose en visio ?",
-    answer: "Le règlement s'effectue par carte bancaire (paiement en ligne sécurisé) lors de la réservation ou avant la séance. Une facture peut vous être fournie pour une éventuelle prise en charge par votre mutuelle.",
+    answer: "Le règlement s'effectue en ligne de façon simple et sécurisée, selon votre préférence : par carte bancaire via Stripe — le lien de paiement vous est transmis lors de la réservation — ou par Wero, en envoyant le paiement au 06 49 35 80 89. Une facture peut vous être fournie sur demande, pour une éventuelle prise en charge par votre mutuelle.",
   },
   {
     question: "Puis-je alterner séances en visio et séances au cabinet ?",
