@@ -19,6 +19,9 @@ const domaines = [
   { t: 'Se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
   { t: 'Apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
   { t: "Aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
+  { t: 'Renouer avec son corps', d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
+  { t: "Reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
+  { t: "Sortir d'une habitude", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
 ];
 
 const faq = [
@@ -93,8 +96,11 @@ const PreviewCharte: React.FC = () => {
             <div className="nav__links">
               <a href="#about">À propos</a>
               <a href="#cabinet">Le cabinet</a>
+              <a href="#visio">En visio</a>
               <a href="#domaines">Accompagnement</a>
               <a href="#temoignages">Avis</a>
+              <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
+              <a href="/preview-charte-blog">Le journal ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -180,6 +186,24 @@ const PreviewCharte: React.FC = () => {
                 en <strong>3 à 5 séances</strong>. Des changements concrets et durables, sans
                 exploration sans fin.
               </p>
+
+              <div className="about__approche">
+                <div className="about__approche-label">Mon approche</div>
+                <h3 className="about__approche-title">L'hypnose ericksonienne, <em>concrètement.</em></h3>
+                <p>
+                  Je pratique l'hypnose ericksonienne, dans la lignée du psychiatre américain Milton H. Erickson.
+                  Loin de l'hypnose de scène et des injonctions, c'est une approche <strong>respectueuse,
+                  indirecte et permissive</strong> — qui parle à votre inconscient par métaphores et suggestions
+                  ouvertes, plutôt qu'en imposant un récit.
+                </p>
+                <p>
+                  Concrètement : pas de transe spectaculaire, pas de perte de contrôle. Vous restez présent,
+                  vous entendez tout, vous pouvez ouvrir les yeux quand vous voulez. Ce qui change, c'est
+                  votre rapport à ce qui vous encombre — parce que vos propres ressources, déjà là, retrouvent
+                  un chemin d'expression.
+                </p>
+              </div>
+
               <div className="about__stat">
                 <div><div className="about__stat-n">5+</div><div className="about__stat-l">années d'expérience</div></div>
                 <div><div className="about__stat-n">9</div><div className="about__stat-l">certifications</div></div>
@@ -223,6 +247,46 @@ const PreviewCharte: React.FC = () => {
           </div>
         </section>
 
+        {/* ── EN VISIO — pendant exact du cabinet ── */}
+        <section className="visio" id="visio">
+          <div className="container cabinet__grid cabinet__grid--reverse">
+            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
+                  <path d="M 160 200 C 280 160, 380 200, 400 300 C 415 380, 360 450, 260 450 C 160 450, 110 380, 120 290 C 126 240, 140 214, 160 200 Z" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <rect x="170" y="240" width="180" height="120" rx="10" fill="#F0ECE3" opacity="0.95" />
+                <circle cx="260" cy="285" r="14" fill="#2B4BA0" opacity="0.85" />
+                <rect x="220" y="310" width="80" height="6" rx="3" fill="#2B4BA0" opacity="0.6" />
+                <rect x="200" y="324" width="120" height="6" rx="3" fill="#2B4BA0" opacity="0.4" />
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+              <div className="cabinet__addr">En visio · partout en France</div>
+            </div>
+            <div className="cabinet__copy reveal">
+              <div className="section-tag">En visio</div>
+              <h2 className="section-title">Le même cabinet,<br /><em>depuis chez vous.</em></h2>
+              <p>
+                Une séance en visio, c'est <strong>exactement</strong> une séance — la même profondeur,
+                la même qualité de travail, le même temps pris. Simplement, le cabinet vient à vous.
+              </p>
+              <p>
+                Beaucoup le découvrent avec surprise : depuis son canapé, dans son propre cocon, on entre
+                souvent encore plus vite dans la détente. Et l'hypnose ericksonienne — qui passe par
+                la voix, l'écoute, la métaphore — s'y prête remarquablement.
+              </p>
+              <ul className="cabinet__list">
+                <li><strong>Partout en France</strong> — et au-delà, pour les francophones à l'étranger.</li>
+                <li><strong>Un endroit à vous</strong> — calme, casque audio, connexion stable. Rien d'autre.</li>
+                <li><strong>Même tarif qu'au cabinet</strong> — 90 €, 1h30 la première séance.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* ── DOMAINES D'ACCOMPAGNEMENT (états recherchés) ── */}
         <section className="seances" id="domaines">
           <div className="container">
@@ -262,7 +326,10 @@ const PreviewCharte: React.FC = () => {
                 <React.Fragment key={t.name}>
                   <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
                     <p className="temoignage__quote">« {t.text} »</p>
-                    <div className="temoignage__author"><strong>{t.name}</strong> · {t.date} · Google</div>
+                    <div className="temoignage__author">
+                    <span className="temoignage__stars" aria-label="5 sur 5">★★★★★</span>
+                    <strong>{t.name}</strong> · Google
+                  </div>
                   </div>
                   {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
                 </React.Fragment>

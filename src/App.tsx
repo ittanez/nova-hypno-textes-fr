@@ -24,6 +24,9 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 const MentionsLegales = lazy(() => import("@/pages/MentionsLegales"));
 const Maquette = lazy(() => import("@/pages/Maquette"));
 const PreviewCharte = lazy(() => import("@/pages/PreviewCharte"));
+const PreviewCharteAutohypnose = lazy(() => import("@/pages/PreviewCharteAutohypnose"));
+const PreviewCharteBlog = lazy(() => import("@/pages/PreviewCharteBlog"));
+const PreviewCharteBlogArticle = lazy(() => import("@/pages/PreviewCharteBlogArticle"));
 const BlogMaquette = lazy(() => import("@/pages/BlogMaquette"));
 const Custom404 = lazy(() => import("@/pages/Custom404"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
@@ -126,6 +129,9 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/maquette" element={<Maquette />} />
             <Route path="/preview-charte" element={<PreviewCharte />} />
+            <Route path="/preview-charte-autohypnose" element={<PreviewCharteAutohypnose />} />
+            <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
+            <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
 
             {/* Page d'erreur 404 personnalisée */}
