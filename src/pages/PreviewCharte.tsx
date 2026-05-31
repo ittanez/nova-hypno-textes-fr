@@ -100,6 +100,7 @@ const PreviewCharte: React.FC = () => {
               <a href="#domaines">Accompagnement</a>
               <a href="#temoignages">Avis</a>
               <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
+              <a href="/preview-charte-blog">Le journal ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
