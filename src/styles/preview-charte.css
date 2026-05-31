@@ -230,15 +230,39 @@
 .cz .about__photo {
   aspect-ratio: 1; max-width: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, var(--cobalt) 0, var(--cobalt-2) 80%);
+  background-image: url('/zenatti.webp');
+  background-size: cover;
+  background-position: center 30%;
   box-shadow: 12px 12px 0 rgba(242,161,46,.32);
   position: relative;
+  overflow: hidden;
 }
-.cz .about__photo::after {
-  content: "AZ"; position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--f-serif); font-style: italic; font-size: 96px; color: rgba(240,236,227,.4);
+.cz .about__photo::before {
+  content: ""; position: absolute; inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(28,43,74,.08);
+  pointer-events: none;
 }
+
+/* ── Mon approche ericksonienne (sous-bloc À propos) ───────────── */
+.cz .about__approche {
+  margin-top: 36px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--amber);
+  background: rgba(43,75,160,.04);
+  border-radius: 0 16px 16px 0;
+}
+.cz .about__approche-label {
+  font-family: var(--f-sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--cobalt); font-weight: 500; margin-bottom: 10px;
+}
+.cz .about__approche-title {
+  font-family: var(--f-serif); font-weight: 400; font-size: 26px; line-height: 1.2;
+  color: var(--texte); margin: 0 0 16px; letter-spacing: -.01em;
+}
+.cz .about__approche-title em { font-style: italic; color: var(--cobalt); }
+.cz .about__approche p { font-size: 16px; line-height: 1.8; color: var(--corps); max-width: 560px; }
+.cz .about__approche p + p { margin-top: 14px; }
 .cz .about__bg {
   position: absolute; right: -120px; top: 20%; width: 380px; height: 380px;
   background: var(--amber); opacity: .08;
@@ -273,6 +297,14 @@
   box-shadow: 0 6px 18px rgba(28,43,74,.12); white-space: nowrap;
 }
 
+/* ── En visio — pendant exact du cabinet ────────────────────── */
+.cz .visio { background: var(--lin); position: relative; padding-top: 80px; }
+.cz .visio::before {
+  content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: 64px; height: 1px; background: rgba(28,43,74,.15);
+}
+.cz .cabinet__grid--reverse { grid-template-columns: 1fr 1.1fr; }
+
 /* ============================================================
    DOMAINES (cards)
    ============================================================ */
@@ -305,8 +337,9 @@
   font-size: 26px; line-height: 1.5; color: var(--texte);
   max-width: 720px; margin: 0 auto;
 }
-.cz .temoignage__author { margin-top: 24px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
+.cz .temoignage__author { margin-top: 24px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
 .cz .temoignage__author strong { color: var(--cobalt); font-weight: 500; }
+.cz .temoignage__stars { color: var(--amber); letter-spacing: .1em; font-size: 14px; line-height: 1; }
 
 .cz .wave {
   height: 40px;
@@ -476,6 +509,9 @@
   .cz .cards { grid-template-columns: 1fr; }
   .cz .tarifs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
   .cz .cabinet__visual { max-width: 440px; }
+  .cz .cabinet__grid--reverse .cabinet__copy { order: 1; }
+  .cz .cabinet__grid--reverse .cabinet__visual { order: 2; }
+  .cz .about__approche { padding: 24px; }
 }
 @media (max-width: 760px) {
   .cz .nav__links { display: none; }
