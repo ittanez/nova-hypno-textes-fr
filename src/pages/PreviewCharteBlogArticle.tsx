@@ -25,6 +25,7 @@ const formatDate = (iso?: string): string => {
 const PreviewCharteBlogArticle: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const rootRef = useRef<HTMLDivElement>(null);
+  const [navOpen, setNavOpen] = React.useState<boolean>(false);
 
   const { data: article, isLoading, isError } = useQuery({
     queryKey: ['preview-charte-blog-article', slug],
@@ -104,7 +105,15 @@ const PreviewCharteBlogArticle: React.FC = () => {
             <Link className="brand" to="/preview-charte">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </Link>
-            <div className="nav__links">
+            <button
+              className={`nav__burger${navOpen ? ' open' : ''}`}
+              aria-label={navOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={navOpen}
+              onClick={() => setNavOpen((v) => !v)}
+            >
+              <span></span><span></span><span></span>
+            </button>
+            <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
               <Link to="/preview-charte-blog">← Le journal</Link>
               <Link to="/preview-charte">Accueil</Link>
             </div>
@@ -227,8 +236,31 @@ const PreviewCharteBlogArticle: React.FC = () => {
         )}
 
         <footer className="foot">
-          © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+          <div className="container">
+            <nav className="foot__links" aria-label="Pieds de page">
+              <a href="/mentions-legales">Mentions légales</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#confidentialite">Politique de confidentialité</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#cgv">CGV</a>
+              <span className="foot__sep">·</span>
+              <a href="tel:+33649358089">06 49 35 80 89</a>
+            </nav>
+            <div className="foot__copy">
+              © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+            </div>
+          </div>
         </footer>
+
+        <a
+          className="floating-cta"
+          href={RESALIB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Prendre rendez-vous"
+        >
+          Prendre rendez-vous <span className="arrow">→</span>
+        </a>
       </div>
     </>
   );

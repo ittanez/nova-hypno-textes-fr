@@ -28,14 +28,22 @@ const faq = [
   { q: 'Comment se déroule une séance ?', a: "Un échange pour comprendre ce qui vous amène, puis un temps d'hypnose dans un état de profonde détente. Vous restez présent, à chaque instant." },
   { q: 'Vais-je garder le contrôle ?', a: "Toujours. L'hypnose ericksonienne est un dialogue permissif : vous ne ferez jamais rien qui aille contre vos valeurs. Vous gardez le contrôle du début à la fin." },
   { q: 'En combien de séances ?', a: "L'hypnose est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement en 3 à 5 séances. Des changements concrets, sans exploration sans fin." },
-  { q: 'Est-ce que cela fonctionne en visio ?', a: "Oui, tout aussi bien qu'au cabinet. Depuis chez vous, partout en France, il suffit d'un endroit calme et d'une connexion stable." },
+  { q: 'Est-ce que cela fonctionne en visio ?', a: "Oui, tout aussi bien qu'au cabinet. Depuis chez vous, où que vous soyez — en France comme à l'étranger —, il suffit d'un endroit calme et d'une connexion stable." },
   { q: 'À qui s\'adressent les séances ?', a: "Aux adultes, pour un travail thérapeutique complet et personnalisé, dans un cadre confidentiel et sécurisant." },
 ];
+
+const anonymizeName = (full: string): string => {
+  const parts = full.trim().split(/\s+/);
+  if (parts.length < 2) return parts[0] ?? '';
+  const last = parts[parts.length - 1];
+  return `${parts.slice(0, -1).join(' ')} ${last[0]}.`;
+};
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -93,7 +101,15 @@ const PreviewCharte: React.FC = () => {
             <a className="brand" href="#hero">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
-            <div className="nav__links">
+            <button
+              className={`nav__burger${navOpen ? ' open' : ''}`}
+              aria-label={navOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={navOpen}
+              onClick={() => setNavOpen((v) => !v)}
+            >
+              <span></span><span></span><span></span>
+            </button>
+            <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
               <a href="#about">À propos</a>
               <a href="#cabinet">Le cabinet</a>
               <a href="#visio">En visio</a>
@@ -157,7 +173,7 @@ const PreviewCharte: React.FC = () => {
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
               <div className="hero__card-row"><span>Tarif</span><span>90 €</span></div>
               <div className="hero__card-row"><span>Au cabinet</span><span>16 rue Saint-Antoine, Paris 4e</span></div>
-              <div className="hero__card-row"><span>Ou en visio</span><span>Partout en France</span></div>
+              <div className="hero__card-row"><span>Ou en visio</span><span>Partout, depuis chez vous</span></div>
             </aside>
           </div>
         </section>
@@ -207,7 +223,7 @@ const PreviewCharte: React.FC = () => {
               <div className="about__stat">
                 <div><div className="about__stat-n">5+</div><div className="about__stat-l">années d'expérience</div></div>
                 <div><div className="about__stat-n">9</div><div className="about__stat-l">certifications</div></div>
-                <div><div className="about__stat-n">5/5</div><div className="about__stat-l">22 avis Google</div></div>
+                <div><div className="about__stat-n">5/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
               </div>
             </div>
           </div>
@@ -264,7 +280,7 @@ const PreviewCharte: React.FC = () => {
                 <rect x="200" y="324" width="120" height="6" rx="3" fill="#2B4BA0" opacity="0.4" />
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
-              <div className="cabinet__addr">En visio · partout en France</div>
+              <div className="cabinet__addr">En visio · depuis chez vous</div>
             </div>
             <div className="cabinet__copy reveal">
               <div className="section-tag">En visio</div>
@@ -279,7 +295,7 @@ const PreviewCharte: React.FC = () => {
                 la voix, l'écoute, la métaphore — s'y prête remarquablement.
               </p>
               <ul className="cabinet__list">
-                <li><strong>Partout en France</strong> — et au-delà, pour les francophones à l'étranger.</li>
+                <li><strong>Depuis chez vous, sans frontière</strong> — en France comme à l'étranger ; je reçois des patient·es jusqu'au Portugal.</li>
                 <li><strong>Un endroit à vous</strong> — calme, casque audio, connexion stable. Rien d'autre.</li>
                 <li><strong>Même tarif qu'au cabinet</strong> — 90 €, 1h30 la première séance.</li>
               </ul>
@@ -328,7 +344,7 @@ const PreviewCharte: React.FC = () => {
                     <p className="temoignage__quote">« {t.text} »</p>
                     <div className="temoignage__author">
                     <span className="temoignage__stars" aria-label="5 sur 5">★★★★★</span>
-                    <strong>{t.name}</strong> · Google
+                    <strong>{anonymizeName(t.name)}</strong> · Google
                   </div>
                   </div>
                   {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
@@ -371,7 +387,7 @@ const PreviewCharte: React.FC = () => {
                 <ul>
                   <li>1h30 — première séance</li>
                   <li>1h — séances suivantes</li>
-                  <li>Partout en France</li>
+                  <li>Partout, France ou étranger</li>
                 </ul>
                 <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
                   Réserver <span className="arrow">→</span>
@@ -535,8 +551,31 @@ const PreviewCharte: React.FC = () => {
         </section>
 
         <footer className="foot">
-          © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
+          <div className="container">
+            <nav className="foot__links" aria-label="Pieds de page">
+              <a href="/mentions-legales">Mentions légales</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#confidentialite">Politique de confidentialité</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#cgv">CGV</a>
+              <span className="foot__sep">·</span>
+              <a href="tel:+33649358089">06 49 35 80 89</a>
+            </nav>
+            <div className="foot__copy">
+              © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
+            </div>
+          </div>
         </footer>
+
+        <a
+          className="floating-cta"
+          href={RESALIB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Prendre rendez-vous"
+        >
+          Prendre rendez-vous <span className="arrow">→</span>
+        </a>
       </div>
     </>
   );

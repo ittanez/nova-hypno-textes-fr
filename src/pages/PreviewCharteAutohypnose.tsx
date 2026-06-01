@@ -13,12 +13,12 @@ const WAITLIST_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/form
 const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire';
 
 const benefices = [
-  { t: 'Un calme à portée de main', d: "Quelques minutes, et vous retrouvez de l'air — au bureau, dans les transports, avant un moment qui compte." },
-  { t: 'Un sommeil plus simple', d: "Un rituel doux, le soir, pour laisser le mental se déposer et glisser dans la nuit sans lutter." },
-  { t: 'Vos ancres personnelles', d: "Des gestes intimes — une respiration, un mot, une image — qui rappellent votre état ressource en un instant." },
-  { t: "L'autonomie, vraiment", d: "Ne plus dépendre d'une séance pour aller mieux : porter votre outil avec vous, tout le temps." },
-  { t: 'Une confiance qui s\'installe', d: "À mesure que vous pratiquez, vous réalisez que vous savez. Et cette assurance se voit, dans le quotidien." },
-  { t: 'Un quotidien plus habité', d: "Moins en pilotage automatique, plus présent à ce qui se vit — y compris aux moments simples." },
+  { t: 'Retrouver un état apaisé', d: "Le calme apprivoisé en séance, vous le rappelez en quelques minutes — au bureau, dans les transports, avant un moment qui compte." },
+  { t: 'Vos propres ancres', d: "Un geste, un mot, une image : votre signal personnel, créé pour vous, qui ramène l'état ressource d'un seul rappel." },
+  { t: 'Prolonger entre deux rendez-vous', d: "Faire vivre dans la semaine ce qui s'est ouvert pendant la séance — sans attendre la prochaine pour avancer." },
+  { t: 'Un rituel du soir, à vous', d: "Un court moment d'auto-hypnose le soir, le vôtre, pour laisser le mental se déposer et basculer dans la nuit." },
+  { t: 'Préparer un moment qui compte', d: "Avant un entretien, un examen, une prise de parole : vous mettre en condition, seul·e, dans votre coin." },
+  { t: "L'autonomie, en pratique", d: "Plus besoin de prendre rendez-vous pour rappeler votre calme : l'outil est en vous, vous le portez désormais." },
 ];
 
 const faq = [
@@ -34,6 +34,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -107,7 +108,15 @@ const PreviewCharteAutohypnose: React.FC = () => {
             <a className="brand" href="/preview-charte">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
-            <div className="nav__links">
+            <button
+              className={`nav__burger${navOpen ? ' open' : ''}`}
+              aria-label={navOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={navOpen}
+              onClick={() => setNavOpen((v) => !v)}
+            >
+              <span></span><span></span><span></span>
+            </button>
+            <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
               <a href="/preview-charte">← Retour</a>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
@@ -140,9 +149,9 @@ const PreviewCharteAutohypnose: React.FC = () => {
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
               <div className="tag">Auto-hypnose — pratiquer chez soi</div>
-              <h1 className="hero__name">
-                <span className="full">Devenir <span className="zen">acteur</span><span className="atti"> de</span></span>
-                <span className="full"><span className="zen">votre</span><span className="atti"> changement</span></span>
+              <h1 className="hero__title">
+                Devenir <em>acteur</em><br />
+                de votre <em>changement.</em>
               </h1>
               <div className="hero__rule"></div>
               <p className="hero__lead">
@@ -150,7 +159,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 l'outil qui vous <em>apaise.</em>
               </p>
               <div className="hero__sub">
-                Une journée de formation à Paris, ou l'app NovaRespire au quotidien.
+                Ce qui se vit en séance, le retrouver — quand vous voulez, où vous voulez.
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href="#liste">
@@ -161,12 +170,12 @@ const PreviewCharteAutohypnose: React.FC = () => {
             </div>
 
             <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
-              <div className="hero__card-label">L'idée, en deux mots</div>
-              <p className="hero__card-quote">« Ce qui se passe pendant une séance, vous pouvez apprendre à le retrouver seul — quand vous voulez, où vous voulez. »</p>
+              <div className="hero__card-label">La formation Harmonia</div>
+              <p className="hero__card-quote">« Une journée pour apprendre à rappeler, seul·e, ce que vous vivez en séance. »</p>
               <div className="hero__card-row"><span>Format</span><span>1 journée · max 6</span></div>
               <div className="hero__card-row"><span>Lieu</span><span>Paris · Bastille</span></div>
               <div className="hero__card-row"><span>Tarif</span><span>240 €</span></div>
-              <div className="hero__card-row"><span>App quotidienne</span><span>NovaRespire · gratuite</span></div>
+              <div className="hero__card-row"><span>Inclus</span><span>fascicule, audios, suivi à 1 mois</span></div>
             </aside>
           </div>
         </section>
@@ -216,12 +225,12 @@ const PreviewCharteAutohypnose: React.FC = () => {
           <div className="container">
             <div className="seances__head reveal">
               <div>
-                <div className="section-tag">Ce que ça change</div>
-                <h2 className="section-title">Là où l'auto-hypnose <em>vous porte.</em></h2>
+                <div className="section-tag">Ce que vous apprenez à faire</div>
+                <h2 className="section-title">Retrouver, <em>seul·e</em><br />ce qui s'ouvre <em>en séance.</em></h2>
               </div>
               <p>
-                Non pas des promesses, mais des états — concrets, accessibles, à mesure que la pratique
-                s'installe.
+                Là où l'hypnose se vit à deux, l'auto-hypnose se pratique chez soi — et prolonge ce
+                qui a commencé en cabinet. Voici, concrètement, ce qu'elle permet.
               </p>
             </div>
 
@@ -241,17 +250,17 @@ const PreviewCharteAutohypnose: React.FC = () => {
         <section className="cabinet" id="formation">
           <div className="container cabinet__grid">
             <div className="cabinet__copy reveal">
-              <div className="section-tag">La formation Harmonia</div>
-              <h2 className="section-title">Une journée,<br /><em>et l'outil est à vous.</em></h2>
+              <div className="section-tag">Première voie — apprendre la méthode</div>
+              <h2 className="section-title">La formation <em>Harmonia.</em></h2>
               <p>
-                Un format volontairement resserré : <strong>une journée complète</strong>, en petit
-                groupe (six personnes maximum), à Paris-Bastille. Le temps d'expérimenter, de comprendre
-                ce qui se passe pour <em>vous</em>, et de repartir avec une pratique installée.
+                Une <strong>journée complète</strong> en présentiel, en petit groupe (six personnes
+                maximum), à Paris-Bastille. Le temps d'expérimenter, de comprendre ce qui se passe pour
+                <em> vous</em>, et de repartir avec une pratique installée — pas seulement des notions.
               </p>
               <p>
-                Pas de promesses miracle : un parcours structuré, en quatre temps, alternant théorie
-                courte, mises en situation, et pratique guidée. Vous repartez avec un fascicule, des
-                audios, et un entretien téléphonique un mois après pour ajuster votre pratique.
+                Un parcours structuré en quatre temps, alternant théorie courte, mises en situation, et
+                pratique guidée. Vous repartez avec un fascicule, des audios, et un entretien
+                téléphonique un mois après pour ajuster votre pratique.
               </p>
               <ul className="cabinet__list">
                 <li><strong>1 journée</strong> — environ 9h30 à 17h30, déjeuner compris.</li>
@@ -259,6 +268,10 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 <li><strong>240 €</strong> — fascicule, audios et suivi à un mois inclus.</li>
                 <li><strong>Paris-Bastille</strong> — lieu confirmé à l'inscription.</li>
               </ul>
+              <p style={{ marginTop: 24, fontSize: 14, color: 'var(--gris)' }}>
+                Des séances individuelles à distance dédiées à l'auto-hypnose sont à l'étude pour
+                celles et ceux qui ne peuvent pas se déplacer.
+              </p>
             </div>
             <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
@@ -294,30 +307,38 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 <rect x="234" y="354" width="52" height="6" rx="3" fill="#2B4BA0" opacity="0.3" />
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
-              <div className="cabinet__addr">NovaRespire · application gratuite</div>
+              <div className="cabinet__addr">NovaRespire · gratuit · Android uniquement</div>
             </div>
             <div className="cabinet__copy reveal">
-              <div className="section-tag">L'app — au quotidien</div>
-              <h2 className="section-title">NovaRespire,<br /><em>l'outil de poche.</em></h2>
+              <div className="section-tag">Deuxième voie — pratiquer au quotidien</div>
+              <h2 className="section-title">L'application <em>NovaRespire.</em></h2>
               <p>
-                Pour ancrer la pratique entre deux séances, ou pour s'initier en douceur, j'ai conçu
-                <strong> NovaRespire</strong> — une application <strong>gratuite</strong>, sans publicité,
-                qui propose des exercices guidés de respiration et de courtes inductions inspirées de
-                l'hypnose.
+                Une <strong>offre distincte</strong> de la formation : pas un substitut, mais un
+                compagnon. Pour s'initier en douceur si vous n'avez pas encore consulté, ou pour
+                ancrer la pratique entre deux séances si vous en avez déjà l'habitude.
               </p>
               <p>
-                Trois minutes au bureau, dix minutes le soir, ou simplement de quoi vous accompagner
-                dans un moment difficile : l'app est pensée pour s'effacer derrière la pratique, pas
-                pour vous retenir devant un écran.
+                Application <strong>gratuite</strong>, sans publicité, conçue par mes soins : exercices
+                guidés de respiration et courtes inductions inspirées de l'hypnose. Trois minutes au
+                bureau, dix minutes le soir — l'app est pensée pour s'effacer derrière la pratique,
+                pas pour vous retenir devant un écran.
               </p>
-              <div className="hero__cta" style={{ marginTop: 28 }}>
+              <p style={{
+                marginTop: 18, padding: '10px 14px',
+                background: 'rgba(43,75,160,.07)', borderRadius: 10,
+                fontSize: 14, color: 'var(--cobalt-2)'
+              }}>
+                <strong>À noter :</strong> NovaRespire est <strong>disponible uniquement sur Android</strong>
+                {' '}(Google Play). Une version iOS n'est pas prévue à ce stade.
+              </p>
+              <div className="hero__cta" style={{ marginTop: 24 }}>
                 <a
                   className="btn btn--amber"
                   href={NOVARESPIRE_URL}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                 >
-                  Télécharger NovaRespire <span className="arrow">→</span>
+                  Télécharger sur Google Play <span className="arrow">→</span>
                 </a>
               </div>
             </div>
@@ -418,8 +439,29 @@ const PreviewCharteAutohypnose: React.FC = () => {
         </section>
 
         <footer className="foot">
-          © NovaHypnose · Alain Zenatti <em>— l'auto-hypnose, en aperçu</em> · MMXXVI
+          <div className="container">
+            <nav className="foot__links" aria-label="Pieds de page">
+              <a href="/mentions-legales">Mentions légales</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#confidentialite">Politique de confidentialité</a>
+              <span className="foot__sep">·</span>
+              <a href="/mentions-legales#cgv">CGV</a>
+              <span className="foot__sep">·</span>
+              <a href="tel:+33649358089">06 49 35 80 89</a>
+            </nav>
+            <div className="foot__copy">
+              © NovaHypnose · Alain Zenatti <em>— l'auto-hypnose, en aperçu</em> · MMXXVI
+            </div>
+          </div>
         </footer>
+
+        <a
+          className="floating-cta"
+          href="#liste"
+          aria-label="Rejoindre la liste d'attente"
+        >
+          Liste d'attente <span className="arrow">→</span>
+        </a>
       </div>
     </>
   );
