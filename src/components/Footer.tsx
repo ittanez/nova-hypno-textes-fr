@@ -44,7 +44,7 @@ const Footer = () => {
               <a
                 href="https://hypno-balade.novahypnose.fr/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="text-white hover:text-nova-blue-light transition-colors flex items-center gap-1 text-sm"
                 aria-label="Hypno Balade"
               >
