@@ -26,6 +26,7 @@ const domaines = [
 ];
 
 const faq = [
+  { q: 'Comment fonctionne l\'hypnose ?', a: "L'hypnose ericksonienne s'appuie sur un état naturel que votre cerveau connaît déjà — une forme de concentration absorbée, proche de ce qu'on ressent lorsqu'on est plongé dans un livre ou dans ses pensées. Dans cet état, le mental critique s'apaise et l'inconscient devient plus accessible. Ce n'est pas un état de transe mystérieux : vous restez présent, conscient, en dialogue. Le thérapeute vous guide avec des suggestions douces, adaptées à votre vécu, pour que vos propres ressources se mobilisent." },
   { q: 'Comment se déroule une séance ?', a: "Un échange pour comprendre ce qui vous amène, puis un temps d'hypnose dans un état de profonde détente. Vous restez présent, à chaque instant." },
   { q: 'Vais-je garder le contrôle ?', a: "Toujours. L'hypnose ericksonienne est un dialogue permissif : vous ne ferez jamais rien qui aille contre vos valeurs. Vous gardez le contrôle du début à la fin." },
   { q: 'En combien de séances ?', a: "L'hypnose est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement en 3 à 5 séances. Des changements concrets, sans exploration sans fin." },
@@ -137,6 +138,7 @@ const PreviewCharte: React.FC = () => {
               <a href="#cabinet">Le cabinet</a>
               <a href="#visio">En visio</a>
               <a href="#domaines">Accompagnement</a>
+              <a href="#sessions">Séances</a>
               <a href="#temoignages">Avis</a>
               <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
               <a href="/preview-charte-blog">Blog ↗</a>
@@ -436,6 +438,59 @@ const PreviewCharte: React.FC = () => {
               Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
               participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.
             </p>
+          </div>
+        </section>
+
+        {/* ── DÉROULÉ D'UNE SÉANCE ── */}
+        <section className="seances-sect" id="sessions">
+          <div className="container">
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="section-tag" style={{ justifyContent: 'center' }}>Transparence</div>
+              <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
+              <p style={{ maxWidth: 560, margin: '1rem auto 0', lineHeight: 1.8, opacity: .8 }}>
+                Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
+                clair, expliqué pas à pas — aucune surprise.
+              </p>
+            </div>
+
+            <div className="seances__steps reveal" style={{ transitionDelay: '.1s' }}>
+              {[
+                {
+                  num: '01',
+                  dur: '15 min',
+                  title: 'Échange et cadrage',
+                  desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
+                },
+                {
+                  num: '02',
+                  dur: '30 min',
+                  title: 'Induction guidée',
+                  desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
+                },
+                {
+                  num: '03',
+                  dur: '15 min',
+                  title: 'Retour et débriefing',
+                  desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
+                },
+              ].map((step) => (
+                <div key={step.num} className="seance-step">
+                  <div className="seance-step__num">{step.num}</div>
+                  <div className="seance-step__body">
+                    <div className="seance-step__head">
+                      <strong className="seance-step__title">{step.title}</strong>
+                      <span className="seance-step__dur">{step.dur}</span>
+                    </div>
+                    <p className="seance-step__desc">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal seance-promesse" style={{ transitionDelay: '.2s' }}>
+              <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
+              Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
+            </div>
           </div>
         </section>
 
