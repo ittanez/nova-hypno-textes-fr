@@ -145,6 +145,12 @@ function App() {
             <Route path="/v1/mentions-legales" element={<MentionsLegales />} />
 
             <Route path="/maquette" element={<Maquette />} />
+            <Route path="/preview-charte" element={<PreviewCharte />} />
+            <Route path="/preview-charte-autohypnose" element={<PreviewCharteAutohypnose />} />
+            <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
+            <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
+            <Route path="/preview-charte-mentions-legales" element={<PreviewCharteMentionsLegales />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
 
             {/* Page d'erreur 404 personnalisée */}
             <Route path="/404" element={<Custom404 />} />
