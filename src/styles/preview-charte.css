@@ -760,7 +760,7 @@
   .cz .nav .btn { padding: 10px 18px; font-size: 12px; }
   .cz .nav .btn--primary { display: none; } /* le CTA mobile est dans le drawer + flottant */
   .cz .container { padding: 0 24px; }
-  .cz section { padding: 88px 0; }
+  .cz section { padding: 88px 0; scroll-margin-top: 70px; }
   .cz .hero { padding: 120px 0 0; }
   /* Lisibilité mobile : labels passent en texte foncé (contraste AA) */
   .cz .hero__card-row span:first-child { color: var(--cobalt-2); opacity: .72; }
