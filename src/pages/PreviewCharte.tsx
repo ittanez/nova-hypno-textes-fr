@@ -11,6 +11,7 @@ import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
+const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
   { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
@@ -41,9 +42,31 @@ const anonymizeName = (full: string): string => {
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [sent, setSent] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
+
+  // Contact form
+  const [nom, setNom] = useState('');
+  const [email, setEmail] = useState('');
+  const [tel, setTel] = useState('');
+  const [message, setMessage] = useState('');
+  const [contactStatus, setContactStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleContact = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nom || !email || !message) return;
+    setContactStatus('loading');
+    try {
+      const res = await fetch(CONTACT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nom, email, tel, message }),
+      });
+      setContactStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setContactStatus('error');
+    }
+  };
 
   useEffect(() => {
     const root = rootRef.current;
@@ -464,89 +487,52 @@ const PreviewCharte: React.FC = () => {
             <form
               className="contact__form reveal"
               style={{ transitionDelay: '.2s' }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleContact}
             >
               <div className="field">
                 <label htmlFor="cz-nom">Votre nom</label>
-                <input id="cz-nom" type="text" placeholder="Marie Dupont" required />
+                <input
+                  id="cz-nom" type="text" placeholder="Marie Dupont" required
+                  value={nom} onChange={(e) => setNom(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
                 <label htmlFor="cz-email">Email</label>
-                <input id="cz-email" type="email" placeholder="marie@exemple.fr" required />
+                <input
+                  id="cz-email" type="email" placeholder="marie@exemple.fr" required
+                  value={email} onChange={(e) => setEmail(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
                 <label htmlFor="cz-tel">Téléphone</label>
-                <input id="cz-tel" type="tel" placeholder="06 12 34 56 78" />
+                <input
+                  id="cz-tel" type="tel" placeholder="06 12 34 56 78"
+                  value={tel} onChange={(e) => setTel(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
                 <label htmlFor="cz-msg">Message</label>
-                <textarea id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}></textarea>
+                <textarea
+                  id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}
+                  value={message} onChange={(e) => setMessage(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                ></textarea>
               </div>
-              <button className="btn btn--amber" type="submit">Envoyer <span className="arrow">→</span></button>
-              {sent && <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>}
-            </form>
-          </div>
-        </section>
-
-        {/* ── CHARTE — palette & typographie ── */}
-        <section className="charte" id="charte">
-          <div className="container">
-            <div className="reveal">
-              <div className="section-tag">Charte graphique</div>
-              <h2 className="section-title">Le langage <em>de la marque.</em></h2>
-            </div>
-
-            <div className="charte__grid">
-              <div className="reveal" style={{ transitionDelay: '.1s' }}>
-                <div className="charte__block-label">① Palette risographie</div>
-                <div className="swatches">
-                  <div className="swatch swatch--filtered" style={{ background: '#F2A12E', color: '#1C2B4A' }}>
-                    <div><div className="swatch__name">Ambre</div><div className="swatch__hex">#F2A12E</div></div>
-                    <div className="swatch__role">Chaleur, éveil</div>
-                  </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#2B4BA0', color: '#F0ECE3' }}>
-                    <div><div className="swatch__name">Cobalt</div><div className="swatch__hex">#2B4BA0</div></div>
-                    <div className="swatch__role">Profondeur, calme</div>
-                  </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#8A9BB8', color: '#1C2B4A' }}>
-                    <div><div className="swatch__name">Brume</div><div className="swatch__hex">#8A9BB8</div></div>
-                    <div className="swatch__role">Intersection riso</div>
-                  </div>
-                  <div className="swatch" style={{ background: '#F0ECE3', color: '#1C2B4A', border: '1px solid rgba(28,43,74,.1)' }}>
-                    <div><div className="swatch__name">Lin</div><div className="swatch__hex">#F0ECE3</div></div>
-                    <div className="swatch__role">Papier, espace</div>
-                  </div>
-                  <div className="swatch" style={{ background: '#1C2B4A', color: '#F0ECE3' }}>
-                    <div><div className="swatch__name">Profond</div><div className="swatch__hex">#1C2B4A</div></div>
-                    <div className="swatch__role">Texte, nuit</div>
-                  </div>
-                </div>
-                <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.7, maxWidth: 520, color: 'var(--corps)', opacity: .8 }}>
-                  Deux encres principales — ambre et cobalt — qui, en se superposant, font apparaître
-                  la brume. Le lin est le papier qui les accueille. Le grain n'est jamais retiré : il
-                  dit que ce qu'on regarde a été <em>imprimé</em>.
+              <button className="btn btn--amber" type="submit" disabled={contactStatus === 'loading' || contactStatus === 'success'}>
+                {contactStatus === 'loading' ? 'Envoi…' : 'Envoyer'} <span className="arrow">→</span>
+              </button>
+              {contactStatus === 'success' && (
+                <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>
+              )}
+              {contactStatus === 'error' && (
+                <p className="contact__success" style={{ background: 'rgba(255,200,200,.2)', color: '#a83232' }}>
+                  Une erreur s'est produite. Écrivez-moi directement à contact@novahypnose.fr ou appelez le 06 49 35 80 89.
                 </p>
-              </div>
-
-              <div className="reveal" style={{ transitionDelay: '.2s' }}>
-                <div className="charte__block-label">② Typographies</div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Light</div>
-                  <div className="typo-row__sample-1">Un sas au milieu de la ville.</div>
-                  <div className="typo-row__role">Titres · accroches · élégance, sérénité, légèreté.</div>
-                </div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Italic · le fil ZEN</div>
-                  <div className="typo-row__sample-2"><em>Zen</em><span className="at">atti</span></div>
-                  <div className="typo-row__role">ZEN en italic cobalt — atti en romain ambre.</div>
-                </div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— DM Sans · Regular</div>
-                  <div className="typo-row__sample-3">Body · Hypnose ericksonienne à Paris. Réservation en ligne.</div>
-                  <div className="typo-row__role">Texte courant · modernité douce, lisibilité.</div>
-                </div>
-              </div>
-            </div>
+              )}
+            </form>
           </div>
         </section>
 
