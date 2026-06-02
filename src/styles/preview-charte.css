@@ -771,3 +771,75 @@
   .cz .foot { padding-bottom: 120px; }
   .cz .swatches { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ── Mentions légales (PreviewCharteMentionsLegales) ── */
+.cz .legal-block {
+  margin-bottom: 3rem;
+}
+.cz .legal-divider {
+  height: 1px;
+  background: rgba(28,43,74,.12);
+  margin: 2.5rem 0 3rem;
+}
+.cz .legal-text {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--corps);
+  opacity: 0.85;
+}
+.cz .legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--corps);
+  opacity: 0.85;
+}
+.cz .legal-list a {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cz .legal-list a:hover { opacity: 0.75; }
+.cz .legal-callout {
+  background: rgba(43,75,160,.06);
+  border-left: 3px solid var(--cobalt);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--corps);
+  opacity: 0.9;
+}
+.cz .legal-callout a {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cz .legal-callout p { margin: 0; }
+.cz .legal-text a {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cz .legal-text a:hover { opacity: 0.75; }
+.cz .legal-partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.cz .legal-partner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .2s;
+}
+.cz .legal-partner-link:hover { opacity: 0.7; }

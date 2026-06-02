@@ -27,6 +27,7 @@ const PreviewCharte = lazy(() => import("@/pages/PreviewCharte"));
 const PreviewCharteAutohypnose = lazy(() => import("@/pages/PreviewCharteAutohypnose"));
 const PreviewCharteBlog = lazy(() => import("@/pages/PreviewCharteBlog"));
 const PreviewCharteBlogArticle = lazy(() => import("@/pages/PreviewCharteBlogArticle"));
+const PreviewCharteMentionsLegales = lazy(() => import("@/pages/PreviewCharteMentionsLegales"));
 const BlogMaquette = lazy(() => import("@/pages/BlogMaquette"));
 const Custom404 = lazy(() => import("@/pages/Custom404"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
@@ -132,6 +133,7 @@ function App() {
             <Route path="/preview-charte-autohypnose" element={<PreviewCharteAutohypnose />} />
             <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
             <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
+            <Route path="/preview-charte-mentions-legales" element={<PreviewCharteMentionsLegales />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
 
             {/* Page d'erreur 404 personnalisée */}
