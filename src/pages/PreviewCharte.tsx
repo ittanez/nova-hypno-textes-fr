@@ -116,7 +116,7 @@ const PreviewCharte: React.FC = () => {
               <a href="#domaines">Accompagnement</a>
               <a href="#temoignages">Avis</a>
               <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
-              <a href="/preview-charte-blog">Le journal ↗</a>
+              <a href="/preview-charte-blog">Blog ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -157,7 +157,7 @@ const PreviewCharte: React.FC = () => {
                 Un accompagnement pour avancer <em>plus léger</em>.
               </p>
               <div className="hero__sub">
-                Maître Praticien en Hypnose Ericksonienne · Adultes
+                Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -189,7 +189,7 @@ const PreviewCharte: React.FC = () => {
                 Vous accueillir,<br /><em>simplement.</em>
               </h2>
               <p>
-                Je suis Alain Zenatti, Maître Praticien en hypnose ericksonienne. Je reçois les
+                Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
                 adultes dans un cadre confidentiel et bienveillant, au cœur de Paris.
               </p>
               <p>

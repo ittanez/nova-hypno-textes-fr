@@ -41,7 +41,7 @@ const SelfHypnosisSection: React.FC = () => {
               className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
             >
               <BookOpen size={24} />
-              Découvrez la formation Harmonia : réduire le stress avec l'auto-hypnose
+              Découvrez La Formation : réduire le stress avec l'auto-hypnose
             </a>
           </div>
 

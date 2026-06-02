@@ -16,13 +16,13 @@ const AutohypnoseIndex = () => {
   return (
     <>
       <Helmet>
-        <title>Formation Auto-hypnose Paris - Harmonia | NovaHypnose</title>
+        <title>La Formation Auto-hypnose Paris | NovaHypnose</title>
         <meta
           name="description"
           content="Formation Auto-hypnose à Paris avec Alain Zenatti. Maîtrisez l'auto-hypnose en 1 journée, petit groupe max 6. Rejoignez la liste d'attente."
         />
         <link rel="canonical" href="https://novahypnose.fr/autohypnose" />
-        <meta property="og:title" content="Formation Auto-hypnose Paris - Harmonia | NovaHypnose" />
+        <meta property="og:title" content="La Formation Auto-hypnose Paris | NovaHypnose" />
         <meta property="og:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
         <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
         <meta property="og:type" content="website" />
@@ -32,7 +32,7 @@ const AutohypnoseIndex = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Formation Auto-hypnose Paris - Harmonia | NovaHypnose" />
+        <meta name="twitter:title" content="La Formation Auto-hypnose Paris | NovaHypnose" />
         <meta name="twitter:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
       </Helmet>

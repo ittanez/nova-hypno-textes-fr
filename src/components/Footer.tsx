@@ -3,6 +3,8 @@ import React from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link } from 'react-router-dom';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
+import Linkedin from 'lucide-react/dist/esm/icons/linkedin';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 
 const Footer = () => {
   const { openResalibPopup } = useResalibPopup();
@@ -21,7 +23,7 @@ const Footer = () => {
               confiance, équilibre et vitalité.
             </p>
             <div className="flex items-center mt-3 space-x-4">
-              <a 
+              <a
                 href="https://www.instagram.com/novahypnose/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
@@ -29,6 +31,25 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/zenatti/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-white hover:text-nova-blue-light transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://hypno-balade.novahypnose.fr/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-white hover:text-nova-blue-light transition-colors flex items-center gap-1 text-sm"
+                aria-label="Hypno Balade"
+              >
+                <MapPin size={18} />
+                <span>Hypno Balade</span>
               </a>
             </div>
             

@@ -104,7 +104,7 @@ const QuizResults = ({ result, onRestart, promoCode, emailSent, emailError }: Qu
         <div className="bg-pink-50 p-6 rounded-xl mb-8 text-center">
           <h4 className="text-xl font-bold text-pink-600 mb-2">Votre code promo</h4>
           <p className="text-gray-600 mb-3">
-            Profitez de 50% de réduction sur votre formation Harmonia avec ce code promo valable 3 jours.
+            Profitez de 50% de réduction sur La Formation avec ce code promo valable 3 jours.
           </p>
           <div className="flex items-center justify-center space-x-2 mb-3">
             <div className="bg-white border-2 border-pink-300 rounded-lg px-4 py-2 font-bold text-2xl text-pink-600">

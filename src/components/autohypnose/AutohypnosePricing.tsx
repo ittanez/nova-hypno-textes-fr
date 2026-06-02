@@ -58,7 +58,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="shadow-lg border-nova-blue">
             <CardHeader className="text-center p-6 bg-nova-blue-light rounded-t-xl">
-              <CardTitle className="text-3xl font-bold text-nova-blue-dark">Formation Auto-hypnose Harmonia - Parcours Sérénité</CardTitle>
+              <CardTitle className="text-3xl font-bold text-nova-blue-dark">La Formation - Parcours Sérénité</CardTitle>
               <CardDescription className="text-lg text-nova-blue-dark">
                 Dimanche 12 avril 2026 - Paris Bastille
               </CardDescription>

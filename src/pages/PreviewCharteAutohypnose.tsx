@@ -170,7 +170,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
             </div>
 
             <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
-              <div className="hero__card-label">La formation Harmonia</div>
+              <div className="hero__card-label">La Formation</div>
               <p className="hero__card-quote">« Une journée pour apprendre à rappeler, seul·e, ce que vous vivez en séance. »</p>
               <div className="hero__card-row"><span>Format</span><span>1 journée · max 6</span></div>
               <div className="hero__card-row"><span>Lieu</span><span>Paris · Bastille</span></div>
@@ -251,7 +251,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
           <div className="container cabinet__grid">
             <div className="cabinet__copy reveal">
               <div className="section-tag">Première voie — apprendre la méthode</div>
-              <h2 className="section-title">La formation <em>Harmonia.</em></h2>
+              <h2 className="section-title">La <em>Formation.</em></h2>
               <p>
                 Une <strong>journée complète</strong> en présentiel, en petit groupe (six personnes
                 maximum), à Paris-Bastille. Le temps d'expérimenter, de comprendre ce qui se passe pour
@@ -379,7 +379,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <div className="section-tag">Liste d'attente</div>
               <h2 className="section-title">Recevoir <em>la prochaine date.</em></h2>
               <p className="contact__lead">
-                La prochaine session de la formation Harmonia se prépare. Laissez vos coordonnées
+                La prochaine session de La Formation se prépare. Laissez vos coordonnées
                 pour être informé(e) en premier — les places sont limitées à six.
               </p>
               <dl className="contact__dl">

@@ -78,7 +78,7 @@ const PreviewCharteBlog: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Le journal — aperçu charte | NovaHypnose</title>
+        <title>Blog — aperçu charte | NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -145,7 +145,7 @@ const PreviewCharteBlog: React.FC = () => {
             </svg>
           </div>
           <div className="container blog-hero__inner reveal">
-            <div className="section-tag">Le journal</div>
+            <div className="section-tag">Blog</div>
             <h1 className="blog-hero__title">
               Des mots, <em>pour avancer.</em>
             </h1>
@@ -264,7 +264,7 @@ const PreviewCharteBlog: React.FC = () => {
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>
             <div className="foot__copy">
-              © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+              © NovaHypnose · Alain Zenatti <em>— le blog, en aperçu</em> · MMXXVI
             </div>
           </div>
         </footer>

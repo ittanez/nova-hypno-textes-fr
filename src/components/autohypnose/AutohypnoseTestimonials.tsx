@@ -12,7 +12,7 @@ const AutohypnoseTestimonials = () => {
     {
       name: "Sophie L.",
       role: "Cadre dans la finance",
-      text: "La formation Harmonia a transformé ma gestion du stress au quotidien. Les techniques d'auto-hypnose que j'ai apprises me permettent de retrouver mon calme en quelques minutes, même dans les moments les plus intenses.",
+      text: "La Formation a transformé ma gestion du stress au quotidien. Les techniques d'auto-hypnose que j'ai apprises me permettent de retrouver mon calme en quelques minutes, même dans les moments les plus intenses.",
       rating: 5,
       date: "Janvier 2025"
     },
@@ -58,7 +58,7 @@ const AutohypnoseTestimonials = () => {
             className="md:hidden mb-12"
             role="region"
             aria-roledescription="carousel"
-            aria-label="Témoignages formation Harmonia"
+            aria-label="Témoignages La Formation"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
@@ -123,7 +123,7 @@ const AutohypnoseTestimonials = () => {
             className="hidden md:block mb-12"
             role="region"
             aria-roledescription="carousel"
-            aria-label="Témoignages formation Harmonia"
+            aria-label="Témoignages La Formation"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }

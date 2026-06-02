@@ -114,7 +114,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <Link to="/preview-charte-blog">← Le journal</Link>
+              <Link to="/preview-charte-blog">← Blog</Link>
               <Link to="/preview-charte">Accueil</Link>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -135,7 +135,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
           <section className="article-loading">
             <div className="container">
               <p className="blog-empty">Impossible de charger cet article pour le moment.</p>
-              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au journal</Link>
+              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au blog</Link>
             </div>
           </section>
         )}
@@ -144,7 +144,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
           <section className="article-loading">
             <div className="container">
               <p className="blog-empty">Article introuvable.</p>
-              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au journal</Link>
+              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au blog</Link>
             </div>
           </section>
         )}
@@ -154,7 +154,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {/* ── HERO ARTICLE ── */}
             <section className="article-hero">
               <div className="container article-hero__inner reveal">
-                <div className="section-tag">Le journal</div>
+                <div className="section-tag">Blog</div>
                 <h1 className="article-hero__title">{article.title}</h1>
                 <div className="article-meta">
                   <span>{formatDate(article.published_at || article.created_at)}</span>
@@ -247,7 +247,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>
             <div className="foot__copy">
-              © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+              © NovaHypnose · Alain Zenatti <em>— le blog, en aperçu</em> · MMXXVI
             </div>
           </div>
         </footer>

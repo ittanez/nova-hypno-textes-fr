@@ -205,7 +205,7 @@
 .cz .hero__card-label { font-family: var(--f-sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--cobalt); font-weight: 500; }
 .cz .hero__card-quote { font-family: var(--f-serif); font-style: italic; font-size: 23px; line-height: 1.35; color: var(--texte); margin: 18px 0 24px; }
 .cz .hero__card-row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(28,43,74,.1); font-size: 14px; }
-.cz .hero__card-row span:first-child { color: var(--gris); }
+.cz .hero__card-row span:first-child { color: var(--cobalt-2); opacity: .65; }
 .cz .hero__card-row span:last-child  { font-weight: 500; text-align: right; color: var(--texte); }
 
 .cz .zen-mark {
@@ -745,7 +745,7 @@
 }
 @media (max-width: 760px) {
   /* burger remplace le menu inline */
-  .cz .nav { position: sticky; top: 0; background: var(--lin); border-bottom: 1px solid rgba(28,43,74,.08); z-index: 40; padding: 18px 0; }
+  .cz .nav { position: fixed; inset: 0 0 auto 0; background: var(--lin); border-bottom: 1px solid rgba(28,43,74,.08); z-index: 100; padding: 18px 0; }
   .cz .nav__burger { display: flex; }
   .cz .nav__links {
     display: none;
