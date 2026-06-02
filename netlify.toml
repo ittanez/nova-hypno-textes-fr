@@ -9,6 +9,9 @@
   NODE_VERSION = "20"
   VITE_BASE_PATH = "/"
 
+[context.deploy-preview.environment]
+  NETLIFY_SKIP_EDGE_INJECT = "true"
+
 [functions]
   node_bundler = "esbuild"
 
