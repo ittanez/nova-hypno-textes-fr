@@ -92,7 +92,10 @@ const PreviewCharte: React.FC = () => {
       }
     };
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setAccompagnementsOpen(false);
+      if (e.key === 'Escape') {
+        setAccompagnementsOpen(false);
+        dropdownRef.current?.querySelector<HTMLButtonElement>('.nav__dropdown-toggle')?.focus();
+      }
     };
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('keydown', handleKeyDown);
