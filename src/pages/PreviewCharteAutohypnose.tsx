@@ -131,7 +131,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/">Accueil</a>
+              <a href="/">← Accueil</a>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
               <a href="#formation">Formation</a>

@@ -150,8 +150,8 @@ function App() {
             <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
             <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
             <Route path="/preview-charte-mentions-legales" element={<PreviewCharteMentionsLegales />} />
-            <Route path="/preview-charte-admin" element={<PrivateRoute><PreviewCharteAdmin /></PrivateRoute>} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
+
+            <Route path="/maquette" element={<Maquette />} />
 
             {/* Page d'erreur 404 personnalisée */}
             <Route path="/404" element={<Custom404 />} />

@@ -128,7 +128,7 @@ const PreviewCharteBlog: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <Link to="/">Accueil</Link>
+              <Link to="/">← Accueil</Link>
               <Link to="/#about">À propos</Link>
               <Link to="/#domaines">Accompagnement</Link>
               <a href="#articles">Articles</a>
