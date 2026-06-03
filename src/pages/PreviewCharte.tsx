@@ -225,7 +225,7 @@ const PreviewCharte: React.FC = () => {
                   aria-expanded={accompagnementsOpen}
                   aria-haspopup="true"
                 >
-                  Accompagnements <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
+                  Applications <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
                 </button>
                 <div className="nav__dropdown-menu">
                   {ACCOMPAGNEMENTS_LINKS.map((link) => (
