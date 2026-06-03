@@ -49,8 +49,27 @@ const CzLayout: React.FC<CzLayoutProps> = ({
   floatingCtaLabel,
 }) => {
   const rootRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [specialitesOpen, setSpecialitesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!specialitesOpen) return;
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setSpecialitesOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSpecialitesOpen(false);
+    };
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [specialitesOpen]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -105,8 +124,13 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <span></span><span></span><span></span>
           </button>
           <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-            <div className={`nav__dropdown${specialitesOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
-              <button className="nav__dropdown-toggle" onClick={() => setSpecialitesOpen((v) => !v)}>
+            <div ref={dropdownRef} className={`nav__dropdown${specialitesOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <button
+                className="nav__dropdown-toggle"
+                onClick={() => setSpecialitesOpen((v) => !v)}
+                aria-expanded={specialitesOpen}
+                aria-haspopup="true"
+              >
                 Spécialités <span className="nav__dropdown-arrow">▾</span>
               </button>
               <div className="nav__dropdown-menu">
