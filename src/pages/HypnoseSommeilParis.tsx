@@ -144,10 +144,10 @@ const HypnoseSommeilParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 100 80 C 230 20, 420 50, 470 180 C 510 290, 460 420, 330 470 C 200 520, 60 490, 20 360 C -20 235, 30 120, 100 80 Z" fill="#2B4BA0" opacity="0.92" />
+                  <path d="M 80 300 C 80 200, 130 120, 220 100 C 240 60, 290 30, 350 40 C 420 52, 460 110, 450 170 C 490 185, 510 220, 500 265 C 520 285, 520 320, 495 345 C 510 375, 500 415, 465 430 C 440 500, 360 530, 270 520 C 160 508, 80 420, 80 300 Z" fill="#2B4BA0" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 170 160 C 290 110, 400 170, 400 285 C 400 395, 300 460, 190 440 C 85 420, 45 335, 75 235 C 98 160, 145 175, 170 160 Z" fill="#F2A12E" opacity="0.85" />
+                  <path d="M 150 310 C 148 230, 190 165, 270 155 C 355 145, 420 205, 415 290 C 410 370, 350 425, 265 420 C 180 415, 152 385, 150 310 Z" fill="#F2A12E" opacity="0.85" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -163,10 +163,10 @@ const HypnoseSommeilParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 120 50 C 260 0, 460 40, 490 175 C 515 295, 440 425, 300 470 C 160 515, 30 470, 10 345 C -10 225, 50 85, 120 50 Z" fill="#F2A12E" opacity="0.9" />
+                  <path d="M 260 30 C 310 30, 480 200, 480 340 C 480 450, 385 530, 260 530 C 135 530, 40 450, 40 340 C 40 200, 210 30, 260 30 Z" fill="#F2A12E" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 60 150 C 180 80, 360 110, 410 235 C 455 345, 380 460, 250 480 C 125 500, 25 415, 20 295 C 15 185, 40 185, 60 150 Z" fill="#2B4BA0" opacity="0.9" />
+                  <path d="M 260 140 C 295 140, 390 240, 390 330 C 390 410, 335 460, 260 460 C 185 460, 130 410, 130 330 C 130 240, 225 140, 260 140 Z" fill="#2B4BA0" opacity="0.9" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -266,7 +266,7 @@ const HypnoseSommeilParis = () => {
             {[
               { value: '3-5', label: 'séances pour retrouver un sommeil stable et réparateur' },
               { value: '0', label: 'médicament nécessaire — une solution 100% naturelle' },
-              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

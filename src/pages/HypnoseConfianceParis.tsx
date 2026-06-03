@@ -145,10 +145,11 @@ const HypnoseConfianceParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 70 90 C 200 25, 430 35, 488 175 C 530 285, 480 430, 340 475 C 205 518, 45 492, 10 360 C -22 235, 20 135, 70 90 Z" fill="#F2A12E" opacity="0.92" />
+                  <path d="M 260 30 C 380 30, 500 150, 490 280 C 480 410, 370 540, 260 540 C 150 540, 30 420, 30 290 C 30 160, 140 30, 260 30 Z" fill="#F2A12E" opacity="0.0" />
+                  <path d="M 260 25 L 500 200 C 510 210, 510 350, 500 360 L 260 535 L 20 360 C 10 350, 10 210, 20 200 Z" fill="#F2A12E" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 140 165 C 270 108, 405 168, 412 285 C 419 395, 314 462, 198 444 C 85 426, 42 338, 68 232 C 88 152, 122 170, 140 165 Z" fill="#2B4BA0" opacity="0.88" />
+                  <path d="M 260 100 L 440 235 C 448 243, 448 320, 440 328 L 260 460 L 80 328 C 72 320, 72 243, 80 235 Z" fill="#2B4BA0" opacity="0.88" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -164,10 +165,10 @@ const HypnoseConfianceParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 90 100 C 215 35, 425 55, 485 190 C 530 305, 475 445, 330 482 C 190 518, 38 490, 8 355 C -20 228, 30 145, 90 100 Z" fill="#2B4BA0" opacity="0.9" />
+                  <path d="M 260 40 C 290 40, 510 480, 510 510 C 510 535, 480 550, 260 550 C 40 550, 10 535, 10 510 C 10 480, 230 40, 260 40 Z" fill="#2B4BA0" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 155 155 C 285 95, 418 158, 418 275 C 418 388, 312 458, 195 438 C 82 418, 42 328, 70 218 C 91 140, 128 162, 155 155 Z" fill="#F2A12E" opacity="0.9" />
+                  <path d="M 260 160 C 278 160, 420 450, 420 480 C 420 500, 395 510, 260 510 C 125 510, 100 500, 100 480 C 100 450, 242 160, 260 160 Z" fill="#F2A12E" opacity="0.9" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -290,7 +291,7 @@ const HypnoseConfianceParis = () => {
             {[
               { value: '3-5', label: 'séances pour une confiance durable et authentique' },
               { value: '100%', label: 'personnalisé selon vos croyances et votre histoire' },
-              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

@@ -154,10 +154,10 @@ const HypnoseBlocagesParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 50 80 C 170 20, 390 30, 475 165 C 540 275, 495 415, 360 465 C 225 515, 55 490, 10 355 C -30 225, 15 120, 50 80 Z" fill="#F2A12E" opacity="0.9" />
+                  <path d="M 40 220 C 20 150, 80 80, 180 55 C 280 30, 420 60, 480 150 C 530 225, 510 320, 460 380 C 410 440, 320 470, 200 465 C 90 460, 20 390, 10 310 C 5 270, 45 265, 40 220 Z" fill="#F2A12E" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 100 120 C 230 55, 430 90, 470 220 C 500 330, 425 450, 290 480 C 158 508, 35 450, 15 325 C -5 205, 35 155, 100 120 Z" fill="#2B4BA0" opacity="0.9" />
+                  <path d="M 60 320 C 40 260, 70 190, 150 170 C 240 148, 380 175, 440 255 C 490 322, 470 410, 390 445 C 310 478, 180 465, 110 415 C 60 378, 72 362, 60 320 Z" fill="#2B4BA0" opacity="0.9" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -188,10 +188,10 @@ const HypnoseBlocagesParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 110 60 C 250 5, 450 45, 490 180 C 522 295, 460 435, 320 475 C 185 514, 40 482, 10 350 C -18 225, 35 100, 110 60 Z" fill="#2B4BA0" opacity="0.92" />
+                  <path d="M 80 100 C 180 30, 380 20, 470 140 C 545 240, 510 390, 390 455 C 272 518, 100 500, 35 385 C -25 275, 20 140, 80 100 Z" fill="#2B4BA0" opacity="0.9" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 165 140 C 300 88, 420 150, 420 270 C 420 385, 315 455, 200 435 C 88 415, 45 330, 75 220 C 96 140, 138 158, 165 140 Z" fill="#F2A12E" opacity="0.88" />
+                  <path d="M 155 155 C 265 95, 415 148, 420 272 C 425 385, 318 455, 200 436 C 86 418, 44 332, 70 224 C 91 142, 128 162, 155 155 Z" fill="#F2A12E" opacity="0.88" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -289,7 +289,7 @@ const HypnoseBlocagesParis = () => {
             {[
               { value: '3-5', label: 'séances pour briser les schémas répétitifs et libérer vos blocages' },
               { value: '100%', label: 'personnalisé selon votre blocage spécifique et son histoire' },
-              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

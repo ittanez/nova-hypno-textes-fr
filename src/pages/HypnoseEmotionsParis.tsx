@@ -154,10 +154,10 @@ const HypnoseEmotionsParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 60 120 C 160 40, 380 20, 470 150 C 535 250, 490 400, 360 460 C 230 520, 70 500, 20 375 C -25 255, 20 175, 60 120 Z" fill="#F2A12E" opacity="0.92" />
+                  <path d="M 0 180 C 60 100, 140 60, 240 80 C 340 100, 380 160, 480 150 C 530 145, 540 200, 520 260 C 510 300, 460 320, 400 340 C 320 365, 200 370, 120 350 C 50 332, -20 300, 0 240 C 10 210, 0 195, 0 180 Z" fill="#F2A12E" opacity="0.92" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 130 180 C 250 125, 390 175, 405 290 C 420 395, 320 465, 205 448 C 95 430, 48 345, 72 240 C 90 162, 115 175, 130 180 Z" fill="#2B4BA0" opacity="0.88" />
+                  <path d="M 20 280 C 80 230, 160 210, 260 225 C 360 240, 430 290, 490 300 C 520 306, 520 350, 490 380 C 450 420, 360 440, 260 430 C 150 418, 60 390, 20 350 C -10 320, -5 300, 20 280 Z" fill="#2B4BA0" opacity="0.88" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -188,10 +188,10 @@ const HypnoseEmotionsParis = () => {
             <div className="cabinet__visual" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
-                  <path d="M 90 70 C 220 15, 430 50, 485 185 C 528 300, 475 435, 340 480 C 210 525, 55 495, 15 365 C -22 240, 25 110, 90 70 Z" fill="#2B4BA0" opacity="0.9" />
+                  <path d="M 180 80 C 300 80, 400 170, 400 290 C 400 380, 350 450, 270 480 C 180 512, 80 475, 45 385 C 10 295, 55 180, 145 125 C 157 118, 168 90, 180 80 Z" fill="#2B4BA0" opacity="0.9" />
                 </g>
                 <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                  <path d="M 150 140 C 280 85, 415 148, 420 270 C 425 385, 318 458, 200 438 C 88 418, 45 328, 70 220 C 90 138, 128 160, 150 140 Z" fill="#F2A12E" opacity="0.88" />
+                  <path d="M 310 100 C 430 100, 500 190, 500 300 C 500 405, 430 480, 320 490 C 215 500, 145 430, 150 330 C 155 240, 210 165, 310 100 Z" fill="#F2A12E" opacity="0.88" />
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
               </svg>
@@ -291,7 +291,7 @@ const HypnoseEmotionsParis = () => {
             {[
               { value: '3-5', label: 'séances pour un équilibre émotionnel durable' },
               { value: '100%', label: 'personnalisé selon votre vécu et vos émotions' },
-              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>
