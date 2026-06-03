@@ -492,19 +492,16 @@ const PreviewCharte: React.FC = () => {
               {[
                 {
                   num: '01',
-                  dur: '15 min',
                   title: 'Échange et cadrage',
                   desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
                 },
                 {
                   num: '02',
-                  dur: '30 min',
                   title: 'Induction guidée',
                   desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
                 },
                 {
                   num: '03',
-                  dur: '15 min',
                   title: 'Retour et débriefing',
                   desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
                 },
@@ -514,7 +511,6 @@ const PreviewCharte: React.FC = () => {
                   <div className="seance-step__body">
                     <div className="seance-step__head">
                       <strong className="seance-step__title">{step.title}</strong>
-                      <span className="seance-step__dur">{step.dur}</span>
                     </div>
                     <p className="seance-step__desc">{step.desc}</p>
                   </div>
@@ -580,7 +576,7 @@ const PreviewCharte: React.FC = () => {
               onSubmit={handleContact}
             >
               <div className="field">
-                <label htmlFor="cz-nom">Votre nom</label>
+                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="cz-nom" type="text" placeholder="Marie Dupont" required
                   value={nom} onChange={(e) => setNom(e.target.value)}
@@ -588,7 +584,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-email">Email</label>
+                <label htmlFor="cz-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="cz-email" type="email" placeholder="marie@exemple.fr" required
                   value={email} onChange={(e) => setEmail(e.target.value)}
@@ -604,7 +600,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-msg">Message</label>
+                <label htmlFor="cz-msg">Message <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <textarea
                   id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}
                   value={message} onChange={(e) => setMessage(e.target.value)}

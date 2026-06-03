@@ -152,7 +152,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 <path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#F2A12E" opacity="0.95" />
               </g>
               <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                <path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2B4BA0" opacity="0.92" />
+                <path d="M 360 680 C 480 570, 660 560, 800 620 C 940 680, 1080 680, 1240 640 C 1340 615, 1420 630, 1480 680 L 1480 1040 L 0 1040 L 0 900 C 80 820, 180 760, 360 680 Z" fill="#2B4BA0" opacity="0.92" />
               </g>
               <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".25" />
             </svg>
@@ -478,7 +478,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               onSubmit={handleWaitlist}
             >
               <div className="field">
-                <label htmlFor="ah-prenom">Votre prénom</label>
+                <label htmlFor="ah-prenom">Votre prénom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="ah-prenom"
                   type="text"
@@ -490,7 +490,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="ah-email">Email</label>
+                <label htmlFor="ah-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="ah-email"
                   type="email"
