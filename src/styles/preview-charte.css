@@ -1000,6 +1000,16 @@
 .cz .sp-section--alt { background: var(--paper); }
 .cz .sp-section--cobalt { background: var(--cobalt-2); }
 
+.cz .sp-deco-wrap { position: relative; overflow: hidden; }
+.cz .sp-deco-blob {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.cz .sp-deco-blob--right { right: -140px; top: 50%; transform: translateY(-50%); }
+.cz .sp-deco-blob--left  { left: -140px; top: 50%; transform: translateY(-50%); }
+.cz .sp-deco-wrap > * { position: relative; z-index: 1; }
+
 /* ─── Content layout ───────────────────────────────────────── */
 .cz .sp-narrow { max-width: 760px; margin: 0 auto; }
 .cz .sp-h2 {
