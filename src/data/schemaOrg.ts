@@ -42,7 +42,7 @@ export const localBusinessSchema = {
   ],
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "logo": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
+  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille, et téléconsultations visio partout en France. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
   "slogan": "Transformez votre vie par l'hypnose",
   "founder": {
     "@type": "Person",
@@ -52,6 +52,11 @@ export const localBusinessSchema = {
   "knowsAbout": [
     "Hypnose ericksonienne",
     "Hypnothérapie",
+    "Hypnose en ligne",
+    "Téléconsultation hypnose",
+    "Hypnose à distance",
+    "Hypnose par visioconférence",
+    "Téléconsultation thérapeutique",
     "Gestion du stress",
     "Traitement de l'anxiété",
     "Traitement des phobies",
@@ -100,7 +105,18 @@ export const localBusinessSchema = {
     { "@type": "City", "name": "Paris 20e arrondissement" },
     { "@type": "Place", "name": "Marais" },
     { "@type": "Place", "name": "Bastille" },
-    { "@type": "Place", "name": "Le Marais-Bastille" }
+    { "@type": "Place", "name": "Le Marais-Bastille" },
+    { "@type": "City", "name": "Lyon" },
+    { "@type": "City", "name": "Marseille" },
+    { "@type": "City", "name": "Bordeaux" },
+    { "@type": "City", "name": "Toulouse" },
+    { "@type": "City", "name": "Nice" },
+    { "@type": "City", "name": "Strasbourg" },
+    { "@type": "City", "name": "Nantes" },
+    { "@type": "City", "name": "Montpellier" },
+    { "@type": "City", "name": "Lille" },
+    { "@type": "City", "name": "Rennes" },
+    { "@type": "City", "name": "Grenoble" }
   ],
   "sameAs": [
     "https://www.instagram.com/novahypnose/",
@@ -286,7 +302,7 @@ export const personSchema = {
   "@id": "https://novahypnose.fr/#person",
   "name": "Alain Zenatti",
   "jobTitle": "Maître Hypnologue",
-  "description": "Hypnothérapeute certifié à Paris 4ème, spécialisé en hypnose ericksonienne. Maître Hypnologue avec plus de 5 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille.",
+  "description": "Hypnothérapeute certifié à Paris 4ème et spécialiste de l'hypnose en ligne (téléconsultation visio). Maître Hypnologue avec plus de 5 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille et consultations visio partout en France.",
   "url": "https://novahypnose.fr",
   "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
   "sameAs": [
@@ -300,6 +316,9 @@ export const personSchema = {
     "Hypnose spirituelle",
     "Auto-hypnose",
     "PNL",
+    "Hypnose en ligne",
+    "Téléconsultation hypnose",
+    "Hypnose à distance par visioconférence",
     "Gestion du stress par l'hypnose",
     "Traitement des phobies par l'hypnose"
   ],
