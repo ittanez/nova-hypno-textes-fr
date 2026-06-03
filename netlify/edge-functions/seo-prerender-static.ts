@@ -832,36 +832,76 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/autohypnose": {
-    title: "Formation Auto-hypnose Paris - Harmonia | NovaHypnose",
+    title: "Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose",
     description:
-      "Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti. Groupe max 6. 240€.",
+      "Apprenez l'auto-hypnose avec Alain Zenatti à Paris : formation en groupe (1 journée, max 6, 240 €), accompagnement individuel et formations en entreprise sur devis. Gérez stress, sommeil et émotions en autonomie.",
     canonicalPath: "/autohypnose",
-    h1: "Auto-hypnose — Développez vos compétences",
+    h1: "Auto-hypnose — Devenir acteur de votre changement.",
     jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/autohypnose#service`,
+        "name": "Formation Auto-hypnose Paris — NovaHypnose",
+        "description": "Formation à l'auto-hypnose en groupe (1 journée, max 6 participants) et accompagnement individuel à Paris. Apprenez à reproduire les états de ressource de vos séances d'hypnose.",
+        "url": `${SITE_URL}/autohypnose`,
+        "provider": {
+          "@type": "Person",
+          "name": "Alain Zenatti",
+          "@id": `${SITE_URL}/#person`
+        },
+        "areaServed": { "@type": "City", "name": "Paris" },
+        "serviceType": "Formation auto-hypnose",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Formation groupe 1 journée",
+            "price": "240",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "description": "Formation auto-hypnose 1 journée, groupe max 6 participants, Paris Bastille"
+          },
+          {
+            "@type": "Offer",
+            "name": "Accompagnement individuel",
+            "price": "90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Auto-hypnose", path: "/autohypnose" },
       ]),
     ],
     content: `
-    <p>L'auto-hypnose est un outil puissant que vous pouvez utiliser au quotidien pour <strong>gérer le stress, améliorer votre sommeil et renforcer votre confiance</strong>. Apprenez les techniques d'auto-hypnose avec le quiz personnalisé NovaHypnose.</p>
+    <p>L'auto-hypnose n'est pas une technique ésotérique. C'est l'usage volontaire d'un état naturel — celui où l'on est absorbé dans un livre, perdu dans ses pensées au volant sur une route familière, ou bercé par une musique. Apprendre à y entrer par soi-même, c'est apprendre à <strong>rappeler votre calme en quelques minutes</strong>, sans rien attendre de l'extérieur.</p>
 
-    <h2>Qu'est-ce que l'auto-hypnose ?</h2>
-    <p>L'auto-hypnose est la capacité de se mettre soi-même dans un état de relaxation profonde et de concentration focalisée. C'est une compétence naturelle que tout le monde peut développer avec de la pratique.</p>
+    <h2>La Formation (groupe)</h2>
+    <p>Une journée pour apprendre à rappeler, seul·e, ce que vous vivez en séance.</p>
+    <ul>
+      <li><strong>Format</strong> — 1 journée · max 6 participants</li>
+      <li><strong>Lieu</strong> — Paris · Bastille (16 rue Saint-Antoine, 75004)</li>
+      <li><strong>Tarif</strong> — 240 €</li>
+      <li><strong>Inclus</strong> — fascicule, enregistrements audio, suivi à 1 mois</li>
+    </ul>
+
+    <h2>Accompagnement individuel</h2>
+    <p>Un travail sur-mesure, intégré à vos séances d'hypnose ericksonienne. Idéal pour aller plus loin et prolonger entre deux rendez-vous ce qui s'est ouvert en séance. 90 € la séance.</p>
+
+    <h2>Formations en entreprise</h2>
+    <p>Interventions sur-mesure pour les équipes : gestion du stress, amélioration du sommeil, renforcement de la concentration. Sur devis selon les besoins.</p>
 
     <h2>Les bénéfices de l'auto-hypnose</h2>
     <ul>
-      <li><strong>Gestion du stress</strong> — Retrouvez le calme en quelques minutes</li>
-      <li><strong>Amélioration du sommeil</strong> — Facilitez l'endormissement naturellement</li>
-      <li><strong>Confiance en soi</strong> — Renforcez vos ressources intérieures</li>
-      <li><strong>Gestion de la douleur</strong> — Techniques analgésiques naturelles</li>
-      <li><strong>Performance</strong> — Préparez-vous mentalement pour vos défis</li>
+      <li><strong>Retrouver un état apaisé</strong> — Le calme apprivoisé en séance, vous le rappelez en quelques minutes</li>
+      <li><strong>Vos propres ancres</strong> — Un signal personnel qui ramène l'état ressource d'un seul rappel</li>
+      <li><strong>Prolonger entre deux rendez-vous</strong> — Faire vivre dans la semaine ce qui s'est ouvert pendant la séance</li>
+      <li><strong>Un rituel du soir, à vous</strong> — Pour laisser le mental se déposer et basculer dans la nuit</li>
     </ul>
 
-    <h2>Quiz auto-hypnose personnalisé</h2>
-    <p>Notre quiz vous guide vers les techniques d'auto-hypnose les plus adaptées à votre profil et vos objectifs. Répondez à quelques questions et recevez un programme personnalisé avec un code promo pour votre première séance.</p>
-
-    <a class="cta" href="${SITE_URL}/autohypnose">Découvrir l'auto-hypnose</a>
+    <a class="cta" href="${SITE_URL}/autohypnose">Rejoindre la liste d'attente</a>
     `,
   },
 
@@ -976,6 +1016,122 @@ const PAGES: Record<string, PageData> = {
     <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
 
     <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
+    `,
+  },
+
+  "/alain-zenatti": {
+    title: "Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose",
+    description:
+      "Alain Zenatti, Maître Hypnologue certifié à Paris 4ème. Hypnose ericksonienne, 5+ ans d'expérience, auteur de nombreux articles sur l'hypnothérapie. Stress, anxiété, phobies, sommeil.",
+    canonicalPath: "/alain-zenatti",
+    h1: "Alain Zenatti — Maître Hypnologue",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${SITE_URL}/#person`,
+        "name": "Alain Zenatti",
+        "jobTitle": "Maître Hypnologue",
+        "description": "Maître Hypnologue certifié, praticien en hypnose ericksonienne et auto-hypnose. Cabinet à Paris 4ème (Marais-Bastille) et séances en visioconférence.",
+        "url": `${SITE_URL}/alain-zenatti`,
+        "image": DEFAULT_IMAGE,
+        "worksFor": { "@type": "Organization", "name": "NovaHypnose", "@id": `${SITE_URL}/#localbusiness` },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "16 rue Saint-Antoine",
+          "addressLocality": "Paris",
+          "postalCode": "75004",
+          "addressCountry": "FR"
+        },
+        "sameAs": [
+          "https://www.instagram.com/novahypnose/",
+          "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+        ]
+      },
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Alain Zenatti", path: "/alain-zenatti" },
+      ]),
+    ],
+    content: `
+    <p>Alain Zenatti est <strong>Maître Hypnologue certifié</strong>, praticien en hypnose ericksonienne et en auto-hypnose depuis 2021. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
+
+    <h2>Formations et certifications</h2>
+    <ul>
+      <li><strong>Maître Hypnologue</strong> — École Psynapse (2025)</li>
+      <li><strong>Maître Praticien Hypnose Ericksonienne</strong> — École Psynapse (2023)</li>
+      <li><strong>Hypnose Ericksonienne</strong> — École Psynapse (2021)</li>
+      <li><strong>Hypnose Spirituelle</strong> — École Psynapse (2023)</li>
+      <li><strong>Hypnose Directive & Hyperemperia</strong> — Formation Continue (2025)</li>
+      <li><strong>Formation PNL & Neurosciences</strong> — Instituts spécialisés (2022-2024)</li>
+    </ul>
+
+    <h2>Domaines d'intervention</h2>
+    <ul>
+      <li>Stress chronique et anxiété</li>
+      <li>Troubles du sommeil et insomnies</li>
+      <li>Phobies et peurs spécifiques</li>
+      <li>Gestion des émotions</li>
+      <li>Confiance en soi et estime de soi</li>
+      <li>Blocages et comportements indésirables</li>
+      <li>Formation à l'auto-hypnose</li>
+    </ul>
+
+    <h2>Approche thérapeutique</h2>
+    <p>Alain Zenatti pratique l'hypnose ericksonienne, une approche douce et respectueuse qui utilise des suggestions indirectes et la métaphore pour accéder aux ressources intérieures. Les résultats sont généralement observés en <strong>3 à 5 séances</strong>.</p>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+  },
+
+  "/hypnose-en-ligne": {
+    title: "Hypnose en ligne & visioconférence partout en France | NovaHypnose",
+    description:
+      "Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne (Google Meet) aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue. 90 € la séance.",
+    canonicalPath: "/hypnose-en-ligne",
+    h1: "Hypnose en ligne — La même séance, depuis chez vous.",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/hypnose-en-ligne#service`,
+        "name": "Séances d'hypnose en ligne — NovaHypnose",
+        "description": "Séances d'hypnose ericksonienne en visioconférence (Google Meet), disponibles partout en France. Aussi efficaces qu'au cabinet.",
+        "url": `${SITE_URL}/hypnose-en-ligne`,
+        "provider": { "@type": "Person", "name": "Alain Zenatti", "@id": `${SITE_URL}/#person` },
+        "areaServed": { "@type": "Country", "name": "France" },
+        "serviceType": "Hypnose en ligne",
+        "availableLanguage": "French",
+        "offers": {
+          "@type": "Offer",
+          "price": "90",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Hypnose en ligne", path: "/hypnose-en-ligne" },
+      ]),
+    ],
+    content: `
+    <p>Les séances d'hypnose en ligne se déroulent via <strong>Google Meet</strong>, dans le confort de votre domicile. L'efficacité est identique à une séance au cabinet — l'état hypnotique ne dépend pas de la présence physique, mais de la qualité de la relation thérapeutique et de votre intention.</p>
+
+    <h2>Comment se déroule une séance en visio ?</h2>
+    <ul>
+      <li><strong>Préparation</strong> — Un endroit calme, tranquille, où vous ne serez pas dérangé·e</li>
+      <li><strong>Connexion</strong> — Lien Google Meet envoyé par email avant la séance</li>
+      <li><strong>Durée</strong> — 60 à 75 minutes, comme au cabinet</li>
+      <li><strong>Tarif</strong> — 90 € la séance (identique au cabinet)</li>
+    </ul>
+
+    <h2>Pour qui ?</h2>
+    <p>La séance en ligne convient à tous les motifs de consultation : stress, anxiété, phobies, troubles du sommeil, gestion des émotions, confiance en soi. Elle est particulièrement adaptée aux personnes éloignées de Paris, en déplacement, ou préférant un cadre familier.</p>
+
+    <h2>Pourquoi ça fonctionne à distance ?</h2>
+    <p>L'hypnose ericksonienne repose sur la voix, le rythme, et la relation de confiance. Ces éléments fonctionnent parfaitement en visioconférence. Des milliers de personnes en France bénéficient déjà de séances en ligne avec d'excellents résultats.</p>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance en visio — 90 €</a>
     `,
   },
 };

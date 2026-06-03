@@ -1,13 +1,15 @@
 /**
  * PreviewCharteAutohypnose — page dédiée Auto-hypnose, charte risographie.
  * Même tonalité apaisée, même typographies, même palette ambre/cobalt.
- * Page autoportante, noindex.
+ * Styles scopés .cz (classe racine).
  */
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
+import { safeJSONStringify } from '@/lib/seo-utils';
+import { createBreadcrumbSchema, localBusinessSchema } from '@/data/schemaOrg';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const WAITLIST_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/formation-liste-attente';
@@ -89,6 +91,44 @@ const PreviewCharteAutohypnose: React.FC = () => {
 
         <link rel="canonical" href="https://novahypnose.fr/autohypnose" />
         <link rel="alternate" hreflang="fr" href="https://novahypnose.fr/autohypnose" />
+
+        {/* Structured Data JSON-LD */}
+        <script type="application/ld+json">{safeJSONStringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": "https://novahypnose.fr/autohypnose#service",
+          "name": "Formation Auto-hypnose Paris — NovaHypnose",
+          "description": "Formation à l'auto-hypnose en groupe (1 journée, max 6 participants) et accompagnement individuel à Paris. Apprenez à reproduire les états de ressource de vos séances d'hypnose.",
+          "url": "https://novahypnose.fr/autohypnose",
+          "provider": {
+            "@type": "Person",
+            "name": "Alain Zenatti",
+            "@id": "https://novahypnose.fr/#person"
+          },
+          "areaServed": { "@type": "City", "name": "Paris" },
+          "serviceType": "Formation auto-hypnose",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Formation groupe 1 journée",
+              "price": "240",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/LimitedAvailability",
+              "description": "Formation auto-hypnose 1 journée, groupe max 6 participants, Paris Bastille"
+            },
+            {
+              "@type": "Offer",
+              "name": "Accompagnement individuel",
+              "price": "90",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock"
+            }
+          ]
+        })}</script>
+        <script type="application/ld+json">{safeJSONStringify(createBreadcrumbSchema([
+          { name: 'Auto-hypnose', path: '/autohypnose' }
+        ]))}</script>
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

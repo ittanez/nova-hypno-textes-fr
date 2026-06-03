@@ -139,6 +139,14 @@
   path = "/anxiete-hypnose"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/alain-zenatti"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-en-ligne"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
