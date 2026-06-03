@@ -1,36 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import CzLayout from '@/components/charte/CzLayout';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
-
-import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
-import Shield from 'lucide-react/dist/esm/icons/shield';
 import Brain from 'lucide-react/dist/esm/icons/brain';
 import Heart from 'lucide-react/dist/esm/icons/heart';
 import Zap from 'lucide-react/dist/esm/icons/zap';
 import Star from 'lucide-react/dist/esm/icons/star';
-import Clock from 'lucide-react/dist/esm/icons/clock';
 import Users from 'lucide-react/dist/esm/icons/users';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
-
 import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import MessagesSquare from 'lucide-react/dist/esm/icons/messages-square';
-
-/* ─────────────────────────────────────────────
-   Landing page — Offre accompagnement professionnels
-   Objectif unique : réserver un appel découverte (Calendly)
-   Secondaire : télécharger le guide ebook
-   PAS de prix affiché (donné à l'oral après l'appel)
-   PAS de protocole détaillé séance par séance
-   ───────────────────────────────────────────── */
+import Shield from 'lucide-react/dist/esm/icons/shield';
+import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
+import Clock from 'lucide-react/dist/esm/icons/clock';
 
 const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
 const WHATSAPP_URL = 'https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20';
-const PHONE_URL = 'tel:0649358089';
 
 const LandingProfessionnels: React.FC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -50,8 +42,30 @@ const LandingProfessionnels: React.FC = () => {
     ]
   };
 
+  const faqItems = [
+    {
+      question: "C'est quoi exactement un appel découverte ?",
+      answer: "C'est un échange de 20 à 30 minutes, gratuit et sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous. Pas de pression, pas de vente forcée.",
+    },
+    {
+      question: "En combien de séances verra-t-on des résultats ?",
+      answer: "La plupart de mes patients professionnels ressentent une différence réelle après les 2 premières séances. L'accompagnement complet dure généralement 6 à 8 séances sur 10 à 12 semaines. C'est un parcours structuré, pas un soin à durée indéfinie.",
+    },
+    {
+      question: "Est-ce que c'est possible en visio depuis ma région ?",
+      answer: "Oui. Toutes les séances peuvent se faire en visio (Google Meet), depuis n'importe où en France ou à l'étranger. L'efficacité est la même qu'au cabinet — l'hypnose passe par la voix.",
+    },
+    {
+      question: "Comment l'hypnose peut-elle m'aider concrètement pour le burn-out ?",
+      answer: "L'hypnose agit directement sur les mécanismes inconscients qui maintiennent le stress chronique : hypervigilance, incapacité à décrocher, ruminations. Elle ne remplace pas un arrêt maladie si nécessaire, mais elle accélère la récupération et modifie les automatismes qui ont mené à l'épuisement.",
+    },
+  ];
+
   return (
-    <>
+    <CzLayout
+      ctaHref={CALENDLY_URL}
+      ctaLabel="Appel découverte gratuit"
+    >
       <Helmet>
         <title>Hypnose stress au travail Paris | Alain Zenatti</title>
         <meta name="description" content="Hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Résultats en quelques semaines. Appel découverte gratuit. Cabinet Paris 4ème." />
@@ -74,126 +88,74 @@ const LandingProfessionnels: React.FC = () => {
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
 
-      {/* ═══════════ 1. HERO ═══════════ */}
-      <section className="relative bg-gradient-to-br from-nova-blue-dark via-[#1e3a5f] to-nova-blue overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 25% 50%, white 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
-
-        <div className="relative max-w-4xl mx-auto px-6 py-20 sm:py-28 text-center">
-          <span className="inline-block text-[11px] font-semibold tracking-widest uppercase text-nova-orange mb-5">
-            Accompagnement individuel — Paris 4e & visio
-          </span>
-
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-            Vous tenez au travail.<br />
-            <span className="text-teal-300">Mais à quel prix ?</span>
+      {/* Hero */}
+      <section className="sp-hero">
+        <div className="sp-hero__bg" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+            <g filter="url(#riso-full)">
+              <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
+            </g>
+            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+              <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
+            </g>
+            <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
+          </svg>
+        </div>
+        <div className="container sp-hero__inner reveal">
+          <div className="tag">Accompagnement individuel — Paris 4e &amp; visio</div>
+          <h1 className="sp-hero__h1">
+            Vous tenez au travail.<br/><em>Mais à quel prix ?</em>
           </h1>
-
-          <p className="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-4">
-            Je propose un accompagnement individuel sur plusieurs séances, spécifiquement dédié aux personnes en souffrance au travail (stress, épuisement, troubles du sommeil).
+          <p className="sp-hero__lead">
+            Un accompagnement individuel sur plusieurs séances, spécifiquement dédié aux personnes en souffrance au travail.
+            Hypnose, auto-hypnose et communication relationnelle pour <strong>retrouver énergie, sommeil et sérénité</strong> — durablement.
           </p>
-          <p className="text-white/55 text-base max-w-2xl mx-auto leading-relaxed mb-8">
-            Hypnose, auto-hypnose et communication relationnelle pour vous aider à <strong className="text-white">retrouver énergie, sommeil et sérénité</strong> — durablement.
-          </p>
-
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-lg shadow-lg shadow-orange-500/25 mb-10"
-          >
-            Réserver un appel découverte gratuit
-            <ArrowRight size={20} />
-          </a>
-
-          {/* Pour qui */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center text-white/60 text-sm">
-            <span className="flex items-center gap-2 justify-center">
-              <CheckCircle size={16} className="text-teal-400" />
-              Cadres & managers sous pression
-            </span>
-            <span className="flex items-center gap-2 justify-center">
-              <CheckCircle size={16} className="text-teal-400" />
-              Indépendants & dirigeants en surchauffe
-            </span>
-            <span className="flex items-center gap-2 justify-center">
-              <CheckCircle size={16} className="text-teal-400" />
-              Salariés en souffrance au travail
-            </span>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Réserver un appel découverte gratuit <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ 2. CE QUE VOUS VIVEZ — PROBLÈMES ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
-            Vous vous reconnaissez ?
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-4 text-center">
-            Le masque tient. Mais derrière, quelque chose s'effrite.
-          </h2>
-          <p className="text-gray-500 text-[0.95rem] leading-relaxed text-center max-w-2xl mx-auto mb-10">
-            Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe — vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, pression de résultats, tensions relationnelles, sentiment de ne jamais en faire assez.
-          </p>
-
-          <div className="space-y-5">
+      {/* Le problème */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Le masque tient. Mais derrière, quelque chose s'effrite.</h2>
+          <div className="sp-prose">
+            <p>
+              Que vous soyez cadre, manager, employé, indépendant ou responsable d'équipe — vous jonglez chaque jour avec une surcharge : objectifs élevés, délais serrés, pression de résultats, tensions relationnelles, sentiment de ne jamais en faire assez.
+            </p>
+          </div>
+          <div className="sp-checklist">
             {[
-              {
-                icon: Brain,
-                text: "Impossible de « couper ». Vos pensées tournent en boucle — au lit, sous la douche, en famille. Vous travaillez mentalement même quand vous n'êtes plus au bureau.",
-              },
-              {
-                icon: Zap,
-                text: "La fatigue ne passe plus. Vous êtes irritable, à fleur de peau. L'enthousiasme a disparu — remplacé par un épuisement que même le week-end ne répare pas.",
-              },
-              {
-                icon: Heart,
-                text: "Votre corps parle à votre place. Oppression thoracique, mâchoire serrée, dos bloqué, sommeil perturbé. Le stress s'est installé physiquement.",
-              },
-              {
-                icon: Shield,
-                text: "Vos relations en pâtissent — au travail comme à la maison. Vous n'osez plus poser de limites, ou vous explosez. Vous pouvez vous sentir au bord du craquage.",
-              },
-              {
-                icon: Clock,
-                text: "Vous avez peut-être tout essayé — sport, méditation, coaching. Ça aide un temps, puis le mécanisme se réenclenche. Parce que le problème n'est pas à la surface.",
-              },
-            ].map(({ icon: Icon, text }, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-5">
-                <div className="flex-shrink-0 w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mt-0.5">
-                  <Icon className="text-red-400" size={20} />
-                </div>
-                <p className="text-gray-600 text-[0.95rem] leading-relaxed">{text}</p>
+              "Impossible de « couper ». Vos pensées tournent en boucle — au lit, sous la douche, en famille.",
+              "La fatigue ne passe plus. Vous êtes irritable, à fleur de peau. L'enthousiasme a disparu.",
+              "Votre corps parle à votre place. Oppression thoracique, mâchoire serrée, dos bloqué, sommeil perturbé.",
+              "Vos relations en pâtissent — au travail comme à la maison. Vous pouvez vous sentir au bord du craquage.",
+              "Vous avez peut-être tout essayé — sport, méditation, coaching. Ça aide un temps, puis le mécanisme se réenclenche.",
+            ].map((text, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{text}</span>
               </div>
             ))}
           </div>
-
-          <p className="text-center text-gray-400 text-sm mt-8 italic">
-            Si vous avez hoché la tête en lisant, la suite est pour vous.
-          </p>
         </div>
       </section>
 
-      {/* ═══════════ 3. CE QUE VOUS SOUHAITEZ — TRANSFORMATION ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-teal-50 to-blue-50">
-        <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-teal-600 mb-3 text-center">
-            Ce que vous voulez vraiment
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
-            Sortir du mode survie. Revenir à quelque chose de plus vivant.
-          </h2>
-
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8">
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-4">
-              Vous aspirez à vivre votre travail autrement. Pas à tout quitter — mais à <strong className="text-nova-blue-dark">retrouver une énergie stable</strong>, dormir mieux, vous réveiller plus clair et disponible.
-            </p>
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed">
-              Poser des limites sans culpabilité. Améliorer vos relations au travail. Retrouver du sens dans ce que vous faites. Revenir à un mode <strong className="text-nova-blue-dark">plus aligné et plus respectueux de vous</strong>.
+      {/* Transformation */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Sortir du mode survie. Revenir à quelque chose de plus vivant.</h2>
+          <div className="sp-prose">
+            <p>
+              Vous aspirez à vivre votre travail autrement. Pas à tout quitter — mais à <strong>retrouver une énergie stable</strong>, dormir mieux, vous réveiller plus clair et disponible.
+              Poser des limites sans culpabilité. Retrouver du sens dans ce que vous faites.
             </p>
           </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="sp-checklist">
             {[
               "Moins de stress, moins de tensions internes.",
               "Un sommeil qui redevient réparateur.",
@@ -202,339 +164,191 @@ const LandingProfessionnels: React.FC = () => {
               "Des relations plus apaisées — au travail comme à la maison.",
               "Une posture professionnelle plus posée, plus juste pour vous.",
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white rounded-lg p-4">
-                <CheckCircle size={18} className="text-teal-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════════ 4. COMMENT JE VOUS ACCOMPAGNE (sans détailler chaque séance) ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
-            L'accompagnement
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
-            Un accompagnement individuel sur 10 à 12 semaines
-          </h2>
-
-          <div className="bg-nova-neutral rounded-2xl p-6 sm:p-8 mb-8">
-            <p className="text-gray-600 text-[0.95rem] leading-relaxed">
-              Ce n'est pas de la thérapie sans fin. C'est un <strong className="text-nova-blue-dark">accompagnement structuré, individuel, sur mesure</strong> — conçu pour les professionnels qui veulent des résultats concrets. En quelques semaines, vous passez du mode « tenir » au mode « avancer ».
+      {/* L'accompagnement — 3 piliers */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Un accompagnement individuel sur 10 à 12 semaines</h2>
+          <div className="sp-prose">
+            <p>
+              Ce n'est pas de la thérapie sans fin. C'est un <strong>accompagnement structuré, individuel, sur mesure</strong> — conçu pour les professionnels qui veulent des résultats concrets. En quelques semaines, vous passez du mode « tenir » au mode « avancer ».
             </p>
           </div>
-
-          {/* Les 3 piliers */}
-          <div className="grid sm:grid-cols-3 gap-5 mb-8">
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
-              <Brain className="text-nova-blue mx-auto mb-3" size={28} />
-              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Hypnose Ericksonienne</p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Apaiser le stress, améliorer le sommeil, alléger la charge mentale — en agissant là où la volonté seule ne suffit pas.
-              </p>
+          <div className="sp-grid-2" style={{gridTemplateColumns:'1fr 1fr 1fr'}}>
+            <div className="sp-card reveal" style={{gridColumn:'1'}}>
+              <div style={{color:'var(--cobalt)', marginBottom: 8}}><Brain size={28} /></div>
+              <div className="sp-card__title">Hypnose Ericksonienne</div>
+              <div className="sp-card__desc">Apaiser le stress, améliorer le sommeil, alléger la charge mentale — en agissant là où la volonté seule ne suffit pas.</div>
             </div>
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
-              <Headphones className="text-nova-blue mx-auto mb-3" size={28} />
-              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Auto-Hypnose</p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Des outils simples que vous utilisez au quotidien pour devenir autonome dans la gestion de votre stress et de vos émotions.
-              </p>
+            <div className="sp-card reveal" style={{gridColumn:'2'}}>
+              <div style={{color:'var(--cobalt)', marginBottom: 8}}><Headphones size={28} /></div>
+              <div className="sp-card__title">Auto-Hypnose</div>
+              <div className="sp-card__desc">Des outils simples que vous utilisez au quotidien pour devenir autonome dans la gestion de votre stress et de vos émotions.</div>
             </div>
-            <div className="bg-white border border-gray-100 rounded-2xl p-5 text-center hover:shadow-md transition-shadow">
-              <MessagesSquare className="text-nova-blue mx-auto mb-3" size={28} />
-              <p className="font-semibold text-nova-blue-dark text-[0.95rem] mb-2">Communication Relationnelle</p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Oser dire, poser des limites, clarifier vos besoins — avec l'approche de Jacques Salomé.
-              </p>
+            <div className="sp-card reveal" style={{gridColumn:'3'}}>
+              <div style={{color:'var(--cobalt)', marginBottom: 8}}><MessagesSquare size={28} /></div>
+              <div className="sp-card__title">Communication Relationnelle</div>
+              <div className="sp-card__desc">Oser dire, poser des limites, clarifier vos besoins — avec l'approche de Jacques Salomé.</div>
             </div>
           </div>
 
-          {/* Le cadre concret */}
-          <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
-            <h3 className="font-serif text-lg font-bold text-nova-blue-dark mb-4">Le cadre</h3>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {[
-                "Séances individuelles, adaptées à votre réalité",
-                "Un parcours structuré sur quelques semaines",
-                "En présentiel (Paris 4e) ou en visio",
-                "Des pratiques simples entre les séances (10-15 min/jour)",
-                "Un suivi par messages si besoin entre les rendez-vous",
-                "Un programme cohérent : soulager, stabiliser, rendre autonome",
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle size={16} className="text-nova-blue flex-shrink-0 mt-0.5" />
-                  <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
+          <div className="sp-prose" style={{marginTop: 32}}>
+            <p><strong>Le cadre :</strong></p>
+          </div>
+          <div className="sp-checklist">
+            {[
+              "Séances individuelles, adaptées à votre réalité",
+              "Un parcours structuré sur quelques semaines",
+              "En présentiel (Paris 4e) ou en visio",
+              "Des pratiques simples entre les séances (10-15 min/jour)",
+              "Un suivi par messages si besoin entre les rendez-vous",
+              "Un programme cohérent : soulager, stabiliser, rendre autonome",
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
 
-          {/* Appel découverte */}
-          <div className="mt-8 bg-teal-50 border border-teal-200 rounded-xl p-6 text-center">
-            <p className="text-nova-blue-dark text-[0.95rem] font-medium mb-2">
+          <div style={{marginTop: 40, textAlign:'center'}}>
+            <p style={{fontFamily:'var(--f-serif)', fontSize:'1.05rem', color:'var(--texte)', marginBottom: 8}}>
               Comment savoir si c'est fait pour vous ?
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed mb-4 max-w-lg mx-auto">
+            <p style={{fontSize:'.9rem', color:'var(--gris)', marginBottom: 24, maxWidth: 480, margin:'0 auto 24px'}}>
               Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.
             </p>
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors shadow-md"
-            >
-              Réserver mon appel découverte
-              <ArrowRight size={18} />
+            <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Réserver mon appel découverte <span className="arrow">→</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ 4b. CE QUE N'EST PAS / CE QUE C'EST ═══════════ */}
-      <section className="py-12 sm:py-16 px-6 bg-nova-neutral">
-        <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 border border-gray-100">
-            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-3">Ce que n'est pas cet accompagnement</p>
-            <p className="text-gray-500 text-[0.95rem] leading-relaxed">
-              Il ne s'agit pas d'un coaching de performance pour « tenir plus » ou « faire encore plus avec moins de ressources ». C'est un accompagnement thérapeutique par l'hypnose, centré sur la souffrance que vous vivez (stress, épuisement, troubles du sommeil, surcharge émotionnelle) et sur la manière dont votre corps et vos émotions tirent la sonnette d'alarme.
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl p-6 border border-teal-200">
-            <p className="font-serif font-bold text-nova-blue-dark text-lg mb-3">Ce que c'est</p>
-            <p className="text-gray-500 text-[0.95rem] leading-relaxed">
-              Un parcours de 6 séances pour apaiser les symptômes, retrouver de l'espace intérieur, remettre du sens et poser un cadre plus respectueux de vous dans votre vie professionnelle.
-            </p>
+      {/* Ce que n'est pas / ce que c'est */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <div className="sp-grid-2">
+            <div className="sp-card reveal">
+              <div className="sp-card__title">Ce que n'est pas cet accompagnement</div>
+              <div className="sp-card__desc">
+                Il ne s'agit pas d'un coaching de performance pour « tenir plus » ou « faire encore plus avec moins de ressources ». C'est un accompagnement thérapeutique par l'hypnose, centré sur la souffrance que vous vivez et sur la manière dont votre corps et vos émotions tirent la sonnette d'alarme.
+              </div>
+            </div>
+            <div className="sp-card reveal">
+              <div className="sp-card__title">Ce que c'est</div>
+              <div className="sp-card__desc">
+                Un parcours de 6 séances pour apaiser les symptômes, retrouver de l'espace intérieur, remettre du sens et poser un cadre plus respectueux de vous dans votre vie professionnelle.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ 4c. EBOOK MID-PAGE ═══════════ */}
-      <section className="py-12 sm:py-16 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-3 text-center">
-            Avant de décider
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-8 text-center">
-            Pas encore prêt pour un appel ? Commencez ici.
-          </h2>
-
-          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8">
+      {/* Guide ebook */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Pas encore prêt pour un appel ? Commencez ici.</h2>
+          <div style={{background:'var(--paper, #F5F2EB)', borderRadius: 16, padding:'36px 40px', display:'flex', gap: 40, alignItems:'center', flexWrap:'wrap'}}>
             <img
               src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
               alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
-              className="w-[180px] sm:w-[200px] rounded-lg shadow-xl flex-shrink-0 -rotate-1 hover:rotate-0 hover:scale-[1.02] transition-transform duration-500"
+              style={{width: 160, borderRadius: 8, boxShadow:'0 8px 32px rgba(0,0,0,.15)', flexShrink: 0}}
               loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.background = 'linear-gradient(135deg, #233C67, #4470AD)';
-                target.style.width = '200px';
-                target.style.height = '280px';
-                target.style.borderRadius = '8px';
-              }}
             />
-            <div className="text-center sm:text-left flex-1">
-              <p className="text-gray-600 text-[0.95rem] leading-relaxed mb-3">
+            <div style={{flex: 1, minWidth: 240}}>
+              <p style={{fontFamily:'var(--f-serif)', fontSize:'1.05rem', color:'var(--texte)', marginBottom: 12}}>
                 J'ai écrit un guide de 19 pages pour les professionnels qui sentent que quelque chose ne va plus — mais qui ne savent pas encore exactement ce qui se passe en eux.
               </p>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                Vous y trouverez des repères concrets pour comprendre vos émotions au travail, identifier ce que votre corps essaie de vous dire, et trois pratiques simples applicables dès ce soir.
+              <p style={{fontSize:'.88rem', color:'var(--gris)', marginBottom: 20}}>
+                Des repères concrets pour comprendre vos émotions au travail, identifier ce que votre corps essaie de vous dire, et trois pratiques simples applicables dès ce soir.
               </p>
-              <p className="text-gray-400 text-sm italic mb-5">
-                C'est gratuit. C'est sans engagement. Et ça peut déjà changer quelque chose.
-              </p>
-              <Link
-                to="/guide-emotions-travail"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-nova-blue-dark hover:bg-nova-blue text-white font-semibold rounded-xl transition-colors"
-              >
-                Recevoir le guide gratuit
-                <ArrowRight size={18} />
+              <Link to="/guide-emotions-travail" className="btn btn--primary">
+                Recevoir le guide gratuit <span className="arrow">→</span>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ 5. PREUVE / CRÉDIBILITÉ ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-gradient-to-br from-nova-blue-dark to-nova-blue">
-        <div className="max-w-3xl mx-auto">
-          <span className="block text-[11px] font-medium tracking-widest uppercase text-teal-300 mb-3 text-center">
-            Qui vous accompagne
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-snug mb-10 text-center">
-            Ce n'est pas mon premier professionnel épuisé.
-          </h2>
-
-          {/* Alain card */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-6">
-              <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
-                alt="Alain Zenatti — Hypnothérapeute Paris"
-                className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover flex-shrink-0 shadow-lg ring-2 ring-white/20"
-                loading="lazy"
-              />
-              <div className="text-center sm:text-left">
-                <p className="font-serif font-bold text-white text-lg">Alain Zenatti</p>
-                <p className="text-white/60 text-sm mb-1">Maître Praticien en Hypnose Ericksonienne & en Auto-Hypnose</p>
-                <p className="text-white/50 text-sm">Praticien en Communication Relationnelle (approche Jacques Salomé)</p>
-              </div>
-            </div>
-            <p className="text-white/80 text-[0.95rem] leading-relaxed mb-4">
-              Chaque semaine, je reçois à mon cabinet du Marais des professionnels comme vous : brillants, engagés — et épuisés. Mon objectif est de vous accompagner à <strong className="text-white">transformer ce poids quotidien en une énergie plus sereine, stable et soutenante</strong>.
-            </p>
-            <p className="text-white/80 text-[0.95rem] leading-relaxed">
-              Je vous accompagne à chaque étape, avec bienveillance et clarté, pour que vous puissiez enfin vivre votre travail avec plus de sérénité et moins de souffrance.
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+      {/* Crédibilité */}
+      <section className="sp-section sp-section--cobalt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Ce n'est pas mon premier professionnel épuisé.</h2>
+          <div className="sp-stats">
             {[
-              { value: '5/5', label: 'Note moyenne', icon: Star },
-              { value: '40+', label: 'Avis vérifiés', icon: Users },
-              { value: '90%', label: 'Amélioration S1', icon: Zap },
-              { value: '9', label: 'Certifications', icon: Shield },
-            ].map(({ value, label, icon: Icon }, i) => (
-              <div key={i} className="bg-white/10 rounded-xl p-4 text-center">
-                <Icon className="text-teal-300 mx-auto mb-2" size={20} />
-                <p className="text-white font-bold text-xl">{value}</p>
-                <p className="text-white/50 text-xs">{label}</p>
+              { value: '5+', label: "années d'accompagnement d'actifs en souffrance au travail" },
+              { value: '5/5', label: 'note moyenne sur plus de 40 avis Google vérifiés' },
+              { value: '6', label: 'séances en moyenne pour un résultat durable et ancré' },
+            ].map((s, i) => (
+              <div key={i} className="sp-stat reveal">
+                <div className="sp-stat__val">{s.value}</div>
+                <p>{s.label}</p>
               </div>
             ))}
           </div>
-
-          {/* Testimonials */}
-          <div className="space-y-4">
-            <div className="bg-white/10 rounded-xl p-5">
-              <div className="flex gap-1 mb-2">
-                {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
-              </div>
-              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
-                « J'ai consulté pour un problème d'anxiété. Dès la première séance, j'ai ressenti un apaisement. En 3 séances, l'anxiété a complètement disparu. Je recommande vivement. »
-              </p>
-              <p className="text-white/50 text-xs">Marie H. — Avis Google vérifié</p>
-            </div>
-
-            <div className="bg-white/10 rounded-xl p-5">
-              <div className="flex gap-1 mb-2">
-                {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
-              </div>
-              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
-                « M. Zenatti est posé et réfléchi. Son écoute attentive a permis de cibler les zones d'amélioration, les émotions limitantes. En quelques séances, je me suis libéré de mes blocages et j'ai amorcé des changements durables. »
-              </p>
-              <p className="text-white/50 text-xs">Philippe A. — Avis Google vérifié</p>
-            </div>
-
-            <div className="bg-white/10 rounded-xl p-5">
-              <div className="flex gap-1 mb-2">
-                {[1,2,3,4,5].map(s => <Star key={s} size={14} className="text-yellow-400 fill-yellow-400" />)}
-              </div>
-              <p className="text-white/80 text-sm leading-relaxed italic mb-2">
-                « Alain m'a aidée à retrouver un sommeil réparateur en 2 séances. Je vous le recommande. »
-              </p>
-              <p className="text-white/50 text-xs">Isabelle M. — Avis Google vérifié</p>
-            </div>
-          </div>
-
-          <p className="text-white/30 text-xs text-center mt-6">
-            Emplacements réservés : témoignages vidéo de professionnels accompagnés &middot; étude de cas avant/après
-          </p>
+          <blockquote className="sp-quote reveal" style={{marginTop: 40, background:'rgba(240,236,227,.06)', borderRadius: 16, padding:'40px 44px'}}>
+            <p style={{color:'rgba(240,236,227,.9)'}}>
+              En quelques séances, j'ai pu me libérer de certains blocages et entamer des
+              changements pérennes. Alain est à l'écoute, calme et réfléchi.
+            </p>
+            <footer style={{color:'rgba(240,236,227,.5)'}}>— Philippe A., avis Google vérifié</footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* ═══════════ 6. CTA FINAL — Appel découverte ═══════════ */}
-      <section className="py-16 sm:py-20 px-6 bg-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-nova-blue-dark leading-snug mb-4">
-            Vous n'avez pas besoin de « tenir » plus longtemps.
-          </h2>
-          <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-4 max-w-lg mx-auto">
-            Un appel découverte — gratuit, sans engagement — pour faire le point sur votre situation, répondre à vos questions, et voir ensemble si cet accompagnement est le bon chemin pour vous.
-          </p>
-          <p className="text-nova-blue-dark text-[0.95rem] font-medium mb-8 max-w-lg mx-auto">
-            Même en 15 minutes, je peux vous donner une première clé.
-          </p>
+      {/* FAQ */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Questions fréquentes</h2>
+          <div>
+            {faqItems.map((item, i) => (
+              <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  {item.question}
+                  <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                <div className="faq__a">{item.answer}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors text-lg shadow-lg shadow-orange-500/25"
-            >
-              Réserver mon appel découverte
-              <ArrowRight size={20} />
+      {/* CTA Final */}
+      <section className="sp-cta-final">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Prêt à faire le premier pas ?</h2>
+          <p className="sp-lead">
+            Un appel découverte gratuit de 20 minutes • Sans engagement • Pour savoir si c'est la bonne voie pour vous
+          </p>
+          <div className="hero__cta" style={{justifyContent:'center'}}>
+            <a className="btn btn--primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer"
+               style={{background:'var(--lin)', color:'var(--cobalt)'}}>
+              Réserver mon appel découverte <span className="arrow">→</span>
             </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#1da851] text-white font-semibold rounded-xl transition-colors"
-            >
-              <MessageCircle size={18} />
-              Discuter sur WhatsApp
+            <a className="btn btn--ghost" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+               style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>
+              WhatsApp
             </a>
           </div>
-
-          <p className="text-gray-400 text-sm mb-2">
-            ou appelez directement : <a href={PHONE_URL} className="text-nova-blue hover:underline font-medium">06 49 35 80 89</a>
-          </p>
-          <p className="text-gray-300 text-xs">
-            Je réponds personnellement &middot; Cabinet Paris 4e (Marais-Bastille) &middot; Visio disponible
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════ 7. TEASING EBOOK ═══════════ */}
-      <section className="py-14 px-6 bg-nova-neutral">
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-            <img
-              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
-              alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
-              className="w-[120px] sm:w-[140px] rounded-lg shadow-md flex-shrink-0"
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.background = 'linear-gradient(135deg, #233C67, #4470AD)';
-                target.style.width = '140px';
-                target.style.height = '196px';
-                target.style.borderRadius = '8px';
-              }}
-            />
-            <div className="text-center sm:text-left flex-1">
-              <p className="font-serif font-bold text-nova-blue-dark text-lg mb-1">
-                Vous tenez. Mais jusqu'à quand ?
-              </p>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                Un guide gratuit de 19 pages pour comprendre vos émotions au travail — avant que votre corps décide à votre place. 3 pratiques simples applicables dès ce soir.
-              </p>
-              <Link
-                to="/guide-emotions-travail"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-nova-blue-dark hover:bg-nova-blue text-white font-medium rounded-lg transition-colors text-sm"
-              >
-                Recevoir le guide gratuit
-                <ArrowRight size={16} />
-              </Link>
-            </div>
+          <div className="sp-links">
+            <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
+            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
+            <Link to="/autohypnose">Auto-hypnose →</Link>
+            <Link to="/blog">Blog hypnose →</Link>
           </div>
         </div>
       </section>
-
-      {/* ═══════════ MINI FOOTER ═══════════ */}
-      <div className="bg-nova-blue-dark text-white/50 text-xs text-center py-5 px-4">
-        <p className="mb-1 flex items-center justify-center gap-1.5">
-          <MapPin size={12} />
-          16 rue Saint-Antoine, 75004 Paris
-        </p>
-        <p className="mb-0">
-          &copy; {new Date().getFullYear()} NovaHypnose &middot; Alain Zenatti &middot; Hypnothérapeute Paris 4e
-        </p>
-      </div>
-    </>
+    </CzLayout>
   );
 };
 

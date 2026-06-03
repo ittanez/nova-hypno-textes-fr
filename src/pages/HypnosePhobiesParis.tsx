@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import ContentLayout from '@/components/layout/ContentLayout';
-import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
-import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+
+const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
 const HypnosePhobiesParis = () => {
   const { openResalibPopup } = useResalibPopup();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -59,8 +59,19 @@ const HypnosePhobiesParis = () => {
     }))
   };
 
+  const phobies = [
+    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique" },
+    { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement" },
+    { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension" },
+    { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle" },
+    { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance" },
+    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société" },
+    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance" },
+    { title: "Autres phobies", desc: "Peur du sang, des aiguilles, de l'eau, du dentiste…" }
+  ];
+
   return (
-    <ContentLayout>
+    <CzLayout>
       <Helmet>
         <title>Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti</title>
         <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
@@ -87,355 +98,269 @@ const HypnosePhobiesParis = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-purple-50 to-blue-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-purple-600 mb-2">Hypnose et phobies</span>
-              <span className="block">Libérez-vous de vos peurs à Paris</span>
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Peur de l'avion, des araignées, du vide, des espaces clos, de parler en public…
-              Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-              efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
-              Paris 4ème ou en <strong>visio partout en France</strong>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
-              >
-                <Calendar size={20} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-lg font-semibold transition-all shadow-md border border-gray-200"
-              >
-                <Phone size={20} />
-                06 49 35 80 89
-              </a>
-            </div>
+      <section className="sp-hero">
+        <div className="sp-hero__bg" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+            <g filter="url(#riso-full)">
+              <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
+            </g>
+            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+              <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
+            </g>
+            <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
+          </svg>
+        </div>
+        <div className="container sp-hero__inner reveal">
+          <div className="tag">Phobies &amp; Peurs — Paris</div>
+          <h1 className="sp-hero__h1">
+            Libérez-vous de vos peurs<br/><em>par l'hypnose</em>
+          </h1>
+          <p className="sp-hero__lead">
+            Peur de l'avion, des araignées, du vide, des espaces clos, de parler en public…
+            Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
+            efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
+            Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
         </div>
       </section>
 
       {/* Le problème */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Une phobie vous gâche la vie ?
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
-                vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
-                c'est plus fort que vous.
-              </p>
-              <p>
-                La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
-                d'une expérience marquante. Ce mécanisme était peut-être utile à un moment, mais aujourd'hui il
-                vous limite. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
-              </p>
-              <p>
-                L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
-                l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
-              </p>
-            </div>
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Une phobie vous gâche la vie ?</h2>
+          <div className="sp-prose">
+            <p>
+              Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
+              vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
+              c'est plus fort que vous.
+            </p>
+            <p>
+              La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
+              d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
+            </p>
+            <p>
+              L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
+              l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Types de phobies */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Les phobies que je traite par l'hypnose
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique" },
-                { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement" },
-                { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension" },
-                { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle" },
-                { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance" },
-                { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société" },
-                { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance" },
-                { title: "Autres phobies", desc: "Peur du sang, des aiguilles, de l'eau, du dentiste…" }
-              ].map((phobie, index) => (
-                <div key={index} className="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                  <h3 className="font-bold text-gray-900 mb-2">{phobie.title}</h3>
-                  <p className="text-gray-600 text-sm">{phobie.desc}</p>
-                </div>
-              ))}
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Les phobies que je traite par l'hypnose</h2>
+          <div className="sp-grid-2">
+            {phobies.map((p, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{p.title}</div>
+                <div className="sp-card__desc">{p.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Comment ça marche */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Comment l'hypnose élimine les phobies
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
-                la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
-                dans un état de relaxation profonde pour :
-              </p>
-            </div>
-
-            <div className="space-y-4 mt-8">
-              {[
-                "Identifier l'origine de la phobie et le déclencheur inconscient",
-                "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
-                "Créer de nouvelles associations positives et neutres",
-                "Renforcer votre sentiment de sécurité et de contrôle",
-                "Installer des automatismes de calme face à la situation redoutée"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Sur le plan neurologique, la phobie est une réponse conditionnée gérée par l'amygdale cérébrale,
-                le centre de détection des menaces dans le cerveau. Lorsque vous êtes confronté au stimulus phobique,
-                l'amygdale déclenche instantanément une cascade de réactions de survie — accélération cardiaque,
-                sudation, envie de fuir — avant même que votre cortex rationnel n'ait le temps d'analyser la situation.
-                C'est pourquoi vous savez que votre peur est disproportionnée, mais ne parvenez pas à la contrôler
-                par la volonté seule.
-              </p>
-              <p>
-                L'hypnose agit directement sur ce circuit en désensibilisant la réponse phobique. En état
-                hypnotique, votre cerveau devient particulièrement réceptif à la création de <strong>nouveaux chemins
-                neuronaux</strong>. Je guide votre inconscient pour qu'il associe progressivement le stimulus
-                (l'avion, l'araignée, la prise de parole) à un état de calme et de sécurité plutôt qu'à la panique.
-                Ce processus de reconditionnement est rapide car il s'adresse directement à la mémoire émotionnelle,
-                sans passer par le filtre analytique qui, justement, est impuissant face à la phobie.
-              </p>
-              <p>
-                En tant qu'<strong>hypnothérapeute phobies Paris 4</strong>, je constate régulièrement que cette
-                approche produit des changements profonds et durables, souvent dès la première séance. Je suis
-                <strong> Alain Zenatti, Maître Hypnologue certifié</strong>, spécialisé dans le traitement
-                des phobies par l'hypnose. Mon cabinet est situé à <strong>Paris 4ème, quartier Marais-Bastille</strong>.
-                Chaque accompagnement est personnalisé selon votre phobie spécifique et votre histoire.
-              </p>
-            </div>
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Comment l'hypnose élimine les phobies</h2>
+          <div className="sp-prose">
+            <p>
+              L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
+              la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
+              dans un état de relaxation profonde pour :
+            </p>
+          </div>
+          <div className="sp-checklist">
+            {[
+              "Identifier l'origine de la phobie et le déclencheur inconscient",
+              "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
+              "Créer de nouvelles associations positives et neutres",
+              "Renforcer votre sentiment de sécurité et de contrôle",
+              "Installer des automatismes de calme face à la situation redoutée"
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Cas concrets */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Exemples de parcours au cabinet
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Peur de l'avion</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Thomas*, consultant international, refusait systématiquement les missions nécessitant
-                  un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
-                  menaçait désormais sa carrière.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
-                  traumatique initial et installé un état de calme associé au vol. Thomas a repris
-                  l'avion le mois suivant pour un déplacement à Londres — sereinement.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Arachnophobie sévère</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
-                  minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
-                  Elle évitait les sorties en nature et les caves, ce qui pesait sur son quotidien.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
-                  araignées avait radicalement changé. La peur intense s'était transformée en simple
-                  indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Peur de parler en public</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
-                  investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie de la
-                  prise de parole freinait le développement de sa startup.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
-                  confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
-                  avec succès trois mois plus tard.
-                </p>
-              </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
+          <div className="sp-cases">
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Peur de l'avion</div>
+              <p>
+                Thomas*, consultant international, refusait systématiquement les missions nécessitant
+                un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
+                menaçait désormais sa carrière.
+              </p>
+              <p>
+                En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
+                traumatique initial et installé un état de calme associé au vol. Thomas a repris
+                l'avion le mois suivant pour un déplacement à Londres — sereinement.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Arachnophobie sévère</div>
+              <p>
+                Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
+                minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
+              </p>
+              <p>
+                Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
+                araignées avait radicalement changé. La peur intense s'était transformée en simple
+                indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Peur de parler en public</div>
+              <p>
+                Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
+                investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie freinait le développement de sa startup.
+              </p>
+              <p>
+                En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
+                confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
+                avec succès trois mois plus tard.
+              </p>
+            </div>
           </div>
+          <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
       </section>
 
       {/* Témoignage */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <blockquote className="relative bg-purple-50 p-8 rounded-xl">
-              <div className="absolute top-4 left-6 text-6xl text-purple-200 font-serif leading-none">"</div>
-              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
-                Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de
-                déterminer les axes de travail, les points d'amélioration, les émotions limitantes.
-                En quelques séances, j'ai pu me libérer de certains blocages et entamer des
-                changements pérennes.
-              </p>
-              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Philippe A., avis Google vérifié</footer>
-            </blockquote>
-          </div>
+      <section className="sp-section">
+        <div className="container sp-narrow">
+          <blockquote className="sp-quote reveal">
+            <p>
+              Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de
+              déterminer les axes de travail, les points d'amélioration, les émotions limitantes.
+              En quelques séances, j'ai pu me libérer de certains blocages et entamer des
+              changements pérennes.
+            </p>
+            <footer>— Philippe A., avis Google vérifié</footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* Résultats */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Des résultats rapides et durables
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-purple-600 mb-2">2-4</div>
-                <p className="text-gray-700">séances suffisent en moyenne pour traiter une phobie</p>
+      {/* Stats */}
+      <section className="sp-section sp-section--cobalt">
+        <div className="container sp-narrow">
+          <div className="sp-stats">
+            {[
+              { value: '2-4', label: 'séances suffisent en moyenne pour traiter une phobie' },
+              { value: '95%', label: 'des phobies simples peuvent être traitées par l\'hypnose' },
+              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+            ].map((s, i) => (
+              <div key={i} className="sp-stat reveal">
+                <div className="sp-stat__val">{s.value}</div>
+                <p>{s.label}</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
-                <p className="text-gray-700">des phobies simples peuvent être traitées par l'hypnose</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-purple-600 mb-2">5/5</div>
-                <p className="text-gray-700">note moyenne sur plus de 40 avis vérifiés</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <SpecialtyFAQ
-        items={phobiesFaqItems}
-        title="Questions fréquentes sur l'hypnose et les phobies"
-        accentColor="text-purple-500"
-        pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
-      />
-
-      <SpecialtyBlogArticles
-        keywords={["phobie", "peur", "phobique"]}
-        categories={["Troubles Anxieux"]}
-        title="Articles sur les phobies"
-        accentColor="text-purple-600"
-      />
-
-      <SpecialtyReferences
-        pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
-        pageTitle="Hypnose pour les phobies à Paris"
-        pageDescription="Hypnose ericksonienne pour traiter les phobies (avion, animaux, foule, espaces clos, médical) au cabinet Paris 4ème."
-        topic="les phobies et les peurs irrationnelles"
-        dateModified="2026-05-06"
-        references={[
-          {
-            authors: "Inserm",
-            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
-            source: "Rapport d'expertise collective",
-            year: 2015,
-            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
-          },
-          {
-            authors: "Hammond DC",
-            title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
-            source: "Expert Review of Neurotherapeutics",
-            year: 2010,
-            url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
-          },
-          {
-            authors: "Lynn SJ, Laurence JR, Kirsch I",
-            title: "Hypnosis, Suggestion, and Suggestibility: An Integrative Model",
-            source: "American Journal of Clinical Hypnosis",
-            year: 2015,
-            url: "https://pubmed.ncbi.nlm.nih.gov/26046713/",
-          },
-        ]}
-      />
-
-      {/* CTA final */}
-      <section className="py-16 md:py-20 bg-purple-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Libérez-vous de vos phobies
-            </h2>
-            <p className="text-xl text-purple-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-purple-600 rounded-lg font-bold text-lg transition-all shadow-lg"
-              >
-                <Calendar size={22} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-400 text-white rounded-lg font-bold text-lg transition-all shadow-lg border border-purple-400"
-              >
-                <Phone size={22} />
-                06 49 35 80 89
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-purple-100">
-              <Link to="/hypnose-stress-anxiete-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et stress <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et sommeil <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-confiance-en-soi-paris" className="hover:text-white underline flex items-center gap-1">
-                Confiance en soi <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline flex items-center gap-1">
-                Gestion des émotions <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-blocages-paris" className="hover:text-white underline flex items-center gap-1">
-                Blocages et comportements <ArrowRight size={14} />
-              </Link>
-              <Link to="/test-receptivite" className="hover:text-white underline flex items-center gap-1">
-                Tester ma réceptivité <ArrowRight size={14} />
-              </Link>
-              <Link to="/blog" className="hover:text-white underline flex items-center gap-1">
-                Blog hypnose <ArrowRight size={14} />
-              </Link>
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
+          <div>
+            {phobiesFaqItems.map((item, i) => (
+              <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  {item.question}
+                  <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                <div className="faq__a">{item.answer}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </ContentLayout>
+
+      <div className="sp-ext-section">
+        <SpecialtyBlogArticles
+          keywords={["phobie", "peur", "phobique"]}
+          categories={["Troubles Anxieux"]}
+          title="Articles sur les phobies"
+          accentColor="text-purple-600"
+        />
+      </div>
+
+      <div className="sp-ext-section">
+        <SpecialtyReferences
+          pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
+          pageTitle="Hypnose pour les phobies à Paris"
+          pageDescription="Hypnose ericksonienne pour traiter les phobies (avion, animaux, foule, espaces clos, médical) au cabinet Paris 4ème."
+          topic="les phobies et les peurs irrationnelles"
+          dateModified="2026-05-06"
+          references={[
+            {
+              authors: "Inserm",
+              title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+              source: "Rapport d'expertise collective",
+              year: 2015,
+              url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+            },
+            {
+              authors: "Hammond DC",
+              title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
+              source: "Expert Review of Neurotherapeutics",
+              year: 2010,
+              url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
+            },
+            {
+              authors: "Lynn SJ, Laurence JR, Kirsch I",
+              title: "Hypnosis, Suggestion, and Suggestibility: An Integrative Model",
+              source: "American Journal of Clinical Hypnosis",
+              year: 2015,
+              url: "https://pubmed.ncbi.nlm.nih.gov/26046713/",
+            },
+          ]}
+        />
+      </div>
+
+      {/* CTA Final */}
+      <section className="sp-cta-final">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Libérez-vous de vos phobies</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <div className="hero__cta" style={{justifyContent:'center'}}>
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
+               style={{background:'var(--lin)', color:'var(--cobalt)'}}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
+          </div>
+          <div className="sp-links">
+            <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
+            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
+            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
+            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
+            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
+            <Link to="/test-receptivite">Tester ma réceptivité →</Link>
+            <Link to="/blog">Blog hypnose →</Link>
+          </div>
+        </div>
+      </section>
+    </CzLayout>
   );
 };
 

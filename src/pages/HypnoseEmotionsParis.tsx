@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import ContentLayout from '@/components/layout/ContentLayout';
-import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { emotionsFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
-import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+
+const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
 const HypnoseEmotionsParis = () => {
   const { openResalibPopup } = useResalibPopup();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -59,8 +59,17 @@ const HypnoseEmotionsParis = () => {
     }))
   };
 
+  const emotionTypes = [
+    { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions de colère, impatience permanente" },
+    { title: "Hypersensibilité", desc: "Émotions amplifiées, pleurs faciles, sensation d'être submergé(e)" },
+    { title: "Deuil et séparation", desc: "Difficulté à surmonter une perte, une rupture ou un changement de vie" },
+    { title: "Frustration chronique", desc: "Sentiment d'insatisfaction permanent, difficulté à accepter les situations" },
+    { title: "Anxiété émotionnelle", desc: "Peur d'être submergé(e) par ses émotions, évitement des situations intenses" },
+    { title: "Charge émotionnelle", desc: "Accumulation d'émotions non exprimées, sensation de trop-plein" }
+  ];
+
   return (
-    <ContentLayout>
+    <CzLayout>
       <Helmet>
         <title>Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti</title>
         <meta name="description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
@@ -87,361 +96,261 @@ const HypnoseEmotionsParis = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-rose-50 to-pink-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-rose-600 mb-2">Hypnose et gestion des émotions</span>
-              <span className="block">Retrouvez votre équilibre à Paris</span>
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Colère incontrôlable, hypersensibilité, deuil difficile, frustration permanente…
-              Vos émotions vous submergent et vous ne savez plus comment les gérer ?
-              L'hypnose vous aide à <strong>retrouver un équilibre émotionnel durable</strong>, au
-              cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
-              >
-                <Calendar size={20} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-lg font-semibold transition-all shadow-md border border-gray-200"
-              >
-                <Phone size={20} />
-                06 49 35 80 89
-              </a>
-            </div>
+      <section className="sp-hero">
+        <div className="sp-hero__bg" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+            <g filter="url(#riso-full)">
+              <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
+            </g>
+            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+              <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
+            </g>
+            <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
+          </svg>
+        </div>
+        <div className="container sp-hero__inner reveal">
+          <div className="tag">Gestion des Émotions — Paris</div>
+          <h1 className="sp-hero__h1">
+            Retrouvez l'équilibre<br/><em>par l'hypnose</em>
+          </h1>
+          <p className="sp-hero__lead">
+            Colère incontrôlable, hypersensibilité, deuil difficile, frustration permanente…
+            Vos émotions vous submergent et vous ne savez plus comment les gérer ?
+            L'hypnose vous aide à <strong>retrouver un équilibre émotionnel durable</strong>, au
+            cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
         </div>
       </section>
 
       {/* Le problème */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Vos émotions prennent le dessus ?
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Une remarque anodine et vous explosez de colère. Un souvenir et les larmes montent
-                sans prévenir. Vous vous sentez à fleur de peau, comme si tout était amplifié.
-                Vous oscillez entre des émotions intenses qui vous épuisent et une sensation de vide
-                quand vous essayez de les contenir.
-              </p>
-              <p>
-                L'hypersensibilité, les accès de colère, la difficulté à faire un deuil, la frustration
-                chronique — ces difficultés ne sont pas un signe de faiblesse. Ce sont des <strong>réactions
-                émotionnelles automatiques</strong> que votre inconscient a mises en place, souvent pour
-                vous protéger.
-              </p>
-              <p>
-                Le problème, c'est que ces mécanismes qui vous protégeaient autrefois vous empêchent
-                aujourd'hui de vivre sereinement. L'hypnose permet de les recalibrer.
-              </p>
-            </div>
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Vos émotions prennent le dessus ?</h2>
+          <div className="sp-prose">
+            <p>
+              Une remarque anodine et vous explosez de colère. Un souvenir et les larmes montent
+              sans prévenir. Vous vous sentez à fleur de peau, comme si tout était amplifié.
+            </p>
+            <p>
+              L'hypersensibilité, les accès de colère, la difficulté à faire un deuil, la frustration
+              chronique — ces difficultés ne sont pas un signe de faiblesse. Ce sont des <strong>réactions
+              émotionnelles automatiques</strong> que votre inconscient a mises en place pour
+              vous protéger.
+            </p>
+            <p>
+              Le problème, c'est que ces mécanismes qui vous protégeaient autrefois vous empêchent
+              aujourd'hui de vivre sereinement. L'hypnose permet de les recalibrer.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Ce que je traite */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Les troubles émotionnels que je traite
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions de colère, impatience permanente" },
-                { title: "Hypersensibilité", desc: "Émotions amplifiées, pleurs faciles, sensation d'être submergé(e)" },
-                { title: "Deuil et séparation", desc: "Difficulté à surmonter une perte, une rupture ou un changement de vie" },
-                { title: "Frustration chronique", desc: "Sentiment d'insatisfaction permanent, difficulté à accepter les situations" },
-                { title: "Anxiété émotionnelle", desc: "Peur d'être submergé(e) par ses émotions, évitement des situations intenses" },
-                { title: "Charge émotionnelle", desc: "Accumulation d'émotions non exprimées, sensation de trop-plein" }
-              ].map((item, index) => (
-                <div key={index} className="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+      {/* Types d'émotions */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Les troubles émotionnels que je traite</h2>
+          <div className="sp-grid-2">
+            {emotionTypes.map((t, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{t.title}</div>
+                <div className="sp-card__desc">{t.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Comment l'hypnose agit */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Comment l'hypnose régule vos émotions
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                L'hypnose ericksonienne ne supprime pas vos émotions — elle vous apprend à les vivre
-                sans en être prisonnier. En accédant à votre inconscient, elle permet de :
-              </p>
-            </div>
-
-            <div className="space-y-4 mt-8">
-              {[
-                "Identifier les déclencheurs émotionnels inconscients",
-                "Retraiter les expériences passées qui amplifient vos réactions",
-                "Installer des mécanismes de régulation naturels",
-                "Développer votre capacité à ressentir sans être submergé(e)",
-                "Transformer la colère et la frustration en énergie constructive",
-                "Accompagner le processus de deuil en douceur"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Comment l'hypnose régule vos émotions</h2>
+          <div className="sp-prose">
+            <p>
+              L'hypnose ericksonienne ne supprime pas vos émotions — elle vous apprend à les vivre
+              sans en être prisonnier. En accédant à votre inconscient, elle permet de :
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Mon approche */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Mon approche pour l'équilibre émotionnel
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème.
-                La gestion des émotions est au cœur de ma pratique. Que vous soyez submergé(e) par
-                la colère, paralysé(e) par un deuil ou épuisé(e) par votre hypersensibilité, je vous
-                accompagne vers un nouvel équilibre.
-              </p>
-              <p>
-                Mon approche est douce et progressive. Lors de la première séance, nous identifions
-                ensemble les mécanismes émotionnels qui posent problème et leur origine. Ensuite,
-                en hypnose profonde, je vous guide pour <strong>retraiter ces schémas</strong> et
-                installer de nouvelles réponses émotionnelles plus adaptées.
-              </p>
-              <p>
-                Je vous transmets aussi des <strong>techniques d'auto-hypnose</strong> pour gérer
-                les moments d'intensité émotionnelle au quotidien — un outil que vous garderez pour la vie.
-              </p>
-            </div>
+          <div className="sp-checklist">
+            {[
+              "Identifier les déclencheurs émotionnels inconscients",
+              "Retraiter les expériences passées qui amplifient vos réactions",
+              "Installer des mécanismes de régulation naturels",
+              "Développer votre capacité à ressentir sans être submergé(e)",
+              "Transformer la colère et la frustration en énergie constructive",
+              "Accompagner le processus de deuil en douceur"
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Cas concrets */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Exemples de parcours au cabinet
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Colères incontrôlables</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  David*, chef de projet, explosait régulièrement au travail et à la maison. Ses accès
-                  de colère disproportionnés abîmaient ses relations avec sa compagne et ses collègues.
-                  Il se sentait coupable après chaque épisode mais ne parvenait pas à se contrôler.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié l'origine
-                  de cette colère — une blessure d'enfance non traitée — et retraité la mémoire
-                  émotionnelle. David réagit désormais de manière proportionnée et ses relations
-                  se sont considérablement améliorées.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Deuil difficile</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Anne*, 50 ans, était figée dans son deuil depuis la perte de sa mère un an plus tôt.
-                  Elle ne parvenait plus à éprouver de joie, s'isolait, et avait perdu tout intérêt
-                  pour ses activités. La tristesse omniprésente l'empêchait de vivre.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 5 séances d'hypnose ericksonienne, nous avons accompagné le processus de deuil en
-                  douceur, en transformant la douleur en souvenirs apaisés et en gratitude. Anne a
-                  retrouvé progressivement goût à la vie tout en gardant un lien serein avec sa mère.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Hypersensibilité envahissante</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir,
-                  elle était vidée, submergée par les émotions des autres au point de ne plus savoir
-                  distinguer les siennes. Son hypersensibilité devenait un handicap professionnel.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 3 séances, nous avons installé une &laquo;&nbsp;bulle de protection émotionnelle&nbsp;&raquo;
-                  lui permettant de rester empathique sans être envahie. Sarah continue d'exercer
-                  avec passion, mais sans se vider émotionnellement.
-                </p>
-              </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
+          <div className="sp-cases">
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Colères incontrôlables</div>
+              <p>
+                David*, chef de projet, explosait régulièrement au travail et à la maison. Ses accès
+                de colère disproportionnés abîmaient ses relations avec sa compagne et ses collègues.
+              </p>
+              <p>
+                En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié l'origine
+                de cette colère — une blessure d'enfance non traitée — et retraité la mémoire
+                émotionnelle. David réagit désormais de manière proportionnée.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Deuil difficile</div>
+              <p>
+                Anne*, 50 ans, était figée dans son deuil depuis la perte de sa mère un an plus tôt.
+                Elle ne parvenait plus à éprouver de joie, s'isolait, et avait perdu tout intérêt
+                pour ses activités.
+              </p>
+              <p>
+                En 5 séances d'hypnose ericksonienne, nous avons accompagné le processus de deuil en
+                douceur, en transformant la douleur en souvenirs apaisés. Anne a retrouvé progressivement goût à la vie.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Hypersensibilité envahissante</div>
+              <p>
+                Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir,
+                elle était vidée, submergée par les émotions des autres au point de ne plus savoir
+                distinguer les siennes.
+              </p>
+              <p>
+                En 3 séances, nous avons installé une &laquo;&nbsp;bulle de protection émotionnelle&nbsp;&raquo;
+                lui permettant de rester empathique sans être envahie. Sarah continue d'exercer
+                avec passion, sans se vider émotionnellement.
+              </p>
+            </div>
           </div>
+          <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
       </section>
 
       {/* Témoignage */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <blockquote className="relative bg-rose-50 p-8 rounded-xl">
-              <div className="absolute top-4 left-6 text-6xl text-rose-200 font-serif leading-none">"</div>
-              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
-                Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines
-                croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre.
-                Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.
-              </p>
-              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Edward, avis Google vérifié</footer>
-            </blockquote>
-          </div>
+      <section className="sp-section">
+        <div className="container sp-narrow">
+          <blockquote className="sp-quote reveal">
+            <p>
+              Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines
+              croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre.
+              Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.
+            </p>
+            <footer>— Edward, avis Google vérifié</footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* Résultats */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Retrouvez la paix intérieure
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-rose-600 mb-2">3-5</div>
-                <p className="text-gray-700">séances pour un équilibre émotionnel durable</p>
+      {/* Stats */}
+      <section className="sp-section sp-section--cobalt">
+        <div className="container sp-narrow">
+          <div className="sp-stats">
+            {[
+              { value: '3-5', label: 'séances pour un équilibre émotionnel durable' },
+              { value: '100%', label: 'personnalisé selon votre vécu et vos émotions' },
+              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+            ].map((s, i) => (
+              <div key={i} className="sp-stat reveal">
+                <div className="sp-stat__val">{s.value}</div>
+                <p>{s.label}</p>
               </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-rose-600 mb-2">100%</div>
-                <p className="text-gray-700">personnalisé selon votre vécu et vos émotions</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-rose-600 mb-2">5/5</div>
-                <p className="text-gray-700">note moyenne sur plus de 40 avis vérifiés</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <SpecialtyFAQ
-        items={emotionsFaqItems}
-        title="Questions fréquentes sur l'hypnose et les émotions"
-        accentColor="text-rose-500"
-        pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
-      />
-
-      <SpecialtyBlogArticles
-        keywords={["émotion", "colère", "amoureux", "deuil"]}
-        categories={["Gestion des émotions & bien-être"]}
-        title="Articles sur la gestion des émotions"
-        accentColor="text-rose-600"
-      />
-
-      <SpecialtyReferences
-        pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
-        pageTitle="Hypnose et gestion des émotions à Paris"
-        pageDescription="Hypnose ericksonienne pour la régulation émotionnelle, l'hypersensibilité, la colère et le deuil au cabinet Paris 4ème."
-        topic="la gestion des émotions"
-        dateModified="2026-05-06"
-        references={[
-          {
-            authors: "Inserm",
-            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
-            source: "Rapport d'expertise collective",
-            year: 2015,
-            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
-          },
-          {
-            authors: "Vanhaudenhuyse A, Laureys S, Faymonville ME",
-            title: "Neurophysiology of hypnosis",
-            source: "Neurophysiologie Clinique / Clinical Neurophysiology",
-            year: 2014,
-            url: "https://pubmed.ncbi.nlm.nih.gov/24502922/",
-          },
-          {
-            authors: "Lynn SJ, Kirsch I, Hallquist MN",
-            title: "Social cognitive theories of hypnosis",
-            source: "Oxford Handbook of Hypnosis",
-            year: 2008,
-            url: "https://pubmed.ncbi.nlm.nih.gov/18687481/",
-          },
-        ]}
-      />
-
-      {/* CTA final */}
-      <section className="py-16 md:py-20 bg-rose-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Reprenez le contrôle de vos émotions
-            </h2>
-            <p className="text-xl text-rose-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-rose-600 rounded-lg font-bold text-lg transition-all shadow-lg"
-              >
-                <Calendar size={22} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-rose-500 hover:bg-rose-400 text-white rounded-lg font-bold text-lg transition-all shadow-lg border border-rose-400"
-              >
-                <Phone size={22} />
-                06 49 35 80 89
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-rose-100">
-              <Link to="/hypnose-stress-anxiete-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et stress <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-blocages-paris" className="hover:text-white underline flex items-center gap-1">
-                Blocages et comportements <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-confiance-en-soi-paris" className="hover:text-white underline flex items-center gap-1">
-                Confiance en soi <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-phobies-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et phobies <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et sommeil <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-professionnels-paris" className="hover:text-white underline flex items-center gap-1">
-                Stress au travail <ArrowRight size={14} />
-              </Link>
-              <Link to="/test-receptivite" className="hover:text-white underline flex items-center gap-1">
-                Tester ma réceptivité <ArrowRight size={14} />
-              </Link>
-              <Link to="/blog" className="hover:text-white underline flex items-center gap-1">
-                Blog hypnose <ArrowRight size={14} />
-              </Link>
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les émotions</h2>
+          <div>
+            {emotionsFaqItems.map((item, i) => (
+              <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  {item.question}
+                  <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                <div className="faq__a">{item.answer}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </ContentLayout>
+
+      <div className="sp-ext-section">
+        <SpecialtyBlogArticles
+          keywords={["émotion", "colère", "amoureux", "deuil"]}
+          title="Articles sur les émotions"
+          accentColor="text-rose-600"
+        />
+      </div>
+
+      <div className="sp-ext-section">
+        <SpecialtyReferences
+          pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
+          pageTitle="Hypnose gestion des émotions à Paris"
+          pageDescription="Hypnose ericksonienne pour la gestion des émotions : colère, hypersensibilité, deuil, frustration. Cabinet Paris 4ème."
+          topic="la gestion des émotions"
+          dateModified="2026-05-06"
+          references={[
+            {
+              authors: "Inserm",
+              title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+              source: "Rapport d'expertise collective",
+              year: 2015,
+              url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+            },
+            {
+              authors: "Hammond DC",
+              title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
+              source: "Expert Review of Neurotherapeutics",
+              year: 2010,
+              url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
+            },
+          ]}
+        />
+      </div>
+
+      {/* CTA Final */}
+      <section className="sp-cta-final">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Retrouvez la paix intérieure</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <div className="hero__cta" style={{justifyContent:'center'}}>
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
+               style={{background:'var(--lin)', color:'var(--cobalt)'}}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
+          </div>
+          <div className="sp-links">
+            <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
+            <Link to="/hypnose-phobies-paris">Hypnose et phobies →</Link>
+            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
+            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
+            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
+            <Link to="/test-receptivite">Tester ma réceptivité →</Link>
+            <Link to="/blog">Blog hypnose →</Link>
+          </div>
+        </div>
+      </section>
+    </CzLayout>
   );
 };
 

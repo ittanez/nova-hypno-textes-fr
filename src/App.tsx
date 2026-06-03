@@ -55,6 +55,7 @@ const AutohypnoseQuestionnaire = lazy(() => import("@/pages/autohypnose/Question
 // Test de réceptivité
 const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
 const TestReceptiviteTest = lazy(() => import("@/pages/TestReceptiviteTest"));
+const PreviewCharteTestReceptivite = lazy(() => import("@/pages/PreviewCharteTestReceptivite"));
 
 // Zone d'intervention
 const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
@@ -169,7 +170,7 @@ function App() {
             <Route path="/autohypnose-questionnaire" element={<AutohypnoseQuestionnaire />} />
 
             {/* Test de réceptivité */}
-            <Route path="/test-receptivite" element={<TestReceptiviteTest />} />
+            <Route path="/test-receptivite" element={<PreviewCharteTestReceptivite />} />
             <Route path="/test-receptivite-archive" element={<TestReceptivite />} />
 
             {/* Zone d'intervention */}

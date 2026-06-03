@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import ContentLayout from '@/components/layout/ContentLayout';
-import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { blocagesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
-import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+
+const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
 const HypnoseBlocagesParis = () => {
   const { openResalibPopup } = useResalibPopup();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -59,8 +59,17 @@ const HypnoseBlocagesParis = () => {
     }))
   };
 
+  const blocages = [
+    { title: "Procrastination", desc: "Vous repoussez constamment les tâches importantes, même quand vous en connaissez les conséquences" },
+    { title: "Schémas répétitifs", desc: "Vous reproduisez toujours les mêmes erreurs dans vos relations, votre travail ou vos choix de vie" },
+    { title: "Onychophagie", desc: "Vous vous rongez les ongles compulsivement, souvent sans même vous en rendre compte" },
+    { title: "TOC et rituels", desc: "Comportements répétitifs, vérifications excessives, pensées obsessionnelles envahissantes" },
+    { title: "Blocages professionnels", desc: "Incapacité à passer à l'action, peur de réussir ou de l'échec, auto-sabotage" },
+    { title: "Addictions comportementales", desc: "Écrans, jeux, achats compulsifs… des comportements dont vous ne parvenez pas à vous défaire" }
+  ];
+
   return (
-    <ContentLayout>
+    <CzLayout>
       <Helmet>
         <title>Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti</title>
         <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
@@ -87,357 +96,258 @@ const HypnoseBlocagesParis = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-50 to-cyan-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-teal-600 mb-2">Blocages et troubles du comportement</span>
-              <span className="block">Libérez-vous par l'hypnose à Paris</span>
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Vous procrastinez, vous répétez les mêmes erreurs, vous n'arrivez pas à changer
-              malgré votre volonté ? Ces comportements ne sont pas un choix — ce sont des
-              <strong> programmes inconscients</strong> que l'hypnose peut débloquer, au cabinet à
-              Paris 4ème ou en <strong>visio partout en France</strong>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
-              >
-                <Calendar size={20} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-lg font-semibold transition-all shadow-md border border-gray-200"
-              >
-                <Phone size={20} />
-                06 49 35 80 89
-              </a>
-            </div>
+      <section className="sp-hero">
+        <div className="sp-hero__bg" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+            <g filter="url(#riso-full)">
+              <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
+            </g>
+            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+              <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
+            </g>
+            <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
+          </svg>
+        </div>
+        <div className="container sp-hero__inner reveal">
+          <div className="tag">Blocages &amp; Comportements — Paris</div>
+          <h1 className="sp-hero__h1">
+            Libérez-vous de vos blocages<br/><em>par l'hypnose</em>
+          </h1>
+          <p className="sp-hero__lead">
+            Vous procrastinez, vous répétez les mêmes erreurs, vous n'arrivez pas à changer
+            malgré votre volonté ? Ces comportements ne sont pas un choix — ce sont des
+            <strong> programmes inconscients</strong> que l'hypnose peut débloquer, au cabinet à
+            Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
         </div>
       </section>
 
       {/* Le problème */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Vous êtes bloqué(e) malgré votre volonté ?
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Vous savez exactement ce que vous devriez faire, mais vous n'y arrivez pas. Vous repoussez
-                sans cesse ce qui est important. Vous répétez les mêmes schémas relationnels ou professionnels.
-                Vous avez des comportements que vous aimeriez changer — vous ronger les ongles, des tics,
-                des habitudes compulsives — mais c'est plus fort que vous.
-              </p>
-              <p>
-                Ce n'est ni de la paresse, ni un manque de volonté. Ces comportements sont <strong>pilotés
-                par votre inconscient</strong>. Ils répondent à un besoin profond — souvent de protection
-                ou de réconfort — que votre conscient ne perçoit pas. C'est pour ça que la volonté seule
-                ne suffit pas.
-              </p>
-              <p>
-                L'hypnose va directement à la source : elle dialogue avec l'inconscient pour comprendre
-                le besoin caché derrière le comportement et proposer une alternative plus adaptée.
-              </p>
-            </div>
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Vous êtes bloqué(e) malgré votre volonté ?</h2>
+          <div className="sp-prose">
+            <p>
+              Vous savez exactement ce que vous devriez faire, mais vous n'y arrivez pas. Vous repoussez
+              sans cesse ce qui est important. Vous répétez les mêmes schémas relationnels ou professionnels.
+            </p>
+            <p>
+              Ce n'est ni de la paresse, ni un manque de volonté. Ces comportements sont <strong>pilotés
+              par votre inconscient</strong>. Ils répondent à un besoin profond — souvent de protection
+              ou de réconfort — que votre conscient ne perçoit pas. C'est pour ça que la volonté seule
+              ne suffit pas.
+            </p>
+            <p>
+              L'hypnose va directement à la source : elle dialogue avec l'inconscient pour comprendre
+              le besoin caché derrière le comportement et proposer une alternative plus adaptée.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Types de blocages */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Les blocages et troubles que je traite
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: "Procrastination", desc: "Vous repoussez constamment les tâches importantes, même quand vous en connaissez les conséquences" },
-                { title: "Schémas répétitifs", desc: "Vous reproduisez toujours les mêmes erreurs dans vos relations, votre travail ou vos choix de vie" },
-                { title: "Onychophagie", desc: "Vous vous rongez les ongles compulsivement, souvent sans même vous en rendre compte" },
-                { title: "TOC et rituels", desc: "Comportements répétitifs, vérifications excessives, pensées obsessionnelles envahissantes" },
-                { title: "Blocages professionnels", desc: "Incapacité à passer à l'action, peur de réussir ou de l'échec, auto-sabotage" },
-                { title: "Addictions comportementales", desc: "Écrans, jeux, achats compulsifs… des comportements dont vous ne parvenez pas à vous défaire" }
-              ].map((item, index) => (
-                <div key={index} className="bg-white p-5 rounded-lg shadow-sm border border-gray-100">
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Les blocages et troubles que je traite</h2>
+          <div className="sp-grid-2">
+            {blocages.map((b, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{b.title}</div>
+                <div className="sp-card__desc">{b.desc}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Comment l'hypnose agit */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Comment l'hypnose débloque vos comportements
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                L'hypnose ericksonienne ne combat pas le comportement — elle le rend inutile en traitant
-                sa cause. En état d'hypnose, je vous guide pour :
-              </p>
-            </div>
-
-            <div className="space-y-4 mt-8">
-              {[
-                "Identifier le besoin inconscient qui maintient le comportement",
-                "Retraiter les expériences à l'origine du blocage",
-                "Remplacer les automatismes dysfonctionnels par de nouvelles réponses",
-                "Briser les schémas répétitifs en créant de nouveaux circuits mentaux",
-                "Retrouver la capacité d'agir et de passer à l'action",
-                "Ancrer de nouveaux comportements qui deviennent naturels"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
+      {/* Comment l'hypnose débloque */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Comment l'hypnose débloque vos comportements</h2>
+          <div className="sp-prose">
+            <p>
+              L'hypnose ericksonienne ne combat pas le comportement — elle le rend inutile en traitant
+              sa cause. En état d'hypnose, je vous guide pour :
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Mon approche */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Mon approche pour libérer vos blocages
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème.
-                Les blocages et les troubles du comportement sont des problématiques que je traite
-                quotidiennement au cabinet. Mon approche est sans jugement et entièrement personnalisée.
-              </p>
-              <p>
-                Lors de la première séance, nous explorons ensemble le comportement qui vous pose problème :
-                quand il est apparu, ce qui le déclenche, ce que vous avez déjà essayé. Ensuite, en hypnose,
-                nous allons chercher la <strong>fonction cachée</strong> de ce comportement pour proposer
-                à votre inconscient une meilleure solution.
-              </p>
-              <p>
-                Je combine l'hypnose ericksonienne avec des techniques de PNL pour maximiser l'efficacité.
-                Vous repartirez aussi avec des <strong>outils d'auto-hypnose</strong> pour consolider
-                le travail entre les séances.
-              </p>
-            </div>
+          <div className="sp-checklist">
+            {[
+              "Identifier le besoin inconscient qui maintient le comportement",
+              "Retraiter les expériences à l'origine du blocage",
+              "Remplacer les automatismes dysfonctionnels par de nouvelles réponses",
+              "Briser les schémas répétitifs en créant de nouveaux circuits mentaux",
+              "Retrouver la capacité d'agir et de passer à l'action",
+              "Ancrer de nouveaux comportements qui deviennent naturels"
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Cas concrets */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Exemples de parcours au cabinet
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Procrastination chronique</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Vincent*, développeur freelance, repoussait systématiquement ses projets importants.
-                  Malgré des deadlines serrées, il se retrouvait à faire tout sauf ce qu'il devait faire.
-                  Ce schéma récurrent menaçait sa carrière et générait une culpabilité permanente.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 3 séances d'hypnose dans mon cabinet Paris 4ème, nous avons découvert que sa
-                  procrastination cachait une peur de l'échec liée à des attentes parentales trop élevées.
-                  Une fois cette croyance transformée, Vincent a retrouvé sa productivité naturelle
-                  et la satisfaction d'avancer sur ses projets.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Schémas relationnels répétitifs</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Caroline*, 38 ans, enchaînait les relations avec le même profil de partenaire et
-                  la même issue douloureuse. Elle savait que quelque chose se répétait mais ne
-                  comprenait pas pourquoi, malgré un travail en psychothérapie.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 4 séances, l'hypnose a permis d'identifier et de transformer un schéma
-                  inconscient hérité de la dynamique familiale. Caroline a pu enfin choisir
-                  différemment et construire une relation épanouissante.
-                </p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-teal-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Peur du changement</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Antoine*, 45 ans, rêvait de quitter son poste pour créer son entreprise depuis
-                  10 ans. Chaque fois qu'il s'en approchait, une peur paralysante le ramenait dans
-                  sa zone de confort. Il se sentait prisonnier d'une vie qui ne lui ressemblait plus.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 5 séances, nous avons travaillé sur ses croyances limitantes autour de la
-                  sécurité et de la réussite, puis ancré les ressources de courage et de confiance
-                  nécessaires. Antoine a lancé son activité six mois plus tard.
-                </p>
-              </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
+          <div className="sp-cases">
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Procrastination chronique</div>
+              <p>
+                Mathieu*, 38 ans, repoussait systématiquement ses projets importants. Entrepreneur, il n'arrivait
+                pas à finaliser son business plan depuis 2 ans. La culpabilité s'accumulait, paralysant encore davantage son action.
+              </p>
+              <p>
+                En 3 séances d'hypnose, nous avons identifié la peur de l'échec qui masquait la procrastination.
+                Mathieu a finalisé son projet le mois suivant et lancé son activité.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Schémas relationnels répétitifs</div>
+              <p>
+                Lucie*, 34 ans, reproduisait toujours le même type de relation toxique. Consciente du
+                schéma, elle ne parvenait pas à s'en défaire — quelque chose en elle cherchait à recréer
+                ce qu'elle connaissait.
+              </p>
+              <p>
+                En 5 séances d'hypnose ericksonienne, nous avons travaillé sur le modèle relationnel installé
+                dans l'enfance. Lucie a pu s'ouvrir à une relation équilibrée et saine.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Onychophagie sévère</div>
+              <p>
+                Clément*, 28 ans, se rongeait les ongles jusqu'au sang depuis l'adolescence. Ce comportement
+                compulsif lui causait de la honte et l'empêchait dans sa vie professionnelle.
+              </p>
+              <p>
+                En 2 séances, nous avons remplacé le geste automatique par une réponse plus adaptée. Clément
+                a cessé de se ronger les ongles dès la première semaine après la séance.
+              </p>
+            </div>
           </div>
+          <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
       </section>
 
       {/* Témoignage */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <blockquote className="relative bg-teal-50 p-8 rounded-xl">
-              <div className="absolute top-4 left-6 text-6xl text-teal-200 font-serif leading-none">"</div>
-              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
-                En quelques séances, avec son accompagnement, ses techniques d'hypnose et sa
-                connaissance de la PNL, j'ai pu me libérer de certains blocages et entamer des
-                changements pérennes. Cela m'a fait beaucoup de bien.
-              </p>
-              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Philippe A., avis Google vérifié</footer>
-            </blockquote>
-          </div>
+      <section className="sp-section">
+        <div className="container sp-narrow">
+          <blockquote className="sp-quote reveal">
+            <p>
+              Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de
+              déterminer les axes de travail, les points d'amélioration, les émotions limitantes.
+              En quelques séances, j'ai pu me libérer de certains blocages et entamer des
+              changements pérennes.
+            </p>
+            <footer>— Philippe A., avis Google vérifié</footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* Résultats */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Changez enfin ce qui semblait impossible
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-teal-600 mb-2">3-5</div>
-                <p className="text-gray-700">séances pour débloquer les comportements les plus ancrés</p>
+      {/* Stats */}
+      <section className="sp-section sp-section--cobalt">
+        <div className="container sp-narrow">
+          <div className="sp-stats">
+            {[
+              { value: '3-5', label: 'séances pour briser les schémas répétitifs et libérer vos blocages' },
+              { value: '100%', label: 'personnalisé selon votre blocage spécifique et son histoire' },
+              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+            ].map((s, i) => (
+              <div key={i} className="sp-stat reveal">
+                <div className="sp-stat__val">{s.value}</div>
+                <p>{s.label}</p>
               </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-teal-600 mb-2">100%</div>
-                <p className="text-gray-700">personnalisé selon votre blocage et votre histoire</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-teal-600 mb-2">5/5</div>
-                <p className="text-gray-700">note moyenne sur plus de 40 avis vérifiés</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <SpecialtyFAQ
-        items={blocagesFaqItems}
-        title="Questions fréquentes sur l'hypnose et les blocages"
-        accentColor="text-teal-500"
-        pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
-      />
-
-      <SpecialtyBlogArticles
-        keywords={["blocage", "potentiel", "zone de confort", "procrastin"]}
-        title="Articles sur les blocages"
-        accentColor="text-teal-600"
-      />
-
-      <SpecialtyReferences
-        pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
-        pageTitle="Hypnose pour les blocages personnels à Paris"
-        pageDescription="Hypnose ericksonienne pour lever les blocages décisionnels, les schémas répétitifs et les freins inconscients au cabinet Paris 4ème."
-        topic="les blocages personnels et schémas répétitifs"
-        dateModified="2026-05-06"
-        references={[
-          {
-            authors: "Inserm",
-            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
-            source: "Rapport d'expertise collective",
-            year: 2015,
-            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
-          },
-          {
-            authors: "Lynn SJ, Kirsch I, Barabasz A, Cardeña E, Patterson D",
-            title: "Hypnosis as an empirically supported clinical intervention: The state of the evidence and a look to the future",
-            source: "International Journal of Clinical and Experimental Hypnosis",
-            year: 2000,
-            url: "https://pubmed.ncbi.nlm.nih.gov/10769981/",
-          },
-          {
-            authors: "Vanhaudenhuyse A, Laureys S, Faymonville ME",
-            title: "Neurophysiology of hypnosis",
-            source: "Neurophysiologie Clinique / Clinical Neurophysiology",
-            year: 2014,
-            url: "https://pubmed.ncbi.nlm.nih.gov/24502922/",
-          },
-        ]}
-      />
-
-      {/* CTA final */}
-      <section className="py-16 md:py-20 bg-teal-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Libérez-vous de vos blocages
-            </h2>
-            <p className="text-xl text-teal-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-teal-600 rounded-lg font-bold text-lg transition-all shadow-lg"
-              >
-                <Calendar size={22} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-500 hover:bg-teal-400 text-white rounded-lg font-bold text-lg transition-all shadow-lg border border-teal-400"
-              >
-                <Phone size={22} />
-                06 49 35 80 89
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-teal-100">
-              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline flex items-center gap-1">
-                Gestion des émotions <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-stress-anxiete-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et stress <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-confiance-en-soi-paris" className="hover:text-white underline flex items-center gap-1">
-                Confiance en soi <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-phobies-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et phobies <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et sommeil <ArrowRight size={14} />
-              </Link>
-              <Link to="/test-receptivite" className="hover:text-white underline flex items-center gap-1">
-                Tester ma réceptivité <ArrowRight size={14} />
-              </Link>
-              <Link to="/blog" className="hover:text-white underline flex items-center gap-1">
-                Blog hypnose <ArrowRight size={14} />
-              </Link>
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les blocages</h2>
+          <div>
+            {blocagesFaqItems.map((item, i) => (
+              <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  {item.question}
+                  <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                <div className="faq__a">{item.answer}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </ContentLayout>
+
+      <div className="sp-ext-section">
+        <SpecialtyBlogArticles
+          keywords={["blocage", "procrastination", "comportement"]}
+          title="Articles sur les blocages et comportements"
+          accentColor="text-teal-600"
+        />
+      </div>
+
+      <div className="sp-ext-section">
+        <SpecialtyReferences
+          pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
+          pageTitle="Hypnose pour les blocages à Paris"
+          pageDescription="Hypnose ericksonienne pour traiter les blocages, la procrastination et les troubles du comportement au cabinet Paris 4ème."
+          topic="les blocages et troubles du comportement"
+          dateModified="2026-05-06"
+          references={[
+            {
+              authors: "Inserm",
+              title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+              source: "Rapport d'expertise collective",
+              year: 2015,
+              url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+            },
+            {
+              authors: "Lynn SJ, Laurence JR, Kirsch I",
+              title: "Hypnosis, Suggestion, and Suggestibility: An Integrative Model",
+              source: "American Journal of Clinical Hypnosis",
+              year: 2015,
+              url: "https://pubmed.ncbi.nlm.nih.gov/26046713/",
+            },
+          ]}
+        />
+      </div>
+
+      {/* CTA Final */}
+      <section className="sp-cta-final">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Prêt à vous libérer de vos blocages ?</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <div className="hero__cta" style={{justifyContent:'center'}}>
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
+               style={{background:'var(--lin)', color:'var(--cobalt)'}}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
+          </div>
+          <div className="sp-links">
+            <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
+            <Link to="/hypnose-phobies-paris">Hypnose et phobies →</Link>
+            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
+            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
+            <Link to="/test-receptivite">Tester ma réceptivité →</Link>
+            <Link to="/blog">Blog hypnose →</Link>
+          </div>
+        </div>
+      </section>
+    </CzLayout>
   );
 };
 
