@@ -9,6 +9,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleBySlug, getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
 import type { Article } from '@/lib/types/blog';
+import { safeJSONStringify } from '@/lib/seo-utils';
 import '@/styles/preview-charte.css';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -71,8 +72,34 @@ const PreviewCharteBlogArticle: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{article ? `${article.title} — aperçu charte` : 'Article — aperçu charte'} | NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>{article ? `${article.title} | NovaHypnose` : 'Article | NovaHypnose'}</title>
+        {article && <meta name="description" content={article.seo_description || article.excerpt || ''} />}
+        <meta name="robots" content="index, follow" />
+        {article && <link rel="canonical" href={`https://novahypnose.fr/blog/article/${article.slug}`} />}
+        {article && <meta property="og:title" content={article.title} />}
+        {article && <meta property="og:description" content={article.seo_description || article.excerpt || ''} />}
+        <meta property="og:type" content="article" />
+        {article && <meta property="og:url" content={`https://novahypnose.fr/blog/article/${article.slug}`} />}
+        {article?.image_url && <meta property="og:image" content={article.image_url} />}
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <meta name="twitter:card" content="summary_large_image" />
+        {article && (
+          <script type="application/ld+json">{safeJSONStringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": article.title,
+            "description": article.seo_description || article.excerpt || "",
+            "image": article.image_url || "",
+            "datePublished": article.published_at || article.created_at,
+            "dateModified": article.updated_at || article.published_at || article.created_at,
+            "author": { "@type": "Person", "name": "Alain Zenatti", "@id": "https://novahypnose.fr/#person" },
+            "publisher": { "@type": "Organization", "name": "NovaHypnose", "@id": "https://novahypnose.fr/#localbusiness" },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": `https://novahypnose.fr/blog/article/${article.slug}` },
+            "keywords": Array.isArray(article.keywords) ? article.keywords.join(", ") : "",
+            "url": `https://novahypnose.fr/blog/article/${article.slug}`,
+          })}</script>
+        )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -102,7 +129,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
         {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
-            <Link className="brand" to="/preview-charte">
+            <Link className="brand" to="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </Link>
             <button
@@ -114,8 +141,8 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <Link to="/preview-charte-blog">← Le journal</Link>
-              <Link to="/preview-charte">Accueil</Link>
+              <Link to="/blog">← Blog</Link>
+              <Link to="/">Accueil</Link>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>
@@ -135,7 +162,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
           <section className="article-loading">
             <div className="container">
               <p className="blog-empty">Impossible de charger cet article pour le moment.</p>
-              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au journal</Link>
+              <Link to="/blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au blog</Link>
             </div>
           </section>
         )}
@@ -144,7 +171,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
           <section className="article-loading">
             <div className="container">
               <p className="blog-empty">Article introuvable.</p>
-              <Link to="/preview-charte-blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au journal</Link>
+              <Link to="/blog" className="btn btn--ghost" style={{ marginTop: 16 }}>← Retour au blog</Link>
             </div>
           </section>
         )}
@@ -154,7 +181,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {/* ── HERO ARTICLE ── */}
             <section className="article-hero">
               <div className="container article-hero__inner reveal">
-                <div className="section-tag">Le journal</div>
+                <div className="section-tag">Blog</div>
                 <h1 className="article-hero__title">{article.title}</h1>
                 <div className="article-meta">
                   <span>{formatDate(article.published_at || article.created_at)}</span>
@@ -207,7 +234,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                   <div className="blog-grid">
                     {relatedArticles.map((a, i) => (
                       <Link
-                        to={`/preview-charte-blog/article/${a.slug}`}
+                        to={`/blog/article/${a.slug}`}
                         key={a.id}
                         className="blog-card reveal"
                         style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
@@ -247,7 +274,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>
             <div className="foot__copy">
-              © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+              © NovaHypnose · Alain Zenatti <em>— le blog, en aperçu</em> · MMXXVI
             </div>
           </div>
         </footer>

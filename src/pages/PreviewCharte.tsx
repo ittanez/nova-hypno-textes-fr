@@ -9,8 +9,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
+import { safeJSONStringify } from '@/lib/seo-utils';
+import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
+const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
   { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
@@ -25,6 +28,7 @@ const domaines = [
 ];
 
 const faq = [
+  { q: 'Comment fonctionne l\'hypnose ?', a: "L'hypnose ericksonienne s'appuie sur un état naturel que votre cerveau connaît déjà — une forme de concentration absorbée, proche de ce qu'on ressent lorsqu'on est plongé dans un livre ou dans ses pensées. Dans cet état, le mental critique s'apaise et l'inconscient devient plus accessible. Ce n'est pas un état de transe mystérieux : vous restez présent, conscient, en dialogue. Le thérapeute vous guide avec des suggestions douces, adaptées à votre vécu, pour que vos propres ressources se mobilisent." },
   { q: 'Comment se déroule une séance ?', a: "Un échange pour comprendre ce qui vous amène, puis un temps d'hypnose dans un état de profonde détente. Vous restez présent, à chaque instant." },
   { q: 'Vais-je garder le contrôle ?', a: "Toujours. L'hypnose ericksonienne est un dialogue permissif : vous ne ferez jamais rien qui aille contre vos valeurs. Vous gardez le contrôle du début à la fin." },
   { q: 'En combien de séances ?', a: "L'hypnose est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement en 3 à 5 séances. Des changements concrets, sans exploration sans fin." },
@@ -41,9 +45,31 @@ const anonymizeName = (full: string): string => {
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [sent, setSent] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
+
+  // Contact form
+  const [nom, setNom] = useState('');
+  const [email, setEmail] = useState('');
+  const [tel, setTel] = useState('');
+  const [message, setMessage] = useState('');
+  const [contactStatus, setContactStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleContact = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nom || !email || !message) return;
+    setContactStatus('loading');
+    try {
+      const res = await fetch(CONTACT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nom, email, tel, message }),
+      });
+      setContactStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setContactStatus('error');
+    }
+  };
 
   useEffect(() => {
     const root = rootRef.current;
@@ -63,17 +89,62 @@ const PreviewCharte: React.FC = () => {
     return () => io.disconnect();
   }, []);
 
+  // Scroll vers l'ancre quand on arrive depuis une autre page (ex. /#about)
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const scrollToHash = () => {
+      const el = document.getElementById(hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const t = window.setTimeout(scrollToHash, 120);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Aperçu charte — NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
+        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, auto-hypnose paris, hypnose en ligne, hypnose visio" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Résultats en 3 à 5 séances." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Alain Zenatti, hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+
+        <link rel="canonical" href="https://novahypnose.fr" />
+        <link rel="alternate" hreflang="fr" href="https://novahypnose.fr" />
+        <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+
+        {/* Structured Data JSON-LD */}
+        <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <div className="cz" ref={rootRef}>
@@ -114,9 +185,10 @@ const PreviewCharte: React.FC = () => {
               <a href="#cabinet">Le cabinet</a>
               <a href="#visio">En visio</a>
               <a href="#domaines">Accompagnement</a>
+              <a href="#sessions">Séances</a>
               <a href="#temoignages">Avis</a>
-              <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
-              <a href="/preview-charte-blog">Le journal ↗</a>
+              <a href="/autohypnose">Auto-hypnose ↗</a>
+              <a href="/blog">Blog ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -157,7 +229,7 @@ const PreviewCharte: React.FC = () => {
                 Un accompagnement pour avancer <em>plus léger</em>.
               </p>
               <div className="hero__sub">
-                Maître Praticien en Hypnose Ericksonienne · Adultes
+                Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -189,7 +261,7 @@ const PreviewCharte: React.FC = () => {
                 Vous accueillir,<br /><em>simplement.</em>
               </h2>
               <p>
-                Je suis Alain Zenatti, Maître Praticien en hypnose ericksonienne. Je reçois les
+                Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
                 adultes dans un cadre confidentiel et bienveillant, au cœur de Paris.
               </p>
               <p>
@@ -416,6 +488,55 @@ const PreviewCharte: React.FC = () => {
           </div>
         </section>
 
+        {/* ── DÉROULÉ D'UNE SÉANCE ── */}
+        <section className="seances-sect" id="sessions">
+          <div className="container">
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <div className="section-tag" style={{ justifyContent: 'center' }}>Transparence</div>
+              <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
+              <p style={{ maxWidth: 560, margin: '1rem auto 0', lineHeight: 1.8, opacity: .8 }}>
+                Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
+                clair, expliqué pas à pas — aucune surprise.
+              </p>
+            </div>
+
+            <div className="seances__steps reveal" style={{ transitionDelay: '.1s' }}>
+              {[
+                {
+                  num: '01',
+                  title: 'Échange et cadrage',
+                  desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
+                },
+                {
+                  num: '02',
+                  title: 'Induction guidée',
+                  desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
+                },
+                {
+                  num: '03',
+                  title: 'Retour et débriefing',
+                  desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
+                },
+              ].map((step) => (
+                <div key={step.num} className="seance-step">
+                  <div className="seance-step__num">{step.num}</div>
+                  <div className="seance-step__body">
+                    <div className="seance-step__head">
+                      <strong className="seance-step__title">{step.title}</strong>
+                    </div>
+                    <p className="seance-step__desc">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal seance-promesse" style={{ transitionDelay: '.2s' }}>
+              <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
+              Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
+            </div>
+          </div>
+        </section>
+
         {/* ── FAQ ── */}
         <section className="faq-sect" id="faq">
           <div className="container">
@@ -464,89 +585,52 @@ const PreviewCharte: React.FC = () => {
             <form
               className="contact__form reveal"
               style={{ transitionDelay: '.2s' }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleContact}
             >
               <div className="field">
-                <label htmlFor="cz-nom">Votre nom</label>
-                <input id="cz-nom" type="text" placeholder="Marie Dupont" required />
+                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <input
+                  id="cz-nom" type="text" placeholder="Marie Dupont" required
+                  value={nom} onChange={(e) => setNom(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
-                <label htmlFor="cz-email">Email</label>
-                <input id="cz-email" type="email" placeholder="marie@exemple.fr" required />
+                <label htmlFor="cz-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <input
+                  id="cz-email" type="email" placeholder="marie@exemple.fr" required
+                  value={email} onChange={(e) => setEmail(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
                 <label htmlFor="cz-tel">Téléphone</label>
-                <input id="cz-tel" type="tel" placeholder="06 12 34 56 78" />
+                <input
+                  id="cz-tel" type="tel" placeholder="06 12 34 56 78"
+                  value={tel} onChange={(e) => setTel(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                />
               </div>
               <div className="field">
-                <label htmlFor="cz-msg">Message</label>
-                <textarea id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}></textarea>
+                <label htmlFor="cz-msg">Message <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <textarea
+                  id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}
+                  value={message} onChange={(e) => setMessage(e.target.value)}
+                  disabled={contactStatus === 'loading' || contactStatus === 'success'}
+                ></textarea>
               </div>
-              <button className="btn btn--amber" type="submit">Envoyer <span className="arrow">→</span></button>
-              {sent && <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>}
-            </form>
-          </div>
-        </section>
-
-        {/* ── CHARTE — palette & typographie ── */}
-        <section className="charte" id="charte">
-          <div className="container">
-            <div className="reveal">
-              <div className="section-tag">Charte graphique</div>
-              <h2 className="section-title">Le langage <em>de la marque.</em></h2>
-            </div>
-
-            <div className="charte__grid">
-              <div className="reveal" style={{ transitionDelay: '.1s' }}>
-                <div className="charte__block-label">① Palette risographie</div>
-                <div className="swatches">
-                  <div className="swatch swatch--filtered" style={{ background: '#F2A12E', color: '#1C2B4A' }}>
-                    <div><div className="swatch__name">Ambre</div><div className="swatch__hex">#F2A12E</div></div>
-                    <div className="swatch__role">Chaleur, éveil</div>
-                  </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#2B4BA0', color: '#F0ECE3' }}>
-                    <div><div className="swatch__name">Cobalt</div><div className="swatch__hex">#2B4BA0</div></div>
-                    <div className="swatch__role">Profondeur, calme</div>
-                  </div>
-                  <div className="swatch swatch--filtered" style={{ background: '#8A9BB8', color: '#1C2B4A' }}>
-                    <div><div className="swatch__name">Brume</div><div className="swatch__hex">#8A9BB8</div></div>
-                    <div className="swatch__role">Intersection riso</div>
-                  </div>
-                  <div className="swatch" style={{ background: '#F0ECE3', color: '#1C2B4A', border: '1px solid rgba(28,43,74,.1)' }}>
-                    <div><div className="swatch__name">Lin</div><div className="swatch__hex">#F0ECE3</div></div>
-                    <div className="swatch__role">Papier, espace</div>
-                  </div>
-                  <div className="swatch" style={{ background: '#1C2B4A', color: '#F0ECE3' }}>
-                    <div><div className="swatch__name">Profond</div><div className="swatch__hex">#1C2B4A</div></div>
-                    <div className="swatch__role">Texte, nuit</div>
-                  </div>
-                </div>
-                <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.7, maxWidth: 520, color: 'var(--corps)', opacity: .8 }}>
-                  Deux encres principales — ambre et cobalt — qui, en se superposant, font apparaître
-                  la brume. Le lin est le papier qui les accueille. Le grain n'est jamais retiré : il
-                  dit que ce qu'on regarde a été <em>imprimé</em>.
+              <button className="btn btn--amber" type="submit" disabled={contactStatus === 'loading' || contactStatus === 'success'}>
+                {contactStatus === 'loading' ? 'Envoi…' : 'Envoyer'} <span className="arrow">→</span>
+              </button>
+              {contactStatus === 'success' && (
+                <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>
+              )}
+              {contactStatus === 'error' && (
+                <p className="contact__success" style={{ background: 'rgba(255,200,200,.2)', color: '#a83232' }}>
+                  Une erreur s'est produite. Écrivez-moi directement à contact@novahypnose.fr ou appelez le 06 49 35 80 89.
                 </p>
-              </div>
-
-              <div className="reveal" style={{ transitionDelay: '.2s' }}>
-                <div className="charte__block-label">② Typographies</div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Light</div>
-                  <div className="typo-row__sample-1">Un sas au milieu de la ville.</div>
-                  <div className="typo-row__role">Titres · accroches · élégance, sérénité, légèreté.</div>
-                </div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Italic · le fil ZEN</div>
-                  <div className="typo-row__sample-2"><em>Zen</em><span className="at">atti</span></div>
-                  <div className="typo-row__role">ZEN en italic cobalt — atti en romain ambre.</div>
-                </div>
-                <div className="typo-row">
-                  <div className="typo-row__label">— DM Sans · Regular</div>
-                  <div className="typo-row__sample-3">Body · Hypnose ericksonienne à Paris. Réservation en ligne.</div>
-                  <div className="typo-row__role">Texte courant · modernité douce, lisibilité.</div>
-                </div>
-              </div>
-            </div>
+              )}
+            </form>
           </div>
         </section>
 
@@ -554,10 +638,6 @@ const PreviewCharte: React.FC = () => {
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
               <a href="/mentions-legales">Mentions légales</a>
-              <span className="foot__sep">·</span>
-              <a href="/mentions-legales#confidentialite">Politique de confidentialité</a>
-              <span className="foot__sep">·</span>
-              <a href="/mentions-legales#cgv">CGV</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>

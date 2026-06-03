@@ -3,7 +3,7 @@
  * Restreint l'accès aux domaines autorisés uniquement
  */
 
-// Domaines autorisés
+// Domaines autorisés (exact match)
 const ALLOWED_ORIGINS = [
   'https://novahypnose.fr',
   'https://www.novahypnose.fr',
@@ -11,12 +11,20 @@ const ALLOWED_ORIGINS = [
   'https://emergences.novahypnose.fr',
 ];
 
+function isOriginPermitted(origin: string): boolean {
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  // Netlify deploy previews + local dev
+  if (origin.endsWith('.netlify.app')) return true;
+  if (origin === 'http://localhost:8080' || origin === 'http://localhost:5173') return true;
+  return false;
+}
+
 /**
  * Génère les headers CORS en fonction de l'origine de la requête
  */
 export function getCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get('origin') || '';
-  const isAllowed = ALLOWED_ORIGINS.includes(origin);
+  const isAllowed = isOriginPermitted(origin);
 
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : ALLOWED_ORIGINS[0],
@@ -30,7 +38,7 @@ export function getCorsHeaders(req: Request): Record<string, string> {
  */
 export function isOriginAllowed(req: Request): boolean {
   const origin = req.headers.get('origin') || '';
-  return ALLOWED_ORIGINS.includes(origin);
+  return isOriginPermitted(origin);
 }
 
 /**

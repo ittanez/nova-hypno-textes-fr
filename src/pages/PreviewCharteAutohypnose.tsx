@@ -73,8 +73,22 @@ const PreviewCharteAutohypnose: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Auto-hypnose — aperçu charte | NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose</title>
+        <meta name="description" content="Apprenez l'auto-hypnose avec Alain Zenatti à Paris : formation en présentiel, accompagnement individuel et formations en entreprise sur devis. Gérez stress, sommeil et émotions en autonomie." />
+        <meta name="robots" content="index, follow" />
+
+        <meta property="og:title" content="Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose" />
+        <meta property="og:description" content="Apprenez l'auto-hypnose avec Alain Zenatti : formation en présentiel, accompagnement individuel et formations en entreprise sur devis." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="canonical" href="https://novahypnose.fr/autohypnose" />
+        <link rel="alternate" hreflang="fr" href="https://novahypnose.fr/autohypnose" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -105,7 +119,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
-            <a className="brand" href="/preview-charte">
+            <a className="brand" href="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
             <button
@@ -117,12 +131,13 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/preview-charte">← Retour</a>
+              <a href="/">Accueil</a>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
               <a href="#formation">Formation</a>
               <a href="#novarespire">L'app</a>
               <a href="#liste">Liste d'attente</a>
+              <a href="/blog">Blog ↗</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>
@@ -138,7 +153,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 <path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#F2A12E" opacity="0.95" />
               </g>
               <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                <path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2B4BA0" opacity="0.92" />
+                <path d="M 360 680 C 480 570, 660 560, 800 620 C 940 680, 1080 680, 1240 640 C 1340 615, 1420 630, 1480 680 L 1480 1040 L 0 1040 L 0 900 C 80 820, 180 760, 360 680 Z" fill="#2B4BA0" opacity="0.92" />
               </g>
               <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".25" />
             </svg>
@@ -170,7 +185,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
             </div>
 
             <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
-              <div className="hero__card-label">La formation Harmonia</div>
+              <div className="hero__card-label">La Formation</div>
               <p className="hero__card-quote">« Une journée pour apprendre à rappeler, seul·e, ce que vous vivez en séance. »</p>
               <div className="hero__card-row"><span>Format</span><span>1 journée · max 6</span></div>
               <div className="hero__card-row"><span>Lieu</span><span>Paris · Bastille</span></div>
@@ -251,7 +266,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
           <div className="container cabinet__grid">
             <div className="cabinet__copy reveal">
               <div className="section-tag">Première voie — apprendre la méthode</div>
-              <h2 className="section-title">La formation <em>Harmonia.</em></h2>
+              <h2 className="section-title">La <em>Formation.</em></h2>
               <p>
                 Une <strong>journée complète</strong> en présentiel, en petit groupe (six personnes
                 maximum), à Paris-Bastille. Le temps d'expérimenter, de comprendre ce qui se passe pour
@@ -371,6 +386,74 @@ const PreviewCharteAutohypnose: React.FC = () => {
           </div>
         </section>
 
+        {/* ── FORMATIONS ENTREPRISE ── */}
+        <section className="visio" id="entreprise">
+          <div className="container cabinet__grid">
+            <div className="cabinet__copy reveal">
+              <div className="section-tag">Troisième voie — organisations &amp; équipes</div>
+              <h2 className="section-title">Formations <em>en entreprise.</em></h2>
+              <p>
+                L'auto-hypnose s'adapte aussi au cadre professionnel. Sur devis, je propose des
+                interventions <strong>sur mesure</strong> pour les équipes, les managers et les
+                organisations souhaitant intégrer des outils de gestion du stress et de la concentration
+                dans leur culture de travail.
+              </p>
+              <p>
+                Ces formations peuvent prendre plusieurs formes : <strong>conférence de sensibilisation</strong>{' '}
+                (1 à 2 h), <strong>atelier pratique collectif</strong> (demi-journée ou journée entière),
+                ou <strong>parcours individuel</strong> pour des collaborateurs clés — en présentiel dans
+                vos locaux ou à Paris, selon vos besoins.
+              </p>
+              <ul style={{ margin: '18px 0 24px', paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {[
+                  'Gestion du stress et de la pression au travail',
+                  'Concentration, préparation mentale avant un enjeu',
+                  'Récupération et qualité du sommeil des équipes',
+                  'Prise de parole, gestion du trac et de la performance',
+                ].map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 10, fontSize: '0.97rem', lineHeight: 1.6 }}>
+                    <span style={{ color: 'var(--amber)', fontSize: '1.1rem', flexShrink: 0 }}>→</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p style={{ fontSize: '0.9rem', color: 'var(--gris)', lineHeight: 1.7 }}>
+                Tarif établi sur devis selon le format, la durée et le nombre de participants.
+                Contactez-moi pour échanger sur vos besoins spécifiques.
+              </p>
+              <div className="hero__cta" style={{ marginTop: 24 }}>
+                <a className="btn btn--primary" href="mailto:contact@novahypnose.fr?subject=Formation%20entreprise%20auto-hypnose">
+                  Demander un devis <span className="arrow">→</span>
+                </a>
+              </div>
+            </div>
+            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 100 100 C 220 50, 400 80, 450 220 C 490 330, 440 430, 380 490 C 300 560, 160 540, 100 440 C 50 350, 60 200, 100 100 Z" fill="#F2A12E" opacity="0.85" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
+                  <path d="M 180 180 C 290 140, 390 190, 400 300 C 410 390, 350 450, 250 445 C 150 440, 110 370, 120 280 C 128 220, 150 200, 180 180 Z" fill="#2B4BA0" opacity="0.88" />
+                </g>
+                {/* Silhouette personnes en cercle */}
+                {[0, 72, 144, 216, 288].map((angle, i) => {
+                  const rad = (angle * Math.PI) / 180;
+                  const cx = 260 + 80 * Math.cos(rad);
+                  const cy = 290 + 70 * Math.sin(rad);
+                  return (
+                    <g key={i}>
+                      <circle cx={cx} cy={cy - 12} r={10} fill="#F0ECE3" opacity="0.8" />
+                      <rect x={cx - 8} y={cy} width={16} height={18} rx={4} fill="#F0ECE3" opacity="0.7" />
+                    </g>
+                  );
+                })}
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".22" />
+              </svg>
+              <div className="cabinet__addr">Formation sur devis · présentiel ou distanciel</div>
+            </div>
+          </div>
+        </section>
+
         {/* ── LISTE D'ATTENTE ── */}
         <section className="contact" id="liste">
           <div className="contact__blob" aria-hidden="true"></div>
@@ -379,7 +462,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <div className="section-tag">Liste d'attente</div>
               <h2 className="section-title">Recevoir <em>la prochaine date.</em></h2>
               <p className="contact__lead">
-                La prochaine session de la formation Harmonia se prépare. Laissez vos coordonnées
+                La prochaine session de La Formation se prépare. Laissez vos coordonnées
                 pour être informé(e) en premier — les places sont limitées à six.
               </p>
               <dl className="contact__dl">
@@ -396,7 +479,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               onSubmit={handleWaitlist}
             >
               <div className="field">
-                <label htmlFor="ah-prenom">Votre prénom</label>
+                <label htmlFor="ah-prenom">Votre prénom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="ah-prenom"
                   type="text"
@@ -408,7 +491,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="ah-email">Email</label>
+                <label htmlFor="ah-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
                 <input
                   id="ah-email"
                   type="email"
@@ -442,10 +525,6 @@ const PreviewCharteAutohypnose: React.FC = () => {
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
               <a href="/mentions-legales">Mentions légales</a>
-              <span className="foot__sep">·</span>
-              <a href="/mentions-legales#confidentialite">Politique de confidentialité</a>
-              <span className="foot__sep">·</span>
-              <a href="/mentions-legales#cgv">CGV</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>

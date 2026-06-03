@@ -190,7 +190,7 @@ const BlogIndex = () => {
         // ✅ GESTION DU CONTENU DUPLIQUÉ
         // URL canonique pointe TOUJOURS vers novahypnose.fr
         url={`${canonicalBaseUrl}/blog`}
-        robots={isEmergencesDomain ? "noindex, nofollow" : "index, follow"}
+        robots="noindex, nofollow"
       />
 
       {/* Hero Section */}

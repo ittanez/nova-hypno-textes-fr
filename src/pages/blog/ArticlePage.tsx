@@ -305,7 +305,7 @@ const ArticlePage = () => {
         // URL canonique pointe TOUJOURS vers novahypnose.fr (même si on est dessus)
         // Si on est sur emergences, on désindexe la page
         url={getCanonicalUrl(article.slug)}
-        robots={isEmergencesDomain ? "noindex, nofollow" : "index, follow"}
+        robots="noindex, nofollow"
       />
 
       <Header />

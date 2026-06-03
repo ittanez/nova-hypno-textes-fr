@@ -9,6 +9,9 @@
   NODE_VERSION = "20"
   VITE_BASE_PATH = "/"
 
+[context.deploy-preview.environment]
+  NETLIFY_SKIP_EDGE_INJECT = "true"
+
 [functions]
   node_bundler = "esbuild"
 
@@ -215,6 +218,40 @@
   from = "/*.txt"
   to = "/:splat.txt"
   status = 200
+  force = true
+
+# ═══════════════════════════════════════════════════════════════════════
+# Redirections 301 — Anciennes URLs de prévisualisation (charte) → URLs de prod
+# La maquette /preview-charte* est devenue le site principal
+# ═══════════════════════════════════════════════════════════════════════
+[[redirects]]
+  from = "/preview-charte"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preview-charte-autohypnose"
+  to = "/autohypnose"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preview-charte-blog/article/*"
+  to = "/blog/article/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preview-charte-blog"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/preview-charte-mentions-legales"
+  to = "/mentions-legales"
+  status = 301
   force = true
 
 # ═══════════════════════════════════════════════════════════════════════

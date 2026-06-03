@@ -24,7 +24,7 @@ const SelfHypnosis = () => {
                 className="inline-flex items-center px-6 py-3 bg-nova-green text-white rounded-lg hover:bg-nova-green-dark transition-colors"
               >
                 <BookOpen className="mr-2" size={20} />
-                <span>Découvrez la formation Harmonia : réduire le stress avec l'auto-hypnose</span>
+                <span>Découvrez La Formation : réduire le stress avec l'auto-hypnose</span>
               </a>
             </div>
           </div>

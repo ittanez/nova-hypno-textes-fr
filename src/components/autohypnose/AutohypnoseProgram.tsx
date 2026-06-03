@@ -126,7 +126,7 @@ const Program = () => {
     <section id="program" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-nova-blue-dark font-serif">
-          Formation auto-hypnose Paris Harmonia : programme détaillé
+          La Formation : programme détaillé
         </h2>
 
         <p className="text-center text-lg text-gray-700 mb-16 max-w-3xl mx-auto">

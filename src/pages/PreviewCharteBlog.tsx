@@ -53,7 +53,6 @@ const PreviewCharteBlog: React.FC = () => {
     if (activeCategory === 'all') return articles;
     return articles.filter((a) => Array.isArray(a.categories) && a.categories.includes(activeCategory));
   }, [articles, activeCategory]);
-
   const featured = filteredArticles[0];
   const rest = filteredArticles.slice(1);
 
@@ -78,8 +77,16 @@ const PreviewCharteBlog: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Le journal — aperçu charte | NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Blog hypnose & bien-être — NovaHypnose | Alain Zenatti</title>
+        <meta name="description" content="Articles sur l'hypnose ericksonienne, l'auto-hypnose, la gestion du stress, du sommeil et des émotions. Conseils et réflexions d'Alain Zenatti, hypnothérapeute à Paris." />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Blog hypnose & bien-être — NovaHypnose" />
+        <meta property="og:description" content="Articles sur l'hypnose ericksonienne, l'auto-hypnose, la gestion du stress, du sommeil et des émotions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/blog" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <link rel="canonical" href="https://novahypnose.fr/blog" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -109,7 +116,7 @@ const PreviewCharteBlog: React.FC = () => {
         {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
-            <Link className="brand" to="/preview-charte">
+            <Link className="brand" to="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </Link>
             <button
@@ -121,9 +128,12 @@ const PreviewCharteBlog: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <Link to="/preview-charte">← Retour</Link>
+              <Link to="/">Accueil</Link>
+              <Link to="/#about">À propos</Link>
+              <Link to="/#domaines">Accompagnement</Link>
               <a href="#articles">Articles</a>
-              <Link to="/preview-charte-autohypnose">Auto-hypnose ↗</Link>
+              <Link to="/autohypnose">Auto-hypnose ↗</Link>
+              <Link to="/#contact">Contact</Link>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>
@@ -145,7 +155,7 @@ const PreviewCharteBlog: React.FC = () => {
             </svg>
           </div>
           <div className="container blog-hero__inner reveal">
-            <div className="section-tag">Le journal</div>
+            <div className="section-tag">Blog</div>
             <h1 className="blog-hero__title">
               Des mots, <em>pour avancer.</em>
             </h1>
@@ -170,8 +180,8 @@ const PreviewCharteBlog: React.FC = () => {
                 {categories.map((c) => (
                   <button
                     key={c.id}
-                    className={`blog-chip${activeCategory === c.slug ? ' active' : ''}`}
-                    onClick={() => setActiveCategory(c.slug)}
+                    className={`blog-chip${activeCategory === c.name ? ' active' : ''}`}
+                    onClick={() => setActiveCategory(c.name)}
                   >
                     {c.name}
                   </button>
@@ -185,7 +195,7 @@ const PreviewCharteBlog: React.FC = () => {
         {featured && (
           <section className="blog-featured" id="articles">
             <div className="container">
-              <Link to={`/preview-charte-blog/article/${featured.slug}`} className="blog-featured__link reveal">
+              <Link to={`/blog/article/${featured.slug}`} className="blog-featured__link reveal">
                 <article className="blog-featured__card">
                   <div className="blog-featured__image">
                     {(featured.storage_image_url || featured.image_url) ? (
@@ -226,7 +236,7 @@ const PreviewCharteBlog: React.FC = () => {
             <div className="blog-grid">
               {rest.map((a, i) => (
                 <Link
-                  to={`/preview-charte-blog/article/${a.slug}`}
+                  to={`/blog/article/${a.slug}`}
                   key={a.id}
                   className="blog-card reveal"
                   style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
@@ -264,7 +274,7 @@ const PreviewCharteBlog: React.FC = () => {
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>
             <div className="foot__copy">
-              © NovaHypnose · Alain Zenatti <em>— le journal, en aperçu</em> · MMXXVI
+              © NovaHypnose · Alain Zenatti <em>— le blog, en aperçu</em> · MMXXVI
             </div>
           </div>
         </footer>

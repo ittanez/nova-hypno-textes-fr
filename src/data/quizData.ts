@@ -270,13 +270,13 @@ export const getDimensionRecommendation = (dimensionName: string, score: number)
 
 export const getOverallConclusion = (score: number): string => {
   if (score < 40) {
-    return "Votre niveau de stress actuel est significatif et impacte plusieurs dimensions de votre vie. La bonne nouvelle est que vous avez un potentiel important d'amélioration! La formation Harmonia vous propose des techniques d'auto-hypnose spécifiquement adaptées pour vous aider à retrouver calme et sérénité dans votre quotidien.";
+    return "Votre niveau de stress actuel est significatif et impacte plusieurs dimensions de votre vie. La bonne nouvelle est que vous avez un potentiel important d'amélioration! La Formation vous propose des techniques d'auto-hypnose spécifiquement adaptées pour vous aider à retrouver calme et sérénité dans votre quotidien.";
   } else if (score < 60) {
-    return "Votre niveau de stress est modéré, avec certaines dimensions qui mériteraient une attention particulière. La formation Harmonia vous offre des outils d'auto-hypnose ciblés pour renforcer ces aspects et vous aider à cultiver une sérénité plus stable et profonde.";
+    return "Votre niveau de stress est modéré, avec certaines dimensions qui mériteraient une attention particulière. La Formation vous offre des outils d'auto-hypnose ciblés pour renforcer ces aspects et vous aider à cultiver une sérénité plus stable et profonde.";
   } else if (score < 80) {
-    return "Vous avez déjà développé de bonnes capacités de gestion du stress. La formation Harmonia peut vous aider à les optimiser davantage et à développer une maîtrise plus complète de votre bien-être mental et émotionnel.";
+    return "Vous avez déjà développé de bonnes capacités de gestion du stress. La Formation peut vous aider à les optimiser davantage et à développer une maîtrise plus complète de votre bien-être mental et émotionnel.";
   } else {
-    return "Félicitations pour votre excellent niveau de sérénité! La formation Harmonia peut vous aider à maintenir et approfondir cet état, même face aux défis les plus importants, et à développer une maîtrise avancée de l'auto-hypnose pour votre épanouissement personnel.";
+    return "Félicitations pour votre excellent niveau de sérénité! La Formation peut vous aider à maintenir et approfondir cet état, même face aux défis les plus importants, et à développer une maîtrise avancée de l'auto-hypnose pour votre épanouissement personnel.";
   }
 };
 

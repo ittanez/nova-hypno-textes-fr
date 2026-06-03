@@ -16,17 +16,19 @@ const queryClient = new QueryClient({
   },
 });
 
-import Index from "@/pages/Index";
+import PreviewCharte from "@/pages/PreviewCharte"; // Nouvelle homepage (charte risographie) — eager pour le LCP
 import ContentLayout from "./components/layout/ContentLayout";
 import PrivateRoute from "./components/auth/PrivateRoute";
 
 // Lazy loading for less critical pages
+const Index = lazy(() => import("@/pages/Index")); // Ancienne homepage — archivée sous /v1
 const MentionsLegales = lazy(() => import("@/pages/MentionsLegales"));
 const Maquette = lazy(() => import("@/pages/Maquette"));
-const PreviewCharte = lazy(() => import("@/pages/PreviewCharte"));
 const PreviewCharteAutohypnose = lazy(() => import("@/pages/PreviewCharteAutohypnose"));
 const PreviewCharteBlog = lazy(() => import("@/pages/PreviewCharteBlog"));
 const PreviewCharteBlogArticle = lazy(() => import("@/pages/PreviewCharteBlogArticle"));
+const PreviewCharteMentionsLegales = lazy(() => import("@/pages/PreviewCharteMentionsLegales"));
+const PreviewCharteAdmin = lazy(() => import("@/pages/PreviewCharteAdmin"));
 const BlogMaquette = lazy(() => import("@/pages/BlogMaquette"));
 const Custom404 = lazy(() => import("@/pages/Custom404"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
@@ -125,30 +127,37 @@ function App() {
         <ErrorBoundary>
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-32 w-32 border-b-2 border-nova-blue"></div></div>}>
           <Routes>
-            {/* Route principale */}
-            <Route path="/" element={<Index />} />
+            {/* Route principale — nouvelle charte risographie (ex /preview-charte) */}
+            <Route path="/" element={<PreviewCharte />} />
+            <Route path="/autohypnose" element={<PreviewCharteAutohypnose />} />
+            <Route path="/blog" element={<PreviewCharteBlog />} />
+            <Route path="/blog/article/:slug" element={<PreviewCharteBlogArticle />} />
+            <Route path="/mentions-legales" element={<PreviewCharteMentionsLegales />} />
+
+            {/* Charte graphique — page privée admin */}
+            <Route path="/preview-charte-admin" element={<PrivateRoute><PreviewCharteAdmin /></PrivateRoute>} />
+
+            {/* ─── ARCHIVE — ancien site, accessible par URL directe uniquement (noindex) ─── */}
+            <Route path="/v1" element={<Index />} />
+            <Route path="/v1/autohypnose" element={<AutohypnoseIndex />} />
+            <Route path="/v1/blog" element={<BlogIndex />} />
+            <Route path="/v1/blog/article/:slug" element={<ArticlePage />} />
+            <Route path="/v1/mentions-legales" element={<MentionsLegales />} />
+
             <Route path="/maquette" element={<Maquette />} />
-            <Route path="/preview-charte" element={<PreviewCharte />} />
-            <Route path="/preview-charte-autohypnose" element={<PreviewCharteAutohypnose />} />
-            <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
-            <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
-            <Route path="/mentions-legales" element={<MentionsLegales />} />
 
             {/* Page d'erreur 404 personnalisée */}
             <Route path="/404" element={<Custom404 />} />
 
-            {/* Routes Blog publiques */}
-            <Route path="/blog" element={<BlogIndex />} />
+            {/* Routes Blog publiques — /blog et /blog/article/:slug sont servis par la charte (voir plus haut) */}
             <Route path="/blog-maquette" element={<BlogMaquette />} />
-            <Route path="/blog/article/:slug" element={<ArticlePage />} />
             <Route path="/blog/categorie/:slug" element={<CategoryPage />} />
             <Route path="/blog/categories" element={<CategoriesPage />} />
 
             {/* Profil Auteur */}
             <Route path="/alain-zenatti" element={<AuthorPage />} />
 
-            {/* Routes Auto-hypnose */}
-            <Route path="/autohypnose" element={<AutohypnoseIndex />} />
+            {/* Routes Auto-hypnose — /autohypnose est servi par la charte (voir plus haut) */}
             <Route path="/autohypnose/quiz" element={<AutohypnoseQuiz />} />
             <Route path="/autohypnose-questionnaire" element={<AutohypnoseQuestionnaire />} />
 

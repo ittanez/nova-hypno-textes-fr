@@ -8,7 +8,7 @@ interface QuizIntroProps {
 const QuizIntro = ({ onStart }: QuizIntroProps) => {
   return (
     <div className="quiz-card max-w-3xl mx-auto text-center">
-      <h3 className="text-2xl font-bold mb-4 text-harmonia-600">Test de sérénité Harmonia</h3>
+      <h3 className="text-2xl font-bold mb-4 text-harmonia-600">Test de sérénité</h3>
       <p className="text-gray-600 mb-4">
         Découvrez votre niveau actuel de sérénité en répondant à 18 questions couvrant 5 dimensions essentielles de votre bien-être.
       </p>
