@@ -1,7 +1,7 @@
 /**
  * PreviewCharteBlog — index blog dans la charte risographie.
  * Lit les mêmes articles que /blog (Supabase), juste relayé dans le style charté.
- * Page autoportante, noindex.
+ * Styles scopés .cz (classe racine).
  */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';

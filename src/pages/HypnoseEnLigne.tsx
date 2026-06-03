@@ -64,6 +64,7 @@ const HypnoseEnLigne = () => {
         <title>Hypnose en ligne & visioconférence partout en France | NovaHypnose</title>
         <meta name="description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne (Google Meet) aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue. 90 € la séance." />
         <meta name="keywords" content="hypnose en ligne, hypnothérapeute en ligne, hypnose visio, séance hypnose visio France, hypnose à distance, téléconsultation hypnose, hypnothérapeute à distance, hypnose en ligne France, consultation hypnose visio" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-en-ligne" />
         <meta property="og:title" content="Hypnose en ligne & visioconférence partout en France | NovaHypnose" />
         <meta property="og:description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue." />

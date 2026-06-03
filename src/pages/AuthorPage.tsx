@@ -7,6 +7,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { safeJSONStringify } from '@/lib/seo-utils';
+import { personSchema } from '@/data/schemaOrg';
 import LinkedInIcon from 'lucide-react/dist/esm/icons/linkedin';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 import Mail from 'lucide-react/dist/esm/icons/mail';
@@ -108,6 +109,7 @@ const AuthorPage: React.FC = () => {
           content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
         />
         <meta name="keywords" content="Alain Zenatti, Maître Hypnologue, hypnothérapeute Paris, hypnose ericksonienne" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/alain-zenatti" />
         <meta property="og:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
         <meta property="og:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
@@ -122,6 +124,7 @@ const AuthorPage: React.FC = () => {
         <meta name="twitter:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
         <meta name="twitter:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>
 
       <ContentLayout>

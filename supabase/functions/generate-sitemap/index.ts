@@ -35,6 +35,7 @@ serve(async (req) => {
       { loc: '/hypnose-blocages-paris',        changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-confiance-en-soi-paris', changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-en-ligne',              changefreq: 'monthly', priority: '0.8' },
+      { loc: '/alain-zenatti',                 changefreq: 'monthly', priority: '0.6' },
       { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
       { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
       { loc: '/mentions-legales',              changefreq: 'yearly',  priority: '0.3' },

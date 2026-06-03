@@ -125,6 +125,7 @@ const PreviewCharteTestReceptivite = () => {
       <Helmet>
         <title>Test de Réceptivité à l'Hypnose | NovaHypnose</title>
         <meta name="description" content="Évaluez votre réceptivité à l'hypnose avec notre test gratuit. Découvrez votre profil et recevez des conseils personnalisés." />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/test-receptivite" />
         <meta property="og:title" content="Test de Réceptivité à l'Hypnose | NovaHypnose" />
         <meta property="og:description" content="Évaluez votre réceptivité à l'hypnose avec notre test gratuit. Découvrez votre profil et recevez des conseils personnalisés." />

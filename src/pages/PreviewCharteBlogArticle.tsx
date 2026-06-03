@@ -1,6 +1,6 @@
 /**
  * PreviewCharteBlogArticle — page article dans la charte risographie.
- * Lit l'article sur Supabase via getArticleBySlug. Page autoportante, noindex.
+ * Lit l'article sur Supabase via getArticleBySlug.
  */
 
 import React, { useEffect, useRef } from 'react';
@@ -73,17 +73,20 @@ const PreviewCharteBlogArticle: React.FC = () => {
     <>
       <Helmet>
         <title>{article ? `${article.title} | NovaHypnose` : 'Article | NovaHypnose'}</title>
-        {article && <meta name="description" content={article.seo_description || article.excerpt || ''} />}
+        {article && <meta name="description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
         <meta name="robots" content="index, follow" />
         {article && <link rel="canonical" href={`https://novahypnose.fr/blog/article/${article.slug}`} />}
         {article && <meta property="og:title" content={article.title} />}
-        {article && <meta property="og:description" content={article.seo_description || article.excerpt || ''} />}
+        {article && <meta property="og:description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
         <meta property="og:type" content="article" />
         {article && <meta property="og:url" content={`https://novahypnose.fr/blog/article/${article.slug}`} />}
-        {article?.image_url && <meta property="og:image" content={article.image_url} />}
+        {article?.storage_image_url && <meta property="og:image" content={article.storage_image_url} />}
+        {!article?.storage_image_url && article?.image_url && <meta property="og:image" content={article.image_url} />}
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta name="twitter:card" content="summary_large_image" />
+        {article?.storage_image_url && <meta name="twitter:image" content={article.storage_image_url} />}
+        {!article?.storage_image_url && article?.image_url && <meta name="twitter:image" content={article.image_url} />}
         {article && (
           <script type="application/ld+json">{safeJSONStringify({
             "@context": "https://schema.org",

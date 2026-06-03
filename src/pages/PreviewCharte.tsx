@@ -2,7 +2,7 @@
  * PreviewCharte — aperçu de la charte « ZENatti / risographie ».
  * Palette risographie : ambre #F2A12E · cobalt #2B4BA0 · lin #F0ECE3 · encre #1C2B4A.
  * Contenu au ton apaisé, aéré, orienté états recherchés (et non listes de symptômes).
- * Page autoportante, noindex, styles scopés .cz.
+ * Styles scopés .cz (classe racine).
  */
 
 import React, { useEffect, useRef, useState } from 'react';
