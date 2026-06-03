@@ -23,10 +23,18 @@ interface CzLayoutProps {
 
 const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Accueil', href: '/' },
-  { label: 'Accompagnement', href: '/#accompagnement' },
   { label: 'Auto-hypnose', href: '/autohypnose' },
   { label: 'Articles', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
+];
+
+const SPECIALITES_LINKS = [
+  { label: 'Stress & Anxiété', href: '/hypnose-stress-anxiete-paris' },
+  { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
+  { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
+  { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
+  { label: 'Phobies', href: '/hypnose-phobies-paris' },
 ];
 
 const DEFAULT_CTA_HREF = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -42,6 +50,7 @@ const CzLayout: React.FC<CzLayoutProps> = ({
 }) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [navOpen, setNavOpen] = useState(false);
+  const [specialitesOpen, setSpecialitesOpen] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -96,6 +105,18 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <span></span><span></span><span></span>
           </button>
           <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
+            <div className={`nav__dropdown${specialitesOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <button className="nav__dropdown-toggle" onClick={() => setSpecialitesOpen((v) => !v)}>
+                Spécialités <span className="nav__dropdown-arrow">▾</span>
+              </button>
+              <div className="nav__dropdown-menu">
+                {SPECIALITES_LINKS.map((link) => (
+                  <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setSpecialitesOpen(false); }}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             {navLinks.map((link) =>
               link.href.startsWith('/#') || link.href.startsWith('#') ? (
                 <a key={link.href} href={link.href}>{link.label}</a>
