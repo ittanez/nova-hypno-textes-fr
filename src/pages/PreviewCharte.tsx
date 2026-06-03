@@ -504,19 +504,16 @@ const PreviewCharte: React.FC = () => {
               {[
                 {
                   num: '01',
-                  dur: '15 min',
                   title: 'Échange et cadrage',
                   desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
                 },
                 {
                   num: '02',
-                  dur: '30 min',
                   title: 'Induction guidée',
                   desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
                 },
                 {
                   num: '03',
-                  dur: '15 min',
                   title: 'Retour et débriefing',
                   desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
                 },
@@ -526,7 +523,6 @@ const PreviewCharte: React.FC = () => {
                   <div className="seance-step__body">
                     <div className="seance-step__head">
                       <strong className="seance-step__title">{step.title}</strong>
-                      <span className="seance-step__dur">{step.dur}</span>
                     </div>
                     <p className="seance-step__desc">{step.desc}</p>
                   </div>
