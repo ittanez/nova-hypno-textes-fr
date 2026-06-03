@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import '@/styles/preview-charte.css'
 import { logger } from '@/lib/logger';
 
 // Fonction pour charger les ressources non critiques après le rendu initial
