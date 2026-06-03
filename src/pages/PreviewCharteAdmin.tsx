@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 
@@ -62,13 +63,13 @@ const PreviewCharteAdmin: React.FC = () => {
         {/* Simple nav admin */}
         <nav className="nav">
           <div className="container nav__row">
-            <a className="brand" href="/preview-charte">
+            <a className="brand" href="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
             <div className="nav__links">
-              <a href="/preview-charte">← Retour accueil</a>
-              <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
-              <a href="/preview-charte-blog">Blog ↗</a>
+              <Link to="/">← Retour accueil</Link>
+              <Link to="/autohypnose">Auto-hypnose ↗</Link>
+              <Link to="/blog">Blog ↗</Link>
             </div>
           </div>
         </nav>

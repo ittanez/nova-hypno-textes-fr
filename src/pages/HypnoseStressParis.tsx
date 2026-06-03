@@ -171,28 +171,6 @@ const HypnoseStressParis = () => {
         </div>
       </section>
 
-      {/* Mon approche */}
-      <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Mon approche pour traiter le stress</h2>
-          <div className="sp-prose">
-            <p>
-              Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème
-              dans le quartier Marais-Bastille. Depuis <strong>plus de 5 ans</strong>, j'accompagne des personnes comme vous
-              qui souffrent de stress et d'anxiété.
-            </p>
-            <p>
-              Ma méthode combine <strong>l'hypnose ericksonienne</strong> — une approche douce et respectueuse —
-              avec des techniques d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien.
-              Chaque séance est personnalisée selon votre situation.
-            </p>
-            <p>
-              <strong>Déroulement des séances :</strong> La première séance dure environ <strong>1h30</strong> et comprend un entretien approfondi pour identifier vos déclencheurs de stress, la séance d'hypnose proprement dite, et un debriefing. Les séances suivantes durent <strong>1 heure</strong>. Vous pouvez suivre vos séances en cabinet à Paris 4ème ou en <strong>téléconsultation (Google Meet)</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
@@ -261,7 +239,7 @@ const HypnoseStressParis = () => {
             {[
               { value: '90%', label: 'de mes patients constatent une amélioration dès la première séance' },
               { value: '3-5', label: 'séances suffisent en moyenne pour un résultat durable' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

@@ -5,6 +5,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 
@@ -131,13 +132,13 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/">← Accueil</a>
+              <Link to="/">← Accueil</Link>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
               <a href="#formation">Formation</a>
               <a href="#novarespire">L'app</a>
               <a href="#liste">Liste d'attente</a>
-              <a href="/blog">Blog ↗</a>
+              <Link to="/blog">Blog ↗</Link>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>

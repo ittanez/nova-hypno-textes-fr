@@ -23,7 +23,11 @@ const AutohypnoseQuestionnaire = () => {
     try {
       const res = await fetch(SUPABASE_FUNCTION_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY ?? '',
+          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY ?? ''}`,
+        },
         body: JSON.stringify({
           email,
           region,
@@ -39,7 +43,8 @@ const AutohypnoseQuestionnaire = () => {
         setErrorMsg(data.error ?? `Erreur ${res.status}`);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      if (err instanceof Error) setErrorMsg(err.message);
       setStatus("error");
     }
   };

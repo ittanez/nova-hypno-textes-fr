@@ -247,7 +247,7 @@ const HypnoseEmotionsParis = () => {
         <div className="container sp-narrow">
           <blockquote className="sp-quote reveal">
             <p>
-              Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines
+              Découvrir le travail de Alain Zenatti est une expérience marquante. J'ai laissé derrière moi certaines
               croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre.
               Me voilà en adéquation avec mon présent et les envies que je croyais inaccessibles.
             </p>
@@ -263,7 +263,7 @@ const HypnoseEmotionsParis = () => {
             {[
               { value: '3-5', label: 'séances pour un équilibre émotionnel durable' },
               { value: '100%', label: 'personnalisé selon votre vécu et vos émotions' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

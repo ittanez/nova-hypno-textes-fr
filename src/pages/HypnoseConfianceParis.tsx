@@ -262,7 +262,7 @@ const HypnoseConfianceParis = () => {
             {[
               { value: '3-5', label: 'séances pour une confiance durable et authentique' },
               { value: '100%', label: 'personnalisé selon vos croyances et votre histoire' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

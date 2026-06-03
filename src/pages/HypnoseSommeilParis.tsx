@@ -170,29 +170,6 @@ const HypnoseSommeilParis = () => {
         </div>
       </section>
 
-      {/* Mon approche */}
-      <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Mon approche pour retrouver le sommeil</h2>
-          <div className="sp-prose">
-            <p>
-              Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème. Les troubles
-              du sommeil sont l'un des motifs de consultation les plus fréquents dans mon cabinet.
-            </p>
-            <p>
-              Mon approche est en trois temps : d'abord, identifier la cause de votre insomnie (stress,
-              anxiété, traumatisme, habitudes). Ensuite, travailler en hypnose profonde pour reprogrammer
-              vos mécanismes de sommeil. Enfin, vous transmettre des <strong>techniques d'auto-hypnose</strong> pour
-              que vous puissiez vous endormir sereinement par vous-même.
-            </p>
-            <p>
-              Beaucoup de mes patients dorment mieux dès la première séance. En 3 à 5 séances, le sommeil
-              se stabilise durablement — sans aucune dépendance, sans médicament.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
@@ -261,7 +238,7 @@ const HypnoseSommeilParis = () => {
             {[
               { value: '3-5', label: 'séances pour retrouver un sommeil stable et réparateur' },
               { value: '0', label: 'médicament nécessaire — une solution 100% naturelle' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

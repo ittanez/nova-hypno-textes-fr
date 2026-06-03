@@ -265,7 +265,7 @@ const HypnosePhobiesParis = () => {
             {[
               { value: '2-4', label: 'séances suffisent en moyenne pour traiter une phobie' },
               { value: '95%', label: 'des phobies simples peuvent être traitées par l\'hypnose' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

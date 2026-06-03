@@ -261,7 +261,7 @@ const HypnoseBlocagesParis = () => {
             {[
               { value: '3-5', label: 'séances pour briser les schémas répétitifs et libérer vos blocages' },
               { value: '100%', label: 'personnalisé selon votre blocage spécifique et son histoire' },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis vérifiés' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google — plus de 40 avis vérifiés' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

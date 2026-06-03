@@ -232,7 +232,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                     <h2 className="section-title">D'autres <em>lectures.</em></h2>
                   </div>
                   <div className="blog-grid">
-                    {relatedArticles.map((a, i) => (
+                    {relatedArticles?.map((a, i) => (
                       <Link
                         to={`/blog/article/${a.slug}`}
                         key={a.id}

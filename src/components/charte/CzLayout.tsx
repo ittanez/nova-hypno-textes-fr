@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '@/styles/preview-charte.css';
 
 interface NavLink {
@@ -95,9 +96,13 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <span></span><span></span><span></span>
           </button>
           <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>{link.label}</a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith('/#') || link.href.startsWith('#') ? (
+                <a key={link.href} href={link.href}>{link.label}</a>
+              ) : (
+                <Link key={link.href} to={link.href}>{link.label}</Link>
+              )
+            )}
           </div>
           <a className="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
             {ctaLabel} <span className="arrow">→</span>
@@ -127,11 +132,15 @@ const CzLayout: React.FC<CzLayoutProps> = ({
       <footer className="foot">
         <div className="container">
           <nav className="foot__links" aria-label="Pied de page">
-            <a href="/">Accueil</a>
+            <Link to="/">Accueil</Link>
             <span className="foot__sep">·</span>
-            <a href="/mentions-legales">Mentions légales</a>
+            <Link to="/mentions-legales">Mentions légales</Link>
             <span className="foot__sep">·</span>
             <a href="tel:+33649358089">06 49 35 80 89</a>
+            <span className="foot__sep">·</span>
+            <Link to="/hypnose-en-ligne">Hypnose en ligne</Link>
+            <span className="foot__sep">·</span>
+            <Link to="/hypnose-professionnels-paris">Professionnels</Link>
           </nav>
           <div className="foot__copy">
             © NovaHypnose · Alain Zenatti <em>— hypnothérapeute Paris 4e</em> · {new Date().getFullYear()}
