@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import CzLayout from "@/components/charte/CzLayout";
 
 const SUPABASE_FUNCTION_URL =
   "https://akrlyzmfszumibwgocae.supabase.co/functions/v1/formation-questionnaire";
@@ -24,7 +23,11 @@ const AutohypnoseQuestionnaire = () => {
     try {
       const res = await fetch(SUPABASE_FUNCTION_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY ?? '',
+          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY ?? ''}`,
+        },
         body: JSON.stringify({
           email,
           region,
@@ -40,44 +43,84 @@ const AutohypnoseQuestionnaire = () => {
         setErrorMsg(data.error ?? `Erreur ${res.status}`);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      if (err instanceof Error) setErrorMsg(err.message);
       setStatus("error");
     }
   };
 
+  const radioStyle = {
+    accentColor: 'var(--cobalt)',
+    width: 16,
+    height: 16,
+  };
+
+  const labelStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 12,
+    cursor: 'pointer',
+    fontSize: '.93rem',
+    color: 'var(--corps, #2e3a50)',
+  };
+
   return (
-    <>
+    <CzLayout>
       <Helmet>
         <title>Vos préférences — Formation Auto-hypnose | NovaHypnose</title>
         <meta name="robots" content="noindex" />
       </Helmet>
 
-      <Header />
-      <main className="min-h-screen bg-gradient-to-b from-nova-blue-light to-white py-20">
-        <div className="container mx-auto px-4 max-w-xl">
-          <h1 className="text-3xl md:text-4xl font-bold text-nova-blue-dark font-serif mb-4 text-center">
-            Aidez-moi à construire la bonne session pour vous
-          </h1>
-          <p className="text-lg text-gray-700 mb-10 text-center leading-relaxed">
-            Quelques secondes suffisent. Vos réponses me permettront de programmer
-            une session vraiment adaptée.
-          </p>
+      <main style={{ minHeight: '100vh', background: 'var(--lin)' }}>
+        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+          <defs>
+            <filter id="riso-q">
+              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves={2} seed={5} result="turb" />
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale={6} result="displaced" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves={4} seed={9} result="noise" />
+              <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
+              <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
+              <feComposite in="out" in2="displaced" operator="in" />
+            </filter>
+          </defs>
+        </svg>
+        <div aria-hidden="true" style={{ position: 'fixed', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%' }}>
+            <g filter="url(#riso-q)">
+              <path d="M 1100 -50 C 1250 0, 1380 80, 1440 160 L 1440 0 L 800 0 Z" fill="#F2A12E" opacity="0.55" />
+            </g>
+            <g filter="url(#riso-q)" style={{ mixBlendMode: 'multiply' as const }}>
+              <path d="M 0 780 C 150 720, 400 700, 650 740 L 650 900 L 0 900 Z" fill="#2B4BA0" opacity="0.5" />
+            </g>
+          </svg>
+        </div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container" style={{ maxWidth: 600, margin: '0 auto', padding: '60px 24px' }}>
+          <div className="reveal">
+            <div className="tag" style={{ display: 'inline-block', marginBottom: 16 }}>Formation Auto-hypnose</div>
+            <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 400, color: 'var(--texte)', lineHeight: 1.2, marginBottom: 16 }}>
+              Aidez-moi à construire<br/><em style={{ color: 'var(--cobalt)', fontStyle: 'italic' }}>la bonne session pour vous</em>
+            </h1>
+            <p style={{ fontSize: '.95rem', color: 'var(--corps, #2e3a50)', opacity: .8, marginBottom: 48 }}>
+              Quelques secondes suffisent. Vos réponses me permettront de programmer une session vraiment adaptée.
+            </p>
+          </div>
 
           {status === "success" ? (
-            <div className="bg-white rounded-xl shadow-md px-8 py-10 text-center text-nova-blue-dark font-semibold text-lg leading-relaxed">
+            <div style={{ background: 'var(--paper, #F5F2EB)', borderRadius: 16, padding: '48px 40px', textAlign: 'center', fontFamily: 'var(--f-serif)', fontSize: '1.2rem', color: 'var(--texte)' }}>
               Merci ! Vos préférences sont bien enregistrées.
-              <br />
-              <span className="font-normal text-gray-600 text-base">
+              <br/>
+              <span style={{ fontFamily: 'var(--f-sans)', fontSize: '.9rem', color: 'var(--gris)', fontStyle: 'normal' }}>
                 Vous recevrez un email de confirmation dans quelques instants.
               </span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-md p-8 space-y-8">
+            <form onSubmit={handleSubmit} style={{ background: 'var(--paper, #F5F2EB)', borderRadius: 16, padding: '40px', display: 'flex', flexDirection: 'column', gap: 40 }}>
 
               {/* Email — affiché si absent de l'URL */}
               {!emailFromUrl && (
                 <div>
-                  <label htmlFor="q-email" className="block text-base font-semibold text-gray-800 mb-3">
+                  <label htmlFor="q-email" style={{ display: 'block', fontFamily: 'var(--f-serif)', fontSize: '1.05rem', color: 'var(--texte)', marginBottom: 12, fontWeight: 400 }}>
                     Votre email
                   </label>
                   <input
@@ -87,22 +130,32 @@ const AutohypnoseQuestionnaire = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue"
+                    style={{
+                      width: '100%',
+                      border: '1px solid rgba(43,75,160,.2)',
+                      borderRadius: 8,
+                      padding: '12px 16px',
+                      fontSize: '.93rem',
+                      color: 'var(--texte)',
+                      background: 'var(--lin)',
+                      outline: 'none',
+                      boxSizing: 'border-box',
+                    }}
                   />
                 </div>
               )}
 
               {/* Question 1 — Région */}
-              <fieldset>
-                <legend className="block text-base font-semibold text-gray-800 mb-3">
+              <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+                <legend style={{ fontFamily: 'var(--f-serif)', fontSize: '1.05rem', color: 'var(--texte)', marginBottom: 16, display: 'block', fontWeight: 400 }}>
                   Vous êtes plutôt...
                 </legend>
-                <div className="space-y-2">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {[
                     { label: "En Île-de-France", value: "IDF" },
                     { label: "Ailleurs en France", value: "Autre" },
                   ].map((opt) => (
-                    <label key={opt.value} className="flex items-center gap-3 cursor-pointer">
+                    <label key={opt.value} style={labelStyle}>
                       <input
                         type="radio"
                         name="region"
@@ -110,22 +163,22 @@ const AutohypnoseQuestionnaire = () => {
                         checked={region === opt.value}
                         onChange={() => setRegion(opt.value)}
                         required
-                        className="accent-nova-blue w-4 h-4"
+                        style={radioStyle}
                       />
-                      <span className="text-gray-700">{opt.label}</span>
+                      {opt.label}
                     </label>
                   ))}
                 </div>
               </fieldset>
 
               {/* Question 2 — Jour */}
-              <fieldset>
-                <legend className="block text-base font-semibold text-gray-800 mb-3">
+              <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+                <legend style={{ fontFamily: 'var(--f-serif)', fontSize: '1.05rem', color: 'var(--texte)', marginBottom: 16, display: 'block', fontWeight: 400 }}>
                   Vous préférez quel jour ?
                 </legend>
-                <div className="space-y-2">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {["Samedi", "Dimanche"].map((j) => (
-                    <label key={j} className="flex items-center gap-3 cursor-pointer">
+                    <label key={j} style={labelStyle}>
                       <input
                         type="radio"
                         name="jour"
@@ -133,27 +186,27 @@ const AutohypnoseQuestionnaire = () => {
                         checked={jour === j}
                         onChange={() => setJour(j)}
                         required
-                        className="accent-nova-blue w-4 h-4"
+                        style={radioStyle}
                       />
-                      <span className="text-gray-700">{j}</span>
+                      {j}
                     </label>
                   ))}
                 </div>
               </fieldset>
 
               {/* Question 3 — Thème */}
-              <fieldset>
-                <legend className="block text-base font-semibold text-gray-800 mb-3">
+              <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+                <legend style={{ fontFamily: 'var(--f-serif)', fontSize: '1.05rem', color: 'var(--texte)', marginBottom: 16, display: 'block', fontWeight: 400 }}>
                   Quel thème vous tient le plus à cœur ?
                 </legend>
-                <div className="space-y-2">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {[
                     { label: "Gestion du stress", value: "Stress" },
                     { label: "Sommeil", value: "Sommeil" },
                     { label: "Confiance en soi", value: "Confiance" },
                     { label: "Autre", value: "Autre" },
                   ].map((opt) => (
-                    <label key={opt.value} className="flex items-center gap-3 cursor-pointer">
+                    <label key={opt.value} style={labelStyle}>
                       <input
                         type="radio"
                         name="theme"
@@ -161,9 +214,9 @@ const AutohypnoseQuestionnaire = () => {
                         checked={theme === opt.value}
                         onChange={() => setTheme(opt.value)}
                         required
-                        className="accent-nova-blue w-4 h-4"
+                        style={radioStyle}
                       />
-                      <span className="text-gray-700">{opt.label}</span>
+                      {opt.label}
                     </label>
                   ))}
                 </div>
@@ -171,8 +224,8 @@ const AutohypnoseQuestionnaire = () => {
 
               {/* Question 4 — Commentaire */}
               <div>
-                <label htmlFor="commentaire" className="block text-base font-semibold text-gray-800 mb-3">
-                  Un mot à ajouter ? <span className="font-normal text-gray-500">(optionnel)</span>
+                <label htmlFor="commentaire" style={{ fontFamily: 'var(--f-serif)', fontSize: '1.05rem', color: 'var(--texte)', marginBottom: 12, display: 'block', fontWeight: 400 }}>
+                  Un mot à ajouter ? <span style={{ fontSize: '.85rem', color: 'var(--gris)', fontFamily: 'var(--f-sans)', fontWeight: 400 }}>(optionnel)</span>
                 </label>
                 <textarea
                   id="commentaire"
@@ -180,14 +233,26 @@ const AutohypnoseQuestionnaire = () => {
                   placeholder="Un contexte particulier, une question..."
                   value={commentaire}
                   onChange={(e) => setCommentaire(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-nova-blue resize-none"
+                  style={{
+                    width: '100%',
+                    border: '1px solid rgba(43,75,160,.2)',
+                    borderRadius: 8,
+                    padding: '12px 16px',
+                    fontSize: '.93rem',
+                    color: 'var(--texte)',
+                    background: 'var(--lin)',
+                    outline: 'none',
+                    resize: 'none',
+                    boxSizing: 'border-box',
+                    fontFamily: 'var(--f-sans)',
+                  }}
                 />
               </div>
 
               {status === "error" && (
-                <p className="text-red-600 text-sm">
+                <p style={{ color: '#c0392b', fontSize: '.88rem' }}>
                   {errorMsg || "Une erreur est survenue."}{" "}
-                  <a href="mailto:contact@novahypnose.fr" className="underline">
+                  <a href="mailto:contact@novahypnose.fr" style={{ textDecoration: 'underline' }}>
                     contact@novahypnose.fr
                   </a>
                 </p>
@@ -196,16 +261,17 @@ const AutohypnoseQuestionnaire = () => {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full px-8 py-4 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-colors text-lg font-semibold disabled:opacity-60"
+                className="btn btn--primary"
+                style={{ width: '100%', justifyContent: 'center', marginTop: 8 }}
               >
-                {status === "loading" ? "Envoi en cours…" : "Envoyer mes préférences"}
+                {status === "loading" ? "Envoi en cours…" : "Envoyer mes préférences →"}
               </button>
             </form>
           )}
         </div>
+        </div>
       </main>
-      <Footer />
-    </>
+    </CzLayout>
   );
 };
 

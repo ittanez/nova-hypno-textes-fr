@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 import ExternalLink from 'lucide-react/dist/esm/icons/external-link';
@@ -96,8 +97,8 @@ const PreviewCharteMentionsLegales: React.FC = () => {
               <a href="/#about">À propos</a>
               <a href="/#cabinet">Le cabinet</a>
               <a href="/#domaines">Accompagnement</a>
-              <a href="/autohypnose">Auto-hypnose ↗</a>
-              <a href="/blog">Blog ↗</a>
+              <Link to="/autohypnose">Auto-hypnose ↗</Link>
+              <Link to="/blog">Blog ↗</Link>
               <a href="/#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">

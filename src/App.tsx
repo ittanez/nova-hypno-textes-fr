@@ -55,6 +55,7 @@ const AutohypnoseQuestionnaire = lazy(() => import("@/pages/autohypnose/Question
 // Test de réceptivité
 const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
 const TestReceptiviteTest = lazy(() => import("@/pages/TestReceptiviteTest"));
+const PreviewCharteTestReceptivite = lazy(() => import("@/pages/PreviewCharteTestReceptivite"));
 
 // Zone d'intervention
 const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
@@ -145,6 +146,13 @@ function App() {
             <Route path="/v1/mentions-legales" element={<MentionsLegales />} />
 
             <Route path="/maquette" element={<Maquette />} />
+            <Route path="/preview-charte" element={<PreviewCharte />} />
+            <Route path="/preview-charte-autohypnose" element={<PreviewCharteAutohypnose />} />
+            <Route path="/preview-charte-blog" element={<PreviewCharteBlog />} />
+            <Route path="/preview-charte-blog/article/:slug" element={<PreviewCharteBlogArticle />} />
+            <Route path="/preview-charte-mentions-legales" element={<PreviewCharteMentionsLegales />} />
+
+            <Route path="/maquette" element={<Maquette />} />
 
             {/* Page d'erreur 404 personnalisée */}
             <Route path="/404" element={<Custom404 />} />
@@ -162,7 +170,7 @@ function App() {
             <Route path="/autohypnose-questionnaire" element={<AutohypnoseQuestionnaire />} />
 
             {/* Test de réceptivité */}
-            <Route path="/test-receptivite" element={<TestReceptiviteTest />} />
+            <Route path="/test-receptivite" element={<PreviewCharteTestReceptivite />} />
             <Route path="/test-receptivite-archive" element={<TestReceptivite />} />
 
             {/* Zone d'intervention */}

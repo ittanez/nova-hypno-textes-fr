@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import ContentLayout from '@/components/layout/ContentLayout';
-import SpecialtyFAQ from '@/components/SpecialtyFAQ';
+import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
-import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import Phone from 'lucide-react/dist/esm/icons/phone';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
-import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+
+const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
 const HypnoseStressParis = () => {
   const { openResalibPopup } = useResalibPopup();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -60,7 +60,7 @@ const HypnoseStressParis = () => {
   };
 
   return (
-    <ContentLayout>
+    <CzLayout>
       <Helmet>
         <title>Hypnose stress & anxiété à Paris et en ligne | Alain Zenatti</title>
         <meta name="description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances." />
@@ -87,49 +87,45 @@ const HypnoseStressParis = () => {
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-blue-600 mb-2">Hypnose et stress</span>
-              <span className="block">Retrouvez la sérénité à Paris</span>
-            </h1>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode
-              naturelle et efficace pour retrouver le calme intérieur. <strong>Résultats durables en 3 à 5 séances</strong>,
-              au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl"
-              >
-                <Calendar size={20} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 rounded-lg font-semibold transition-all shadow-md border border-gray-200"
-              >
-                <Phone size={20} />
-                06 49 35 80 89
-              </a>
-            </div>
+      <section className="sp-hero">
+        <div className="sp-hero__bg" aria-hidden="true">
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{width:'100%',height:'100%'}}>
+            <g filter="url(#riso-full)">
+              <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
+            </g>
+            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+              <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
+            </g>
+            <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
+          </svg>
+        </div>
+        <div className="container sp-hero__inner reveal">
+          <div className="tag">Stress &amp; Anxiété — Paris</div>
+          <h1 className="sp-hero__h1">
+            Retrouvez la sérénité<br/><em>par l'hypnose</em>
+          </h1>
+          <p className="sp-hero__lead">
+            Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode
+            naturelle et efficace pour retrouver le calme intérieur. <strong>Résultats durables en 3 à 5 séances</strong>,
+            au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
         </div>
       </section>
 
       {/* Le problème */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Le stress vous empêche de vivre ?
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Stress &amp; Anxiété — comprendre</div>
+              <h2 className="section-title">Le stress vous empêche<br/><em>de vivre ?</em></h2>
               <p>
                 Vous vous réveillez la nuit avec des pensées qui tournent en boucle. Au travail, la pression ne retombe jamais.
                 Vous sentez une boule dans le ventre, des tensions dans les épaules, un souffle court. Vous avez essayé de
@@ -144,292 +140,232 @@ const HypnoseStressParis = () => {
                 Ces symptômes sont le signal que quelque chose doit changer. Et le changement peut être rapide.
               </p>
             </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z" fill="#F2A12E" opacity="0.93" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 200 100 C 320 60, 440 130, 430 250 C 420 355, 320 420, 210 400 C 105 380, 65 295, 95 200 C 118 128, 155 128, 200 100 Z" fill="#2B4BA0" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comment l'hypnose agit */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Comment l'hypnose agit sur le stress et l'anxiété
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
+      <section className="sp-section sp-section--alt">
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 480 280 C 480 420, 380 530, 240 530 C 100 530, 20 430, 20 280 C 20 140, 100 40, 240 40 C 310 40, 370 65, 410 110 C 360 130, 320 195, 320 280 C 320 365, 360 430, 410 450 C 370 495, 310 520, 240 520 C 115 520, 30 425, 30 280 C 30 145, 115 50, 240 50 C 375 50, 470 155, 480 280 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 140 180 C 230 130, 350 160, 370 260 C 388 350, 320 430, 220 425 C 125 420, 75 345, 100 250 C 118 178, 120 198, 140 180 Z" fill="#F2A12E" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — comment ça marche</div>
+              <h2 className="section-title">L'hypnose agit<br/><em>là où ça bloque.</em></h2>
               <p>
                 L'hypnose ericksonienne travaille directement avec votre inconscient — là où se trouvent les automatismes
-                qui génèrent le stress. Contrairement aux approches qui agissent uniquement sur les symptômes,
-                l'hypnose traite le mécanisme à sa source.
+                qui génèrent le stress. En état d'hypnose, le cerveau réduit naturellement la production de <strong>cortisol</strong>,
+                l'hormone du stress, tout en activant le <strong>système nerveux parasympathique</strong>. Concrètement, votre cerveau
+                réapprend à distinguer un vrai danger d'une simple pression du quotidien.
               </p>
-              <p>
-                Les neurosciences confirment aujourd'hui ce que les hypnothérapeutes observent en cabinet depuis des
-                années. En état d'hypnose, le cerveau réduit naturellement la production de <strong>cortisol</strong>,
-                l'hormone du stress, tout en activant le <strong>système nerveux parasympathique</strong> — celui qui
-                permet au corps de se régénérer et de retrouver son équilibre. Des études en imagerie cérébrale montrent
-                que l'hypnose modifie l'activité du cortex préfrontal et de l'amygdale, les zones impliquées dans la
-                gestion des émotions et la réponse au danger. Concrètement, cela signifie que votre cerveau
-                réapprend à distinguer un vrai danger d'une simple pression du quotidien, et cesse de déclencher
-                des réactions de stress disproportionnées.
-              </p>
-              <p>
-                En état d'hypnose, votre cerveau entre dans un mode de fonctionnement particulier qui permet de :
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              {[
-                "Reprogrammer les réactions automatiques de stress",
-                "Relâcher les tensions accumulées dans le corps",
-                "Retrouver un sommeil profond et réparateur",
-                "Développer des ressources internes de calme",
-                "Prendre du recul face aux situations anxiogènes",
-                "Stopper le cercle vicieux des pensées négatives"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mon approche */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Mon approche pour traiter le stress
-            </h2>
-            <div className="prose prose-lg text-gray-700 leading-relaxed">
-              <p>
-                Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème
-                dans le quartier Marais-Bastille. Depuis <strong>plus de 5 ans</strong>, j'accompagne des personnes comme vous
-                qui souffrent de stress et d'anxiété.
-              </p>
-              <p>
-                Ma méthode combine <strong>l'hypnose ericksonienne</strong> — une approche douce et respectueuse —
-                avec des techniques d'auto-hypnose et d'autres approches complémentaires que vous pourrez réutiliser seul(e) au quotidien.
-                Chaque séance est personnalisée selon votre situation.
-              </p>
-              <p>
-                <strong>Déroulement des séances :</strong> La première séance dure environ <strong>1h30</strong> et comprend un entretien approfondi pour identifier vos déclencheurs de stress, la séance d'hypnose proprement dite, et un debriefing. Les séances suivantes durent <strong>1 heure</strong>. Vous pouvez suivre vos séances en cabinet à Paris 4ème ou en <strong>téléconsultation (Google Meet)</strong>.
-              </p>
-              <p>
-                Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous
-                guide dans un état de profonde relaxation. La plupart de mes patients ressentent un soulagement
-                significatif dès cette première rencontre.
-              </p>
+              <div className="sp-checklist">
+                {[
+                  "Reprogrammer les réactions automatiques de stress",
+                  "Relâcher les tensions accumulées dans le corps",
+                  "Retrouver un sommeil profond et réparateur",
+                  "Développer des ressources internes de calme",
+                  "Prendre du recul face aux situations anxiogènes",
+                  "Stopper le cercle vicieux des pensées négatives"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Cas concrets */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Exemples de parcours au cabinet
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Stress professionnel chronique</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Sophie*, cadre dans la finance à Paris, ne dormait plus que 4 heures par nuit. Les tensions au
-                  bureau avaient envahi toute sa vie : maux de tête, irritabilité, incapacité à décrocher le soir.
-                  Elle avait consulté son médecin, essayé le yoga, mais le stress revenait toujours.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié et neutralisé les
-                  mécanismes inconscients qui maintenaient son hypervigilance. Sophie a retrouvé un sommeil
-                  réparateur et une capacité à poser des limites saines au travail.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Crises d'angoisse dans les transports</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Marc*, 35 ans, évitait le métro depuis un an après une première crise de panique en heure de
-                  pointe. Il prenait des taxis pour aller travailler, ce qui pesait sur son budget et renforçait
-                  son sentiment d'impuissance face à l'anxiété.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  Après 3 séances d'hypnose ericksonienne, Marc a repris le métro — d'abord aux heures creuses,
-                  puis normalement. La technique d'auto-hypnose rapide que je lui ai enseignée lui permet de
-                  gérer toute montée d'anxiété en quelques respirations.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <h3 className="font-semibold text-gray-900 mb-2">Anxiété liée aux examens</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Léa*, étudiante en droit, se paralysait systématiquement devant ses copies d'examen.
-                  Elle connaissait son cours, mais le trac lui faisait perdre tous ses moyens. Son stress
-                  anticipatoire commençait des semaines avant chaque épreuve.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  En 3 séances, nous avons reprogrammé sa réponse au stress d'examen et ancré un état de
-                  concentration calme qu'elle peut activer avant chaque épreuve. Ses résultats se sont
-                  nettement améliorés dès la session suivante.
-                </p>
-              </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
+          <div className="sp-cases">
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Stress professionnel chronique</div>
+              <p>
+                Sophie*, cadre dans la finance à Paris, ne dormait plus que 4 heures par nuit. Les tensions au
+                bureau avaient envahi toute sa vie : maux de tête, irritabilité, incapacité à décrocher le soir.
+              </p>
+              <p>
+                En 4 séances d'hypnose dans mon cabinet du Marais, nous avons identifié et neutralisé les
+                mécanismes inconscients qui maintenaient son hypervigilance. Sophie a retrouvé un sommeil
+                réparateur et une capacité à poser des limites saines au travail.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">* Prénoms modifiés pour préserver la confidentialité</p>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Crises d'angoisse dans les transports</div>
+              <p>
+                Marc*, 35 ans, évitait le métro depuis un an après une première crise de panique en heure de
+                pointe. Il prenait des taxis pour aller travailler, ce qui pesait sur son budget et renforçait
+                son sentiment d'impuissance face à l'anxiété.
+              </p>
+              <p>
+                Après 3 séances d'hypnose ericksonienne, Marc a repris le métro — d'abord aux heures creuses,
+                puis normalement. La technique d'auto-hypnose rapide que je lui ai enseignée lui permet de
+                gérer toute montée d'anxiété en quelques respirations.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Anxiété liée aux examens</div>
+              <p>
+                Léa*, étudiante en droit, se paralysait systématiquement devant ses copies d'examen.
+                Elle connaissait son cours, mais le trac lui faisait perdre tous ses moyens.
+              </p>
+              <p>
+                En 3 séances, nous avons reprogrammé sa réponse au stress d'examen et ancré un état de
+                concentration calme qu'elle peut activer avant chaque épreuve. Ses résultats se sont
+                nettement améliorés dès la session suivante.
+              </p>
+            </div>
           </div>
+          <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
       </section>
 
       {/* Témoignage */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <blockquote className="relative bg-blue-50 p-8 rounded-xl">
-              <div className="absolute top-4 left-6 text-6xl text-blue-200 font-serif leading-none">"</div>
-              <p className="text-lg text-gray-700 leading-relaxed italic pl-8">
-                J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie
-                apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances.
-                Je recommande vivement.
-              </p>
-              <footer className="mt-4 pl-8 text-gray-600 font-medium">— Marie H., avis Google vérifié</footer>
-            </blockquote>
-          </div>
+      <section className="sp-section">
+        <div className="container sp-narrow">
+          <blockquote className="sp-quote reveal">
+            <p>
+              J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie
+              apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances.
+              Je recommande vivement.
+            </p>
+            <footer>— Marie H., avis Google vérifié</footer>
+          </blockquote>
         </div>
       </section>
 
-      {/* Résultats */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Des résultats concrets en 3 à 5 séances
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-blue-600 mb-2">90%</div>
-                <p className="text-gray-700">de mes patients constatent une amélioration dès la première séance</p>
+      {/* Stats */}
+      <section className="sp-section sp-section--cobalt">
+        <div className="container sp-narrow">
+          <div className="sp-stats">
+            {[
+              { value: '90%', label: 'de mes patients constatent une amélioration dès la première séance' },
+              { value: '3-5', label: 'séances suffisent en moyenne pour un résultat durable' },
+              { value: '5/5', label: 'note moyenne sur Resalib et Google' },
+            ].map((s, i) => (
+              <div key={i} className="sp-stat reveal">
+                <div className="sp-stat__val">{s.value}</div>
+                <p>{s.label}</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-blue-600 mb-2">3-5</div>
-                <p className="text-gray-700">séances suffisent en moyenne pour un résultat durable</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl font-bold text-blue-600 mb-2">5/5</div>
-                <p className="text-gray-700">note moyenne sur plus de 40 avis vérifiés</p>
-              </div>
-            </div>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              L'hypnose n'est pas une baguette magique, mais c'est l'une des approches les plus efficaces
-              et les plus rapides pour traiter le stress et l'anxiété. Vous méritez de retrouver la sérénité.
-            </p>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <SpecialtyFAQ
-        items={stressFaqItems}
-        title="Questions fréquentes sur l'hypnose et le stress"
-        accentColor="text-blue-500"
-        pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
-      />
-
-      <SpecialtyBlogArticles
-        keywords={["stress", "anxiété", "anxieux"]}
-        categories={["Gestion du Stress", "Troubles Anxieux"]}
-        title="Articles sur le stress et l'anxiété"
-        accentColor="text-blue-600"
-      />
-
-      <SpecialtyReferences
-        pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
-        pageTitle="Hypnose stress et anxiété à Paris"
-        pageDescription="Hypnose ericksonienne pour traiter le stress chronique et l'anxiété au cabinet Paris 4ème."
-        topic="le stress et l'anxiété"
-        dateModified="2026-05-06"
-        references={[
-          {
-            authors: "Inserm",
-            title: "Évaluation de l'efficacité de la pratique de l'hypnose",
-            source: "Rapport d'expertise collective",
-            year: 2015,
-            url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
-          },
-          {
-            authors: "Valentine KE, Milling LS, Clark LJ, Moriarty CL",
-            title: "The Efficacy of Hypnosis as a Treatment for Anxiety: A Meta-Analysis",
-            source: "International Journal of Clinical and Experimental Hypnosis",
-            year: 2019,
-            url: "https://pubmed.ncbi.nlm.nih.gov/31251710/",
-          },
-          {
-            authors: "Hammond DC",
-            title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
-            source: "Expert Review of Neurotherapeutics",
-            year: 2010,
-            url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
-          },
-        ]}
-      />
-
-      {/* CTA final */}
-      <section className="py-16 md:py-20 bg-blue-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Prêt à retrouver la sérénité ?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                aria-label="Prendre rendez-vous sur Resalib (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-blue-600 rounded-lg font-bold text-lg transition-all shadow-lg"
-              >
-                <Calendar size={22} />
-                Prendre rendez-vous
-              </a>
-              <a
-                href="tel:+33649358089"
-                aria-label="Appeler le 06 49 35 80 89"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-bold text-lg transition-all shadow-lg border border-blue-400"
-              >
-                <Phone size={22} />
-                06 49 35 80 89
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-blue-100">
-              <Link to="/hypnose-phobies-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et phobies <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-sommeil-paris" className="hover:text-white underline flex items-center gap-1">
-                Hypnose et sommeil <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-gestion-emotions-paris" className="hover:text-white underline flex items-center gap-1">
-                Gestion des émotions <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-blocages-paris" className="hover:text-white underline flex items-center gap-1">
-                Blocages et comportements <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-confiance-en-soi-paris" className="hover:text-white underline flex items-center gap-1">
-                Confiance en soi <ArrowRight size={14} />
-              </Link>
-              <Link to="/hypnose-professionnels-paris" className="hover:text-white underline flex items-center gap-1">
-                Stress au travail <ArrowRight size={14} />
-              </Link>
-              <Link to="/test-receptivite" className="hover:text-white underline flex items-center gap-1">
-                Tester ma réceptivité <ArrowRight size={14} />
-              </Link>
-              <Link to="/blog" className="hover:text-white underline flex items-center gap-1">
-                Blog hypnose <ArrowRight size={14} />
-              </Link>
-            </div>
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et le stress</h2>
+          <div>
+            {stressFaqItems.map((item, i) => (
+              <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
+                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                  {item.question}
+                  <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
+                </button>
+                <div className="faq__a">{item.answer}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-    </ContentLayout>
+
+      <div className="sp-ext-section">
+        <SpecialtyBlogArticles
+          keywords={["stress", "anxiété", "anxieux"]}
+          categories={["Gestion du Stress", "Troubles Anxieux"]}
+          title="Articles sur le stress et l'anxiété"
+          accentColor="text-blue-600"
+        />
+      </div>
+
+      <div className="sp-ext-section">
+        <SpecialtyReferences
+          pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
+          pageTitle="Hypnose stress et anxiété à Paris"
+          pageDescription="Hypnose ericksonienne pour traiter le stress chronique et l'anxiété au cabinet Paris 4ème."
+          topic="le stress et l'anxiété"
+          dateModified="2026-05-06"
+          references={[
+            {
+              authors: "Inserm",
+              title: "Évaluation de l'efficacité de la pratique de l'hypnose",
+              source: "Rapport d'expertise collective",
+              year: 2015,
+              url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
+            },
+            {
+              authors: "Valentine KE, Milling LS, Clark LJ, Moriarty CL",
+              title: "The Efficacy of Hypnosis as a Treatment for Anxiety: A Meta-Analysis",
+              source: "International Journal of Clinical and Experimental Hypnosis",
+              year: 2019,
+              url: "https://pubmed.ncbi.nlm.nih.gov/31251710/",
+            },
+            {
+              authors: "Hammond DC",
+              title: "Hypnosis in the treatment of anxiety- and stress-related disorders",
+              source: "Expert Review of Neurotherapeutics",
+              year: 2010,
+              url: "https://pubmed.ncbi.nlm.nih.gov/20128679/",
+            },
+          ]}
+        />
+      </div>
+
+      {/* CTA Final */}
+      <section className="sp-cta-final">
+        <div className="sp-cta-final__blob" aria-hidden="true"></div>
+        <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">Prêt à retrouver la sérénité ?</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <div className="hero__cta" style={{justifyContent:'center'}}>
+            <a className="btn btn--primary" href={RESALIB_URL}
+               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
+               style={{background:'var(--lin)', color:'var(--cobalt)'}}>
+              Prendre rendez-vous <span className="arrow">→</span>
+            </a>
+            <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
+          </div>
+          <div className="sp-links">
+            <Link to="/hypnose-phobies-paris">Hypnose et phobies →</Link>
+            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
+            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
+            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
+            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
+            <Link to="/hypnose-professionnels-paris">Stress au travail →</Link>
+            <Link to="/test-receptivite">Tester ma réceptivité →</Link>
+            <Link to="/blog">Blog hypnose →</Link>
+          </div>
+        </div>
+      </section>
+    </CzLayout>
   );
 };
 
