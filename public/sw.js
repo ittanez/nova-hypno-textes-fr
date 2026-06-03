@@ -1,7 +1,7 @@
 // Service Worker - NovaHypnose Performance Optimization
 // Version 1.0.0 - Phase 2
 
-const CACHE_VERSION = 'nova-hypnose-v1';
+const CACHE_VERSION = 'nova-hypnose-v2';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;

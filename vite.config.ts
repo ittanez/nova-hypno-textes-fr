@@ -4,8 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error -- local JS plugins without type declarations
 import { viteSeoHeaders } from "./vite-plugin-seo-headers.js";
-// @ts-expect-error -- local JS plugins without type declarations
-import { deferCss } from "./vite-plugin-defer-css.js";
 import analyze from "rollup-plugin-analyzer";
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
@@ -21,7 +19,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     viteSeoHeaders(),
-    deferCss(),
     mode === 'development' &&
     componentTagger(),
     // Copy TinyMCE assets to dist folder
