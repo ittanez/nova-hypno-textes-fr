@@ -48,7 +48,9 @@ const PreviewCharteMentionsLegales: React.FC = () => {
     <>
       <Helmet>
         <title>Mentions légales — NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="description" content="Mentions légales du site novahypnose.fr — éditeur Alain Zenatti EI, hébergement, propriété intellectuelle, données personnelles et médiation." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://novahypnose.fr/mentions-legales" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -79,7 +81,7 @@ const PreviewCharteMentionsLegales: React.FC = () => {
         {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
-            <a className="brand" href="/preview-charte">
+            <a className="brand" href="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
             <button
@@ -91,12 +93,12 @@ const PreviewCharteMentionsLegales: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/preview-charte#about">À propos</a>
-              <a href="/preview-charte#cabinet">Le cabinet</a>
-              <a href="/preview-charte#domaines">Accompagnement</a>
-              <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
-              <a href="/preview-charte-blog">Blog ↗</a>
-              <a href="/preview-charte#contact">Contact</a>
+              <a href="/#about">À propos</a>
+              <a href="/#cabinet">Le cabinet</a>
+              <a href="/#domaines">Accompagnement</a>
+              <a href="/autohypnose">Auto-hypnose ↗</a>
+              <a href="/blog">Blog ↗</a>
+              <a href="/#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>
@@ -378,11 +380,11 @@ const PreviewCharteMentionsLegales: React.FC = () => {
         <footer className="foot">
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
-              <a href="/preview-charte-mentions-legales" aria-current="page">Mentions légales</a>
+              <a href="/mentions-legales" aria-current="page">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
               <span className="foot__sep">·</span>
-              <a href="/preview-charte">← Accueil</a>
+              <a href="/">← Accueil</a>
             </nav>
             <div className="foot__copy">
               © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI

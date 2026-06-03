@@ -73,8 +73,22 @@ const PreviewCharteAutohypnose: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Auto-hypnose — aperçu charte | NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose</title>
+        <meta name="description" content="Apprenez l'auto-hypnose avec Alain Zenatti à Paris : formation en présentiel, accompagnement individuel et formations en entreprise sur devis. Gérez stress, sommeil et émotions en autonomie." />
+        <meta name="robots" content="index, follow" />
+
+        <meta property="og:title" content="Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose" />
+        <meta property="og:description" content="Apprenez l'auto-hypnose avec Alain Zenatti : formation en présentiel, accompagnement individuel et formations en entreprise sur devis." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="canonical" href="https://novahypnose.fr/autohypnose" />
+        <link rel="alternate" hreflang="fr" href="https://novahypnose.fr/autohypnose" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -105,7 +119,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         {/* ── NAV ── */}
         <nav className="nav">
           <div className="container nav__row">
-            <a className="brand" href="/preview-charte">
+            <a className="brand" href="/">
               <span className="alain">Alain</span><span className="zen">Zen</span><span className="atti">atti</span>
             </a>
             <button
@@ -117,7 +131,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/preview-charte">← Retour</a>
+              <a href="/">← Retour</a>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
               <a href="#formation">Formation</a>
@@ -509,7 +523,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         <footer className="foot">
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
-              <a href="/preview-charte-mentions-legales">Mentions légales</a>
+              <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>

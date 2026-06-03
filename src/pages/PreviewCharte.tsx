@@ -9,6 +9,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
+import { safeJSONStringify } from '@/lib/seo-utils';
+import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
@@ -90,14 +92,47 @@ const PreviewCharte: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Aperçu charte — NovaHypnose</title>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
+        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, auto-hypnose paris, hypnose en ligne, hypnose visio" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Résultats en 3 à 5 séances." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://novahypnose.fr" />
+        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Alain Zenatti, hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:site_name" content="NovaHypnose" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose." />
+        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+
+        <link rel="canonical" href="https://novahypnose.fr" />
+        <link rel="alternate" hreflang="fr" href="https://novahypnose.fr" />
+        <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+
+        {/* Structured Data JSON-LD */}
+        <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <div className="cz" ref={rootRef}>
@@ -140,8 +175,8 @@ const PreviewCharte: React.FC = () => {
               <a href="#domaines">Accompagnement</a>
               <a href="#sessions">Séances</a>
               <a href="#temoignages">Avis</a>
-              <a href="/preview-charte-autohypnose">Auto-hypnose ↗</a>
-              <a href="/preview-charte-blog">Blog ↗</a>
+              <a href="/autohypnose">Auto-hypnose ↗</a>
+              <a href="/blog">Blog ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
@@ -594,7 +629,7 @@ const PreviewCharte: React.FC = () => {
         <footer className="foot">
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
-              <a href="/preview-charte-mentions-legales">Mentions légales</a>
+              <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
             </nav>

@@ -16,6 +16,8 @@ const AutohypnoseIndex = () => {
   return (
     <>
       <Helmet>
+        {/* Page archivée (ancien site) — accessible sous /v1, non indexée */}
+        <meta name="robots" content="noindex, nofollow" />
         <title>La Formation Auto-hypnose Paris | NovaHypnose</title>
         <meta
           name="description"

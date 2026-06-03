@@ -252,7 +252,7 @@ const PAGES: Record<string, PageData> = {
     description:
       "Hypnothérapeute à Paris 4ème, cabinet Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances.",
     canonicalPath: "/",
-    h1: "Hypnothérapeute à Paris — Alain Zenatti, Maître Hypnologue",
+    h1: "Hypnothérapeute à Paris — Alain Zenatti, hypnose ericksonienne et auto-hypnose",
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [
       localBusinessLd,
@@ -260,7 +260,7 @@ const PAGES: Record<string, PageData> = {
       breadcrumbLd([{ name: "Accueil", path: "/" }]),
     ],
     content: `
-    <p>Bienvenue au cabinet <strong>NovaHypnose</strong>, situé au cœur du Marais à Paris 4ème. <strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne, vous accompagne vers un changement profond et durable.</p>
+    <p>Bienvenue au cabinet <strong>NovaHypnose</strong>, situé au cœur du Marais à Paris 4ème. <strong>Alain Zenatti</strong>, hypnothérapeute en hypnose ericksonienne et auto-hypnose, vous accompagne vers un changement profond et durable.</p>
 
     <h2>L'hypnose ericksonienne : une approche douce et efficace</h2>
     <p>L'hypnose ericksonienne est une méthode thérapeutique reconnue qui permet d'accéder à vos ressources inconscientes pour résoudre des problématiques ancrées. Contrairement aux idées reçues, vous restez pleinement conscient et acteur de votre transformation.</p>
