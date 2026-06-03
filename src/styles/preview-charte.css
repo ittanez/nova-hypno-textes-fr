@@ -1179,6 +1179,51 @@
 }
 .cz .sp-links a:hover { color: var(--amber); }
 
+/* ── FAQ accordion ── */
+.cz .faq__item {
+  border-bottom: 1px solid rgba(43,75,160,.12);
+}
+.cz .faq__item:first-child { border-top: 1px solid rgba(43,75,160,.12); }
+.cz .faq__q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  font-family: var(--f-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--texte);
+  cursor: pointer;
+  text-align: left;
+  transition: color .2s;
+}
+.cz .faq__q:hover { color: var(--cobalt); }
+.cz .faq__icon {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  color: var(--cobalt);
+  line-height: 1;
+  transition: transform .3s;
+}
+.cz .faq__item.open .faq__icon { transform: rotate(45deg); }
+.cz .faq__a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+  font-size: .93rem;
+  color: var(--corps, #2e3a50);
+  line-height: 1.7;
+  padding: 0;
+}
+.cz .faq__item.open .faq__a {
+  max-height: 600px;
+  padding-bottom: 20px;
+}
+
 /* ─── Blog/References wrapper ──────────────────────────────── */
 .cz .sp-ext-section { background: var(--paper); }
 

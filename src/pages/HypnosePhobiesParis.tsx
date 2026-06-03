@@ -133,14 +133,14 @@ const HypnosePhobiesParis = () => {
 
       {/* Le problème */}
       <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="380" height="420" viewBox="0 0 380 420" aria-hidden="true">
+        <svg className="sp-deco-blob sp-deco-blob--right" width="350" height="450" viewBox="0 0 350 450" aria-hidden="true" style={{ top: '5%', transform: 'none' }}>
           <g filter="url(#riso-full)">
-            <path d="M 80 50 C 200 10, 340 50, 360 160 C 375 250, 320 330, 350 390 C 365 430, 290 445, 190 435 C 80 423, 20 400, 10 310 C 0 220, 30 120, 80 50 Z" fill="#F2A12E" opacity="0.55" />
+            <path d="M 60 30 C 180 -15, 320 20, 340 130 C 358 230, 290 340, 180 380 C 80 415, -10 370, 5 260 C 18 165, 28 65, 60 30 Z" fill="#F2A12E" opacity="0.5" />
           </g>
           <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 130 140 C 230 100, 320 140, 330 240 C 338 320, 270 375, 180 370 C 90 365, 50 295, 65 210 C 73 163, 100 156, 130 140 Z" fill="#2B4BA0" opacity="0.3" />
+            <path d="M 105 90 C 215 50, 305 105, 295 205 C 285 300, 205 360, 120 342 C 40 325, 12 255, 38 168 C 57 105, 85 112, 105 90 Z" fill="#2B4BA0" opacity="0.32" />
           </g>
-          <rect width="380" height="420" filter="url(#paperGrain)" opacity=".15" />
+          <rect width="350" height="450" filter="url(#paperGrain)" opacity=".15" />
         </svg>
         <div className="container sp-narrow reveal">
           <h2 className="sp-h2">Une phobie vous gâche la vie ?</h2>
@@ -287,14 +287,14 @@ const HypnosePhobiesParis = () => {
 
       {/* FAQ */}
       <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="340" height="380" viewBox="0 0 340 380" aria-hidden="true">
+        <svg className="sp-deco-blob sp-deco-blob--left" width="360" height="260" viewBox="0 0 360 260" aria-hidden="true">
           <g filter="url(#riso-full)">
-            <path d="M 70 80 C 170 30, 300 70, 320 170 C 335 250, 280 320, 250 360 C 230 390, 150 390, 80 360 C 20 335, -10 260, 10 180 C 25 115, 60 100, 70 80 Z" fill="#2B4BA0" opacity="0.45" />
+            <path d="M 30 50 C 120 5, 300 10, 340 90 C 370 160, 300 230, 190 245 C 85 260, 0 215, 5 140 C 10 80, 20 72, 30 50 Z" fill="#F2A12E" opacity="0.48" />
           </g>
           <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 110 150 C 200 110, 280 155, 285 240 C 290 315, 230 365, 155 358 C 80 350, 45 285, 60 205 C 69 160, 90 160, 110 150 Z" fill="#F2A12E" opacity="0.25" />
+            <path d="M 100 70 C 210 38, 315 82, 310 165 C 305 245, 215 285, 128 268 C 45 252, 20 190, 45 118 C 62 70, 82 84, 100 70 Z" fill="#2B4BA0" opacity="0.3" />
           </g>
-          <rect width="340" height="380" filter="url(#paperGrain)" opacity=".15" />
+          <rect width="360" height="260" filter="url(#paperGrain)" opacity=".15" />
         </svg>
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
