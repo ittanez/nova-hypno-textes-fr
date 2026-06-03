@@ -5,7 +5,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '@/styles/preview-charte.css';
 
 interface NavLink {
   label: string;
@@ -28,13 +27,14 @@ const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Contact', href: '/#contact' },
 ];
 
-const SPECIALITES_LINKS = [
+const ACCOMPAGNEMENTS_LINKS = [
   { label: 'Stress & Anxiété', href: '/hypnose-stress-anxiete-paris' },
   { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
   { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
+  { label: 'Test de réceptivité', href: '/test-receptivite' },
 ];
 
 const DEFAULT_CTA_HREF = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -131,10 +131,10 @@ const CzLayout: React.FC<CzLayoutProps> = ({
                 aria-expanded={specialitesOpen}
                 aria-haspopup="true"
               >
-                Spécialités <span className="nav__dropdown-arrow">▾</span>
+                Accompagnements <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
               </button>
               <div className="nav__dropdown-menu">
-                {SPECIALITES_LINKS.map((link) => (
+                {ACCOMPAGNEMENTS_LINKS.map((link) => (
                   <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setSpecialitesOpen(false); }}>
                     {link.label}
                   </Link>
