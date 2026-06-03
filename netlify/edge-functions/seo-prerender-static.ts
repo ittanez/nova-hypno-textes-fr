@@ -1085,11 +1085,11 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-en-ligne": {
-    title: "Hypnose en ligne & visioconférence partout en France | NovaHypnose",
+    title: "Hypnose en ligne & visio — Spécialiste France | Alain Zenatti NovaHypnose",
     description:
-      "Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne (Google Meet) aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue. 90 € la séance.",
+      "Spécialiste de l'hypnose en visioconférence partout en France. Alain Zenatti, Maître Hypnologue certifié, propose des téléconsultations d'hypnose aussi efficaces qu'au cabinet. 90 € — Résultats en 3 à 5 séances.",
     canonicalPath: "/hypnose-en-ligne",
-    h1: "Hypnose en ligne — La même séance, depuis chez vous.",
+    h1: "Spécialiste de l'hypnose en ligne — Consultez depuis chez vous, partout en France.",
     jsonLd: [
       {
         "@context": "https://schema.org",
@@ -1115,23 +1115,26 @@ const PAGES: Record<string, PageData> = {
       ]),
     ],
     content: `
-    <p>Les séances d'hypnose en ligne se déroulent via <strong>Google Meet</strong>, dans le confort de votre domicile. L'efficacité est identique à une séance au cabinet — l'état hypnotique ne dépend pas de la présence physique, mais de la qualité de la relation thérapeutique et de votre intention.</p>
+    <p>Alain Zenatti, <strong>Maître Hypnologue certifié</strong>, est l'un des rares hypnothérapeutes en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des patients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
 
-    <h2>Comment se déroule une séance en visio ?</h2>
+    <h2>L'hypnose en visio est-elle aussi efficace qu'au cabinet ?</h2>
+    <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Les résultats obtenus en téléconsultation sont identiques au présentiel : 3 à 5 séances suffisent dans la grande majorité des cas. De nombreux patients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
+
+    <h2>Comment se déroule une séance d'hypnose en visio ?</h2>
     <ul>
-      <li><strong>Préparation</strong> — Un endroit calme, tranquille, où vous ne serez pas dérangé·e</li>
-      <li><strong>Connexion</strong> — Lien Google Meet envoyé par email avant la séance</li>
-      <li><strong>Durée</strong> — 60 à 75 minutes, comme au cabinet</li>
-      <li><strong>Tarif</strong> — 90 € la séance (identique au cabinet)</li>
+      <li><strong>Préparation</strong> — Un endroit calme où vous ne serez pas dérangé·e, casque ou écouteurs obligatoires</li>
+      <li><strong>Connexion</strong> — Lien Google Meet envoyé par email avant la séance, aucune installation requise</li>
+      <li><strong>Durée</strong> — 60 à 75 minutes, identique au cabinet</li>
+      <li><strong>Tarif</strong> — 90 € la séance, paiement en ligne par carte bancaire ou Wero</li>
     </ul>
 
-    <h2>Pour qui ?</h2>
-    <p>La séance en ligne convient à tous les motifs de consultation : stress, anxiété, phobies, troubles du sommeil, gestion des émotions, confiance en soi. Elle est particulièrement adaptée aux personnes éloignées de Paris, en déplacement, ou préférant un cadre familier.</p>
+    <h2>Domaines traités en hypnose à distance</h2>
+    <p>Toutes les problématiques se traitent efficacement en visio : <strong>stress et anxiété</strong>, phobies (avion, claustrophobie, prise de parole), <strong>troubles du sommeil</strong> (insomnie, réveils nocturnes), confiance en soi, gestion des émotions, procrastination, arrêt du tabac.</p>
 
-    <h2>Pourquoi ça fonctionne à distance ?</h2>
-    <p>L'hypnose ericksonienne repose sur la voix, le rythme, et la relation de confiance. Ces éléments fonctionnent parfaitement en visioconférence. Des milliers de personnes en France bénéficient déjà de séances en ligne avec d'excellents résultats.</p>
+    <h2>Disponible partout en France</h2>
+    <p>Que vous soyez à Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, Lille, ou dans une zone rurale sans hypnothérapeute qualifié à proximité, vous accédez au même niveau d'expertise qu'un patient parisien. Les séances sont également disponibles pour les francophones à l'étranger.</p>
 
-    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance en visio — 90 €</a>
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une téléconsultation d'hypnose — 90 €</a>
     `,
   },
 };

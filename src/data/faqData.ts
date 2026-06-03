@@ -82,6 +82,14 @@ export const faqItems: FaqItem[] = [
     answer: "Situé au cœur de Paris 4ème dans le quartier Marais-Bastille, mon cabinet est facilement accessible depuis tous les arrondissements parisiens grâce à l'excellente desserte en transports en commun :\n\n• Paris Centre (1er, 2ème, 3ème, 4ème) : 5-10 min\n• Paris Est (10ème, 11ème, 12ème) : 5-10 min\n• Paris Nord (18ème, 19ème, 20ème) : 15-20 min\n• Paris Sud (5ème, 13ème, 14ème) : 15-25 min\n• Paris Ouest (7ème, 8ème, 15ème, 16ème) : 20-30 min\n\nLa station Bastille (lignes 1, 5, 8) permet de rejoindre rapidement République, Châtelet, Gare de Lyon et tous les grands points de correspondance parisiens."
   },
   {
+    question: "L'hypnose en visio est-elle aussi efficace qu'en cabinet ?",
+    answer: "Oui, les séances d'hypnose en visioconférence sont tout aussi efficaces que les séances au cabinet. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux patients rapportent même se sentir plus détendus chez eux, dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique. Je pratique la téléconsultation hypnose depuis plusieurs années avec les mêmes résultats qu'en présentiel : 3 à 5 séances suffisent dans la grande majorité des cas."
+  },
+  {
+    question: "Comment se préparer à une séance d'hypnose en visio ?",
+    answer: "Pour une séance d'hypnose en ligne optimale, préparez votre espace : choisissez une pièce calme où vous ne serez pas dérangé, installez-vous confortablement (fauteuil, canapé ou lit), portez des vêtements amples, et munissez-vous d'un casque ou d'écouteurs (la qualité sonore est essentielle). Vérifiez votre connexion internet, fermez les applications inutiles, et prévenez votre entourage. La séance se déroule via Google Meet — aucune installation n'est requise, un simple lien suffit."
+  },
+  {
     question: "Hypnose en visio : comment consulter depuis chez vous, partout en France ?",
     answer: "Oui, je propose des séances d'hypnose en visioconférence partout en France — métropole, DOM-TOM et Français de l'étranger francophones. Où que vous soyez (Lyon, Marseille, Bordeaux, zone rurale…), vous bénéficiez du même accompagnement qu'au cabinet. Les séances en ligne sont tout aussi efficaces qu'en présentiel, notamment pour :\n\n• Gestion du stress et de l'anxiété\n• Amélioration du sommeil\n• Confiance en soi\n• Préparation mentale\n• Arrêt du tabac\n\nLes séances se déroulent via une plateforme sécurisée (Google Meet). Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable, et d'un casque ou écouteurs pour une meilleure immersion."
   },
