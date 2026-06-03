@@ -6,6 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
@@ -43,10 +44,22 @@ const anonymizeName = (full: string): string => {
   return `${parts.slice(0, -1).join(' ')} ${last[0]}.`;
 };
 
+const ACCOMPAGNEMENTS_LINKS = [
+  { label: 'Stress & Anxiété', href: '/hypnose-stress-anxiete-paris' },
+  { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
+  { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
+  { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
+  { label: 'Phobies', href: '/hypnose-phobies-paris' },
+  { label: 'Test de réceptivité', href: '/test-receptivite' },
+];
+
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
+  const [accompagnementsOpen, setAccompagnementsOpen] = useState(false);
 
   // Contact form
   const [nom, setNom] = useState('');
@@ -70,6 +83,24 @@ const PreviewCharte: React.FC = () => {
       setContactStatus('error');
     }
   };
+
+  useEffect(() => {
+    if (!accompagnementsOpen) return;
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setAccompagnementsOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setAccompagnementsOpen(false);
+    };
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [accompagnementsOpen]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -184,7 +215,23 @@ const PreviewCharte: React.FC = () => {
               <a href="#about">À propos</a>
               <a href="#cabinet">Le cabinet</a>
               <a href="#visio">En visio</a>
-              <a href="#domaines">Accompagnement</a>
+              <div ref={dropdownRef} className={`nav__dropdown${accompagnementsOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+                <button
+                  className="nav__dropdown-toggle"
+                  onClick={() => setAccompagnementsOpen((v) => !v)}
+                  aria-expanded={accompagnementsOpen}
+                  aria-haspopup="true"
+                >
+                  Accompagnements <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
+                </button>
+                <div className="nav__dropdown-menu">
+                  {ACCOMPAGNEMENTS_LINKS.map((link) => (
+                    <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setAccompagnementsOpen(false); }}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <a href="#sessions">Séances</a>
               <a href="#temoignages">Avis</a>
               <a href="/autohypnose">Auto-hypnose ↗</a>
