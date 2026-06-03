@@ -121,68 +121,87 @@ const HypnoseConfianceParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="380" height="380" viewBox="0 0 380 380" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 100 50 C 220 10, 350 60, 360 170 C 370 270, 285 345, 175 350 C 70 355, 5 275, 20 170 C 33 85, 75 70, 100 50 Z" fill="#F2A12E" opacity="0.5" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 130 110 C 230 75, 320 125, 315 215 C 310 305, 235 360, 150 345 C 65 330, 30 260, 55 175 C 72 115, 105 128, 130 110 Z" fill="#2B4BA0" opacity="0.35" />
-          </g>
-          <rect width="380" height="380" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Le manque de confiance vous freine ?</h2>
-          <div className="sp-prose">
-            <p>
-              Vous avez les compétences, mais vous n'arrivez pas à les montrer. En réunion, vous
-              n'osez pas prendre la parole. Devant une opportunité, vous hésitez, vous vous dites
-              que vous n'êtes pas à la hauteur.
-            </p>
-            <p>
-              Le <strong>syndrome de l'imposteur</strong>, la timidité, la peur du jugement, le
-              perfectionnisme paralysant — ce ne sont pas des traits de caractère. Ce sont des
-              <strong> programmes inconscients</strong> installés depuis l'enfance.
-            </p>
-            <p>
-              Ces programmes peuvent être modifiés. L'hypnose accède directement à ces croyances
-              profondes pour les transformer.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Confiance en soi — comprendre</div>
+              <h2 className="section-title">Le manque de confiance<br/><em>vous freine ?</em></h2>
+              <p>
+                Vous avez les compétences, mais vous n'arrivez pas à les montrer. En réunion, vous
+                n'osez pas prendre la parole. Devant une opportunité, vous hésitez, vous vous dites
+                que vous n'êtes pas à la hauteur.
+              </p>
+              <p>
+                Le <strong>syndrome de l'imposteur</strong>, la timidité, la peur du jugement, le
+                perfectionnisme paralysant — ce ne sont pas des traits de caractère. Ce sont des
+                <strong> programmes inconscients</strong> installés depuis l'enfance.
+              </p>
+              <p>
+                Ces programmes peuvent être modifiés. L'hypnose accède directement à ces croyances
+                profondes pour les transformer.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 70 90 C 200 25, 430 35, 488 175 C 530 285, 480 430, 340 475 C 205 518, 45 492, 10 360 C -22 235, 20 135, 70 90 Z" fill="#F2A12E" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 140 165 C 270 108, 405 168, 412 285 C 419 395, 314 462, 198 444 C 85 426, 42 338, 68 232 C 88 152, 122 170, 140 165 Z" fill="#2B4BA0" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comment l'hypnose renforce la confiance */}
       <section className="sp-section sp-section--alt">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose renforce la confiance en soi</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne travaille sur les fondations de votre confiance : l'image de soi,
-              les croyances, les expériences formatrices. En état d'hypnose, je vous aide à :
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Identifier et transformer les croyances limitantes",
-              "Neutraliser le syndrome de l'imposteur",
-              "Développer une image de soi positive et réaliste",
-              "Prendre la parole en public avec aisance",
-              "Oser dire non et poser ses limites",
-              "Aborder les situations sociales avec sérénité"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 90 100 C 215 35, 425 55, 485 190 C 530 305, 475 445, 330 482 C 190 518, 38 490, 8 355 C -20 228, 30 145, 90 100 Z" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 155 155 C 285 95, 418 158, 418 275 C 418 388, 312 458, 195 438 C 82 418, 42 328, 70 218 C 91 140, 128 162, 155 155 Z" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — reprogrammer les croyances</div>
+              <h2 className="section-title">L'hypnose reprogramme<br/><em>votre rapport à vous.</em></h2>
+              <p>
+                L'hypnose ericksonienne travaille sur les fondations de votre confiance : l'image de soi,
+                les croyances, les expériences formatrices. En état d'hypnose, je vous aide à :
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Identifier et transformer les croyances limitantes",
+                  "Neutraliser le syndrome de l'imposteur",
+                  "Développer une image de soi positive et réaliste",
+                  "Prendre la parole en public avec aisance",
+                  "Oser dire non et poser ses limites",
+                  "Aborder les situations sociales avec sérénité"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Mon approche */}
       <section className="sp-section">
-        <div className="container sp-narrow reveal">
+        <div className="container reveal">
           <h2 className="sp-h2">Mon approche pour développer votre confiance</h2>
           <div className="sp-prose">
             <p>
@@ -283,16 +302,7 @@ const HypnoseConfianceParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="380" height="320" viewBox="0 0 380 320" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 50 60 C 150 15, 330 25, 365 120 C 390 200, 330 280, 210 305 C 95 328, 5 275, 15 180 C 25 100, 45 80, 50 60 Z" fill="#2B4BA0" opacity="0.42" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 130 90 C 240 55, 340 105, 335 195 C 330 280, 245 330, 155 312 C 68 295, 38 228, 60 148 C 76 90, 108 105, 130 90 Z" fill="#F2A12E" opacity="0.28" />
-          </g>
-          <rect width="380" height="320" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et la confiance en soi</h2>
           <div>

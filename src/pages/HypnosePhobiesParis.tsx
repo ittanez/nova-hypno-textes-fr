@@ -132,32 +132,37 @@ const HypnosePhobiesParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="350" height="450" viewBox="0 0 350 450" aria-hidden="true" style={{ top: '5%', transform: 'none' }}>
-          <g filter="url(#riso-full)">
-            <path d="M 60 30 C 180 -15, 320 20, 340 130 C 358 230, 290 340, 180 380 C 80 415, -10 370, 5 260 C 18 165, 28 65, 60 30 Z" fill="#F2A12E" opacity="0.5" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 105 90 C 215 50, 305 105, 295 205 C 285 300, 205 360, 120 342 C 40 325, 12 255, 38 168 C 57 105, 85 112, 105 90 Z" fill="#2B4BA0" opacity="0.32" />
-          </g>
-          <rect width="350" height="450" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Une phobie vous gâche la vie ?</h2>
-          <div className="sp-prose">
-            <p>
-              Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
-              vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
-              c'est plus fort que vous.
-            </p>
-            <p>
-              La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
-              d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
-            </p>
-            <p>
-              L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
-              l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Phobies — comprendre</div>
+              <h2 className="section-title">Une phobie<br/><em>vous gâche la vie ?</em></h2>
+              <p>
+                Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
+                vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
+                c'est plus fort que vous.
+              </p>
+              <p>
+                La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
+                d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
+              </p>
+              <p>
+                L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
+                l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 100 70 C 240 10, 440 40, 490 175 C 528 285, 480 425, 340 470 C 202 514, 50 490, 14 360 C -19 236, 25 115, 100 70 Z" fill="#F2A12E" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 155 145 C 285 90, 415 150, 418 268 C 421 380, 318 452, 205 434 C 95 416, 50 330, 76 224 C 95 148, 130 162, 155 145 Z" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -179,28 +184,42 @@ const HypnosePhobiesParis = () => {
 
       {/* Comment ça marche */}
       <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose élimine les phobies</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
-              la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
-              dans un état de relaxation profonde pour :
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Identifier l'origine de la phobie et le déclencheur inconscient",
-              "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
-              "Créer de nouvelles associations positives et neutres",
-              "Renforcer votre sentiment de sécurité et de contrôle",
-              "Installer des automatismes de calme face à la situation redoutée"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 80 90 C 210 25, 430 48, 490 185 C 536 300, 482 440, 340 478 C 200 515, 38 488, 8 352 C -22 222, 22 138, 80 90 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 148 158 C 278 100, 412 162, 415 278 C 418 388, 315 456, 200 438 C 88 420, 46 335, 72 228 C 93 152, 125 164, 148 158 Z" fill="#F2A12E" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — désensibilisation</div>
+              <h2 className="section-title">L'hypnose désactive<br/><em>la peur à la racine.</em></h2>
+              <p>
+                L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
+                la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
+                dans un état de relaxation profonde pour :
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Identifier l'origine de la phobie et le déclencheur inconscient",
+                  "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
+                  "Créer de nouvelles associations positives et neutres",
+                  "Renforcer votre sentiment de sécurité et de contrôle",
+                  "Installer des automatismes de calme face à la situation redoutée"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -286,16 +305,7 @@ const HypnosePhobiesParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="360" height="260" viewBox="0 0 360 260" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 30 50 C 120 5, 300 10, 340 90 C 370 160, 300 230, 190 245 C 85 260, 0 215, 5 140 C 10 80, 20 72, 30 50 Z" fill="#F2A12E" opacity="0.48" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 100 70 C 210 38, 315 82, 310 165 C 305 245, 215 285, 128 268 C 45 252, 20 190, 45 118 C 62 70, 82 84, 100 70 Z" fill="#2B4BA0" opacity="0.3" />
-          </g>
-          <rect width="360" height="260" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
           <div>

@@ -1012,6 +1012,12 @@
 
 /* ─── Content layout ───────────────────────────────────────── */
 .cz .sp-narrow { max-width: 760px; margin: 0 auto; }
+.cz .sp-section .cabinet__grid { max-width: 1160px; margin: 0 auto; }
+.cz .sp-section .cabinet__copy .section-tag { margin-bottom: 16px; }
+.cz .sp-section .cabinet__copy .section-title { margin-bottom: 24px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.cz .sp-section .cabinet__copy p { font-size: 1rem; line-height: 1.8; color: var(--corps); max-width: 520px; }
+.cz .sp-section .cabinet__copy p + p { margin-top: 16px; }
+.cz .sp-section--alt .cabinet__copy .section-title em { color: var(--cobalt); }
 .cz .sp-h2 {
   font-family: var(--f-serif);
   font-size: clamp(1.6rem, 3vw, 2.4rem);

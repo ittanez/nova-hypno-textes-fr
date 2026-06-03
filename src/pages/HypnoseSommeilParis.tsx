@@ -121,60 +121,79 @@ const HypnoseSommeilParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="360" height="400" viewBox="0 0 360 400" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 50 80 C 140 20, 300 30, 340 130 C 370 210, 330 310, 240 360 C 150 410, 40 380, 15 280 C -10 185, 20 115, 50 80 Z" fill="#2B4BA0" opacity="0.45" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 120 140 C 220 100, 300 150, 300 240 C 300 330, 220 380, 140 360 C 60 340, 30 270, 55 190 C 72 140, 100 155, 120 140 Z" fill="#F2A12E" opacity="0.35" />
-          </g>
-          <rect width="360" height="400" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Le manque de sommeil détruit votre quotidien ?</h2>
-          <div className="sp-prose">
-            <p>
-              Vous vous couchez épuisé(e) mais votre cerveau ne s'arrête pas. Les pensées tournent en boucle.
-              Vous regardez l'heure : 1h, 2h, 3h du matin… Quand le réveil sonne, vous êtes plus fatigué(e)
-              qu'en vous couchant.
-            </p>
-            <p>
-              Le manque de sommeil affecte tout : votre humeur, votre concentration, votre santé, vos relations.
-              Les somnifères vous assomment sans vous offrir un vrai repos.
-            </p>
-            <p>
-              Le problème n'est pas dans votre corps. Il est dans votre <strong>inconscient</strong>, qui a
-              &laquo;&nbsp;oublié&nbsp;&raquo; comment lâcher prise pour s'endormir. L'hypnose lui rappelle.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Sommeil — comprendre</div>
+              <h2 className="section-title">Le manque de sommeil<br/><em>détruit votre quotidien ?</em></h2>
+              <p>
+                Vous vous couchez épuisé(e) mais votre cerveau ne s'arrête pas. Les pensées tournent en boucle.
+                Vous regardez l'heure : 1h, 2h, 3h du matin… Quand le réveil sonne, vous êtes plus fatigué(e)
+                qu'en vous couchant.
+              </p>
+              <p>
+                Le manque de sommeil affecte tout : votre humeur, votre concentration, votre santé, vos relations.
+                Les somnifères vous assomment sans vous offrir un vrai repos.
+              </p>
+              <p>
+                Le problème n'est pas dans votre corps. Il est dans votre <strong>inconscient</strong>, qui a
+                &laquo;&nbsp;oublié&nbsp;&raquo; comment lâcher prise pour s'endormir. L'hypnose lui rappelle.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 100 80 C 230 20, 420 50, 470 180 C 510 290, 460 420, 330 470 C 200 520, 60 490, 20 360 C -20 235, 30 120, 100 80 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 170 160 C 290 110, 400 170, 400 285 C 400 395, 300 460, 190 440 C 85 420, 45 335, 75 235 C 98 160, 145 175, 170 160 Z" fill="#F2A12E" opacity="0.85" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comment l'hypnose agit */}
       <section className="sp-section sp-section--alt">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose restaure votre sommeil</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne travaille sur les causes profondes de vos troubles du sommeil, pas
-              seulement sur les symptômes. En accédant à votre inconscient, elle permet de :
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Calmer le mental hyperactif qui empêche l'endormissement",
-              "Désactiver l'anxiété anticipatoire liée au coucher",
-              "Restaurer le cycle naturel veille-sommeil",
-              "Éliminer les réveils nocturnes et les ruminations",
-              "Apprendre l'auto-hypnose pour vous endormir seul(e)",
-              "Retrouver un sommeil profond et réparateur sans médicament"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 120 50 C 260 0, 460 40, 490 175 C 515 295, 440 425, 300 470 C 160 515, 30 470, 10 345 C -10 225, 50 85, 120 50 Z" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 60 150 C 180 80, 360 110, 410 235 C 455 345, 380 460, 250 480 C 125 500, 25 415, 20 295 C 15 185, 40 185, 60 150 Z" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — le cycle du sommeil</div>
+              <h2 className="section-title">L'hypnose restaure<br/><em>votre sommeil.</em></h2>
+              <p>
+                L'hypnose ericksonienne travaille sur les causes profondes de vos troubles du sommeil, pas
+                seulement sur les symptômes. En accédant à votre inconscient, elle permet de :
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Calmer le mental hyperactif qui empêche l'endormissement",
+                  "Désactiver l'anxiété anticipatoire liée au coucher",
+                  "Restaurer le cycle naturel veille-sommeil",
+                  "Éliminer les réveils nocturnes et les ruminations",
+                  "Apprendre l'auto-hypnose pour vous endormir seul(e)",
+                  "Retrouver un sommeil profond et réparateur sans médicament"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -259,16 +278,7 @@ const HypnoseSommeilParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="260" height="300" viewBox="0 0 260 300" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 60 40 C 150 5, 240 50, 245 140 C 250 230, 175 275, 100 265 C 30 255, -10 190, 15 115 C 30 65, 55 58, 60 40 Z" fill="#F2A12E" opacity="0.5" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 85 90 C 160 60, 215 105, 210 185 C 205 260, 145 295, 85 275 C 30 258, 15 200, 30 130 C 42 80, 65 100, 85 90 Z" fill="#2B4BA0" opacity="0.28" />
-          </g>
-          <rect width="260" height="300" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et le sommeil</h2>
           <div>

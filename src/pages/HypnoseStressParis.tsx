@@ -120,62 +120,81 @@ const HypnoseStressParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="420" height="350" viewBox="0 0 420 350" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 60 40 C 180 -10, 380 20, 410 120 C 430 200, 360 270, 280 300 C 180 335, 60 310, 20 230 C -20 145, 20 75, 60 40 Z" fill="#F2A12E" opacity="0.5" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 200 80 C 320 50, 400 110, 390 200 C 380 285, 290 330, 200 310 C 110 290, 70 220, 90 150 C 105 100, 155 95, 200 80 Z" fill="#2B4BA0" opacity="0.3" />
-          </g>
-          <rect width="420" height="350" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Le stress vous empêche de vivre ?</h2>
-          <div className="sp-prose">
-            <p>
-              Vous vous réveillez la nuit avec des pensées qui tournent en boucle. Au travail, la pression ne retombe jamais.
-              Vous sentez une boule dans le ventre, des tensions dans les épaules, un souffle court. Vous avez essayé de
-              &laquo;&nbsp;relativiser&nbsp;&raquo;, de &laquo;&nbsp;lâcher prise&nbsp;&raquo;, mais rien n'y fait.
-            </p>
-            <p>
-              Le stress chronique n'est pas une fatalité. Ce n'est pas un trait de caractère. C'est un mécanisme
-              que votre inconscient a mis en place — et que l'hypnose peut désactiver.
-            </p>
-            <p>
-              <strong>Burn-out</strong>, anxiété généralisée, crises d'angoisse, stress au travail, charge mentale…
-              Ces symptômes sont le signal que quelque chose doit changer. Et le changement peut être rapide.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Stress &amp; Anxiété — comprendre</div>
+              <h2 className="section-title">Le stress vous empêche<br/><em>de vivre ?</em></h2>
+              <p>
+                Vous vous réveillez la nuit avec des pensées qui tournent en boucle. Au travail, la pression ne retombe jamais.
+                Vous sentez une boule dans le ventre, des tensions dans les épaules, un souffle court. Vous avez essayé de
+                &laquo;&nbsp;relativiser&nbsp;&raquo;, de &laquo;&nbsp;lâcher prise&nbsp;&raquo;, mais rien n'y fait.
+              </p>
+              <p>
+                Le stress chronique n'est pas une fatalité. Ce n'est pas un trait de caractère. C'est un mécanisme
+                que votre inconscient a mis en place — et que l'hypnose peut désactiver.
+              </p>
+              <p>
+                <strong>Burn-out</strong>, anxiété généralisée, crises d'angoisse, stress au travail, charge mentale…
+                Ces symptômes sont le signal que quelque chose doit changer. Et le changement peut être rapide.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 80 60 C 200 10, 420 20, 490 140 C 540 230, 490 350, 380 420 C 260 495, 80 480, 30 370 C -20 255, 20 110, 80 60 Z" fill="#F2A12E" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 160 150 C 280 100, 400 155, 410 270 C 420 375, 320 445, 210 430 C 100 415, 55 330, 80 225 C 100 145, 140 168, 160 150 Z" fill="#2B4BA0" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Comment l'hypnose agit */}
       <section className="sp-section sp-section--alt">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose agit sur le stress et l'anxiété</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne travaille directement avec votre inconscient — là où se trouvent les automatismes
-              qui génèrent le stress. En état d'hypnose, le cerveau réduit naturellement la production de <strong>cortisol</strong>,
-              l'hormone du stress, tout en activant le <strong>système nerveux parasympathique</strong>. Concrètement, votre cerveau
-              réapprend à distinguer un vrai danger d'une simple pression du quotidien.
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Reprogrammer les réactions automatiques de stress",
-              "Relâcher les tensions accumulées dans le corps",
-              "Retrouver un sommeil profond et réparateur",
-              "Développer des ressources internes de calme",
-              "Prendre du recul face aux situations anxiogènes",
-              "Stopper le cercle vicieux des pensées négatives"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 60 100 C 180 40, 380 60, 450 180 C 500 270, 470 390, 350 450 C 230 510, 70 490, 20 370 C -25 255, 20 145, 60 100 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 140 160 C 260 110, 390 165, 400 275 C 410 380, 310 450, 200 435 C 95 420, 50 335, 75 230 C 95 150, 120 168, 140 160 Z" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — comment ça marche</div>
+              <h2 className="section-title">L'hypnose agit<br/><em>là où ça bloque.</em></h2>
+              <p>
+                L'hypnose ericksonienne travaille directement avec votre inconscient — là où se trouvent les automatismes
+                qui génèrent le stress. En état d'hypnose, le cerveau réduit naturellement la production de <strong>cortisol</strong>,
+                l'hormone du stress, tout en activant le <strong>système nerveux parasympathique</strong>. Concrètement, votre cerveau
+                réapprend à distinguer un vrai danger d'une simple pression du quotidien.
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Reprogrammer les réactions automatiques de stress",
+                  "Relâcher les tensions accumulées dans le corps",
+                  "Retrouver un sommeil profond et réparateur",
+                  "Développer des ressources internes de calme",
+                  "Prendre du recul face aux situations anxiogènes",
+                  "Stopper le cercle vicieux des pensées négatives"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -260,16 +279,7 @@ const HypnoseStressParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="300" height="420" viewBox="0 0 300 420" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 80 30 C 180 -5, 280 40, 290 140 C 300 240, 240 340, 150 380 C 70 415, -20 380, 10 270 C 30 185, 40 80, 80 30 Z" fill="#2B4BA0" opacity="0.4" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 100 100 C 190 70, 260 120, 255 210 C 250 300, 180 355, 110 340 C 40 325, 20 255, 40 170 C 55 110, 80 115, 100 100 Z" fill="#F2A12E" opacity="0.22" />
-          </g>
-          <rect width="300" height="420" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et le stress</h2>
           <div>

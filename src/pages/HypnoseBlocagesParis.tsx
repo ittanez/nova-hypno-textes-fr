@@ -130,36 +130,38 @@ const HypnoseBlocagesParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="400" height="360" viewBox="0 0 400 360" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 20 60 C 100 20, 200 40, 210 130 C 220 215, 150 270, 80 260 C 15 250, -20 185, 5 115 C 18 70, 20 60, 20 60 Z" fill="#F2A12E" opacity="0.55" />
-          </g>
-          <g filter="url(#riso-full)">
-            <path d="M 220 50 C 310 10, 400 50, 395 150 C 390 240, 310 295, 230 280 C 155 265, 130 195, 155 120 C 172 68, 200 68, 220 50 Z" fill="#2B4BA0" opacity="0.42" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 110 120 C 220 90, 310 130, 300 215 C 290 295, 200 340, 120 325 C 45 310, 20 245, 45 170 C 62 120, 90 135, 110 120 Z" fill="#F2A12E" opacity="0.2" />
-          </g>
-          <rect width="400" height="360" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Vous êtes bloqué(e) malgré votre volonté ?</h2>
-          <div className="sp-prose">
-            <p>
-              Vous savez exactement ce que vous devriez faire, mais vous n'y arrivez pas. Vous repoussez
-              sans cesse ce qui est important. Vous répétez les mêmes schémas relationnels ou professionnels.
-            </p>
-            <p>
-              Ce n'est ni de la paresse, ni un manque de volonté. Ces comportements sont <strong>pilotés
-              par votre inconscient</strong>. Ils répondent à un besoin profond — souvent de protection
-              ou de réconfort — que votre conscient ne perçoit pas. C'est pour ça que la volonté seule
-              ne suffit pas.
-            </p>
-            <p>
-              L'hypnose va directement à la source : elle dialogue avec l'inconscient pour comprendre
-              le besoin caché derrière le comportement et proposer une alternative plus adaptée.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Blocages — comprendre</div>
+              <h2 className="section-title">Bloqué(e) malgré<br/><em>votre volonté ?</em></h2>
+              <p>
+                Vous savez exactement ce que vous devriez faire, mais vous n'y arrivez pas. Vous repoussez
+                sans cesse ce qui est important. Vous répétez les mêmes schémas relationnels ou professionnels.
+              </p>
+              <p>
+                Ce n'est ni de la paresse, ni un manque de volonté. Ces comportements sont <strong>pilotés
+                par votre inconscient</strong>. Ils répondent à un besoin profond — souvent de protection
+                ou de réconfort — que votre conscient ne perçoit pas. C'est pour ça que la volonté seule
+                ne suffit pas.
+              </p>
+              <p>
+                L'hypnose va directement à la source : elle dialogue avec l'inconscient pour comprendre
+                le besoin caché derrière le comportement et proposer une alternative plus adaptée.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 50 80 C 170 20, 390 30, 475 165 C 540 275, 495 415, 360 465 C 225 515, 55 490, 10 355 C -30 225, 15 120, 50 80 Z" fill="#F2A12E" opacity="0.9" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 100 120 C 230 55, 430 90, 470 220 C 500 330, 425 450, 290 480 C 158 508, 35 450, 15 325 C -5 205, 35 155, 100 120 Z" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -181,28 +183,42 @@ const HypnoseBlocagesParis = () => {
 
       {/* Comment l'hypnose débloque */}
       <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose débloque vos comportements</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne ne combat pas le comportement — elle le rend inutile en traitant
-              sa cause. En état d'hypnose, je vous guide pour :
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Identifier le besoin inconscient qui maintient le comportement",
-              "Retraiter les expériences à l'origine du blocage",
-              "Remplacer les automatismes dysfonctionnels par de nouvelles réponses",
-              "Briser les schémas répétitifs en créant de nouveaux circuits mentaux",
-              "Retrouver la capacité d'agir et de passer à l'action",
-              "Ancrer de nouveaux comportements qui deviennent naturels"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 110 60 C 250 5, 450 45, 490 180 C 522 295, 460 435, 320 475 C 185 514, 40 482, 10 350 C -18 225, 35 100, 110 60 Z" fill="#2B4BA0" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 165 140 C 300 88, 420 150, 420 270 C 420 385, 315 455, 200 435 C 88 415, 45 330, 75 220 C 96 140, 138 158, 165 140 Z" fill="#F2A12E" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — libérer l'inconscient</div>
+              <h2 className="section-title">L'hypnose libère<br/><em>ce qui bloque.</em></h2>
+              <p>
+                L'hypnose ericksonienne ne combat pas le comportement — elle le rend inutile en traitant
+                sa cause. En état d'hypnose, je vous guide pour :
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Identifier le besoin inconscient qui maintient le comportement",
+                  "Retraiter les expériences à l'origine du blocage",
+                  "Remplacer les automatismes dysfonctionnels par de nouvelles réponses",
+                  "Briser les schémas répétitifs en créant de nouveaux circuits mentaux",
+                  "Retrouver la capacité d'agir et de passer à l'action",
+                  "Ancrer de nouveaux comportements qui deviennent naturels"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -285,16 +301,7 @@ const HypnoseBlocagesParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="280" height="440" viewBox="0 0 280 440" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 70 40 C 170 0, 265 55, 270 155 C 275 255, 205 360, 120 400 C 45 435, -20 395, 5 295 C 25 205, 35 100, 70 40 Z" fill="#F2A12E" opacity="0.45" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 95 110 C 180 75, 245 125, 238 215 C 232 305, 165 360, 100 345 C 38 330, 15 263, 38 180 C 54 122, 78 130, 95 110 Z" fill="#2B4BA0" opacity="0.3" />
-          </g>
-          <rect width="280" height="440" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les blocages</h2>
           <div>

@@ -130,33 +130,38 @@ const HypnoseEmotionsParis = () => {
       </section>
 
       {/* Le problème */}
-      <section className="sp-section sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--right" width="460" height="380" viewBox="0 0 460 380" aria-hidden="true">
-          <g filter="url(#riso-full)">
-            <path d="M 40 60 C 160 10, 380 -10, 440 110 C 485 200, 420 310, 300 350 C 185 388, 50 360, 15 255 C -15 160, 20 85, 40 60 Z" fill="#F2A12E" opacity="0.48" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 180 70 C 320 35, 430 100, 420 210 C 410 315, 300 375, 190 355 C 80 335, 40 250, 65 160 C 85 95, 140 88, 180 70 Z" fill="#2B4BA0" opacity="0.28" />
-          </g>
-          <rect width="460" height="380" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Vos émotions prennent le dessus ?</h2>
-          <div className="sp-prose">
-            <p>
-              Une remarque anodine et vous explosez de colère. Un souvenir et les larmes montent
-              sans prévenir. Vous vous sentez à fleur de peau, comme si tout était amplifié.
-            </p>
-            <p>
-              L'hypersensibilité, les accès de colère, la difficulté à faire un deuil, la frustration
-              chronique — ces difficultés ne sont pas un signe de faiblesse. Ce sont des <strong>réactions
-              émotionnelles automatiques</strong> que votre inconscient a mises en place pour
-              vous protéger.
-            </p>
-            <p>
-              Le problème, c'est que ces mécanismes qui vous protégeaient autrefois vous empêchent
-              aujourd'hui de vivre sereinement. L'hypnose permet de les recalibrer.
-            </p>
+      <section className="sp-section">
+        <div className="container">
+          <div className="cabinet__grid reveal">
+            <div className="cabinet__copy">
+              <div className="section-tag">Émotions — comprendre</div>
+              <h2 className="section-title">Vos émotions<br/><em>prennent le dessus ?</em></h2>
+              <p>
+                Une remarque anodine et vous explosez de colère. Un souvenir et les larmes montent
+                sans prévenir. Vous vous sentez à fleur de peau, comme si tout était amplifié.
+              </p>
+              <p>
+                L'hypersensibilité, les accès de colère, la difficulté à faire un deuil, la frustration
+                chronique — ces difficultés ne sont pas un signe de faiblesse. Ce sont des <strong>réactions
+                émotionnelles automatiques</strong> que votre inconscient a mises en place pour
+                vous protéger.
+              </p>
+              <p>
+                Le problème, c'est que ces mécanismes qui vous protégeaient autrefois vous empêchent
+                aujourd'hui de vivre sereinement. L'hypnose permet de les recalibrer.
+              </p>
+            </div>
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 60 120 C 160 40, 380 20, 470 150 C 535 250, 490 400, 360 460 C 230 520, 70 500, 20 375 C -25 255, 20 175, 60 120 Z" fill="#F2A12E" opacity="0.92" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 130 180 C 250 125, 390 175, 405 290 C 420 395, 320 465, 205 448 C 95 430, 48 345, 72 240 C 90 162, 115 175, 130 180 Z" fill="#2B4BA0" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -178,28 +183,42 @@ const HypnoseEmotionsParis = () => {
 
       {/* Comment l'hypnose agit */}
       <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Comment l'hypnose régule vos émotions</h2>
-          <div className="sp-prose">
-            <p>
-              L'hypnose ericksonienne ne supprime pas vos émotions — elle vous apprend à les vivre
-              sans en être prisonnier. En accédant à votre inconscient, elle permet de :
-            </p>
-          </div>
-          <div className="sp-checklist">
-            {[
-              "Identifier les déclencheurs émotionnels inconscients",
-              "Retraiter les expériences passées qui amplifient vos réactions",
-              "Installer des mécanismes de régulation naturels",
-              "Développer votre capacité à ressentir sans être submergé(e)",
-              "Transformer la colère et la frustration en énergie constructive",
-              "Accompagner le processus de deuil en douceur"
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
+        <div className="container">
+          <div className="cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g filter="url(#riso-full)">
+                  <path d="M 90 70 C 220 15, 430 50, 485 185 C 528 300, 475 435, 340 480 C 210 525, 55 495, 15 365 C -22 240, 25 110, 90 70 Z" fill="#2B4BA0" opacity="0.9" />
+                </g>
+                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                  <path d="M 150 140 C 280 85, 415 148, 420 270 C 425 385, 318 458, 200 438 C 88 418, 45 328, 70 220 C 90 138, 128 160, 150 140 Z" fill="#F2A12E" opacity="0.88" />
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Mécanisme — réguler l'affect</div>
+              <h2 className="section-title">L'hypnose régule<br/><em>vos émotions.</em></h2>
+              <p>
+                L'hypnose ericksonienne ne supprime pas vos émotions — elle vous apprend à les vivre
+                sans en être prisonnier. En accédant à votre inconscient, elle permet de :
+              </p>
+              <div className="sp-checklist">
+                {[
+                  "Identifier les déclencheurs émotionnels inconscients",
+                  "Retraiter les expériences passées qui amplifient vos réactions",
+                  "Installer des mécanismes de régulation naturels",
+                  "Développer votre capacité à ressentir sans être submergé(e)",
+                  "Transformer la colère et la frustration en énergie constructive",
+                  "Accompagner le processus de deuil en douceur"
+                ].map((item, i) => (
+                  <div key={i} className="sp-check-item">
+                    <CheckCircle size={18} />
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -284,16 +303,7 @@ const HypnoseEmotionsParis = () => {
       </section>
 
       {/* FAQ */}
-      <section className="sp-section sp-section--alt sp-deco-wrap">
-        <svg className="sp-deco-blob sp-deco-blob--left" width="320" height="360" viewBox="0 0 320 360" aria-hidden="true" style={{ transform: 'rotate(-15deg)' }}>
-          <g filter="url(#riso-full)">
-            <path d="M 90 50 C 200 10, 300 70, 305 170 C 310 270, 230 340, 140 335 C 55 330, 5 255, 20 160 C 35 75, 70 70, 90 50 Z" fill="#2B4BA0" opacity="0.4" />
-          </g>
-          <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-            <path d="M 115 110 C 200 75, 275 125, 270 210 C 265 295, 195 345, 125 330 C 55 315, 30 250, 50 170 C 65 110, 95 125, 115 110 Z" fill="#F2A12E" opacity="0.3" />
-          </g>
-          <rect width="320" height="360" filter="url(#paperGrain)" opacity=".15" />
-        </svg>
+      <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les émotions</h2>
           <div>
