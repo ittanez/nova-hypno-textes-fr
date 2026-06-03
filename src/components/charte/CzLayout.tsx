@@ -23,10 +23,18 @@ interface CzLayoutProps {
 
 const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Accueil', href: '/' },
-  { label: 'Accompagnement', href: '/#accompagnement' },
   { label: 'Auto-hypnose', href: '/autohypnose' },
   { label: 'Articles', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
+];
+
+const SPECIALITES_LINKS = [
+  { label: 'Stress & Anxiété', href: '/hypnose-stress-anxiete-paris' },
+  { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
+  { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
+  { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
+  { label: 'Phobies', href: '/hypnose-phobies-paris' },
 ];
 
 const DEFAULT_CTA_HREF = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -41,7 +49,27 @@ const CzLayout: React.FC<CzLayoutProps> = ({
   floatingCtaLabel,
 }) => {
   const rootRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [navOpen, setNavOpen] = useState(false);
+  const [specialitesOpen, setSpecialitesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!specialitesOpen) return;
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setSpecialitesOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSpecialitesOpen(false);
+    };
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [specialitesOpen]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -96,6 +124,23 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <span></span><span></span><span></span>
           </button>
           <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
+            <div ref={dropdownRef} className={`nav__dropdown${specialitesOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <button
+                className="nav__dropdown-toggle"
+                onClick={() => setSpecialitesOpen((v) => !v)}
+                aria-expanded={specialitesOpen}
+                aria-haspopup="true"
+              >
+                Spécialités <span className="nav__dropdown-arrow">▾</span>
+              </button>
+              <div className="nav__dropdown-menu">
+                {SPECIALITES_LINKS.map((link) => (
+                  <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setSpecialitesOpen(false); }}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             {navLinks.map((link) =>
               link.href.startsWith('/#') || link.href.startsWith('#') ? (
                 <a key={link.href} href={link.href}>{link.label}</a>
