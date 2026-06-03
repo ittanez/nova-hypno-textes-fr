@@ -400,10 +400,11 @@
   status = 200
   force = true
 
+# Ancienne page statique mentions-legales supprimée → route React
 [[redirects]]
   from = "/mentions-legales.html"
-  to = "/mentions-legales.html"
-  status = 200
+  to = "/mentions-legales"
+  status = 301
   force = true
 
 [[redirects]]
