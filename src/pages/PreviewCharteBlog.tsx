@@ -53,7 +53,6 @@ const PreviewCharteBlog: React.FC = () => {
     if (activeCategory === 'all') return articles;
     return articles.filter((a) => Array.isArray(a.categories) && a.categories.includes(activeCategory));
   }, [articles, activeCategory]);
-
   const featured = filteredArticles[0];
   const rest = filteredArticles.slice(1);
 
@@ -129,9 +128,12 @@ const PreviewCharteBlog: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <Link to="/">← Retour</Link>
+              <Link to="/">Accueil</Link>
+              <Link to="/#about">À propos</Link>
+              <Link to="/#domaines">Accompagnement</Link>
               <a href="#articles">Articles</a>
               <Link to="/autohypnose">Auto-hypnose ↗</Link>
+              <Link to="/#contact">Contact</Link>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>
@@ -178,8 +180,8 @@ const PreviewCharteBlog: React.FC = () => {
                 {categories.map((c) => (
                   <button
                     key={c.id}
-                    className={`blog-chip${activeCategory === c.slug ? ' active' : ''}`}
-                    onClick={() => setActiveCategory(c.slug)}
+                    className={`blog-chip${activeCategory === c.name ? ' active' : ''}`}
+                    onClick={() => setActiveCategory(c.name)}
                   >
                     {c.name}
                   </button>

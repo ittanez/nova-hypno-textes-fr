@@ -770,6 +770,9 @@
   .cz .floating-cta { display: inline-flex; }
   .cz .foot { padding-bottom: 120px; }
   .cz .swatches { grid-template-columns: repeat(3, 1fr); }
+  /* Blog hero : le décor ne doit pas chevaucher le texte sur mobile */
+  .cz .blog-hero { padding: 120px 0 150px; }
+  .cz .blog-hero__bg { height: 120px; opacity: .7; }
 }
 
 /* ── Mentions légales (PreviewCharteMentionsLegales) ── */

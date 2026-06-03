@@ -131,12 +131,13 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="/">← Retour</a>
+              <a href="/">Accueil</a>
               <a href="#approche">L'auto-hypnose</a>
               <a href="#benefices">Bénéfices</a>
               <a href="#formation">Formation</a>
               <a href="#novarespire">L'app</a>
               <a href="#liste">Liste d'attente</a>
+              <a href="/blog">Blog ↗</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
               Prendre rendez-vous <span className="arrow">→</span>

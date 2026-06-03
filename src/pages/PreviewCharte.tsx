@@ -89,6 +89,18 @@ const PreviewCharte: React.FC = () => {
     return () => io.disconnect();
   }, []);
 
+  // Scroll vers l'ancre quand on arrive depuis une autre page (ex. /#about)
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const scrollToHash = () => {
+      const el = document.getElementById(hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const t = window.setTimeout(scrollToHash, 120);
+    return () => window.clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
