@@ -328,6 +328,8 @@ const HypnoseEmotionsParis = () => {
 
       {/* CTA Final */}
       <section className="sp-cta-final">
+        <div className="sp-cta-final__blob" aria-hidden="true"></div>
+        <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
         <div className="container sp-narrow">
           <h2 className="sp-h2">Retrouvez la paix intérieure</h2>
           <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>

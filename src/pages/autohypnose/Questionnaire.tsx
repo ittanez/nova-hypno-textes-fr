@@ -72,6 +72,29 @@ const AutohypnoseQuestionnaire = () => {
       </Helmet>
 
       <main style={{ minHeight: '100vh', background: 'var(--lin)' }}>
+        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+          <defs>
+            <filter id="riso-q">
+              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves={2} seed={5} result="turb" />
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale={6} result="displaced" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves={4} seed={9} result="noise" />
+              <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
+              <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
+              <feComposite in="out" in2="displaced" operator="in" />
+            </filter>
+          </defs>
+        </svg>
+        <div aria-hidden="true" style={{ position: 'fixed', top: 0, right: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
+          <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%' }}>
+            <g filter="url(#riso-q)">
+              <path d="M 1100 -50 C 1250 0, 1380 80, 1440 160 L 1440 0 L 800 0 Z" fill="#F2A12E" opacity="0.55" />
+            </g>
+            <g filter="url(#riso-q)" style={{ mixBlendMode: 'multiply' as const }}>
+              <path d="M 0 780 C 150 720, 400 700, 650 740 L 650 900 L 0 900 Z" fill="#2B4BA0" opacity="0.5" />
+            </g>
+          </svg>
+        </div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
         <div className="container" style={{ maxWidth: 600, margin: '0 auto', padding: '60px 24px' }}>
           <div className="reveal">
             <div className="tag" style={{ display: 'inline-block', marginBottom: 16 }}>Formation Auto-hypnose</div>
@@ -245,6 +268,7 @@ const AutohypnoseQuestionnaire = () => {
               </button>
             </form>
           )}
+        </div>
         </div>
       </main>
     </CzLayout>
