@@ -5,6 +5,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+// Styles des pages secondaires (sp-*) — non inclus dans le CSS global du home.
+import '@/styles/charte-secondary.css';
 
 interface NavLink {
   label: string;

@@ -1,7 +1,6 @@
 
 import { useEffect, Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -19,6 +18,12 @@ const queryClient = new QueryClient({
 import PreviewCharte from "@/pages/PreviewCharte"; // Nouvelle homepage (charte risographie) — eager pour le LCP
 import ContentLayout from "./components/layout/ContentLayout";
 import PrivateRoute from "./components/auth/PrivateRoute";
+
+// Toaster (Radix) chargé en lazy : non nécessaire au premier rendu, il sort
+// ainsi le chunk vendor-ui du bundle initial (meilleur FCP/LCP).
+const Toaster = lazy(() =>
+  import("@/components/ui/toaster").then((m) => ({ default: m.Toaster }))
+);
 
 // Lazy loading for less critical pages
 const Index = lazy(() => import("@/pages/Index")); // Ancienne homepage — archivée sous /v1
@@ -259,9 +264,13 @@ function App() {
             <Route path="*" element={<Custom404 />} />
           </Routes>
         </Suspense>
-        </ErrorBoundary>
 
-        <Toaster />
+        {/* Toaster dans l'ErrorBoundary : un échec de chargement de son chunk lazy
+            déclenche un rechargement propre (cf. ErrorBoundary) au lieu de planter l'app */}
+        <Suspense fallback={null}>
+          <Toaster />
+        </Suspense>
+        </ErrorBoundary>
         </BrowserRouter>
       </AuthProvider>
     </QueryClientProvider>

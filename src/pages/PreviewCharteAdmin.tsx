@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
+import '@/styles/charte-secondary.css';
 
 const PreviewCharteAdmin: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);

@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
+import '@/styles/charte-secondary.css';
 import ExternalLink from 'lucide-react/dist/esm/icons/external-link';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';

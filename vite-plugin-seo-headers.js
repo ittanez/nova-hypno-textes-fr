@@ -16,12 +16,16 @@ const CRITICAL_FONTS = [
 ];
 
 export function viteSeoHeaders() {
+  let resolvedConfig;
   return {
     name: 'vite-seo-headers',
+    configResolved(config) {
+      resolvedConfig = config;
+    },
     transformIndexHtml: {
       order: 'post',
       handler(html, ctx) {
-        const base = (ctx.server?.config?.base) || process.env.VITE_BASE_PATH || '/';
+        const base = resolvedConfig?.base || '/';
 
         let preloadTags = '';
         if (ctx.bundle) {

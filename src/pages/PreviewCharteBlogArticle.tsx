@@ -11,6 +11,7 @@ import { getArticleBySlug, getAllArticlesNoPagination } from '@/lib/services/blo
 import type { Article } from '@/lib/types/blog';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import '@/styles/preview-charte.css';
+import '@/styles/charte-secondary.css';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
