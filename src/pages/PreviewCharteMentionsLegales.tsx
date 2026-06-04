@@ -52,12 +52,7 @@ const PreviewCharteMentionsLegales: React.FC = () => {
         <meta name="description" content="Mentions légales du site novahypnose.fr — éditeur Alain Zenatti EI, hébergement, propriété intellectuelle, données personnelles et médiation." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/mentions-legales" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
+        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>

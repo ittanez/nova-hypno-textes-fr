@@ -23,11 +23,11 @@
     <meta name="geo.position" content="48.8566;2.3685" />
     <meta name="ICBM" content="48.8566, 2.3685" />
 
-    <!-- Préconnexions pour les ressources tierces importantes -->
+    <!-- Préconnexion à Supabase : origine de l'image LCP du hero -->
+    <!-- maps.googleapis / img.youtube retirés : non utilisés au chargement initial,
+         la connexion s'établit à la demande quand CommuteMap / LazyYouTube se montent -->
     <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co">
     <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co" crossorigin>
-    <link rel="preconnect" href="https://maps.googleapis.com">
-    <link rel="preconnect" href="https://img.youtube.com">
 
     <!-- Polices auto-hébergées via @fontsource (chargées dans index.css) -->
 

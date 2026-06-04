@@ -22,6 +22,8 @@
     "test:all": "npm run test:run && npm run test:e2e"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/playfair-display": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
     "@hookform/resolvers": "^5.2.2",
