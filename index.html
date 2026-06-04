@@ -256,7 +256,15 @@
                 <a href="#visio">En visio</a>
                 <div class="nav__dropdown">
                   <button class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Applications <span class="nav__dropdown-arrow" aria-hidden="true">▾</span></button>
-                  <div class="nav__dropdown-menu"></div>
+                  <div class="nav__dropdown-menu">
+                    <a href="/hypnose-stress-anxiete-paris">Stress &amp; Anxiété</a>
+                    <a href="/hypnose-sommeil-paris">Sommeil</a>
+                    <a href="/hypnose-gestion-emotions-paris">Gestion des émotions</a>
+                    <a href="/hypnose-blocages-paris">Blocages &amp; comportements</a>
+                    <a href="/hypnose-confiance-en-soi-paris">Confiance en soi</a>
+                    <a href="/hypnose-phobies-paris">Phobies</a>
+                    <a href="/test-receptivite">Test de réceptivité</a>
+                  </div>
                 </div>
                 <a href="#sessions">Séances</a>
                 <a href="#temoignages">Avis</a>
@@ -309,7 +317,13 @@
       // flashe. Ce script s'exécute après le CSS render-blocking, donc avant le
       // premier paint. React remplacera #root de toute façon au montage.
       (function () {
+        // Normalise le chemin : retire le base path (%BASE_URL% remplacé par Vite),
+        // le slash de fin et /index.html, pour comparer de façon robuste.
+        var base = '%BASE_URL%'.replace(/\/$/, '') || '';
         var p = window.location.pathname;
+        if (base && p.indexOf(base) === 0) p = p.substring(base.length);
+        p = p.replace(/\/$/, '') || '/';
+        if (p === '/index.html') p = '/';
         if (p !== '/' && p !== '/preview-charte') {
           var el = document.getElementById('prerender-home');
           if (el) el.remove();
