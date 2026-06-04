@@ -157,6 +157,61 @@
           pointer-events: none !important;
         }
       }
+
+      /* ───────────────────────────────────────────────────────────────
+         CSS critique du hero (charte) — PRÉ-RENDU above-the-fold.
+         Reproduit les règles de src/styles/preview-charte.css nécessaires à
+         la nav + au hero, pour peindre FCP/LCP sans attendre React.
+         Garder synchronisé avec preview-charte.css. ─────────────────── */
+      .cz{--amber:#F2A12E;--cobalt:#2B4BA0;--cobalt-2:#1C2B4A;--texte:#1C2B4A;--corps:#1C2B4A;--gris:#8A9BB8;--lin:#F0ECE3;--lin-2:#F7F3EA;--paper:#fff;--f-serif:"Cormorant Garamond",Georgia,serif;--f-sans:"DM Sans",system-ui,sans-serif;--r-pill:999px;--ease:cubic-bezier(.4,0,.2,1);background:var(--lin);color:var(--corps);font-family:var(--f-sans);font-weight:300;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+      .cz *,.cz *::before,.cz *::after{box-sizing:border-box}
+      .cz img,.cz svg{display:block;max-width:100%}
+      .cz a{color:inherit;text-decoration:none}
+      .cz button{font:inherit;color:inherit}
+      .cz .container{max-width:1240px;margin:0 auto;padding:0 48px}
+      .cz .nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:18px 0;backdrop-filter:blur(14px) saturate(1.2);background:rgba(240,236,227,.82);border-bottom:1px solid rgba(28,43,74,.07)}
+      .cz .nav__row{display:flex;align-items:center;justify-content:space-between;gap:32px}
+      .cz .brand{font-family:var(--f-serif);font-size:22px;font-weight:400;color:var(--texte);letter-spacing:-.01em}
+      .cz .brand .alain{font-family:var(--f-sans);font-weight:300;font-size:14px;color:var(--gris);letter-spacing:.15em;text-transform:uppercase;margin-right:8px}
+      .cz .brand .zen{color:var(--cobalt);font-style:italic;font-weight:500}
+      .cz .brand .atti{color:var(--amber);font-weight:500}
+      .cz .nav__links{display:flex;gap:32px;align-items:center}
+      .cz .nav__links a{font-family:var(--f-sans);font-size:13px;color:var(--texte);opacity:.72}
+      .cz .nav__dropdown{position:relative}
+      .cz .nav__dropdown-toggle{background:none;border:none;padding:0;cursor:pointer;font-family:var(--f-sans);font-size:13px;font-weight:400;color:var(--texte);opacity:.72;display:flex;align-items:center;gap:4px}
+      .cz .nav__dropdown-arrow{font-size:10px}
+      .cz .nav__dropdown-menu{display:none}
+      .cz .nav__burger{display:none;background:transparent;border:0;padding:8px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:50}
+      .cz .nav__burger span{display:block;width:22px;height:2px;background:var(--cobalt);border-radius:2px}
+      .cz .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-sans);font-size:13px;font-weight:500;padding:12px 22px;border-radius:var(--r-pill);border:1px solid transparent;cursor:pointer;letter-spacing:.01em}
+      .cz .btn--primary{background:var(--cobalt);color:var(--lin);box-shadow:4px 4px 0 rgba(43,75,160,.22)}
+      .cz .btn--ghost{background:transparent;color:var(--texte);border-color:rgba(28,43,74,.25)}
+      .cz .hero{position:relative;overflow:hidden;min-height:100vh;padding:160px 0 0;display:flex;align-items:stretch}
+      .cz .hero__bg{position:absolute;inset:0;pointer-events:none}
+      .cz .hero__bg svg{width:100%;height:100%;display:block}
+      .cz .hero__container{position:relative;z-index:5;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;padding-bottom:100px}
+      .cz .hero__panel{position:relative;background:rgba(240,236,227,.82);backdrop-filter:blur(14px) saturate(1.2);border-radius:28px;padding:44px 48px;box-shadow:0 24px 60px rgba(28,43,74,.08);border:1px solid rgba(255,255,255,.5)}
+      .cz .tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-sans);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--cobalt);margin-bottom:28px}
+      .cz .tag::before{content:"";width:32px;height:1px;background:var(--cobalt)}
+      .cz .hero__name{font-family:var(--f-serif);margin:0;line-height:.92;letter-spacing:-.025em}
+      .cz .hero__name .alain{display:block;font-family:var(--f-sans);font-weight:300;font-size:clamp(20px,2.4vw,32px);color:var(--gris);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+      .cz .hero__name .full{display:inline-block;font-size:clamp(72px,10vw,156px);font-weight:400}
+      .cz .hero__name .zen{font-style:italic;font-weight:500;color:var(--cobalt);position:relative}
+      .cz .hero__name .atti{color:var(--amber);font-weight:500}
+      .cz .hero__rule{width:90px;height:2px;background:var(--amber);margin:28px 0 24px;box-shadow:4px 4px 0 rgba(242,161,46,.25)}
+      .cz .hero__lead{font-family:var(--f-serif);font-style:italic;font-weight:300;font-size:clamp(22px,2vw,30px);line-height:1.45;color:var(--texte);max-width:540px;margin:0}
+      .cz .hero__lead em{color:var(--cobalt);font-weight:500;font-style:italic}
+      .cz .hero__sub{font-family:var(--f-sans);font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-top:20px}
+      .cz .hero__cta{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+      .cz .hero__card{background:linear-gradient(155deg,rgba(255,255,255,.75) 0%,rgba(194,207,226,.55) 100%);backdrop-filter:blur(24px) saturate(1.4);border:1px solid rgba(255,255,255,.7);border-radius:28px;padding:32px;box-shadow:12px 12px 30px rgba(28,43,74,.18);justify-self:end;max-width:360px;width:100%}
+      .cz .hero__card-label{font-family:var(--f-sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);font-weight:500}
+      .cz .hero__card-quote{font-family:var(--f-serif);font-style:italic;font-size:23px;line-height:1.35;color:var(--texte);margin:18px 0 24px}
+      .cz .hero__card-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(28,43,74,.1);font-size:14px}
+      .cz .hero__card-row span:first-child{color:var(--cobalt-2);opacity:.65}
+      .cz .hero__card-row span:last-child{font-weight:500;text-align:right;color:var(--texte)}
+      .cz .zen-mark{position:absolute;bottom:-4vw;right:4vw;z-index:0;font-family:var(--f-serif);font-style:italic;font-size:clamp(220px,32vw,480px);font-weight:300;color:transparent;-webkit-text-stroke:1px rgba(43,75,160,.16);letter-spacing:-.05em;line-height:.85;pointer-events:none;user-select:none}
+      @media (max-width:980px){.cz .hero__container{grid-template-columns:1fr}.cz .hero__card{justify-self:start}}
+      @media (max-width:760px){.cz .nav__burger{display:flex}.cz .nav__links{display:none}.cz .nav .btn--primary{display:none}.cz .container{padding:0 24px}.cz .hero{padding:120px 0 0}}
     </style>
     
     <!-- CSS will be injected by Vite automatically -->
@@ -165,15 +220,116 @@
 
   <body>
     <div id="root">
-      <!-- Placeholder neutre couleur lin, cohérent avec la charte, affiché avant
-           le montage de React pour éviter tout flash de l'ancien design.
-           Contient un H1 de repli (masqué visuellement) pour les rares crawlers
-           sans JS non couverts par l'edge function de pré-rendu SEO. React le
-           remplace au montage. -->
-      <div class="app-prerender">
-        <h1 class="sr-only">Hypnothérapeute à Paris 4ème &amp; en visio partout en France – Alain Zenatti</h1>
+      <!-- ════════════════════════════════════════════════════════════════
+           PRÉ-RENDU statique du hero (above-the-fold) : peint FCP/LCP sans
+           attendre le téléchargement/exécution de React. React (createRoot)
+           remplace ce contenu au montage par un rendu identique (hero sans
+           .reveal) → pas de flash. Sur les AUTRES routes, le script de garde
+           ci-dessous le retire avant la peinture (cf. SPA = index.html partagé).
+           À garder synchronisé avec le hero de PreviewCharte.tsx. -->
+      <div class="app-prerender" id="prerender-home">
+        <div class="cz">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <defs>
+              <filter id="riso-full">
+                <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves="2" seed="3" result="turb" />
+                <feDisplacementMap in="SourceGraphic" in2="turb" scale="6" result="displaced" />
+                <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves="4" seed="8" result="noise" />
+                <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
+                <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
+                <feComposite in="out" in2="displaced" operator="in" />
+              </filter>
+              <filter id="paperGrain" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="4" seed="1" />
+                <feColorMatrix values="0 0 0 0 .15  0 0 0 0 .12  0 0 0 0 .08  0 0 0 .15 0" />
+              </filter>
+            </defs>
+          </svg>
+
+          <nav class="nav">
+            <div class="container nav__row">
+              <a class="brand" href="#hero"><span class="alain">Alain</span><span class="zen">Zen</span><span class="atti">atti</span></a>
+              <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+              <div class="nav__links">
+                <a href="#about">À propos</a>
+                <a href="#cabinet">Le cabinet</a>
+                <a href="#visio">En visio</a>
+                <div class="nav__dropdown">
+                  <button class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Applications <span class="nav__dropdown-arrow" aria-hidden="true">▾</span></button>
+                  <div class="nav__dropdown-menu">
+                    <a href="/hypnose-stress-anxiete-paris">Stress &amp; Anxiété</a>
+                    <a href="/hypnose-sommeil-paris">Sommeil</a>
+                    <a href="/hypnose-gestion-emotions-paris">Gestion des émotions</a>
+                    <a href="/hypnose-blocages-paris">Blocages &amp; comportements</a>
+                    <a href="/hypnose-confiance-en-soi-paris">Confiance en soi</a>
+                    <a href="/hypnose-phobies-paris">Phobies</a>
+                    <a href="/test-receptivite">Test de réceptivité</a>
+                  </div>
+                </div>
+                <a href="#sessions">Séances</a>
+                <a href="#temoignages">Avis</a>
+                <a href="/autohypnose">Auto-hypnose ↗</a>
+                <a href="/blog">Blog ↗</a>
+                <a href="#contact">Contact</a>
+              </div>
+              <a class="btn btn--primary" href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer">Prendre rendez-vous <span class="arrow">→</span></a>
+            </div>
+          </nav>
+
+          <section class="hero" id="hero">
+            <div class="hero__bg" aria-hidden="true">
+              <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+                <g filter="url(#riso-full)"><path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#F2A12E" opacity="0.95" /></g>
+                <g filter="url(#riso-full)"><path d="M 280 480 C 400 460, 500 510, 510 600 C 520 690, 460 750, 360 750 C 260 750, 180 690, 180 600 C 180 530, 220 490, 280 480 Z" fill="#F2A12E" opacity="0.95" /></g>
+                <g filter="url(#riso-full)" style="mix-blend-mode:multiply"><path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2B4BA0" opacity="0.92" /></g>
+                <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".25" />
+              </svg>
+            </div>
+            <div class="zen-mark" aria-hidden="true">zen</div>
+            <div class="container hero__container">
+              <div class="hero__panel">
+                <div class="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
+                <h1 class="hero__name"><span class="alain">Alain</span><span class="full"><span class="zen">Zen</span><span class="atti">atti</span></span></h1>
+                <div class="hero__rule"></div>
+                <p class="hero__lead">Un espace pour ralentir.<br />Un accompagnement pour avancer <em>plus léger</em>.</p>
+                <div class="hero__sub">Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes</div>
+                <div class="hero__cta">
+                  <a class="btn btn--primary" href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer">Prendre rendez-vous <span class="arrow">→</span></a>
+                  <a class="btn btn--ghost" href="#about">Découvrir l'approche</a>
+                </div>
+              </div>
+              <aside class="hero__card">
+                <div class="hero__card-label">La première séance</div>
+                <p class="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
+                <div class="hero__card-row"><span>Durée</span><span>1h30</span></div>
+                <div class="hero__card-row"><span>Tarif</span><span>90 €</span></div>
+                <div class="hero__card-row"><span>Au cabinet</span><span>16 rue Saint-Antoine, Paris 4e</span></div>
+                <div class="hero__card-row"><span>Ou en visio</span><span>Partout, depuis chez vous</span></div>
+              </aside>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
+    <script>
+      // Le hero pré-rendu ne concerne que la home. Sur les autres routes (SPA =
+      // index.html partagé), on le retire AVANT la peinture pour éviter qu'il
+      // flashe. Ce script s'exécute après le CSS render-blocking, donc avant le
+      // premier paint. React remplacera #root de toute façon au montage.
+      (function () {
+        // Normalise le chemin : retire le base path (%BASE_URL% remplacé par Vite),
+        // le slash de fin et /index.html, pour comparer de façon robuste.
+        var base = '%BASE_URL%'.replace(/\/$/, '') || '';
+        var p = window.location.pathname;
+        if (base && p.indexOf(base) === 0) p = p.substring(base.length);
+        p = p.replace(/\/$/, '') || '/';
+        if (p === '/index.html') p = '/';
+        if (p !== '/' && p !== '/preview-charte') {
+          var el = document.getElementById('prerender-home');
+          if (el) el.remove();
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
