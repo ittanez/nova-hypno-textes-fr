@@ -1,8 +1,14 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Session, User } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
+import type { Session, User } from '@supabase/supabase-js';
 import { logger } from '@/lib/logger';
+
+// Chargement paresseux du client Supabase : il n'est PAS nécessaire pour peindre
+// les pages publiques (homepage, etc.). En l'important dynamiquement, le chunk
+// vendor-supabase sort du bundle initial et n'est chargé qu'après le montage de
+// React (ou quand une page admin en a besoin), ce qui accélère le FCP/LCP.
+const getSupabase = async () =>
+  (await import('@/integrations/supabase/client')).supabase;
 
 interface AuthError {
   message: string;
@@ -33,25 +39,38 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isCheckingAdmin, setIsCheckingAdmin] = useState(false);
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, currentSession) => {
-        setSession(currentSession);
-        setUser(currentSession?.user ?? null);
+    let active = true;
+    let subscription: { unsubscribe: () => void } | undefined;
 
-        // Check admin status if user is logged in
-        if (currentSession?.user?.id) {
-          setTimeout(() => {
-            checkAdminStatus(currentSession.user.id);
-          }, 0);
-        } else {
-          setIsAdmin(false);
+    (async () => {
+      const supabase = await getSupabase();
+
+      // Set up auth state listener FIRST
+      const { data } = supabase.auth.onAuthStateChange(
+        (event, currentSession) => {
+          setSession(currentSession);
+          setUser(currentSession?.user ?? null);
+
+          // Check admin status if user is logged in
+          if (currentSession?.user?.id) {
+            setTimeout(() => {
+              checkAdminStatus(currentSession.user.id);
+            }, 0);
+          } else {
+            setIsAdmin(false);
+          }
         }
-      }
-    );
+      );
+      subscription = data.subscription;
 
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      // Si le composant a été démonté pendant l'import async, on nettoie aussitôt.
+      if (!active) {
+        subscription.unsubscribe();
+        return;
+      }
+
+      // THEN check for existing session
+      const { data: { session: currentSession } } = await supabase.auth.getSession();
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
 
@@ -60,16 +79,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         checkAdminStatus(currentSession.user.id);
       }
       setLoading(false);
-    });
+    })();
 
     return () => {
-      subscription.unsubscribe();
+      active = false;
+      subscription?.unsubscribe();
     };
   }, []);
 
   const checkAdminStatus = async (userId: string) => {
     setIsCheckingAdmin(true);
     try {
+      const supabase = await getSupabase();
       const { data, error } = await supabase
         .from('admin_users')
         .select('*')
@@ -93,6 +114,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
+      const supabase = await getSupabase();
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -108,6 +130,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = async () => {
     setIsLoading(true);
     try {
+      const supabase = await getSupabase();
       const { error } = await supabase.auth.signOut();
       return { error };
     } catch (error) {
@@ -120,6 +143,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const signup = async (email: string, password: string) => {
     setIsLoading(true);
     try {
+      const supabase = await getSupabase();
       const { error } = await supabase.auth.signUp({
         email,
         password,
@@ -139,6 +163,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         return { error: { message: 'Vous devez être connecté pour demander un accès administrateur' } };
       }
 
+      const supabase = await getSupabase();
       const { error } = await supabase.from('admin_requests').insert({
         user_id: user.id,
         user_email: user.email,
