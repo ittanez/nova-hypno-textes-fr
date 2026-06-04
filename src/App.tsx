@@ -264,11 +264,13 @@ function App() {
             <Route path="*" element={<Custom404 />} />
           </Routes>
         </Suspense>
-        </ErrorBoundary>
 
+        {/* Toaster dans l'ErrorBoundary : un échec de chargement de son chunk lazy
+            déclenche un rechargement propre (cf. ErrorBoundary) au lieu de planter l'app */}
         <Suspense fallback={null}>
           <Toaster />
         </Suspense>
+        </ErrorBoundary>
         </BrowserRouter>
       </AuthProvider>
     </QueryClientProvider>
