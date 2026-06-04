@@ -166,8 +166,13 @@
   <body>
     <div id="root">
       <!-- Placeholder neutre couleur lin, cohérent avec la charte, affiché avant
-           le montage de React pour éviter tout flash de l'ancien design -->
-      <div class="app-prerender" aria-hidden="true"></div>
+           le montage de React pour éviter tout flash de l'ancien design.
+           Contient un H1 de repli (masqué visuellement) pour les rares crawlers
+           sans JS non couverts par l'edge function de pré-rendu SEO. React le
+           remplace au montage. -->
+      <div class="app-prerender">
+        <h1 class="sr-only">Hypnothérapeute à Paris 4ème &amp; en visio partout en France – Alain Zenatti</h1>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx" defer></script>
   </body>
