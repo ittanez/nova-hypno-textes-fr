@@ -11,6 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
 import type { Article, Category } from '@/lib/types/blog';
 import '@/styles/preview-charte.css';
+import '@/styles/charte-secondary.css';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
