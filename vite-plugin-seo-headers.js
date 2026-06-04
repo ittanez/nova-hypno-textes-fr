@@ -1,39 +1,44 @@
-// Plugin Vite personnalisé pour injecter les titres SEO
+// Plugin Vite : injecte le préchargement des polices critiques du hero (LCP).
+//
+// Le hero de la homepage (charte) est composé de texte : l'élément LCP est le
+// nom géant « ZenAtti » en Cormorant Garamond 500 (normal + italique). Ces
+// polices sont normalement découvertes APRÈS le parsing du CSS (les @font-face
+// y sont inlinées), ce qui retarde leur arrivée. On les précharge donc dès le
+// <head>, en parallèle du CSS, pour accélérer le LCP.
+//
+// Les fichiers woff2 sont hashés par Vite : on résout leur nom réel depuis le
+// bundle (transformIndexHtml order:'post', qui a accès à ctx.bundle).
+
+// Sous-chaînes identifiant les polices critiques à précharger (sous-ensemble latin).
+const CRITICAL_FONTS = [
+  'cormorant-garamond-latin-500-normal',
+  'cormorant-garamond-latin-500-italic',
+];
+
 export function viteSeoHeaders() {
   return {
     name: 'vite-seo-headers',
     transformIndexHtml: {
       order: 'post',
       handler(html, ctx) {
-        // Only apply in production builds
+        const base = (ctx.server?.config?.base) || process.env.VITE_BASE_PATH || '/';
+
+        let preloadTags = '';
         if (ctx.bundle) {
-          // Optimisations critiques pour le LCP
-          html = html.replace(
-            '<!-- Préchargement des images critiques -->',
-            '<!-- Préchargement des ressources critiques -->'
-          );
-          
-          html = html.replace(
-            '<link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" as="image" fetchpriority="high">',
-            `<link rel="preload" href="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2" as="font" type="font/woff2" crossorigin>`
-          );
-          
-          // Ajouter les polices critiques dans le CSS inline
-          html = html.replace(
-            'body{font-family:\'Poppins\',sans-serif;margin:0;padding:0;line-height:1.6}',
-            `@font-face{font-family:'Poppins';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2) format('woff2');font-display:swap}
-      @font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/playfairdisplay/v36/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2) format('woff2');font-display:swap}
-      body{font-family:'Poppins',sans-serif;margin:0;padding:0;line-height:1.6}`
-          );
-          // Note: Structured data (LocalBusiness, Person, FAQ, Breadcrumb) is managed
-          // exclusively by React Helmet via src/data/schemaOrg.ts to avoid duplicate
-          // aggregateRating causing Google Search Console errors.
+          for (const sub of CRITICAL_FONTS) {
+            const fileName = Object.keys(ctx.bundle).find(
+              (k) => k.includes(sub) && k.endsWith('.woff2')
+            );
+            if (fileName) {
+              const href = `${base.replace(/\/$/, '')}/${fileName}`;
+              preloadTags += `<link rel="preload" href="${href}" as="font" type="font/woff2" crossorigin>\n    `;
+            }
+          }
         }
-        
-        return html;
-      }
-    }
+
+        // Remplace le marqueur par les balises de préchargement (ou rien en dev).
+        return html.replace('<!-- PRELOAD_CRITICAL_FONTS -->', preloadTags.trim());
+      },
+    },
   };
 }
