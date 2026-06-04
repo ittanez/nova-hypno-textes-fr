@@ -262,7 +262,9 @@ const PreviewCharte: React.FC = () => {
           <div className="zen-mark" aria-hidden="true">zen</div>
 
           <div className="container hero__container">
-            <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
+            {/* Pas de .reveal sur le hero : pré-rendu statiquement dans index.html,
+                il doit rester visible immédiatement (above-the-fold), sans fondu. */}
+            <div className="hero__panel">
               <div className="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
@@ -284,7 +286,7 @@ const PreviewCharte: React.FC = () => {
               </div>
             </div>
 
-            <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
+            <aside className="hero__card">
               <div className="hero__card-label">La première séance</div>
               <p className="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
