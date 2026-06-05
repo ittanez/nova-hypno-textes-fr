@@ -17,15 +17,15 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
-  { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
-  { t: 'Des nuits apaisées', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
-  { t: 'Habiter sa confiance', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
-  { t: 'Se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
-  { t: 'Apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
-  { t: "Aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
-  { t: 'Renouer avec son corps', d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
-  { t: "Reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
-  { t: "Sortir d'une habitude", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
+  { t: 'Gérer le stress — retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
+  { t: 'Troubles du sommeil — retrouver le repos', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
+  { t: 'Confiance en soi — l\'habiter pleinement', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
+  { t: 'Phobies & blocages — se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
+  { t: 'Régulation émotionnelle — apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
+  { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
+  { t: 'Rapport au corps — renouer avec soi', d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
+  { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
+  { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
 ];
 
 const faq = [
@@ -139,7 +139,7 @@ const PreviewCharte: React.FC = () => {
     <>
       <Helmet>
         <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
-        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, auto-hypnose paris, hypnose en ligne, hypnose visio" />
         <meta name="robots" content="index, follow" />
 
@@ -303,7 +303,7 @@ const PreviewCharte: React.FC = () => {
             <div className="about__copy reveal" style={{ transitionDelay: '.15s' }}>
               <div className="section-tag">À propos</div>
               <h2 className="section-title">
-                Vous accueillir,<br /><em>simplement.</em>
+                Alain Zenatti, hypnothérapeute —<br /><em>vous accueillir simplement.</em>
               </h2>
               <p>
                 Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
@@ -351,7 +351,7 @@ const PreviewCharte: React.FC = () => {
           <div className="container cabinet__grid">
             <div className="cabinet__copy reveal">
               <div className="section-tag">Le cabinet</div>
-              <h2 className="section-title">Un sas,<br /><em>au milieu de la ville.</em></h2>
+              <h2 className="section-title">Cabinet d'hypnothérapie Paris 4 —<br /><em>un sas au cœur du Marais.</em></h2>
               <p>
                 16 rue Saint-Antoine. Vous poussez la porte, et l'agitation de Paris reste dehors.
               </p>
@@ -401,7 +401,7 @@ const PreviewCharte: React.FC = () => {
             </div>
             <div className="cabinet__copy reveal">
               <div className="section-tag">En visio</div>
-              <h2 className="section-title">Le même cabinet,<br /><em>depuis chez vous.</em></h2>
+              <h2 className="section-title">Hypnose en visio —<br /><em>le même accompagnement, depuis chez vous.</em></h2>
               <p>
                 Une séance en visio, c'est <strong>exactement</strong> une séance — la même profondeur,
                 la même qualité de travail, le même temps pris. Simplement, le cabinet vient à vous.
@@ -426,7 +426,7 @@ const PreviewCharte: React.FC = () => {
             <div className="seances__head reveal">
               <div>
                 <div className="section-tag">Accompagnement</div>
-                <h2 className="section-title">Là où l'hypnose <em>vous porte.</em></h2>
+                <h2 className="section-title">Hypnothérapie ericksonienne —<br /><em>là où l'hypnose vous porte.</em></h2>
               </div>
               <p>
                 Non pas une liste de problèmes, mais les états vers lesquels nous cheminons ensemble,
@@ -587,7 +587,7 @@ const PreviewCharte: React.FC = () => {
           <div className="container">
             <div className="reveal" style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 8px' }}>
               <div className="section-tag" style={{ justifyContent: 'center' }}>Bon à savoir</div>
-              <h2 className="section-title">Quelques <em>repères.</em></h2>
+              <h2 className="section-title">Vos questions sur l'hypnose ericksonienne —<br /><em>quelques repères.</em></h2>
             </div>
 
             <div className="faq-list">

@@ -1,0 +1,22 @@
+# Note technique : enregistrement SPF à corriger chez le registrar
+#
+# PROBLÈME : doublon détecté — 2 enregistrements TXT SPF coexistent dans la zone DNS.
+# Un domaine ne doit avoir qu'UN SEUL enregistrement SPF (RFC 7208).
+# Plusieurs enregistrements SPF entraînent des erreurs d'authentification email (Brevo, Google).
+#
+# SOLUTION — Fusionner en un seul enregistrement TXT sur novahypnose.fr :
+#
+#   v=spf1 include:_spf.google.com include:spf.sendinblue.com ~all
+#
+# Explication :
+#   include:_spf.google.com   → Google Workspace (emails @novahypnose.fr)
+#   include:spf.sendinblue.com → Brevo (emails transactionnels via Edge Functions)
+#   ~all                      → SoftFail pour tout autre expéditeur (recommandé)
+#
+# À faire :
+#   1. Supprimer les 2 enregistrements SPF existants dans la zone DNS
+#   2. Créer un seul enregistrement TXT : v=spf1 include:_spf.google.com include:spf.sendinblue.com ~all
+#   3. Vérifier avec : https://mxtoolbox.com/spf.aspx
+#
+# NB : Si d'autres services envoient des emails au nom de novahypnose.fr (ex. Netlify),
+# ajouter leur include: correspondant avant ~all.
