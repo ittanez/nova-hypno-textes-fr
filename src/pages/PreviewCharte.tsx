@@ -135,6 +135,27 @@ const PreviewCharte: React.FC = () => {
     return () => window.clearTimeout(t);
   }, []);
 
+  // Injection différée des schémas JSON-LD pour ne pas bloquer le thread principal (TBT)
+  useEffect(() => {
+    const schemas = [websiteSchema, localBusinessSchema, visioServiceSchema, personSchema, faqSchema, breadcrumbSchema];
+    const injectSchemas = () => {
+      const frag = document.createDocumentFragment();
+      schemas.forEach(schema => {
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.text = safeJSONStringify(schema);
+        frag.appendChild(s);
+      });
+      document.head.appendChild(frag);
+    };
+    if (typeof (window as any).requestIdleCallback === 'function') {
+      const id = (window as any).requestIdleCallback(injectSchemas, { timeout: 2000 });
+      return () => (window as any).cancelIdleCallback(id);
+    }
+    const t = setTimeout(injectSchemas, 0);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -166,14 +187,7 @@ const PreviewCharte: React.FC = () => {
         <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
 
         {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
-
-        {/* Structured Data JSON-LD */}
-        <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        {/* JSON-LD injecté via useEffect + requestIdleCallback (hors rendu synchrone) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>
