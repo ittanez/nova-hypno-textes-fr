@@ -262,7 +262,7 @@ const PreviewCharte: React.FC = () => {
           <div className="zen-mark" aria-hidden="true">zen</div>
 
           <div className="container hero__container">
-            <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
+            <div className="reveal hero__panel d-1">
               <div className="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
@@ -284,7 +284,7 @@ const PreviewCharte: React.FC = () => {
               </div>
             </div>
 
-            <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
+            <aside className="hero__card reveal d-35">
               <div className="hero__card-label">La première séance</div>
               <p className="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
@@ -300,7 +300,7 @@ const PreviewCharte: React.FC = () => {
           <div className="about__bg" aria-hidden="true"></div>
           <div className="container about__grid">
             <div className="about__photo reveal" aria-label="Portrait d'Alain Zenatti"></div>
-            <div className="about__copy reveal" style={{ transitionDelay: '.15s' }}>
+            <div className="about__copy reveal d-15">
               <div className="section-tag">À propos</div>
               <h2 className="section-title">
                 Alain Zenatti, hypnothérapeute —<br /><em>vous accueillir simplement.</em>
@@ -365,7 +365,7 @@ const PreviewCharte: React.FC = () => {
                 <li><strong>Un rythme qui ralentit</strong> — séances complètes, jamais expédiées.</li>
               </ul>
             </div>
-            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+            <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
                   <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#F2A12E" opacity="0.92" />
@@ -383,7 +383,7 @@ const PreviewCharte: React.FC = () => {
         {/* ── EN VISIO — pendant exact du cabinet ── */}
         <section className="visio" id="visio">
           <div className="container cabinet__grid cabinet__grid--reverse">
-            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+            <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
                   <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
@@ -449,8 +449,8 @@ const PreviewCharte: React.FC = () => {
         {/* ── TÉMOIGNAGES ── */}
         <section className="temoignages" id="temoignages">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Ils en parlent</div>
+            <div className="reveal u-center">
+              <div className="section-tag section-tag--center">Ils en parlent</div>
               <h2 className="section-title">Des mots, <em>après.</em></h2>
             </div>
 
@@ -474,10 +474,10 @@ const PreviewCharte: React.FC = () => {
         {/* ── TARIFS ── */}
         <section className="tarifs-sect" id="tarifs">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Séances</div>
+            <div className="reveal section-head">
+              <div className="section-tag section-tag--center">Séances</div>
               <h2 className="section-title">Un cadre clair, <em>posé d'emblée.</em></h2>
-              <p style={{ color: 'var(--corps)', marginTop: 8 }}>
+              <p className="tarifs-sect__intro">
                 Des séances complètes, réservées aux adultes. Au cabinet, en visio, ou à domicile.
               </p>
             </div>
@@ -497,7 +497,7 @@ const PreviewCharte: React.FC = () => {
                 </a>
               </article>
 
-              <article className="tarif-card reveal" style={{ transitionDelay: '.15s' }}>
+              <article className="tarif-card reveal d-15">
                 <h3>En visio</h3>
                 <div className="tarif-price">90<sup>€</sup></div>
                 <p className="tarif-desc">Depuis chez vous</p>
@@ -511,7 +511,7 @@ const PreviewCharte: React.FC = () => {
                 </a>
               </article>
 
-              <article className="tarif-card reveal" style={{ transitionDelay: '.3s' }}>
+              <article className="tarif-card reveal d-3">
                 <h3>À domicile</h3>
                 <div className="tarif-price">140<sup>€</sup></div>
                 <p className="tarif-desc">Paris Centre</p>
@@ -536,16 +536,16 @@ const PreviewCharte: React.FC = () => {
         {/* ── DÉROULÉ D'UNE SÉANCE ── */}
         <section className="seances-sect" id="sessions">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Transparence</div>
+            <div className="reveal section-head--sessions">
+              <div className="section-tag section-tag--center">Transparence</div>
               <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
-              <p style={{ maxWidth: 560, margin: '1rem auto 0', lineHeight: 1.8, opacity: .8 }}>
+              <p className="sessions-lead">
                 Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
                 clair, expliqué pas à pas — aucune surprise.
               </p>
             </div>
 
-            <div className="seances__steps reveal" style={{ transitionDelay: '.1s' }}>
+            <div className="seances__steps reveal d-1">
               {[
                 {
                   num: '01',
@@ -575,7 +575,7 @@ const PreviewCharte: React.FC = () => {
               ))}
             </div>
 
-            <div className="reveal seance-promesse" style={{ transitionDelay: '.2s' }}>
+            <div className="reveal seance-promesse d-2">
               <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
               Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
             </div>
@@ -585,8 +585,8 @@ const PreviewCharte: React.FC = () => {
         {/* ── FAQ ── */}
         <section className="faq-sect" id="faq">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 8px' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Bon à savoir</div>
+            <div className="reveal section-head--faq">
+              <div className="section-tag section-tag--center">Bon à savoir</div>
               <h2 className="section-title">Vos questions sur l'hypnose ericksonienne —<br /><em>quelques repères.</em></h2>
             </div>
 
@@ -628,12 +628,11 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <form
-              className="contact__form reveal"
-              style={{ transitionDelay: '.2s' }}
+              className="contact__form reveal d-2"
               onSubmit={handleContact}
             >
               <div className="field">
-                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" className="req">*</span></label>
                 <input
                   id="cz-nom" type="text" placeholder="Marie Dupont" required
                   value={nom} onChange={(e) => setNom(e.target.value)}
@@ -641,7 +640,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-email">Email <span aria-hidden="true" className="req">*</span></label>
                 <input
                   id="cz-email" type="email" placeholder="marie@exemple.fr" required
                   value={email} onChange={(e) => setEmail(e.target.value)}
@@ -657,7 +656,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-msg">Message <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-msg">Message <span aria-hidden="true" className="req">*</span></label>
                 <textarea
                   id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}
                   value={message} onChange={(e) => setMessage(e.target.value)}
@@ -671,7 +670,7 @@ const PreviewCharte: React.FC = () => {
                 <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>
               )}
               {contactStatus === 'error' && (
-                <p className="contact__success" style={{ background: 'rgba(255,200,200,.2)', color: '#a83232' }}>
+                <p className="contact__error">
                   Une erreur s'est produite. Écrivez-moi directement à contact@novahypnose.fr ou appelez le 06 49 35 80 89.
                 </p>
               )}
@@ -685,6 +684,8 @@ const PreviewCharte: React.FC = () => {
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
+              <span className="foot__sep">·</span>
+              <address className="foot__addr">16 rue Saint-Antoine, 75004 Paris</address>
             </nav>
             <div className="foot__copy">
               © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
