@@ -4,17 +4,19 @@
 @import '@fontsource/playfair-display/700.css';
 
 /* Polices de la charte (homepage + pages PreviewCharte) — auto-hébergées
-   pour éliminer la requête bloquante vers Google Fonts (sous-ensemble latin). */
-@import '@fontsource/cormorant-garamond/latin-300.css';
+   pour éliminer la requête bloquante vers Google Fonts (sous-ensemble latin).
+   @fontsource v5 inclut font-display:swap sur toutes les variantes.
+   Variantes chargées : seulement les graisses réellement rendues à l'écran.
+   - 300 normal/italic supprimés : retombent sur 400 (section-title, hero-lead, citations)
+   - 500 normal/italic conservés : LCP (nom « ZENatti » préchargé par vite-plugin-seo-headers)
+   - dm-sans 600 supprimé : strong retombe sur 500 (contraste suffisant sur base 300) */
 @import '@fontsource/cormorant-garamond/latin-400.css';
 @import '@fontsource/cormorant-garamond/latin-500.css';
-@import '@fontsource/cormorant-garamond/latin-300-italic.css';
 @import '@fontsource/cormorant-garamond/latin-400-italic.css';
 @import '@fontsource/cormorant-garamond/latin-500-italic.css';
 @import '@fontsource/dm-sans/latin-300.css';
 @import '@fontsource/dm-sans/latin-400.css';
 @import '@fontsource/dm-sans/latin-500.css';
-@import '@fontsource/dm-sans/latin-600.css';
 
 @tailwind base;
 @tailwind components;
