@@ -135,25 +135,37 @@ const PreviewCharte: React.FC = () => {
     return () => window.clearTimeout(t);
   }, []);
 
-  // Injection différée des schémas JSON-LD pour ne pas bloquer le thread principal (TBT)
+  // Injection différée des schémas JSON-LD pour ne pas bloquer le thread principal (TBT).
+  // data-schema permet au cleanup de retrouver et supprimer les balises au démontage,
+  // évitant les doublons en StrictMode ou lors d'une navigation aller-retour.
   useEffect(() => {
     const schemas = [websiteSchema, localBusinessSchema, visioServiceSchema, personSchema, faqSchema, breadcrumbSchema];
+    let idleId: number | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
     const injectSchemas = () => {
       const frag = document.createDocumentFragment();
       schemas.forEach(schema => {
         const s = document.createElement('script');
         s.type = 'application/ld+json';
+        s.setAttribute('data-schema', 'preview-charte');
         s.text = safeJSONStringify(schema);
         frag.appendChild(s);
       });
       document.head.appendChild(frag);
     };
+
     if (typeof (window as any).requestIdleCallback === 'function') {
-      const id = (window as any).requestIdleCallback(injectSchemas, { timeout: 2000 });
-      return () => (window as any).cancelIdleCallback(id);
+      idleId = (window as any).requestIdleCallback(injectSchemas, { timeout: 2000 });
+    } else {
+      timeoutId = setTimeout(injectSchemas, 0);
     }
-    const t = setTimeout(injectSchemas, 0);
-    return () => clearTimeout(t);
+
+    return () => {
+      if (idleId !== null) (window as any).cancelIdleCallback(idleId);
+      if (timeoutId !== null) clearTimeout(timeoutId);
+      document.querySelectorAll('script[data-schema="preview-charte"]').forEach(el => el.remove());
+    };
   }, []);
 
   return (
