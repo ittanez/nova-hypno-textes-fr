@@ -23,10 +23,8 @@
     <meta name="geo.position" content="48.8566;2.3685" />
     <meta name="ICBM" content="48.8566, 2.3685" />
 
-    <!-- Préconnexion CORS à Supabase pour les appels API (client supabase-js).
-         maps.googleapis / img.youtube retirés : non utilisés au chargement initial,
-         la connexion s'établit à la demande quand CommuteMap / LazyYouTube se montent. -->
-    <link rel="preconnect" href="https://akrlyzmfszumibwgocae.supabase.co" crossorigin>
+    <!-- Preconnect Supabase retiré : non sollicité au premier rendu de la page d'accueil.
+         Le navigateur ouvre la connexion à la demande lors du premier appel API réel (formulaire, blog…). -->
 
     <!-- Polices auto-hébergées via @fontsource (chargées dans index.css) -->
 

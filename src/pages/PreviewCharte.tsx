@@ -313,7 +313,7 @@ const PreviewCharte: React.FC = () => {
         <section className="about" id="about">
           <div className="about__bg" aria-hidden="true"></div>
           <div className="container about__grid">
-            <div className="about__photo reveal" aria-label="Portrait d'Alain Zenatti"></div>
+            <div className="about__photo reveal" role="img" aria-label="Portrait d'Alain Zenatti, hypnothérapeute"></div>
             <div className="about__copy reveal d-15">
               <div className="section-tag">À propos</div>
               <h2 className="section-title">
