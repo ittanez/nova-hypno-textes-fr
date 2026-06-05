@@ -17,13 +17,13 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
-  { t: 'Gérer le stress — retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
-  { t: 'Troubles du sommeil — retrouver le repos', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
-  { t: 'Confiance en soi — l\'habiter pleinement', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
-  { t: 'Phobies & blocages — se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
-  { t: 'Régulation émotionnelle — apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
+  { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
+  { t: "Troubles du sommeil — retrouver le repos", d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
+  { t: "Confiance en soi — l'habiter pleinement", d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
+  { t: "Phobies & blocages — se sentir plus libre", d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
+  { t: "Régulation émotionnelle — apprivoiser ses émotions", d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
   { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
-  { t: 'Rapport au corps — renouer avec soi', d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
+  { t: "Rapport au corps — renouer avec soi", d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
   { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
   { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
 ];
@@ -145,7 +145,7 @@ const PreviewCharte: React.FC = () => {
 
         {/* Open Graph */}
         <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
-        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -158,7 +158,7 @@ const PreviewCharte: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
-        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose." />
+        <meta name="twitter:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
 
         <link rel="canonical" href="https://novahypnose.fr" />

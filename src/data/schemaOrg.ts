@@ -385,7 +385,6 @@ export const personSchema = {
     "availableLanguage": "French"
   },
   "worksFor": { "@id": "https://novahypnose.fr/#localbusiness" },
-  "memberOf": { "@id": "https://novahypnose.fr/#localbusiness" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "16 rue Saint-Antoine",
