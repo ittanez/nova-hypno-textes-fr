@@ -120,9 +120,11 @@ export const localBusinessSchema = {
   ],
   "sameAs": [
     "https://www.instagram.com/novahypnose/",
+    "https://www.linkedin.com/in/alain-zenatti/",
     "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
     "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
   ],
+  "employee": { "@id": "https://novahypnose.fr/#person" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Services d'hypnothérapie à Paris",
@@ -320,8 +322,16 @@ export const personSchema = {
     "Téléconsultation hypnose",
     "Hypnose à distance par visioconférence",
     "Gestion du stress par l'hypnose",
-    "Traitement des phobies par l'hypnose"
+    "Traitement des phobies par l'hypnose",
+    "Anxiété généralisée et troubles anxieux",
+    "Troubles du sommeil et insomnie",
+    "Confiance en soi et syndrome de l'imposteur",
+    "Régulation émotionnelle",
+    "Burn-out et gestion de carrière",
+    "Procrastination et blocages inconscients",
+    "Neurosciences du changement comportemental"
   ],
+  "workLocation": { "@id": "https://novahypnose.fr/#localbusiness" },
   "alumniOf": {
     "@type": "EducationalOrganization",
     "name": "École Psynapse",
@@ -442,8 +452,10 @@ export const websiteSchema = {
   "url": "https://novahypnose.fr",
   "name": "NovaHypnose",
   "alternateName": "Alain Zenatti Hypnothérapeute Paris",
-  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, phobies, sommeil, confiance en soi.",
+  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, troubles du sommeil, confiance en soi. Séances au cabinet (Marais-Bastille) et en visio partout en France.",
+  "keywords": "hypnothérapeute paris, hypnose ericksonienne paris, cabinet hypnose paris 4, hypnose en ligne, stress anxiété hypnose, troubles sommeil hypnose, phobies hypnose paris",
   "inLanguage": "fr-FR",
+  "author": { "@id": "https://novahypnose.fr/#person" },
   "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
   "potentialAction": {
     "@type": "SearchAction",

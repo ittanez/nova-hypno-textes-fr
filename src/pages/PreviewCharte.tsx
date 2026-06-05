@@ -17,15 +17,15 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
-  { t: 'Retrouver le calme', d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
-  { t: 'Des nuits apaisées', d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
-  { t: 'Habiter sa confiance', d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
-  { t: 'Se sentir plus libre', d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
-  { t: 'Apprivoiser ses émotions', d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
-  { t: "Aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
-  { t: 'Renouer avec son corps', d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
-  { t: "Reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
-  { t: "Sortir d'une habitude", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
+  { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
+  { t: "Troubles du sommeil — retrouver le repos", d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
+  { t: "Confiance en soi — l'habiter pleinement", d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
+  { t: "Phobies & blocages — se sentir plus libre", d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
+  { t: "Régulation émotionnelle — apprivoiser ses émotions", d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
+  { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
+  { t: "Rapport au corps — renouer avec soi", d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
+  { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
+  { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
 ];
 
 const faq = [
@@ -135,17 +135,38 @@ const PreviewCharte: React.FC = () => {
     return () => window.clearTimeout(t);
   }, []);
 
+  // Injection différée des schémas JSON-LD pour ne pas bloquer le thread principal (TBT)
+  useEffect(() => {
+    const schemas = [websiteSchema, localBusinessSchema, visioServiceSchema, personSchema, faqSchema, breadcrumbSchema];
+    const injectSchemas = () => {
+      const frag = document.createDocumentFragment();
+      schemas.forEach(schema => {
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.text = safeJSONStringify(schema);
+        frag.appendChild(s);
+      });
+      document.head.appendChild(frag);
+    };
+    if (typeof (window as any).requestIdleCallback === 'function') {
+      const id = (window as any).requestIdleCallback(injectSchemas, { timeout: 2000 });
+      return () => (window as any).cancelIdleCallback(id);
+    }
+    const t = setTimeout(injectSchemas, 0);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
-        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
+        <meta name="description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, auto-hypnose paris, hypnose en ligne, hypnose visio" />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
-        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
@@ -158,7 +179,7 @@ const PreviewCharte: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
-        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, hypnothérapeute en hypnose ericksonienne et auto-hypnose." />
+        <meta name="twitter:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
 
         <link rel="canonical" href="https://novahypnose.fr" />
@@ -166,14 +187,7 @@ const PreviewCharte: React.FC = () => {
         <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
 
         {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
-
-        {/* Structured Data JSON-LD */}
-        <script type="application/ld+json">{safeJSONStringify(websiteSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
-        <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        {/* JSON-LD injecté via useEffect + requestIdleCallback (hors rendu synchrone) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>
@@ -262,7 +276,7 @@ const PreviewCharte: React.FC = () => {
           <div className="zen-mark" aria-hidden="true">zen</div>
 
           <div className="container hero__container">
-            <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
+            <div className="reveal hero__panel d-1">
               <div className="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
@@ -284,7 +298,7 @@ const PreviewCharte: React.FC = () => {
               </div>
             </div>
 
-            <aside className="hero__card reveal" style={{ transitionDelay: '.35s' }}>
+            <aside className="hero__card reveal d-35">
               <div className="hero__card-label">La première séance</div>
               <p className="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
@@ -299,11 +313,11 @@ const PreviewCharte: React.FC = () => {
         <section className="about" id="about">
           <div className="about__bg" aria-hidden="true"></div>
           <div className="container about__grid">
-            <div className="about__photo reveal" aria-label="Portrait d'Alain Zenatti"></div>
-            <div className="about__copy reveal" style={{ transitionDelay: '.15s' }}>
+            <div className="about__photo reveal" role="img" aria-label="Portrait d'Alain Zenatti, hypnothérapeute"></div>
+            <div className="about__copy reveal d-15">
               <div className="section-tag">À propos</div>
               <h2 className="section-title">
-                Vous accueillir,<br /><em>simplement.</em>
+                Alain Zenatti, hypnothérapeute —<br /><em>vous accueillir simplement.</em>
               </h2>
               <p>
                 Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
@@ -351,7 +365,7 @@ const PreviewCharte: React.FC = () => {
           <div className="container cabinet__grid">
             <div className="cabinet__copy reveal">
               <div className="section-tag">Le cabinet</div>
-              <h2 className="section-title">Un sas,<br /><em>au milieu de la ville.</em></h2>
+              <h2 className="section-title">Cabinet d'hypnothérapie Paris 4 —<br /><em>un sas au cœur du Marais.</em></h2>
               <p>
                 16 rue Saint-Antoine. Vous poussez la porte, et l'agitation de Paris reste dehors.
               </p>
@@ -365,7 +379,7 @@ const PreviewCharte: React.FC = () => {
                 <li><strong>Un rythme qui ralentit</strong> — séances complètes, jamais expédiées.</li>
               </ul>
             </div>
-            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+            <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
                   <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#F2A12E" opacity="0.92" />
@@ -383,7 +397,7 @@ const PreviewCharte: React.FC = () => {
         {/* ── EN VISIO — pendant exact du cabinet ── */}
         <section className="visio" id="visio">
           <div className="container cabinet__grid cabinet__grid--reverse">
-            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+            <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g filter="url(#riso-full)">
                   <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
@@ -401,7 +415,7 @@ const PreviewCharte: React.FC = () => {
             </div>
             <div className="cabinet__copy reveal">
               <div className="section-tag">En visio</div>
-              <h2 className="section-title">Le même cabinet,<br /><em>depuis chez vous.</em></h2>
+              <h2 className="section-title">Hypnose en visio —<br /><em>le même accompagnement, depuis chez vous.</em></h2>
               <p>
                 Une séance en visio, c'est <strong>exactement</strong> une séance — la même profondeur,
                 la même qualité de travail, le même temps pris. Simplement, le cabinet vient à vous.
@@ -426,7 +440,7 @@ const PreviewCharte: React.FC = () => {
             <div className="seances__head reveal">
               <div>
                 <div className="section-tag">Accompagnement</div>
-                <h2 className="section-title">Là où l'hypnose <em>vous porte.</em></h2>
+                <h2 className="section-title">Hypnothérapie ericksonienne —<br /><em>là où l'hypnose vous porte.</em></h2>
               </div>
               <p>
                 Non pas une liste de problèmes, mais les états vers lesquels nous cheminons ensemble,
@@ -449,8 +463,8 @@ const PreviewCharte: React.FC = () => {
         {/* ── TÉMOIGNAGES ── */}
         <section className="temoignages" id="temoignages">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Ils en parlent</div>
+            <div className="reveal u-center">
+              <div className="section-tag section-tag--center">Ils en parlent</div>
               <h2 className="section-title">Des mots, <em>après.</em></h2>
             </div>
 
@@ -474,10 +488,10 @@ const PreviewCharte: React.FC = () => {
         {/* ── TARIFS ── */}
         <section className="tarifs-sect" id="tarifs">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Séances</div>
+            <div className="reveal section-head">
+              <div className="section-tag section-tag--center">Séances</div>
               <h2 className="section-title">Un cadre clair, <em>posé d'emblée.</em></h2>
-              <p style={{ color: 'var(--corps)', marginTop: 8 }}>
+              <p className="tarifs-sect__intro">
                 Des séances complètes, réservées aux adultes. Au cabinet, en visio, ou à domicile.
               </p>
             </div>
@@ -497,7 +511,7 @@ const PreviewCharte: React.FC = () => {
                 </a>
               </article>
 
-              <article className="tarif-card reveal" style={{ transitionDelay: '.15s' }}>
+              <article className="tarif-card reveal d-15">
                 <h3>En visio</h3>
                 <div className="tarif-price">90<sup>€</sup></div>
                 <p className="tarif-desc">Depuis chez vous</p>
@@ -511,7 +525,7 @@ const PreviewCharte: React.FC = () => {
                 </a>
               </article>
 
-              <article className="tarif-card reveal" style={{ transitionDelay: '.3s' }}>
+              <article className="tarif-card reveal d-3">
                 <h3>À domicile</h3>
                 <div className="tarif-price">140<sup>€</sup></div>
                 <p className="tarif-desc">Paris Centre</p>
@@ -536,16 +550,16 @@ const PreviewCharte: React.FC = () => {
         {/* ── DÉROULÉ D'UNE SÉANCE ── */}
         <section className="seances-sect" id="sessions">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Transparence</div>
+            <div className="reveal section-head--sessions">
+              <div className="section-tag section-tag--center">Transparence</div>
               <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
-              <p style={{ maxWidth: 560, margin: '1rem auto 0', lineHeight: 1.8, opacity: .8 }}>
+              <p className="sessions-lead">
                 Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
                 clair, expliqué pas à pas — aucune surprise.
               </p>
             </div>
 
-            <div className="seances__steps reveal" style={{ transitionDelay: '.1s' }}>
+            <div className="seances__steps reveal d-1">
               {[
                 {
                   num: '01',
@@ -575,7 +589,7 @@ const PreviewCharte: React.FC = () => {
               ))}
             </div>
 
-            <div className="reveal seance-promesse" style={{ transitionDelay: '.2s' }}>
+            <div className="reveal seance-promesse d-2">
               <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
               Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
             </div>
@@ -585,9 +599,9 @@ const PreviewCharte: React.FC = () => {
         {/* ── FAQ ── */}
         <section className="faq-sect" id="faq">
           <div className="container">
-            <div className="reveal" style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto 8px' }}>
-              <div className="section-tag" style={{ justifyContent: 'center' }}>Bon à savoir</div>
-              <h2 className="section-title">Quelques <em>repères.</em></h2>
+            <div className="reveal section-head--faq">
+              <div className="section-tag section-tag--center">Bon à savoir</div>
+              <h2 className="section-title">Vos questions sur l'hypnose ericksonienne —<br /><em>quelques repères.</em></h2>
             </div>
 
             <div className="faq-list">
@@ -628,12 +642,11 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <form
-              className="contact__form reveal"
-              style={{ transitionDelay: '.2s' }}
+              className="contact__form reveal d-2"
               onSubmit={handleContact}
             >
               <div className="field">
-                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-nom">Votre nom <span aria-hidden="true" className="req">*</span></label>
                 <input
                   id="cz-nom" type="text" placeholder="Marie Dupont" required
                   value={nom} onChange={(e) => setNom(e.target.value)}
@@ -641,7 +654,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-email">Email <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-email">Email <span aria-hidden="true" className="req">*</span></label>
                 <input
                   id="cz-email" type="email" placeholder="marie@exemple.fr" required
                   value={email} onChange={(e) => setEmail(e.target.value)}
@@ -657,7 +670,7 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
               <div className="field">
-                <label htmlFor="cz-msg">Message <span aria-hidden="true" style={{ color: '#a83232' }}>*</span></label>
+                <label htmlFor="cz-msg">Message <span aria-hidden="true" className="req">*</span></label>
                 <textarea
                   id="cz-msg" placeholder="Quelques mots sur ce qui vous amène…" rows={3}
                   value={message} onChange={(e) => setMessage(e.target.value)}
@@ -671,7 +684,7 @@ const PreviewCharte: React.FC = () => {
                 <p className="contact__success">Merci — je vous recontacte sous 24 h.</p>
               )}
               {contactStatus === 'error' && (
-                <p className="contact__success" style={{ background: 'rgba(255,200,200,.2)', color: '#a83232' }}>
+                <p className="contact__error">
                   Une erreur s'est produite. Écrivez-moi directement à contact@novahypnose.fr ou appelez le 06 49 35 80 89.
                 </p>
               )}
@@ -685,6 +698,8 @@ const PreviewCharte: React.FC = () => {
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
+              <span className="foot__sep">·</span>
+              <address className="foot__addr">16 rue Saint-Antoine, 75004 Paris</address>
             </nav>
             <div className="foot__copy">
               © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
