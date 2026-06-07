@@ -310,7 +310,7 @@ const PreviewCharte: React.FC = () => {
                 <div className="nav__dropdown-menu">
                   <a href="/blog" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Blog ↗</a>
                   <a href="/autohypnose" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Auto-hypnose ↗</a>
-                  <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Hypno-balades ↗</a>
+                  <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Hypno-balade ↗</a>
                 </div>
               </div>
 
