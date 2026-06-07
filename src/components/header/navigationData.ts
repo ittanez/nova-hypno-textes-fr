@@ -20,7 +20,7 @@ export const mainNavLinks: NavLink[] = [
 
 export const mainNavLinksAfter: NavLink[] = [
   { name: 'Blog', href: '/blog' },
-  { name: 'Hypno-balades', href: 'https://hypno-balade.novahypnose.fr/', external: true },
+  { name: 'Hypno-balade', href: 'https://hypno-balade.novahypnose.fr/', external: true },
 ];
 
 // Sections avec dropdown

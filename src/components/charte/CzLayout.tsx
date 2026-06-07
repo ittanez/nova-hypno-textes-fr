@@ -27,7 +27,7 @@ const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Accueil', href: '/' },
   { label: 'Auto-hypnose', href: '/autohypnose' },
   { label: 'Articles', href: '/blog' },
-  { label: 'Hypno-balades', href: 'https://hypno-balade.novahypnose.fr/', external: true },
+  { label: 'Hypno-balade', href: 'https://hypno-balade.novahypnose.fr/', external: true },
   { label: 'Contact', href: '/#contact' },
 ];
 

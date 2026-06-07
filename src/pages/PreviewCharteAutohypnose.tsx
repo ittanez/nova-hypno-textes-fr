@@ -175,9 +175,12 @@ const PreviewCharteAutohypnose: React.FC = () => {
               <a href="#liste">Liste d'attente</a>
               <Link to="/blog">Blog ↗</Link>
             </div>
-            <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-              Prendre rendez-vous <span className="arrow">→</span>
-            </a>
+            <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
+              <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">RDV Paris</a>
+              <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                RDV visio <span className="arrow">→</span>
+              </a>
+            </div>
           </div>
         </nav>
 
