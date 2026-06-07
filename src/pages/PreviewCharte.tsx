@@ -260,6 +260,7 @@ const PreviewCharte: React.FC = () => {
               <a href="#temoignages">Avis</a>
               <a href="/autohypnose">Auto-hypnose ↗</a>
               <a href="/blog">Blog ↗</a>
+              <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-balades ↗</a>
               <a href="#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">

@@ -11,6 +11,7 @@ import '@/styles/charte-secondary.css';
 interface NavLink {
   label: string;
   href: string;
+  external?: boolean;
 }
 
 interface CzLayoutProps {
@@ -26,6 +27,7 @@ const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Accueil', href: '/' },
   { label: 'Auto-hypnose', href: '/autohypnose' },
   { label: 'Articles', href: '/blog' },
+  { label: 'Hypno-balades', href: 'https://hypno-balade.novahypnose.fr/', external: true },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -144,7 +146,9 @@ const CzLayout: React.FC<CzLayoutProps> = ({
               </div>
             </div>
             {navLinks.map((link) =>
-              link.href.startsWith('/#') || link.href.startsWith('#') ? (
+              link.external ? (
+                <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+              ) : link.href.startsWith('/#') || link.href.startsWith('#') ? (
                 <a key={link.href} href={link.href}>{link.label}</a>
               ) : (
                 <Link key={link.href} to={link.href}>{link.label}</Link>

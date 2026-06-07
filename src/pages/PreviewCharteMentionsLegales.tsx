@@ -95,6 +95,7 @@ const PreviewCharteMentionsLegales: React.FC = () => {
               <a href="/#domaines">Accompagnement</a>
               <Link to="/autohypnose">Auto-hypnose ↗</Link>
               <Link to="/blog">Blog ↗</Link>
+              <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-balades ↗</a>
               <a href="/#contact">Contact</a>
             </div>
             <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
