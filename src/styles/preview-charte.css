@@ -87,7 +87,7 @@
 .cz .brand .alain { font-family: var(--f-sans); font-weight: 300; font-size: 14px; color: var(--gris); letter-spacing: .15em; text-transform: uppercase; margin-right: 8px; }
 .cz .brand .zen { color: var(--cobalt); font-style: italic; font-weight: 500; }
 .cz .brand .atti { color: var(--amber); font-weight: 500; }
-.cz .nav__links { display: flex; gap: 32px; }
+.cz .nav__links { display: flex; align-items: center; gap: 32px; }
 .cz .nav__links a {
   font-family: var(--f-sans); font-size: 13px; color: var(--texte);
   opacity: .72; text-decoration: none; transition: opacity .25s var(--ease), color .25s var(--ease);
@@ -112,6 +112,11 @@
   border-radius: 12px; padding: 8px 0; min-width: 220px;
   box-shadow: 0 8px 32px rgba(28,43,74,.12); z-index: 300;
 }
+/* Pont transparent au-dessus du menu : comble l'écart visuel avec le trigger
+   pour que le survol reste continu (sans quoi le menu se ferme en chemin). */
+.cz .nav__dropdown-menu::before {
+  content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px;
+}
 .cz .nav__dropdown.open .nav__dropdown-menu { display: flex; flex-direction: column; }
 .cz .nav__dropdown-menu a {
   font-family: var(--f-sans); font-size: 13.5px; font-weight: 400;
@@ -119,6 +124,32 @@
   text-decoration: none; transition: background .15s, opacity .15s; display: block;
 }
 .cz .nav__dropdown-menu a:hover { background: rgba(43,75,160,.06); opacity: 1; color: var(--cobalt); }
+.cz .nav__dropdown-sep { display: block; height: 1px; margin: 8px 16px; background: rgba(43,75,160,.12); border: none; }
+.cz .nav__dropdown-link--accent { color: var(--cobalt) !important; opacity: 1 !important; font-weight: 500; }
+
+/* Ouverture au survol sur desktop */
+@media (min-width: 761px) {
+  .cz .nav__dropdown:hover .nav__dropdown-menu,
+  .cz .nav__dropdown:focus-within .nav__dropdown-menu { display: flex; flex-direction: column; }
+  .cz .nav__dropdown:hover .nav__dropdown-arrow,
+  .cz .nav__dropdown:focus-within .nav__dropdown-arrow { transform: rotate(180deg); }
+}
+
+/* CTA jumeaux (RDV Paris / RDV visio) */
+.cz .nav__cta { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.cz .nav__cta .btn { opacity: 1; }
+.cz .nav__cta .btn--ghost { background: transparent; color: var(--texte); border-color: rgba(28,43,74,.25); }
+.cz .nav__cta .btn--ghost:hover { color: var(--cobalt); }
+.cz .btn--visio,
+.cz .nav__cta .btn--visio {
+  background: #1E3A8A; color: #FFFFFF; border-radius: var(--r-pill); padding: 7px 16px;
+  box-shadow: 4px 4px 0 rgba(30,58,138,.22);
+}
+.cz .btn--visio:hover,
+.cz .nav__cta .btn--visio:hover {
+  transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(30,58,138,.32);
+  background: var(--cobalt-2); color: #FFFFFF;
+}
 
 /* Burger mobile */
 .cz .nav__burger {
@@ -605,7 +636,7 @@
     position: absolute; top: 100%; left: 0; right: 0;
     background: var(--lin); padding: 24px 24px 28px;
     border-bottom: 1px solid rgba(28,43,74,.1);
-    flex-direction: column; gap: 18px;
+    flex-direction: column; align-items: stretch; gap: 18px;
     box-shadow: 0 14px 24px rgba(28,43,74,.06);
   }
   .cz .nav__links.open { display: flex; }
@@ -615,8 +646,10 @@
   .cz .nav__dropdown-menu { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; background: transparent; padding: 0 0 0 16px; min-width: auto; }
   .cz .nav__dropdown.open .nav__dropdown-menu { display: flex; }
   .cz .nav__dropdown-menu a { font-size: 14px; padding: 5px 0; }
+  .cz .nav__dropdown-sep { margin: 8px 0; }
   .cz .nav .btn { padding: 10px 18px; font-size: 12px; }
-  .cz .nav .btn--primary { display: none; } /* le CTA mobile est dans le drawer + flottant */
+  .cz .nav__cta { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 6px; margin-left: 0; }
+  .cz .nav__cta .btn { justify-content: center; }
   .cz .container { padding: 0 24px; }
   .cz section { padding: 88px 0; scroll-margin-top: 70px; }
   .cz .hero { padding: 120px 0 0; }

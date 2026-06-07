@@ -44,22 +44,23 @@ const anonymizeName = (full: string): string => {
   return `${parts.slice(0, -1).join(' ')} ${last[0]}.`;
 };
 
-const ACCOMPAGNEMENTS_LINKS = [
-  { label: 'Stress & Anxiété', href: '/hypnose-stress-anxiete-paris' },
+const ACCOMPAGNEMENT_THEMES_LINKS = [
   { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
   { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
-  { label: 'Test de réceptivité', href: '/test-receptivite' },
 ];
+
+const NAV_MOBILE_BREAKPOINT = 760;
+const isDesktopViewport = (): boolean =>
+  typeof window !== 'undefined' && window.innerWidth > NAV_MOBILE_BREAKPOINT;
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
-  const [accompagnementsOpen, setAccompagnementsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
 
   // Contact form
   const [nom, setNom] = useState('');
@@ -85,16 +86,17 @@ const PreviewCharte: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!accompagnementsOpen) return;
+    if (!openDropdown) return;
     const handleOutsideClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setAccompagnementsOpen(false);
+      if (!(e.target as HTMLElement).closest?.('.nav__dropdown')) {
+        setOpenDropdown(null);
       }
     };
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setAccompagnementsOpen(false);
-        dropdownRef.current?.querySelector<HTMLButtonElement>('.nav__dropdown-toggle')?.focus();
+        const activeDropdown = document.querySelector('.nav__dropdown.open');
+        activeDropdown?.querySelector<HTMLButtonElement>('.nav__dropdown-toggle')?.focus();
+        setOpenDropdown(null);
       }
     };
     document.addEventListener('click', handleOutsideClick);
@@ -103,7 +105,7 @@ const PreviewCharte: React.FC = () => {
       document.removeEventListener('click', handleOutsideClick);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [accompagnementsOpen]);
+  }, [openDropdown]);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -236,36 +238,92 @@ const PreviewCharte: React.FC = () => {
               <span></span><span></span><span></span>
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
-              <a href="#about">À propos</a>
-              <a href="#cabinet">Le cabinet</a>
-              <a href="#visio">En visio</a>
-              <div ref={dropdownRef} className={`nav__dropdown${accompagnementsOpen ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              {/* Découvrir */}
+              <div
+                className={`nav__dropdown${openDropdown === 'decouvrir' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('decouvrir')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
                 <button
+                  type="button"
                   className="nav__dropdown-toggle"
-                  onClick={() => setAccompagnementsOpen((v) => !v)}
-                  aria-expanded={accompagnementsOpen}
+                  onClick={() => setOpenDropdown((d) => (d === 'decouvrir' ? null : 'decouvrir'))}
+                  aria-expanded={openDropdown === 'decouvrir'}
                   aria-haspopup="true"
                 >
-                  Applications <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
+                  Découvrir <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
                 </button>
                 <div className="nav__dropdown-menu">
-                  {ACCOMPAGNEMENTS_LINKS.map((link) => (
-                    <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setAccompagnementsOpen(false); }}>
+                  <a href="#about" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>À propos</a>
+                  <span className="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  <a href="#visio" className="nav__dropdown-link--accent" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>En visio — partout en France</a>
+                  <a href="#cabinet" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Le cabinet — Paris</a>
+                </div>
+              </div>
+
+              {/* Accompagnement */}
+              <div
+                className={`nav__dropdown${openDropdown === 'accompagnement' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('accompagnement')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
+                <button
+                  type="button"
+                  className="nav__dropdown-toggle"
+                  onClick={() => setOpenDropdown((d) => (d === 'accompagnement' ? null : 'accompagnement'))}
+                  aria-expanded={openDropdown === 'accompagnement'}
+                  aria-haspopup="true"
+                >
+                  Accompagnement <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
+                </button>
+                <div className="nav__dropdown-menu">
+                  <a href="#sessions" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Séance</a>
+                  <span className="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  {ACCOMPAGNEMENT_THEMES_LINKS.map((link) => (
+                    <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>
                       {link.label}
                     </Link>
                   ))}
+                  <span className="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  <Link to="/test-receptivite" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Test de réceptivité</Link>
                 </div>
               </div>
-              <a href="#sessions">Séances</a>
+
+              {/* Ressources */}
+              <div
+                className={`nav__dropdown${openDropdown === 'ressources' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('ressources')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
+                <button
+                  type="button"
+                  className="nav__dropdown-toggle"
+                  onClick={() => setOpenDropdown((d) => (d === 'ressources' ? null : 'ressources'))}
+                  aria-expanded={openDropdown === 'ressources'}
+                  aria-haspopup="true"
+                >
+                  Ressources <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
+                </button>
+                <div className="nav__dropdown-menu">
+                  <a href="/blog" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Blog ↗</a>
+                  <a href="/autohypnose" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Auto-hypnose ↗</a>
+                  <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Hypno-balades ↗</a>
+                </div>
+              </div>
+
               <a href="#temoignages">Avis</a>
-              <a href="/autohypnose">Auto-hypnose ↗</a>
-              <a href="/blog">Blog ↗</a>
-              <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-balades ↗</a>
               <a href="#contact">Contact</a>
+
+              <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">RDV Paris</a>
+                <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  RDV visio <span className="arrow">→</span>
+                </a>
+              </div>
             </div>
-            <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-              Prendre rendez-vous <span className="arrow">→</span>
-            </a>
           </div>
         </nav>
 
