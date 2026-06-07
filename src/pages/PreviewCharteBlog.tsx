@@ -130,12 +130,13 @@ const PreviewCharteBlog: React.FC = () => {
               <a href="#articles">Articles</a>
               <Link to="/autohypnose">Auto-hypnose ↗</Link>
               <Link to="/#contact">Contact</Link>
-            </div>
-            <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
-              <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">RDV Paris</a>
-              <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-                RDV visio <span className="arrow">→</span>
-              </a>
+
+              <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">RDV Paris</a>
+                <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  RDV visio <span className="arrow">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </nav>
