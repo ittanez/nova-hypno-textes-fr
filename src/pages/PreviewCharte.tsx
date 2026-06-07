@@ -52,6 +52,10 @@ const ACCOMPAGNEMENT_THEMES_LINKS = [
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
 ];
 
+const NAV_MOBILE_BREAKPOINT = 760;
+const isDesktopViewport = (): boolean =>
+  typeof window !== 'undefined' && window.innerWidth > NAV_MOBILE_BREAKPOINT;
+
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -89,7 +93,11 @@ const PreviewCharte: React.FC = () => {
       }
     };
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenDropdown(null);
+      if (e.key === 'Escape') {
+        const activeDropdown = document.querySelector('.nav__dropdown.open');
+        activeDropdown?.querySelector<HTMLButtonElement>('.nav__dropdown-toggle')?.focus();
+        setOpenDropdown(null);
+      }
     };
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('keydown', handleKeyDown);
@@ -231,7 +239,12 @@ const PreviewCharte: React.FC = () => {
             </button>
             <div className={`nav__links${navOpen ? ' open' : ''}`} onClick={() => setNavOpen(false)}>
               {/* Découvrir */}
-              <div className={`nav__dropdown${openDropdown === 'decouvrir' ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <div
+                className={`nav__dropdown${openDropdown === 'decouvrir' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('decouvrir')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
                 <button
                   type="button"
                   className="nav__dropdown-toggle"
@@ -250,7 +263,12 @@ const PreviewCharte: React.FC = () => {
               </div>
 
               {/* Accompagnement */}
-              <div className={`nav__dropdown${openDropdown === 'accompagnement' ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <div
+                className={`nav__dropdown${openDropdown === 'accompagnement' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('accompagnement')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
                 <button
                   type="button"
                   className="nav__dropdown-toggle"
@@ -274,7 +292,12 @@ const PreviewCharte: React.FC = () => {
               </div>
 
               {/* Ressources */}
-              <div className={`nav__dropdown${openDropdown === 'ressources' ? ' open' : ''}`} onClick={(e) => e.stopPropagation()}>
+              <div
+                className={`nav__dropdown${openDropdown === 'ressources' ? ' open' : ''}`}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => isDesktopViewport() && setOpenDropdown('ressources')}
+                onMouseLeave={() => isDesktopViewport() && setOpenDropdown(null)}
+              >
                 <button
                   type="button"
                   className="nav__dropdown-toggle"
