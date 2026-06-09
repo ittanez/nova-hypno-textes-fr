@@ -330,10 +330,10 @@ const GuideAutohypnose: React.FC = () => {
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
                   {[
-                    '<strong>5 ans</strong> d'expérience en cabinet (Paris 4e)',
-                    '<strong>Formations entreprises</strong> : finance, santé, tech, industrie',
-                    '<strong>Méthode NovaHypnose</strong> : 12-15 protocoles propriétaires',
-                    '<strong>Approche scientifique</strong> : neuroplasticité + validation clinique',
+                    "<strong>5 ans</strong> d'expérience en cabinet (Paris 4e)",
+                    "<strong>Formations entreprises</strong> : finance, santé, tech, industrie",
+                    "<strong>Méthode NovaHypnose</strong> : 12-15 protocoles propriétaires",
+                    "<strong>Approche scientifique</strong> : neuroplasticité + validation clinique",
                   ].map((item, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '14px', color: 'var(--corps)', lineHeight: 1.6 }}>
                       <CheckCircle size={16} style={{ color: 'var(--amber)', flexShrink: 0, marginTop: '2px' }} />
