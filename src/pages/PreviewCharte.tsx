@@ -346,8 +346,11 @@ const PreviewCharte: React.FC = () => {
 
           <div className="zen-mark" aria-hidden="true">zen</div>
 
+          {/* Pas d'animation reveal sur le hero : il est au-dessus de la ligne de
+              flottaison et son fondu (opacity 0 → 1 en 0,9 s) retardait le LCP.
+              Le markup doit rester identique au pré-rendu statique de index.html. */}
           <div className="container hero__container">
-            <div className="reveal hero__panel d-1">
+            <div className="hero__panel">
               <div className="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
@@ -369,7 +372,7 @@ const PreviewCharte: React.FC = () => {
               </div>
             </div>
 
-            <aside className="hero__card reveal d-35">
+            <aside className="hero__card">
               <div className="hero__card-label">La première séance</div>
               <p className="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
