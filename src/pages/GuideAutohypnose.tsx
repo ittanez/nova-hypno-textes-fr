@@ -41,7 +41,7 @@ const radioLabelStyle = (selected: boolean): React.CSSProperties => ({
   background: selected ? 'rgba(43,75,160,.06)' : 'rgba(255,255,255,.85)',
   cursor: 'pointer',
   fontSize: '14px',
-  color: selected ? '#1C2B4A' : '#1C2B4A',
+  color: '#1C2B4A',
   fontWeight: selected ? 500 : 400,
   transition: 'border-color 0.2s, background 0.2s',
 });

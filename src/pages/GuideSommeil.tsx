@@ -93,7 +93,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 };
 
 const stats = [
-  { value: '1 / 5', label: "Français souffre d'insomnie chronique" },
+  { value: '1 / 5', label: "des Français souffrent d'insomnie chronique" },
   { value: '6h42', label: 'Durée moyenne de sommeil en semaine' },
   { value: '+81 %', label: "De sommeil profond avec l'hypnose (Sleep, 2014)" },
 ];
