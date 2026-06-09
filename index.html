@@ -40,38 +40,50 @@
          (script synchrone dans le head) pour éviter tout flash. -->
     <script>
       (function () {
-        var p = location.pathname;
-        var isHome =
-          p === '/' || p === '/index.html' ||
-          p === '/nova-hypno-textes-fr/' || p === '/nova-hypno-textes-fr/index.html';
+        // Normalise le chemin (slash final et /index.html optionnels) pour que
+        // /nova-hypno-textes-fr sans slash final soit aussi reconnu comme homepage.
+        var p = location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '');
+        var isHome = p === '' || p === '/nova-hypno-textes-fr';
         if (!isHome) document.documentElement.classList.add('cz-offpage');
+        // Réutilisé par le script de chargement des polices de l'ancien design.
+        window.__czIsHome = isHome;
       })();
     </script>
 
     <!-- Fonts chargées avec display=swap - Détection réelle du chargement.
-         Différé après l'événement load : Playfair/Poppins ne servent qu'aux pages
-         de l'ancien design ; les télécharger pendant le chemin critique de la
-         homepage (charte = Cormorant/DM Sans) gaspillait de la bande passante. -->
+         Playfair/Poppins ne servent qu'aux pages de l'ancien design (blog,
+         spécialités, guides, /v1…) : sur la homepage (charte = Cormorant/DM Sans),
+         leur téléchargement est différé après l'événement load pour ne pas
+         concurrencer le chemin critique. Sur les autres routes, chargement
+         immédiat comme avant pour limiter le FOUT. -->
     <script>
-      window.addEventListener('load', function () {
-        if ('fonts' in document) {
-          Promise.all([
-            document.fonts.load("700 1em 'Playfair Display'"),
-            document.fonts.load("400 1em 'Poppins'"),
-            document.fonts.load("600 1em 'Poppins'")
-          ]).then(function() {
-            document.documentElement.classList.add('fonts-loaded');
-          }).catch(function() {
-            // Fallback: ajouter la classe après 3s si le chargement échoue
-            setTimeout(function() {
+      (function () {
+        function loadLegacyFonts() {
+          if ('fonts' in document) {
+            Promise.all([
+              document.fonts.load("700 1em 'Playfair Display'"),
+              document.fonts.load("400 1em 'Poppins'"),
+              document.fonts.load("600 1em 'Poppins'")
+            ]).then(function() {
               document.documentElement.classList.add('fonts-loaded');
-            }, 3000);
-          });
-        } else {
-          // Fallback pour navigateurs anciens
-          document.documentElement.classList.add('fonts-loaded');
+            }).catch(function() {
+              // Fallback: ajouter la classe après 3s si le chargement échoue
+              setTimeout(function() {
+                document.documentElement.classList.add('fonts-loaded');
+              }, 3000);
+            });
+          } else {
+            // Fallback pour navigateurs anciens
+            document.documentElement.classList.add('fonts-loaded');
+          }
         }
-      });
+
+        if (window.__czIsHome) {
+          window.addEventListener('load', loadLegacyFonts);
+        } else {
+          loadLegacyFonts();
+        }
+      })();
     </script>
     
     <!-- Google Analytics optimisé (différé 8s) -->
