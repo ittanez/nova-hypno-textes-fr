@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
@@ -10,11 +9,11 @@ import { getPopularArticles } from '@/lib/services/blog/articleService';
 import { Article } from '@/lib/types/blog';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import '@/styles/preview-charte.css';
 
 /* ─────────────────────────────────────────────
-   Thank You page — après soumission du formulaire
-   guide "Le Sommeil, Votre Allié Secret"
-   Page isolée (pas de Header / Footer)
+   Thank You page — guide "Le Sommeil, Votre Allié Secret"
+   Charte ZENatti / risographie — ambre · cobalt · lin
    ───────────────────────────────────────────── */
 
 const GuideSommeilMerci: React.FC = () => {
@@ -24,15 +23,11 @@ const GuideSommeilMerci: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    getPopularArticles(3).then(({ data }) => {
-      if (data) setArticles(data);
-    });
+    getPopularArticles(3).then(({ data }) => { if (data) setArticles(data); });
   }, []);
 
   useEffect(() => {
-    if (!location.state) {
-      navigate('/guide-sommeil', { replace: true });
-    }
+    if (!location.state) { navigate('/guide-sommeil', { replace: true }); }
   }, [location.state, navigate]);
 
   if (!location.state) return null;
@@ -44,95 +39,126 @@ const GuideSommeilMerci: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      {/* ═══════════ CONFIRMATION HERO ═══════════ */}
-      <section className="bg-gradient-to-br from-white via-nova-neutral to-nova-blue-light/30 py-16 px-6">
-        <div className="max-w-2xl mx-auto text-center animate-fade-in">
-          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="text-green-500" size={44} />
+      <div className="cz">
+        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+          <defs>
+            <filter id="riso-full-sm">
+              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves={2} seed={6} result="turb" />
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale={6} result="displaced" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves={4} seed={11} result="noise" />
+              <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
+              <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
+              <feComposite in="out" in2="displaced" operator="in" />
+            </filter>
+            <filter id="paperGrain-sm" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves={4} seed={5} />
+              <feColorMatrix values="0 0 0 0 .15  0 0 0 0 .12  0 0 0 0 .08  0 0 0 .15 0" />
+            </filter>
+          </defs>
+        </svg>
+
+        {/* ═══════════ CONFIRMATION HERO ═══════════ */}
+        <section style={{ position: 'relative', overflow: 'hidden', padding: '100px 0 80px', minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
+          <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+            <svg width="100%" height="100%" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
+              <g filter="url(#riso-full-sm)">
+                <path d="M 1440 0 L 1100 0 C 1000 50, 960 130, 980 210 C 1000 290, 1100 330, 1260 310 C 1380 295, 1480 230, 1440 140 Z" fill="#2B4BA0" opacity="0.55" />
+              </g>
+              <g filter="url(#riso-full-sm)" style={{ mixBlendMode: 'multiply' }}>
+                <path d="M 0 600 L 380 600 C 460 540, 500 460, 480 380 C 460 300, 360 260, 220 280 C 80 300, 0 380, 0 460 Z" fill="#F2A12E" opacity="0.5" />
+              </g>
+              <rect width="1440" height="600" filter="url(#paperGrain-sm)" opacity=".15" />
+            </svg>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-nova-blue-dark leading-snug mb-4">
-            {prenom ? `Merci ${prenom} !` : 'Merci !'}
-          </h1>
-
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg max-w-lg mx-auto mb-6">
-            <div className="flex items-start gap-4 text-left">
-              <div className="flex-shrink-0 w-10 h-10 bg-nova-blue-light/30 rounded-full flex items-center justify-center">
-                <Mail className="text-nova-blue" size={20} />
+          <div className="container" style={{ position: 'relative', zIndex: 5 }}>
+            <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
+              <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(43,75,160,.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px', border: '2px solid rgba(43,75,160,.25)' }}>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2B4BA0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
               </div>
-              <div>
-                <p className="font-semibold text-nova-blue-dark text-lg mb-1">
-                  Votre guide « Le Sommeil, Votre Allié Secret » arrive par email
-                </p>
-                <p className="text-gray-500 text-[0.95rem] leading-relaxed">
-                  Vérifiez votre boîte de réception (et vos spams) dans les prochaines minutes.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100 text-sm text-gray-400">
-              <Clock size={14} />
-              <span>Délai de réception : environ 7 minutes</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ═══════════ ARTICLES DU BLOG ═══════════ */}
-      {articles.length > 0 && (
-        <section className="py-12 px-6 bg-gray-50">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-xl font-bold text-nova-blue-dark text-center mb-6">
-              En attendant, découvrez notre blog
-            </h2>
+              <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--texte)', marginBottom: '16px', letterSpacing: '-0.02em' }}>
+                {prenom ? `Merci ${prenom} !` : 'Merci !'}
+              </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-              {articles.map((article) => (
-                <Link
-                  key={article.id}
-                  to={`/blog/article/${article.slug}`}
-                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden group"
-                >
-                  <div className="aspect-video overflow-hidden bg-gray-100">
-                    <img
-                      src={article.image_url || article.storage_image_url || '/placeholder.svg'}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
+              <div style={{ background: 'rgba(240,236,227,.85)', backdropFilter: 'blur(14px)', borderRadius: '20px', padding: '28px 32px', boxShadow: '0 20px 60px rgba(28,43,74,.08)', border: '1px solid rgba(255,255,255,.5)', textAlign: 'left', maxWidth: '520px', margin: '0 auto' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'rgba(43,75,160,.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Mail size={20} style={{ color: 'var(--cobalt)' }} />
                   </div>
-                  <div className="p-4">
-                    <p className="text-xs text-gray-400 mb-1">
-                      {format(new Date(article.published_at || article.created_at), 'd MMMM yyyy', { locale: fr })}
+                  <div>
+                    <p style={{ fontFamily: 'var(--f-serif)', fontSize: '18px', fontWeight: 400, color: 'var(--texte)', marginBottom: '6px' }}>
+                      Votre guide « Le Sommeil, Votre Allié Secret » arrive par email
                     </p>
-                    <h3 className="text-sm font-semibold text-nova-blue-dark line-clamp-2 group-hover:text-nova-blue transition-colors">
-                      {article.title}
-                    </h3>
+                    <p style={{ fontSize: '14px', color: 'var(--gris)', lineHeight: 1.6 }}>
+                      Vérifiez votre boîte de réception (et vos spams) dans les prochaines minutes.
+                    </p>
                   </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Link to="/blog" className="inline-flex items-center gap-1 text-nova-blue hover:underline text-sm font-medium">
-                Voir tous les articles
-                <ChevronRight className="h-4 w-4" />
-              </Link>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(28,43,74,.08)', fontSize: '13px', color: 'var(--gris)' }}>
+                  <Clock size={14} />
+                  <span>Délai de réception : environ 7 minutes</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-      )}
 
-      {/* ═══════════ MINI FOOTER ═══════════ */}
-      <div className="bg-nova-blue-dark text-white/50 text-xs text-center py-5 px-4">
-        <p className="mb-1 flex items-center justify-center gap-1.5">
-          <MapPin size={12} />
-          16 rue Saint-Antoine, 75004 Paris
-        </p>
-        <p className="mb-0">
-          &copy; {new Date().getFullYear()} NovaHypnose &middot; Alain Zenatti &middot; Hypnothérapeute Paris 4e
-          <br />
-          Conformément au RGPD — Désabonnement libre à tout moment.
-        </p>
+        {/* ═══════════ ARTICLES DU BLOG ═══════════ */}
+        {articles.length > 0 && (
+          <section style={{ background: 'var(--lin-2)', padding: '60px 0' }}>
+            <div className="container">
+              <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                <div className="section-tag">En attendant</div>
+                <h2 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 300, color: 'var(--texte)', margin: 0, letterSpacing: '-0.01em' }}>
+                  Découvrez notre <em style={{ fontStyle: 'italic', color: 'var(--cobalt)' }}>blog</em>
+                </h2>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '20px', marginBottom: '28px' }}>
+                {articles.map((article) => (
+                  <Link key={article.id} to={`/blog/article/${article.slug}`}
+                    style={{ background: 'var(--paper)', borderRadius: '16px', overflow: 'hidden', textDecoration: 'none', boxShadow: '0 4px 20px rgba(28,43,74,.06)', display: 'block', transition: 'box-shadow 0.2s, transform 0.2s' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(28,43,74,.12)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(28,43,74,.06)'; }}
+                  >
+                    <div style={{ aspectRatio: '16/9', overflow: 'hidden', background: 'rgba(43,75,160,.08)' }}>
+                      <img src={article.image_url || article.storage_image_url || '/placeholder.svg'} alt={article.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                    </div>
+                    <div style={{ padding: '16px 20px' }}>
+                      <p style={{ fontSize: '11px', color: 'var(--gris)', marginBottom: '6px' }}>
+                        {format(new Date(article.published_at || article.created_at), 'd MMMM yyyy', { locale: fr })}
+                      </p>
+                      <h3 style={{ fontFamily: 'var(--f-serif)', fontSize: '16px', fontWeight: 400, color: 'var(--texte)', lineHeight: 1.35, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', margin: 0 }}>
+                        {article.title}
+                      </h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <Link to="/blog" className="btn btn--ghost" style={{ textDecoration: 'none' }}>
+                  Voir tous les articles <ChevronRight size={16} className="arrow" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ═══════════ MINI FOOTER ═══════════ */}
+        <footer style={{ background: 'var(--cobalt-2)', color: 'rgba(240,236,227,.5)', fontSize: '12px', textAlign: 'center', padding: '20px 16px' }}>
+          <p style={{ marginBottom: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+            <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
+          </p>
+          <p style={{ margin: 0 }}>
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            <br />Conformément au RGPD — Désabonnement libre à tout moment.
+          </p>
+        </footer>
       </div>
     </>
   );
