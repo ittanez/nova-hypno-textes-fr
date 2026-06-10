@@ -159,3 +159,4 @@ Each component has one job: agents for data retrieval, skills for output creatio
 
 - Commands: lightweight model (haiku) — orchestration logic only.
 - Agents: capable model (sonnet) — domain reasoning and data gathering.
+- Skills: capable model (sonnet) — high-quality content and output generation.
