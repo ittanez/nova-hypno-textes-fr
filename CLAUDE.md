@@ -130,3 +130,32 @@ Default: `staleTime: 5min`, `gcTime: 10min`. Always call `queryClient.invalidate
 ### Data files
 
 Static content (FAQs, testimonials, carousel slides, application descriptions) lives in `src/data/` as typed TypeScript modules. Keep content changes there rather than inline in components.
+
+## Claude Code orchestration (agentic workflows)
+
+### Command-Agent-Skill pattern
+
+Structure agentic work in three layers:
+- **Commands** — entry points; orchestrate agents and invoke skills; handle user interaction.
+- **Agents** — fetch data and perform domain-specific reasoning; use preloaded skills as reference material injected at startup.
+- **Skills** — handle output generation; invoked directly from commands via the Skill tool, receiving data already assembled by agents.
+
+This creates a clean separation: agents gather, skills output, commands coordinate.
+
+### Two skill types
+
+1. **Agent skills (preloaded)** — full skill content is injected into the agent's context at startup and used as reference, not dynamically called.
+2. **Direct invocation skills** — called via the Skill tool from a command; execute independently in the caller's context.
+
+### Information flow
+
+Data flows **agents → commands → skills**. Avoid circular or back-channel dependencies between these layers.
+
+### Single responsibility
+
+Each component has one job: agents for data retrieval, skills for output creation, commands for orchestration. Do not blur these roles.
+
+### Model selection
+
+- Commands: lightweight model (haiku) — orchestration logic only.
+- Agents: capable model (sonnet) — domain reasoning and data gathering.
