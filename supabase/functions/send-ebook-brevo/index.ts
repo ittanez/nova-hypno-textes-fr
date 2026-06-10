@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts"
+import { checkRateLimit } from "../_shared/rateLimiter.ts"
 
 const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY')
 const BREVO_LIST_ID = 3
@@ -30,6 +31,14 @@ serve(async (req) => {
       return new Response(
         JSON.stringify({ error: "Format d'email invalide" }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const allowed = await checkRateLimit(email, 'send-ebook-brevo')
+    if (!allowed) {
+      return new Response(
+        JSON.stringify({ error: "Vous avez déjà demandé ce guide récemment. Vérifiez vos emails (y compris les spams)." }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
