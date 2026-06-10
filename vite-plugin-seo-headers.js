@@ -10,9 +10,17 @@
 // bundle (transformIndexHtml order:'post', qui a accès à ctx.bundle).
 
 // Sous-chaînes identifiant les polices critiques à précharger (sous-ensemble latin).
+// Toutes les graisses rendues dans le hero/nav de la homepage : les précharger
+// depuis le HTML (priorité High, niveau 2) plutôt que de les laisser découvrir
+// par le CSS (priorité VeryHigh, niveau 3) raccourcit la chaîne critique du FCP,
+// pour les vrais utilisateurs comme pour la simulation Lighthouse/PageSpeed.
 const CRITICAL_FONTS = [
   'cormorant-garamond-latin-500-normal',
   'cormorant-garamond-latin-500-italic',
+  'cormorant-garamond-latin-400-normal',
+  'cormorant-garamond-latin-400-italic',
+  'dm-sans-latin-300-normal',
+  'dm-sans-latin-500-normal',
 ];
 
 export function viteSeoHeaders() {

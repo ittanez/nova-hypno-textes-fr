@@ -35,26 +35,55 @@
     <!-- Open Graph, Twitter et Canonical gérés par react-helmet -->
     <link rel="icon" type="image/png" href="/favicon.ico" />
 
-    <!-- Fonts chargées avec display=swap - Détection réelle du chargement -->
+    <!-- Pré-rendu statique du hero : visible uniquement sur la homepage.
+         Sur toute autre route, on masque le hero AVANT le premier paint
+         (script synchrone dans le head) pour éviter tout flash. -->
     <script>
-      // Détecter le chargement réel des fonts pour éviter FOUT
-      if ('fonts' in document) {
-        Promise.all([
-          document.fonts.load("700 1em 'Playfair Display'"),
-          document.fonts.load("400 1em 'Poppins'"),
-          document.fonts.load("600 1em 'Poppins'")
-        ]).then(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        }).catch(function() {
-          // Fallback: ajouter la classe après 3s si le chargement échoue
-          setTimeout(function() {
+      (function () {
+        // Normalise le chemin (slash final et /index.html optionnels) pour que
+        // /nova-hypno-textes-fr sans slash final soit aussi reconnu comme homepage.
+        var p = location.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '');
+        var isHome = p === '' || p === '/nova-hypno-textes-fr';
+        if (!isHome) document.documentElement.classList.add('cz-offpage');
+        // Réutilisé par le script de chargement des polices de l'ancien design.
+        window.__czIsHome = isHome;
+      })();
+    </script>
+
+    <!-- Fonts chargées avec display=swap - Détection réelle du chargement.
+         Playfair/Poppins ne servent qu'aux pages de l'ancien design (blog,
+         spécialités, guides, /v1…) : sur la homepage (charte = Cormorant/DM Sans),
+         leur téléchargement est différé après l'événement load pour ne pas
+         concurrencer le chemin critique. Sur les autres routes, chargement
+         immédiat comme avant pour limiter le FOUT. -->
+    <script>
+      (function () {
+        function loadLegacyFonts() {
+          if ('fonts' in document) {
+            Promise.all([
+              document.fonts.load("700 1em 'Playfair Display'"),
+              document.fonts.load("400 1em 'Poppins'"),
+              document.fonts.load("600 1em 'Poppins'")
+            ]).then(function() {
+              document.documentElement.classList.add('fonts-loaded');
+            }).catch(function() {
+              // Fallback: ajouter la classe après 3s si le chargement échoue
+              setTimeout(function() {
+                document.documentElement.classList.add('fonts-loaded');
+              }, 3000);
+            });
+          } else {
+            // Fallback pour navigateurs anciens
             document.documentElement.classList.add('fonts-loaded');
-          }, 3000);
-        });
-      } else {
-        // Fallback pour navigateurs anciens
-        document.documentElement.classList.add('fonts-loaded');
-      }
+          }
+        }
+
+        if (window.__czIsHome) {
+          window.addEventListener('load', loadLegacyFonts);
+        } else {
+          loadLegacyFonts();
+        }
+      })();
     </script>
     
     <!-- Google Analytics optimisé (différé 8s) -->
@@ -85,6 +114,11 @@
       /* Placeholder neutre (fond lin de la charte) affiché avant le montage de React,
          pour éviter le flash de l'ancien design pendant le chargement du JS */
       .app-prerender{min-height:100vh;background-color:#F0ECE3}
+
+      /* Hors homepage, le pré-rendu statique du hero est masqué avant le premier
+         paint (classe posée par le script synchrone du head) : seul le fond lin
+         du body reste visible en attendant React. */
+      .cz-offpage #cz-prerender{display:none}
 
       /* Carrousel - styles critiques */
       .relative{position:relative}
@@ -163,13 +197,126 @@
 
   <body>
     <div id="root">
-      <!-- Placeholder neutre couleur lin, cohérent avec la charte, affiché avant
-           le montage de React pour éviter tout flash de l'ancien design.
-           Contient un H1 de repli (masqué visuellement) pour les rares crawlers
-           sans JS non couverts par l'edge function de pré-rendu SEO. React le
-           remplace au montage. -->
-      <div class="app-prerender">
-        <h1 class="sr-only">Hypnothérapeute à Paris 4ème &amp; en visio partout en France – Alain Zenatti</h1>
+      <!-- Pré-rendu statique du nav + hero de la homepage (copie exacte du markup
+           de src/pages/PreviewCharte.tsx — les deux doivent rester synchronisés).
+           Il peint dès l'arrivée du CSS, sans attendre les ~130 KB de JS React,
+           ce qui améliore fortement FCP / LCP / Speed Index. React remplace ce
+           contenu au montage par un DOM visuellement identique (aucun CLS).
+           Sur les autres routes, il est masqué avant le premier paint via la
+           classe cz-offpage (script synchrone du head). -->
+      <div id="cz-prerender" class="cz">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+          <defs>
+            <filter id="riso-full">
+              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves="2" seed="3" result="turb" />
+              <feDisplacementMap in="SourceGraphic" in2="turb" scale="6" result="displaced" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves="4" seed="8" result="noise" />
+              <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
+              <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
+              <feComposite in="out" in2="displaced" operator="in" />
+            </filter>
+            <filter id="paperGrain" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="4" seed="1" />
+              <feColorMatrix values="0 0 0 0 .15  0 0 0 0 .12  0 0 0 0 .08  0 0 0 .15 0" />
+            </filter>
+          </defs>
+        </svg>
+
+        <nav class="nav">
+          <div class="container nav__row">
+            <a class="brand" href="#hero"><span class="alain">Alain</span><span class="zen">Zen</span><span class="atti">atti</span></a>
+            <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <div class="nav__links">
+              <div class="nav__dropdown">
+                <button type="button" class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Découvrir <span class="nav__dropdown-arrow" aria-hidden="true">▾</span></button>
+                <div class="nav__dropdown-menu">
+                  <a href="#about">À propos</a>
+                  <span class="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  <a href="#visio" class="nav__dropdown-link--accent">En visio — partout en France</a>
+                  <a href="#cabinet">Le cabinet — Paris</a>
+                </div>
+              </div>
+              <div class="nav__dropdown">
+                <button type="button" class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Accompagnement <span class="nav__dropdown-arrow" aria-hidden="true">▾</span></button>
+                <div class="nav__dropdown-menu">
+                  <a href="#sessions">Séance</a>
+                  <span class="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  <a href="/hypnose-sommeil-paris">Sommeil</a>
+                  <a href="/hypnose-gestion-emotions-paris">Gestion des émotions</a>
+                  <a href="/hypnose-blocages-paris">Blocages &amp; comportements</a>
+                  <a href="/hypnose-confiance-en-soi-paris">Confiance en soi</a>
+                  <a href="/hypnose-phobies-paris">Phobies</a>
+                  <span class="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
+                  <a href="/test-receptivite">Test de réceptivité</a>
+                </div>
+              </div>
+              <div class="nav__dropdown">
+                <button type="button" class="nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">Ressources <span class="nav__dropdown-arrow" aria-hidden="true">▾</span></button>
+                <div class="nav__dropdown-menu">
+                  <a href="/blog" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+                  <a href="/autohypnose" target="_blank" rel="noopener noreferrer">Auto-hypnose ↗</a>
+                  <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-balade ↗</a>
+                </div>
+              </div>
+              <a href="#temoignages">Avis</a>
+              <a href="#contact">Contact</a>
+              <div class="nav__cta">
+                <a class="btn btn--ghost" href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer">RDV Paris</a>
+                <a class="btn btn--visio" href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer">RDV visio <span class="arrow">→</span></a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <section class="hero" id="hero">
+          <div class="hero__bg" aria-hidden="true">
+            <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+              <g filter="url(#riso-full)">
+                <path d="M 180 80 C 380 30, 660 80, 820 180 C 920 240, 990 260, 1100 220 C 1240 170, 1380 200, 1440 290 C 1500 380, 1420 470, 1280 500 C 1140 530, 980 490, 880 440 C 740 380, 620 410, 540 480 C 450 560, 320 580, 220 540 C 100 490, 60 380, 80 280 C 95 200, 130 130, 180 80 Z" fill="#F2A12E" opacity="0.95" />
+              </g>
+              <g filter="url(#riso-full)">
+                <path d="M 280 480 C 400 460, 500 510, 510 600 C 520 690, 460 750, 360 750 C 260 750, 180 690, 180 600 C 180 530, 220 490, 280 480 Z" fill="#F2A12E" opacity="0.95" />
+              </g>
+              <g filter="url(#riso-full)" style="mix-blend-mode:multiply">
+                <path d="M 360 540 C 480 430, 660 420, 800 480 C 940 540, 1080 540, 1240 500 C 1340 475, 1420 490, 1480 540 L 1480 1040 L 360 1040 C 280 1000, 260 900, 280 800 C 300 700, 320 620, 360 540 Z" fill="#2B4BA0" opacity="0.92" />
+              </g>
+              <rect width="1440" height="1000" filter="url(#paperGrain)" opacity=".25" />
+            </svg>
+          </div>
+
+          <div class="zen-mark" aria-hidden="true">zen</div>
+
+          <div class="container hero__container">
+            <div class="hero__panel">
+              <div class="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
+              <h1 class="hero__name">
+                <span class="alain">Alain</span>
+                <span class="full"><span class="zen">Zen</span><span class="atti">atti</span></span>
+              </h1>
+              <div class="hero__rule"></div>
+              <p class="hero__lead">
+                Un espace pour ralentir.<br />
+                Un accompagnement pour avancer <em>plus léger</em>.
+              </p>
+              <div class="hero__sub">
+                Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
+              </div>
+              <div class="hero__cta">
+                <a class="btn btn--primary" href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer">Prendre rendez-vous <span class="arrow">→</span></a>
+                <a class="btn btn--ghost" href="#about">Découvrir l'approche</a>
+              </div>
+            </div>
+
+            <aside class="hero__card">
+              <div class="hero__card-label">La première séance</div>
+              <p class="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
+              <div class="hero__card-row"><span>Durée</span><span>1h30</span></div>
+              <div class="hero__card-row"><span>Tarif</span><span>90 €</span></div>
+              <div class="hero__card-row"><span>Au cabinet</span><span>16 rue Saint-Antoine, Paris 4e</span></div>
+              <div class="hero__card-row"><span>Ou en visio</span><span>Partout, depuis chez vous</span></div>
+            </aside>
+          </div>
+        </section>
       </div>
     </div>
     <script type="module" src="/src/main.tsx" defer></script>
