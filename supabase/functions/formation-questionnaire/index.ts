@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts";
+import { checkRateLimit } from "../_shared/rateLimiter.ts";
 
 const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
@@ -45,6 +46,15 @@ serve(async (req) => {
         { status: 400, headers: responseHeaders }
       );
     }
+
+    const allowed = await checkRateLimit(email, 'formation-questionnaire');
+    if (!allowed) {
+      return new Response(
+        JSON.stringify({ error: "Vos réponses ont déjà été enregistrées. Merci !" }),
+        { status: 429, headers: responseHeaders }
+      );
+    }
+
     if (!REGIONS_VALIDES.includes(region)) {
       return new Response(
         JSON.stringify({ error: `Région invalide. Valeurs acceptées : ${REGIONS_VALIDES.join(", ")}` }),

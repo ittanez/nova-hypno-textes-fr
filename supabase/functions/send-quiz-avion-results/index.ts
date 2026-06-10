@@ -1,5 +1,6 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 import { getCorsHeaders, isValidEmail } from "../_shared/cors.ts";
+import { checkRateLimit } from "../_shared/rateLimiter.ts";
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req);
@@ -29,6 +30,18 @@ serve(async (req) => {
         status: 400
       });
     }
+
+    const allowed = await checkRateLimit(email, 'send-quiz-avion-results');
+    if (!allowed) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: "Vos résultats ont déjà été envoyés. Vérifiez vos emails (y compris les spams)."
+      }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 429
+      });
+    }
+
     console.log('📧 Email destinataire:', email);
 
     // Generate email content pour le quiz avancé
