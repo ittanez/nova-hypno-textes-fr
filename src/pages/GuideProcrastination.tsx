@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { submitProcrastinationLead } from '@/lib/services/procrastinationLeadService';
+import { safeJSONStringify } from '@/lib/seo-utils';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Star from 'lucide-react/dist/esm/icons/star';
 import Brain from 'lucide-react/dist/esm/icons/brain';
@@ -161,7 +162,7 @@ const GuideProcrastination: React.FC = () => {
         <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 8 techniques concrètes et protocoles pratiques." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
-        <script type="application/ld+json">{JSON.stringify({
+        <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-procrastination#book",
           "name": "Vaincre la Procrastination par l'Hypnose",

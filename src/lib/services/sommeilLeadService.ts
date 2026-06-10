@@ -1,4 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
+import { logger } from '@/lib/logger';
 
 interface GuideLeadResult {
   success: boolean;
@@ -21,13 +22,13 @@ export async function submitSommeilLead(
     );
 
     if (fnError) {
-      console.error('Erreur Edge Function ebook-sommeil-brevo:', fnError);
+      logger.error('Erreur Edge Function ebook-sommeil-brevo:', fnError);
       return { success: false, error: "L'envoi de l'email a échoué. Veuillez réessayer." };
     }
 
     return { success: true };
   } catch (err) {
-    console.error('Exception submitSommeilLead:', err);
+    logger.error('Exception submitSommeilLead:', err);
     return { success: false, error: 'Une erreur inattendue est survenue.' };
   }
 }

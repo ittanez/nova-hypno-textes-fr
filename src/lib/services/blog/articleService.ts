@@ -247,12 +247,18 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3): 
     }
 
     // Utiliser les tags ou catégories de l'article actuel pour trouver des articles similaires
-    const { data, error } = await supabase
+    let query = supabase
       .from('articles')
-      .select('*')
-      .neq('id', articleId) // Exclure l'article actuel
-      .overlaps('tags', article.tags || []) // Filtrer par tags similaires
-      .limit(limit);
+      .select('id, title, slug, excerpt, image_url, categories, tags, published_at, created_at, read_time')
+      .neq('id', articleId);
+
+    if (article.tags && article.tags.length > 0) {
+      query = query.overlaps('tags', article.tags);
+    } else if (article.categories && article.categories.length > 0) {
+      query = query.overlaps('categories', article.categories);
+    }
+
+    const { data, error } = await query.limit(limit);
 
     if (error) {
       throw error;
