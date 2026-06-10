@@ -55,5 +55,5 @@ export function isValidEmail(email: string): boolean {
  */
 export function sanitizeString(str: string, maxLength: number = 1000): string {
   if (!str || typeof str !== 'string') return '';
-  return str.slice(0, maxLength).replace(/[<>]/g, '');
+  return str.slice(0, maxLength).replace(/[<>]/g, '').replace(/[\r\n]/g, ' ');
 }

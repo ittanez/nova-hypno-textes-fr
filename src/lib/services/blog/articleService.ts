@@ -249,9 +249,9 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3): 
     // Utiliser les tags ou catégories de l'article actuel pour trouver des articles similaires
     const { data, error } = await supabase
       .from('articles')
-      .select('*')
-      .neq('id', articleId) // Exclure l'article actuel
-      .overlaps('tags', article.tags || []) // Filtrer par tags similaires
+      .select('id, title, slug, excerpt, image_url, categories, tags, published_at, created_at, read_time')
+      .neq('id', articleId)
+      .overlaps('tags', article.tags || [])
       .limit(limit);
 
     if (error) {

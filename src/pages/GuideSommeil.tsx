@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { submitSommeilLead } from '@/lib/services/sommeilLeadService';
+import { safeJSONStringify } from '@/lib/seo-utils';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
@@ -135,7 +136,7 @@ const GuideSommeil: React.FC = () => {
         <meta name="description" content="Téléchargez gratuitement le guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond — sans médicaments." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
-        <script type="application/ld+json">{JSON.stringify({
+        <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-sommeil#book",
           "name": "Le Sommeil, Votre Allié Secret",

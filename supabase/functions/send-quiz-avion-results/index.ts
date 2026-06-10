@@ -61,7 +61,7 @@ serve(async (req) => {
     return new Response(JSON.stringify({
       success: true,
       messageId: resendData.id,
-      message: 'Email quiz avancé envoyé avec succès (copie à a.zenatti@gmail.com)'
+      message: 'Email quiz avancé envoyé avec succès'
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200

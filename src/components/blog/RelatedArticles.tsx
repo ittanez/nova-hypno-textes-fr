@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Article } from '@/lib/types/blog';
-import { getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
+import { getRelatedArticles } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
 
 interface RelatedArticlesProps {
@@ -12,7 +12,6 @@ interface RelatedArticlesProps {
 
 const RelatedArticles: React.FC<RelatedArticlesProps> = ({
   currentArticleId,
-  currentArticleCategories,
   maxArticles = 3
 }) => {
   const [relatedArticles, setRelatedArticles] = useState<Article[]>([]);
@@ -22,29 +21,8 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
     const fetchRelatedArticles = async () => {
       try {
         setIsLoading(true);
-        const articles = await getAllArticlesNoPagination();
-
-        // Ensure articles is an array
-        const articlesArray = Array.isArray(articles) ? articles : (articles?.data || []);
-
-        // Filter out current article and get related ones
-        const filteredArticles = articlesArray.filter(article => article.id !== currentArticleId);
-
-        // Priority: same category first, then by date
-        const categorized = currentArticleCategories && currentArticleCategories.length > 0
-          ? filteredArticles.filter(article =>
-              article.categories?.some(cat => currentArticleCategories.includes(cat))
-            )
-          : [];
-
-        const others = filteredArticles.filter(article =>
-          !article.categories?.some(cat => currentArticleCategories?.includes(cat))
-        );
-
-        // Combine and limit results
-        const combined = [...categorized, ...others].slice(0, maxArticles);
-
-        setRelatedArticles(combined);
+        const { data } = await getRelatedArticles(currentArticleId, maxArticles);
+        setRelatedArticles(data ?? []);
       } catch (error) {
         logger.error('Error fetching related articles:', error);
       } finally {
@@ -53,7 +31,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
     };
 
     fetchRelatedArticles();
-  }, [currentArticleId, currentArticleCategories, maxArticles]);
+  }, [currentArticleId, maxArticles]);
 
   if (isLoading) {
     return (

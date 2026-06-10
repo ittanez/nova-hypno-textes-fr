@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
-import { logger } from '@/lib/logger';
 import { publicSupabase } from '@/integrations/supabase/public-client';
 
 interface BlogArticle {
@@ -20,9 +20,6 @@ interface BlogArticle {
 }
 
 const BlogArticlesSlider: React.FC = () => {
-  const [articles, setArticles] = useState<BlogArticle[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -30,47 +27,24 @@ const BlogArticlesSlider: React.FC = () => {
 
   const AUTOPLAY_DELAY = 5000;
 
-  useEffect(() => {
-    const fetchLatestArticles = async () => {
-      try {
-        logger.debug('Recuperation automatique des articles...');
-
-        const { data, error } = await publicSupabase
-          .from('articles')
-          .select('id, title, slug, excerpt, image_url, published_at, created_at, categories, read_time')
-          .eq('published', true)
-          .order('published_at', { ascending: false })
-          .order('created_at', { ascending: false })
-          .limit(6);
-
-        if (error) throw error;
-        logger.debug('Articles recuperes automatiquement:', data?.length);
-
-        const transformedArticles = (data ?? []).map((article: BlogArticle) => ({
-          id: article.id,
-          title: article.title,
-          excerpt: article.excerpt,
-          image_url: article.image_url,
-          slug: article.slug,
-          published_at: article.published_at || article.created_at,
-          created_at: article.created_at,
-          categories: article.categories,
-          read_time: article.read_time
-        }));
-        
-        setArticles(transformedArticles);
-        logger.debug('Articles transformes:', transformedArticles.length);
-        
-      } catch (err) {
-        logger.error('Erreur recuperation automatique:', err);
-        setError('Impossible de charger les articles du blog');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchLatestArticles();
-  }, []);
+  const { data: articles = [], isLoading, isError } = useQuery({
+    queryKey: ['blog-latest-articles-slider'],
+    queryFn: async () => {
+      const { data, error } = await publicSupabase
+        .from('articles')
+        .select('id, title, slug, excerpt, image_url, published_at, created_at, categories, read_time')
+        .eq('published', true)
+        .order('published_at', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(6);
+      if (error) throw error;
+      return (data ?? []).map((article: BlogArticle) => ({
+        ...article,
+        published_at: article.published_at || article.created_at,
+      }));
+    },
+    staleTime: 5 * 60 * 1000,
+  });
 
   // Auto-play
   useEffect(() => {
@@ -159,7 +133,7 @@ const BlogArticlesSlider: React.FC = () => {
     );
   }
 
-  if (error || articles.length === 0) {
+  if (isError || articles.length === 0) {
     return (
       <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -168,7 +142,7 @@ const BlogArticlesSlider: React.FC = () => {
           </h2>
           <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
             <p className="text-gray-600 mb-6">
-              {error || 'Aucun article disponible pour le moment'}
+              {isError ? 'Impossible de charger les articles du blog' : 'Aucun article disponible pour le moment'}
             </p>
             <Link
               to="/blog"
