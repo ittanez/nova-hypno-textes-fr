@@ -26,6 +26,7 @@ const STATIC_PAGES = [
   { loc: '/guide-autohypnose', changefreq: 'monthly', priority: '0.6' },
   { loc: '/blog',              changefreq: 'daily',   priority: '0.9' },
   { loc: '/blog/categories',   changefreq: 'weekly',  priority: '0.6' },
+  { loc: '/politique-de-confidentialite-novarespire', changefreq: 'yearly', priority: '0.3' },
 ];
 
 function escapeXml(unsafe) {

@@ -85,6 +85,9 @@ const GuideSommeilMerci = lazy(() => import("@/pages/GuideSommeilMerci"));
 const GuideProcrastination = lazy(() => import("@/pages/GuideProcrastination"));
 const GuideProcrastinationMerci = lazy(() => import("@/pages/GuideProcrastinationMerci"));
 
+// Politique de confidentialité de l'app mobile NovaRespire (URL déclarée dans Play Console)
+const PolitiqueConfidentialiteNovaRespire = lazy(() => import("@/pages/PolitiqueConfidentialiteNovaRespire"));
+
 // Page de redirection WhatsApp (emails Brevo)
 const ContactWaBrevo = lazy(() => import("@/pages/ContactWaBrevo"));
 
@@ -192,6 +195,9 @@ function App() {
             <Route path="/guide-procrastination" element={<GuideProcrastination />} />
             <Route path="/guide-procrastination/merci" element={<GuideProcrastinationMerci />} />
             <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
+
+            {/* Politique de confidentialité app NovaRespire — URL déclarée dans Play Console */}
+            <Route path="/politique-de-confidentialite-novarespire" element={<PolitiqueConfidentialiteNovaRespire />} />
 
             {/* Page de test ebook — pas dans le menu */}
             <Route path="/test-ebook" element={<TestEbook />} />
