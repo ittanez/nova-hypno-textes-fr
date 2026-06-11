@@ -63,7 +63,7 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
         <title>Politique de confidentialité — Application NovaRespire</title>
         <meta name="description" content="Politique de confidentialité de l'application de respiration guidée NovaRespire : données traitées, durées de conservation, suppression des données et droits RGPD." />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://novahypnose.fr/politique-de-confidentialite-novarespire/" />
+        <link rel="canonical" href="https://novahypnose.fr/politique-de-confidentialite-novarespire" />
       </Helmet>
 
       <div className="cz" ref={rootRef}>
