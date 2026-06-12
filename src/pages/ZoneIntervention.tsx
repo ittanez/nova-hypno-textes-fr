@@ -3,12 +3,23 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import ContentLayout from '@/components/layout/ContentLayout';
 import LazyCommuteMap from '@/components/LazyCommuteMap';
+import { localBusinessSchema } from '@/data/schemaOrg';
+import { safeJSONStringify } from '@/lib/seo-utils';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Train from 'lucide-react/dist/esm/icons/train';
 import Car from 'lucide-react/dist/esm/icons/car';
 import Bike from 'lucide-react/dist/esm/icons/bike';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
+    { "@type": "ListItem", "position": 2, "name": "Zone d'intervention", "item": "https://novahypnose.fr/zone-intervention" }
+  ]
+};
 
 const ZoneIntervention = () => {
   const arrondissements = [
@@ -98,18 +109,18 @@ const ZoneIntervention = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Zone d'intervention Paris | Cabinet Hypnose Bastille</title>
+        <title>Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€."
+          content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue."
         />
         <meta
           name="keywords"
-          content="hypnothérapeute paris, cabinet hypnose bastille, hypnose marais, zone intervention paris, arrondissements paris, accès cabinet paris 4, hypnothérapie paris centre"
+          content="hypnothérapeute paris 4, hypnothérapeute bastille, hypnose marais, hypnose paris 4, cabinet hypnose paris 4, hypnothérapeute paris 4ème, hypnose en visio france, séances hypnose visio, hypnothérapeute paris, cabinet hypnose bastille, accès hypnose paris 4"
         />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
-        <meta property="og:title" content="Zone d'intervention Paris | Cabinet Hypnose Bastille" />
-        <meta property="og:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€." />
+        <meta property="og:title" content="Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose" />
+        <meta property="og:description" content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
         <meta property="og:locale" content="fr_FR" />
@@ -118,9 +129,11 @@ const ZoneIntervention = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Zone d'intervention Paris | Cabinet Hypnose Bastille" />
-        <meta name="twitter:description" content="Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€, ou en visio partout en France 90€." />
+        <meta name="twitter:title" content="Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose" />
+        <meta name="twitter:description" content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(breadcrumbLd)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -135,8 +148,8 @@ const ZoneIntervention = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-purple-600 mb-2">Zone d'Intervention</span>
-              <span className="block text-blue-600">Cabinet d'Hypnothérapie à Paris</span>
+              <span className="block text-purple-600 mb-2">Hypnothérapeute Paris 4e</span>
+              <span className="block text-blue-600">Marais · Bastille & Visio France</span>
             </h1>
 
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -373,6 +386,41 @@ const ZoneIntervention = () => {
             </p>
 
             <LazyCommuteMap />
+          </div>
+        </div>
+      </section>
+
+      {/* Texte SEO local — signaux Paris 4e · Marais · Bastille · Visio */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Hypnothérapeute Paris 4e — Marais · Bastille
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Installé dans le <strong>4e arrondissement de Paris</strong>, au cœur du quartier
+              Marais-Bastille, le cabinet NovaHypnose est votre référence en{' '}
+              <strong>hypnothérapie Paris 4</strong>. À deux pas du métro Bastille (lignes 1, 5, 8)
+              et de Saint-Paul (ligne 1), le cabinet est accessible en moins de 10 minutes depuis
+              la majorité des arrondissements parisiens.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié,
+              accompagne ses patients dans un cadre confidentiel et bienveillant. Le cabinet
+              d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress,
+              l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la
+              confiance en soi — des résultats durables, généralement en 3 à 5 séances.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Vous ne pouvez pas vous déplacer à Paris ? Les{' '}
+              <strong>séances d'hypnose en visio partout en France</strong> offrent la même qualité
+              d'accompagnement qu'en présentiel — depuis votre domicile, votre bureau ou tout lieu
+              calme avec une connexion internet. Idéal pour les patients en province, à l'étranger,
+              ou tout simplement qui préfèrent la flexibilité du téléconsultation.{' '}
+              <Link to="/hypnose-en-ligne" className="text-blue-600 hover:underline font-medium">
+                En savoir plus sur l'hypnose en visio →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

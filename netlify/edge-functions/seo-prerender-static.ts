@@ -906,41 +906,74 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/zone-intervention": {
-    title: "Zone d'intervention Paris | Cabinet Hypnose Bastille",
+    title: "Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose",
     description:
-      "Cabinet d'hypnothérapie Paris 4ème, métro Bastille à 2 min. Séances au cabinet 90€, à domicile 140€ ou en visio.",
+      "Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue.",
     canonicalPath: "/zone-intervention",
-    h1: "Zone d'Intervention — Cabinet d'Hypnothérapie à Paris",
+    h1: "Hypnothérapeute Paris 4e — Marais · Bastille & Visio France",
     jsonLd: [
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Zone d'intervention", path: "/zone-intervention" },
       ]),
+      {
+        "@context": "https://schema.org",
+        "@type": ["HealthAndBeautyBusiness", "MedicalBusiness"],
+        "@id": `${SITE_URL}/#localbusiness`,
+        "name": "NovaHypnose — Alain Zenatti, hypnothérapeute Paris 4",
+        "url": SITE_URL,
+        "image": DEFAULT_IMAGE,
+        "priceRange": "90€–140€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "16 rue Saint-Antoine",
+          "addressLocality": "Paris",
+          "postalCode": "75004",
+          "addressCountry": "FR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 48.85358, "longitude": 2.36642 },
+        "areaServed": [
+          { "@type": "City", "name": "Paris" },
+          { "@type": "Country", "name": "France" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "23",
+          "bestRating": "5"
+        }
+      }
     ],
     content: `
-    <p>Mon cabinet d'hypnothérapie situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong>, est facilement accessible depuis tous les arrondissements parisiens grâce à son emplacement stratégique à <strong>Bastille</strong> (métro lignes 1, 5, 8).</p>
+    <p>Installé dans le <strong>4e arrondissement de Paris</strong>, au cœur du quartier Marais-Bastille, le cabinet NovaHypnose est votre référence en <strong>hypnothérapie Paris 4</strong>. À deux pas du métro Bastille (lignes 1, 5, 8) et de Saint-Paul (ligne 1), le cabinet est accessible en moins de 10 minutes depuis la majorité des arrondissements parisiens.</p>
 
-    <h2>Accès au cabinet</h2>
+    <p>Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié, accompagne ses patients dans un cadre confidentiel et bienveillant. Le cabinet d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress, l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la confiance en soi — des résultats durables, généralement en 3 à 5 séances.</p>
+
+    <h2>Accès au cabinet Paris 4e</h2>
     <ul>
       <li><strong>Métro Bastille</strong> (Lignes 1, 5, 8) — 2 min à pied</li>
       <li><strong>Métro Saint-Paul</strong> (Ligne 1) — 5 min à pied</li>
       <li><strong>Bus</strong> — Lignes 69, 76, 86, 87, 91</li>
+      <li>Adresse : 16 rue Saint-Antoine, Paris 75004</li>
     </ul>
 
-    <h2>Zones desservies</h2>
+    <h2>Zones desservies depuis le cabinet Paris 4</h2>
     <ul>
-      <li><strong>Paris Centre</strong> (1er, 2ème, 3ème, 4ème) — 5-10 min</li>
-      <li><strong>Paris Est</strong> (10ème, 11ème, 12ème) — 5-15 min</li>
-      <li><strong>Paris Nord</strong> (18ème, 19ème, 20ème) — 15-25 min</li>
-      <li><strong>Paris Sud</strong> (5ème, 13ème, 14ème) — 15-25 min</li>
+      <li><strong>Paris Centre</strong> (1er, 2ème, 3ème, 4ème — Marais, Bastille, Châtelet) — 5-10 min</li>
+      <li><strong>Paris Est</strong> (10ème, 11ème, 12ème — Oberkampf, Nation, Bercy) — 5-15 min</li>
+      <li><strong>Paris Nord</strong> (18ème, 19ème, 20ème — Belleville, Père Lachaise) — 15-25 min</li>
+      <li><strong>Paris Sud</strong> (5ème, 13ème, 14ème — Quartier Latin, Montparnasse) — 15-25 min</li>
       <li><strong>Paris Ouest</strong> (7ème, 8ème, 15ème, 16ème, 17ème) — 20-30 min</li>
     </ul>
 
+    <h2>Séances en visio partout en France</h2>
+    <p>Vous ne pouvez pas vous déplacer à Paris ? Les <strong>séances d'hypnose en visio partout en France</strong> offrent la même qualité d'accompagnement qu'en présentiel — depuis votre domicile, votre bureau ou tout lieu calme avec une connexion internet. Idéal pour les patients en province, à l'étranger, ou qui préfèrent la flexibilité de la téléconsultation.</p>
+
     <h2>Tarifs</h2>
     <ul>
-      <li>Séance au cabinet : <strong>90 €</strong></li>
+      <li>Séance au cabinet (Paris 4e) : <strong>90 €</strong></li>
       <li>Séance à domicile : <strong>140 €</strong> (Paris et proche banlieue)</li>
-      <li>Séance en visio : <strong>90 €</strong></li>
+      <li>Séance en visio (France entière) : <strong>90 €</strong></li>
     </ul>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
