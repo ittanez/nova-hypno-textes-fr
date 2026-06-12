@@ -1,7 +1,7 @@
 // Service Worker - NovaHypnose Performance Optimization
 // Version 1.0.0 - Phase 2
 
-const CACHE_VERSION = 'nova-hypnose-v2';
+const CACHE_VERSION = 'nova-hypnose-v3';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;
@@ -78,8 +78,9 @@ self.addEventListener('fetch', (event) => {
     request.destination === 'style' ||
     request.destination === 'font'
   ) {
-    // Cache-First pour JS, CSS, Fonts
-    event.respondWith(cacheFirst(request, STATIC_CACHE));
+    // Stale-While-Revalidate pour JS/CSS/Fonts — affiche le cache immédiatement
+    // mais met à jour en arrière-plan pour que le prochain rechargement soit à jour
+    event.respondWith(staleWhileRevalidate(request, STATIC_CACHE));
   } else if (request.destination === 'document') {
     // Network-First pour HTML
     event.respondWith(networkFirst(request, DYNAMIC_CACHE));
