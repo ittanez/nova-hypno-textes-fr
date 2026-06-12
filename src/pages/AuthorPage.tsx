@@ -190,7 +190,7 @@ const AuthorPage: React.FC = () => {
                   "Phobies et peurs irrationnelles",
                   "Gestion des émotions & deuil",
                   "Blocages créatifs & procrastination",
-                  "Arrêt du tabac & addictions",
+                  "Comportements répétitifs & habitudes",
                   "Préparation mentale & performance"
                 ].map((spec, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg">

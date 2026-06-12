@@ -77,13 +77,13 @@ const ApplicationsCarousel: React.FC = () => {
                 )}
               </>
             );
-            const className = "group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200";
+            const baseClass = "group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200";
             return app.href ? (
-              <Link key={index} to={app.href} className={className}>
+              <Link key={index} to={app.href} className={`${baseClass} block cursor-pointer`}>
                 {cardContent}
               </Link>
             ) : (
-              <div key={index} className={className}>
+              <div key={index} className={baseClass}>
                 {cardContent}
               </div>
             );
@@ -120,15 +120,15 @@ const ApplicationsCarousel: React.FC = () => {
                     )}
                   </>
                 );
-                const mobileClassName = "bg-white p-6 rounded-2xl shadow-lg border border-gray-100";
+                const mobileBaseClass = "bg-white p-6 rounded-2xl shadow-lg border border-gray-100";
                 return (
                   <div key={index} className="min-w-full px-2">
                     {app.href ? (
-                      <Link to={app.href} className={mobileClassName}>
+                      <Link to={app.href} className={`${mobileBaseClass} block cursor-pointer`}>
                         {mobileCardContent}
                       </Link>
                     ) : (
-                      <div className={mobileClassName}>
+                      <div className={mobileBaseClass}>
                         {mobileCardContent}
                       </div>
                     )}
