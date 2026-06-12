@@ -5,6 +5,7 @@
  */
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import { applications } from '@/data/applicationsData';
@@ -48,7 +49,7 @@ const ApplicationsCarousel: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:underline"
                 >
-                  <strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 22 avis 5/5 laissés sur Google</strong>
+                  <strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 23 avis 5/5 laissés sur Google</strong>
                 </a></span>
               </li>
             </ul>
@@ -62,16 +63,28 @@ const ApplicationsCarousel: React.FC = () => {
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {applications.map((app, index) => {
             const Icon = app.icon;
-            return (
-              <div
-                key={index}
-                className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
-              >
+            const cardContent = (
+              <>
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                   <Icon className="text-blue-500 group-hover:text-white transition-colors" size={32} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{app.description}</p>
+                {app.href && (
+                  <span className="inline-block mt-4 text-blue-600 text-sm font-medium group-hover:underline">
+                    En savoir plus →
+                  </span>
+                )}
+              </>
+            );
+            const className = "group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200";
+            return app.href ? (
+              <Link key={index} to={app.href} className={className}>
+                {cardContent}
+              </Link>
+            ) : (
+              <div key={index} className={className}>
+                {cardContent}
               </div>
             );
           })}
@@ -93,15 +106,32 @@ const ApplicationsCarousel: React.FC = () => {
             <div className="flex transition-transform duration-500 ease-out" style={{ transform: `translateX(-${currentApplication * 100}%)` }}>
               {applications.map((app, index) => {
                 const Icon = app.icon;
+                const mobileCardContent = (
+                  <>
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                      <Icon className="text-blue-500" size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{app.description}</p>
+                    {app.href && (
+                      <span className="inline-block mt-4 text-blue-600 text-sm font-medium">
+                        En savoir plus →
+                      </span>
+                    )}
+                  </>
+                );
+                const mobileClassName = "bg-white p-6 rounded-2xl shadow-lg border border-gray-100";
                 return (
                   <div key={index} className="min-w-full px-2">
-                    <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <Icon className="text-blue-500" size={32} />
+                    {app.href ? (
+                      <Link to={app.href} className={mobileClassName}>
+                        {mobileCardContent}
+                      </Link>
+                    ) : (
+                      <div className={mobileClassName}>
+                        {mobileCardContent}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{app.description}</p>
-                    </div>
+                    )}
                   </div>
                 );
               })}
