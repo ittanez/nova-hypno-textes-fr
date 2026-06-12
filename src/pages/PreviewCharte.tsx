@@ -23,9 +23,9 @@ const domaines = [
   { t: "Phobies & blocages — se sentir plus libre", d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance.", href: "/hypnose-phobies-paris" },
   { t: "Régulation émotionnelle — apprivoiser ses émotions", d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité.", href: "/hypnose-gestion-emotions-paris" },
   { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment.", href: "/hypnose-blocages-paris" },
-  { t: "Rapport au corps — renouer avec soi", d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
-  { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
-  { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
+  { t: "Rapport au corps — renouer avec soi", d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur.", href: "/hypnose-troubles-alimentaires-paris" },
+  { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous.", href: "/hypnose-blocages-paris" },
+  { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien.", href: "/hypnose-blocages-paris" },
 ];
 
 const faq = [

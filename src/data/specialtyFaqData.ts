@@ -152,3 +152,27 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
     answer: "Oui, et c'est même souvent ce qui se passe naturellement. Beaucoup de blocages partagent une racine commune (anxiété, manque de confiance, besoin de contrôle). En traitant cette racine par l'hypnose, plusieurs comportements s'améliorent simultanément. Par exemple, en travaillant sur la peur de l'échec, on peut voir s'améliorer à la fois la procrastination, la difficulté à s'affirmer et les schémas d'auto-sabotage. Chaque séance est personnalisée pour adresser vos problématiques dans leur globalité."
   }
 ];
+
+// ─── Troubles alimentaires ───────────────────────────────────────────
+export const troublesAlimentairesFaqItems: SpecialtyFaqItem[] = [
+  {
+    question: "L'hypnose peut-elle aider en cas de compulsions alimentaires ?",
+    answer: "Oui. Les compulsions alimentaires (grignotages incontrôlables, crises de boulimie, eating émotionnel) sont des comportements pilotés par l'inconscient en réponse à une émotion difficile — stress, ennui, tristesse, anxiété. L'hypnose identifie le déclencheur émotionnel et propose des réponses alternatives plus adaptées. En 3 à 5 séances, la plupart de mes patients voient nettement diminuer la fréquence et l'intensité des compulsions."
+  },
+  {
+    question: "L'hypnose aide-t-elle à retrouver des signaux de faim et de satiété naturels ?",
+    answer: "C'est l'un des objectifs centraux du travail hypnotique sur le rapport à l'alimentation. Avec les régimes répétés et les diktats alimentaires, beaucoup de personnes ont perdu le contact avec leurs sensations corporelles naturelles. L'hypnose travaille à reconnecter votre inconscient à ces signaux primitifs — la vraie faim, le rassasiement — pour retrouver un rapport plus intuitif et apaisé à la nourriture, sans restriction volontaire."
+  },
+  {
+    question: "L'hypnose peut-elle compléter un suivi médical ou nutritionnel ?",
+    answer: "Absolument, et c'est souvent la configuration la plus efficace. L'hypnose ne remplace pas un suivi médical ou diététique, mais elle agit sur la dimension psychologique et émotionnelle que ces approches n'adressent pas toujours. Beaucoup de patients qui n'arrivaient pas à maintenir leurs changements alimentaires malgré une bonne connaissance nutritionnelle ont pu y parvenir grâce à l'hypnose, qui lève les freins inconscients à ces changements."
+  },
+  {
+    question: "Combien de séances faut-il pour améliorer son rapport à l'alimentation ?",
+    answer: "En général, 3 à 5 séances suffisent pour observer des changements significatifs. La première séance permet d'identifier les mécanismes en jeu (les déclencheurs émotionnels, le rôle que joue la nourriture). Les séances suivantes travaillent à reprogrammer ces mécanismes. Les résultats sont durables parce qu'ils viennent d'un changement intérieur, pas d'une contrainte extérieure."
+  },
+  {
+    question: "L'hypnose fonctionne-t-elle aussi en visio pour les troubles alimentaires ?",
+    answer: "Oui, tout aussi bien qu'au cabinet. Les séances en visio sont souvent perçues comme encore plus confortables pour aborder un sujet aussi intime, depuis son propre espace. L'hypnose ericksonienne passe par la voix et la relation thérapeutique — ces deux éléments sont pleinement présents en visio."
+  }
+];
