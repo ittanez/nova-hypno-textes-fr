@@ -118,6 +118,7 @@ const ZoneIntervention = () => {
           name="keywords"
           content="hypnothérapeute paris 4, hypnothérapeute bastille, hypnose marais, hypnose paris 4, cabinet hypnose paris 4, hypnothérapeute paris 4ème, hypnose en visio france, séances hypnose visio, hypnothérapeute paris, cabinet hypnose bastille, accès hypnose paris 4"
         />
+        <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
         <meta property="og:title" content="Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose" />
         <meta property="og:description" content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue." />

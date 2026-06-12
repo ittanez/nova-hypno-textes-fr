@@ -211,6 +211,47 @@
     Cache-Control = "public, max-age=0, must-revalidate"
     Service-Worker-Allowed = "/"
 
+# ── Pages archivées / ancienne charte — noindex ──────────────────────
+[[headers]]
+  for = "/v1"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/v1/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/zone-intervention"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/maquette"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/blog-maquette"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/test-receptivite-archive"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/preview-charte"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/preview-charte-*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
 # ═══════════════════════════════════════════════════════════════════════
 # Fichiers critiques pour le SEO - DOIVENT être servis en statique
 # Google bloque l'indexation de TOUT le site si robots.txt est inaccessible
