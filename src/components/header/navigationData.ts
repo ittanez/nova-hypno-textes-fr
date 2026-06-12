@@ -46,15 +46,16 @@ export const specialitesLinks: NavLink[] = [
 ];
 
 export const accompagnementsLinks: NavLink[] = [
-  { name: 'Applications', href: '/#applications' },
+  { name: 'Applications de l\'hypnose', href: '/#applications' },
+  { name: 'Déroulement d\'une séance', href: '/#sessions' },
   { name: 'Formation auto-hypnose', href: '/autohypnose' },
 ];
 
 export const infosPratiquesLinks: NavLink[] = [
-  { name: 'Tarifs', href: '/#tarifs' },
-  { name: 'FAQ', href: '/#faq' },
   { name: 'Hypnose en ligne (visio)', href: '/hypnose-en-ligne' },
   { name: 'Zone d\'intervention', href: '/zone-intervention' },
+  { name: 'Tarifs', href: '/#tarifs' },
+  { name: 'FAQ', href: '/#faq' },
   { name: 'Contact', href: '/#contact' },
 ];
 
