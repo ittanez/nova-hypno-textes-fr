@@ -102,7 +102,7 @@ const HypnoseSommeilParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Sommeil &amp; Insomnie — Paris</div>
           <h1 className="sp-hero__h1">
-            Retrouvez des nuits sereines<br/><em>par l'hypnose</em>
+            Retrouvez des nuits sereines<br/><em>Hypnothérapie Paris 4e · visio</em>
           </h1>
           <p className="sp-hero__lead">
             Insomnie, réveils nocturnes, difficultés d'endormissement, sommeil non réparateur…

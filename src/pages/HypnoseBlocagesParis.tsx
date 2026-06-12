@@ -111,7 +111,7 @@ const HypnoseBlocagesParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Blocages &amp; Comportements — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de vos blocages<br/><em>par l'hypnose</em>
+            Libérez-vous de vos blocages<br/><em>Hypnothérapie Paris 4e · visio</em>
           </h1>
           <p className="sp-hero__lead">
             Vous procrastinez, vous répétez les mêmes erreurs, vous n'arrivez pas à changer
