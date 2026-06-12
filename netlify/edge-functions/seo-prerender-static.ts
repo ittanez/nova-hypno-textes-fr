@@ -26,6 +26,7 @@ const BOT_USER_AGENTS = [
   "mj12bot",
   "petalbot",
   "gptbot",
+  "oai-searchbot",
   "claude-web",
   "perplexitybot",
   "meta-externalagent",
@@ -154,7 +155,8 @@ function htmlShell(page: PageData): string {
 
 const localBusinessLd = {
   "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
+  "@type": ["HealthAndBeautyBusiness", "MedicalBusiness"],
+  "@id": `${SITE_URL}/#localbusiness`,
   name: "NovaHypnose - Hypnothérapeute Paris",
   description:
     "Cabinet d'hypnothérapie à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne pour le stress, les phobies, le sommeil et la confiance en soi.",
@@ -171,15 +173,15 @@ const localBusinessLd = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 48.8534,
-    longitude: 2.3656,
+    latitude: 48.85358,
+    longitude: 2.36642,
   },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "19:00",
+      opens: "11:00",
+      closes: "20:00",
     },
   ],
   priceRange: "€€",
@@ -187,13 +189,14 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "40",
+    reviewCount: "9",
   },
 };
 
 const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${SITE_URL}/#person`,
   name: "Alain Zenatti",
   jobTitle: "Maître Hypnologue",
   url: SITE_URL,
@@ -201,9 +204,7 @@ const personLd = {
   telephone: "+33649358089",
   email: "contact@novahypnose.fr",
   worksFor: {
-    "@type": "HealthAndBeautyBusiness",
-    name: "NovaHypnose",
-    url: SITE_URL,
+    "@id": `${SITE_URL}/#localbusiness`,
   },
 };
 
@@ -224,18 +225,17 @@ function serviceLd(name: string, description: string, url: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}#service`,
     name,
     description,
     url,
     provider: {
-      "@type": "Person",
-      name: "Alain Zenatti",
-      url: SITE_URL,
+      "@id": `${SITE_URL}/#person`,
     },
-    areaServed: {
-      "@type": "City",
-      name: "Paris",
-    },
+    areaServed: [
+      { "@type": "City", name: "Paris" },
+      { "@type": "Country", name: "France" },
+    ],
     offers: {
       "@type": "Offer",
       price: "90",

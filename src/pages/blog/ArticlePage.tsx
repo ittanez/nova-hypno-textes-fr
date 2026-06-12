@@ -153,7 +153,7 @@ const ArticlePage = () => {
       "@type": "BlogPosting",
       "headline": article.title,
       "description": article.seo_description || article.excerpt,
-      "image": article.image_url || "",
+      "image": article.image_url || "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
       "datePublished": article.published_at || article.created_at,
       "dateModified": article.updated_at || article.created_at,
       "author": {
@@ -169,7 +169,9 @@ const ArticlePage = () => {
         "name": "NovaHypnose",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://novahypnose.fr/favicon.ico"
+          "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "width": 1200,
+          "height": 630
         }
       },
       "mainEntityOfPage": {
@@ -189,10 +191,14 @@ const ArticlePage = () => {
     document.head.appendChild(script);
 
     const categoryName = article.categories?.[0];
+    const categoryObj = categoryName ? categories.find(c => c.name === categoryName) : null;
+    const categoryUrl = categoryObj
+      ? `https://novahypnose.fr/blog/categorie/${categoryObj.slug}`
+      : 'https://novahypnose.fr/blog';
     const breadcrumbTrail = categoryName
       ? [
           { name: 'Blog', url: 'https://novahypnose.fr/blog' },
-          { name: categoryName, url: `https://novahypnose.fr/blog` },
+          { name: categoryName, url: categoryUrl },
           { name: article.title, url: `https://novahypnose.fr/blog/article/${article.slug}` },
         ]
       : [
@@ -210,7 +216,7 @@ const ArticlePage = () => {
       document.getElementById('article-structured-data')?.remove();
       document.getElementById('article-breadcrumb-data')?.remove();
     };
-  }, [article]);
+  }, [article, categories]);
 
   if (isLoading) {
     return (

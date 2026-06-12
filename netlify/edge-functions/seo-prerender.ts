@@ -28,6 +28,7 @@ const BOT_USER_AGENTS = [
   "mj12bot",
   "petalbot",
   "gptbot",
+  "oai-searchbot",
   "claude-web",
   "perplexitybot",
   "meta-externalagent",

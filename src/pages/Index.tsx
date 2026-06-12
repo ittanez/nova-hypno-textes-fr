@@ -89,8 +89,6 @@ const Index: React.FC = () => {
     <>
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
-        {/* Page archivée (ancien site) — accessible sous /v1, non indexée */}
-        <meta name="robots" content="noindex, nofollow" />
         <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
         <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris, hypnose en ligne, hypnothérapeute en ligne, hypnose visio, séance hypnose visio France, hypnose à distance, téléconsultation hypnose" />
