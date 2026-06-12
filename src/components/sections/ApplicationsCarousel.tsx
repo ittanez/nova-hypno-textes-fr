@@ -71,8 +71,8 @@ const ApplicationsCarousel: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{app.description}</p>
                 {app.href && (
-                  <span className="inline-block mt-4 text-blue-600 text-sm font-medium group-hover:underline">
-                    En savoir plus →
+                  <span className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg group-hover:bg-blue-700 transition-colors">
+                    Découvrir →
                   </span>
                 )}
               </>
@@ -114,8 +114,8 @@ const ApplicationsCarousel: React.FC = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{app.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{app.description}</p>
                     {app.href && (
-                      <span className="inline-block mt-4 text-blue-600 text-sm font-medium">
-                        En savoir plus →
+                      <span className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg">
+                        Découvrir →
                       </span>
                     )}
                   </>
