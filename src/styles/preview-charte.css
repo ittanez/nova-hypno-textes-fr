@@ -403,6 +403,9 @@
 .cz .card__num { font-family: var(--f-serif); font-style: italic; font-size: 22px; color: var(--amber); opacity: .85; }
 .cz .card__title { font-family: var(--f-serif); font-size: 30px; font-weight: 400; color: var(--texte); margin: 10px 0 12px; letter-spacing: -.01em; }
 .cz .card__desc { font-size: 14px; line-height: 1.7; color: var(--corps); opacity: .78; }
+.cz .card--link { display: block; text-decoration: none; cursor: pointer; }
+.cz .card__cta { display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 600; color: var(--cobalt); letter-spacing: .03em; }
+.cz .card--link:hover .card__cta { text-decoration: underline; }
 
 /* ============================================================
    TÉMOIGNAGES

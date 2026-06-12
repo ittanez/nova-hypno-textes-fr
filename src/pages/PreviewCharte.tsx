@@ -17,12 +17,12 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
 const domaines = [
-  { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien." },
-  { t: "Troubles du sommeil — retrouver le repos", d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur." },
-  { t: "Confiance en soi — l'habiter pleinement", d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur." },
-  { t: "Phobies & blocages — se sentir plus libre", d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance." },
-  { t: "Régulation émotionnelle — apprivoiser ses émotions", d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité." },
-  { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment." },
+  { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien.", href: "/hypnose-stress-anxiete-paris" },
+  { t: "Troubles du sommeil — retrouver le repos", d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur.", href: "/hypnose-sommeil-paris" },
+  { t: "Confiance en soi — l'habiter pleinement", d: "Reprendre votre juste place, avec une assurance tranquille qui vient de l'intérieur.", href: "/hypnose-confiance-en-soi-paris" },
+  { t: "Phobies & blocages — se sentir plus libre", d: "Alléger ce qui retient, dépasser une appréhension, avancer avec plus d'aisance.", href: "/hypnose-phobies-paris" },
+  { t: "Régulation émotionnelle — apprivoiser ses émotions", d: "Accueillir ce qui vous traverse sans être débordé, et retrouver de la stabilité.", href: "/hypnose-gestion-emotions-paris" },
+  { t: "Prise de parole — aborder l'instant clé", d: "Prise de parole, échéance, changement : mobiliser votre calme au bon moment.", href: "/hypnose-blocages-paris" },
   { t: "Rapport au corps — renouer avec soi", d: "Apaiser le rapport à la nourriture, retrouver des repères justes, habiter son corps avec plus de douceur." },
   { t: "Procrastination — reprendre l'élan", d: "Sortir de l'inertie qui pèse, retrouver le goût d'agir et avancer vers ce qui compte pour vous." },
   { t: "Arrêter une habitude — reprendre le contrôle", d: "Desserrer un automatisme qui vous échappe, redonner de la place au choix, dans le quotidien." },
@@ -45,6 +45,7 @@ const anonymizeName = (full: string): string => {
 };
 
 const ACCOMPAGNEMENT_THEMES_LINKS = [
+  { label: 'Stress & anxiété', href: '/hypnose-stress-anxiete-paris' },
   { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
   { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
@@ -523,13 +524,25 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <div className="cards">
-              {domaines.map((d, i) => (
-                <article className="card reveal" key={d.t} style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
-                  <span className="card__num">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="card__title">{d.t}</h3>
-                  <p className="card__desc">{d.d}</p>
-                </article>
-              ))}
+              {domaines.map((d, i) => {
+                const inner = (
+                  <>
+                    <span className="card__num">{String(i + 1).padStart(2, '0')}</span>
+                    <h3 className="card__title">{d.t}</h3>
+                    <p className="card__desc">{d.d}</p>
+                    {d.href && <span className="card__cta">Découvrir →</span>}
+                  </>
+                );
+                return d.href ? (
+                  <Link key={d.t} to={d.href} className="card card--link reveal" style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <article className="card reveal" key={d.t} style={{ transitionDelay: `${(i % 3) * 0.12}s` }}>
+                    {inner}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
