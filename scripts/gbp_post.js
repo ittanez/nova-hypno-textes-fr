@@ -3,18 +3,26 @@
  * gbp_post.js — Publie un post sur Google Business Profile
  *
  * Usage :
- *   node scripts/gbp_post.js                          → publie le post dans gbp_next_post.json
- *   node scripts/gbp_post.js scripts/mon_post.json    → publie un fichier spécifique
+ *   node scripts/gbp_post.js                        → publie gbp_next_post.json
+ *   node scripts/gbp_post.js scripts/mon_post.json  → publie un fichier spécifique
  *
- * Format du fichier de post (gbp_next_post.json) :
+ * ─── Format complet du fichier de post ────────────────────────────────────────
  * {
- *   "type": "STANDARD",          // STANDARD | EVENT | OFFER
- *   "summary": "Texte du post",  // max 1500 caractères
+ *   "type": "STANDARD",           // STANDARD | EVENT | OFFER
+ *   "summary": "Texte du post",   // max 1500 caractères
+ *
+ *   // Optionnel — photo ou vidéo jointe au post
+ *   // L'URL doit être publiquement accessible (ex: Supabase Storage, CDN, Drive public)
+ *   "mediaUrl": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ma-photo.webp",
+ *   "mediaType": "PHOTO",         // PHOTO (défaut) | VIDEO
+ *
  *   "callToAction": {
- *     "actionType": "BOOK",      // BOOK | CALL | LEARN_MORE | ORDER | SHOP | SIGN_UP
- *     "url": "https://..."       // optionnel selon le type
+ *     "actionType": "BOOK",       // BOOK | CALL | LEARN_MORE | ORDER | SHOP | SIGN_UP
+ *     "url": "https://..."        // omis si actionType = CALL (utilise le tel de la fiche)
  *   },
- *   "event": {                   // uniquement pour type EVENT
+ *
+ *   // Uniquement pour type EVENT
+ *   "event": {
  *     "title": "Nom de l'événement",
  *     "schedule": {
  *       "startDate": { "year": 2026, "month": 7, "day": 1 },
@@ -22,6 +30,13 @@
  *     }
  *   }
  * }
+ * ──────────────────────────────────────────────────────────────────────────────
+ *
+ * Note sur les photos :
+ *   L'API GBP accepte une URL publique — pas d'upload binaire nécessaire.
+ *   Toutes tes images Supabase Storage (bucket "images", accès public) fonctionnent
+ *   directement. Exemple d'URL valide :
+ *   https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp
  */
 
 import { google } from 'googleapis';
@@ -65,8 +80,6 @@ async function main() {
   const auth = getAuthClient();
   const token = (await auth.getAccessToken()).token;
 
-  const locationName = config.location_id; // ex: "locations/123456789"
-
   const body = {
     languageCode: 'fr',
     summary: post.summary,
@@ -74,20 +87,29 @@ async function main() {
   };
 
   if (post.callToAction) body.callToAction = post.callToAction;
-  if (post.event) body.event = post.event;
+  if (post.event)        body.event = post.event;
 
+  // Photo ou vidéo optionnelle
+  if (post.mediaUrl) {
+    body.media = [{
+      mediaFormat: post.mediaType || 'PHOTO',
+      sourceUrl: post.mediaUrl,
+    }];
+    console.log(`🖼️  Média joint : ${post.mediaUrl}`);
+  }
+
+  const locationName = config.location_id;
   const url = `https://mybusiness.googleapis.com/v4/${locationName}/localPosts`;
-  console.log(`📤 Publication sur : ${locationName}`);
+
+  console.log(`\n📤 Publication sur : ${locationName}`);
+  console.log(`   Type : ${body.topicType}`);
+  console.log(`   Texte (${body.summary.length} car.) : ${body.summary.substring(0, 80)}…\n`);
 
   const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-
   const data = await res.json();
 
   if (data.error) {
@@ -96,8 +118,9 @@ async function main() {
   }
 
   console.log('✅ Post publié avec succès !');
-  console.log('   ID du post :', data.name);
-  console.log('   URL Google Maps :', data.searchUrl || '(disponible dans le dashboard GBP)');
+  console.log('   ID :', data.name);
+  if (data.searchUrl) console.log('   URL Maps :', data.searchUrl);
+  console.log('\n💡 Pour préparer le prochain post, éditez scripts/gbp_next_post.json\n');
 }
 
 main().catch(err => { console.error('❌', err.message); process.exit(1); });
