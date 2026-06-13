@@ -38,6 +38,7 @@ const ACCOMPAGNEMENTS_LINKS = [
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
+  { label: 'Rapport au corps', href: '/hypnose-troubles-alimentaires-paris' },
   { label: 'Test de réceptivité', href: '/test-receptivite' },
 ];
 
@@ -155,9 +156,16 @@ const CzLayout: React.FC<CzLayoutProps> = ({
               )
             )}
           </div>
-          <a className="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
-            {ctaLabel} <span className="arrow">→</span>
-          </a>
+          {ctaLabel === DEFAULT_CTA_LABEL ? (
+            <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
+              <a className="btn btn--ghost" href={ctaHref} target="_blank" rel="noopener noreferrer">RDV Paris</a>
+              <a className="btn btn--visio" href={ctaHref} target="_blank" rel="noopener noreferrer">RDV visio <span className="arrow">→</span></a>
+            </div>
+          ) : (
+            <a className="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
+              {ctaLabel} <span className="arrow">→</span>
+            </a>
+          )}
         </div>
       </nav>
 

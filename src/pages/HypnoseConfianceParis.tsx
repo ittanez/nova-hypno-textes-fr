@@ -102,7 +102,7 @@ const HypnoseConfianceParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Confiance en Soi — Paris</div>
           <h1 className="sp-hero__h1">
-            Révélez votre potentiel<br/><em>Hypnothérapie Paris 4e · visio</em>
+            Révélez votre potentiel
           </h1>
           <p className="sp-hero__lead">
             Vous doutez de vous, vous n'osez pas prendre la parole, vous vous sentez illégitime ?
