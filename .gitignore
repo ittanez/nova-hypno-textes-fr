@@ -19,6 +19,7 @@ dist-ssr
 
 # Google OAuth credentials & tokens — NE PAS COMMITTER
 scripts/client_secret*.json
+scripts/gbp_credentials.json
 scripts/gbp_token.json
 scripts/gbp_config.json
 scripts/gbp_stats_weekly.csv
