@@ -102,7 +102,7 @@ const HypnoseStressParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Stress &amp; Anxiété — Paris</div>
           <h1 className="sp-hero__h1">
-            Retrouvez la sérénité<br/><em>par l'hypnose</em>
+            Retrouvez la sérénité<br/><em>au quotidien</em>
           </h1>
           <p className="sp-hero__lead">
             Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode

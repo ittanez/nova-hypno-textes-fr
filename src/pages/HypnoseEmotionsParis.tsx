@@ -111,7 +111,7 @@ const HypnoseEmotionsParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Gestion des Émotions — Paris</div>
           <h1 className="sp-hero__h1">
-            Retrouvez l'équilibre<br/><em>par l'hypnose</em>
+            Retrouvez l'équilibre<br/><em>intérieur</em>
           </h1>
           <p className="sp-hero__lead">
             Colère incontrôlable, hypersensibilité, deuil difficile, frustration permanente…
