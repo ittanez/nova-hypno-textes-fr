@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKEN_PATH = join(__dirname, 'gbp_token.json');
 
 function getAuthClient() {
-  const files = readdirSync(__dirname).filter(f => f.startsWith('client_secret') && f.endsWith('.json'));
+  const files = readdirSync(__dirname).filter(f => (f === 'gbp_credentials.json' || f.startsWith('client_secret')) && f.endsWith('.json'));
   if (!files.length) throw new Error('client_secret_*.json introuvable dans scripts/');
   const creds = JSON.parse(readFileSync(join(__dirname, files[0]), 'utf8'));
   const { client_id, client_secret } = creds.installed;

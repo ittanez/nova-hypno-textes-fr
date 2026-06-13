@@ -25,7 +25,7 @@ const SCOPES = [
 ];
 
 function findCredentialsFile() {
-  const files = readdirSync(__dirname).filter(f => f.startsWith('client_secret') && f.endsWith('.json'));
+  const files = readdirSync(__dirname).filter(f => (f === 'gbp_credentials.json' || f.startsWith('client_secret')) && f.endsWith('.json'));
   if (files.length === 0) throw new Error('Fichier client_secret_*.json introuvable dans scripts/');
   return join(__dirname, files[0]);
 }

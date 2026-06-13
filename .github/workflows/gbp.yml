@@ -1,0 +1,72 @@
+name: Google Business Profile
+
+on:
+  # Déclencheur manuel depuis l'onglet Actions de GitHub
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action à exécuter'
+        required: true
+        default: 'post'
+        type: choice
+        options:
+          - post    # Publier le post dans gbp_next_post.json
+          - stats   # Récupérer les statistiques (90j)
+
+  # Déclenchement automatique quand gbp_next_post.json est modifié sur main
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/gbp_next_post.json'
+
+  # Stats automatiques chaque lundi à 8h00 (heure Paris)
+  schedule:
+    - cron: '0 7 * * 1'
+
+jobs:
+  gbp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Écrire les fichiers secrets depuis GitHub Secrets
+        run: |
+          echo '${{ secrets.GBP_CREDENTIALS }}' > scripts/gbp_credentials.json
+          echo '${{ secrets.GBP_TOKEN }}'       > scripts/gbp_token.json
+          # GBP_CONFIG contient account_id + location_id — à ajouter après approbation API
+          if [ -n '${{ secrets.GBP_CONFIG }}' ]; then
+            echo '${{ secrets.GBP_CONFIG }}' > scripts/gbp_config.json
+          fi
+
+      - name: Publier le post GBP
+        if: >
+          github.event_name == 'push' ||
+          (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'post')
+        run: node scripts/gbp_post.js
+        env:
+          NODE_OPTIONS: '--experimental-vm-modules'
+
+      - name: Récupérer les statistiques GBP
+        if: >
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'stats')
+        run: node scripts/gbp_stats.js --no-csv
+        env:
+          NODE_OPTIONS: '--experimental-vm-modules'
+
+      - name: Nettoyer les fichiers secrets
+        if: always()
+        run: |
+          rm -f scripts/gbp_credentials.json
+          rm -f scripts/gbp_token.json
+          rm -f scripts/gbp_config.json
