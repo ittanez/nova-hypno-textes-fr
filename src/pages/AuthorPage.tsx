@@ -19,7 +19,7 @@ const AuthorPage: React.FC = () => {
     const authorSchema = {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "https://novahypnose.fr/alain-zenatti",
+      "@id": "https://novahypnose.fr/#person",
       "name": "Alain Zenatti",
       "jobTitle": "Maître Hypnologue certifié",
       "url": "https://novahypnose.fr/alain-zenatti",

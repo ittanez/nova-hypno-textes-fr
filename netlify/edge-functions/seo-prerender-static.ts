@@ -191,6 +191,7 @@ const localBusinessLd = {
     bestRating: "5",
     reviewCount: "23",
   },
+  sameAs: ["https://maps.google.com/?cid=11956530853003446067"],
 };
 
 const personLd = {
@@ -244,6 +245,18 @@ function serviceLd(name: string, description: string, url: string) {
   };
 }
 
+function faqLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
 // ─── Page Data ─────────────────────────────────────────────────────────────
 
 const PAGES: Record<string, PageData> = {
@@ -258,6 +271,15 @@ const PAGES: Record<string, PageData> = {
       localBusinessLd,
       personLd,
       breadcrumbLd([{ name: "Accueil", path: "/" }]),
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/#webpage`,
+        url: SITE_URL,
+        name: "Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose",
+        dateModified: "2026-06-13",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+      },
     ],
     content: `
     <p>Bienvenue au cabinet <strong>NovaHypnose</strong>, situé au cœur du Marais à Paris 4ème. <strong>Alain Zenatti</strong>, hypnothérapeute en hypnose ericksonienne et auto-hypnose, vous accompagne vers un changement profond et durable.</p>
@@ -317,6 +339,20 @@ const PAGES: Record<string, PageData> = {
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Stress et anxiété", path: "/hypnose-stress-anxiete-paris" },
+      ]),
+      faqLd([
+        {
+          q: "Combien de séances d'hypnose pour traiter le stress et l'anxiété ?",
+          a: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité des patients ressentent un soulagement significatif.",
+        },
+        {
+          q: "L'hypnose est-elle efficace contre le burn-out ?",
+          a: "Oui, l'hypnose est particulièrement efficace pour accompagner un burn-out. Elle agit à plusieurs niveaux : relâchement des tensions physiques accumulées, reprogrammation des mécanismes de surmenage, restauration de la capacité à poser des limites et retrouver de l'énergie.",
+        },
+        {
+          q: "L'hypnose peut-elle aider en cas de crises d'angoisse ?",
+          a: "Absolument. L'hypnose est l'une des approches les plus efficaces pour traiter les crises d'angoisse. Elle agit en deux temps : une technique d'auto-hypnose rapide pour stopper une crise, puis le travail en séance pour désactiver le mécanisme inconscient qui déclenche ces crises.",
+        },
       ]),
     ],
     content: `
@@ -400,6 +436,20 @@ const PAGES: Record<string, PageData> = {
         { name: "Accueil", path: "/" },
         { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
       ]),
+      faqLd([
+        {
+          q: "Faut-il être exposé à sa phobie pendant la séance d'hypnose ?",
+          a: "Non, c'est l'un des grands avantages de l'hypnose. Vous n'avez jamais besoin de vous confronter directement à l'objet de votre peur. L'hypnose ericksonienne travaille avec votre inconscient en utilisant des techniques dissociatives.",
+        },
+        {
+          q: "La phobie peut-elle revenir après un traitement par hypnose ?",
+          a: "Dans la grande majorité des cas, non. Quand l'hypnose modifie le programme inconscient à l'origine de la phobie, le changement est permanent. Il peut arriver, dans de rares cas, qu'un événement traumatique réactive une ancienne peur. Si cela se produit, une séance de renforcement suffit.",
+        },
+        {
+          q: "L'hypnose traite-t-elle les phobies installées depuis l'enfance ?",
+          a: "Oui, l'hypnose est même particulièrement efficace sur les phobies anciennes. Qu'une phobie soit installée depuis 5 ou 40 ans ne change pas fondamentalement le traitement : c'est toujours un programme inconscient qui maintient la peur.",
+        },
+      ]),
     ],
     content: `
     <p>Ce qui a été appris peut être désappris. Une phobie est un <strong>programme de protection installé par votre inconscient</strong> — souvent à partir d'une expérience passée. L'hypnose permet de désactiver ce programme sans revivre le trauma. Vous n'avez pas besoin de vous confronter à votre peur pour vous en libérer.</p>
@@ -481,6 +531,20 @@ const PAGES: Record<string, PageData> = {
         { name: "Accueil", path: "/" },
         { name: "Sommeil et insomnie", path: "/hypnose-sommeil-paris" },
       ]),
+      faqLd([
+        {
+          q: "L'auto-hypnose peut-elle aider à s'endormir chaque soir ?",
+          a: "Oui, c'est même l'un des outils les plus puissants transmis aux patients. Une technique d'auto-hypnose spécialement conçue pour l'endormissement peut être pratiquée chaque soir en quelques minutes pour induire un état de relaxation profonde.",
+        },
+        {
+          q: "L'hypnose peut-elle remplacer les somnifères ?",
+          a: "L'hypnose est une alternative naturelle aux somnifères, mais le sevrage de médicaments doit toujours se faire en accord avec votre médecin. L'hypnose restaure les mécanismes naturels du sommeil sans créer de dépendance.",
+        },
+        {
+          q: "L'hypnose fonctionne-t-elle pour les réveils nocturnes à 3h ou 4h du matin ?",
+          a: "Oui, les réveils nocturnes sont une problématique que l'hypnose traite très bien. Ces réveils sont souvent liés à un mécanisme d'hyper-vigilance inconscient. L'hypnose identifie la cause spécifique et reprogramme votre cycle de sommeil.",
+        },
+      ]),
     ],
     content: `
     <p>Le problème n'est pas dans votre corps. Il est dans votre inconscient, qui a <strong>oublié comment lâcher prise pour s'endormir</strong>. L'hypnose permet de restaurer ce mécanisme naturel — sans aucun médicament, sans dépendance, durablement.</p>
@@ -559,6 +623,20 @@ const PAGES: Record<string, PageData> = {
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      ]),
+      faqLd([
+        {
+          q: "L'hypnose supprime-t-elle les émotions ?",
+          a: "Non, absolument pas. Les émotions sont essentielles et font partie de votre richesse intérieure. Ce que l'hypnose modifie, c'est l'intensité disproportionnée de certaines réactions émotionnelles et les automatismes qui vous submergent.",
+        },
+        {
+          q: "L'hypnose est-elle adaptée aux personnes hypersensibles ?",
+          a: "L'hypnose est particulièrement bien adaptée aux personnes hypersensibles, qui sont d'ailleurs souvent très réceptives à l'approche ericksonienne. L'hypnose vous aide à mettre en place des filtres naturels pour ne plus être submergé tout en conservant votre profondeur.",
+        },
+        {
+          q: "L'hypnose peut-elle aider à surmonter un deuil ?",
+          a: "Oui, l'hypnose est un accompagnement précieux dans le processus de deuil. Elle ne cherche pas à effacer la tristesse, mais à débloquer les mécanismes qui empêchent le deuil de suivre son cours naturel : culpabilité, colère non exprimée, sentiment d'inachevé.",
+        },
       ]),
     ],
     content: `
@@ -640,6 +718,20 @@ const PAGES: Record<string, PageData> = {
         { name: "Accueil", path: "/" },
         { name: "Blocages et comportements", path: "/hypnose-blocages-paris" },
       ]),
+      faqLd([
+        {
+          q: "L'hypnose peut-elle aider à arrêter la procrastination ?",
+          a: "Oui, l'hypnose est très efficace contre la procrastination car elle traite la cause, pas le symptôme. La procrastination n'est pas un manque de volonté : c'est un mécanisme de protection inconscient, souvent lié à la peur de l'échec ou au perfectionnisme.",
+        },
+        {
+          q: "L'hypnose peut-elle briser les schémas répétitifs en amour ou au travail ?",
+          a: "C'est même l'une de ses applications les plus puissantes. Les schémas répétitifs sont maintenus par des programmes inconscients souvent liés à l'enfance. L'hypnose identifie le schéma, remonte à son origine et reprogramme la réponse inconsciente.",
+        },
+        {
+          q: "Peut-on traiter plusieurs blocages comportementaux en même temps ?",
+          a: "Oui, et c'est même souvent ce qui se passe naturellement. Beaucoup de blocages partagent une racine commune : anxiété, manque de confiance, besoin de contrôle. En traitant cette racine, plusieurs comportements s'améliorent simultanément.",
+        },
+      ]),
     ],
     content: `
     <p>Ces comportements ne sont pas un choix — ce sont des <strong>programmes inconscients que l'hypnose peut débloquer</strong>. Ce n'est ni de la paresse, ni un manque de volonté. La volonté ne peut pas accéder à ce niveau — il faut une approche qui dialogue directement avec l'inconscient.</p>
@@ -718,6 +810,20 @@ const PAGES: Record<string, PageData> = {
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Confiance en soi", path: "/hypnose-confiance-en-soi-paris" },
+      ]),
+      faqLd([
+        {
+          q: "L'hypnose peut-elle réellement augmenter la confiance en soi ?",
+          a: "Oui, l'hypnose est l'une des approches les plus efficaces pour développer la confiance en soi, car elle agit directement sur les croyances inconscientes qui sabotent votre estime personnelle.",
+        },
+        {
+          q: "Comment l'hypnose traite-t-elle le syndrome de l'imposteur ?",
+          a: "Le syndrome de l'imposteur repose sur une dissonance entre vos compétences réelles et l'image que vous avez de vous-même. L'hypnose traite ce décalage en identifiant les expériences fondatrices qui ont créé le doute et en les retraitant.",
+        },
+        {
+          q: "Les résultats de l'hypnose sur la confiance en soi sont-ils durables ?",
+          a: "Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Les patients constatent que les changements persistent et s'amplifient même avec le temps.",
+        },
       ]),
     ],
     content: `
@@ -1132,6 +1238,20 @@ const PAGES: Record<string, PageData> = {
       breadcrumbLd([
         { name: "Accueil", path: "/" },
         { name: "Rapport au corps", path: "/hypnose-troubles-alimentaires-paris" },
+      ]),
+      faqLd([
+        {
+          q: "L'hypnose peut-elle aider les compulsions alimentaires liées au stress ?",
+          a: "Oui. Les compulsions alimentaires sont très souvent un mécanisme de régulation émotionnelle installé par l'inconscient — une réponse au stress, à l'anxiété ou à l'ennui. L'hypnose agit à la source en modifiant ce mécanisme de compensation.",
+        },
+        {
+          q: "Combien de séances sont nécessaires pour retrouver un rapport apaisé à la nourriture ?",
+          a: "En général, 4 à 6 séances permettent d'obtenir des changements durables sur le rapport à la nourriture. Le nombre varie selon la complexité de la situation, l'ancienneté des difficultés et la réceptivité.",
+        },
+        {
+          q: "L'hypnose remplace-t-elle un suivi médical ou nutritionnel ?",
+          a: "Non. L'hypnose est un accompagnement complémentaire à un suivi médical ou nutritionnel, pas un substitut. Elle agit sur la dimension psychologique et émotionnelle du rapport au corps.",
+        },
       ]),
     ],
     content: `

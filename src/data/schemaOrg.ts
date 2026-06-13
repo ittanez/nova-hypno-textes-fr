@@ -122,7 +122,8 @@ export const localBusinessSchema = {
     "https://www.instagram.com/novahypnose/",
     "https://www.linkedin.com/in/alain-zenatti/",
     "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-    "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris"
+    "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris",
+    "https://maps.google.com/?cid=11956530853003446067"
   ],
   "employee": { "@id": "https://novahypnose.fr/#person" },
   "hasOfferCatalog": {

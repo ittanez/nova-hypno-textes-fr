@@ -38,6 +38,7 @@ serve(async (req) => {
       { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
       { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
       { loc: '/mentions-legales',              changefreq: 'yearly',  priority: '0.3' },
+      { loc: '/politique-de-confidentialite', changefreq: 'yearly',  priority: '0.3' },
       { loc: '/politique-de-confidentialite-novarespire', changefreq: 'yearly', priority: '0.3' },
     ]
 
