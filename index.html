@@ -102,7 +102,72 @@
       },8000);
     </script>
     
-    <!-- Structured Data généré dynamiquement par React -->
+    <!-- Structured Data statique : visible sans JavaScript ni edge function.
+         React Helmet injecte une version complète (avis, FAQ, BreadcrumbList)
+         après hydratation ; les deux coexistent sans conflit. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://novahypnose.fr/#website",
+          "url": "https://novahypnose.fr",
+          "name": "NovaHypnose",
+          "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié.",
+          "inLanguage": "fr-FR",
+          "publisher": { "@id": "https://novahypnose.fr/#localbusiness" }
+        },
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://novahypnose.fr/#localbusiness",
+          "name": "NovaHypnose - Hypnothérapeute Paris",
+          "url": "https://novahypnose.fr",
+          "telephone": "+33649358089",
+          "email": "contact@novahypnose.fr",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "16 rue Saint-Antoine",
+            "addressLocality": "Paris",
+            "postalCode": "75004",
+            "addressCountry": "FR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.85358,
+            "longitude": 2.36642
+          },
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "priceRange": "€€",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 5,
+            "bestRating": 5,
+            "reviewCount": 23
+          },
+          "sameAs": [
+            "https://www.instagram.com/novahypnose/",
+            "https://www.linkedin.com/in/alain-zenatti/",
+            "https://maps.google.com/?cid=11956530853003446067"
+          ],
+          "employee": { "@id": "https://novahypnose.fr/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://novahypnose.fr/#person",
+          "name": "Alain Zenatti",
+          "jobTitle": "Maître Hypnologue",
+          "url": "https://novahypnose.fr",
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "worksFor": { "@id": "https://novahypnose.fr/#localbusiness" },
+          "sameAs": [
+            "https://www.instagram.com/novahypnose/",
+            "https://www.linkedin.com/in/alain-zenatti/"
+          ]
+        }
+      ]
+    }
+    </script>
 
     
     <!-- CSS critique inline - Optimisé pour LCP et FCP -->

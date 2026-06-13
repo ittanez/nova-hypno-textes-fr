@@ -74,8 +74,8 @@ export const localBusinessSchema = {
     "Traitement des phobies",
     "Amélioration du sommeil",
     "Confiance en soi",
-    "Arrêt du tabac",
-    "Gestion du poids",
+    "Comportement alimentaire et compulsions",
+    "Rapport au poids et image de soi",
     "Auto-hypnose",
     "Peur de parler en public",
     "Procrastination"

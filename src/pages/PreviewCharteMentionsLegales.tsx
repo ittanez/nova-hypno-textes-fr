@@ -380,6 +380,8 @@ const PreviewCharteMentionsLegales: React.FC = () => {
             <nav className="foot__links" aria-label="Pieds de page">
               <a href="/mentions-legales" aria-current="page">Mentions légales</a>
               <span className="foot__sep">·</span>
+              <a href="/politique-de-confidentialite">Confidentialité</a>
+              <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
               <span className="foot__sep">·</span>
               <a href="/">← Accueil</a>
