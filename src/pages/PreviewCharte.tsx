@@ -785,6 +785,8 @@ const PreviewCharte: React.FC = () => {
             <nav className="foot__links" aria-label="Pieds de page">
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
+              <a href="/politique-de-confidentialite">Confidentialité</a>
+              <span className="foot__sep">·</span>
               <a href="tel:+33649358089">06 49 35 80 89</a>
               <span className="foot__sep">·</span>
               <address className="foot__addr">16 rue Saint-Antoine, 75004 Paris</address>
