@@ -38,7 +38,7 @@ const ACCOMPAGNEMENTS_LINKS = [
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
-  { label: 'Rapport au corps', href: '/hypnose-troubles-alimentaires-paris' },
+  { label: 'Poids', href: '/hypnose-troubles-alimentaires-paris' },
   { label: 'Test de réceptivité', href: '/test-receptivite' },
 ];
 

@@ -51,7 +51,7 @@ const ACCOMPAGNEMENT_THEMES_LINKS = [
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },
-  { label: 'Rapport au corps', href: '/hypnose-troubles-alimentaires-paris' },
+  { label: 'Poids', href: '/hypnose-troubles-alimentaires-paris' },
 ];
 
 const NAV_MOBILE_BREAKPOINT = 760;
