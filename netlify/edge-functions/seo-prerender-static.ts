@@ -155,7 +155,7 @@ function htmlShell(page: PageData): string {
 
 const localBusinessLd = {
   "@context": "https://schema.org",
-  "@type": ["HealthAndBeautyBusiness", "MedicalBusiness"],
+  "@type": "HealthAndBeautyBusiness",
   "@id": `${SITE_URL}/#localbusiness`,
   name: "NovaHypnose - Hypnothérapeute Paris",
   description:
@@ -189,7 +189,7 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "9",
+    reviewCount: "23",
   },
 };
 
@@ -1114,6 +1114,64 @@ const PAGES: Record<string, PageData> = {
     <p>Alain Zenatti pratique l'hypnose ericksonienne, une approche douce et respectueuse qui utilise des suggestions indirectes et la métaphore pour accéder aux ressources intérieures. Les résultats sont généralement observés en <strong>3 à 5 séances</strong>.</p>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+  },
+
+  "/hypnose-troubles-alimentaires-paris": {
+    title: "Hypnose troubles alimentaires Paris | Rapport au corps | Alain Zenatti",
+    description:
+      "Retrouvez un rapport apaisé à la nourriture grâce à l'hypnose à Paris 4ème. Compulsions, restriction, relation difficile à l'alimentation. Alain Zenatti, Maître Hypnologue. 90 €.",
+    canonicalPath: "/hypnose-troubles-alimentaires-paris",
+    h1: "Hypnose et rapport au corps — Retrouvez une relation apaisée à la nourriture",
+    jsonLd: [
+      serviceLd(
+        "Hypnose troubles alimentaires et rapport au corps Paris",
+        "Accompagnement par hypnose ericksonienne pour retrouver un rapport apaisé à la nourriture et au corps à Paris 4ème. Compulsions alimentaires, restriction, émotions et alimentation.",
+        `${SITE_URL}/hypnose-troubles-alimentaires-paris`
+      ),
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Rapport au corps", path: "/hypnose-troubles-alimentaires-paris" },
+      ]),
+    ],
+    content: `
+    <p>La relation à la nourriture n'est jamais uniquement une question de volonté. Derrière les compulsions, les restrictions ou les émotions qui envahissent les repas, il y a <strong>des mécanismes inconscients profonds</strong> que l'hypnose ericksonienne peut modifier durablement.</p>
+
+    <h2>Situations accompagnées en hypnose</h2>
+    <ul>
+      <li><strong>Compulsions alimentaires</strong> — Grignotages compulsifs, envies irrépressibles, manger en réponse au stress</li>
+      <li><strong>Relation difficile au corps</strong> — Image corporelle négative, rapport douloureux au miroir</li>
+      <li><strong>Alimentation émotionnelle</strong> — Manger pour combler une émotion, ennui, tristesse, anxiété</li>
+      <li><strong>Restriction et contrôle excessif</strong> — Rigidité alimentaire, culpabilité après les repas</li>
+      <li><strong>Peur de certains aliments</strong> — Néophobie, restrictions liées à l'anxiété</li>
+      <li><strong>Préparation à une démarche médicale</strong> — Accompagnement complémentaire d'un suivi nutritionnel ou médical</li>
+    </ul>
+
+    <h2>Comment l'hypnose agit sur le rapport au corps</h2>
+    <p>L'hypnose ericksonienne travaille avec l'inconscient pour <strong>identifier et modifier les croyances et automatismes</strong> qui gouvernent le comportement alimentaire. Elle ne cherche pas à contrôler la nourriture, mais à transformer la relation intérieure qui génère les comportements difficiles.</p>
+    <p>En état hypnotique, votre cerveau devient particulièrement réceptif à l'installation de nouveaux schémas. L'hypnose permet de déconstruire les associations émotionnelles négatives liées à la nourriture, de restaurer les signaux naturels de faim et de satiété, et de développer une relation plus douce au corps.</p>
+
+    <h2>Mon approche</h2>
+    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Mon accompagnement est complémentaire — et non substitut — à un suivi médical ou nutritionnel. Je travaille sur la dimension émotionnelle et inconsciente du rapport au corps, en coordination avec les professionnels de santé qui vous suivent si nécessaire.</p>
+
+    <h2>Questions fréquentes</h2>
+    <h3>L'hypnose peut-elle aider les compulsions alimentaires liées au stress ?</h3>
+    <p>Oui. Les compulsions alimentaires sont très souvent un mécanisme de régulation émotionnelle installé par l'inconscient — une réponse au stress, à l'anxiété ou à l'ennui. L'hypnose agit à la source en modifiant ce mécanisme de compensation et en développant des alternatives plus adaptées. Beaucoup de patients observent une réduction significative des compulsions dès les premières séances.</p>
+    <h3>Combien de séances sont nécessaires ?</h3>
+    <p>En général, 4 à 6 séances permettent d'obtenir des changements durables sur le rapport à la nourriture. Le nombre varie selon la complexité de la situation, l'ancienneté des difficultés et votre réceptivité. Chaque séance est personnalisée selon votre situation.</p>
+    <h3>L'hypnose remplace-t-elle un suivi médical ou nutritionnel ?</h3>
+    <p>Non. L'hypnose est un accompagnement complémentaire à un suivi médical ou nutritionnel, pas un substitut. Elle agit sur la dimension psychologique et émotionnelle du rapport au corps. Si vous suivez déjà un traitement ou un suivi, l'hypnose peut s'y articuler efficacement.</p>
+
+    <h2>Autres spécialités</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Burn-out, crises d'angoisse</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Colère, hypersensibilité</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi, image de soi</li>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — Schémas répétitifs</li>
+      <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur l'hypnose et la relation au corps</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance — 90€</a>
     `,
   },
 

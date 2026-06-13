@@ -62,9 +62,9 @@ const MentionsLegales = () => {
               <section>
                 <h2 className="text-xl font-semibold text-nova-blue-dark mb-3">Hébergement</h2>
                 <ul className="space-y-2 text-gray-700">
-                  <li><strong>Société :</strong> HOSTINGER INTERNATIONAL LTD</li>
-                  <li><strong>Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre</li>
-                  <li><strong>Site Web :</strong> hostinger.fr</li>
+                  <li><strong>Société :</strong> Netlify, Inc.</li>
+                  <li><strong>Adresse :</strong> 512 2nd Street, Suite 200, San Francisco, CA 94107, USA</li>
+                  <li><strong>Site Web :</strong> netlify.com</li>
                 </ul>
               </section>
 
