@@ -306,12 +306,16 @@
 .cz .about__photo {
   aspect-ratio: 1; max-width: 380px;
   border-radius: 50%;
-  background-image: url('/zenatti.webp');
-  background-size: cover;
-  background-position: center 30%;
   box-shadow: 12px 12px 0 rgba(242,161,46,.32);
   position: relative;
   overflow: hidden;
+}
+.cz .about__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 50%;
+  display: block;
 }
 .cz .about__photo::before {
   content: ""; position: absolute; inset: 0;

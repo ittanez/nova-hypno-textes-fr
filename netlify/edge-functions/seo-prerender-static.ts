@@ -163,7 +163,14 @@ const localBusinessLd = {
   url: SITE_URL,
   telephone: "+33649358089",
   email: "contact@novahypnose.fr",
-  image: DEFAULT_IMAGE,
+  image: {
+    "@type": "ImageObject",
+    "@id": `${SITE_URL}/#primaryimage`,
+    url: DEFAULT_IMAGE,
+    width: 1200,
+    height: 630,
+    caption: "Alain Zenatti, Maître Hypnologue certifié — Cabinet NovaHypnose Paris 4ème",
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "16 rue Saint-Antoine",
@@ -201,7 +208,13 @@ const personLd = {
   name: "Alain Zenatti",
   jobTitle: "Maître Hypnologue",
   url: SITE_URL,
-  image: DEFAULT_IMAGE,
+  image: {
+    "@type": "ImageObject",
+    url: DEFAULT_IMAGE,
+    width: 1200,
+    height: 630,
+    caption: "Portrait d'Alain Zenatti, hypnothérapeute à Paris",
+  },
   telephone: "+33649358089",
   email: "contact@novahypnose.fr",
   worksFor: {

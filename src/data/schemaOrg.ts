@@ -40,8 +40,20 @@ export const localBusinessSchema = {
   "identifier": [
     { "@type": "PropertyValue", "propertyID": "SIRET", "value": "89489890700015" }
   ],
-  "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-  "logo": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+  "image": {
+    "@type": "ImageObject",
+    "@id": "https://novahypnose.fr/#primaryimage",
+    "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+    "width": 1200,
+    "height": 630,
+    "caption": "Alain Zenatti, Maître Hypnologue certifié — Cabinet NovaHypnose Paris 4ème"
+  },
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+    "width": 1200,
+    "height": 630
+  },
   "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille, et téléconsultations visio partout en France. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
   "slogan": "Transformez votre vie par l'hypnose",
   "founder": {
