@@ -192,7 +192,7 @@ const SeoTextSection: React.FC = () => {
                 • Saint-Paul (ligne&nbsp;1)
               </li>
               <li>
-                <strong>Horaires&nbsp;:</strong> Lundi au vendredi, 11h00–20h00
+                <strong>Horaires&nbsp;:</strong> Lundi au vendredi, 11h00–20h30
               </li>
               <li>
                 <strong>Téléphone&nbsp;:</strong> 06&nbsp;49&nbsp;35&nbsp;80&nbsp;89

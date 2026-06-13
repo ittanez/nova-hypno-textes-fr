@@ -74,7 +74,7 @@ const WhyChooseSection: React.FC = () => {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />
-                <span>Horaires flexibles (11h-20h)</span>
+                <span>Horaires flexibles (11h-20h30)</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="text-blue-500 flex-shrink-0 mt-0.5" size={16} />

@@ -733,7 +733,7 @@ const PreviewCharte: React.FC = () => {
                 <div className="contact__row"><dt>Tél.</dt><dd>06 49 35 80 89</dd></div>
                 <div className="contact__row"><dt>Site</dt><dd>novahypnose.fr</dd></div>
                 <div className="contact__row"><dt>Adresse</dt><dd>16 rue Saint-Antoine, 75004 Paris</dd></div>
-                <div className="contact__row"><dt>Horaires</dt><dd>Lun. — Ven. · 11h — 20h</dd></div>
+                <div className="contact__row"><dt>Horaires</dt><dd>Lun. — Ven. · 11h — 20h30</dd></div>
               </dl>
             </div>
 

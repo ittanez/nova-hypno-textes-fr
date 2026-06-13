@@ -161,7 +161,7 @@ function getDefaultStructuredData() {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "11:00",
-        "closes": "20:00"
+        "closes": "20:30"
       }
     ],
     "areaServed": [
