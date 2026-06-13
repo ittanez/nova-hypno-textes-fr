@@ -111,7 +111,7 @@ const HypnoseTroublesAlimentairesParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Rapport au corps &amp; Alimentation — Paris</div>
           <h1 className="sp-hero__h1">
-            Retrouvez un rapport apaisé<br/><em>à la nourriture — Paris 4e · visio</em>
+            Retrouvez un rapport apaisé<br/><em>à la nourriture</em>
           </h1>
           <p className="sp-hero__lead">
             Compulsions, grignotages, boulimie, alimentation émotionnelle : votre rapport à la nourriture

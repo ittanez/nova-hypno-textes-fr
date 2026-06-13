@@ -113,7 +113,7 @@ const HypnosePhobiesParis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Phobies &amp; Peurs — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de vos peurs
+            Libérez-vous de vos peurs<br/><em>par l'hypnose</em>
           </h1>
           <p className="sp-hero__lead">
             Peur de l'avion, des araignées, du vide, des espaces clos, de parler en public…
