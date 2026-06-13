@@ -17,6 +17,10 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Google OAuth credentials & tokens — NE PAS COMMITTER
+scripts/client_secret*.json
+scripts/gbp_token.json
+
 # Vite
 .vite/
 *.timestamp-*.mjs
