@@ -69,7 +69,7 @@ serve(async (req) => {
     console.log(`✅ ${categories?.length || 0} catégories trouvées`)
 
     // Calculer le lastmod de chaque catégorie = date du dernier article publié dans cette catégorie
-    const categoryLastmod: Record<string, string> = {}
+    const categoryLastmod: Record<string, string> = Object.create(null)
     articles?.forEach(article => {
       if (!Array.isArray(article.categories)) return
       const articleDate = article.updated_at || article.published_at
@@ -119,9 +119,13 @@ serve(async (req) => {
         const rawLastmod = (category.name && categoryLastmod[category.name])
           ? categoryLastmod[category.name]
           : category.created_at
-        const lastmod = rawLastmod
-          ? new Date(rawLastmod).toISOString().split('T')[0]
-          : now
+        let lastmod = now
+        if (rawLastmod) {
+          const parsedDate = new Date(rawLastmod)
+          if (!isNaN(parsedDate.getTime())) {
+            lastmod = parsedDate.toISOString().split('T')[0]
+          }
+        }
 
         xml += `  <url>
     <loc>${SITE_URL}/blog/categorie/${category.slug}</loc>

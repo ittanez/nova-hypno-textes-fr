@@ -183,7 +183,9 @@ async function getRelatedArticles(
   limit = 3
 ): Promise<Article[]> {
   if (!categories || categories.length === 0) return [];
-  const primaryCategory = encodeURIComponent(categories[0]);
+  // Wrap in double-quotes so PostgREST treats the value as a single element
+  // even when the category name contains commas or spaces.
+  const primaryCategory = encodeURIComponent('"' + categories[0].replace(/"/g, '\\"') + '"');
   const res = await supabaseFetch(
     `articles?published=eq.true&categories=cs.{${primaryCategory}}&slug=neq.${encodeURIComponent(currentSlug)}&order=published_at.desc&limit=${limit}&select=title,slug,excerpt,seo_description,published_at,read_time`
   );
