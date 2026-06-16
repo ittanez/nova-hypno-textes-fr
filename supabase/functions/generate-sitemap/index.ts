@@ -44,10 +44,10 @@ serve(async (req) => {
 
     console.log('🚀 Génération du sitemap...')
 
-    // Récupérer tous les articles publiés
+    // Récupérer tous les articles publiés (avec categories pour calcul lastmod des catégories)
     const { data: articles, error: articlesError } = await supabase
       .from('articles')
-      .select('slug, updated_at, published_at, image_url, title')
+      .select('slug, updated_at, published_at, image_url, title, categories')
       .eq('published', true)
       .order('published_at', { ascending: false })
 
@@ -57,16 +57,29 @@ serve(async (req) => {
 
     console.log(`✅ ${articles?.length || 0} articles trouvés`)
 
-    // Récupérer toutes les catégories
+    // Récupérer toutes les catégories (avec name pour faire le lien avec articles.categories)
     const { data: categories, error: catError } = await supabase
       .from('categories')
-      .select('slug, created_at')
+      .select('slug, created_at, name')
 
     if (catError) {
       console.warn('⚠️ Erreur catégories:', catError)
     }
 
     console.log(`✅ ${categories?.length || 0} catégories trouvées`)
+
+    // Calculer le lastmod de chaque catégorie = date du dernier article publié dans cette catégorie
+    const categoryLastmod: Record<string, string> = Object.create(null)
+    articles?.forEach(article => {
+      if (!Array.isArray(article.categories)) return
+      const articleDate = article.updated_at || article.published_at
+      if (!articleDate) return
+      article.categories.forEach((catName: string) => {
+        if (!categoryLastmod[catName] || articleDate > categoryLastmod[catName]) {
+          categoryLastmod[catName] = articleDate
+        }
+      })
+    })
 
     // Générer le XML du sitemap
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -103,9 +116,16 @@ serve(async (req) => {
     if (categories && categories.length > 0) {
       xml += `\n  <!-- Catégories du blog -->\n`
       categories.forEach(category => {
-        const lastmod = category.created_at
-          ? new Date(category.created_at).toISOString().split('T')[0]
-          : now
+        const rawLastmod = (category.name && categoryLastmod[category.name])
+          ? categoryLastmod[category.name]
+          : category.created_at
+        let lastmod = now
+        if (rawLastmod) {
+          const parsedDate = new Date(rawLastmod)
+          if (!isNaN(parsedDate.getTime())) {
+            lastmod = parsedDate.toISOString().split('T')[0]
+          }
+        }
 
         xml += `  <url>
     <loc>${SITE_URL}/blog/categorie/${category.slug}</loc>

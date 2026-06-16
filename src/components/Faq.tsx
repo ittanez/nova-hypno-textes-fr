@@ -4,6 +4,18 @@ import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
 
 const faqItems = [
   {
+    question: "Qui est Alain Zenatti, hypnothérapeute à Paris ?",
+    answer: "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose, au 16 rue Saint-Antoine dans le 4ème arrondissement de Paris (Marais-Bastille), et propose également des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée : il s'appuie sur les ressources inconscientes de chaque patient plutôt que sur des protocoles rigides. Il accompagne exclusivement des adultes. Il est noté 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis)."
+  },
+  {
+    question: "Comment fonctionne l'hypnose ericksonienne ?",
+    answer: "L'hypnose ericksonienne est une thérapie brève fondée sur les travaux du psychiatre américain Milton H. Erickson (1901-1980). Elle induit un état de conscience modifié — proche de la rêverie ou de la concentration intense — dans lequel l'accès à l'inconscient est facilité. Contrairement à l'hypnose directive classique ou à l'hypnose de spectacle, l'approche ericksonienne utilise des suggestions indirectes, des métaphores et des récits thérapeutiques adaptés à chaque personne. Vous restez parfaitement conscient, entendez tout et gardez le contrôle à tout moment. Aucune perte de contrôle, aucun secret révélé. Les résultats s'obtiennent en 3 à 5 séances en moyenne."
+  },
+  {
+    question: "Quels problèmes l'hypnothérapie peut-elle traiter ?",
+    answer: "L'hypnose ericksonienne traite un large spectre de problématiques chez l'adulte : stress chronique et anxiété généralisée, burn-out, crises d'angoisse, phobies (avion, animaux, foule, médical, social), troubles du sommeil (insomnie, réveils nocturnes), manque de confiance en soi et syndrome de l'imposteur, difficultés de régulation émotionnelle (colère, hypersensibilité, deuil), blocages et comportements répétitifs (procrastination, schémas d'échec, onychophagie), et rapport à l'alimentation (compulsions, alimentation émotionnelle). L'hypnose est une approche complémentaire, non substitutive d'un suivi médical."
+  },
+  {
     question: "À quelle vitesse va-t-on remarquer des changements ?",
     answer: "Certaines personnes remarquent des changements après une seule séance, tandis que d'autres auront besoin de quelques séances pour observer des transformations significatives. Cela dépend de la problématique, de votre réceptivité à l'hypnose et de votre engagement dans le processus."
   },
