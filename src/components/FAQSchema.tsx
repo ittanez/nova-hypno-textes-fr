@@ -9,6 +9,30 @@ const FAQSchema = () => {
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "Qui est Alain Zenatti, hypnothérapeute à Paris ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose au 16 rue Saint-Antoine, Paris 4ème (Marais-Bastille), et propose des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée, centrée sur les ressources inconscientes de chaque patient. Il accompagne exclusivement des adultes. Note : 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne l'hypnose ericksonienne ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'hypnose ericksonienne est une thérapie brève fondée sur les travaux du psychiatre américain Milton H. Erickson (1901-1980). Elle induit un état de conscience modifié dans lequel l'accès à l'inconscient est facilité. L'approche utilise des suggestions indirectes, des métaphores et des récits thérapeutiques personnalisés. Le patient reste conscient et garde le contrôle à tout moment. Aucune perte de contrôle, aucun acte contre la volonté. Les résultats s'obtiennent en 3 à 5 séances en moyenne."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels problèmes l'hypnothérapie peut-elle traiter ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'hypnose ericksonienne traite : stress chronique et anxiété généralisée, burn-out, crises d'angoisse, phobies (avion, animaux, foule, médical, social), troubles du sommeil, manque de confiance en soi, syndrome de l'imposteur, difficultés émotionnelles (colère, hypersensibilité, deuil), blocages et comportements répétitifs (procrastination, onychophagie), et rapport à l'alimentation (compulsions, alimentation émotionnelle). Approche complémentaire, non substitutive d'un suivi médical."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "À quelle vitesse va-t-on remarquer des changements avec l'hypnose ?",
         "acceptedAnswer": {
           "@type": "Answer",

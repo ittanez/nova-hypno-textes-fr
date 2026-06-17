@@ -177,6 +177,22 @@ async function getAllCategories(): Promise<Category[]> {
   return res.json();
 }
 
+async function getRelatedArticles(
+  categories: string[],
+  currentSlug: string,
+  limit = 3
+): Promise<Article[]> {
+  if (!categories || categories.length === 0) return [];
+  // Wrap in double-quotes so PostgREST treats the value as a single element
+  // even when the category name contains commas or spaces.
+  const primaryCategory = encodeURIComponent('"' + categories[0].replace(/"/g, '\\"') + '"');
+  const res = await supabaseFetch(
+    `articles?published=eq.true&categories=cs.{${primaryCategory}}&slug=neq.${encodeURIComponent(currentSlug)}&order=published_at.desc&limit=${limit}&select=title,slug,excerpt,seo_description,published_at,read_time`
+  );
+  if (!res.ok) return [];
+  return res.json();
+}
+
 async function getAdjacentArticles(
   publishedAt: string
 ): Promise<{ prev: Article | null; next: Article | null }> {
@@ -279,6 +295,13 @@ function htmlShell(options: {
     .faq-item h3 { color: #6d28d9; margin-bottom: 0.25rem; }
     nav.pagination { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; }
     nav.pagination a { color: #6d28d9; text-decoration: none; }
+    .related-articles { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #e2e8f0; }
+    .related-articles h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1a1a2e; }
+    .related-articles ul { list-style: none; padding: 0; }
+    .related-articles li { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9; }
+    .related-articles li:last-child { border-bottom: none; }
+    .related-articles a { color: #6d28d9; text-decoration: none; font-weight: 600; }
+    .related-articles p { color: #475569; font-size: 0.9rem; margin: 0.25rem 0 0; }
     .categories-list { list-style: none; padding: 0; }
     .categories-list li { margin-bottom: 1rem; }
     .categories-list a { color: #6d28d9; text-decoration: none; font-size: 1.1rem; }
@@ -309,7 +332,8 @@ function htmlShell(options: {
 
 function renderArticlePage(
   article: Article,
-  adjacent: { prev: Article | null; next: Article | null }
+  adjacent: { prev: Article | null; next: Article | null },
+  related: Article[] = []
 ): string {
   const canonicalUrl = `${SITE_URL}/blog/article/${article.slug}`;
   const imageUrl = getImageUrl(article);
@@ -409,6 +433,17 @@ function renderArticlePage(
     ${adjacent.next ? `<a href="${SITE_URL}/blog/article/${adjacent.next.slug}">${escapeHtml(adjacent.next.title)} &rarr;</a>` : "<span></span>"}
   </nav>`;
 
+  // Related articles section
+  const relatedHtml = related.length > 0
+    ? `<section class="related-articles">
+        <h2>Articles sur le même thème</h2>
+        <ul>${related.map((r) => `<li>
+          <a href="${SITE_URL}/blog/article/${r.slug}">${escapeHtml(r.title)}</a>
+          <p>${escapeHtml(r.seo_description || r.excerpt || "")}</p>
+        </li>`).join("")}</ul>
+      </section>`
+    : "";
+
   const body = `<article>
     <h1>${escapeHtml(article.title)}</h1>
     <div class="meta">
@@ -421,6 +456,7 @@ function renderArticlePage(
     <div class="article-content">${article.content}</div>
     ${faqHtml}
   </article>
+  ${relatedHtml}
   ${navHtml}`;
 
   return htmlShell({
@@ -660,10 +696,11 @@ export default async function handler(
       if (!article) {
         return context.next();
       }
-      const adjacent = await getAdjacentArticles(
-        article.published_at || article.updated_at
-      );
-      const html = renderArticlePage(article, adjacent);
+      const [adjacent, related] = await Promise.all([
+        getAdjacentArticles(article.published_at || article.updated_at),
+        getRelatedArticles(article.categories || [], article.slug),
+      ]);
+      const html = renderArticlePage(article, adjacent, related);
       return new Response(html, {
         headers: {
           "content-type": "text/html; charset=utf-8",
