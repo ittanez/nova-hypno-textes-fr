@@ -125,6 +125,10 @@ const HypnosePeurAiguilles = lazy(() => import("@/pages/HypnosePeurAiguilles"));
 const HypnosePeurSang = lazy(() => import("@/pages/HypnosePeurSang"));
 const HypnoseAquaphobie = lazy(() => import("@/pages/HypnoseAquaphobie"));
 
+// Sous-pages phobies comportementales/sociales (pas dans le menu)
+const HypnoseAmaxophobie = lazy(() => import("@/pages/HypnoseAmaxophobie"));
+const HypnosePhobieSociale = lazy(() => import("@/pages/HypnosePhobieSociale"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -255,6 +259,10 @@ function App() {
             <Route path="/hypnose-peur-aiguilles-paris" element={<HypnosePeurAiguilles />} />
             <Route path="/hypnose-peur-sang-paris" element={<HypnosePeurSang />} />
             <Route path="/hypnose-aquaphobie-paris" element={<HypnoseAquaphobie />} />
+
+            {/* Sous-pages phobies comportementales/sociales (pas dans le menu) */}
+            <Route path="/hypnose-amaxophobie-paris" element={<HypnoseAmaxophobie />} />
+            <Route path="/hypnose-phobie-sociale-paris" element={<HypnosePhobieSociale />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />

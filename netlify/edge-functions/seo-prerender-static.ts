@@ -2056,6 +2056,168 @@ PAGES["/hypnose-aquaphobie-paris"] = {
     `,
 };
 
+PAGES["/hypnose-amaxophobie-paris"] = {
+  title: "Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti",
+  description: "Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-amaxophobie-paris",
+  h1: "Hypnose et peur de conduire — Reprenez le volant en confiance à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de conduire Paris",
+      description: "Traitement de la peur de conduire (amaxophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-amaxophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie amaxophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de conduire", path: "/hypnose-amaxophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider après un accident de voiture ?",
+        a: "Oui, c'est même l'un des cas où elle est particulièrement efficace. Un accident laisse une empreinte traumatique dans votre inconscient qui déclenche automatiquement la peur au volant. L'hypnose ericksonienne neutralise cette empreinte sans que vous ayez à revivre consciemment l'accident.",
+      },
+      {
+        q: "Combien de séances pour retrouver confiance au volant ?",
+        a: "En moyenne, 2 à 4 séances suffisent pour obtenir des résultats significatifs. La première séance identifie l'origine de l'amaxophobie et initie le travail de désensibilisation. Les séances suivantes consolident le nouvel état de confiance et l'ancrent durablement.",
+      },
+      {
+        q: "J'ai peur uniquement sur autoroute. L'hypnose peut-elle cibler cette peur précise ?",
+        a: "Absolument. L'amaxophobie se manifeste souvent dans des contextes spécifiques : autoroute, tunnel, rond-point, conduite de nuit, passagers à bord. L'hypnose travaille précisément sur les situations qui déclenchent votre peur et installe un état de calme spécifique à chaque contexte.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Panique sur autoroute, évitement du volant depuis des mois, séquelles d'un accident… La peur de conduire (amaxophobie) touche des millions de conducteurs en France. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de reprendre la route sereinement. <strong>Résultats en 2 à 4 séances.</strong></p>
+
+    <h2>Pourquoi la peur de conduire s'installe</h2>
+    <p>Un accident, une frayeur intense, une longue période sans conduire, ou parfois aucune cause consciente identifiable… Votre inconscient a installé un programme de protection autour de la conduite. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur et durablement — sans exposition forcée à la conduite.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Panique sur autoroute</strong> — Vitesse, dépassements, sorties impossibles</li>
+      <li><strong>Évitement total du volant</strong> — Des mois ou des années sans conduire</li>
+      <li><strong>Anxiété avec des passagers</strong> — Pression de responsabilité, refus de conduire en compagnie</li>
+      <li><strong>Peur des tunnels et ronds-points</strong> — Contextes spécifiques déclencheurs</li>
+      <li><strong>Séquelles après un accident</strong> — Flash traumatique qui paralyse les réflexes</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur de conduire</h2>
+    <ul>
+      <li>Identifier l'origine de l'amaxophobie (accident, frayeur, longue pause)</li>
+      <li>Neutraliser l'empreinte traumatique sans la revivre consciemment</li>
+      <li>Désensibiliser les contextes spécifiques déclencheurs</li>
+      <li>Ancrer un état de calme et de confiance activable au volant</li>
+      <li>Reconstruire une image positive de soi en tant que conducteur(trice)</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-phobie-sociale-paris">Phobie sociale</a> — Peur du jugement et des interactions</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de conduire</a>
+    `,
+};
+
+PAGES["/hypnose-phobie-sociale-paris"] = {
+  title: "Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale",
+  description: "Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale — résultats durables en 3 à 5 séances.",
+  canonicalPath: "/hypnose-phobie-sociale-paris",
+  h1: "Hypnose et phobie sociale — Retrouvez le plaisir des interactions à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose phobie sociale Paris",
+      description: "Traitement de la phobie sociale (anxiété sociale) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-phobie-sociale-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie phobie sociale",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Phobie sociale", path: "/hypnose-phobie-sociale-paris" },
+    ]),
+    faqLd([
+      {
+        q: "La phobie sociale est-elle différente de la timidité ?",
+        a: "Oui. La timidité est un trait de personnalité inconfortable mais qui ne limite pas véritablement la vie. La phobie sociale est une peur intense et persistante des situations d'interaction qui génère des symptômes physiques — rougissement, transpiration, tremblements — et entraîne un évitement systématique.",
+      },
+      {
+        q: "Combien de séances d'hypnose pour traiter la phobie sociale ?",
+        a: "En moyenne, 3 à 5 séances permettent d'obtenir des résultats significatifs et durables. La première séance identifie l'origine de la peur du jugement. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale.",
+      },
+      {
+        q: "L'hypnose peut-elle aider si je rougis dès que je parle en public ?",
+        a: "Oui. Le rougissement (érythrophobie) est l'une des manifestations les plus fréquentes de la phobie sociale. Il résulte d'une réaction du système nerveux autonome déclenchée par l'anticipation du jugement. L'hypnose agit directement sur ce mécanisme inconscient pour dissocier la situation sociale de la réaction physiologique.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Peur intense du jugement, rougissement incontrôlable, évitement des repas et des réunions… La phobie sociale touche environ <strong>13% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de retrouver le plaisir des interactions. <strong>Résultats en 3 à 5 séances.</strong></p>
+
+    <h2>Pourquoi la phobie sociale s'installe</h2>
+    <p>Une expérience humiliante, un regard social trop exigeant dans l'enfance, une critique répétée… Votre inconscient a installé un programme de protection autour des interactions sociales. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur — sans exposition forcée aux situations redoutées.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Peur intense du jugement</strong> — Certitude d'être observé et évalué négativement</li>
+      <li><strong>Rougissement incontrôlable</strong> — Érythrophobie qui amplifie l'anxiété</li>
+      <li><strong>Évitement des repas et réunions</strong> — Isolation progressive</li>
+      <li><strong>Tremblements et voix qui tremble</strong> — Symptômes physiques visibles qui aggravent la honte</li>
+      <li><strong>Ruminations après chaque interaction</strong> — Rejouer mentalement les conversations pendant des heures</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la phobie sociale</h2>
+    <ul>
+      <li>Identifier l'origine de la phobie (humiliation, regard critique, comparaison sociale)</li>
+      <li>Neutraliser les croyances inconscientes autour du jugement des autres</li>
+      <li>Désensibiliser les situations spécifiques déclencheurs (repas, réunions, conversations)</li>
+      <li>Ancrer un état naturel d'aisance et de confiance en situation sociale</li>
+      <li>Techniques d'auto-hypnose pour les moments d'anxiété anticipatoire</li>
+    </ul>
+
+    <h2>Autres phobies et problématiques sociales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie, trac, exposés</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur, timidité</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété généralisée</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la phobie sociale</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

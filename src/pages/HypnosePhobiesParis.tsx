@@ -65,8 +65,8 @@ const HypnosePhobiesParis = () => {
     { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension", href: "/hypnose-arachnophobie-paris" },
     { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle", href: "/hypnose-acrophobie-paris" },
     { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance", href: "/hypnose-peur-parler-public-paris" },
-    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société" },
-    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance" },
+    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société", href: "/hypnose-phobie-sociale-paris" },
+    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance", href: "/hypnose-amaxophobie-paris" },
     { title: "Peur du dentiste", desc: "Soins, détartrage, extractions… abordez le fauteuil sans angoisse", href: "/hypnose-peur-dentiste-paris" },
     { title: "Peur des aiguilles (bélonéphobie)", desc: "Prises de sang, vaccins, perfusions… ne plus appréhender les soins", href: "/hypnose-peur-aiguilles-paris" },
     { title: "Peur du sang (hématophobie)", desc: "Prélèvements, blessures, malaises… reprenez le contrôle face au sang", href: "/hypnose-peur-sang-paris" },
@@ -120,7 +120,10 @@ const HypnosePhobiesParis = () => {
             Libérez-vous de vos peurs<br/><em>pour de bon</em>
           </h1>
           <p className="sp-hero__lead">
-            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>, des araignées, du vide, des espaces clos, de parler en public…
+            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
+            <Link to="/hypnose-phobie-sociale-paris" style={{color:'inherit', textDecoration:'underline'}}>phobie sociale</Link>,{' '}
+            <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,
+            des araignées, du vide, des espaces clos…
             Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
             efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
             Paris 4ème ou en <strong>visio partout en France</strong>.
