@@ -440,13 +440,14 @@
   status = 200
   force = true
 
-# Fichiers HTML statiques ne doivent pas être redirigés
+# Ancienne page statique /peurdelavion.html → route React /peurdelavion
 [[redirects]]
   from = "/peurdelavion.html"
-  to = "/peurdelavion.html"
-  status = 200
+  to = "/peurdelavion"
+  status = 301
   force = true
 
+# Fichiers HTML statiques ne doivent pas être redirigés
 [[redirects]]
   from = "/peur-avion-maquette.html"
   to = "/peur-avion-maquette.html"
