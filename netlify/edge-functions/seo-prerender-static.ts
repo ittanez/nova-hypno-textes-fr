@@ -1363,6 +1363,107 @@ const PAGES: Record<string, PageData> = {
   },
 };
 
+PAGES["/peurdelavion"] = {
+  title: "Hypnose peur de l'avion Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances.",
+  canonicalPath: "/peurdelavion",
+  h1: "Hypnose et peur de l'avion — Reprenez l'avion sereinement",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${SITE_URL}/peurdelavion#service`,
+      name: "Hypnose pour la peur de l'avion à Paris",
+      description:
+        "Traitement de la peur de l'avion (aérophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio. Résultats en 3 à 4 séances.",
+      url: `${SITE_URL}/peurdelavion`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie aérophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Peur de l'avion", path: "/peurdelavion" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle remplacer les médicaments contre la peur de l'avion ?",
+        a: "Oui, l'hypnose agit à la source émotionnelle de votre peur, là où les anxiolytiques n'offrent qu'un soulagement temporaire. L'hypnothérapie ericksonienne reprogramme votre inconscient pour désactiver la réaction de panique durablement.",
+      },
+      {
+        q: "Combien de séances faut-il pour ne plus avoir peur de l'avion ?",
+        a: "En moyenne, 3 à 4 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance.",
+      },
+      {
+        q: "Faut-il avoir un vol prévu pour commencer l'hypnose ?",
+        a: "Non, il vaut même mieux ne pas attendre. Vous pouvez commencer l'accompagnement sans vol programmé. Si un vol approche dans moins d'un mois, un programme intensif avec séances rapprochées est possible.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Boule au ventre à l'idée de monter à bord, nuits blanches avant un vol, crises de panique au décollage… La peur de l'avion (aérophobie) touche près d'<strong>une personne sur cinq</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner la liberté de voyager.</p>
+
+    <h2>Vous reconnaissez-vous ?</h2>
+    <ul>
+      <li><strong>Anxiété paralysante</strong> — Rien qu'à l'idée de prendre l'avion, votre cœur s'emballe et vos mains tremblent</li>
+      <li><strong>Évitement des voyages</strong> — Vous refusez des opportunités professionnelles ou personnelles par peur de voler</li>
+      <li><strong>Dépendance aux médicaments</strong> — Vous ne pouvez pas imaginer voler sans anxiolytiques ou alcool</li>
+      <li><strong>Nuits blanches</strong> — Vous perdez le sommeil des semaines avant un vol programmé</li>
+      <li><strong>Crises de panique</strong> — Turbulences, décollage, atterrissage… votre corps réagit comme face à un danger réel</li>
+      <li><strong>Claustrophobie en cabine</strong> — L'espace confiné de l'avion déclenche une sensation d'étouffement insoutenable</li>
+    </ul>
+
+    <h2>Comment l'hypnose désactive la peur de l'avion</h2>
+    <p>L'aérophobie est un programme de protection installé par votre inconscient, souvent déclenché par un vol turbulent, un reportage marquant, ou parfois sans raison apparente. L'hypnose ericksonienne agit directement sur ce programme — sans avoir à revivre l'événement déclencheur, et sans exposition forcée à l'avion. Vous restez conscient et en contrôle pendant toute la séance.</p>
+    <ul>
+      <li>Identifier l'origine de la peur (vol turbulent, reportage, transmission familiale…)</li>
+      <li>Dissocier l'émotion de panique du contexte du vol (cabine, décollage, turbulences)</li>
+      <li>Créer de nouvelles associations positives liées à l'avion et au voyage</li>
+      <li>Ancrer un état de calme que vous pouvez activer à volonté avant et pendant le vol</li>
+      <li>Vous transmettre des techniques d'auto-hypnose pour rester serein en cabine</li>
+    </ul>
+
+    <h2>Exemples de parcours au cabinet</h2>
+    <h3>Aérophobie installée depuis 10 ans</h3>
+    <p>Thomas*, consultant international, refusait systématiquement les missions nécessitant un vol. Sa peur de l'avion, déclenchée par un vol très turbulent dix ans plus tôt, menaçait désormais sa carrière. En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir traumatique initial et installé un état de calme associé au vol. Thomas a repris l'avion le mois suivant pour un déplacement à Londres — sereinement.</p>
+    <h3>Crises de panique au décollage</h3>
+    <p>Sophie*, 35 ans, avait toujours pris l'avion sans difficulté jusqu'au jour où, sans raison apparente, elle a fait une crise de panique au décollage. En 4 séances d'hypnose ericksonienne, nous avons travaillé sur le déclencheur inconscient de cette crise initiale et reconstruit une association de sécurité avec le vol. Sophie a pu repartir en vacances aux Antilles, détendue.</p>
+    <h3>Peur transmise depuis l'enfance</h3>
+    <p>Julien*, 42 ans, n'avait jamais pris l'avion. Sa mère, terrorisée à l'idée de voler, lui avait transmis cette peur depuis l'enfance. En 3 séances, nous avons identifié les croyances inconscientes héritées et installé un nouveau rapport à l'avion. Julien a effectué son premier vol vers Rome deux mois plus tard, sans anxiolytique.</p>
+    <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
+
+    <h2>Résultats</h2>
+    <ul>
+      <li><strong>3 à 4 séances</strong> suffisent en moyenne pour vaincre la peur de l'avion</li>
+      <li><strong>85%</strong> des personnes accompagnées retrouvent la sérénité en vol</li>
+      <li><strong>Note 5/5</strong> sur Resalib et Google</li>
+    </ul>
+
+    <h2>Questions fréquentes sur la peur de l'avion</h2>
+    <h3>L'hypnose peut-elle remplacer les médicaments contre la peur de l'avion ?</h3>
+    <p>Oui, l'hypnose agit à la source émotionnelle de votre peur, là où les anxiolytiques n'offrent qu'un soulagement temporaire. L'hypnothérapie ericksonienne reprogramme votre inconscient pour désactiver la réaction de panique durablement, sans béquilles chimiques avant chaque vol.</p>
+    <h3>Combien de séances faut-il pour ne plus avoir peur de l'avion ?</h3>
+    <p>En moyenne, 3 à 4 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance. L'accompagnement est progressif : identification de l'origine, désensibilisation, ancrage de ressources et consolidation avant le vol.</p>
+    <h3>Faut-il avoir un vol prévu pour commencer l'hypnose ?</h3>
+    <p>Non, il vaut même mieux ne pas attendre. Vous pouvez commencer l'accompagnement à n'importe quel moment, même sans vol programmé. Cela laisse le temps à votre inconscient d'intégrer les changements en profondeur, sans pression.</p>
+
+    <h2>Autres spécialités</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Hypnose et phobies</a> — Toutes les phobies traitées en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Burn-out, crises d'angoisse, stress chronique</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Hypnose et sommeil</a> — Insomnie, réveils nocturnes</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour vaincre la peur de l'avion</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

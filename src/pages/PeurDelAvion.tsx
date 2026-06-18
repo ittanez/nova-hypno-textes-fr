@@ -123,7 +123,7 @@ const PeurDelAvion = () => {
             <g filter="url(#riso-full)">
               <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
             </g>
-            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+            <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
               <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
             </g>
             <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
@@ -339,11 +339,24 @@ const PeurDelAvion = () => {
           <div>
             {peurAvionFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  id={`faq-question-${i}`}
+                  className="faq__q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.question}
                   <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                <div className="faq__a">{item.answer}</div>
+                <div
+                  id={`faq-answer-${i}`}
+                  className="faq__a"
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                >
+                  {item.answer}
+                </div>
               </div>
             ))}
           </div>

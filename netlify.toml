@@ -151,6 +151,10 @@
   path = "/hypnose-en-ligne"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/peurdelavion"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
