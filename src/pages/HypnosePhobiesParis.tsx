@@ -122,8 +122,10 @@ const HypnosePhobiesParis = () => {
           <p className="sp-hero__lead">
             <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
             <Link to="/hypnose-phobie-sociale-paris" style={{color:'inherit', textDecoration:'underline'}}>phobie sociale</Link>,{' '}
-            <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,
-            des araignées, du vide, des espaces clos…
+            <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,{' '}
+            <Link to="/hypnose-arachnophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>araignées</Link>,{' '}
+            <Link to="/hypnose-acrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>vide</Link>,{' '}
+            <Link to="/hypnose-claustrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>espaces clos</Link>…
             Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
             efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
             Paris 4ème ou en <strong>visio partout en France</strong>.
