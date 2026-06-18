@@ -67,13 +67,11 @@ const HypnosePhobiesParis = () => {
     { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance", href: "/hypnose-peur-parler-public-paris" },
     { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société" },
     { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance" },
-    { title: "Autres phobies", desc: "Peur du sang, des aiguilles, de l'eau, du dentiste…" }
-  ];
-
-  const phobiesMedicales: { title: string; desc: string; href: string }[] = [
     { title: "Peur du dentiste", desc: "Soins, détartrage, extractions… abordez le fauteuil sans angoisse", href: "/hypnose-peur-dentiste-paris" },
     { title: "Peur des aiguilles (bélonéphobie)", desc: "Prises de sang, vaccins, perfusions… ne plus appréhender les soins", href: "/hypnose-peur-aiguilles-paris" },
     { title: "Peur du sang (hématophobie)", desc: "Prélèvements, blessures, malaises… reprenez le contrôle face au sang", href: "/hypnose-peur-sang-paris" },
+    { title: "Peur de l'eau (aquaphobie)", desc: "Piscine, mer, immersion… renouez sereinement avec l'eau", href: "/hypnose-aquaphobie-paris" },
+    { title: "Autres phobies", desc: "Peur du vomi, des hôpitaux, des piqûres, du noir…" }
   ];
 
   return (
@@ -193,21 +191,6 @@ const HypnosePhobiesParis = () => {
                   <div className="sp-card__desc">{p.desc}</div>
                 </div>
               )
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Peurs médicales */}
-      <section className="sp-section">
-        <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Peurs liées au monde médical</h2>
-          <div className="sp-grid-2">
-            {phobiesMedicales.map((p, i) => (
-              <Link key={i} to={p.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
-                <div className="sp-card__title">{p.title} →</div>
-                <div className="sp-card__desc">{p.desc}</div>
-              </Link>
             ))}
           </div>
         </div>

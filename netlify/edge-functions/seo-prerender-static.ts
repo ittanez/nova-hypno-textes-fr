@@ -1975,6 +1975,87 @@ PAGES["/hypnose-peur-sang-paris"] = {
     `,
 };
 
+PAGES["/hypnose-aquaphobie-paris"] = {
+  title: "Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-aquaphobie-paris",
+  h1: "Hypnose et peur de l'eau — Renouez sereinement avec l'eau à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de l'eau Paris",
+      description: "Traitement de la peur de l'eau (aquaphobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-aquaphobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie aquaphobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de l'eau", path: "/hypnose-aquaphobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à mettre la tête sous l'eau ?",
+        a: "Oui. La peur de mettre la tête sous l'eau est l'une des manifestations les plus fréquentes de l'aquaphobie. L'hypnose désensibilise cette réaction au niveau inconscient et installe un état de calme associé à l'immersion. La plupart des personnes accompagnées parviennent à immerger leur visage sereinement en 2 à 3 séances.",
+      },
+      {
+        q: "Combien de séances pour vaincre la peur de l'eau ?",
+        a: "En moyenne, 2 à 4 séances suffisent pour obtenir des résultats significatifs. La progression dépend de l'objectif : retrouver de la sérénité à la piscine, apprendre à nager, ou se baigner en mer profonde. Un programme personnalisé est défini lors de la première séance.",
+      },
+      {
+        q: "Faut-il savoir nager pour commencer ?",
+        a: "Non. Beaucoup de personnes que j'accompagne ne savent pas nager ou n'ont jamais osé apprendre à cause de cette peur. L'hypnose vous prépare à reprendre confiance dans l'eau — l'apprentissage de la natation peut ensuite se faire avec un maître-nageur, dans des conditions psychologiques transformées.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Impossible de mettre la tête sous l'eau, refus de la piscine et de la plage, panique dès que vous n'avez plus pied… La peur de l'eau (aquaphobie) touche près de <strong>15% des adultes</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de renouer sereinement avec l'eau. Résultats en 2 à 4 séances.</p>
+
+    <h2>Pourquoi la peur de l'eau s'installe</h2>
+    <p>Une expérience d'immersion mal vécue dans l'enfance, une noyade évitée de justesse, un cours de natation traumatisant, ou parfois aucune raison consciente identifiable… Votre inconscient a installé un programme de protection autour de l'eau. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur et durablement.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Peur de mettre la tête sous l'eau</strong> — Même dans la baignoire ou la piscine peu profonde</li>
+      <li><strong>Panique en eau profonde</strong> — Dès que vous n'avez plus pied, le corps se bloque</li>
+      <li><strong>Refus de la mer et des activités nautiques</strong> — Vacances limitées, opportunités évitées</li>
+      <li><strong>Impossibilité d'apprendre à nager</strong> — Blocage adulte malgré plusieurs tentatives</li>
+      <li><strong>Cours de natation à transmettre à ses enfants</strong> — Briser la chaîne de la peur</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur de l'eau</h2>
+    <ul>
+      <li>Identifier l'origine de l'aquaphobie (immersion forcée, noyade, transmission, sans cause apparente)</li>
+      <li>Désensibiliser la réaction phobique aux différents contextes aquatiques</li>
+      <li>Dissocier l'eau du sentiment de danger et de perte de contrôle</li>
+      <li>Ancrer un état de calme et de confiance activable avant et pendant le contact avec l'eau</li>
+      <li>Vous enseigner des techniques de respiration et d'auto-hypnose</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de l'eau</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

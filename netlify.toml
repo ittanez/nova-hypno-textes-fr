@@ -183,6 +183,10 @@
   path = "/hypnose-peur-sang-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-aquaphobie-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
