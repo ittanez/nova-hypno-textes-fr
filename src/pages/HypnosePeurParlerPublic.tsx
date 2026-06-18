@@ -11,7 +11,7 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const peurParlerPublic_faqItems = [
+const peurParlerFaqItems = [
   {
     question: "L'hypnose peut-elle supprimer complètement le trac ?",
     answer: "L'objectif n'est pas de supprimer tout trac — un peu d'adrénaline avant une intervention est utile et performant. L'hypnose vise à transformer le trac paralysant en énergie productive. Vous garderez une légère activation, mais sans les symptômes envahissants (trous de mémoire, voix chevrotante, tremblements)."
@@ -30,7 +30,7 @@ const peurParlerPublic_faqItems = [
   },
   {
     question: "L'hypnose fonctionne-t-elle pour les professions qui parlent souvent en public ?",
-    answer: "Oui, et c'est une situation courante. Avocats, formateurs, commerciaux, managers, enseignants — beaucoup de professionnels dont le métier exige une prise de parole régulière souffrent de ce trac. L'hypnose est très efficace pour reconstruire une relation sereine et performante avec la prise de parole."
+    answer: "Oui, et c'est une situation courante. Avocats, formateurs, commerciaux, managers, enseignants — beaucoup de professionnels dont le métier exige une prise de parole régulière souffrent de glossophobie. L'hypnose est très efficace pour reconstruire une relation sereine et performante avec la prise de parole."
   },
   {
     question: "Puis-je faire mes séances en visio ?",
@@ -46,7 +46,7 @@ const HypnosePeurParlerPublic = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hypnose peur de parler en public Paris",
-    "description": "Traitement de la peur de parler en public (glossophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio.",
+    "description": "Traitement de la peur de parler en public (glossophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
     "url": "https://novahypnose.fr/hypnose-peur-parler-public-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
@@ -74,7 +74,7 @@ const HypnosePeurParlerPublic = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": peurParlerPublic_faqItems.map(item => ({
+    "mainEntity": peurParlerFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
@@ -87,18 +87,18 @@ const HypnosePeurParlerPublic = () => {
     { title: "Trous de mémoire", desc: "Vous connaissez votre sujet, mais face au public, tout disparaît — blanc total" },
     { title: "Évitement des situations", desc: "Vous refusez des présentations, des postes, des promotions pour ne pas avoir à parler en public" },
     { title: "Impact sur votre carrière", desc: "Vous avez les compétences mais n'obtenez pas les résultats car votre peur de parler vous freine" },
-    { title: "Auto-critique post-prise de parole", desc: "Vous vous critiquez sévèrement après chaque prise de parole, même réussie" },
+    { title: "Mauvaise estime de soi post-prise de parole", desc: "Vous vous critiquez sévèrement après chaque prise de parole, même réussie" },
   ];
 
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose peur de parler en public Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio partout en France. Présentations, pitchs, réunions — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <title>Hypnose peur de parler en public Paris | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
         <meta name="keywords" content="hypnose peur parler public paris, glossophobie hypnose paris, trac prise de parole hypnose, traitement peur de parler, hypnothérapeute glossophobie paris, hypnose trac oral, peur parler public hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
-        <meta property="og:title" content="Hypnose peur de parler en public Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio partout en France. Présentations, pitchs, réunions — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <meta property="og:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -106,10 +106,10 @@ const HypnosePeurParlerPublic = () => {
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur parler en public" />
+        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de parler en public" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose peur de parler en public Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Glossophobie et trac — résultats durables en 3 à 5 séances." />
+        <meta name="twitter:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -133,15 +133,9 @@ const HypnosePeurParlerPublic = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Peur de parler en public — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de la<br/><em>peur de parler en public</em>
+            Libérez-vous de la peur de parler en public
           </h1>
-          <p className="sp-hero__lead">
-            Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public
-            (glossophobie) touche près de <strong>trois personnes sur quatre</strong> à des degrés divers.
-            L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner votre aisance à l'oral.
-            <strong> Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en
-            <strong> visio partout en France</strong>.
-          </p>
+          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de <strong>trois personnes sur quatre</strong> à des degrés divers. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner votre aisance à l'oral. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
@@ -158,21 +152,12 @@ const HypnosePeurParlerPublic = () => {
           <div className="cabinet__grid reveal">
             <div className="cabinet__copy">
               <div className="section-tag">Glossophobie — comprendre</div>
-              <h2 className="section-title">Peur de parler en public,<br/><em>une compétence à reconstruire ?</em></h2>
+              <h2 className="section-title">La peur de parler en public,<br/><em>une compétence à reconstruire ?</em></h2>
               <p>
-                La peur de parler en public — aussi appelée glossophobie — est l'une des peurs les plus
-                répandues dans le monde. Elle touche des personnes de tous milieux et de tous niveaux de
-                compétence.
+                La peur de parler en public — aussi appelée glossophobie — est l'une des peurs les plus répandues dans le monde. Elle touche des personnes de tous milieux et de tous niveaux de compétence. Ce n'est pas un manque de préparation, d'intelligence ou de compétence : c'est un programme de survie que votre inconscient a codé autour du jugement des autres.
               </p>
               <p>
-                Ce n'est pas un manque de préparation, d'intelligence ou de compétence : c'est un programme
-                de survie que votre inconscient a codé autour du jugement des autres. Souvent, cette peur
-                s'enracine dans une expérience humiliante (être moqué en classe, avoir le trac lors d'un
-                exposé important, essuyer une critique sévère devant témoins).
-              </p>
-              <p>
-                L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction
-                de panique par <strong>un état de confiance et de présence que vous pouvez activer à volonté</strong>.
+                Souvent, cette peur s'enracine dans une expérience humiliante (être moqué en classe, avoir le trac lors d'un exposé important, essuyer une critique sévère devant témoins). L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction de panique par un état de confiance et de présence que vous pouvez activer à volonté.
               </p>
             </div>
             <div className="cabinet__visual" aria-hidden="true">
@@ -193,7 +178,7 @@ const HypnosePeurParlerPublic = () => {
         </div>
       </section>
 
-      {/* Manifestations */}
+      {/* Manifestations / Vous reconnaissez-vous ? */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
           <h2 className="sp-h2">Vous reconnaissez-vous&nbsp;?</h2>
@@ -228,8 +213,8 @@ const HypnosePeurParlerPublic = () => {
               <h2 className="section-title">L'hypnose désactive<br/><em>la peur à la racine.</em></h2>
               <p>
                 L'hypnose ericksonienne agit sur le programme inconscient qui déclenche la réaction de
-                panique lors de la prise de parole. Vous restez conscient et en contrôle. Je vous guide
-                dans un état de relaxation profonde pour :
+                panique face au public. Vous restez conscient et en contrôle pendant toute la séance. Je vous
+                guide dans un état de relaxation profonde pour :
               </p>
               <div className="sp-checklist">
                 {[
@@ -258,37 +243,28 @@ const HypnosePeurParlerPublic = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Peur de parler en réunion</div>
               <p>
-                Stéphanie*, 38 ans, cadre dans une grande entreprise, n'arrivait pas à prendre la parole
-                en réunion. Elle avait des idées pertinentes mais le trac l'en empêchait. Ses managers
-                pensaient qu'elle manquait de leadership.
+                Stéphanie*, 38 ans, cadre dans une grande entreprise, n'arrivait pas à prendre la parole en réunion. Elle avait des idées pertinentes mais le trac l'en empêchait. En 4 séances, nous avons travaillé sur l'origine de cette peur du jugement et ancré un état de confiance.
               </p>
               <p>
-                En 4 séances, nous avons travaillé sur l'origine de cette peur du jugement et ancré un
-                état de confiance. Elle prend maintenant la parole naturellement devant 20 personnes.
+                Elle prend maintenant la parole naturellement devant 20 personnes.
               </p>
             </div>
             <div className="sp-case reveal">
               <div className="sp-case__title">Pitch investisseurs</div>
               <p>
-                Thomas*, entrepreneur de 33 ans, perdait tous ses moyens devant des investisseurs. Voix
-                tremblante, oublis, débit précipité — sa startup en pâtissait. Ses compétences ne
-                transparaissaient pas.
+                Thomas*, entrepreneur de 33 ans, perdait tous ses moyens devant des investisseurs. Voix tremblante, oublis — sa startup en pâtissait. En 5 séances d'hypnose, nous avons reconstruit sa confiance à l'oral et ancré un état de performance.
               </p>
               <p>
-                En 5 séances, nous avons reconstruit sa confiance à l'oral et ancré un état de performance.
                 Il a levé des fonds avec succès quatre mois plus tard.
               </p>
             </div>
             <div className="sp-case reveal">
               <div className="sp-case__title">Trac à l'oral depuis l'école</div>
               <p>
-                Léa*, 25 ans, avait toujours eu le trac depuis qu'elle avait été moquée lors d'un exposé
-                en CM1. Depuis, chaque prise de parole était une épreuve — mains moites, voix brisée,
-                trous de mémoire.
+                Léa*, 25 ans, avait toujours eu le trac depuis qu'elle avait été moquée lors d'un exposé en CM1. Depuis, chaque prise de parole était une épreuve. En 3 séances, nous avons neutralisé ce souvenir fondateur.
               </p>
               <p>
-                En 3 séances, nous avons neutralisé ce souvenir fondateur. Elle présente maintenant ses
-                travaux en amphi sans anxiété.
+                Elle présente maintenant ses travaux en amphi sans anxiété.
               </p>
             </div>
           </div>
@@ -334,7 +310,7 @@ const HypnosePeurParlerPublic = () => {
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur la peur de parler en public</h2>
           <div>
-            {peurParlerPublic_faqItems.map((item, i) => (
+            {peurParlerFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
                 <button
                   id={`faq-question-${i}`}
