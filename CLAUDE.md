@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Canari
+Commence toujours chaque réponse par mon prénom "Alain".
+C'est non négociable et ne doit jamais être omis.
+
 ## Project overview
 
 **NovaHypnose.fr** — official website of a hypnotherapy practice in Paris. React 18 SPA built with Vite, deployed primarily to Netlify. The site is bilingual in purpose (French content, English code), privately owned.
