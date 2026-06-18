@@ -171,6 +171,18 @@
   path = "/hypnose-peur-parler-public-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-peur-dentiste-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-aiguilles-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-sang-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"

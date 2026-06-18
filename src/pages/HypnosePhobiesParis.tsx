@@ -70,6 +70,12 @@ const HypnosePhobiesParis = () => {
     { title: "Autres phobies", desc: "Peur du sang, des aiguilles, de l'eau, du dentiste…" }
   ];
 
+  const phobiesMedicales: { title: string; desc: string; href: string }[] = [
+    { title: "Peur du dentiste", desc: "Soins, détartrage, extractions… abordez le fauteuil sans angoisse", href: "/hypnose-peur-dentiste-paris" },
+    { title: "Peur des aiguilles (bélonéphobie)", desc: "Prises de sang, vaccins, perfusions… ne plus appréhender les soins", href: "/hypnose-peur-aiguilles-paris" },
+    { title: "Peur du sang (hématophobie)", desc: "Prélèvements, blessures, malaises… reprenez le contrôle face au sang", href: "/hypnose-peur-sang-paris" },
+  ];
+
   return (
     <CzLayout>
       <Helmet>
@@ -173,7 +179,7 @@ const HypnosePhobiesParis = () => {
       {/* Types de phobies */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Les phobies que je traite par l'hypnose</h2>
+          <h2 className="sp-h2">Les phobies que je traite régulièrement par l'hypnose</h2>
           <div className="sp-grid-2">
             {phobies.map((p, i) => (
               p.href ? (
@@ -187,6 +193,21 @@ const HypnosePhobiesParis = () => {
                   <div className="sp-card__desc">{p.desc}</div>
                 </div>
               )
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Peurs médicales */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Peurs liées au monde médical</h2>
+          <div className="sp-grid-2">
+            {phobiesMedicales.map((p, i) => (
+              <Link key={i} to={p.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
+                <div className="sp-card__title">{p.title} →</div>
+                <div className="sp-card__desc">{p.desc}</div>
+              </Link>
             ))}
           </div>
         </div>

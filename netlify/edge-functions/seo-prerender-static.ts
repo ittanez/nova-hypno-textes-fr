@@ -1732,6 +1732,249 @@ PAGES["/hypnose-peur-parler-public-paris"] = {
     `,
 };
 
+PAGES["/hypnose-peur-dentiste-paris"] = {
+  title: "Hypnose peur du dentiste (odontophobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur du dentiste par l'hypnose à Paris 4ème ou en visio. Odontophobie, angoisse du fauteuil — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-peur-dentiste-paris",
+  h1: "Hypnose et peur du dentiste — Soignez vos dents sans angoisse à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur du dentiste Paris",
+      description: "Traitement de la peur du dentiste (odontophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-dentiste-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie odontophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur du dentiste", path: "/hypnose-peur-dentiste-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment m'aider à aller chez le dentiste ?",
+        a: "Oui. La peur du dentiste est un programme inconscient que l'hypnose permet de désactiver directement. Contrairement aux anxiolytiques qui masquent la peur le temps d'un soin, l'hypnose agit sur l'origine même de cette phobie pour un changement durable.",
+      },
+      {
+        q: "Combien de séances faut-il pour ne plus avoir peur du dentiste ?",
+        a: "En moyenne, 2 à 4 séances suffisent. La première séance identifie l'origine de la peur et travaille la désensibilisation. Les suivantes ancrent un état de calme associé au cabinet dentaire et vous transmettent des techniques d'auto-hypnose à utiliser sur le fauteuil.",
+      },
+      {
+        q: "Et si j'ai aussi un fort réflexe nauséeux ?",
+        a: "Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété, beaucoup de patients voient leur réflexe nauséeux considérablement réduit dès les premières séances.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Des années sans soins, des caries laissées sans traitement, des douleurs ignorées… La peur du dentiste (odontophobie) touche près d'<strong>une personne sur cinq</strong> en France. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de vous soigner sereinement. Résultats en 2 à 4 séances.</p>
+
+    <h2>Pourquoi la peur du dentiste s'installe</h2>
+    <p>Une mauvaise expérience passée, une douleur vive, un praticien peu attentif à votre inconfort… Votre inconscient a créé un programme de protection pour vous éviter de revivre cette expérience. Le problème : ce programme se déclenche même quand vous n'êtes plus en danger. L'hypnose permet de <strong>reprogrammer cette réaction automatique</strong> en profondeur.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Angoisse anticipatoire</strong> — Les nuits blanches avant le rendez-vous</li>
+      <li><strong>Peur de la douleur</strong> — L'anticipation de la souffrance plus forte que la réalité</li>
+      <li><strong>Réflexe nauséeux</strong> — Souvent d'origine psychosomatique, très réceptif à l'hypnose</li>
+      <li><strong>Panique en salle d'attente</strong> — Les odeurs, les sons qui déclenchent l'angoisse</li>
+      <li><strong>Méfiance de l'anesthésie</strong> — Peur que ça ne fasse pas effet</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur du dentiste</h2>
+    <ul>
+      <li>Identifier l'expérience fondatrice qui a installé la peur</li>
+      <li>Désensibiliser les déclencheurs (bruit de la fraise, odeur du cabinet, position inclinée)</li>
+      <li>Créer de nouvelles associations de calme et de sécurité liées aux soins dentaires</li>
+      <li>Ancrer un état de relaxation profonde activable à volonté sur le fauteuil</li>
+      <li>Vous enseigner des techniques de respiration et d'auto-hypnose</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-aiguilles-paris">Peur des aiguilles</a> — Bélonéphobie, prises de sang, vaccins</li>
+      <li><a href="${SITE_URL}/hypnose-peur-sang-paris">Peur du sang</a> — Hématophobie, malaises, évanouissements</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du dentiste</a>
+    `,
+};
+
+PAGES["/hypnose-peur-aiguilles-paris"] = {
+  title: "Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Prises de sang, vaccins, perfusions — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-peur-aiguilles-paris",
+  h1: "Hypnose et peur des aiguilles — Prises de sang et vaccins sans angoisse à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur des aiguilles Paris",
+      description: "Traitement de la peur des aiguilles (bélonéphobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-aiguilles-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie bélonéphobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur des aiguilles", path: "/hypnose-peur-aiguilles-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à supporter les prises de sang ?",
+        a: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver. Beaucoup de patients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances.",
+      },
+      {
+        q: "Combien de séances pour ne plus avoir peur des aiguilles ?",
+        a: "En moyenne, 2 à 3 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance. Je vous transmets également des techniques d'auto-hypnose que vous pouvez utiliser au moment du soin.",
+      },
+      {
+        q: "L'hypnose peut-elle aussi traiter le malaise vagal ?",
+        a: "Oui. Le malaise vagal déclenché par la vue d'une aiguille ou d'une seringue est souvent lié à une réaction phobique. En désensibilisant cette réaction au niveau inconscient, l'hypnose permet dans beaucoup de cas d'éliminer le malaise vagal associé.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Malaise vagal à la vue d'une seringue, refus de vaccins essentiels, bilans sanguins reportés depuis des années… La peur des aiguilles (bélonéphobie) touche environ <strong>10% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de vous faire soigner sans angoisse. Résultats en 2 à 3 séances.</p>
+
+    <h2>Pourquoi la peur des aiguilles peut être grave</h2>
+    <p>Contrairement à d'autres phobies, la peur des aiguilles peut avoir des conséquences médicales directes : bilans sanguins évités, vaccinations refusées, traitements intraveineux impossibles à supporter. Cette phobie peut empêcher de recevoir des soins essentiels. L'hypnose permet de <strong>rompre ce cercle</strong> rapidement.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Malaise vagal</strong> — La syncope ou pré-syncope à la vue d'une aiguille</li>
+      <li><strong>Panique anticipatoire</strong> — L'angoisse qui monte des jours avant le soin</li>
+      <li><strong>Refus de vaccinations</strong> — Impossibilité de se faire vacciner</li>
+      <li><strong>Perfusions et hospitalisations</strong> — Soins intraveineux vécus comme un supplice</li>
+      <li><strong>Transmission à ses enfants</strong> — Briser la chaîne de cette peur héritée</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur des aiguilles</h2>
+    <ul>
+      <li>Identifier l'origine de la peur (mauvaise expérience, malaise passé, transmission)</li>
+      <li>Désensibiliser la réaction phobique à la vue d'une seringue ou d'une aiguille</li>
+      <li>Inhiber la réponse vagale inconsciente déclenchant le malaise</li>
+      <li>Ancrer un état de calme associé aux soins par injection</li>
+      <li>Vous enseigner des techniques d'auto-hypnose pour les soins futurs</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-dentiste-paris">Peur du dentiste</a> — Odontophobie, angoisse du fauteuil</li>
+      <li><a href="${SITE_URL}/hypnose-peur-sang-paris">Peur du sang</a> — Hématophobie, malaises, évanouissements</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur des aiguilles</a>
+    `,
+};
+
+PAGES["/hypnose-peur-sang-paris"] = {
+  title: "Hypnose peur du sang (hématophobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur du sang par l'hypnose à Paris 4ème ou en visio. Hématophobie, malaises, évanouissements — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-peur-sang-paris",
+  h1: "Hypnose et peur du sang — Reprenez le contrôle face au sang à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur du sang Paris",
+      description: "Traitement de la peur du sang (hématophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-sang-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie hématophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur du sang", path: "/hypnose-peur-sang-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à ne plus faire de malaise face au sang ?",
+        a: "Oui. La peur du sang déclenche une réaction dite vasovagale — une chute brusque de la pression artérielle qui provoque le malaise. Cette réaction est un programme inconscient que l'hypnose peut désactiver en agissant directement sur le système nerveux autonome.",
+      },
+      {
+        q: "Combien de séances pour ne plus avoir peur du sang ?",
+        a: "En moyenne, 2 à 3 séances permettent d'obtenir des résultats significatifs. La première séance identifie l'origine et désensibilise la réaction phobique. Les suivantes ancrent un nouvel état de neutralité face au sang.",
+      },
+      {
+        q: "Ma peur du sang m'empêche de pratiquer ma profession médicale. L'hypnose peut-elle aider ?",
+        a: "Oui, c'est un cas que je traite régulièrement. Étudiants en médecine, aides-soignants, infirmiers — certains professionnels de santé développent une peur du sang qui menace leur carrière. L'hypnose permet de désensibiliser cette réaction spécifiquement, sans toucher aux autres aspects de votre pratique.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Malaise ou évanouissement à la vue du sang, impossibilité de regarder certaines scènes de films, soins médicaux vécus comme une épreuve… La peur du sang (hématophobie) touche environ <strong>3 à 4% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour que vous repreniez le contrôle. Résultats en 2 à 3 séances.</p>
+
+    <h2>Une peur aux conséquences médicales réelles</h2>
+    <p>L'hématophobie est particulière : contrairement à la plupart des phobies qui déclenchent une montée d'adrénaline, la peur du sang peut provoquer une chute brusque de pression artérielle (réflexe vasovagal) menant à l'évanouissement. Cette réaction est un programme inconscient que votre cerveau a installé — et que l'hypnose peut reprogrammer.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Malaise ou évanouissement</strong> — La réaction vasovagale déclenchée par la vue du sang</li>
+      <li><strong>Évitement médical</strong> — Refus de soins par peur de saigner</li>
+      <li><strong>Impossibilité de certains métiers</strong> — Soignants, secouristes limités par cette phobie</li>
+      <li><strong>Angoisse des blessures banales</strong> — Coupures, égratignures vécues comme une catastrophe</li>
+      <li><strong>Restrictions quotidiennes</strong> — Films, informations, même certaines images</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur du sang</h2>
+    <ul>
+      <li>Identifier l'origine de la phobie (choc visuel, malaise passé, expérience traumatique)</li>
+      <li>Inhiber la réponse vasovagale inconsciente au niveau du système nerveux autonome</li>
+      <li>Désensibiliser progressivement les stimuli déclencheurs (vue du sang, scènes médicales)</li>
+      <li>Ancrer un état de neutralité et de contrôle face à ces situations</li>
+      <li>Vous enseigner des techniques d'auto-régulation pour les situations à risque</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-dentiste-paris">Peur du dentiste</a> — Odontophobie, angoisse du fauteuil</li>
+      <li><a href="${SITE_URL}/hypnose-peur-aiguilles-paris">Peur des aiguilles</a> — Bélonéphobie, prises de sang, vaccins</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du sang</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

@@ -119,6 +119,11 @@ const HypnoseAcrophobie = lazy(() => import("@/pages/HypnoseAcrophobie"));
 const HypnoseClaustrophobie = lazy(() => import("@/pages/HypnoseClaustrophobie"));
 const HypnosePeurParlerPublic = lazy(() => import("@/pages/HypnosePeurParlerPublic"));
 
+// Sous-pages phobies médicales (pas dans le menu)
+const HypnosePeurDentiste = lazy(() => import("@/pages/HypnosePeurDentiste"));
+const HypnosePeurAiguilles = lazy(() => import("@/pages/HypnosePeurAiguilles"));
+const HypnosePeurSang = lazy(() => import("@/pages/HypnosePeurSang"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -243,6 +248,11 @@ function App() {
             <Route path="/hypnose-acrophobie-paris" element={<HypnoseAcrophobie />} />
             <Route path="/hypnose-claustrophobie-paris" element={<HypnoseClaustrophobie />} />
             <Route path="/hypnose-peur-parler-public-paris" element={<HypnosePeurParlerPublic />} />
+
+            {/* Sous-pages phobies médicales (pas dans le menu) */}
+            <Route path="/hypnose-peur-dentiste-paris" element={<HypnosePeurDentiste />} />
+            <Route path="/hypnose-peur-aiguilles-paris" element={<HypnosePeurAiguilles />} />
+            <Route path="/hypnose-peur-sang-paris" element={<HypnosePeurSang />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />
