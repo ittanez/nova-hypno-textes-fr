@@ -293,7 +293,7 @@ const HypnosePeurParlerPublic = () => {
           <div className="sp-stats">
             {[
               { value: '3-5', label: 'séances en moyenne pour retrouver l\'aisance à l\'oral' },
-              { value: '3/4', label: 'personnes redoutent de parler en public — une peur très traitable par hypnose' },
+              { value: '3 sur 4', label: 'personnes redoutent de parler en public — une peur très traitable par hypnose' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
