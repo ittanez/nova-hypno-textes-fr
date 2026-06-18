@@ -110,6 +110,25 @@ const HypnoseConfianceParis = lazy(() => import("@/pages/HypnoseConfianceParis")
 const HypnoseTroublesAlimentairesParis = lazy(() => import("@/pages/HypnoseTroublesAlimentairesParis"));
 const HypnoseEnLigne = lazy(() => import("@/pages/HypnoseEnLigne"));
 
+// Page peur de l'avion (URL héritée /peurdelavion — pas dans le menu)
+const PeurDelAvion = lazy(() => import("@/pages/PeurDelAvion"));
+
+// Sous-pages phobies spécifiques (pas dans le menu)
+const HypnoseArachnophobie = lazy(() => import("@/pages/HypnoseArachnophobie"));
+const HypnoseAcrophobie = lazy(() => import("@/pages/HypnoseAcrophobie"));
+const HypnoseClaustrophobie = lazy(() => import("@/pages/HypnoseClaustrophobie"));
+const HypnosePeurParlerPublic = lazy(() => import("@/pages/HypnosePeurParlerPublic"));
+
+// Sous-pages phobies médicales (pas dans le menu)
+const HypnosePeurDentiste = lazy(() => import("@/pages/HypnosePeurDentiste"));
+const HypnosePeurAiguilles = lazy(() => import("@/pages/HypnosePeurAiguilles"));
+const HypnosePeurSang = lazy(() => import("@/pages/HypnosePeurSang"));
+const HypnoseAquaphobie = lazy(() => import("@/pages/HypnoseAquaphobie"));
+
+// Sous-pages phobies comportementales/sociales (pas dans le menu)
+const HypnoseAmaxophobie = lazy(() => import("@/pages/HypnoseAmaxophobie"));
+const HypnosePhobieSociale = lazy(() => import("@/pages/HypnosePhobieSociale"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -225,6 +244,25 @@ function App() {
             <Route path="/hypnose-confiance-en-soi-paris" element={<HypnoseConfianceParis />} />
             <Route path="/hypnose-troubles-alimentaires-paris" element={<HypnoseTroublesAlimentairesParis />} />
             <Route path="/hypnose-en-ligne" element={<HypnoseEnLigne />} />
+
+            {/* Page peur de l'avion (pas dans le menu) */}
+            <Route path="/peurdelavion" element={<PeurDelAvion />} />
+
+            {/* Sous-pages phobies spécifiques (pas dans le menu) */}
+            <Route path="/hypnose-arachnophobie-paris" element={<HypnoseArachnophobie />} />
+            <Route path="/hypnose-acrophobie-paris" element={<HypnoseAcrophobie />} />
+            <Route path="/hypnose-claustrophobie-paris" element={<HypnoseClaustrophobie />} />
+            <Route path="/hypnose-peur-parler-public-paris" element={<HypnosePeurParlerPublic />} />
+
+            {/* Sous-pages phobies médicales (pas dans le menu) */}
+            <Route path="/hypnose-peur-dentiste-paris" element={<HypnosePeurDentiste />} />
+            <Route path="/hypnose-peur-aiguilles-paris" element={<HypnosePeurAiguilles />} />
+            <Route path="/hypnose-peur-sang-paris" element={<HypnosePeurSang />} />
+            <Route path="/hypnose-aquaphobie-paris" element={<HypnoseAquaphobie />} />
+
+            {/* Sous-pages phobies comportementales/sociales (pas dans le menu) */}
+            <Route path="/hypnose-amaxophobie-paris" element={<HypnoseAmaxophobie />} />
+            <Route path="/hypnose-phobie-sociale-paris" element={<HypnosePhobieSociale />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />

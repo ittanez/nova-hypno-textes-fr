@@ -5,38 +5,59 @@ import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
-import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const HypnosePhobiesParis = () => {
+const peurAvionFaqItems = [
+  {
+    question: "L'hypnose peut-elle remplacer les médicaments contre la peur de l'avion ?",
+    answer: "Oui, l'hypnose agit à la source émotionnelle de votre peur, là où les anxiolytiques n'offrent qu'un soulagement temporaire. L'hypnothérapie ericksonienne reprogramme votre inconscient pour désactiver la réaction de panique durablement, sans béquilles chimiques avant chaque vol."
+  },
+  {
+    question: "Combien de séances faut-il pour ne plus avoir peur de l'avion ?",
+    answer: "En moyenne, 3 à 4 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance. L'accompagnement est progressif : identification de l'origine, désensibilisation, ancrage de ressources et consolidation avant le vol."
+  },
+  {
+    question: "Faut-il avoir un vol prévu pour commencer l'hypnose ?",
+    answer: "Non, il vaut même mieux ne pas attendre. Vous pouvez commencer l'accompagnement à n'importe quel moment, même sans vol programmé. Cela laisse le temps à votre inconscient d'intégrer les changements en profondeur, sans pression. Si un vol approche dans moins d'un mois, un programme intensif avec séances rapprochées est possible."
+  },
+  {
+    question: "Quelle est la différence entre l'hypnose et un stage anti-peur de l'avion ?",
+    answer: "Les stages collectifs (Air France, AviaSim) travaillent sur la compréhension rationnelle de l'avion : ils expliquent la mécanique, les turbulences, la sécurité. L'hypnose, elle, agit directement sur votre inconscient émotionnel — là où la peur réside réellement. C'est pourquoi elle est plus efficace et durable. De plus, l'accompagnement est individuel, adapté à votre histoire et à vos déclencheurs spécifiques."
+  },
+  {
+    question: "Les résultats sont-ils durables dans le temps ?",
+    answer: "Oui. L'hypnose reprogramme en profondeur vos associations inconscientes liées à l'avion. Une fois que votre cerveau a intégré que voler n'est pas un danger, ce changement devient permanent. La grande majorité des personnes accompagnées volent sereinement des années après l'accompagnement."
+  },
+  {
+    question: "L'hypnose fonctionne-t-elle même sur une peur de l'avion ancienne ou très intense ?",
+    answer: "Oui. Que votre peur soit installée depuis 5 ou 30 ans, qu'elle se manifeste par une simple appréhension ou par des crises de panique paralysantes, le mécanisme reste le même : un programme inconscient qui peut être désactivé. Votre inconscient n'a pas de notion du temps, et l'intensité de la peur ne change pas fondamentalement le traitement."
+  }
+];
+
+const PeurDelAvion = () => {
   const { openResalibPopup } = useResalibPopup();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Hypnose pour les phobies à Paris",
-    "description": "Traitement des phobies et des peurs par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille. Résultats rapides en 2 à 4 séances.",
-    "url": "https://novahypnose.fr/hypnose-phobies-paris",
+    "name": "Hypnose pour la peur de l'avion à Paris",
+    "description": "Traitement de la peur de l'avion (aérophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio. Résultats en 3 à 4 séances.",
+    "url": "https://novahypnose.fr/peurdelavion",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
       { "@type": "City", "name": "Paris" },
       { "@type": "Country", "name": "France" }
     ],
-    "serviceType": "Hypnothérapie phobies",
+    "serviceType": "Hypnothérapie aérophobie",
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
       "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "90",
-      "priceCurrency": "EUR"
     }
   };
 
@@ -45,55 +66,49 @@ const HypnosePhobiesParis = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
-      { "@type": "ListItem", "position": 2, "name": "Hypnose phobies Paris", "item": "https://novahypnose.fr/hypnose-phobies-paris" }
+      { "@type": "ListItem", "position": 2, "name": "Peur de l'avion", "item": "https://novahypnose.fr/peurdelavion" }
     ]
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": phobiesFaqItems.map(item => ({
+    "mainEntity": peurAvionFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
     }))
   };
 
-  const phobies: { title: string; desc: string; href?: string }[] = [
-    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique", href: "/peurdelavion" },
-    { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement", href: "/hypnose-claustrophobie-paris" },
-    { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension", href: "/hypnose-arachnophobie-paris" },
-    { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle", href: "/hypnose-acrophobie-paris" },
-    { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance", href: "/hypnose-peur-parler-public-paris" },
-    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société", href: "/hypnose-phobie-sociale-paris" },
-    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance", href: "/hypnose-amaxophobie-paris" },
-    { title: "Peur du dentiste", desc: "Soins, détartrage, extractions… abordez le fauteuil sans angoisse", href: "/hypnose-peur-dentiste-paris" },
-    { title: "Peur des aiguilles (bélonéphobie)", desc: "Prises de sang, vaccins, perfusions… ne plus appréhender les soins", href: "/hypnose-peur-aiguilles-paris" },
-    { title: "Peur du sang (hématophobie)", desc: "Prélèvements, blessures, malaises… reprenez le contrôle face au sang", href: "/hypnose-peur-sang-paris" },
-    { title: "Peur de l'eau (aquaphobie)", desc: "Piscine, mer, immersion… renouez sereinement avec l'eau", href: "/hypnose-aquaphobie-paris" },
-    { title: "Autres phobies", desc: "Peur du vomi, des hôpitaux, des piqûres, du noir…" }
+  const manifestations = [
+    { title: "Anxiété paralysante", desc: "Rien qu'à l'idée de prendre l'avion, votre cœur s'emballe et vos mains tremblent" },
+    { title: "Évitement des voyages", desc: "Vous refusez des opportunités professionnelles ou personnelles par peur de voler" },
+    { title: "Dépendance aux médicaments", desc: "Vous ne pouvez pas imaginer voler sans anxiolytiques ou alcool" },
+    { title: "Nuits blanches", desc: "Vous perdez le sommeil des semaines avant un vol programmé" },
+    { title: "Crises de panique", desc: "Turbulences, décollage, atterrissage… votre corps réagit comme face à un danger réel" },
+    { title: "Claustrophobie en cabine", desc: "L'espace confiné de l'avion déclenche une sensation d'étouffement insoutenable" },
   ];
 
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
-        <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris, hypnose phobie en ligne, séance hypnose phobie visio France, hypnose peur à distance, téléconsultation hypnose phobie" />
-        <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
-        <meta property="og:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <title>Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances." />
+        <meta name="keywords" content="hypnose peur avion paris, aérophobie hypnose paris, traitement peur avion, vaincre peur avion hypnose, hypnothérapeute peur de l'avion paris, hypnose aviophobie, peur avion hypnose en ligne, séance hypnose peur avion visio France, téléconsultation aérophobie" />
+        <link rel="canonical" href="https://novahypnose.fr/peurdelavion" />
+        <meta property="og:title" content="Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://novahypnose.fr/hypnose-phobies-paris" />
+        <meta property="og:url" content="https://novahypnose.fr/peurdelavion" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose phobies et peurs" />
+        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de l'avion" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta name="twitter:title" content="Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -108,27 +123,23 @@ const HypnosePhobiesParis = () => {
             <g filter="url(#riso-full)">
               <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
             </g>
-            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+            <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
               <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
             </g>
             <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
           </svg>
         </div>
         <div className="container sp-hero__inner reveal">
-          <div className="tag">Phobies &amp; Peurs — Paris</div>
+          <div className="tag">Peur de l'avion — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de vos peurs<br/><em>pour de bon</em>
+            Reprenez l'avion<br/><em>sereinement</em>
           </h1>
           <p className="sp-hero__lead">
-            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
-            <Link to="/hypnose-phobie-sociale-paris" style={{color:'inherit', textDecoration:'underline'}}>phobie sociale</Link>,{' '}
-            <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,{' '}
-            <Link to="/hypnose-arachnophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>araignées</Link>,{' '}
-            <Link to="/hypnose-acrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>vide</Link>,{' '}
-            <Link to="/hypnose-claustrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>espaces clos</Link>…
-            Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-            efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
-            Paris 4ème ou en <strong>visio partout en France</strong>.
+            Boule au ventre à l'idée de monter à bord, nuits blanches avant un vol, crises de panique
+            au décollage… La peur de l'avion (aérophobie) touche près d'<strong>une personne sur cinq</strong>.
+            L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner la liberté de
+            voyager. <strong>Résultats en 3 à 4 séances</strong>, au cabinet à Paris 4ème ou en
+            <strong> visio partout en France</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
@@ -145,20 +156,23 @@ const HypnosePhobiesParis = () => {
         <div className="container">
           <div className="cabinet__grid reveal">
             <div className="cabinet__copy">
-              <div className="section-tag">Phobies — comprendre</div>
-              <h2 className="section-title">Une phobie<br/><em>vous gâche la vie ?</em></h2>
+              <div className="section-tag">Aérophobie — comprendre</div>
+              <h2 className="section-title">La peur de l'avion<br/><em>gâche vos voyages ?</em></h2>
               <p>
-                Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
-                vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
-                c'est plus fort que vous.
+                Vous annulez des vacances, vous refusez des missions à l'étranger, vous vous arrangez pour
+                éviter toute occasion de prendre l'avion. Quand vous ne pouvez vraiment pas faire autrement,
+                la simple idée du vol vous obsède pendant des semaines. À bord, votre corps réagit comme
+                face à un danger imminent — alors même que vous savez, rationnellement, que l'avion est
+                le moyen de transport le plus sûr au monde.
               </p>
               <p>
-                La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
-                d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
+                L'aérophobie est un mécanisme de protection installé par votre inconscient, souvent
+                déclenché par un vol turbulent, un reportage marquant, ou parfois sans raison apparente.
+                La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
               </p>
               <p>
-                L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
-                l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
+                L'hypnose permet de reprogrammer cette réaction automatique, sans avoir à revivre
+                l'événement déclencheur, et sans exposition forcée à l'avion.
               </p>
             </div>
             <div className="cabinet__visual" aria-hidden="true">
@@ -179,23 +193,16 @@ const HypnosePhobiesParis = () => {
         </div>
       </section>
 
-      {/* Types de phobies */}
+      {/* Manifestations / Vous reconnaissez-vous ? */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Les phobies que je traite régulièrement par l'hypnose</h2>
+          <h2 className="sp-h2">Vous reconnaissez-vous&nbsp;?</h2>
           <div className="sp-grid-2">
-            {phobies.map((p, i) => (
-              p.href ? (
-                <Link key={i} to={p.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
-                  <div className="sp-card__title">{p.title} →</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </Link>
-              ) : (
-                <div key={i} className="sp-card reveal">
-                  <div className="sp-card__title">{p.title}</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </div>
-              )
+            {manifestations.map((m, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{m.title}</div>
+                <div className="sp-card__desc">{m.desc}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -220,17 +227,17 @@ const HypnosePhobiesParis = () => {
               <div className="section-tag">Mécanisme — désensibilisation</div>
               <h2 className="section-title">L'hypnose désactive<br/><em>la peur à la racine.</em></h2>
               <p>
-                L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
-                la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
-                dans un état de relaxation profonde pour :
+                L'hypnose ericksonienne agit sur le programme inconscient qui déclenche la réaction de
+                panique à bord. Vous restez conscient et en contrôle pendant toute la séance. Je vous
+                guide dans un état de relaxation profonde pour :
               </p>
               <div className="sp-checklist">
                 {[
-                  "Identifier l'origine de la phobie et le déclencheur inconscient",
-                  "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
-                  "Créer de nouvelles associations positives et neutres",
-                  "Renforcer votre sentiment de sécurité et de contrôle",
-                  "Installer des automatismes de calme face à la situation redoutée"
+                  "Identifier l'origine de la peur (vol turbulent, reportage, transmission familiale…)",
+                  "Dissocier l'émotion de panique du contexte du vol (cabine, décollage, turbulences)",
+                  "Créer de nouvelles associations positives liées à l'avion et au voyage",
+                  "Ancrer un état de calme que vous pouvez activer à volonté avant et pendant le vol",
+                  "Vous transmettre des techniques d'auto-hypnose pour rester serein en cabine"
                 ].map((item, i) => (
                   <div key={i} className="sp-check-item">
                     <CheckCircle size={18} />
@@ -249,11 +256,11 @@ const HypnosePhobiesParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/peurdelavion" style={{color:'inherit'}}>Peur de l'avion →</Link></div>
+              <div className="sp-case__title">Aérophobie installée depuis 10 ans</div>
               <p>
                 Thomas*, consultant international, refusait systématiquement les missions nécessitant
-                un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
-                menaçait désormais sa carrière.
+                un vol. Sa peur de l'avion, déclenchée par un vol très turbulent dix ans plus tôt,
+                menaçait désormais sa carrière. Chaque déplacement était reporté ou refusé.
               </p>
               <p>
                 En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
@@ -262,27 +269,29 @@ const HypnosePhobiesParis = () => {
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title">Arachnophobie sévère</div>
+              <div className="sp-case__title">Crises de panique au décollage</div>
               <p>
-                Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
-                minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
+                Sophie*, 35 ans, avait toujours pris l'avion sans difficulté jusqu'au jour où, sans
+                raison apparente, elle a fait une crise de panique au décollage. Depuis, chaque vol
+                était devenu une épreuve : palpitations, sensation d'étouffer, peur de mourir.
               </p>
               <p>
-                Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
-                araignées avait radicalement changé. La peur intense s'était transformée en simple
-                indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
+                En 4 séances d'hypnose ericksonienne, nous avons travaillé sur le déclencheur
+                inconscient de cette crise initiale et reconstruit une association de sécurité
+                avec le vol. Sophie a pu repartir en vacances aux Antilles, détendue.
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/hypnose-peur-parler-public-paris" style={{color:'inherit'}}>Peur de parler en public →</Link></div>
+              <div className="sp-case__title">Peur transmise depuis l'enfance</div>
               <p>
-                Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
-                investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie freinait le développement de sa startup.
+                Julien*, 42 ans, n'avait jamais pris l'avion. Sa mère, terrorisée à l'idée de voler,
+                lui avait transmis cette peur depuis l'enfance — au point que toute la famille
+                voyageait exclusivement en voiture ou en train.
               </p>
               <p>
-                En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
-                confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
-                avec succès trois mois plus tard.
+                En 3 séances, nous avons identifié les croyances inconscientes héritées et
+                installé un nouveau rapport à l'avion. Julien a effectué son premier vol vers Rome
+                deux mois plus tard, sans anxiolytique.
               </p>
             </div>
           </div>
@@ -310,8 +319,8 @@ const HypnosePhobiesParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour traiter une phobie' },
-              { value: '95%', label: 'des phobies simples peuvent être traitées par l\'hypnose' },
+              { value: '3-4', label: 'séances suffisent en moyenne pour vaincre la peur de l\'avion' },
+              { value: '85%', label: 'des personnes accompagnées retrouvent la sérénité en vol' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
@@ -326,15 +335,28 @@ const HypnosePhobiesParis = () => {
       {/* FAQ */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
+          <h2 className="sp-h2">Questions fréquentes sur la peur de l'avion</h2>
           <div>
-            {phobiesFaqItems.map((item, i) => (
+            {peurAvionFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  id={`faq-question-${i}`}
+                  className="faq__q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.question}
                   <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                <div className="faq__a">{item.answer}</div>
+                <div
+                  id={`faq-answer-${i}`}
+                  className="faq__a"
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                >
+                  {item.answer}
+                </div>
               </div>
             ))}
           </div>
@@ -343,20 +365,20 @@ const HypnosePhobiesParis = () => {
 
       <div className="sp-ext-section">
         <SpecialtyBlogArticles
-          keywords={["phobie", "peur", "phobique"]}
+          keywords={["avion", "phobie", "peur", "phobique", "aérophobie"]}
           categories={["Troubles Anxieux"]}
-          title="Articles sur les phobies"
+          title="Articles sur la peur de l'avion et les phobies"
           accentColor="text-purple-600"
         />
       </div>
 
       <div className="sp-ext-section">
         <SpecialtyReferences
-          pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
-          pageTitle="Hypnose pour les phobies à Paris"
-          pageDescription="Hypnose ericksonienne pour traiter les phobies (avion, animaux, foule, espaces clos, médical) au cabinet Paris 4ème."
-          topic="les phobies et les peurs irrationnelles"
-          dateModified="2026-05-06"
+          pageUrl="https://novahypnose.fr/peurdelavion"
+          pageTitle="Hypnose pour la peur de l'avion à Paris"
+          pageDescription="Hypnose ericksonienne pour vaincre la peur de l'avion (aérophobie) au cabinet Paris 4ème ou en visio."
+          topic="la peur de l'avion et l'aérophobie"
+          dateModified="2026-06-18"
           references={[
             {
               authors: "Inserm",
@@ -388,8 +410,8 @@ const HypnosePhobiesParis = () => {
         <div className="sp-cta-final__blob" aria-hidden="true"></div>
         <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Libérez-vous de vos phobies</h2>
-          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <h2 className="sp-h2">Libérez-vous de la peur de l'avion</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France</p>
           <div className="hero__cta" style={{justifyContent:'center'}}>
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
@@ -399,11 +421,11 @@ const HypnosePhobiesParis = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
+            <Link to="/hypnose-phobies-paris">Hypnose et phobies →</Link>
             <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
             <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
             <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
             <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
-            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
             <Link to="/test-receptivite">Tester ma réceptivité →</Link>
             <Link to="/blog">Blog hypnose →</Link>
           </div>
@@ -413,4 +435,4 @@ const HypnosePhobiesParis = () => {
   );
 };
 
-export default HypnosePhobiesParis;
+export default PeurDelAvion;

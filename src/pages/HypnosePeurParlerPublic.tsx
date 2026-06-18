@@ -5,38 +5,59 @@ import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
-import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const HypnosePhobiesParis = () => {
+const peurParlerFaqItems = [
+  {
+    question: "L'hypnose peut-elle supprimer complètement le trac ?",
+    answer: "L'objectif n'est pas de supprimer tout trac — un peu d'adrénaline avant une intervention est utile et performant. L'hypnose vise à transformer le trac paralysant en énergie productive. Vous garderez une légère activation, mais sans les symptômes envahissants (trous de mémoire, voix chevrotante, tremblements)."
+  },
+  {
+    question: "Combien de séances pour vaincre la peur de parler en public ?",
+    answer: "En général, 3 à 5 séances. Les premières séances travaillent sur l'origine de la peur et la désensibilisation. Les suivantes ancrent un état de confiance et des automatismes de performance. Certaines personnes ressentent un changement dès la deuxième séance."
+  },
+  {
+    question: "Est-ce que ça marche si j'ai une présentation importante dans deux semaines ?",
+    answer: "Oui. Si l'échéance est proche, nous organisons des séances rapprochées pour maximiser les effets avant l'événement. Je vous transmets aussi des techniques d'auto-hypnose que vous pouvez utiliser le jour J pour rester centré."
+  },
+  {
+    question: "Ma peur est liée à une humiliation ancienne — est-ce que ça change quelque chose ?",
+    answer: "Non. L'hypnose est particulièrement efficace pour les phobies d'origine traumatique. Nous retravaillons le souvenir fondateur à distance émotionnelle — vous n'avez pas à le revivre — pour neutraliser l'empreinte qu'il a laissée sur vos prises de parole aujourd'hui."
+  },
+  {
+    question: "L'hypnose fonctionne-t-elle pour les professions qui parlent souvent en public ?",
+    answer: "Oui, et c'est une situation courante. Avocats, formateurs, commerciaux, managers, enseignants — beaucoup de professionnels dont le métier exige une prise de parole régulière souffrent de glossophobie. L'hypnose est très efficace pour reconstruire une relation sereine et performante avec la prise de parole."
+  },
+  {
+    question: "Puis-je faire mes séances en visio ?",
+    answer: "Oui. L'hypnose en visioconférence est aussi efficace qu'en cabinet pour la peur de parler en public. Vous êtes chez vous, à l'aise, et cela facilite parfois la profondeur de l'état hypnotique. Je reçois des patients de toute la France pour cet accompagnement entièrement en visio."
+  }
+];
+
+const HypnosePeurParlerPublic = () => {
   const { openResalibPopup } = useResalibPopup();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Hypnose pour les phobies à Paris",
-    "description": "Traitement des phobies et des peurs par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille. Résultats rapides en 2 à 4 séances.",
-    "url": "https://novahypnose.fr/hypnose-phobies-paris",
+    "name": "Hypnose peur de parler en public Paris",
+    "description": "Traitement de la peur de parler en public (glossophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+    "url": "https://novahypnose.fr/hypnose-peur-parler-public-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
       { "@type": "City", "name": "Paris" },
       { "@type": "Country", "name": "France" }
     ],
-    "serviceType": "Hypnothérapie phobies",
+    "serviceType": "Hypnothérapie glossophobie",
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
       "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "90",
-      "priceCurrency": "EUR"
     }
   };
 
@@ -45,55 +66,50 @@ const HypnosePhobiesParis = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
-      { "@type": "ListItem", "position": 2, "name": "Hypnose phobies Paris", "item": "https://novahypnose.fr/hypnose-phobies-paris" }
+      { "@type": "ListItem", "position": 2, "name": "Phobies et peurs", "item": "https://novahypnose.fr/hypnose-phobies-paris" },
+      { "@type": "ListItem", "position": 3, "name": "Peur de parler en public", "item": "https://novahypnose.fr/hypnose-peur-parler-public-paris" }
     ]
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": phobiesFaqItems.map(item => ({
+    "mainEntity": peurParlerFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
     }))
   };
 
-  const phobies: { title: string; desc: string; href?: string }[] = [
-    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique", href: "/peurdelavion" },
-    { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement", href: "/hypnose-claustrophobie-paris" },
-    { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension", href: "/hypnose-arachnophobie-paris" },
-    { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle", href: "/hypnose-acrophobie-paris" },
-    { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance", href: "/hypnose-peur-parler-public-paris" },
-    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société", href: "/hypnose-phobie-sociale-paris" },
-    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance", href: "/hypnose-amaxophobie-paris" },
-    { title: "Peur du dentiste", desc: "Soins, détartrage, extractions… abordez le fauteuil sans angoisse", href: "/hypnose-peur-dentiste-paris" },
-    { title: "Peur des aiguilles (bélonéphobie)", desc: "Prises de sang, vaccins, perfusions… ne plus appréhender les soins", href: "/hypnose-peur-aiguilles-paris" },
-    { title: "Peur du sang (hématophobie)", desc: "Prélèvements, blessures, malaises… reprenez le contrôle face au sang", href: "/hypnose-peur-sang-paris" },
-    { title: "Peur de l'eau (aquaphobie)", desc: "Piscine, mer, immersion… renouez sereinement avec l'eau", href: "/hypnose-aquaphobie-paris" },
-    { title: "Autres phobies", desc: "Peur du vomi, des hôpitaux, des piqûres, du noir…" }
+  const manifestations = [
+    { title: "Trac paralysant", desc: "Dès que vous savez que vous allez devoir prendre la parole, l'anxiété s'installe des jours à l'avance" },
+    { title: "Symptômes physiques intenses", desc: "Voix chevrotante, rougissement, transpiration, tremblements des mains, cœur qui s'emballe" },
+    { title: "Trous de mémoire", desc: "Vous connaissez votre sujet, mais face au public, tout disparaît — blanc total" },
+    { title: "Évitement des situations", desc: "Vous refusez des présentations, des postes, des promotions pour ne pas avoir à parler en public" },
+    { title: "Impact sur votre carrière", desc: "Vous avez les compétences mais n'obtenez pas les résultats car votre peur de parler vous freine" },
+    { title: "Mauvaise estime de soi post-prise de parole", desc: "Vous vous critiquez sévèrement après chaque prise de parole, même réussie" },
   ];
 
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
-        <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris, hypnose phobie en ligne, séance hypnose phobie visio France, hypnose peur à distance, téléconsultation hypnose phobie" />
-        <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
-        <meta property="og:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <title>Hypnose peur de parler en public Paris | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <meta name="keywords" content="hypnose peur parler public paris, glossophobie hypnose paris, trac prise de parole hypnose, traitement peur de parler, hypnothérapeute glossophobie paris, hypnose trac oral, peur parler public hypnose en ligne" />
+        <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
+        <meta property="og:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://novahypnose.fr/hypnose-phobies-paris" />
+        <meta property="og:url" content="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose phobies et peurs" />
+        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de parler en public" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta name="twitter:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -108,28 +124,18 @@ const HypnosePhobiesParis = () => {
             <g filter="url(#riso-full)">
               <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
             </g>
-            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+            <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
               <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
             </g>
             <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
           </svg>
         </div>
         <div className="container sp-hero__inner reveal">
-          <div className="tag">Phobies &amp; Peurs — Paris</div>
+          <div className="tag">Peur de parler en public — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de vos peurs<br/><em>pour de bon</em>
+            Libérez-vous de la peur de parler en public
           </h1>
-          <p className="sp-hero__lead">
-            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
-            <Link to="/hypnose-phobie-sociale-paris" style={{color:'inherit', textDecoration:'underline'}}>phobie sociale</Link>,{' '}
-            <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,{' '}
-            <Link to="/hypnose-arachnophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>araignées</Link>,{' '}
-            <Link to="/hypnose-acrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>vide</Link>,{' '}
-            <Link to="/hypnose-claustrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>espaces clos</Link>…
-            Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-            efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
-            Paris 4ème ou en <strong>visio partout en France</strong>.
-          </p>
+          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de <strong>trois personnes sur quatre</strong> à des degrés divers. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner votre aisance à l'oral. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
@@ -145,20 +151,13 @@ const HypnosePhobiesParis = () => {
         <div className="container">
           <div className="cabinet__grid reveal">
             <div className="cabinet__copy">
-              <div className="section-tag">Phobies — comprendre</div>
-              <h2 className="section-title">Une phobie<br/><em>vous gâche la vie ?</em></h2>
+              <div className="section-tag">Glossophobie — comprendre</div>
+              <h2 className="section-title">La peur de parler en public,<br/><em>une compétence à reconstruire ?</em></h2>
               <p>
-                Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
-                vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
-                c'est plus fort que vous.
+                La peur de parler en public — aussi appelée glossophobie — est l'une des peurs les plus répandues dans le monde. Elle touche des personnes de tous milieux et de tous niveaux de compétence. Ce n'est pas un manque de préparation, d'intelligence ou de compétence : c'est un programme de survie que votre inconscient a codé autour du jugement des autres.
               </p>
               <p>
-                La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
-                d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
-              </p>
-              <p>
-                L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
-                l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
+                Souvent, cette peur s'enracine dans une expérience humiliante (être moqué en classe, avoir le trac lors d'un exposé important, essuyer une critique sévère devant témoins). L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction de panique par un état de confiance et de présence que vous pouvez activer à volonté.
               </p>
             </div>
             <div className="cabinet__visual" aria-hidden="true">
@@ -179,23 +178,16 @@ const HypnosePhobiesParis = () => {
         </div>
       </section>
 
-      {/* Types de phobies */}
+      {/* Manifestations / Vous reconnaissez-vous ? */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Les phobies que je traite régulièrement par l'hypnose</h2>
+          <h2 className="sp-h2">Vous reconnaissez-vous&nbsp;?</h2>
           <div className="sp-grid-2">
-            {phobies.map((p, i) => (
-              p.href ? (
-                <Link key={i} to={p.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
-                  <div className="sp-card__title">{p.title} →</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </Link>
-              ) : (
-                <div key={i} className="sp-card reveal">
-                  <div className="sp-card__title">{p.title}</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </div>
-              )
+            {manifestations.map((m, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{m.title}</div>
+                <div className="sp-card__desc">{m.desc}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -220,17 +212,17 @@ const HypnosePhobiesParis = () => {
               <div className="section-tag">Mécanisme — désensibilisation</div>
               <h2 className="section-title">L'hypnose désactive<br/><em>la peur à la racine.</em></h2>
               <p>
-                L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
-                la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
-                dans un état de relaxation profonde pour :
+                L'hypnose ericksonienne agit sur le programme inconscient qui déclenche la réaction de
+                panique face au public. Vous restez conscient et en contrôle pendant toute la séance. Je vous
+                guide dans un état de relaxation profonde pour :
               </p>
               <div className="sp-checklist">
                 {[
-                  "Identifier l'origine de la phobie et le déclencheur inconscient",
-                  "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
-                  "Créer de nouvelles associations positives et neutres",
-                  "Renforcer votre sentiment de sécurité et de contrôle",
-                  "Installer des automatismes de calme face à la situation redoutée"
+                  "Identifier l'expérience fondatrice qui a installé la peur du jugement public",
+                  "Dissocier la prise de parole de la menace perçue (humiliation, rejet, jugement)",
+                  "Ancrer un état de confiance et de présence activable avant chaque intervention",
+                  "Travailler sur l'estime de soi et la confiance en votre expertise",
+                  "Vous transmettre des techniques de préparation mentale pour rester centré à l'oral"
                 ].map((item, i) => (
                   <div key={i} className="sp-check-item">
                     <CheckCircle size={18} />
@@ -249,40 +241,30 @@ const HypnosePhobiesParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/peurdelavion" style={{color:'inherit'}}>Peur de l'avion →</Link></div>
+              <div className="sp-case__title">Peur de parler en réunion</div>
               <p>
-                Thomas*, consultant international, refusait systématiquement les missions nécessitant
-                un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
-                menaçait désormais sa carrière.
+                Stéphanie*, 38 ans, cadre dans une grande entreprise, n'arrivait pas à prendre la parole en réunion. Elle avait des idées pertinentes mais le trac l'en empêchait. En 4 séances, nous avons travaillé sur l'origine de cette peur du jugement et ancré un état de confiance.
               </p>
               <p>
-                En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
-                traumatique initial et installé un état de calme associé au vol. Thomas a repris
-                l'avion le mois suivant pour un déplacement à Londres — sereinement.
+                Elle prend maintenant la parole naturellement devant 20 personnes.
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title">Arachnophobie sévère</div>
+              <div className="sp-case__title">Pitch investisseurs</div>
               <p>
-                Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
-                minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
+                Thomas*, entrepreneur de 33 ans, perdait tous ses moyens devant des investisseurs. Voix tremblante, oublis — sa startup en pâtissait. En 5 séances d'hypnose, nous avons reconstruit sa confiance à l'oral et ancré un état de performance.
               </p>
               <p>
-                Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
-                araignées avait radicalement changé. La peur intense s'était transformée en simple
-                indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
+                Il a levé des fonds avec succès quatre mois plus tard.
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/hypnose-peur-parler-public-paris" style={{color:'inherit'}}>Peur de parler en public →</Link></div>
+              <div className="sp-case__title">Trac à l'oral depuis l'école</div>
               <p>
-                Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
-                investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie freinait le développement de sa startup.
+                Léa*, 25 ans, avait toujours eu le trac depuis qu'elle avait été moquée lors d'un exposé en CM1. Depuis, chaque prise de parole était une épreuve. En 3 séances, nous avons neutralisé ce souvenir fondateur.
               </p>
               <p>
-                En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
-                confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
-                avec succès trois mois plus tard.
+                Elle présente maintenant ses travaux en amphi sans anxiété.
               </p>
             </div>
           </div>
@@ -310,8 +292,8 @@ const HypnosePhobiesParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour traiter une phobie' },
-              { value: '95%', label: 'des phobies simples peuvent être traitées par l\'hypnose' },
+              { value: '3-5', label: 'séances en moyenne pour retrouver l\'aisance à l\'oral' },
+              { value: '3/4', label: 'personnes redoutent de parler en public — une peur très traitable par hypnose' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
@@ -326,15 +308,28 @@ const HypnosePhobiesParis = () => {
       {/* FAQ */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
+          <h2 className="sp-h2">Questions fréquentes sur la peur de parler en public</h2>
           <div>
-            {phobiesFaqItems.map((item, i) => (
+            {peurParlerFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  id={`faq-question-${i}`}
+                  className="faq__q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.question}
                   <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                <div className="faq__a">{item.answer}</div>
+                <div
+                  id={`faq-answer-${i}`}
+                  className="faq__a"
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                >
+                  {item.answer}
+                </div>
               </div>
             ))}
           </div>
@@ -343,20 +338,20 @@ const HypnosePhobiesParis = () => {
 
       <div className="sp-ext-section">
         <SpecialtyBlogArticles
-          keywords={["phobie", "peur", "phobique"]}
+          keywords={["trac", "parler en public", "glossophobie", "confiance", "prise de parole"]}
           categories={["Troubles Anxieux"]}
-          title="Articles sur les phobies"
+          title="Articles sur la peur de parler en public"
           accentColor="text-purple-600"
         />
       </div>
 
       <div className="sp-ext-section">
         <SpecialtyReferences
-          pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
-          pageTitle="Hypnose pour les phobies à Paris"
-          pageDescription="Hypnose ericksonienne pour traiter les phobies (avion, animaux, foule, espaces clos, médical) au cabinet Paris 4ème."
-          topic="les phobies et les peurs irrationnelles"
-          dateModified="2026-05-06"
+          pageUrl="https://novahypnose.fr/hypnose-peur-parler-public-paris"
+          pageTitle="Hypnose pour la peur de parler en public à Paris"
+          pageDescription="Hypnose ericksonienne pour la peur de parler en public (glossophobie) au cabinet Paris 4ème ou en visio."
+          topic="la peur de parler en public et la glossophobie"
+          dateModified="2026-06-18"
           references={[
             {
               authors: "Inserm",
@@ -388,8 +383,8 @@ const HypnosePhobiesParis = () => {
         <div className="sp-cta-final__blob" aria-hidden="true"></div>
         <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Libérez-vous de vos phobies</h2>
-          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <h2 className="sp-h2">Libérez-vous de la peur de parler en public</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France</p>
           <div className="hero__cta" style={{justifyContent:'center'}}>
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
@@ -399,13 +394,13 @@ const HypnosePhobiesParis = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
-            <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
-            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
-            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
-            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
-            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
+            <Link to="/hypnose-phobies-paris">Toutes les phobies →</Link>
+            <Link to="/peurdelavion">Peur de l'avion →</Link>
+            <Link to="/hypnose-arachnophobie-paris">Arachnophobie →</Link>
+            <Link to="/hypnose-acrophobie-paris">Peur du vide →</Link>
+            <Link to="/hypnose-claustrophobie-paris">Claustrophobie →</Link>
+            <Link to="/hypnose-confiance-en-soi-paris">Hypnose et confiance en soi →</Link>
             <Link to="/test-receptivite">Tester ma réceptivité →</Link>
-            <Link to="/blog">Blog hypnose →</Link>
           </div>
         </div>
       </section>
@@ -413,4 +408,4 @@ const HypnosePhobiesParis = () => {
   );
 };
 
-export default HypnosePhobiesParis;
+export default HypnosePeurParlerPublic;

@@ -1363,6 +1363,861 @@ const PAGES: Record<string, PageData> = {
   },
 };
 
+PAGES["/peurdelavion"] = {
+  title: "Hypnose peur de l'avion Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances.",
+  canonicalPath: "/peurdelavion",
+  h1: "Hypnose et peur de l'avion — Reprenez l'avion sereinement",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${SITE_URL}/peurdelavion#service`,
+      name: "Hypnose pour la peur de l'avion à Paris",
+      description:
+        "Traitement de la peur de l'avion (aérophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio. Résultats en 3 à 4 séances.",
+      url: `${SITE_URL}/peurdelavion`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie aérophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Peur de l'avion", path: "/peurdelavion" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle remplacer les médicaments contre la peur de l'avion ?",
+        a: "Oui, l'hypnose agit à la source émotionnelle de votre peur, là où les anxiolytiques n'offrent qu'un soulagement temporaire. L'hypnothérapie ericksonienne reprogramme votre inconscient pour désactiver la réaction de panique durablement.",
+      },
+      {
+        q: "Combien de séances faut-il pour ne plus avoir peur de l'avion ?",
+        a: "En moyenne, 3 à 4 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance.",
+      },
+      {
+        q: "Faut-il avoir un vol prévu pour commencer l'hypnose ?",
+        a: "Non, il vaut même mieux ne pas attendre. Vous pouvez commencer l'accompagnement sans vol programmé. Si un vol approche dans moins d'un mois, un programme intensif avec séances rapprochées est possible.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Boule au ventre à l'idée de monter à bord, nuits blanches avant un vol, crises de panique au décollage… La peur de l'avion (aérophobie) touche près d'<strong>une personne sur cinq</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner la liberté de voyager.</p>
+
+    <h2>Vous reconnaissez-vous ?</h2>
+    <ul>
+      <li><strong>Anxiété paralysante</strong> — Rien qu'à l'idée de prendre l'avion, votre cœur s'emballe et vos mains tremblent</li>
+      <li><strong>Évitement des voyages</strong> — Vous refusez des opportunités professionnelles ou personnelles par peur de voler</li>
+      <li><strong>Dépendance aux médicaments</strong> — Vous ne pouvez pas imaginer voler sans anxiolytiques ou alcool</li>
+      <li><strong>Nuits blanches</strong> — Vous perdez le sommeil des semaines avant un vol programmé</li>
+      <li><strong>Crises de panique</strong> — Turbulences, décollage, atterrissage… votre corps réagit comme face à un danger réel</li>
+      <li><strong>Claustrophobie en cabine</strong> — L'espace confiné de l'avion déclenche une sensation d'étouffement insoutenable</li>
+    </ul>
+
+    <h2>Comment l'hypnose désactive la peur de l'avion</h2>
+    <p>L'aérophobie est un programme de protection installé par votre inconscient, souvent déclenché par un vol turbulent, un reportage marquant, ou parfois sans raison apparente. L'hypnose ericksonienne agit directement sur ce programme — sans avoir à revivre l'événement déclencheur, et sans exposition forcée à l'avion. Vous restez conscient et en contrôle pendant toute la séance.</p>
+    <ul>
+      <li>Identifier l'origine de la peur (vol turbulent, reportage, transmission familiale…)</li>
+      <li>Dissocier l'émotion de panique du contexte du vol (cabine, décollage, turbulences)</li>
+      <li>Créer de nouvelles associations positives liées à l'avion et au voyage</li>
+      <li>Ancrer un état de calme que vous pouvez activer à volonté avant et pendant le vol</li>
+      <li>Vous transmettre des techniques d'auto-hypnose pour rester serein en cabine</li>
+    </ul>
+
+    <h2>Exemples de parcours au cabinet</h2>
+    <h3>Aérophobie installée depuis 10 ans</h3>
+    <p>Thomas*, consultant international, refusait systématiquement les missions nécessitant un vol. Sa peur de l'avion, déclenchée par un vol très turbulent dix ans plus tôt, menaçait désormais sa carrière. En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir traumatique initial et installé un état de calme associé au vol. Thomas a repris l'avion le mois suivant pour un déplacement à Londres — sereinement.</p>
+    <h3>Crises de panique au décollage</h3>
+    <p>Sophie*, 35 ans, avait toujours pris l'avion sans difficulté jusqu'au jour où, sans raison apparente, elle a fait une crise de panique au décollage. En 4 séances d'hypnose ericksonienne, nous avons travaillé sur le déclencheur inconscient de cette crise initiale et reconstruit une association de sécurité avec le vol. Sophie a pu repartir en vacances aux Antilles, détendue.</p>
+    <h3>Peur transmise depuis l'enfance</h3>
+    <p>Julien*, 42 ans, n'avait jamais pris l'avion. Sa mère, terrorisée à l'idée de voler, lui avait transmis cette peur depuis l'enfance. En 3 séances, nous avons identifié les croyances inconscientes héritées et installé un nouveau rapport à l'avion. Julien a effectué son premier vol vers Rome deux mois plus tard, sans anxiolytique.</p>
+    <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
+
+    <h2>Résultats</h2>
+    <ul>
+      <li><strong>3 à 4 séances</strong> suffisent en moyenne pour vaincre la peur de l'avion</li>
+      <li><strong>85%</strong> des personnes accompagnées retrouvent la sérénité en vol</li>
+      <li><strong>Note 5/5</strong> sur Resalib et Google</li>
+    </ul>
+
+    <h2>Questions fréquentes sur la peur de l'avion</h2>
+    <h3>L'hypnose peut-elle remplacer les médicaments contre la peur de l'avion ?</h3>
+    <p>Oui, l'hypnose agit à la source émotionnelle de votre peur, là où les anxiolytiques n'offrent qu'un soulagement temporaire. L'hypnothérapie ericksonienne reprogramme votre inconscient pour désactiver la réaction de panique durablement, sans béquilles chimiques avant chaque vol.</p>
+    <h3>Combien de séances faut-il pour ne plus avoir peur de l'avion ?</h3>
+    <p>En moyenne, 3 à 4 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance. L'accompagnement est progressif : identification de l'origine, désensibilisation, ancrage de ressources et consolidation avant le vol.</p>
+    <h3>Faut-il avoir un vol prévu pour commencer l'hypnose ?</h3>
+    <p>Non, il vaut même mieux ne pas attendre. Vous pouvez commencer l'accompagnement à n'importe quel moment, même sans vol programmé. Cela laisse le temps à votre inconscient d'intégrer les changements en profondeur, sans pression.</p>
+
+    <h2>Autres spécialités</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Hypnose et phobies</a> — Toutes les phobies traitées en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Burn-out, crises d'angoisse, stress chronique</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Hypnose et sommeil</a> — Insomnie, réveils nocturnes</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour vaincre la peur de l'avion</a>
+    `,
+};
+
+PAGES["/hypnose-arachnophobie-paris"] = {
+  title: "Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-arachnophobie-paris",
+  h1: "Hypnose et arachnophobie — Libérez-vous de la peur des araignées à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose arachnophobie Paris",
+      description: "Traitement de l'arachnophobie (peur des araignées) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-arachnophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie arachnophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Arachnophobie", path: "/hypnose-arachnophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment faire disparaître la peur des araignées ?",
+        a: "Oui. L'arachnophobie est un programme inconscient appris — ce qui a été appris peut être désappris. L'hypnose ericksonienne accède directement à ce programme pour le reconfigurer. La plupart des arachnophobes traités constatent une transformation radicale en 2 à 3 séances.",
+      },
+      {
+        q: "Est-ce que je vais devoir toucher des araignées pendant les séances ?",
+        a: "Absolument pas. L'hypnose n'est pas de la thérapie par exposition. Vous restez dans votre fauteuil, en état de relaxation profonde, et nous travaillons uniquement sur votre représentation mentale. Aucune araignée n'est présente dans le cabinet.",
+      },
+      {
+        q: "Combien de séances pour se libérer de l'arachnophobie ?",
+        a: "En général, 2 à 3 séances suffisent. La plupart des patients constatent un changement significatif dès la deuxième séance.",
+      },
+    ]),
+  ],
+  content: `
+    <p>La simple vue d'une araignée vous glace d'effroi ? L'arachnophobie touche environ une personne sur quatre. L'hypnose ericksonienne neutralise cette peur à sa racine. Résultats en 2 à 3 séances.</p>
+
+    <h2>L'arachnophobie : plus qu'une simple peur</h2>
+    <p>L'arachnophobie est un programme inconscient installé à un moment de votre vie — souvent déclenché par un événement marquant ou transmis par un parent. Ce programme peut être reconfiguré par l'hypnose ericksonienne, sans exposition forcée aux araignées.</p>
+
+    <h2>Comment l'hypnose traite l'arachnophobie</h2>
+    <ul>
+      <li>Identifier le déclencheur initial (événement fondateur, transmission familiale)</li>
+      <li>Dissocier l'émotion de panique du stimulus visuel (l'araignée)</li>
+      <li>Reconfigurer la réponse automatique : de la panique à l'indifférence</li>
+      <li>Ancrer un état de calme face aux araignées</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, peur de parler en public</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter l'arachnophobie</a>
+    `,
+};
+
+PAGES["/hypnose-acrophobie-paris"] = {
+  title: "Hypnose acrophobie (peur du vide) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, hauteurs — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-acrophobie-paris",
+  h1: "Hypnose et acrophobie — Libérez-vous de la peur du vide à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose acrophobie Paris",
+      description: "Traitement de l'acrophobie (peur du vide et des hauteurs) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-acrophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie acrophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Acrophobie", path: "/hypnose-acrophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'acrophobie est-elle différente du vertige ?",
+        a: "Oui. Le vertige est une sensation physique due à un problème d'oreille interne. L'acrophobie est une peur phobique — une réaction émotionnelle intense à la perception du vide. L'hypnose traite l'acrophobie (la peur) mais pas le vertige d'origine vestibulaire.",
+      },
+      {
+        q: "Combien de séances pour se débarrasser de la peur du vide ?",
+        a: "En général, 2 à 4 séances suffisent. La plupart des acrophobes ressentent un changement significatif dès la deuxième séance.",
+      },
+      {
+        q: "Est-ce que je vais devoir aller sur un balcon pendant les séances ?",
+        a: "Non. Nous travaillons entièrement dans le cabinet, en état de relaxation profonde, sur votre représentation mentale de la hauteur. Pas d'exposition réelle.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Balcon bloqué, escaliers en verre, falaises, ponts… La peur du vide (acrophobie) vous empêche de profiter pleinement de votre vie ? L'hypnose ericksonienne désactive cette peur à sa racine. Résultats en 2 à 4 séances.</p>
+
+    <h2>L'acrophobie : bien plus qu'un vertige</h2>
+    <p>L'acrophobie est une réaction émotionnelle intense déclenchée par la perception du vide, parfois même à faible hauteur. Ce n'est pas la hauteur elle-même qui est problématique, mais la manière dont votre inconscient a codé une expérience passée comme dangereuse. Ce programme peut être reconfiguré par l'hypnose.</p>
+
+    <h2>Comment l'hypnose traite l'acrophobie</h2>
+    <ul>
+      <li>Identifier l'événement fondateur de la peur du vide dans votre histoire</li>
+      <li>Dissocier la réaction de panique de la perception du vide ou de la hauteur</li>
+      <li>Reconfigurer votre réponse automatique : de la panique à la vigilance calme</li>
+      <li>Ancrer un état de stabilité et de confiance face au vide</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du vide</a>
+    `,
+};
+
+PAGES["/hypnose-claustrophobie-paris"] = {
+  title: "Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-claustrophobie-paris",
+  h1: "Hypnose et claustrophobie — Libérez-vous de la peur des espaces clos à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose claustrophobie Paris",
+      description: "Traitement de la claustrophobie (peur des espaces clos) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-claustrophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie claustrophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Claustrophobie", path: "/hypnose-claustrophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
+        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des patients constatent une transformation en 2 à 4 séances.",
+      },
+      {
+        q: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
+        a: "C'est l'une des situations les plus fréquentes que je traite. L'hypnose peut vous permettre de passer une IRM sereinement, souvent en 1 à 2 séances si l'examen est urgent.",
+      },
+      {
+        q: "Est-ce que les séances d'hypnose se déroulent dans un espace confiné ?",
+        a: "Non. Le cabinet est un espace confortable et ouvert. Vous n'êtes jamais enfermé. Nous travaillons uniquement sur votre représentation mentale, en état de relaxation profonde.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Ascenseurs, IRM, avions, sous-terrains… La claustrophobie vous contraint à des contorsions quotidiennes pour éviter tout espace confiné ? L'hypnose ericksonienne neutralise cette peur à sa racine. Résultats en 2 à 4 séances.</p>
+
+    <h2>La claustrophobie : une prison invisible</h2>
+    <p>La claustrophobie est la peur des espaces clos, confinés ou sans issue de sortie visible. Dans la plupart des cas, elle naît d'une expérience traumatisante (ascenseur bloqué, enfermement accidentel) ou d'une transmission familiale. L'hypnose permet de reprogrammer cette réponse automatique rapidement.</p>
+
+    <h2>Comment l'hypnose traite la claustrophobie</h2>
+    <ul>
+      <li>Identifier le contexte dans lequel la claustrophobie s'est installée</li>
+      <li>Dissocier la sensation d'étouffement du stimulus (l'espace fermé)</li>
+      <li>Créer de nouvelles associations — espace confiné = calme et contrôle</li>
+      <li>Ancrer un état de sécurité intérieure activable dans toute situation</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, acrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la claustrophobie</a>
+    `,
+};
+
+PAGES["/hypnose-peur-parler-public-paris"] = {
+  title: "Hypnose peur de parler en public Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances.",
+  canonicalPath: "/hypnose-peur-parler-public-paris",
+  h1: "Hypnose et peur de parler en public — Retrouvez l'aisance à l'oral à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de parler en public Paris",
+      description: "Traitement de la peur de parler en public (glossophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-parler-public-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie glossophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de parler en public", path: "/hypnose-peur-parler-public-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle supprimer complètement le trac ?",
+        a: "L'objectif n'est pas de supprimer tout trac — un peu d'adrénaline est utile. L'hypnose vise à transformer le trac paralysant en énergie productive. Vous garderez une légère activation, mais sans les symptômes envahissants (trous de mémoire, voix chevrotante, tremblements).",
+      },
+      {
+        q: "Combien de séances pour vaincre la peur de parler en public ?",
+        a: "En général, 3 à 5 séances. Les premières séances travaillent sur l'origine de la peur et la désensibilisation. Les suivantes ancrent un état de confiance et des automatismes de performance.",
+      },
+      {
+        q: "Est-ce que ça marche si j'ai une présentation importante dans deux semaines ?",
+        a: "Oui. Si l'échéance est proche, nous organisons des séances rapprochées. Je vous transmets aussi des techniques d'auto-hypnose que vous pouvez utiliser le jour J pour rester centré.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de trois personnes sur quatre. L'hypnose ericksonienne agit à la racine de cette peur. Résultats en 3 à 5 séances.</p>
+
+    <h2>La peur de parler en public : une compétence à reconstruire</h2>
+    <p>Ce n'est pas un manque de préparation ou de compétence : c'est un programme de survie que votre inconscient a codé autour du jugement des autres. L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction de panique par un état de confiance activable à volonté.</p>
+
+    <h2>Comment l'hypnose traite la peur de parler en public</h2>
+    <ul>
+      <li>Identifier l'expérience fondatrice qui a installé la peur du jugement public</li>
+      <li>Dissocier la prise de parole de la menace perçue (humiliation, rejet)</li>
+      <li>Ancrer un état de confiance et de présence activable avant chaque intervention</li>
+      <li>Travailler sur l'estime de soi et la confiance en votre expertise</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Trac et anxiété sociale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de parler en public</a>
+    `,
+};
+
+PAGES["/hypnose-peur-dentiste-paris"] = {
+  title: "Hypnose peur du dentiste (odontophobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur du dentiste par l'hypnose à Paris 4ème ou en visio. Odontophobie, angoisse du fauteuil — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-peur-dentiste-paris",
+  h1: "Hypnose et peur du dentiste — Soignez vos dents sans angoisse à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur du dentiste Paris",
+      description: "Traitement de la peur du dentiste (odontophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-dentiste-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie odontophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur du dentiste", path: "/hypnose-peur-dentiste-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment m'aider à aller chez le dentiste ?",
+        a: "Oui. La peur du dentiste est un programme inconscient que l'hypnose permet de désactiver directement. Contrairement aux anxiolytiques qui masquent la peur le temps d'un soin, l'hypnose agit sur l'origine même de cette phobie pour un changement durable.",
+      },
+      {
+        q: "Combien de séances faut-il pour ne plus avoir peur du dentiste ?",
+        a: "En moyenne, 2 à 4 séances suffisent. La première séance identifie l'origine de la peur et travaille la désensibilisation. Les suivantes ancrent un état de calme associé au cabinet dentaire et vous transmettent des techniques d'auto-hypnose à utiliser sur le fauteuil.",
+      },
+      {
+        q: "Et si j'ai aussi un fort réflexe nauséeux ?",
+        a: "Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété, beaucoup de patients voient leur réflexe nauséeux considérablement réduit dès les premières séances.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Des années sans soins, des caries laissées sans traitement, des douleurs ignorées… La peur du dentiste (odontophobie) touche près d'<strong>une personne sur cinq</strong> en France. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de vous soigner sereinement. Résultats en 2 à 4 séances.</p>
+
+    <h2>Pourquoi la peur du dentiste s'installe</h2>
+    <p>Une mauvaise expérience passée, une douleur vive, un praticien peu attentif à votre inconfort… Votre inconscient a créé un programme de protection pour vous éviter de revivre cette expérience. Le problème : ce programme se déclenche même quand vous n'êtes plus en danger. L'hypnose permet de <strong>reprogrammer cette réaction automatique</strong> en profondeur.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Angoisse anticipatoire</strong> — Les nuits blanches avant le rendez-vous</li>
+      <li><strong>Peur de la douleur</strong> — L'anticipation de la souffrance plus forte que la réalité</li>
+      <li><strong>Réflexe nauséeux</strong> — Souvent d'origine psychosomatique, très réceptif à l'hypnose</li>
+      <li><strong>Panique en salle d'attente</strong> — Les odeurs, les sons qui déclenchent l'angoisse</li>
+      <li><strong>Méfiance de l'anesthésie</strong> — Peur que ça ne fasse pas effet</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur du dentiste</h2>
+    <ul>
+      <li>Identifier l'expérience fondatrice qui a installé la peur</li>
+      <li>Désensibiliser les déclencheurs (bruit de la fraise, odeur du cabinet, position inclinée)</li>
+      <li>Créer de nouvelles associations de calme et de sécurité liées aux soins dentaires</li>
+      <li>Ancrer un état de relaxation profonde activable à volonté sur le fauteuil</li>
+      <li>Vous enseigner des techniques de respiration et d'auto-hypnose</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-aiguilles-paris">Peur des aiguilles</a> — Bélonéphobie, prises de sang, vaccins</li>
+      <li><a href="${SITE_URL}/hypnose-peur-sang-paris">Peur du sang</a> — Hématophobie, malaises, évanouissements</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du dentiste</a>
+    `,
+};
+
+PAGES["/hypnose-peur-aiguilles-paris"] = {
+  title: "Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Prises de sang, vaccins, perfusions — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-peur-aiguilles-paris",
+  h1: "Hypnose et peur des aiguilles — Prises de sang et vaccins sans angoisse à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur des aiguilles Paris",
+      description: "Traitement de la peur des aiguilles (bélonéphobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-aiguilles-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie bélonéphobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur des aiguilles", path: "/hypnose-peur-aiguilles-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à supporter les prises de sang ?",
+        a: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver. Beaucoup de patients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances.",
+      },
+      {
+        q: "Combien de séances pour ne plus avoir peur des aiguilles ?",
+        a: "En moyenne, 2 à 3 séances suffisent pour obtenir des résultats significatifs. Certaines personnes ressentent un changement dès la première séance. Je vous transmets également des techniques d'auto-hypnose que vous pouvez utiliser au moment du soin.",
+      },
+      {
+        q: "L'hypnose peut-elle aussi traiter le malaise vagal ?",
+        a: "Oui. Le malaise vagal déclenché par la vue d'une aiguille ou d'une seringue est souvent lié à une réaction phobique. En désensibilisant cette réaction au niveau inconscient, l'hypnose permet dans beaucoup de cas d'éliminer le malaise vagal associé.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Malaise vagal à la vue d'une seringue, refus de vaccins essentiels, bilans sanguins reportés depuis des années… La peur des aiguilles (bélonéphobie) touche environ <strong>10% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de vous faire soigner sans angoisse. Résultats en 2 à 3 séances.</p>
+
+    <h2>Pourquoi la peur des aiguilles peut être grave</h2>
+    <p>Contrairement à d'autres phobies, la peur des aiguilles peut avoir des conséquences médicales directes : bilans sanguins évités, vaccinations refusées, traitements intraveineux impossibles à supporter. Cette phobie peut empêcher de recevoir des soins essentiels. L'hypnose permet de <strong>rompre ce cercle</strong> rapidement.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Malaise vagal</strong> — La syncope ou pré-syncope à la vue d'une aiguille</li>
+      <li><strong>Panique anticipatoire</strong> — L'angoisse qui monte des jours avant le soin</li>
+      <li><strong>Refus de vaccinations</strong> — Impossibilité de se faire vacciner</li>
+      <li><strong>Perfusions et hospitalisations</strong> — Soins intraveineux vécus comme un supplice</li>
+      <li><strong>Transmission à ses enfants</strong> — Briser la chaîne de cette peur héritée</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur des aiguilles</h2>
+    <ul>
+      <li>Identifier l'origine de la peur (mauvaise expérience, malaise passé, transmission)</li>
+      <li>Désensibiliser la réaction phobique à la vue d'une seringue ou d'une aiguille</li>
+      <li>Inhiber la réponse vagale inconsciente déclenchant le malaise</li>
+      <li>Ancrer un état de calme associé aux soins par injection</li>
+      <li>Vous enseigner des techniques d'auto-hypnose pour les soins futurs</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-dentiste-paris">Peur du dentiste</a> — Odontophobie, angoisse du fauteuil</li>
+      <li><a href="${SITE_URL}/hypnose-peur-sang-paris">Peur du sang</a> — Hématophobie, malaises, évanouissements</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur des aiguilles</a>
+    `,
+};
+
+PAGES["/hypnose-peur-sang-paris"] = {
+  title: "Hypnose peur du sang (hématophobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur du sang par l'hypnose à Paris 4ème ou en visio. Hématophobie, malaises, évanouissements — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-peur-sang-paris",
+  h1: "Hypnose et peur du sang — Reprenez le contrôle face au sang à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur du sang Paris",
+      description: "Traitement de la peur du sang (hématophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-sang-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie hématophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur du sang", path: "/hypnose-peur-sang-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à ne plus faire de malaise face au sang ?",
+        a: "Oui. La peur du sang déclenche une réaction dite vasovagale — une chute brusque de la pression artérielle qui provoque le malaise. Cette réaction est un programme inconscient que l'hypnose peut désactiver en agissant directement sur le système nerveux autonome.",
+      },
+      {
+        q: "Combien de séances pour ne plus avoir peur du sang ?",
+        a: "En moyenne, 2 à 3 séances permettent d'obtenir des résultats significatifs. La première séance identifie l'origine et désensibilise la réaction phobique. Les suivantes ancrent un nouvel état de neutralité face au sang.",
+      },
+      {
+        q: "Ma peur du sang m'empêche de pratiquer ma profession médicale. L'hypnose peut-elle aider ?",
+        a: "Oui, c'est un cas que je traite régulièrement. Étudiants en médecine, aides-soignants, infirmiers — certains professionnels de santé développent une peur du sang qui menace leur carrière. L'hypnose permet de désensibiliser cette réaction spécifiquement, sans toucher aux autres aspects de votre pratique.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Malaise ou évanouissement à la vue du sang, impossibilité de regarder certaines scènes de films, soins médicaux vécus comme une épreuve… La peur du sang (hématophobie) touche environ <strong>3 à 4% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour que vous repreniez le contrôle. Résultats en 2 à 3 séances.</p>
+
+    <h2>Une peur aux conséquences médicales réelles</h2>
+    <p>L'hématophobie est particulière : contrairement à la plupart des phobies qui déclenchent une montée d'adrénaline, la peur du sang peut provoquer une chute brusque de pression artérielle (réflexe vasovagal) menant à l'évanouissement. Cette réaction est un programme inconscient que votre cerveau a installé — et que l'hypnose peut reprogrammer.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Malaise ou évanouissement</strong> — La réaction vasovagale déclenchée par la vue du sang</li>
+      <li><strong>Évitement médical</strong> — Refus de soins par peur de saigner</li>
+      <li><strong>Impossibilité de certains métiers</strong> — Soignants, secouristes limités par cette phobie</li>
+      <li><strong>Angoisse des blessures banales</strong> — Coupures, égratignures vécues comme une catastrophe</li>
+      <li><strong>Restrictions quotidiennes</strong> — Films, informations, même certaines images</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur du sang</h2>
+    <ul>
+      <li>Identifier l'origine de la phobie (choc visuel, malaise passé, expérience traumatique)</li>
+      <li>Inhiber la réponse vasovagale inconsciente au niveau du système nerveux autonome</li>
+      <li>Désensibiliser progressivement les stimuli déclencheurs (vue du sang, scènes médicales)</li>
+      <li>Ancrer un état de neutralité et de contrôle face à ces situations</li>
+      <li>Vous enseigner des techniques d'auto-régulation pour les situations à risque</li>
+    </ul>
+
+    <h2>Peurs médicales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-dentiste-paris">Peur du dentiste</a> — Odontophobie, angoisse du fauteuil</li>
+      <li><a href="${SITE_URL}/hypnose-peur-aiguilles-paris">Peur des aiguilles</a> — Bélonéphobie, prises de sang, vaccins</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété médicale générale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du sang</a>
+    `,
+};
+
+PAGES["/hypnose-aquaphobie-paris"] = {
+  title: "Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti",
+  description: "Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-aquaphobie-paris",
+  h1: "Hypnose et peur de l'eau — Renouez sereinement avec l'eau à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de l'eau Paris",
+      description: "Traitement de la peur de l'eau (aquaphobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-aquaphobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie aquaphobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de l'eau", path: "/hypnose-aquaphobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle m'aider à mettre la tête sous l'eau ?",
+        a: "Oui. La peur de mettre la tête sous l'eau est l'une des manifestations les plus fréquentes de l'aquaphobie. L'hypnose désensibilise cette réaction au niveau inconscient et installe un état de calme associé à l'immersion. La plupart des personnes accompagnées parviennent à immerger leur visage sereinement en 2 à 3 séances.",
+      },
+      {
+        q: "Combien de séances pour vaincre la peur de l'eau ?",
+        a: "En moyenne, 2 à 4 séances suffisent pour obtenir des résultats significatifs. La progression dépend de l'objectif : retrouver de la sérénité à la piscine, apprendre à nager, ou se baigner en mer profonde. Un programme personnalisé est défini lors de la première séance.",
+      },
+      {
+        q: "Faut-il savoir nager pour commencer ?",
+        a: "Non. Beaucoup de personnes que j'accompagne ne savent pas nager ou n'ont jamais osé apprendre à cause de cette peur. L'hypnose vous prépare à reprendre confiance dans l'eau — l'apprentissage de la natation peut ensuite se faire avec un maître-nageur, dans des conditions psychologiques transformées.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Impossible de mettre la tête sous l'eau, refus de la piscine et de la plage, panique dès que vous n'avez plus pied… La peur de l'eau (aquaphobie) touche près de <strong>15% des adultes</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de renouer sereinement avec l'eau. Résultats en 2 à 4 séances.</p>
+
+    <h2>Pourquoi la peur de l'eau s'installe</h2>
+    <p>Une expérience d'immersion mal vécue dans l'enfance, une noyade évitée de justesse, un cours de natation traumatisant, ou parfois aucune raison consciente identifiable… Votre inconscient a installé un programme de protection autour de l'eau. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur et durablement.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Peur de mettre la tête sous l'eau</strong> — Même dans la baignoire ou la piscine peu profonde</li>
+      <li><strong>Panique en eau profonde</strong> — Dès que vous n'avez plus pied, le corps se bloque</li>
+      <li><strong>Refus de la mer et des activités nautiques</strong> — Vacances limitées, opportunités évitées</li>
+      <li><strong>Impossibilité d'apprendre à nager</strong> — Blocage adulte malgré plusieurs tentatives</li>
+      <li><strong>Cours de natation à transmettre à ses enfants</strong> — Briser la chaîne de la peur</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur de l'eau</h2>
+    <ul>
+      <li>Identifier l'origine de l'aquaphobie (immersion forcée, noyade, transmission, sans cause apparente)</li>
+      <li>Désensibiliser la réaction phobique aux différents contextes aquatiques</li>
+      <li>Dissocier l'eau du sentiment de danger et de perte de contrôle</li>
+      <li>Ancrer un état de calme et de confiance activable avant et pendant le contact avec l'eau</li>
+      <li>Vous enseigner des techniques de respiration et d'auto-hypnose</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de l'eau</a>
+    `,
+};
+
+PAGES["/hypnose-amaxophobie-paris"] = {
+  title: "Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti",
+  description: "Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-amaxophobie-paris",
+  h1: "Hypnose et peur de conduire — Reprenez le volant en confiance à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de conduire Paris",
+      description: "Traitement de la peur de conduire (amaxophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-amaxophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie amaxophobie",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de conduire", path: "/hypnose-amaxophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider après un accident de voiture ?",
+        a: "Oui, c'est même l'un des cas où elle est particulièrement efficace. Un accident laisse une empreinte traumatique dans votre inconscient qui déclenche automatiquement la peur au volant. L'hypnose ericksonienne neutralise cette empreinte sans que vous ayez à revivre consciemment l'accident.",
+      },
+      {
+        q: "Combien de séances pour retrouver confiance au volant ?",
+        a: "En moyenne, 2 à 4 séances suffisent pour obtenir des résultats significatifs. La première séance identifie l'origine de l'amaxophobie et initie le travail de désensibilisation. Les séances suivantes consolident le nouvel état de confiance et l'ancrent durablement.",
+      },
+      {
+        q: "J'ai peur uniquement sur autoroute. L'hypnose peut-elle cibler cette peur précise ?",
+        a: "Absolument. L'amaxophobie se manifeste souvent dans des contextes spécifiques : autoroute, tunnel, rond-point, conduite de nuit, passagers à bord. L'hypnose travaille précisément sur les situations qui déclenchent votre peur et installe un état de calme spécifique à chaque contexte.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Panique sur autoroute, évitement du volant depuis des mois, séquelles d'un accident… La peur de conduire (amaxophobie) touche des millions de conducteurs en France. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de reprendre la route sereinement. <strong>Résultats en 2 à 4 séances.</strong></p>
+
+    <h2>Pourquoi la peur de conduire s'installe</h2>
+    <p>Un accident, une frayeur intense, une longue période sans conduire, ou parfois aucune cause consciente identifiable… Votre inconscient a installé un programme de protection autour de la conduite. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur et durablement — sans exposition forcée à la conduite.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Panique sur autoroute</strong> — Vitesse, dépassements, sorties impossibles</li>
+      <li><strong>Évitement total du volant</strong> — Des mois ou des années sans conduire</li>
+      <li><strong>Anxiété avec des passagers</strong> — Pression de responsabilité, refus de conduire en compagnie</li>
+      <li><strong>Peur des tunnels et ronds-points</strong> — Contextes spécifiques déclencheurs</li>
+      <li><strong>Séquelles après un accident</strong> — Flash traumatique qui paralyse les réflexes</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la peur de conduire</h2>
+    <ul>
+      <li>Identifier l'origine de l'amaxophobie (accident, frayeur, longue pause)</li>
+      <li>Neutraliser l'empreinte traumatique sans la revivre consciemment</li>
+      <li>Désensibiliser les contextes spécifiques déclencheurs</li>
+      <li>Ancrer un état de calme et de confiance activable au volant</li>
+      <li>Reconstruire une image positive de soi en tant que conducteur(trice)</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-phobie-sociale-paris">Phobie sociale</a> — Peur du jugement et des interactions</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de conduire</a>
+    `,
+};
+
+PAGES["/hypnose-phobie-sociale-paris"] = {
+  title: "Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale",
+  description: "Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale — résultats durables en 3 à 5 séances.",
+  canonicalPath: "/hypnose-phobie-sociale-paris",
+  h1: "Hypnose et phobie sociale — Retrouvez le plaisir des interactions à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose phobie sociale Paris",
+      description: "Traitement de la phobie sociale (anxiété sociale) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-phobie-sociale-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie phobie sociale",
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+        name: "Au cabinet Paris 4ème ou en visioconférence (Google Meet)",
+      },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Phobie sociale", path: "/hypnose-phobie-sociale-paris" },
+    ]),
+    faqLd([
+      {
+        q: "La phobie sociale est-elle différente de la timidité ?",
+        a: "Oui. La timidité est un trait de personnalité inconfortable mais qui ne limite pas véritablement la vie. La phobie sociale est une peur intense et persistante des situations d'interaction qui génère des symptômes physiques — rougissement, transpiration, tremblements — et entraîne un évitement systématique.",
+      },
+      {
+        q: "Combien de séances d'hypnose pour traiter la phobie sociale ?",
+        a: "En moyenne, 3 à 5 séances permettent d'obtenir des résultats significatifs et durables. La première séance identifie l'origine de la peur du jugement. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale.",
+      },
+      {
+        q: "L'hypnose peut-elle aider si je rougis dès que je parle en public ?",
+        a: "Oui. Le rougissement (érythrophobie) est l'une des manifestations les plus fréquentes de la phobie sociale. Il résulte d'une réaction du système nerveux autonome déclenchée par l'anticipation du jugement. L'hypnose agit directement sur ce mécanisme inconscient pour dissocier la situation sociale de la réaction physiologique.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Peur intense du jugement, rougissement incontrôlable, évitement des repas et des réunions… La phobie sociale touche environ <strong>13% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de retrouver le plaisir des interactions. <strong>Résultats en 3 à 5 séances.</strong></p>
+
+    <h2>Pourquoi la phobie sociale s'installe</h2>
+    <p>Une expérience humiliante, un regard social trop exigeant dans l'enfance, une critique répétée… Votre inconscient a installé un programme de protection autour des interactions sociales. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur — sans exposition forcée aux situations redoutées.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Peur intense du jugement</strong> — Certitude d'être observé et évalué négativement</li>
+      <li><strong>Rougissement incontrôlable</strong> — Érythrophobie qui amplifie l'anxiété</li>
+      <li><strong>Évitement des repas et réunions</strong> — Isolation progressive</li>
+      <li><strong>Tremblements et voix qui tremble</strong> — Symptômes physiques visibles qui aggravent la honte</li>
+      <li><strong>Ruminations après chaque interaction</strong> — Rejouer mentalement les conversations pendant des heures</li>
+    </ul>
+
+    <h2>Comment l'hypnose traite la phobie sociale</h2>
+    <ul>
+      <li>Identifier l'origine de la phobie (humiliation, regard critique, comparaison sociale)</li>
+      <li>Neutraliser les croyances inconscientes autour du jugement des autres</li>
+      <li>Désensibiliser les situations spécifiques déclencheurs (repas, réunions, conversations)</li>
+      <li>Ancrer un état naturel d'aisance et de confiance en situation sociale</li>
+      <li>Techniques d'auto-hypnose pour les moments d'anxiété anticipatoire</li>
+    </ul>
+
+    <h2>Autres phobies et problématiques sociales traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie, trac, exposés</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur, timidité</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Anxiété généralisée</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la phobie sociale</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

@@ -151,6 +151,50 @@
   path = "/hypnose-en-ligne"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/peurdelavion"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-arachnophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-acrophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-claustrophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-parler-public-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-dentiste-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-aiguilles-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-sang-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-aquaphobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-amaxophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-phobie-sociale-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
@@ -440,13 +484,14 @@
   status = 200
   force = true
 
-# Fichiers HTML statiques ne doivent pas être redirigés
+# Ancienne page statique /peurdelavion.html → route React /peurdelavion
 [[redirects]]
   from = "/peurdelavion.html"
-  to = "/peurdelavion.html"
-  status = 200
+  to = "/peurdelavion"
+  status = 301
   force = true
 
+# Fichiers HTML statiques ne doivent pas être redirigés
 [[redirects]]
   from = "/peur-avion-maquette.html"
   to = "/peur-avion-maquette.html"
