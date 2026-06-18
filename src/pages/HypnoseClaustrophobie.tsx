@@ -5,38 +5,59 @@ import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
-import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const HypnosePhobiesParis = () => {
+const claustrophobieFaqItems = [
+  {
+    question: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
+    answer: "Oui. La claustrophobie est un programme inconscient appris — et tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des patients constatent une transformation significative en 2 à 4 séances."
+  },
+  {
+    question: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
+    answer: "C'est l'une des situations les plus fréquentes et les plus urgentes que je traite. L'hypnose peut vous permettre de passer une IRM sereinement, souvent en 1 à 2 séances si l'examen est urgent. Contactez-moi en précisant votre délai, nous organiserons un accompagnement adapté."
+  },
+  {
+    question: "Est-ce que les séances d'hypnose se déroulent dans un espace confiné ?",
+    answer: "Non. Le cabinet est un espace confortable et ouvert. Vous n'êtes jamais enfermé, et la porte reste accessible. Nous travaillons uniquement sur votre représentation mentale, en état de relaxation profonde."
+  },
+  {
+    question: "Ma claustrophobie est liée à un accident d'ascenseur — est-ce traitable ?",
+    answer: "Oui. La claustrophobie d'origine traumatique (ascenseur bloqué, enfermement accidentel) est l'une des formes les plus courantes. L'hypnose permet de retraiter le souvenir traumatique à distance émotionnelle, sans le revivre, pour neutraliser l'empreinte qu'il a laissée."
+  },
+  {
+    question: "La claustrophobie peut-elle se développer à l'âge adulte ?",
+    answer: "Oui. Elle peut apparaître à tout âge, souvent après un événement déclencheur (ascenseur bloqué, accident, intervention médicale traumatisante). L'hypnose est efficace quelle que soit l'ancienneté de la phobie."
+  },
+  {
+    question: "Les séances en visio sont-elles possibles pour la claustrophobie ?",
+    answer: "Oui. L'hypnose en visio est aussi efficace qu'en cabinet pour la claustrophobie. Vous êtes dans votre propre espace, en sécurité, et je vous guide dans un état hypnotique profond. De nombreux patients claustrophobes ont été traités intégralement en téléconsultation."
+  }
+];
+
+const HypnoseClaustrophobie = () => {
   const { openResalibPopup } = useResalibPopup();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Hypnose pour les phobies à Paris",
-    "description": "Traitement des phobies et des peurs par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille. Résultats rapides en 2 à 4 séances.",
-    "url": "https://novahypnose.fr/hypnose-phobies-paris",
+    "name": "Hypnose claustrophobie Paris",
+    "description": "Traitement de la claustrophobie (peur des espaces clos) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+    "url": "https://novahypnose.fr/hypnose-claustrophobie-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
       { "@type": "City", "name": "Paris" },
       { "@type": "Country", "name": "France" }
     ],
-    "serviceType": "Hypnothérapie phobies",
+    "serviceType": "Hypnothérapie claustrophobie",
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
       "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "90",
-      "priceCurrency": "EUR"
     }
   };
 
@@ -45,51 +66,50 @@ const HypnosePhobiesParis = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
-      { "@type": "ListItem", "position": 2, "name": "Hypnose phobies Paris", "item": "https://novahypnose.fr/hypnose-phobies-paris" }
+      { "@type": "ListItem", "position": 2, "name": "Phobies et peurs", "item": "https://novahypnose.fr/hypnose-phobies-paris" },
+      { "@type": "ListItem", "position": 3, "name": "Claustrophobie", "item": "https://novahypnose.fr/hypnose-claustrophobie-paris" }
     ]
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": phobiesFaqItems.map(item => ({
+    "mainEntity": claustrophobieFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
     }))
   };
 
-  const phobies: { title: string; desc: string; href?: string }[] = [
-    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique", href: "/peurdelavion" },
-    { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement", href: "/hypnose-claustrophobie-paris" },
-    { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension", href: "/hypnose-arachnophobie-paris" },
-    { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle", href: "/hypnose-acrophobie-paris" },
-    { title: "Peur de parler en public", desc: "Présentations, réunions, oral… exprimez-vous avec aisance", href: "/hypnose-peur-parler-public-paris" },
-    { title: "Phobie sociale", desc: "Retrouvez le plaisir des interactions et de la vie en société" },
-    { title: "Peur de conduire (amaxophobie)", desc: "Reprenez le volant en toute confiance" },
-    { title: "Autres phobies", desc: "Peur du sang, des aiguilles, de l'eau, du dentiste…" }
+  const manifestations = [
+    { title: "Angoisse dans les ascenseurs", desc: "Vous prenez systématiquement les escaliers, parfois jusqu'au 15ème étage, pour éviter l'ascenseur" },
+    { title: "IRM impossible", desc: "Vous avez déjà refusé ou interrompu un examen médical par IRM à cause de la claustrophobie" },
+    { title: "Métro et RER", desc: "Les rames bondées ou les tunnels longs déclenchent une sensation d'étouffement insupportable" },
+    { title: "Difficultés en avion", desc: "La cabine pressurisée déclenche une anxiété qui s'ajoute à votre gêne à bord" },
+    { title: "Lieux bondés ou étroits", desc: "Foules, caves, couloirs étroits, cabines téléphoniques — tout espace sans issue visible vous angoisse" },
+    { title: "Impossibilité de rester seul dans une pièce fermée", desc: "Vous devez laisser une porte entrouverte pour ne pas paniquer" },
   ];
 
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
-        <meta name="keywords" content="hypnose phobie paris, hypnose peur paris, phobie avion hypnose paris, claustrophobie hypnose, arachnophobie hypnose paris, peur parler public hypnose paris, traitement phobie paris, hypnose phobie en ligne, séance hypnose phobie visio France, hypnose peur à distance, téléconsultation hypnose phobie" />
-        <link rel="canonical" href="https://novahypnose.fr/hypnose-phobies-paris" />
-        <meta property="og:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <title>Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti</title>
+        <meta name="description" content="Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro, avion — résultats durables en 2 à 4 séances." />
+        <meta name="keywords" content="hypnose claustrophobie paris, peur espaces clos hypnose, traitement claustrophobie, vaincre claustrophobie hypnose, hypnothérapeute claustrophobie paris, hypnose peur enfermement, claustrophobie hypnose en ligne" />
+        <link rel="canonical" href="https://novahypnose.fr/hypnose-claustrophobie-paris" />
+        <meta property="og:title" content="Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti" />
+        <meta property="og:description" content="Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro, avion — résultats durables en 2 à 4 séances." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://novahypnose.fr/hypnose-phobies-paris" />
+        <meta property="og:url" content="https://novahypnose.fr/hypnose-claustrophobie-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose phobies et peurs" />
+        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose claustrophobie" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose phobies & peurs à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos phobies par l'hypnose à Paris 4ème ou en visio partout en France. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€." />
+        <meta name="twitter:title" content="Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro, avion — résultats durables en 2 à 4 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -104,23 +124,18 @@ const HypnosePhobiesParis = () => {
             <g filter="url(#riso-full)">
               <path d="M 200 60 C 400 20, 700 60, 900 160 C 1040 230, 1150 240, 1280 180 C 1360 140, 1440 170, 1440 250 L 1440 0 L 0 0 L 0 200 C 60 130, 130 80, 200 60 Z" fill="#F2A12E" opacity="0.9" />
             </g>
-            <g filter="url(#riso-full)" style={{mixBlendMode:'multiply'}}>
+            <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
               <path d="M 0 720 C 200 660, 500 640, 800 680 C 1100 720, 1280 700, 1440 740 L 1440 900 L 0 900 Z" fill="#2B4BA0" opacity="0.88" />
             </g>
             <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
           </svg>
         </div>
         <div className="container sp-hero__inner reveal">
-          <div className="tag">Phobies &amp; Peurs — Paris</div>
+          <div className="tag">Claustrophobie — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de vos peurs<br/><em>pour de bon</em>
+            Libérez-vous de la claustrophobie
           </h1>
-          <p className="sp-hero__lead">
-            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>, des araignées, du vide, des espaces clos, de parler en public…
-            Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-            efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
-            Paris 4ème ou en <strong>visio partout en France</strong>.
-          </p>
+          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Ascenseurs, IRM, avions, sous-terrains, cabines de douche… La claustrophobie vous contraint à des contorsions quotidiennes pour éviter tout espace confiné ? Cette phobie touche environ <strong>5 à 7% de la population</strong>. L'hypnose ericksonienne neutralise cette peur à sa racine. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
@@ -136,20 +151,22 @@ const HypnosePhobiesParis = () => {
         <div className="container">
           <div className="cabinet__grid reveal">
             <div className="cabinet__copy">
-              <div className="section-tag">Phobies — comprendre</div>
-              <h2 className="section-title">Une phobie<br/><em>vous gâche la vie ?</em></h2>
+              <div className="section-tag">Claustrophobie — comprendre</div>
+              <h2 className="section-title">La claustrophobie,<br/><em>une prison invisible ?</em></h2>
               <p>
-                Vous évitez certaines situations par peur. Vous annulez des voyages, vous refusez des opportunités,
-                vous arrangez votre vie entière autour de cette peur. Vous savez que c'est irrationnel — mais
-                c'est plus fort que vous.
+                La claustrophobie est la peur des espaces clos, confinés ou sans issue de sortie visible.
+                C'est l'une des phobies les plus invalidantes au quotidien, car les situations
+                déclencheuses sont omniprésentes : transports, médecine, travail, logement.
               </p>
               <p>
-                La phobie est un mécanisme de protection que votre inconscient a mis en place, souvent à la suite
-                d'une expérience marquante. La bonne nouvelle : <strong>ce qui a été appris peut être désappris</strong>.
+                Dans la plupart des cas, la claustrophobie naît d'une expérience traumatisante (enfermement
+                accidentel, ascenseur bloqué, situation d'urgence) ou d'une transmission familiale. Elle
+                active un mécanisme de survie disproportionné — votre inconscient perçoit l'espace confiné
+                comme une menace vitale.
               </p>
               <p>
-                L'hypnose permet de reprogrammer cette réaction automatique rapidement, sans avoir à revivre
-                l'événement traumatisant, et sans exposition forcée à l'objet de votre peur.
+                L'hypnose permet de reprogrammer cette réponse automatique, sans avoir à revivre
+                l'événement fondateur, et sans exposition forcée aux situations redoutées.
               </p>
             </div>
             <div className="cabinet__visual" aria-hidden="true">
@@ -170,23 +187,16 @@ const HypnosePhobiesParis = () => {
         </div>
       </section>
 
-      {/* Types de phobies */}
+      {/* Manifestations */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
-          <h2 className="sp-h2">Les phobies que je traite par l'hypnose</h2>
+          <h2 className="sp-h2">Vous reconnaissez-vous&nbsp;?</h2>
           <div className="sp-grid-2">
-            {phobies.map((p, i) => (
-              p.href ? (
-                <Link key={i} to={p.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
-                  <div className="sp-card__title">{p.title} →</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </Link>
-              ) : (
-                <div key={i} className="sp-card reveal">
-                  <div className="sp-card__title">{p.title}</div>
-                  <div className="sp-card__desc">{p.desc}</div>
-                </div>
-              )
+            {manifestations.map((m, i) => (
+              <div key={i} className="sp-card reveal">
+                <div className="sp-card__title">{m.title}</div>
+                <div className="sp-card__desc">{m.desc}</div>
+              </div>
             ))}
           </div>
         </div>
@@ -211,17 +221,17 @@ const HypnosePhobiesParis = () => {
               <div className="section-tag">Mécanisme — désensibilisation</div>
               <h2 className="section-title">L'hypnose désactive<br/><em>la peur à la racine.</em></h2>
               <p>
-                L'hypnose ericksonienne agit sur la racine de la phobie : le programme inconscient qui déclenche
-                la réaction de panique. Lors de la séance, vous restez conscient et en contrôle. Je vous guide
-                dans un état de relaxation profonde pour :
+                L'hypnose ericksonienne agit sur le programme inconscient qui déclenche la réaction de
+                panique en espace clos. Vous restez conscient et en contrôle pendant toute la séance. Je
+                vous guide dans un état de relaxation profonde pour :
               </p>
               <div className="sp-checklist">
                 {[
-                  "Identifier l'origine de la phobie et le déclencheur inconscient",
-                  "Dissocier l'émotion de peur du stimulus (l'objet, la situation)",
-                  "Créer de nouvelles associations positives et neutres",
-                  "Renforcer votre sentiment de sécurité et de contrôle",
-                  "Installer des automatismes de calme face à la situation redoutée"
+                  "Identifier le contexte dans lequel la claustrophobie s'est installée",
+                  "Dissocier la sensation d'étouffement du stimulus (l'espace fermé)",
+                  "Créer de nouvelles associations — espace confiné = calme et contrôle",
+                  "Ancrer un état de sécurité intérieure activable dans toute situation",
+                  "Vous transmettre des techniques d'auto-hypnose pour rester serein en espace clos"
                 ].map((item, i) => (
                   <div key={i} className="sp-check-item">
                     <CheckCircle size={18} />
@@ -240,40 +250,34 @@ const HypnosePhobiesParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/peurdelavion" style={{color:'inherit'}}>Peur de l'avion →</Link></div>
+              <div className="sp-case__title">IRM refusée depuis 3 ans</div>
               <p>
-                Thomas*, consultant international, refusait systématiquement les missions nécessitant
-                un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,
-                menaçait désormais sa carrière.
+                Nathalie*, 49 ans, avait besoin d'une IRM prescrite par son médecin mais ne pouvait pas
+                l'effectuer. Elle avait déjà interrompu deux tentatives sous sédatif. En 3 séances, nous
+                avons neutralisé sa claustrophobie.
               </p>
               <p>
-                En 3 séances d'hypnose dans mon cabinet du Marais, nous avons neutralisé le souvenir
-                traumatique initial et installé un état de calme associé au vol. Thomas a repris
-                l'avion le mois suivant pour un déplacement à Londres — sereinement.
+                Elle a passé son IRM complète sereinement le mois suivant.
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title">Arachnophobie sévère</div>
+              <div className="sp-case__title">Escaliers jusqu'au 9ème étage</div>
               <p>
-                Claire*, 28 ans, ne pouvait pas entrer dans une pièce sans l'avoir inspectée
-                minutieusement. La vue d'une simple toile d'araignée déclenchait une crise de panique.
+                David*, 37 ans, montait 9 étages à pied chaque matin pour éviter l'ascenseur de son bureau.
+                Sa claustrophobie l'épuisait physiquement et psychologiquement.
               </p>
               <p>
-                Après 2 séances d'hypnose ericksonienne, Claire a constaté que sa réaction face aux
-                araignées avait radicalement changé. La peur intense s'était transformée en simple
-                indifférence. Elle a pu partir en randonnée pour la première fois depuis des années.
+                Après 2 séances d'hypnose, il prend l'ascenseur sans anxiété.
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/hypnose-peur-parler-public-paris" style={{color:'inherit'}}>Peur de parler en public →</Link></div>
+              <div className="sp-case__title">Angoisse dans le métro parisien</div>
               <p>
-                Julien*, entrepreneur, perdait tous ses moyens dès qu'il devait pitcher devant des
-                investisseurs. Voix tremblante, mains moites, trous de mémoire — sa phobie freinait le développement de sa startup.
+                Emma*, 24 ans, avait développé une claustrophobie en ligne 13 après avoir été bloquée
+                45 minutes dans un tunnel. Elle devait marcher 40 minutes matin et soir pour aller au travail.
               </p>
               <p>
-                En 4 séances, nous avons travaillé sur l'origine de cette peur et ancré un état de
-                confiance qu'il peut activer avant chaque présentation. Julien a levé des fonds
-                avec succès trois mois plus tard.
+                En 3 séances, elle a pu reprendre le métro normalement.
               </p>
             </div>
           </div>
@@ -301,8 +305,8 @@ const HypnosePhobiesParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour traiter une phobie' },
-              { value: '95%', label: 'des phobies simples peuvent être traitées par l\'hypnose' },
+              { value: '2-4', label: 'séances en moyenne pour traiter la claustrophobie' },
+              { value: '5-7%', label: 'de la population souffre de claustrophobie — une phobie très traitable par hypnose' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
@@ -317,15 +321,28 @@ const HypnosePhobiesParis = () => {
       {/* FAQ */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Questions fréquentes sur l'hypnose et les phobies</h2>
+          <h2 className="sp-h2">Questions fréquentes sur la claustrophobie</h2>
           <div>
-            {phobiesFaqItems.map((item, i) => (
+            {claustrophobieFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  id={`faq-question-${i}`}
+                  className="faq__q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.question}
                   <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                <div className="faq__a">{item.answer}</div>
+                <div
+                  id={`faq-answer-${i}`}
+                  className="faq__a"
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                >
+                  {item.answer}
+                </div>
               </div>
             ))}
           </div>
@@ -334,20 +351,20 @@ const HypnosePhobiesParis = () => {
 
       <div className="sp-ext-section">
         <SpecialtyBlogArticles
-          keywords={["phobie", "peur", "phobique"]}
+          keywords={["claustrophobie", "espaces clos", "enfermement", "phobie", "angoisse"]}
           categories={["Troubles Anxieux"]}
-          title="Articles sur les phobies"
+          title="Articles sur la claustrophobie"
           accentColor="text-purple-600"
         />
       </div>
 
       <div className="sp-ext-section">
         <SpecialtyReferences
-          pageUrl="https://novahypnose.fr/hypnose-phobies-paris"
-          pageTitle="Hypnose pour les phobies à Paris"
-          pageDescription="Hypnose ericksonienne pour traiter les phobies (avion, animaux, foule, espaces clos, médical) au cabinet Paris 4ème."
-          topic="les phobies et les peurs irrationnelles"
-          dateModified="2026-05-06"
+          pageUrl="https://novahypnose.fr/hypnose-claustrophobie-paris"
+          pageTitle="Hypnose pour la claustrophobie à Paris"
+          pageDescription="Hypnose ericksonienne pour la claustrophobie (peur des espaces clos) au cabinet Paris 4ème ou en visio."
+          topic="la claustrophobie et la peur des espaces clos"
+          dateModified="2026-06-18"
           references={[
             {
               authors: "Inserm",
@@ -379,8 +396,8 @@ const HypnosePhobiesParis = () => {
         <div className="sp-cta-final__blob" aria-hidden="true"></div>
         <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
         <div className="container sp-narrow">
-          <h2 className="sp-h2">Libérez-vous de vos phobies</h2>
-          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90&nbsp;€ la séance</p>
+          <h2 className="sp-h2">Libérez-vous de la claustrophobie</h2>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France</p>
           <div className="hero__cta" style={{justifyContent:'center'}}>
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
@@ -390,13 +407,13 @@ const HypnosePhobiesParis = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
+            <Link to="/hypnose-phobies-paris">Toutes les phobies →</Link>
+            <Link to="/peurdelavion">Peur de l'avion →</Link>
+            <Link to="/hypnose-arachnophobie-paris">Arachnophobie →</Link>
+            <Link to="/hypnose-acrophobie-paris">Peur du vide →</Link>
+            <Link to="/hypnose-peur-parler-public-paris">Peur de parler en public →</Link>
             <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
-            <Link to="/hypnose-sommeil-paris">Hypnose et sommeil →</Link>
-            <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>
-            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
-            <Link to="/hypnose-blocages-paris">Blocages et comportements →</Link>
             <Link to="/test-receptivite">Tester ma réceptivité →</Link>
-            <Link to="/blog">Blog hypnose →</Link>
           </div>
         </div>
       </section>
@@ -404,4 +421,4 @@ const HypnosePhobiesParis = () => {
   );
 };
 
-export default HypnosePhobiesParis;
+export default HypnoseClaustrophobie;

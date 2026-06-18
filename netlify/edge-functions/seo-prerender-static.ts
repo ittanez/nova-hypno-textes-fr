@@ -1464,6 +1464,274 @@ PAGES["/peurdelavion"] = {
     `,
 };
 
+PAGES["/hypnose-arachnophobie-paris"] = {
+  title: "Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes — résultats durables en 2 à 3 séances.",
+  canonicalPath: "/hypnose-arachnophobie-paris",
+  h1: "Hypnose et arachnophobie — Libérez-vous de la peur des araignées à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose arachnophobie Paris",
+      description: "Traitement de l'arachnophobie (peur des araignées) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-arachnophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie arachnophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Arachnophobie", path: "/hypnose-arachnophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment faire disparaître la peur des araignées ?",
+        a: "Oui. L'arachnophobie est un programme inconscient appris — ce qui a été appris peut être désappris. L'hypnose ericksonienne accède directement à ce programme pour le reconfigurer. La plupart des arachnophobes traités constatent une transformation radicale en 2 à 3 séances.",
+      },
+      {
+        q: "Est-ce que je vais devoir toucher des araignées pendant les séances ?",
+        a: "Absolument pas. L'hypnose n'est pas de la thérapie par exposition. Vous restez dans votre fauteuil, en état de relaxation profonde, et nous travaillons uniquement sur votre représentation mentale. Aucune araignée n'est présente dans le cabinet.",
+      },
+      {
+        q: "Combien de séances pour se libérer de l'arachnophobie ?",
+        a: "En général, 2 à 3 séances suffisent. La plupart des patients constatent un changement significatif dès la deuxième séance.",
+      },
+    ]),
+  ],
+  content: `
+    <p>La simple vue d'une araignée vous glace d'effroi ? L'arachnophobie touche environ une personne sur quatre. L'hypnose ericksonienne neutralise cette peur à sa racine. Résultats en 2 à 3 séances.</p>
+
+    <h2>L'arachnophobie : plus qu'une simple peur</h2>
+    <p>L'arachnophobie est un programme inconscient installé à un moment de votre vie — souvent déclenché par un événement marquant ou transmis par un parent. Ce programme peut être reconfiguré par l'hypnose ericksonienne, sans exposition forcée aux araignées.</p>
+
+    <h2>Comment l'hypnose traite l'arachnophobie</h2>
+    <ul>
+      <li>Identifier le déclencheur initial (événement fondateur, transmission familiale)</li>
+      <li>Dissocier l'émotion de panique du stimulus visuel (l'araignée)</li>
+      <li>Reconfigurer la réponse automatique : de la panique à l'indifférence</li>
+      <li>Ancrer un état de calme face aux araignées</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, peur de parler en public</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter l'arachnophobie</a>
+    `,
+};
+
+PAGES["/hypnose-acrophobie-paris"] = {
+  title: "Hypnose acrophobie (peur du vide) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, hauteurs — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-acrophobie-paris",
+  h1: "Hypnose et acrophobie — Libérez-vous de la peur du vide à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose acrophobie Paris",
+      description: "Traitement de l'acrophobie (peur du vide et des hauteurs) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-acrophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie acrophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Acrophobie", path: "/hypnose-acrophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'acrophobie est-elle différente du vertige ?",
+        a: "Oui. Le vertige est une sensation physique due à un problème d'oreille interne. L'acrophobie est une peur phobique — une réaction émotionnelle intense à la perception du vide. L'hypnose traite l'acrophobie (la peur) mais pas le vertige d'origine vestibulaire.",
+      },
+      {
+        q: "Combien de séances pour se débarrasser de la peur du vide ?",
+        a: "En général, 2 à 4 séances suffisent. La plupart des acrophobes ressentent un changement significatif dès la deuxième séance.",
+      },
+      {
+        q: "Est-ce que je vais devoir aller sur un balcon pendant les séances ?",
+        a: "Non. Nous travaillons entièrement dans le cabinet, en état de relaxation profonde, sur votre représentation mentale de la hauteur. Pas d'exposition réelle.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Balcon bloqué, escaliers en verre, falaises, ponts… La peur du vide (acrophobie) vous empêche de profiter pleinement de votre vie ? L'hypnose ericksonienne désactive cette peur à sa racine. Résultats en 2 à 4 séances.</p>
+
+    <h2>L'acrophobie : bien plus qu'un vertige</h2>
+    <p>L'acrophobie est une réaction émotionnelle intense déclenchée par la perception du vide, parfois même à faible hauteur. Ce n'est pas la hauteur elle-même qui est problématique, mais la manière dont votre inconscient a codé une expérience passée comme dangereuse. Ce programme peut être reconfiguré par l'hypnose.</p>
+
+    <h2>Comment l'hypnose traite l'acrophobie</h2>
+    <ul>
+      <li>Identifier l'événement fondateur de la peur du vide dans votre histoire</li>
+      <li>Dissocier la réaction de panique de la perception du vide ou de la hauteur</li>
+      <li>Reconfigurer votre réponse automatique : de la panique à la vigilance calme</li>
+      <li>Ancrer un état de stabilité et de confiance face au vide</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
+      <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur du vide</a>
+    `,
+};
+
+PAGES["/hypnose-claustrophobie-paris"] = {
+  title: "Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro — résultats durables en 2 à 4 séances.",
+  canonicalPath: "/hypnose-claustrophobie-paris",
+  h1: "Hypnose et claustrophobie — Libérez-vous de la peur des espaces clos à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose claustrophobie Paris",
+      description: "Traitement de la claustrophobie (peur des espaces clos) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-claustrophobie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie claustrophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Claustrophobie", path: "/hypnose-claustrophobie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
+        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des patients constatent une transformation en 2 à 4 séances.",
+      },
+      {
+        q: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
+        a: "C'est l'une des situations les plus fréquentes que je traite. L'hypnose peut vous permettre de passer une IRM sereinement, souvent en 1 à 2 séances si l'examen est urgent.",
+      },
+      {
+        q: "Est-ce que les séances d'hypnose se déroulent dans un espace confiné ?",
+        a: "Non. Le cabinet est un espace confortable et ouvert. Vous n'êtes jamais enfermé. Nous travaillons uniquement sur votre représentation mentale, en état de relaxation profonde.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Ascenseurs, IRM, avions, sous-terrains… La claustrophobie vous contraint à des contorsions quotidiennes pour éviter tout espace confiné ? L'hypnose ericksonienne neutralise cette peur à sa racine. Résultats en 2 à 4 séances.</p>
+
+    <h2>La claustrophobie : une prison invisible</h2>
+    <p>La claustrophobie est la peur des espaces clos, confinés ou sans issue de sortie visible. Dans la plupart des cas, elle naît d'une expérience traumatisante (ascenseur bloqué, enfermement accidentel) ou d'une transmission familiale. L'hypnose permet de reprogrammer cette réponse automatique rapidement.</p>
+
+    <h2>Comment l'hypnose traite la claustrophobie</h2>
+    <ul>
+      <li>Identifier le contexte dans lequel la claustrophobie s'est installée</li>
+      <li>Dissocier la sensation d'étouffement du stimulus (l'espace fermé)</li>
+      <li>Créer de nouvelles associations — espace confiné = calme et contrôle</li>
+      <li>Ancrer un état de sécurité intérieure activable dans toute situation</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, acrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la claustrophobie</a>
+    `,
+};
+
+PAGES["/hypnose-peur-parler-public-paris"] = {
+  title: "Hypnose peur de parler en public Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances.",
+  canonicalPath: "/hypnose-peur-parler-public-paris",
+  h1: "Hypnose et peur de parler en public — Retrouvez l'aisance à l'oral à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose peur de parler en public Paris",
+      description: "Traitement de la peur de parler en public (glossophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-peur-parler-public-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie glossophobie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Phobies et peurs", path: "/hypnose-phobies-paris" },
+      { name: "Peur de parler en public", path: "/hypnose-peur-parler-public-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle supprimer complètement le trac ?",
+        a: "L'objectif n'est pas de supprimer tout trac — un peu d'adrénaline est utile. L'hypnose vise à transformer le trac paralysant en énergie productive. Vous garderez une légère activation, mais sans les symptômes envahissants (trous de mémoire, voix chevrotante, tremblements).",
+      },
+      {
+        q: "Combien de séances pour vaincre la peur de parler en public ?",
+        a: "En général, 3 à 5 séances. Les premières séances travaillent sur l'origine de la peur et la désensibilisation. Les suivantes ancrent un état de confiance et des automatismes de performance.",
+      },
+      {
+        q: "Est-ce que ça marche si j'ai une présentation importante dans deux semaines ?",
+        a: "Oui. Si l'échéance est proche, nous organisons des séances rapprochées. Je vous transmets aussi des techniques d'auto-hypnose que vous pouvez utiliser le jour J pour rester centré.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de trois personnes sur quatre. L'hypnose ericksonienne agit à la racine de cette peur. Résultats en 3 à 5 séances.</p>
+
+    <h2>La peur de parler en public : une compétence à reconstruire</h2>
+    <p>Ce n'est pas un manque de préparation ou de compétence : c'est un programme de survie que votre inconscient a codé autour du jugement des autres. L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction de panique par un état de confiance activable à volonté.</p>
+
+    <h2>Comment l'hypnose traite la peur de parler en public</h2>
+    <ul>
+      <li>Identifier l'expérience fondatrice qui a installé la peur du jugement public</li>
+      <li>Dissocier la prise de parole de la menace perçue (humiliation, rejet)</li>
+      <li>Ancrer un état de confiance et de présence activable avant chaque intervention</li>
+      <li>Travailler sur l'estime de soi et la confiance en votre expertise</li>
+    </ul>
+
+    <h2>Autres phobies traitées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Trac et anxiété sociale</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la peur de parler en public</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

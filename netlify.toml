@@ -155,6 +155,22 @@
   path = "/peurdelavion"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-arachnophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-acrophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-claustrophobie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-peur-parler-public-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
