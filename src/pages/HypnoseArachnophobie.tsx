@@ -11,7 +11,7 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const arachnophobie_faqItems = [
+const arachnophobieFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment faire disparaître la peur des araignées ?",
     answer: "Oui. L'arachnophobie est un programme inconscient appris — et ce qui a été appris peut être désappris. L'hypnose ericksonienne accède directement à ce programme pour le reconfigurer. La grande majorité des arachnophobes traités par hypnose constatent une transformation radicale : de la panique à l'indifférence totale, souvent en 2 à 3 séances."
@@ -74,7 +74,7 @@ const HypnoseArachnophobie = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": arachnophobie_faqItems.map(item => ({
+    "mainEntity": arachnophobieFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
@@ -302,7 +302,7 @@ const HypnoseArachnophobie = () => {
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur la peur des araignées</h2>
           <div>
-            {arachnophobie_faqItems.map((item, i) => (
+            {arachnophobieFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
                 <button
                   id={`faq-question-${i}`}
