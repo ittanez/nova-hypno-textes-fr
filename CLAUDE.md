@@ -63,7 +63,7 @@ The site is a client-rendered SPA that needs SEO for crawlers that don't execute
 
 The bot detection list and which paths use which edge function are both configured in `netlify.toml`.
 
-`sitemap.xml` is a 200-redirect to a **Supabase Edge Function** (`supabase/functions/generate-sitemap`) so it always includes the latest blog articles.
+`sitemap.xml` is proxied by the **Netlify Edge Function** `netlify/edge-functions/sitemap-proxy.ts`, which forwards requests to the Supabase Edge Function `supabase/functions/generate-sitemap` with the required `apikey` and `Authorization` headers. This is necessary because Netlify `[[redirects]]` headers are sent to the *client*, not to the upstream server — they cannot be used to inject auth headers into a proxy request.
 
 ### Supabase Edge Functions
 
@@ -74,6 +74,19 @@ Located in `supabase/functions/`. These are Deno-based functions deployed to Sup
 - Promo code assignment
 
 Deploy scripts: `deploy-edge-functions.sh` (Linux) / `deploy-edge-functions.bat` (Windows).
+
+#### `verify_jwt` — CRITICAL for public functions
+
+Supabase Edge Functions default to **`verify_jwt: true`**, meaning every request must carry a valid JWT signed by the project's current JWT secret. Any function meant to be publicly accessible (e.g. `generate-sitemap` called by Google, Bing, etc.) **must** have `verify_jwt = false` set in `supabase/config.toml`:
+
+```toml
+[functions.generate-sitemap]
+verify_jwt = false
+```
+
+This config belongs in `supabase/config.toml` (the global Supabase CLI config), **not** in a per-function `config.toml` file — the CLI does not read per-function config files.
+
+When this setting is missing and the JWT secret has been rotated, all external requests get a 401 `UNAUTHORIZED` or `UNAUTHORIZED_INVALID_JWT_FORMAT` error — even if the anon key is correct.
 
 ### JSON-LD / structured data
 
