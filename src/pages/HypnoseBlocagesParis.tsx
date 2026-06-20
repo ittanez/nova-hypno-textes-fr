@@ -171,9 +171,9 @@ const HypnoseBlocagesParis = () => {
         <div className="container sp-narrow reveal">
           <h2 className="sp-h2">Les blocages et troubles que je traite</h2>
           <div className="sp-grid-2">
-            {blocages.map((b, i) => (
-              <Link key={i} to={b.href} className="sp-card sp-card--link reveal">
-                <div className="sp-card__title">{b.title} →</div>
+            {blocages.map((b) => (
+              <Link key={b.href} to={b.href} className="sp-card sp-card--link reveal">
+                <div className="sp-card__title">{b.title} <span aria-hidden="true">→</span></div>
                 <div className="sp-card__desc">{b.desc}</div>
               </Link>
             ))}
