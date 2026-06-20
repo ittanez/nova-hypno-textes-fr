@@ -27,8 +27,9 @@ serve(async (req) => {
       { loc: '/autohypnose',                   changefreq: 'monthly', priority: '0.8' },
       { loc: '/test-receptivite',              changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-stress-anxiete-paris',  changefreq: 'monthly', priority: '0.8' },
-      // Phobies — page parent + 10 sous-pages
+      // Phobies — page parent + 11 sous-pages
       { loc: '/hypnose-phobies-paris',         changefreq: 'monthly', priority: '0.8' },
+      { loc: '/peurdelavion',                  changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-arachnophobie-paris',   changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-acrophobie-paris',      changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-claustrophobie-paris',  changefreq: 'monthly', priority: '0.7' },
