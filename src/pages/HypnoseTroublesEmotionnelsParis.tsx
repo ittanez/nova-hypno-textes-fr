@@ -83,12 +83,12 @@ const HypnoseTroublesEmotionnelsParis = () => {
   };
 
   const troubles = [
-    { title: "Colère", desc: "Réactions disproportionnées, explosions incontrôlées, irritabilité chronique qui abîme vos relations" },
-    { title: "Deuil & séparation", desc: "Perte d'un proche, rupture amoureuse — difficultés à traverser le deuil et à avancer" },
-    { title: "Hypersensibilité", desc: "Vous ressentez tout plus intensément, vous vous sentez submergé(e) par les émotions des autres et par les vôtres" },
-    { title: "Frustration chronique", desc: "Un sentiment permanent d'insatisfaction, de ne jamais avoir assez, de ne pas être à votre place" },
-    { title: "Charge émotionnelle", desc: "Épuisement par l'accumulation des émotions non digérées, poids intérieur difficile à porter" },
-    { title: "Anxiété", desc: "Pour l'anxiété et le stress, consultez notre page dédiée — un travail spécifique est proposé" },
+    { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions incontrôlées, irritabilité chronique qui abîme vos relations", href: "/hypnose-colere-paris" },
+    { title: "Deuil et séparation", desc: "Perte d'un proche, rupture amoureuse — difficultés à traverser le deuil et à avancer", href: "/hypnose-deuil-separation-paris" },
+    { title: "Hypersensibilité", desc: "Vous ressentez tout plus intensément, vous vous sentez submergé(e) par les émotions des autres et par les vôtres", href: "/hypnose-hypersensibilite-paris" },
+    { title: "Frustration chronique", desc: "Un sentiment permanent d'insatisfaction, de ne jamais avoir assez, de ne pas être à votre place", href: "/hypnose-frustration-chronique-paris" },
+    { title: "Charge émotionnelle", desc: "Épuisement par l'accumulation des émotions non digérées, poids intérieur difficile à porter", href: "/hypnose-charge-emotionnelle-paris" },
+    { title: "Anxiété émotionnelle", desc: "Pour l'anxiété et le stress, consultez notre page dédiée — un travail spécifique est proposé", href: "/hypnose-stress-anxiete-paris" },
   ];
 
   return (
@@ -195,20 +195,11 @@ const HypnoseTroublesEmotionnelsParis = () => {
         <div className="container sp-narrow reveal">
           <h2 className="sp-h2">Les troubles émotionnels que j'accompagne</h2>
           <div className="sp-grid-2">
-            {troubles.map((t, i) => (
-              <div key={i} className={`sp-card reveal${t.title === 'Anxiété' ? ' sp-card--muted' : ''}`}>
-                <div className="sp-card__title">{t.title}</div>
-                <div className="sp-card__desc">
-                  {t.title === 'Anxiété' ? (
-                    <>
-                      {t.desc}{' '}
-                      <Link to="/hypnose-stress-anxiete-paris" style={{color:'var(--cobalt)', textDecoration:'underline'}}>
-                        Voir la page Stress & Anxiété →
-                      </Link>
-                    </>
-                  ) : t.desc}
-                </div>
-              </div>
+            {troubles.map((t) => (
+              <Link key={t.href} to={t.href} className="sp-card sp-card--link reveal">
+                <div className="sp-card__title">{t.title} <span aria-hidden="true">→</span></div>
+                <div className="sp-card__desc">{t.desc}</div>
+              </Link>
             ))}
           </div>
         </div>
