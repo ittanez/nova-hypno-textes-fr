@@ -129,6 +129,25 @@ const HypnoseAquaphobie = lazy(() => import("@/pages/HypnoseAquaphobie"));
 const HypnoseAmaxophobie = lazy(() => import("@/pages/HypnoseAmaxophobie"));
 const HypnosePhobieSociale = lazy(() => import("@/pages/HypnosePhobieSociale"));
 
+// Sous-pages blocages (BLOC 1, pas dans le menu)
+const HypnoseProcrastinationParis = lazy(() => import("@/pages/HypnoseProcrastinationParis"));
+const HypnoseOnychophageParis = lazy(() => import("@/pages/HypnoseOnychophageParis"));
+const HypnoseTocRituelsParis = lazy(() => import("@/pages/HypnoseTocRituelsParis"));
+const HypnoseSchemasRepetitifsParis = lazy(() => import("@/pages/HypnoseSchemasRepetitifsParis"));
+const HypnoseBlocagesProfessionnelsParis = lazy(() => import("@/pages/HypnoseBlocagesProfessionnelsParis"));
+const HypnoseAddictionsComportementalesParis = lazy(() => import("@/pages/HypnoseAddictionsComportementalesParis"));
+
+// Sous-page troubles émotionnels (BLOC 2, pas dans le menu)
+const HypnoseTroublesEmotionnelsParis = lazy(() => import("@/pages/HypnoseTroublesEmotionnelsParis"));
+
+// Sous-pages troubles alimentaires (BLOC 4, pas dans le menu)
+const HypnoseCompulsionsAlimentairesParis = lazy(() => import("@/pages/HypnoseCompulsionsAlimentairesParis"));
+const HypnoseGrignotageParis = lazy(() => import("@/pages/HypnoseGrignotageParis"));
+const HypnoseAddictionSucreParis = lazy(() => import("@/pages/HypnoseAddictionSucreParis"));
+const HypnoseBoulimieParis = lazy(() => import("@/pages/HypnoseBoulimieParis"));
+const HypnoseAlimentationEmotionnelleParis = lazy(() => import("@/pages/HypnoseAlimentationEmotionnelleParis"));
+const HypnoseImageCorporelleParis = lazy(() => import("@/pages/HypnoseImageCorporelleParis"));
+
 // Composant pour forcer HTTPS en production et faire les redirections
 function AppRedirects() {
   const location = useLocation();
@@ -263,6 +282,25 @@ function App() {
             {/* Sous-pages phobies comportementales/sociales (pas dans le menu) */}
             <Route path="/hypnose-amaxophobie-paris" element={<HypnoseAmaxophobie />} />
             <Route path="/hypnose-phobie-sociale-paris" element={<HypnosePhobieSociale />} />
+
+            {/* Sous-pages blocages (BLOC 1, pas dans le menu) */}
+            <Route path="/hypnose-procrastination-paris" element={<HypnoseProcrastinationParis />} />
+            <Route path="/hypnose-onychophagie-paris" element={<HypnoseOnychophageParis />} />
+            <Route path="/hypnose-toc-rituels-paris" element={<HypnoseTocRituelsParis />} />
+            <Route path="/hypnose-schemas-repetitifs-paris" element={<HypnoseSchemasRepetitifsParis />} />
+            <Route path="/hypnose-blocages-professionnels-paris" element={<HypnoseBlocagesProfessionnelsParis />} />
+            <Route path="/hypnose-addictions-comportementales-paris" element={<HypnoseAddictionsComportementalesParis />} />
+
+            {/* Sous-page troubles émotionnels (BLOC 2, pas dans le menu) */}
+            <Route path="/hypnose-troubles-emotionnels-paris" element={<HypnoseTroublesEmotionnelsParis />} />
+
+            {/* Sous-pages troubles alimentaires (BLOC 4, pas dans le menu) */}
+            <Route path="/hypnose-compulsions-alimentaires-paris" element={<HypnoseCompulsionsAlimentairesParis />} />
+            <Route path="/hypnose-grignotage-paris" element={<HypnoseGrignotageParis />} />
+            <Route path="/hypnose-addiction-sucre-paris" element={<HypnoseAddictionSucreParis />} />
+            <Route path="/hypnose-boulimie-paris" element={<HypnoseBoulimieParis />} />
+            <Route path="/hypnose-alimentation-emotionnelle-paris" element={<HypnoseAlimentationEmotionnelleParis />} />
+            <Route path="/hypnose-image-corporelle-paris" element={<HypnoseImageCorporelleParis />} />
 
             {/* Route de connexion admin blog */}
             <Route path="/admin-blog/login" element={<AdminBlogLogin />} />

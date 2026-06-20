@@ -261,15 +261,6 @@ const HypnoseAcrophobie = () => {
                 En 4 séances d'hypnose, elle a retrouvé la capacité de marcher sur des sentiers de montagne et a rejoint sa famille pour des vacances qu'elle n'avait jamais pu partager.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Peur transmise depuis l'enfance</div>
-              <p>
-                Maxime*, 35 ans, avait hérité la peur de son père, tombé d'un échafaudage. Il ne pouvait pas monter sur une échelle, même pour changer une ampoule.
-              </p>
-              <p>
-                Après 2 séances, il a pu effectuer des travaux chez lui sans la moindre anxiété.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

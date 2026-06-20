@@ -253,12 +253,6 @@ const HypnoseArachnophobie = () => {
                 Karim*, 41 ans, ne pouvait pas s'endormir sans avoir vérifié sa chambre. Sa femme devait inspecter les murs chaque soir avant qu'il éteigne la lumière. En 3 séances, sa réaction de panique a disparu. Il dort maintenant sans rituel d'inspection.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Peur généralisée aux insectes</div>
-              <p>
-                Lucie*, 26 ans, avait une arachnophobie qui s'était étendue à tous les insectes. Elle ne pouvait pas profiter de son jardin ni partir en camping. Après 3 séances, elle a passé ses vacances en pleine nature sans anxiété.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

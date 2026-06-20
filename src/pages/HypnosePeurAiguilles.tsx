@@ -282,19 +282,6 @@ const HypnosePeurAiguilles = () => {
                 le mois suivant — pour la première fois depuis une décennie.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Vaccination impossible pour voyager</div>
-              <p>
-                Sophie*, 27 ans, rêvait de voyager en Asie du Sud-Est depuis des années. Les vaccins
-                obligatoires — hépatite A, typhoïde — étaient un obstacle qu'elle ne parvenait pas
-                à franchir. Elle avait annulé deux voyages organisés au dernier moment.
-              </p>
-              <p>
-                En 2 séances, nous avons dissocié la peur de l'aiguille de la situation de
-                vaccination et ancré un état de neutralité. Sophie a pu se faire vacciner et est
-                partie pour un voyage de trois semaines en Thaïlande.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
