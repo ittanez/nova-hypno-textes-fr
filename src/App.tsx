@@ -137,8 +137,13 @@ const HypnoseSchemasRepetitifsParis = lazy(() => import("@/pages/HypnoseSchemasR
 const HypnoseBlocagesProfessionnelsParis = lazy(() => import("@/pages/HypnoseBlocagesProfessionnelsParis"));
 const HypnoseAddictionsComportementalesParis = lazy(() => import("@/pages/HypnoseAddictionsComportementalesParis"));
 
-// Sous-page troubles émotionnels (BLOC 2, pas dans le menu)
+// Sous-pages troubles émotionnels (BLOC 2, pas dans le menu)
 const HypnoseTroublesEmotionnelsParis = lazy(() => import("@/pages/HypnoseTroublesEmotionnelsParis"));
+const HypnoseColereParis = lazy(() => import("@/pages/HypnoseColereParis"));
+const HypnoseHypersensibiliteParis = lazy(() => import("@/pages/HypnoseHypersensibiliteParis"));
+const HypnoseDeuiLSeparationParis = lazy(() => import("@/pages/HypnoseDeuiLSeparationParis"));
+const HypnoseFrustrationChroniqueParis = lazy(() => import("@/pages/HypnoseFrustrationChroniqueParis"));
+const HypnoseChargeEmotionnelleParis = lazy(() => import("@/pages/HypnoseChargeEmotionnelleParis"));
 
 // Sous-pages troubles alimentaires (BLOC 4, pas dans le menu)
 const HypnoseCompulsionsAlimentairesParis = lazy(() => import("@/pages/HypnoseCompulsionsAlimentairesParis"));
@@ -293,6 +298,11 @@ function App() {
 
             {/* Sous-page troubles émotionnels (BLOC 2, pas dans le menu) */}
             <Route path="/hypnose-troubles-emotionnels-paris" element={<HypnoseTroublesEmotionnelsParis />} />
+            <Route path="/hypnose-colere-paris" element={<HypnoseColereParis />} />
+            <Route path="/hypnose-hypersensibilite-paris" element={<HypnoseHypersensibiliteParis />} />
+            <Route path="/hypnose-deuil-separation-paris" element={<HypnoseDeuiLSeparationParis />} />
+            <Route path="/hypnose-frustration-chronique-paris" element={<HypnoseFrustrationChroniqueParis />} />
+            <Route path="/hypnose-charge-emotionnelle-paris" element={<HypnoseChargeEmotionnelleParis />} />
 
             {/* Sous-pages troubles alimentaires (BLOC 4, pas dans le menu) */}
             <Route path="/hypnose-compulsions-alimentaires-paris" element={<HypnoseCompulsionsAlimentairesParis />} />
