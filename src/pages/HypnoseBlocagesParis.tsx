@@ -60,12 +60,12 @@ const HypnoseBlocagesParis = () => {
   };
 
   const blocages = [
-    { title: "Procrastination", desc: "Vous repoussez constamment les tâches importantes, même quand vous en connaissez les conséquences" },
-    { title: "Schémas répétitifs", desc: "Vous reproduisez toujours les mêmes erreurs dans vos relations, votre travail ou vos choix de vie" },
-    { title: "Onychophagie", desc: "Vous vous rongez les ongles compulsivement, souvent sans même vous en rendre compte" },
-    { title: "TOC et rituels", desc: "Comportements répétitifs, vérifications excessives, pensées obsessionnelles envahissantes" },
-    { title: "Blocages professionnels", desc: "Incapacité à passer à l'action, peur de réussir ou de l'échec, auto-sabotage" },
-    { title: "Addictions comportementales", desc: "Écrans, jeux, achats compulsifs… des comportements dont vous ne parvenez pas à vous défaire" }
+    { title: "Procrastination", desc: "Vous repoussez constamment les tâches importantes, même quand vous en connaissez les conséquences", href: "/hypnose-procrastination-paris" },
+    { title: "Schémas répétitifs", desc: "Vous reproduisez toujours les mêmes erreurs dans vos relations, votre travail ou vos choix de vie", href: "/hypnose-schemas-repetitifs-paris" },
+    { title: "Onychophagie", desc: "Vous vous rongez les ongles compulsivement, souvent sans même vous en rendre compte", href: "/hypnose-onychophagie-paris" },
+    { title: "TOC et rituels", desc: "Comportements répétitifs, vérifications excessives, pensées obsessionnelles envahissantes", href: "/hypnose-toc-rituels-paris" },
+    { title: "Blocages professionnels", desc: "Incapacité à passer à l'action, peur de réussir ou de l'échec, auto-sabotage", href: "/hypnose-blocages-professionnels-paris" },
+    { title: "Addictions comportementales", desc: "Écrans, jeux, achats compulsifs… des comportements dont vous ne parvenez pas à vous défaire", href: "/hypnose-addictions-comportementales-paris" }
   ];
 
   return (
@@ -171,11 +171,11 @@ const HypnoseBlocagesParis = () => {
         <div className="container sp-narrow reveal">
           <h2 className="sp-h2">Les blocages et troubles que je traite</h2>
           <div className="sp-grid-2">
-            {blocages.map((b, i) => (
-              <div key={i} className="sp-card reveal">
-                <div className="sp-card__title">{b.title}</div>
+            {blocages.map((b) => (
+              <Link key={b.href} to={b.href} className="sp-card sp-card--link reveal">
+                <div className="sp-card__title">{b.title} <span aria-hidden="true">→</span></div>
                 <div className="sp-card__desc">{b.desc}</div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
