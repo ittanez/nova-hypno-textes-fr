@@ -131,7 +131,7 @@ const HypnosePhobieSociale = lazy(() => import("@/pages/HypnosePhobieSociale"));
 
 // Sous-pages blocages (BLOC 1, pas dans le menu)
 const HypnoseProcrastinationParis = lazy(() => import("@/pages/HypnoseProcrastinationParis"));
-const HypnoseOnychophageParis = lazy(() => import("@/pages/HypnoseOnychophageParis"));
+const HypnoseOnychophagieParis = lazy(() => import("@/pages/HypnoseOnychophagieParis"));
 const HypnoseTocRituelsParis = lazy(() => import("@/pages/HypnoseTocRituelsParis"));
 const HypnoseSchemasRepetitifsParis = lazy(() => import("@/pages/HypnoseSchemasRepetitifsParis"));
 const HypnoseBlocagesProfessionnelsParis = lazy(() => import("@/pages/HypnoseBlocagesProfessionnelsParis"));
@@ -285,7 +285,7 @@ function App() {
 
             {/* Sous-pages blocages (BLOC 1, pas dans le menu) */}
             <Route path="/hypnose-procrastination-paris" element={<HypnoseProcrastinationParis />} />
-            <Route path="/hypnose-onychophagie-paris" element={<HypnoseOnychophageParis />} />
+            <Route path="/hypnose-onychophagie-paris" element={<HypnoseOnychophagieParis />} />
             <Route path="/hypnose-toc-rituels-paris" element={<HypnoseTocRituelsParis />} />
             <Route path="/hypnose-schemas-repetitifs-paris" element={<HypnoseSchemasRepetitifsParis />} />
             <Route path="/hypnose-blocages-professionnels-paris" element={<HypnoseBlocagesProfessionnelsParis />} />

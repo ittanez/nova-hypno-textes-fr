@@ -11,7 +11,7 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
-const onychophageFaqItems = [
+const onychophagieFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
     answer: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart de mes patients cessent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
@@ -34,7 +34,7 @@ const onychophageFaqItems = [
   }
 ];
 
-const HypnoseOnychophageParis = () => {
+const HypnoseOnychophagieParis = () => {
   const { openResalibPopup } = useResalibPopup();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -75,7 +75,7 @@ const HypnoseOnychophageParis = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": onychophageFaqItems.map(item => ({
+    "mainEntity": onychophagieFaqItems.map(item => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": { "@type": "Answer", "text": item.answer }
@@ -301,7 +301,7 @@ const HypnoseOnychophageParis = () => {
         <div className="container sp-narrow">
           <h2 className="sp-h2">Questions fréquentes sur l'hypnose et l'onychophagie</h2>
           <div>
-            {onychophageFaqItems.map((item, i) => (
+            {onychophagieFaqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
                 <button
                   id={`faq-question-${i}`}
@@ -390,4 +390,4 @@ const HypnoseOnychophageParis = () => {
   );
 };
 
-export default HypnoseOnychophageParis;
+export default HypnoseOnychophagieParis;
