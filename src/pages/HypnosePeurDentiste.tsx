@@ -282,20 +282,6 @@ const HypnosePeurDentiste = () => {
                 a pu terminer un détartrage complet sans interruption lors de sa séance suivante.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Peur transmise depuis l'enfance</div>
-              <p>
-                Lucie*, 29 ans, avait grandi avec une mère terrifiée par les dentistes. Cette peur
-                avait été transmise par l'exemple — des bribes de commentaires, des réactions visibles
-                avant chaque rendez-vous. Lucie n'avait jamais vécu de mauvaise expérience elle-même,
-                mais l'angoisse était aussi forte.
-              </p>
-              <p>
-                En 2 séances, nous avons identifié l'origine de cette peur héritée et installé un
-                nouveau rapport aux soins dentaires. Lucie gère désormais ses rendez-vous normalement,
-                sans transmission de sa propre anxiété à ses enfants.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

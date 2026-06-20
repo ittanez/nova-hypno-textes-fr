@@ -285,20 +285,6 @@ const HypnosePhobieSociale = () => {
                 une vie sociale active et a retrouvé des amitiés qu'elle croyait perdues.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Phobie sociale professionnelle</div>
-              <p>
-                Thomas*, 40 ans, cadre compétent, perdait tous ses moyens face aux clients ou
-                lors des présentations. Il compensait par un travail solitaire intense mais
-                cette limite freinait sa carrière. Il refusait les postes à responsabilités
-                par peur des interactions.
-              </p>
-              <p>
-                En 4 séances, nous avons travaillé sur la peur du jugement professionnel et
-                ancré un état de confiance naturelle en présence d'autrui. Thomas a accepté
-                un poste de management quelques mois plus tard.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

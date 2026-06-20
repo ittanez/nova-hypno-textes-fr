@@ -286,20 +286,6 @@ const HypnoseAmaxophobie = () => {
                 positive. Julien conduit aujourd'hui pour ses trajets quotidiens.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Peur de conduire avec des passagers</div>
-              <p>
-                Sophie*, 38 ans, conduisait seule sans trop de difficulté, mais refusait
-                catégoriquement d'avoir des passagers dans sa voiture. La pression de
-                responsabilité la tétanisait et elle s'arrangeait pour que les autres prennent
-                leur voiture.
-              </p>
-              <p>
-                En 2 séances, nous avons travaillé sur la peur du jugement et la pression de
-                responsabilité liées à la présence d'autrui. Sophie transporte désormais sa
-                famille et ses amis sans anxiété particulière.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

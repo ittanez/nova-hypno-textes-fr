@@ -283,21 +283,6 @@ const HypnosePeurSang = () => {
                 enfants sereinement dès la semaine suivante.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Voyage impossible — soins d'urgence redoutés</div>
-              <p>
-                Isabelle*, 31 ans, rêvait de voyager dans des pays éloignés mais repoussait chaque
-                projet. Sa peur du sang rendait l'idée d'un accident ou d'une urgence médicale en
-                voyage insoutenable. Elle ne voulait pas se retrouver à l'étranger sans pouvoir
-                réagir face à du sang.
-              </p>
-              <p>
-                En 2 séances, nous avons dissocié la peur du sang de la situation de voyage et
-                installé un état de gestion des urgences. Isabelle est partie voyager en Amérique
-                du Sud deux mois plus tard — et a géré sereinement une petite blessure de son
-                compagnon sur place.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

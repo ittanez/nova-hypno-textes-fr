@@ -258,15 +258,6 @@ const HypnosePeurParlerPublic = () => {
                 Il a levé des fonds avec succès quatre mois plus tard.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Trac à l'oral depuis l'école</div>
-              <p>
-                Léa*, 25 ans, avait toujours eu le trac depuis qu'elle avait été moquée lors d'un exposé en CM1. Depuis, chaque prise de parole était une épreuve. En 3 séances, nous avons neutralisé ce souvenir fondateur.
-              </p>
-              <p>
-                Elle présente maintenant ses travaux en amphi sans anxiété.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

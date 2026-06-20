@@ -63,7 +63,7 @@ const HypnoseTroublesAlimentairesParis = () => {
     { title: "Compulsions alimentaires", desc: "Envies soudaines et irrésistibles de manger, souvent le soir ou sous l'effet du stress, sans faim réelle" },
     { title: "Grignotages chroniques", desc: "Comportement automatique de manger en continu, souvent sans en avoir conscience, lié à l'anxiété" },
     { title: "Boulimie & crises", desc: "Épisodes incontrôlables de prise alimentaire massive suivis de culpabilité ou de comportements compensatoires" },
-    { title: "Restriction et anorexie", desc: "Rapport rigide et anxieux à l'alimentation, peur de manger, contrôle excessif du corps et des calories" },
+    { title: "Addiction au sucre", desc: "Envies incontrôlables de sucré, dépendance aux aliments sucrés, cycles de craving et de culpabilité" },
     { title: "Alimentation émotionnelle", desc: "Manger pour gérer les émotions — stress, ennui, tristesse, solitude — plutôt que par faim physique" },
     { title: "Image corporelle douloureuse", desc: "Regard sévère et déformé sur son corps, honte, difficulté à se sentir bien dans sa peau" }
   ];

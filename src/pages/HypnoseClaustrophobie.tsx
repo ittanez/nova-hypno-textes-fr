@@ -270,16 +270,6 @@ const HypnoseClaustrophobie = () => {
                 Après 2 séances d'hypnose, il prend l'ascenseur sans anxiété.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Angoisse dans le métro parisien</div>
-              <p>
-                Emma*, 24 ans, avait développé une claustrophobie en ligne 13 après avoir été bloquée
-                45 minutes dans un tunnel. Elle devait marcher 40 minutes matin et soir pour aller au travail.
-              </p>
-              <p>
-                En 3 séances, elle a pu reprendre le métro normalement.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>

@@ -283,19 +283,6 @@ const HypnoseAquaphobie = () => {
                 Olivier a passé son baptême de plongée six mois plus tard, sereinement.
               </p>
             </div>
-            <div className="sp-case reveal">
-              <div className="sp-case__title">Maman aquaphobe — ne pas transmettre</div>
-              <p>
-                Sophie*, 33 ans, terrorisée par l'eau depuis l'enfance, refusait d'emmener sa fille
-                de 4 ans à la piscine. Elle craignait surtout de transmettre sa peur par ses propres
-                tensions corporelles et son anxiété visible.
-              </p>
-              <p>
-                En 2 séances, nous avons travaillé sur sa peur personnelle et installé un état
-                de calme transmissible. Sophie accompagne désormais sa fille à la piscine
-                régulièrement et envisage des cours d'aquagym pour elle-même.
-              </p>
-            </div>
           </div>
           <p className="sp-footnote">* Prénoms modifiés pour préserver la confidentialité</p>
         </div>
