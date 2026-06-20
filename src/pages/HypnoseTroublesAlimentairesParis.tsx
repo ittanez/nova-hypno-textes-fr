@@ -60,12 +60,12 @@ const HypnoseTroublesAlimentairesParis = () => {
   };
 
   const troubles = [
-    { title: "Compulsions alimentaires", desc: "Envies soudaines et irrésistibles de manger, souvent le soir ou sous l'effet du stress, sans faim réelle" },
-    { title: "Grignotages chroniques", desc: "Comportement automatique de manger en continu, souvent sans en avoir conscience, lié à l'anxiété" },
-    { title: "Boulimie & crises", desc: "Épisodes incontrôlables de prise alimentaire massive suivis de culpabilité ou de comportements compensatoires" },
-    { title: "Addiction au sucre", desc: "Envies incontrôlables de sucré, dépendance aux aliments sucrés, cycles de craving et de culpabilité" },
-    { title: "Alimentation émotionnelle", desc: "Manger pour gérer les émotions — stress, ennui, tristesse, solitude — plutôt que par faim physique" },
-    { title: "Image corporelle douloureuse", desc: "Regard sévère et déformé sur son corps, honte, difficulté à se sentir bien dans sa peau" }
+    { title: "Compulsions alimentaires", desc: "Envies soudaines et irrésistibles de manger, souvent le soir ou sous l'effet du stress, sans faim réelle", href: "/hypnose-compulsions-alimentaires-paris" },
+    { title: "Grignotages chroniques", desc: "Comportement automatique de manger en continu, souvent sans en avoir conscience, lié à l'anxiété", href: "/hypnose-grignotage-paris" },
+    { title: "Boulimie & crises", desc: "Épisodes incontrôlables de prise alimentaire massive suivis de culpabilité ou de comportements compensatoires", href: "/hypnose-boulimie-paris" },
+    { title: "Addiction au sucre", desc: "Envies incontrôlables de sucré, dépendance aux aliments sucrés, cycles de craving et de culpabilité", href: "/hypnose-addiction-sucre-paris" },
+    { title: "Alimentation émotionnelle", desc: "Manger pour gérer les émotions — stress, ennui, tristesse, solitude — plutôt que par faim physique", href: "/hypnose-alimentation-emotionnelle-paris" },
+    { title: "Image corporelle douloureuse", desc: "Regard sévère et déformé sur son corps, honte, difficulté à se sentir bien dans sa peau", href: "/hypnose-image-corporelle-paris" }
   ];
 
   return (
@@ -171,10 +171,10 @@ const HypnoseTroublesAlimentairesParis = () => {
           <h2 className="sp-h2">Les situations que j&apos;accompagne</h2>
           <div className="sp-grid-2">
             {troubles.map((t, i) => (
-              <div key={i} className="sp-card reveal">
-                <div className="sp-card__title">{t.title}</div>
+              <Link key={i} to={t.href} className="sp-card sp-card--link reveal">
+                <div className="sp-card__title">{t.title} →</div>
                 <div className="sp-card__desc">{t.desc}</div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
