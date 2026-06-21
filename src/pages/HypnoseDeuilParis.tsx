@@ -134,7 +134,9 @@ const HypnoseDeuilParis = () => {
           <h1 className="sp-hero__h1">
             Traversez votre deuil avec l'hypnose
           </h1>
-          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Vous avez perdu un proche, vécu une rupture douloureuse, ou traversé un changement de vie difficile ? Le deuil peut vous bloquer des mois, voire des années. L'hypnose ericksonienne accompagne ce processus en douceur, vous aidant à <strong>transformer la douleur en souvenirs apaisés</strong>. <strong>Résultats en 4 à 6 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
+          <p className="sp-hero__lead">
+            Vous avez perdu un proche, vécu une rupture douloureuse, ou traversé un changement de vie difficile ? Le deuil peut vous bloquer des mois, voire des années. L'hypnose ericksonienne accompagne ce processus en douceur, vous aidant à <strong>transformer la douleur en souvenirs apaisés</strong>. <strong>Résultats en 4 à 6 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>

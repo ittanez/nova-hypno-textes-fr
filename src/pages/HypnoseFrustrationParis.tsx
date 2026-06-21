@@ -134,7 +134,9 @@ const HypnoseFrustrationParis = () => {
           <h1 className="sp-hero__h1">
             Libérez-vous de la frustration chronique
           </h1>
-          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Vous avez le sentiment permanent de ne jamais en avoir assez, que les choses ne sont jamais à votre place, que la vie ne correspond pas à vos attentes ? La frustration chronique épuise et abîme vos relations. L'hypnose travaille sur les croyances et attentes inconscientes qui alimentent ce sentiment. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
+          <p className="sp-hero__lead">
+            Vous avez le sentiment permanent de ne jamais en avoir assez, que les choses ne sont jamais à votre place, que la vie ne correspond pas à vos attentes ? La frustration chronique épuise et abîme vos relations. L'hypnose travaille sur les croyances et attentes inconscientes qui alimentent ce sentiment. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>

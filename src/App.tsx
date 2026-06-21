@@ -141,8 +141,6 @@ const HypnoseAddictionsComportementalesParis = lazy(() => import("@/pages/Hypnos
 const HypnoseTroublesEmotionnelsParis = lazy(() => import("@/pages/HypnoseTroublesEmotionnelsParis"));
 const HypnoseColereParis = lazy(() => import("@/pages/HypnoseColereParis"));
 const HypnoseHypersensibiliteParis = lazy(() => import("@/pages/HypnoseHypersensibiliteParis"));
-const HypnoseDeuiLSeparationParis = lazy(() => import("@/pages/HypnoseDeuiLSeparationParis"));
-const HypnoseFrustrationChroniqueParis = lazy(() => import("@/pages/HypnoseFrustrationChroniqueParis"));
 const HypnoseChargeEmotionnelleParis = lazy(() => import("@/pages/HypnoseChargeEmotionnelleParis"));
 const HypnoseDeuilParis = lazy(() => import("@/pages/HypnoseDeuilParis"));
 const HypnoseFrustrationParis = lazy(() => import("@/pages/HypnoseFrustrationParis"));
@@ -303,8 +301,8 @@ function App() {
             <Route path="/hypnose-troubles-emotionnels-paris" element={<HypnoseTroublesEmotionnelsParis />} />
             <Route path="/hypnose-colere-paris" element={<HypnoseColereParis />} />
             <Route path="/hypnose-hypersensibilite-paris" element={<HypnoseHypersensibiliteParis />} />
-            <Route path="/hypnose-deuil-separation-paris" element={<HypnoseDeuiLSeparationParis />} />
-            <Route path="/hypnose-frustration-chronique-paris" element={<HypnoseFrustrationChroniqueParis />} />
+            <Route path="/hypnose-deuil-separation-paris" element={<Navigate to="/hypnose-deuil-paris" replace />} />
+            <Route path="/hypnose-frustration-chronique-paris" element={<Navigate to="/hypnose-frustration-paris" replace />} />
             <Route path="/hypnose-charge-emotionnelle-paris" element={<HypnoseChargeEmotionnelleParis />} />
             <Route path="/hypnose-deuil-paris" element={<HypnoseDeuilParis />} />
             <Route path="/hypnose-frustration-paris" element={<HypnoseFrustrationParis />} />
