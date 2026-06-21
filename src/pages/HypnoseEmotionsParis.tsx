@@ -59,13 +59,13 @@ const HypnoseEmotionsParis = () => {
     }))
   };
 
-  const emotionTypes = [
-    { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions de colère, impatience permanente" },
-    { title: "Hypersensibilité", desc: "Émotions amplifiées, pleurs faciles, sensation d'être submergé(e)" },
-    { title: "Deuil et séparation", desc: "Difficulté à surmonter une perte, une rupture ou un changement de vie" },
-    { title: "Frustration chronique", desc: "Sentiment d'insatisfaction permanent, difficulté à accepter les situations" },
-    { title: "Anxiété émotionnelle", desc: "Peur d'être submergé(e) par ses émotions, évitement des situations intenses" },
-    { title: "Charge émotionnelle", desc: "Accumulation d'émotions non exprimées, sensation de trop-plein" }
+  const emotionTypes: { title: string; desc: string; href?: string }[] = [
+    { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions de colère, impatience permanente", href: "/hypnose-colere-paris" },
+    { title: "Hypersensibilité", desc: "Émotions amplifiées, pleurs faciles, sensation d'être submergé(e)", href: "/hypnose-hypersensibilite-paris" },
+    { title: "Deuil et séparation", desc: "Difficulté à surmonter une perte, une rupture ou un changement de vie", href: "/hypnose-deuil-paris" },
+    { title: "Frustration chronique", desc: "Sentiment d'insatisfaction permanent, difficulté à accepter les situations", href: "/hypnose-frustration-paris" },
+    { title: "Anxiété émotionnelle", desc: "Peur d'être submergé(e) par ses émotions, évitement des situations intenses", href: "/hypnose-anxiete-emotionnelle-paris" },
+    { title: "Charge émotionnelle", desc: "Accumulation d'émotions non exprimées, sensation de trop-plein", href: "/hypnose-charge-emotionnelle-paris" }
   ];
 
   return (
@@ -172,10 +172,17 @@ const HypnoseEmotionsParis = () => {
           <h2 className="sp-h2">Les troubles émotionnels que je traite</h2>
           <div className="sp-grid-2">
             {emotionTypes.map((t, i) => (
-              <div key={i} className="sp-card reveal">
-                <div className="sp-card__title">{t.title}</div>
-                <div className="sp-card__desc">{t.desc}</div>
-              </div>
+              t.href ? (
+                <Link key={i} to={t.href} className="sp-card reveal" style={{display:'block', textDecoration:'none', color:'inherit'}}>
+                  <div className="sp-card__title">{t.title} →</div>
+                  <div className="sp-card__desc">{t.desc}</div>
+                </Link>
+              ) : (
+                <div key={i} className="sp-card reveal">
+                  <div className="sp-card__title">{t.title}</div>
+                  <div className="sp-card__desc">{t.desc}</div>
+                </div>
+              )
             ))}
           </div>
         </div>

@@ -50,12 +50,13 @@ serve(async (req) => {
       { loc: '/hypnose-schemas-repetitifs-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-blocages-professionnels-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-addictions-comportementales-paris', changefreq: 'monthly', priority: '0.7' },
-      // Troubles émotionnels — page parent + 5 sous-pages
+      // Troubles émotionnels — page parent + 6 sous-pages
       { loc: '/hypnose-troubles-emotionnels-paris', changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-colere-paris',          changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-hypersensibilite-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-deuil-separation-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-frustration-chronique-paris', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-deuil-paris',           changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-frustration-paris',     changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-anxiete-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-charge-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-confiance-en-soi-paris', changefreq: 'monthly', priority: '0.8' },
       // Troubles alimentaires — page parent + 6 sous-pages
