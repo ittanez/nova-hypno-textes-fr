@@ -203,7 +203,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-1",
       "author": { "@type": "Person", "name": "Edward Achour" },
       "datePublished": "2026-05-20",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-1", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-1", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Découvrir le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles et renouer avec une forme de clarté personnelle."
     },
@@ -212,7 +212,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-2",
       "author": { "@type": "Person", "name": "Marie Hernandez" },
       "datePublished": "2026-04-08",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-2", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-2", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances. Je recommande vivement."
     },
@@ -221,7 +221,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-3",
       "author": { "@type": "Person", "name": "Philippe Audoin" },
       "datePublished": "2026-04-15",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-3", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-3", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail, les points d'amélioration, les émotions limitantes. En quelques séances, j'ai pu me libérer de certains blocages."
     },
@@ -230,7 +230,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-4",
       "author": { "@type": "Person", "name": "Isabelle Marechal" },
       "datePublished": "2025-12-23",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-4", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-4", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Alain m'a aidée à retrouver un sommeil réparateur en 2 séances. Je vous le recommande."
     },
@@ -239,7 +239,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-5",
       "author": { "@type": "Person", "name": "Regis Gonzalez" },
       "datePublished": "2025-12-23",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-5", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-5", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Première séance d'hypnose de ma vie qui a permis de solutionner un problème que j'avais depuis de nombreuses années. Un grand merci et bravo."
     },
@@ -248,7 +248,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-6",
       "author": { "@type": "Person", "name": "Karine Bogda" },
       "datePublished": "2023-03-30",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-6", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-6", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Grâce à Alain j'ai pris le dessus sur ma phobie, je recommande à 100%. Dès le premier contact téléphonique il a su être à mon écoute, et toutes les séances ont été bienveillantes, mes bulles de bien-être."
     },
@@ -257,7 +257,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-7",
       "author": { "@type": "Person", "name": "Arthur Perez" },
       "datePublished": "2022-08-17",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-7", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-7", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Phobique de l'avion, monsieur Zenatti a su m'aider avant un voyage important. Merci encore pour ce que vous avez fait !"
     },
@@ -266,7 +266,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-8",
       "author": { "@type": "Person", "name": "Anne Lhande" },
       "datePublished": "2022-07-05",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-8", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-8", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "Je recommande Alain Zenatti chaleureusement pour sa grande qualité d'écoute et sa justesse d'analyse. Arrivée avec un plexus solaire totalement noué et douloureux, Alain a réussi via ses techniques d'hypnose à adoucir ma douleur et à la transformer."
     },
@@ -275,7 +275,7 @@ export const localBusinessSchema = {
       "@id": "https://novahypnose.fr/#review-9",
       "author": { "@type": "Person", "name": "Safia Amor" },
       "datePublished": "2025-11-25",
-      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-9", "ratingValue": "5", "bestRating": "5" },
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-9", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
       "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
       "reviewBody": "J'ai apprécié la patience, la douceur, l'écoute et le professionnalisme d'Alain Zenatti. Il m'a aidée au-delà de mes espérances alors que j'étais sceptique vis-à-vis de l'hypnose. Grâce à lui, j'ai repris confiance en moi."
     }
