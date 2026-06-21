@@ -199,6 +199,30 @@
   path = "/hypnose-phobie-sociale-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-colere-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-hypersensibilite-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-deuil-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-frustration-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-anxiete-emotionnelle-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-charge-emotionnelle-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
