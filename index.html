@@ -102,9 +102,10 @@
       },8000);
     </script>
     
-    <!-- Structured Data statique : visible sans JavaScript ni edge function.
-         React Helmet injecte une version complète (avis, FAQ, BreadcrumbList)
-         après hydratation ; les deux coexistent sans conflit. -->
+    <!-- Structured Data statique : fallback pour les crawlers sans JS.
+         React Helmet injecte une version complète (aggregateRating, avis, FAQ, BreadcrumbList)
+         après hydratation. L'aggregateRating est ABSENT ici pour éviter le doublon
+         qui déclenche l'erreur GSC "L'avis contient plusieurs notes cumulées". -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -139,12 +140,6 @@
           },
           "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
           "priceRange": "€€",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "reviewCount": 23
-          },
           "sameAs": [
             "https://www.instagram.com/novahypnose/",
             "https://www.linkedin.com/in/alain-zenatti/",
