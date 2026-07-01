@@ -635,20 +635,21 @@ const PAGES: Record<string, PageData> = {
       ),
       breadcrumbLd([
         { name: "Accueil", path: "/" },
+        { name: "Spécialités", path: "/#specialites" },
         { name: "Arrêt du tabac", path: "/hypnose-arret-tabac-paris" },
       ]),
       faqLd([
         {
           q: "Combien de séances sont nécessaires pour arrêter de fumer ?",
-          a: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.",
+          a: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.",
         },
         {
           q: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",
           a: "Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique, et l'hypnose travaille directement sur ces automatismes.",
         },
         {
-          q: "Faut-il vraiment vouloir arrêter pour que ça marche ?",
-          a: "Une motivation sincère, même partielle, est nécessaire. L'hypnose ne fonctionne pas contre vous : elle amplifie ce qui est déjà là. Si une partie de vous veut arrêter, l'hypnose travaille avec cette partie pour l'aider à prendre le dessus sur les automatismes qui maintiennent la cigarette.",
+          q: "Peut-on risquer de prendre du poids après l'arrêt du tabac ?",
+          a: "La prise de poids n'est pas une fatalité. Lors des séances, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution.",
         },
       ]),
     ],
