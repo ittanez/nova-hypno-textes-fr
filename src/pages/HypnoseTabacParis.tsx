@@ -199,6 +199,44 @@ const HypnoseTabacParis = () => {
         </div>
       </section>
 
+      {/* Comment se passe une séance */}
+      <section className="sp-section">
+        <div className="container sp-narrow reveal">
+          <h2 className="sp-h2">Comment se passe une séance d'arrêt du tabac ?</h2>
+          <p className="sp-lead" style={{marginBottom:'2rem'}}>
+            La séance dure environ 1h15 à 1h30, au cabinet à Paris ou en visio.
+            Elle se déroule en deux temps complémentaires, adaptés à votre histoire avec le tabac.
+          </p>
+          <div className="sp-cases">
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Temps 1 — Comprendre votre relation au tabac</div>
+              <p>
+                La première partie de la séance est un échange approfondi. Nous explorons vos rituels
+                spécifiques, les situations qui déclenchent l'envie de fumer, et ce que la cigarette
+                représente pour vous : pause, gestion du stress, automatisme social, soutien émotionnel.
+              </p>
+              <p>
+                Ce travail est indispensable : les mécanismes inconscients ne sont pas les mêmes d'un
+                fumeur à l'autre. Cet échange permet d'adapter précisément le travail hypnotique qui suit.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Temps 2 — Le travail en hypnose</div>
+              <p>
+                La seconde partie se déroule en état d'hypnose. Nous travaillons en profondeur sur les
+                automatismes liés à la cigarette et sur les associations que votre cerveau a construites
+                entre certaines situations et l'envie de fumer.
+              </p>
+              <p>
+                L'objectif est de rendre l'arrêt fluide et stable : réduire les envies, renforcer votre
+                sentiment de contrôle, éviter les compensations. Cet état de focalisation est tout aussi
+                puissant en visio que dans mon cabinet de Paris.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
@@ -219,9 +257,10 @@ const HypnoseTabacParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Arrêt de la cigarette électronique</div>
               <p>
-                Julie*, 34 ans, avait arrêté la cigarette grâce à la vape — mais la cigarette
-                électronique était devenue une dépendance à part entière, présente partout et
-                à toute heure.
+                Julie*, 34 ans, avait arrêté la cigarette grâce à la vape — mais les
+                préoccupations avaient simplement changé de forme : &laquo;&nbsp;est-ce que
+                ma batterie est chargée ?&nbsp;&raquo;, &laquo;&nbsp;est-ce que j'ai assez
+                de liquide ?&nbsp;&raquo;. La dépendance, elle, était restée intacte.
               </p>
               <p>
                 Une séance a suffi à lui permettre de se libérer du besoin constant de vapoter.
@@ -349,6 +388,30 @@ const HypnoseTabacParis = () => {
           ]}
         />
       </div>
+
+      {/* Préparez votre arrêt */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2 reveal">Préparez votre arrêt du tabac</h2>
+          <p className="reveal">
+            Quelques gestes simples avant la séance pour mettre toutes les chances de votre côté :
+          </p>
+          <div className="sp-checklist reveal">
+            {[
+              "Fixez une date — votre rendez-vous est votre point de départ. Il n'existe pas de moment parfait, le plus important est de décider.",
+              "Prévenez vos proches — annoncer que vous arrêtez crée un engagement positif et vous protège des sollicitations sociales.",
+              "Fumez votre dernière cigarette avant la séance — puis jetez votre paquet. Ne gardez pas de cigarettes « au cas où » après.",
+              "Prévoyez 1h30 libres — sans réunion ni obligation juste après, pour laisser le travail s'installer.",
+              "Après la séance, félicitez-vous — vous avez enclenché un vrai changement."
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Final */}
       <section className="sp-cta-final">

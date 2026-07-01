@@ -671,11 +671,18 @@ const PAGES: Record<string, PageData> = {
     <h2>Mon approche pour l'arrêt du tabac</h2>
     <p>Je suis <strong>Alain Zenatti, Maître Praticien en Hypnose Ericksonienne</strong> à Paris 4ème. Ma pratique de l'arrêt du tabac combine des techniques d'hypnose ericksonienne classiques avec des suggestions adaptées à votre profil de fumeur : durée de la dépendance, rituels spécifiques, déclencheurs émotionnels. Chaque séance est entièrement personnalisée.</p>
 
+    <h2>Comment se passe une séance d'arrêt du tabac ?</h2>
+    <p>La séance dure environ 1h15 à 1h30, au cabinet à Paris ou en visio. Elle se déroule en deux temps complémentaires.</p>
+    <h3>Temps 1 — Comprendre votre relation au tabac</h3>
+    <p>La première partie est un échange approfondi pour explorer vos rituels spécifiques, les déclencheurs de l'envie de fumer, et ce que la cigarette représente pour vous. Ce travail permet d'adapter précisément le travail hypnotique qui suit.</p>
+    <h3>Temps 2 — Le travail en hypnose</h3>
+    <p>La seconde partie se déroule en état d'hypnose. Nous travaillons sur les automatismes liés à la cigarette et sur les associations que votre cerveau a construites entre certaines situations et l'envie de fumer. L'objectif est de rendre l'arrêt fluide et stable, en visio comme au cabinet.</p>
+
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Fumeur depuis 20 ans, un paquet par jour</h3>
     <p>Christophe*, 48 ans, fumait depuis l'adolescence. Il avait essayé les patchs, les gommes, même une première tentative d'hypnose ailleurs, sans résultat durable. En une séance au cabinet à Paris, nous avons neutralisé les rituels les plus ancrés — la cigarette du café, la pause déjeuner, le trajet retour. Depuis 4 mois, il n'a plus touché une cigarette.</p>
     <h3>Arrêt de la cigarette électronique</h3>
-    <p>Julie*, 34 ans, avait arrêté la cigarette grâce à la vape — mais la cigarette électronique était devenue une dépendance à part entière, présente partout et à toute heure. Une séance a suffi à lui permettre de se libérer du besoin constant de vapoter.</p>
+    <p>Julie*, 34 ans, avait arrêté la cigarette grâce à la vape — mais les préoccupations avaient simplement changé de forme : « est-ce que ma batterie est chargée ? », « est-ce que j'ai assez de liquide ? ». La dépendance, elle, était restée intacte. Une séance a suffi à lui permettre de se libérer du besoin constant de vapoter.</p>
     <h3>Séance en ligne depuis la province</h3>
     <p>Marc*, installé à Lyon, avait des doutes sur l'efficacité d'une séance d'hypnose à distance. Résultat identique à une séance en cabinet, depuis son salon, en moins de deux heures.</p>
     <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
@@ -687,6 +694,15 @@ const PAGES: Record<string, PageData> = {
       <li><strong>1 à 3 séances</strong> en moyenne pour arrêter de fumer durablement</li>
       <li><strong>0 substitut nicotinique</strong> nécessaire — une libération naturelle</li>
       <li><strong>Note 5/5</strong> sur avis vérifiés cabinet et visio</li>
+    </ul>
+
+    <h2>Préparez votre arrêt du tabac</h2>
+    <ul>
+      <li><strong>Fixez une date</strong> — votre rendez-vous est votre point de départ. Il n'existe pas de moment parfait.</li>
+      <li><strong>Prévenez vos proches</strong> — annoncer que vous arrêtez crée un engagement positif.</li>
+      <li><strong>Fumez votre dernière cigarette avant la séance</strong> — puis jetez votre paquet. Ne gardez pas de cigarettes « au cas où ».</li>
+      <li><strong>Prévoyez 1h30 libres</strong> — sans obligation juste après, pour laisser le travail s'installer.</li>
+      <li><strong>Après la séance, félicitez-vous</strong> — vous avez enclenché un vrai changement.</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le tabac</h2>
