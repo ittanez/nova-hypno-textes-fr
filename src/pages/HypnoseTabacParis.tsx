@@ -237,6 +237,30 @@ const HypnoseTabacParis = () => {
         </div>
       </section>
 
+      {/* Préparez votre arrêt */}
+      <section className="sp-section sp-section--alt">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2 reveal">Préparez votre arrêt du tabac</h2>
+          <p className="reveal">
+            Quelques gestes simples avant la séance pour mettre toutes les chances de votre côté :
+          </p>
+          <div className="sp-checklist reveal">
+            {[
+              "Fixez une date — votre rendez-vous est votre point de départ. Il n'existe pas de moment parfait, le plus important est de décider.",
+              "Prévenez vos proches — annoncer que vous arrêtez crée un engagement positif et vous protège des sollicitations sociales.",
+              "Fumez votre dernière cigarette avant la séance — puis jetez votre paquet. Ne gardez pas de cigarettes « au cas où » après.",
+              "Prévoyez 1h30 libres — sans réunion ni obligation juste après, pour laisser le travail s'installer.",
+              "Après la séance, félicitez-vous — vous avez enclenché un vrai changement."
+            ].map((item, i) => (
+              <div key={i} className="sp-check-item">
+                <CheckCircle size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">
         <div className="container sp-narrow reveal">
@@ -388,30 +412,6 @@ const HypnoseTabacParis = () => {
           ]}
         />
       </div>
-
-      {/* Préparez votre arrêt */}
-      <section className="sp-section sp-section--alt">
-        <div className="container sp-narrow">
-          <h2 className="sp-h2 reveal">Préparez votre arrêt du tabac</h2>
-          <p className="reveal">
-            Quelques gestes simples avant la séance pour mettre toutes les chances de votre côté :
-          </p>
-          <div className="sp-checklist reveal">
-            {[
-              "Fixez une date — votre rendez-vous est votre point de départ. Il n'existe pas de moment parfait, le plus important est de décider.",
-              "Prévenez vos proches — annoncer que vous arrêtez crée un engagement positif et vous protège des sollicitations sociales.",
-              "Fumez votre dernière cigarette avant la séance — puis jetez votre paquet. Ne gardez pas de cigarettes « au cas où » après.",
-              "Prévoyez 1h30 libres — sans réunion ni obligation juste après, pour laisser le travail s'installer.",
-              "Après la séance, félicitez-vous — vous avez enclenché un vrai changement."
-            ].map((item, i) => (
-              <div key={i} className="sp-check-item">
-                <CheckCircle size={18} />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Final */}
       <section className="sp-cta-final">
