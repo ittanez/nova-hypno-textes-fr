@@ -43,6 +43,7 @@ export const specialitesLinks: NavLink[] = [
   { name: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
   { name: 'Blocages et comportements', href: '/hypnose-blocages-paris' },
   { name: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
+  { name: 'Arrêt du tabac', href: '/hypnose-arret-tabac-paris' },
 ];
 
 export const accompagnementsLinks: NavLink[] = [
