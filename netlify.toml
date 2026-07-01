@@ -124,6 +124,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/hypnose-arret-tabac-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/test-receptivite"
   function = "seo-prerender-static"
 

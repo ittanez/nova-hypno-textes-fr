@@ -153,6 +153,30 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
   }
 ];
 
+// ─── Arrêt du tabac ─────────────────────────────────────────────────
+export const tabacFaqItems: SpecialtyFaqItem[] = [
+  {
+    question: "Combien de séances sont nécessaires pour arrêter de fumer ?",
+    answer: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette. Une ou deux séances de consolidation peuvent être utiles selon l'ancienneté de la dépendance et la présence de co-dépendances (stress, café, alcool). Lors de la première consultation, nous évaluons ensemble votre profil de fumeur et définissons le nombre de séances adapté."
+  },
+  {
+    question: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",
+    answer: "Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique : le geste, les rituels, le besoin de la main ou de la bouche. L'hypnose travaille directement sur ces automatismes. La dimension nicotinique peut être plus ou moins présente selon les niveaux utilisés, mais l'hypnose traite simultanément les deux dimensions."
+  },
+  {
+    question: "Peut-on risquer de prendre du poids après l'arrêt du tabac ?",
+    answer: "La prise de poids après l'arrêt du tabac est une crainte fréquente et légitime, mais elle n'est pas une fatalité. Elle survient quand la cigarette était utilisée comme substitut émotionnel ou pour gérer le stress — et que la nourriture prend sa place. Lors des séances d'hypnose, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution. La majorité de mes patients qui passent par l'hypnose ne prennent pas de poids."
+  },
+  {
+    question: "Une séance en ligne est-elle aussi efficace qu'en cabinet ?",
+    answer: "Oui, les résultats obtenus en visio sont identiques à ceux du cabinet. L'hypnose ericksonienne repose sur la voix et la relation thérapeutique — deux éléments pleinement présents en visio. Beaucoup de mes patients en province ou à l'international ont arrêté de fumer depuis chez eux, confortablement installés. La seule condition est de vous trouver dans un endroit calme, sans interruption possible, et de disposer d'une bonne connexion internet avec caméra."
+  },
+  {
+    question: "Faut-il vraiment vouloir arrêter pour que ça marche ?",
+    answer: "Une motivation sincère, même partielle, est nécessaire — mais pas besoin d'une volonté de fer. L'hypnose ne fonctionne pas contre vous : elle amplifie ce qui est déjà là. Si une partie de vous veut arrêter (même petite), l'hypnose travaille avec cette partie et l'aide à prendre le dessus sur les automatismes qui maintiennent la cigarette. Ce que l'hypnose ne peut pas faire, c'est décider à votre place. Mais si vous lisez cette page, c'est déjà un bon signe."
+  }
+];
+
 // ─── Troubles alimentaires ───────────────────────────────────────────
 export const troublesAlimentairesFaqItems: SpecialtyFaqItem[] = [
   {
