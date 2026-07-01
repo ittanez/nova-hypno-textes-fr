@@ -622,11 +622,11 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-arret-tabac-paris": {
-    title: "Hypnose arrêt du tabac Paris | Alain Zenatti",
+    title: "Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti",
     description:
-      "Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette en 1 à 3 séances.",
+      "Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette en 1 à 3 séances. Alain Zenatti, Maître Praticien.",
     canonicalPath: "/hypnose-arret-tabac-paris",
-    h1: "Hypnose arrêt du tabac — Libérez-vous de la cigarette à Paris",
+    h1: "Libérez-vous de la cigarette durablement",
     jsonLd: [
       serviceLd(
         "Hypnose arrêt du tabac Paris",
