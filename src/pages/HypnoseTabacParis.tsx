@@ -407,7 +407,6 @@ const HypnoseTabacParis = () => {
               title: "Évaluation de l'efficacité de la pratique de l'hypnose",
               source: "Rapport d'expertise collective",
               year: 2015,
-              url: "https://www.inserm.fr/expertise-collective/evaluation-efficacite-pratique-hypnose/",
             },
           ]}
         />

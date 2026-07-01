@@ -16,7 +16,7 @@ export type ScientificReference = {
   title: string;
   source: string;
   year?: string | number;
-  url: string;
+  url?: string;
 };
 
 type Props = {
@@ -116,14 +116,18 @@ const SpecialtyReferences: React.FC<Props> = (props) => {
               {references.map((ref, i) => (
                 <li key={i}>
                   {ref.authors && <span>{ref.authors}. </span>}
-                  <a
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-blue-700"
-                  >
-                    {ref.title}
-                  </a>
+                  {ref.url ? (
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-blue-700"
+                    >
+                      {ref.title}
+                    </a>
+                  ) : (
+                    <span className="font-medium">{ref.title}</span>
+                  )}
                   . <em>{ref.source}</em>
                   {ref.year && <span>, {ref.year}</span>}.
                 </li>
