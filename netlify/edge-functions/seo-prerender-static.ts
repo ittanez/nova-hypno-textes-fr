@@ -621,6 +621,112 @@ const PAGES: Record<string, PageData> = {
     `,
   },
 
+  "/hypnose-arret-tabac-paris": {
+    title: "Hypnose arrêt du tabac Paris | Alain Zenatti",
+    description:
+      "Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette en 1 à 3 séances.",
+    canonicalPath: "/hypnose-arret-tabac-paris",
+    h1: "Hypnose arrêt du tabac — Libérez-vous de la cigarette à Paris",
+    jsonLd: [
+      serviceLd(
+        "Hypnose arrêt du tabac Paris",
+        "Arrêtez de fumer par l'hypnose ericksonienne à Paris 4ème. En 1 à 3 séances, sans substitut nicotinique, au cabinet ou en visio partout en France.",
+        `${SITE_URL}/hypnose-arret-tabac-paris`
+      ),
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Spécialités", path: "/#specialites" },
+        { name: "Arrêt du tabac", path: "/hypnose-arret-tabac-paris" },
+      ]),
+      faqLd([
+        {
+          q: "Combien de séances sont nécessaires pour arrêter de fumer ?",
+          a: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.",
+        },
+        {
+          q: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",
+          a: "Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique, et l'hypnose travaille directement sur ces automatismes.",
+        },
+        {
+          q: "Peut-on risquer de prendre du poids après l'arrêt du tabac ?",
+          a: "La prise de poids n'est pas une fatalité. Lors des séances, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution.",
+        },
+      ]),
+    ],
+    content: `
+    <p>Le tabac ne crée pas seulement une dépendance physique à la nicotine. Il s'inscrit dans des rituels profondément ancrés : le café du matin, la pause au travail, le stress d'une réunion, la fin d'un repas. Ces associations fonctionnent comme des <strong>automatismes indépendants de la volonté</strong>. L'hypnose ericksonienne agit directement sur ces mécanismes inconscients.</p>
+
+    <h2>Pourquoi les substituts nicotiniques échouent souvent</h2>
+    <p>Les patchs, gommes et cigarettes électroniques traitent la dépendance physique à la nicotine, mais laissent intacts les réflexes comportementaux et émotionnels qui maintiennent le tabagisme. C'est pourquoi beaucoup de fumeurs rechutent malgré un sevrage nicotinique réussi.</p>
+
+    <h2>Ce que l'hypnose traite</h2>
+    <ul>
+      <li><strong>Les déclencheurs automatiques</strong> — café, repas, stress, téléphone</li>
+      <li><strong>Les associations plaisir / geste</strong> — le rituel sensoriel lié à la cigarette</li>
+      <li><strong>Le manque psychologique</strong> — l'impression d'un vide à combler</li>
+      <li><strong>Le stress et l'anxiété compensatoires</strong> — la cigarette comme calmant</li>
+      <li><strong>Les compensations alimentaires</strong> — prévenir la prise de poids</li>
+    </ul>
+
+    <h2>Mon approche pour l'arrêt du tabac</h2>
+    <p>Je suis <strong>Alain Zenatti, Maître Praticien en Hypnose Ericksonienne</strong> à Paris 4ème. Ma pratique de l'arrêt du tabac combine des techniques d'hypnose ericksonienne classiques avec des suggestions adaptées à votre profil de fumeur : durée de la dépendance, rituels spécifiques, déclencheurs émotionnels. Chaque séance est entièrement personnalisée.</p>
+
+    <h2>Comment se passe une séance d'arrêt du tabac ?</h2>
+    <p>La séance dure environ 1h15 à 1h30, au cabinet à Paris ou en visio. Elle se déroule en deux temps complémentaires.</p>
+    <h3>Temps 1 — Comprendre votre relation au tabac</h3>
+    <p>La première partie est un échange approfondi pour explorer vos rituels spécifiques, les déclencheurs de l'envie de fumer, et ce que la cigarette représente pour vous. Ce travail permet d'adapter précisément le travail hypnotique qui suit.</p>
+    <h3>Temps 2 — Le travail en hypnose</h3>
+    <p>La seconde partie se déroule en état d'hypnose. Nous travaillons sur les automatismes liés à la cigarette et sur les associations que votre cerveau a construites entre certaines situations et l'envie de fumer. L'objectif est de rendre l'arrêt fluide et stable, en visio comme au cabinet.</p>
+
+    <h2>Exemples de parcours au cabinet</h2>
+    <h3>Fumeur depuis 20 ans, un paquet par jour</h3>
+    <p>Christophe*, 48 ans, fumait depuis l'adolescence. Il avait essayé les patchs, les gommes, même une première tentative d'hypnose ailleurs, sans résultat durable. En une séance au cabinet à Paris, nous avons neutralisé les rituels les plus ancrés — la cigarette du café, la pause déjeuner, le trajet retour. Depuis 4 mois, il n'a plus touché une cigarette.</p>
+    <h3>Arrêt de la cigarette électronique</h3>
+    <p>Julie*, 34 ans, avait arrêté la cigarette grâce à la vape — mais les préoccupations avaient simplement changé de forme : « est-ce que ma batterie est chargée ? », « est-ce que j'ai assez de liquide ? ». La dépendance, elle, était restée intacte. Une séance a suffi à lui permettre de se libérer du besoin constant de vapoter.</p>
+    <h3>Séance en ligne depuis la province</h3>
+    <p>Marc*, installé à Lyon, avait des doutes sur l'efficacité d'une séance d'hypnose à distance. Résultat identique à une séance en cabinet, depuis son salon, en moins de deux heures.</p>
+    <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
+
+    <blockquote><p>« J'avais fumé pendant 15 ans. Après une séance avec Alain, je n'ai plus eu envie de cigarettes. Pas de manque, pas d'irritabilité — juste une liberté retrouvée. »</p><cite>— Sophie R., avis Google vérifié</cite></blockquote>
+
+    <h2>Résultats</h2>
+    <ul>
+      <li><strong>1 à 3 séances</strong> en moyenne pour arrêter de fumer durablement</li>
+      <li><strong>0 substitut nicotinique</strong> nécessaire — une libération naturelle</li>
+      <li><strong>Note 5/5</strong> sur avis vérifiés cabinet et visio</li>
+    </ul>
+
+    <h2>Préparez votre arrêt du tabac</h2>
+    <ul>
+      <li><strong>Fixez une date</strong> — votre rendez-vous est votre point de départ. Il n'existe pas de moment parfait.</li>
+      <li><strong>Prévenez vos proches</strong> — annoncer que vous arrêtez crée un engagement positif.</li>
+      <li><strong>Fumez votre dernière cigarette avant la séance</strong> — puis jetez votre paquet. Ne gardez pas de cigarettes « au cas où ».</li>
+      <li><strong>Prévoyez 1h30 libres</strong> — sans obligation juste après, pour laisser le travail s'installer.</li>
+      <li><strong>Après la séance, félicitez-vous</strong> — vous avez enclenché un vrai changement.</li>
+    </ul>
+
+    <h2>Questions fréquentes sur l'hypnose et le tabac</h2>
+    <h3>Combien de séances sont nécessaires pour arrêter de fumer ?</h3>
+    <p>Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.</p>
+    <h3>L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?</h3>
+    <p>Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique, et l'hypnose travaille directement sur ces automatismes.</p>
+    <h3>Peut-on risquer de prendre du poids après l'arrêt du tabac ?</h3>
+    <p>La prise de poids n'est pas une fatalité. Lors des séances, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution.</p>
+
+    <h2>Autres spécialités</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Burn-out, crises d'angoisse</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Hypnose et sommeil</a> — Insomnie, réveils nocturnes</li>
+      <li><a href="${SITE_URL}/hypnose-phobies-paris">Hypnose et phobies</a> — Phobie avion, claustrophobie</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+      <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur le tabac et l'hypnose</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance arrêt tabac — 90€</a>
+    `,
+  },
+
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
