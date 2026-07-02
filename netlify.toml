@@ -227,6 +227,58 @@
   path = "/hypnose-charge-emotionnelle-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/hypnose-troubles-emotionnels-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-procrastination-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-onychophagie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-toc-rituels-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-schemas-repetitifs-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-blocages-professionnels-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-addictions-comportementales-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-compulsions-alimentaires-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-grignotage-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-addiction-sucre-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-boulimie-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-alimentation-emotionnelle-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-image-corporelle-paris"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"

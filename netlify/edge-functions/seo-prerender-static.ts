@@ -27,11 +27,19 @@ const BOT_USER_AGENTS = [
   "petalbot",
   "gptbot",
   "oai-searchbot",
-  "claude-web",
+  "chatgpt-user",   // fetcher temps réel ChatGPT (n'exécute pas le JS)
+  "claudebot",      // crawler canonique Anthropic
+  "claude-user",    // fetcher temps réel Claude
+  "claude-searchbot",
+  "claude-web",     // legacy Anthropic
   "perplexitybot",
+  "perplexity-user", // fetcher temps réel Perplexity
   "meta-externalagent",
   "amazonbot",
   "bytespider",
+  "duckassistbot",  // DuckDuckGo AI
+  "mistralai-user", // Le Chat (Mistral)
+  "cohere-ai",
   "dataforseobot",
 ];
 
@@ -2321,6 +2329,1238 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
     </ul>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traiter la phobie sociale</a>
+    `,
+};
+
+// ─── Sous-pages troubles émotionnels ───────────────────────────────────────
+
+PAGES["/hypnose-troubles-emotionnels-paris"] = {
+  title: "Hypnose troubles émotionnels Paris & en ligne | Alain Zenatti",
+  description:
+    "Accompagnement des troubles émotionnels par l'hypnose à Paris 4ème ou en visio. Colère, deuil, hypersensibilité, frustration chronique, charge émotionnelle. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-troubles-emotionnels-paris",
+  h1: "Hypnose et troubles émotionnels — Retrouvez votre équilibre émotionnel à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose troubles émotionnels Paris",
+      description: "Accompagnement des troubles émotionnels (colère, deuil, hypersensibilité, frustration, charge émotionnelle) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-troubles-emotionnels-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie troubles émotionnels",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Comment l'hypnose aide-t-elle à gérer la colère ?",
+        a: "L'hypnose traite la colère en agissant sur deux niveaux. D'abord, elle identifie les déclencheurs inconscients qui provoquent des réactions disproportionnées — souvent liés à des blessures anciennes ou des schémas familiaux. Ensuite, elle reprogramme votre réponse automatique : au lieu de l'explosion, votre inconscient apprend à prendre du recul et à canaliser l'énergie de la colère de façon constructive.",
+      },
+      {
+        q: "L'hypnose peut-elle soulager la charge émotionnelle et le sentiment d'épuisement ?",
+        a: "Oui. La charge émotionnelle — ce sentiment d'être constamment débordé par les émotions des autres, par les situations, par vos propres ressentis — est l'une des problématiques que l'hypnose accompagne bien. Elle travaille à alléger le poids accumulé, à restaurer des frontières émotionnelles saines et à réduire la perméabilité excessive aux émotions extérieures.",
+      },
+      {
+        q: "L'hypnose est-elle adaptée aux personnes hypersensibles ?",
+        a: "Oui. L'objectif n'est pas de rendre une personne moins sensible, mais de l'aider à ne plus être submergée par cette sensibilité : filtres intérieurs, ancres de calme, régulation des environnements surchargés. Vous gardez votre richesse intérieure, vous gagnez la capacité de la réguler.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Colère qui déborde, deuil qui n'avance pas, hypersensibilité épuisante, frustration permanente, charge émotionnelle trop lourde : l'hypnose ericksonienne agit sur les racines inconscientes de ces états pour restaurer un équilibre émotionnel durable.</p>
+
+    <h2>Les troubles émotionnels accompagnés au cabinet</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions incontrôlées, réactions disproportionnées</li>
+      <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte d'un proche, rupture</li>
+      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
+      <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement émotionnel</li>
+      <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur de craquer, contrôle excessif</li>
+    </ul>
+
+    <h2>Comment l'hypnose restaure l'équilibre émotionnel</h2>
+    <ul>
+      <li>Identifier les déclencheurs et les racines inconscientes des débordements émotionnels</li>
+      <li>Libérer les charges émotionnelles accumulées (blessures anciennes, émotions non digérées)</li>
+      <li>Reprogrammer les réponses automatiques : du débordement à la régulation</li>
+      <li>Installer des ressources intérieures durables (ancres de calme, frontières saines)</li>
+    </ul>
+
+    <h2>Voir aussi</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Anxiété généralisée, burn-out</li>
+      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour retrouver l'équilibre émotionnel</a>
+    `,
+};
+
+PAGES["/hypnose-colere-paris"] = {
+  title: "Hypnose colère et irritabilité Paris | Alain Zenatti",
+  description:
+    "Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-colere-paris",
+  h1: "Hypnose colère et irritabilité — Retrouvez le calme sans perdre votre énergie",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose colère et irritabilité Paris",
+      description: "Accompagnement de la colère chronique et de l'irritabilité par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-colere-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie gestion de la colère",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Colère et irritabilité", path: "/hypnose-colere-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Comment l'hypnose agit-elle sur la colère et l'irritabilité ?",
+        a: "La colère chronique est rarement une émotion isolée — elle est souvent le signal d'une blessure ancienne, d'un besoin non satisfait ou d'un apprentissage familial ancré dans l'inconscient. L'hypnose remonte à ces sources, libère la charge émotionnelle qui les alimente, et reprogramme la réponse automatique. Vous ne devenez pas insensible — vous récupérez le choix de votre réaction.",
+      },
+      {
+        q: "Combien de séances faut-il pour réduire l'irritabilité chronique ?",
+        a: "En général, 3 à 5 séances permettent une amélioration significative de la gestion de la colère. La première séance identifie les déclencheurs et les racines inconscientes ; les suivantes travaillent la libération des anciennes charges et l'installation de nouvelles réponses automatiques. Les résultats sont souvent perceptibles dès la deuxième ou troisième séance.",
+      },
+      {
+        q: "La colère n'est-elle pas une émotion saine à ne pas supprimer ?",
+        a: "Si, la colère est une émotion utile qui signale qu'une limite a été franchie. Le but de l'hypnose n'est pas de la supprimer mais de sortir des explosions incontrôlées et disproportionnées, pour retrouver une colère qui informe sans détruire.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Explosions de colère incontrôlées, irritabilité permanente, réactions disproportionnées qui abîment vos relations ? L'hypnose ericksonienne agit sur les racines inconscientes de la colère chronique — pas seulement sur ses manifestations.</p>
+
+    <h2>Comment l'hypnose transforme la colère chronique</h2>
+    <ul>
+      <li>Identifier les déclencheurs et le message caché derrière la colère (blessure, injustice, besoin non satisfait)</li>
+      <li>Libérer les charges émotionnelles anciennes qui alimentent les explosions</li>
+      <li>Reprogrammer la réponse automatique : de l'explosion au recul</li>
+      <li>Canaliser l'énergie de la colère de façon constructive, sans devenir insensible</li>
+    </ul>
+    <p>En général, 3 à 5 séances permettent une amélioration significative, souvent perceptible dès la deuxième séance.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
+      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation émotionnelle</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Tension permanente</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour apaiser la colère</a>
+    `,
+};
+
+PAGES["/hypnose-hypersensibilite-paris"] = {
+  title: "Hypnose hypersensibilité Paris | Alain Zenatti",
+  description:
+    "Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-hypersensibilite-paris",
+  h1: "Hypnose et hypersensibilité — Ressentir profondément sans être submergé(e)",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose hypersensibilité Paris",
+      description: "Accompagnement de l'hypersensibilité par l'hypnose ericksonienne : réguler sans renier sa sensibilité. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-hypersensibilite-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie hypersensibilité",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Hypersensibilité", path: "/hypnose-hypersensibilite-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypersensibilité est-elle un trouble à traiter ou une caractéristique à accepter ?",
+        a: "L'hypersensibilité n'est pas un trouble à corriger — c'est une façon d'être au monde qui implique une perception plus fine, une empathie plus profonde, une résonance plus intense avec les émotions et les environnements. L'objectif de l'hypnose n'est pas de rendre une personne moins sensible, mais de l'aider à ne plus être submergée par cette sensibilité.",
+      },
+      {
+        q: "Combien de séances pour apprendre à gérer l'hypersensibilité ?",
+        a: "En général, 4 à 6 séances permettent de développer des ressources durables de régulation. La première séance explore la nature spécifique de votre hypersensibilité et ses domaines d'impact. Les séances suivantes installent progressivement des outils intérieurs — filtres, ancres de calme, espace protecteur — activables dans la vie quotidienne.",
+      },
+      {
+        q: "Est-ce que l'hypnose peut aider à mieux supporter les environnements bruyants ou les foules ?",
+        a: "Oui. La surcharge sensorielle (bruit, foule, sollicitations multiples) est l'un des motifs de consultation les plus fréquents des personnes hypersensibles. L'hypnose installe des filtres intérieurs qui réduisent la perméabilité aux stimulations, sans couper de l'environnement.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Émotions amplifiées, surcharge sensorielle, épuisement après les interactions sociales ? L'hypnose ericksonienne aide les personnes hypersensibles à réguler leur sensibilité sans la renier : ressentir profondément, sans être submergé.</p>
+
+    <h2>Ce que l'hypnose apporte aux hypersensibles</h2>
+    <ul>
+      <li>Installer des filtres intérieurs contre la surcharge sensorielle et émotionnelle</li>
+      <li>Créer des ancres de calme activables en situation (foule, bruit, conflit)</li>
+      <li>Restaurer des frontières émotionnelles saines face aux émotions des autres</li>
+      <li>Transformer l'hypersensibilité subie en sensibilité choisie et ressource</li>
+    </ul>
+    <p>En général, 4 à 6 séances permettent de développer des ressources durables de régulation.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Porter les émotions des autres</li>
+      <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur d'être submergé</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Régulation émotionnelle</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour réguler mon hypersensibilité</a>
+    `,
+};
+
+PAGES["/hypnose-deuil-paris"] = {
+  title: "Hypnose deuil et séparation Paris | Alain Zenatti",
+  description:
+    "Traversez votre deuil avec l'hypnose à Paris 4ème ou en visio. Perte d'un proche, rupture, séparation — accompagnement doux en 4 à 6 séances.",
+  canonicalPath: "/hypnose-deuil-paris",
+  h1: "Traversez votre deuil avec l'hypnose — Perte, rupture, séparation",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose deuil et séparation Paris",
+      description: "Accompagnement du deuil et des séparations par l'hypnose ericksonienne : transformer la douleur brute en souvenirs apaisés. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-deuil-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie deuil",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      { name: "Deuil et séparation", path: "/hypnose-deuil-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment aider à traverser un deuil ?",
+        a: "Oui. L'hypnose ericksonienne ne prétend pas effacer le deuil — le deuil est une réponse normale et nécessaire à une perte. Elle accompagne le processus en aidant votre inconscient à transformer la douleur brute en souvenirs apaisés, à avancer sans avoir l'impression de trahir la personne perdue, et à retrouver un sens à votre vie.",
+      },
+      {
+        q: "Combien de séances sont nécessaires pour un deuil ?",
+        a: "En général, 4 à 6 séances permettent d'accompagner significativement le processus de deuil. Le nombre exact dépend de l'intensité du deuil, de sa durée et des blocages spécifiques. Certaines personnes avancent plus vite, d'autres ont besoin d'un accompagnement plus long.",
+      },
+      {
+        q: "L'hypnose peut-elle aider pour une rupture sentimentale ou un deuil non-mortel ?",
+        a: "Oui. Le deuil ne concerne pas que la mort : rupture amoureuse, séparation, perte d'un emploi, éloignement d'un proche déclenchent le même processus psychique de perte. L'hypnose accompagne ces deuils de la même manière, en aidant à intégrer la perte et à se réengager dans sa propre vie. Les séances sont possibles au cabinet comme en visio, avec la même efficacité.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Perte d'un proche, rupture, séparation : quand le deuil n'avance plus, l'hypnose ericksonienne aide votre inconscient à transformer la douleur brute en souvenirs apaisés — sans rien effacer, sans trahir ce qui a été vécu.</p>
+
+    <h2>Comment l'hypnose accompagne le deuil</h2>
+    <ul>
+      <li>Apaiser la douleur aiguë et les vagues émotionnelles qui submergent</li>
+      <li>Dénouer les blocages du processus de deuil (culpabilité, choses non dites, colère)</li>
+      <li>Transformer le lien : de la douleur de l'absence aux souvenirs apaisés</li>
+      <li>Retrouver l'élan de vie sans avoir l'impression de trahir la personne perdue</li>
+    </ul>
+    <p>En général, 4 à 6 séances permettent d'accompagner significativement le processus, au cabinet ou en visio.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — Colère, charge émotionnelle</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Le poids accumulé</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a> — Quand le deuil empêche de dormir</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traverser mon deuil</a>
+    `,
+};
+
+PAGES["/hypnose-frustration-paris"] = {
+  title: "Hypnose frustration chronique Paris | Alain Zenatti",
+  description:
+    "Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio. Résultats en 3 à 5 séances.",
+  canonicalPath: "/hypnose-frustration-paris",
+  h1: "Hypnose et frustration chronique — Libérez-vous de l'insatisfaction permanente",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose frustration chronique Paris",
+      description: "Accompagnement de la frustration chronique et de l'insatisfaction permanente par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-frustration-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie frustration chronique",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      { name: "Frustration chronique", path: "/hypnose-frustration-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Comment l'hypnose peut-elle agir sur la frustration chronique ?",
+        a: "La frustration chronique vient souvent de croyances inconscientes sur ce que la vie devrait être, sur ce que vous méritez, sur la façon dont les autres devraient se comporter. L'hypnose accède à ces croyances sous-jacentes pour les recalibrer, vous permettant d'ajuster vos attentes sans perdre vos ambitions légitimes.",
+      },
+      {
+        q: "Combien de séances faut-il pour libérer la frustration chronique ?",
+        a: "En général, 3 à 5 séances permettent d'observer des changements significatifs. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines.",
+      },
+      {
+        q: "Est-ce que l'hypnose va me rendre passif(ve) ou résigné(e) ?",
+        a: "Non. L'objectif n'est pas la résignation mais la libération : sortir du sentiment permanent d'injustice et d'insatisfaction pour retrouver la capacité d'agir sur ce qui dépend de vous, avec une énergie apaisée. Les séances sont possibles au cabinet ou en visio.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Sentiment permanent que les choses ne sont jamais comme elles devraient être ? Insatisfaction qui gâche vos réussites ? L'hypnose ericksonienne recalibre les croyances inconscientes qui alimentent la frustration chronique.</p>
+
+    <h2>Comment l'hypnose libère de la frustration chronique</h2>
+    <ul>
+      <li>Identifier les croyances et attentes inconscientes qui alimentent l'insatisfaction</li>
+      <li>Libérer les blessures d'injustice anciennes et le perfectionnisme hérité</li>
+      <li>Recalibrer les attentes sans renoncer aux ambitions légitimes</li>
+      <li>Retrouver la capacité de savourer ce qui est acquis</li>
+    </ul>
+    <p>En général, 3 à 5 séances permettent d'observer des changements significatifs.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Quand la frustration explose</li>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — Perfectionnisme, auto-sabotage</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour sortir de la frustration</a>
+    `,
+};
+
+PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
+  title: "Hypnose anxiété émotionnelle Paris | Alain Zenatti",
+  description:
+    "Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — résultats en 3 à 5 séances.",
+  canonicalPath: "/hypnose-anxiete-emotionnelle-paris",
+  h1: "Hypnose pour l'anxiété émotionnelle — Rétablir la confiance en ses émotions",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose anxiété émotionnelle Paris",
+      description: "Accompagnement de l'anxiété émotionnelle (peur de craquer, contrôle excessif, évitement émotionnel) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-anxiete-emotionnelle-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie anxiété émotionnelle",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      { name: "Anxiété émotionnelle", path: "/hypnose-anxiete-emotionnelle-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Qu'est-ce que l'anxiété émotionnelle et comment l'hypnose peut-elle aider ?",
+        a: "L'anxiété émotionnelle est la peur d'être submergé(e) par ses propres émotions — craindre de craquer, de perdre le contrôle, d'être envahi(e) par la tristesse, la colère ou la panique. L'hypnose ericksonienne travaille sur les croyances inconscientes qui font de vos émotions une menace, et vous aide à rétablir une relation de confiance avec votre vie émotionnelle.",
+      },
+      {
+        q: "J'ai peur de craquer si je commence à ressentir mes émotions — est-ce un risque avec l'hypnose ?",
+        a: "Non. L'hypnose ericksonienne procède toujours à votre rythme et ne force rien. Nous travaillons dans votre zone de confort émotionnel. Si quelque chose de difficile émerge, nous avons des outils pour le gérer en douceur. Beaucoup de patients redoutent cette crainte avant la première séance et se retrouvent au contraire dans un état de calme profond.",
+      },
+      {
+        q: "Combien de séances sont nécessaires pour l'anxiété émotionnelle ?",
+        a: "En général, 3 à 5 séances permettent des résultats significatifs : la confiance dans ses propres émotions se rétablit progressivement, le contrôle excessif se relâche, l'évitement émotionnel diminue. Les séances sont possibles au cabinet ou en visio.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Peur de craquer, contrôle permanent de ce que vous ressentez, évitement de tout ce qui pourrait faire remonter des émotions ? L'hypnose ericksonienne rétablit une relation de confiance avec votre vie émotionnelle.</p>
+
+    <h2>Comment l'hypnose traite l'anxiété émotionnelle</h2>
+    <ul>
+      <li>Transformer les croyances inconscientes qui font des émotions une menace</li>
+      <li>Relâcher le contrôle excessif sans perdre la maîtrise de soi</li>
+      <li>Apprivoiser progressivement les émotions évitées, à votre rythme</li>
+      <li>Installer la confiance : ressentir sans craindre de s'effondrer</li>
+    </ul>
+    <p>En général, 3 à 5 séances permettent des résultats significatifs.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Anxiété généralisée</li>
+      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation émotionnelle</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour apaiser l'anxiété émotionnelle</a>
+    `,
+};
+
+PAGES["/hypnose-charge-emotionnelle-paris"] = {
+  title: "Hypnose charge émotionnelle Paris | Alain Zenatti",
+  description:
+    "Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-charge-emotionnelle-paris",
+  h1: "Hypnose et charge émotionnelle — Déposer le poids que vous portez seul(e)",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose charge émotionnelle Paris",
+      description: "Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-charge-emotionnelle-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie charge émotionnelle",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Charge émotionnelle", path: "/hypnose-charge-emotionnelle-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Qu'est-ce que la charge émotionnelle exactement ?",
+        a: "La charge émotionnelle, c'est l'accumulation progressive des émotions non digérées — tristesses, colères, inquiétudes, déceptions — qui s'accumulent dans l'inconscient sans avoir pu être exprimées ou traitées. Avec le temps, ce poids devient de plus en plus lourd : fatigue chronique, sentiment d'être constamment à bout, réactions disproportionnées, irritabilité, larmes sans raison apparente.",
+      },
+      {
+        q: "Comment l'hypnose aide-t-elle à alléger la charge émotionnelle ?",
+        a: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de patients décrivent un sentiment de légèreté très concret après les séances.",
+      },
+      {
+        q: "Pourquoi ai-je l'impression de porter les émotions des autres en plus des miennes ?",
+        a: "Certaines personnes — souvent empathiques ou hypersensibles — absorbent les émotions de leur entourage sans filtre. L'hypnose travaille à restaurer des frontières émotionnelles saines : rester à l'écoute des autres sans porter leur poids à leur place.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Fatigue qui ne passe pas, sentiment d'être saturé(e), impression de porter les émotions de tout le monde ? La charge émotionnelle est un poids accumulé que l'hypnose ericksonienne aide à déposer, en douceur.</p>
+
+    <h2>Comment l'hypnose allège la charge émotionnelle</h2>
+    <ul>
+      <li>Identifier les émotions accumulées et non digérées stockées dans l'inconscient</li>
+      <li>Libérer progressivement ces charges, à votre rythme</li>
+      <li>Restaurer des frontières émotionnelles saines face aux émotions des autres</li>
+      <li>Retrouver énergie et légèreté au quotidien</li>
+    </ul>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Absorption des émotions</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Épuisement, burn-out</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a> — Fatigue chronique</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour alléger ma charge émotionnelle</a>
+    `,
+};
+
+// ─── Sous-pages blocages & comportements ───────────────────────────────────
+
+PAGES["/hypnose-procrastination-paris"] = {
+  title: "Hypnose procrastination Paris & en ligne | Alain Zenatti",
+  description:
+    "Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — l'hypnose agit sur la cause, pas le symptôme. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-procrastination-paris",
+  h1: "Hypnose et procrastination — Libérez-vous du blocage à l'action",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose procrastination Paris",
+      description: "Traitement de la procrastination par l'hypnose ericksonienne : agir sur la peur cachée derrière le report permanent. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-procrastination-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie procrastination",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "Procrastination", path: "/hypnose-procrastination-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment aider à arrêter de procrastiner ?",
+        a: "Oui, et c'est l'une de ses applications les plus efficaces. La procrastination n'est pas un défaut de caractère — c'est un mécanisme de protection inconscient, souvent lié à la peur de l'échec, au perfectionnisme ou à l'anxiété de performance. L'hypnose identifie la peur cachée derrière votre procrastination et la neutralise à la source. Vous retrouvez naturellement la capacité de passer à l'action, sans forcer.",
+      },
+      {
+        q: "Combien de séances d'hypnose pour vaincre la procrastination ?",
+        a: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance identifie les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes reprogramment ces automatismes. Beaucoup de patients constatent un changement significatif dès la deuxième ou troisième séance.",
+      },
+      {
+        q: "La procrastination est-elle liée à un manque de volonté ?",
+        a: "Non. Si la volonté suffisait, vous auriez déjà arrêté. La procrastination est pilotée par l'inconscient — c'est pourquoi l'hypnose, qui travaille directement à ce niveau, obtient des résultats là où les injonctions à « se bouger » échouent.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Vous reportez sans cesse ce qui compte, malgré votre volonté ? La procrastination n'est pas de la paresse : c'est un mécanisme de protection inconscient. L'hypnose ericksonienne le neutralise à la source — peur de l'échec, perfectionnisme, anxiété de performance.</p>
+
+    <h2>Comment l'hypnose traite la procrastination</h2>
+    <ul>
+      <li>Identifier la peur cachée derrière le report permanent (échec, jugement, perfection)</li>
+      <li>Neutraliser le mécanisme de protection devenu handicapant</li>
+      <li>Reprogrammer le passage à l'action : de la résistance à la fluidité</li>
+      <li>Ancrer la capacité d'agir sans lutte intérieure</li>
+    </ul>
+    <p>En général, 3 à 5 séances suffisent pour des résultats durables.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-blocages-professionnels-paris">Blocages professionnels</a> — Auto-sabotage, syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/hypnose-schemas-repetitifs-paris">Schémas répétitifs</a> — Cycles qui se répètent</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi, oser agir</li>
+      <li><a href="${SITE_URL}/guide-procrastination">Guide gratuit procrastination</a> — E-book offert</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour arrêter de procrastiner</a>
+    `,
+};
+
+PAGES["/hypnose-onychophagie-paris"] = {
+  title: "Hypnose onychophagie (rongement des ongles) Paris & en ligne | Alain Zenatti",
+  description:
+    "Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Maître Hypnologue Paris.",
+  canonicalPath: "/hypnose-onychophagie-paris",
+  h1: "Hypnose et onychophagie — Arrêtez de vous ronger les ongles définitivement",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose onychophagie Paris",
+      description: "Traitement de l'onychophagie (rongement des ongles) par l'hypnose ericksonienne, souvent en 1 à 3 séances. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-onychophagie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie onychophagie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "Onychophagie", path: "/hypnose-onychophagie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
+        a: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart des patients cessent de se ronger les ongles sans effort de volonté.",
+      },
+      {
+        q: "Je me ronge les ongles sans même m'en rendre compte — est-ce que l'hypnose peut quand même aider ?",
+        a: "Oui, c'est même le cas typique. L'automatisme se déclenche hors de la conscience, ce qui explique pourquoi la volonté seule échoue. L'hypnose travaille précisément au niveau où le geste se décide : l'inconscient.",
+      },
+      {
+        q: "L'onychophagie est-elle liée au stress ou à de l'anxiété ?",
+        a: "Très souvent, oui. Le rongement des ongles est une stratégie d'auto-apaisement : il décharge une tension intérieure. C'est pourquoi la séance travaille aussi sur la source de la tension, pas seulement sur le geste.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Vous vous rongez les ongles depuis des années, souvent sans vous en rendre compte ? L'onychophagie est un automatisme inconscient — l'hypnose ericksonienne le désactive en travaillant sur sa fonction cachée. La plupart des patients arrêtent en 1 à 3 séances.</p>
+
+    <h2>Comment l'hypnose fait cesser l'onychophagie</h2>
+    <ul>
+      <li>Identifier la fonction du geste : décharge de stress, réconfort, concentration</li>
+      <li>Proposer à l'inconscient une alternative qui satisfait le même besoin</li>
+      <li>Neutraliser le déclenchement automatique, même hors de la conscience</li>
+      <li>Travailler la source de la tension (stress, anxiété) pour un résultat durable</li>
+    </ul>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-toc-rituels-paris">TOC et rituels compulsifs</a> — Comportements répétitifs</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — La tension sous-jacente</li>
+      <li><a href="${SITE_URL}/hypnose-procrastination-paris">Procrastination</a> — Autres automatismes</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour arrêter de me ronger les ongles</a>
+    `,
+};
+
+PAGES["/hypnose-toc-rituels-paris"] = {
+  title: "Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti",
+  description:
+    "Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur l'anxiété sous-jacente. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-toc-rituels-paris",
+  h1: "Hypnose, TOC et rituels compulsifs — Libérez-vous des comportements répétitifs",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose TOC et rituels compulsifs Paris",
+      description: "Accompagnement des TOC légers à modérés, rituels compulsifs et trichotillomanie par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-toc-rituels-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie TOC et rituels",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "TOC & Rituels", path: "/hypnose-toc-rituels-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider avec les TOC et les rituels compulsifs ?",
+        a: "L'hypnose accompagne efficacement les TOC légers à modérés en travaillant sur le mécanisme d'anxiété sous-jacent. Les rituels compulsifs — vérifications, lavages, comptage, arrachage de cheveux — sont des stratégies que l'inconscient a mises en place pour gérer une anxiété profonde. L'hypnose réduit cette anxiété à sa source et propose à l'inconscient des alternatives plus adaptées. Pour les TOC sévères, l'hypnose constitue un complément à un suivi spécialisé.",
+      },
+      {
+        q: "L'hypnose peut-elle traiter la trichotillomanie (arrachage de cheveux) ?",
+        a: "Oui. La trichotillomanie est un comportement répétitif centré sur le corps (BFRB), apparenté aux TOC, souvent lié à une tension interne ou à un mécanisme de régulation émotionnelle. L'hypnose identifie la fonction du comportement et propose une alternative inconsciente. Certains patients constatent une réduction significative dès les premières séances.",
+      },
+      {
+        q: "Quelle est la différence entre un TOC et un rituel habituel ?",
+        a: "Un rituel devient un TOC quand il s'impose : impossible d'y résister sans angoisse majeure, temps consacré croissant, retentissement sur la vie quotidienne. C'est l'anxiété qui pilote — et c'est elle que l'hypnose cible.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Vérifications sans fin, lavages, comptages, arrachage de cheveux : les rituels compulsifs sont des stratégies inconscientes de gestion de l'anxiété. L'hypnose ericksonienne réduit cette anxiété à sa source, pour les TOC légers à modérés.</p>
+
+    <h2>Comment l'hypnose agit sur les TOC et rituels</h2>
+    <ul>
+      <li>Réduire l'anxiété profonde qui pilote les compulsions</li>
+      <li>Identifier la fonction protectrice du rituel pour l'inconscient</li>
+      <li>Proposer des alternatives de régulation plus adaptées</li>
+      <li>Accompagner aussi la trichotillomanie et les comportements répétitifs centrés sur le corps (BFRB)</li>
+    </ul>
+    <p>Pour les TOC sévères, l'hypnose s'inscrit en complément d'un suivi spécialisé, jamais en substitution.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-onychophagie-paris">Onychophagie</a> — Rongement des ongles</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — L'anxiété sous-jacente</li>
+      <li><a href="${SITE_URL}/hypnose-schemas-repetitifs-paris">Schémas répétitifs</a> — Cycles inconscients</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour me libérer des rituels compulsifs</a>
+    `,
+};
+
+PAGES["/hypnose-schemas-repetitifs-paris"] = {
+  title: "Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti",
+  description:
+    "Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-schemas-repetitifs-paris",
+  h1: "Hypnose et schémas répétitifs — Brisez les cycles qui se répètent",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose schémas répétitifs Paris",
+      description: "Accompagnement des schémas répétitifs amoureux et professionnels par l'hypnose ericksonienne : reprogrammer les cycles inconscients à leur source. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-schemas-repetitifs-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie schémas répétitifs",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "Schémas répétitifs", path: "/hypnose-schemas-repetitifs-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Pourquoi reproduit-on les mêmes schémas relationnels malgré soi ?",
+        a: "Parce que ces schémas sont pilotés par l'inconscient, pas par le choix conscient. Votre inconscient a appris, souvent dans l'enfance, qu'un certain type de relation était la norme — même si cette norme était douloureuse. Il cherche à recréer ce qu'il connaît parce que le familier est rassurant, même quand c'est difficile. C'est ce programme inconscient que l'hypnose peut identifier et transformer.",
+      },
+      {
+        q: "L'hypnose peut-elle vraiment briser les schémas répétitifs en amour ?",
+        a: "Oui, c'est l'une de ses applications les plus puissantes. Toujours choisir le même type de partenaire, reproduire les mêmes conflits, s'auto-saboter à chaque relation qui commence bien : ces cycles sont maintenus par des programmes inconscients souvent installés dans l'enfance. L'hypnose identifie le schéma fondateur, remonte à son origine et reprogramme la réponse inconsciente.",
+      },
+      {
+        q: "Comment savoir si je suis dans un schéma répétitif ?",
+        a: "Le signe le plus net : le sentiment de « rejouer le même film » avec des personnes ou des contextes différents — mêmes types de relations, mêmes conflits au travail, mêmes impasses. Si le scénario se répète malgré vos décisions conscientes de faire autrement, un programme inconscient est probablement à l'œuvre.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Toujours le même type de partenaire, les mêmes conflits, les mêmes impasses professionnelles ? Quand le scénario se répète malgré vos décisions conscientes, un programme inconscient est à l'œuvre. L'hypnose ericksonienne le reprogramme à sa source.</p>
+
+    <h2>Comment l'hypnose brise les schémas répétitifs</h2>
+    <ul>
+      <li>Identifier le schéma fondateur et son origine (souvent dans l'enfance)</li>
+      <li>Comprendre ce que le cycle cherche à rejouer ou à réparer</li>
+      <li>Reprogrammer la réponse inconsciente qui perpétue le scénario</li>
+      <li>Ouvrir de nouveaux choix relationnels et professionnels réels</li>
+    </ul>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-blocages-professionnels-paris">Blocages professionnels</a> — Auto-sabotage de carrière</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi</li>
+      <li><a href="${SITE_URL}/hypnose-procrastination-paris">Procrastination</a> — Blocage à l'action</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour briser mes schémas répétitifs</a>
+    `,
+};
+
+PAGES["/hypnose-blocages-professionnels-paris"] = {
+  title: "Hypnose blocages professionnels Paris & en ligne | Alain Zenatti",
+  description:
+    "Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir — l'hypnose agit sur les freins inconscients. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-blocages-professionnels-paris",
+  h1: "Hypnose et blocages professionnels — Levez les freins qui bloquent votre carrière",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose blocages professionnels Paris",
+      description: "Accompagnement des blocages professionnels (auto-sabotage, syndrome de l'imposteur, peur de réussir) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-blocages-professionnels-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie blocages professionnels",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "Blocages professionnels", path: "/hypnose-blocages-professionnels-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider à surmonter les blocages professionnels ?",
+        a: "Oui, et c'est l'une de ses applications les plus concrètes. Les blocages professionnels — peur de demander une augmentation, incapacité à passer à l'action, auto-sabotage avant une promotion, syndrome de l'imposteur — sont pilotés par des croyances inconscientes. L'hypnose accède directement à ces programmes pour les transformer. Un changement est souvent notable dès les premières séances.",
+      },
+      {
+        q: "Comment l'hypnose aide-t-elle contre le syndrome de l'imposteur ?",
+        a: "Le syndrome de l'imposteur repose sur des croyances inconscientes de non-légitimité, souvent installées bien avant la vie professionnelle. L'hypnose remonte à ces croyances, les déconstruit et installe un sentiment de légitimité aligné avec vos compétences réelles.",
+      },
+      {
+        q: "Qu'est-ce que l'auto-sabotage professionnel ?",
+        a: "C'est le mécanisme par lequel l'inconscient fait échouer ce que vous désirez consciemment : rater un entretien décisif, procrastiner un dossier stratégique, fuir une promotion. Derrière, il y a souvent une peur cachée — de réussir, d'être exposé, de trahir son milieu d'origine. L'hypnose identifie cette peur et la neutralise.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Peur de demander une augmentation, auto-sabotage avant une promotion, sentiment d'imposture malgré vos compétences ? Les blocages professionnels sont pilotés par des croyances inconscientes que l'hypnose ericksonienne transforme directement.</p>
+
+    <h2>Blocages professionnels traités par l'hypnose</h2>
+    <ul>
+      <li>Syndrome de l'imposteur et sentiment de non-légitimité</li>
+      <li>Auto-sabotage : échouer ce que l'on désire consciemment</li>
+      <li>Peur de réussir, peur d'être exposé, peur de dépasser son milieu d'origine</li>
+      <li>Incapacité à négocier, à se positionner, à passer à l'action</li>
+    </ul>
+    <p>Un changement est souvent notable dès les premières séances : une capacité à agir qui se débloque naturellement.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-professionnels-paris">Hypnose pour les professionnels</a> — Burn-out, performance</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Légitimité, estime de soi</li>
+      <li><a href="${SITE_URL}/hypnose-procrastination-paris">Procrastination</a> — Blocage à l'action</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Prise de parole</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour lever mes blocages professionnels</a>
+    `,
+};
+
+PAGES["/hypnose-addictions-comportementales-paris"] = {
+  title: "Hypnose addictions comportementales Paris & en ligne | Alain Zenatti",
+  description:
+    "Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause émotionnelle. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-addictions-comportementales-paris",
+  h1: "Hypnose et addictions comportementales — Libérez-vous des comportements dont vous n'arrivez pas à vous défaire",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose addictions comportementales Paris",
+      description: "Accompagnement des addictions comportementales (jeux d'argent, écrans, achats compulsifs, réseaux sociaux) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-addictions-comportementales-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie addictions comportementales",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Blocages & Comportements", path: "/hypnose-blocages-paris" },
+      { name: "Addictions comportementales", path: "/hypnose-addictions-comportementales-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider à se libérer d'une addiction comportementale ?",
+        a: "Oui. Les addictions comportementales — jeux d'argent, écrans, achats compulsifs, réseaux sociaux — partagent le même mécanisme : un comportement qui procure un soulagement immédiat à une tension émotionnelle profonde. L'hypnose identifie cette tension sous-jacente et propose à l'inconscient d'autres façons de la gérer. Le comportement addictif perd alors sa raison d'être et son emprise se réduit.",
+      },
+      {
+        q: "Combien de séances d'hypnose pour traiter une addiction comportementale ?",
+        a: "En général, 4 à 6 séances permettent d'obtenir des résultats significatifs. Le nombre dépend de l'ancienneté de l'addiction, de son intensité et de la complexité des mécanismes émotionnels sous-jacents. Les premières séances identifient la fonction de l'addiction ; les suivantes reprogramment ces mécanismes et ancrent de nouvelles stratégies de régulation.",
+      },
+      {
+        q: "Quelle différence entre addiction comportementale et addiction aux substances ?",
+        a: "L'addiction comportementale ne repose pas sur une substance chimique mais sur un comportement (jouer, acheter, scroller) qui active le circuit de la récompense. Le mécanisme émotionnel est comparable — c'est lui que l'hypnose cible. Pour les addictions aux substances, un accompagnement médical est nécessaire en parallèle.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Jeux d'argent, écrans, achats compulsifs, réseaux sociaux : quand un comportement prend le contrôle malgré vous, il répond à une tension émotionnelle profonde. L'hypnose ericksonienne agit sur cette cause, pas seulement sur le comportement.</p>
+
+    <h2>Comment l'hypnose réduit l'emprise des addictions comportementales</h2>
+    <ul>
+      <li>Identifier la tension émotionnelle que le comportement vient soulager</li>
+      <li>Proposer à l'inconscient d'autres stratégies de régulation</li>
+      <li>Réduire le déclenchement automatique du comportement compulsif</li>
+      <li>Ancrer des sources de satisfaction durables et choisies</li>
+    </ul>
+    <p>En général, 4 à 6 séances permettent des résultats significatifs, selon l'ancienneté et l'intensité de l'addiction.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-arret-tabac-paris">Arrêt du tabac</a> — Se libérer de la cigarette</li>
+      <li><a href="${SITE_URL}/hypnose-addiction-sucre-paris">Addiction au sucre</a> — Dépendance sucrée</li>
+      <li><a href="${SITE_URL}/hypnose-toc-rituels-paris">TOC et rituels</a> — Compulsions</li>
+      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — La tension sous-jacente</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour me libérer d'une addiction comportementale</a>
+    `,
+};
+
+// ─── Sous-pages troubles alimentaires ──────────────────────────────────────
+
+PAGES["/hypnose-compulsions-alimentaires-paris"] = {
+  title: "Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti",
+  description:
+    "Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme. Alain Zenatti, Maître Hypnologue Paris.",
+  canonicalPath: "/hypnose-compulsions-alimentaires-paris",
+  h1: "Hypnose et compulsions alimentaires — Libérez-vous des envies incontrôlables",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose compulsions alimentaires Paris",
+      description: "Traitement des compulsions alimentaires par l'hypnose ericksonienne : agir sur le déclencheur émotionnel. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-compulsions-alimentaires-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie compulsions alimentaires",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Compulsions alimentaires", path: "/hypnose-compulsions-alimentaires-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment arrêter les compulsions alimentaires ?",
+        a: "Oui. Les compulsions alimentaires — ces envies soudaines et incontrôlables de manger en dehors des repas — sont des comportements pilotés par l'inconscient en réponse à une tension émotionnelle. L'hypnose identifie le déclencheur émotionnel (stress, ennui, anxiété, tristesse) et propose à l'inconscient des réponses alternatives. En 3 à 5 séances, la fréquence et l'intensité des compulsions diminuent significativement.",
+      },
+      {
+        q: "Pourquoi les régimes ne résolvent-ils pas les compulsions alimentaires ?",
+        a: "Parce que les régimes traitent le symptôme (ce que vous mangez) sans toucher à la cause (pourquoi l'inconscient déclenche l'envie). La restriction augmente même souvent la tension intérieure, donc les compulsions. L'hypnose inverse la logique : elle apaise le déclencheur émotionnel, et le comportement se normalise naturellement.",
+      },
+      {
+        q: "Comment différencier une vraie faim d'une compulsion alimentaire ?",
+        a: "La faim physique s'installe progressivement, peut attendre et se satisfait de plusieurs aliments. La compulsion surgit brutalement, exige un aliment précis (souvent sucré ou gras), et laisse culpabilité ou vide après coup. C'est cette signature émotionnelle que l'hypnose cible.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Envies soudaines et incontrôlables de manger, souvent sans faim réelle ? Les compulsions alimentaires sont pilotées par l'inconscient en réponse à une tension émotionnelle. L'hypnose ericksonienne traite ce déclencheur — pas seulement le symptôme.</p>
+
+    <h2>Comment l'hypnose traite les compulsions alimentaires</h2>
+    <ul>
+      <li>Identifier le déclencheur émotionnel : stress, ennui, anxiété, tristesse</li>
+      <li>Proposer à l'inconscient des réponses alternatives à la tension</li>
+      <li>Dissocier l'émotion du réflexe alimentaire</li>
+      <li>Restaurer une relation apaisée à la nourriture, sans restriction ni lutte</li>
+    </ul>
+    <p>En 3 à 5 séances, la fréquence et l'intensité des compulsions diminuent significativement.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-alimentation-emotionnelle-paris">Alimentation émotionnelle</a> — Manger ses émotions</li>
+      <li><a href="${SITE_URL}/hypnose-grignotage-paris">Grignotage</a> — Automatismes entre les repas</li>
+      <li><a href="${SITE_URL}/hypnose-boulimie-paris">Boulimie</a> — Crises alimentaires</li>
+      <li><a href="${SITE_URL}/hypnose-addiction-sucre-paris">Addiction au sucre</a> — Dépendance sucrée</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour arrêter les compulsions alimentaires</a>
+    `,
+};
+
+PAGES["/hypnose-grignotage-paris"] = {
+  title: "Hypnose grignotage chronique Paris & en ligne | Alain Zenatti",
+  description:
+    "Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-grignotage-paris",
+  h1: "Hypnose et grignotage — Arrêtez de grignoter entre les repas",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose grignotage Paris",
+      description: "Traitement du grignotage chronique par l'hypnose ericksonienne : agir sur l'état émotionnel déclencheur. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-grignotage-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie grignotage",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Grignotage", path: "/hypnose-grignotage-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle arrêter le grignotage chronique ?",
+        a: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart des patients voient le grignotage se réduire considérablement, souvent dès la deuxième séance.",
+      },
+      {
+        q: "Quelle est la différence entre grignotage et faim normale ?",
+        a: "La faim physique s'installe progressivement et se satisfait d'un vrai repas. Le grignotage se déclenche par l'état intérieur — anxiété, ennui, besoin de pause — indépendamment du besoin nutritionnel : main qui cherche le placard au bureau, chips devant la télé, biscuits en télétravail.",
+      },
+      {
+        q: "Le grignotage est-il toujours lié au stress ?",
+        a: "Pas uniquement. Le stress est un déclencheur fréquent, mais l'ennui, la concentration prolongée, la solitude ou de simples associations conditionnées (télé = snack) entretiennent aussi l'automatisme. La séance identifie votre déclencheur spécifique pour le neutraliser.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Main qui cherche le placard au bureau, biscuits devant la télé, grignotage en télétravail ? Le grignotage chronique est un automatisme déclenché par un état émotionnel — anxiété, ennui, besoin de pause. L'hypnose ericksonienne neutralise ce déclencheur.</p>
+
+    <h2>Comment l'hypnose fait cesser le grignotage</h2>
+    <ul>
+      <li>Identifier l'état émotionnel déclencheur (anxiété, ennui, concentration)</li>
+      <li>Défaire les associations conditionnées (télé = snack, écran = biscuits)</li>
+      <li>Proposer à l'inconscient d'autres réponses au besoin réel</li>
+      <li>Retrouver un rythme alimentaire naturel, sans lutte de volonté</li>
+    </ul>
+    <p>En 3 à 5 séances, le grignotage se réduit considérablement — souvent dès la deuxième séance.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-compulsions-alimentaires-paris">Compulsions alimentaires</a> — Envies incontrôlables</li>
+      <li><a href="${SITE_URL}/hypnose-addiction-sucre-paris">Addiction au sucre</a> — Envies sucrées</li>
+      <li><a href="${SITE_URL}/hypnose-alimentation-emotionnelle-paris">Alimentation émotionnelle</a> — Manger ses émotions</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour arrêter de grignoter</a>
+    `,
+};
+
+PAGES["/hypnose-addiction-sucre-paris"] = {
+  title: "Hypnose addiction au sucre Paris & en ligne | Alain Zenatti",
+  description:
+    "Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-addiction-sucre-paris",
+  h1: "Hypnose et addiction au sucre — Libérez-vous de la dépendance sucrée",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose addiction au sucre Paris",
+      description: "Accompagnement de l'addiction au sucre par l'hypnose ericksonienne : agir sur les besoins émotionnels sous-jacents. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-addiction-sucre-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie addiction au sucre",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Addiction au sucre", path: "/hypnose-addiction-sucre-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment réduire l'addiction au sucre ?",
+        a: "Oui, c'est une problématique accompagnée régulièrement au cabinet. L'addiction au sucre n'est pas qu'une question de goût — le sucre agit sur le circuit de la récompense du cerveau et répond souvent à des besoins émotionnels (réconfort, stimulation, soulagement du stress). L'hypnose identifie ces besoins sous-jacents et aide votre inconscient à les satisfaire autrement. L'attrait pour le sucre diminue naturellement, sans restriction forcée.",
+      },
+      {
+        q: "Pourquoi est-il si difficile de réduire sa consommation de sucre malgré la volonté ?",
+        a: "Parce que l'envie de sucre est pilotée par l'inconscient et le circuit de la récompense, pas par la raison. La volonté lutte contre un mécanisme automatique — c'est un combat perdu d'avance. L'hypnose modifie le mécanisme lui-même, si bien que l'envie diminue au lieu de devoir être combattue.",
+      },
+      {
+        q: "L'hypnose peut-elle aider à réduire les envies de sucre même après les repas ?",
+        a: "Oui. Les envies de sucre après les repas sont souvent liées à des associations conditionnées (« je termine toujours par du sucré ») ou à un besoin de clôturer le repas. L'hypnose travaille sur ces associations spécifiques pour les neutraliser. Beaucoup de patients constatent que ces envies systématiques disparaissent après 2 à 3 séances.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Impossible de finir un repas sans sucré, envies irrépressibles dans la journée ? L'addiction au sucre active le circuit de la récompense et répond à des besoins émotionnels. L'hypnose ericksonienne agit sur ces causes — l'attrait du sucre diminue naturellement, sans restriction forcée.</p>
+
+    <h2>Comment l'hypnose réduit la dépendance au sucre</h2>
+    <ul>
+      <li>Identifier les besoins émotionnels que le sucre vient satisfaire (réconfort, stimulation, apaisement)</li>
+      <li>Neutraliser les associations conditionnées (fin de repas = sucré, pause = gâteau)</li>
+      <li>Aider l'inconscient à satisfaire ces besoins autrement</li>
+      <li>Faire diminuer l'envie plutôt que la combattre</li>
+    </ul>
+    <p>Les envies systématiques disparaissent souvent après 2 à 3 séances.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-grignotage-paris">Grignotage</a> — Automatismes alimentaires</li>
+      <li><a href="${SITE_URL}/hypnose-compulsions-alimentaires-paris">Compulsions alimentaires</a> — Envies incontrôlables</li>
+      <li><a href="${SITE_URL}/hypnose-addictions-comportementales-paris">Addictions comportementales</a> — Autres dépendances</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour me libérer du sucre</a>
+    `,
+};
+
+PAGES["/hypnose-boulimie-paris"] = {
+  title: "Hypnose boulimie Paris & en ligne | Alain Zenatti",
+  description:
+    "Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-boulimie-paris",
+  h1: "Hypnose et boulimie — Se libérer en allant au cœur du problème",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose boulimie Paris",
+      description: "Accompagnement par l'hypnose ericksonienne pour la boulimie à Paris 4ème ou en visio. Approche profonde, bienveillante, centrée sur les causes émotionnelles.",
+      url: `${SITE_URL}/hypnose-boulimie-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie boulimie",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Boulimie", path: "/hypnose-boulimie-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider contre la boulimie ?",
+        a: "Oui, et c'est un accompagnement qui demande une approche profonde, pas seulement symptomatique. La boulimie n'est pas un problème d'alimentation — c'est une façon de gérer une douleur intérieure, souvent ancienne. L'hypnose permet d'aller à la source de cette douleur : les blessures émotionnelles non intégrées, les situations de perte de contrôle, les émotions qui ne trouvent pas d'autre sortie.",
+      },
+      {
+        q: "Combien de séances pour accompagner la boulimie ?",
+        a: "Plus que pour d'autres problématiques, la boulimie nécessite en général un suivi sur la durée — entre 6 et 12 séances selon les personnes. Les premières séances visent à créer un espace sécurisant, à comprendre les déclencheurs et à apporter un soulagement des crises. Les séances suivantes travaillent en profondeur les blessures sous-jacentes.",
+      },
+      {
+        q: "La boulimie peut-elle être traitée sans hospitalisation ?",
+        a: "Dans de nombreux cas, oui. Lorsque la boulimie n'entraîne pas de complications médicales graves, un suivi en ambulatoire combinant hypnose et, si besoin, psychothérapie peut être suffisant et efficace. Si votre situation nécessite un suivi médical ou psychiatrique, une orientation transparente vers des structures adaptées est proposée. L'hypnose peut s'intégrer dans un parcours de soin pluridisciplinaire.",
+      },
+    ]),
+  ],
+  content: `
+    <p>La boulimie n'est pas un problème d'alimentation : c'est une façon de gérer une douleur intérieure, souvent ancienne. L'hypnose ericksonienne va à la source — blessures émotionnelles non intégrées, émotions sans autre sortie — avec bienveillance et sans jugement.</p>
+
+    <h2>Comment l'hypnose accompagne la boulimie</h2>
+    <ul>
+      <li>Créer un espace sécurisant et comprendre les déclencheurs des crises</li>
+      <li>Installer des « pauses » intérieures avant la crise et réduire fréquence et intensité</li>
+      <li>Travailler en profondeur les blessures émotionnelles sous-jacentes</li>
+      <li>Nourrir autrement les besoins que la nourriture cherchait à satisfaire</li>
+    </ul>
+    <p>L'accompagnement s'étend en général sur 6 à 12 séances, et peut s'intégrer dans un parcours de soin pluridisciplinaire. Cette démarche complète un suivi médical, elle ne le remplace pas.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-compulsions-alimentaires-paris">Compulsions alimentaires</a> — Envies incontrôlables</li>
+      <li><a href="${SITE_URL}/hypnose-image-corporelle-paris">Image corporelle</a> — Rapport au corps</li>
+      <li><a href="${SITE_URL}/hypnose-alimentation-emotionnelle-paris">Alimentation émotionnelle</a> — Manger ses émotions</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour un accompagnement boulimie</a>
+    `,
+};
+
+PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
+  title: "Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti",
+  description:
+    "Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-alimentation-emotionnelle-paris",
+  h1: "Hypnose et alimentation émotionnelle — Arrêter de manger ses émotions",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose alimentation émotionnelle Paris",
+      description: "Accompagnement de l'alimentation émotionnelle par l'hypnose ericksonienne : installer d'autres régulations que la nourriture. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-alimentation-emotionnelle-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie alimentation émotionnelle",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Alimentation émotionnelle", path: "/hypnose-alimentation-emotionnelle-paris" },
+    ]),
+    faqLd([
+      {
+        q: "Qu'est-ce que l'alimentation émotionnelle exactement ?",
+        a: "L'alimentation émotionnelle, c'est manger en réponse à des émotions plutôt qu'à une faim physique réelle. Stress, ennui, tristesse, solitude, anxiété — la nourriture devient une façon de gérer ces états intérieurs. Ce n'est pas un manque de volonté, c'est un mécanisme de régulation émotionnelle appris, souvent depuis l'enfance.",
+      },
+      {
+        q: "Combien de séances pour traiter l'alimentation émotionnelle ?",
+        a: "En général, 4 à 6 séances permettent des changements durables. Les premières séances identifient les déclencheurs émotionnels principaux et commencent à modifier les automatismes. Les suivantes renforcent ces changements et travaillent la relation plus globale aux émotions. Certains ressentent des changements dès la deuxième séance.",
+      },
+      {
+        q: "Comment distinguer la faim émotionnelle de la faim physique ?",
+        a: "La faim physique arrive progressivement, se satisfait de n'importe quel aliment et s'arrête à satiété. La faim émotionnelle surgit d'un coup, réclame des aliments précis (réconfortants, sucrés, gras), persiste après satiété et laisse souvent de la culpabilité. C'est le signal d'une émotion qui cherche une sortie.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Manger sous stress, par ennui, pour combler un vide ? L'alimentation émotionnelle est un mécanisme de régulation appris — souvent depuis l'enfance. L'hypnose ericksonienne installe d'autres façons de répondre au vrai besoin, sans passer par la nourriture.</p>
+
+    <h2>Comment l'hypnose traite l'alimentation émotionnelle</h2>
+    <ul>
+      <li>Identifier les émotions qui déclenchent la prise alimentaire (stress, ennui, tristesse, solitude)</li>
+      <li>Distinguer faim physique et faim émotionnelle au niveau inconscient</li>
+      <li>Installer d'autres formes de régulation qui répondent au vrai besoin</li>
+      <li>Apaiser la relation globale aux émotions et à la nourriture</li>
+    </ul>
+    <p>En général, 4 à 6 séances permettent des changements durables.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-compulsions-alimentaires-paris">Compulsions alimentaires</a> — Envies incontrôlables</li>
+      <li><a href="${SITE_URL}/hypnose-grignotage-paris">Grignotage</a> — Automatismes entre les repas</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Régulation émotionnelle</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour arrêter de manger mes émotions</a>
+    `,
+};
+
+PAGES["/hypnose-image-corporelle-paris"] = {
+  title: "Hypnose image corporelle Paris & en ligne | Alain Zenatti",
+  description:
+    "Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle — l'hypnose change le regard intérieur. Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/hypnose-image-corporelle-paris",
+  h1: "Hypnose et image corporelle — Se réconcilier avec son corps",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose image corporelle Paris",
+      description: "Accompagnement de l'image corporelle douloureuse par l'hypnose ericksonienne : changer le regard intérieur sur son corps. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-image-corporelle-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie image corporelle",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Troubles alimentaires", path: "/hypnose-troubles-alimentaires-paris" },
+      { name: "Image corporelle", path: "/hypnose-image-corporelle-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle aider avec une image corporelle négative ?",
+        a: "Oui. L'image corporelle douloureuse est souvent le résultat d'un regard intérieur déformé par des expériences passées — remarques blessantes, comparaisons, honte corporelle. Ce regard n'est pas objectif : il a été construit. L'hypnose permet de remonter à l'origine de ces perceptions, de les déconstruire et d'installer un regard plus juste et plus bienveillant sur son propre corps.",
+      },
+      {
+        q: "Combien de séances pour améliorer son image corporelle ?",
+        a: "L'image corporelle est souvent enracinée dans des expériences anciennes et peut nécessiter 5 à 8 séances pour un travail en profondeur. Les premières séances identifient et déconstruisent les perceptions négatives ; les suivantes installent un regard différent, plus neutre ou plus bienveillant. Beaucoup rapportent une amélioration significative dès les 3 premières séances.",
+      },
+      {
+        q: "Mon rapport douloureux au corps influence-t-il mon alimentation ?",
+        a: "Très souvent, oui. Honte corporelle et restrictions, compulsions ou contrôle alimentaire s'entretiennent mutuellement. Travailler l'image corporelle apaise fréquemment le comportement alimentaire — et réciproquement. Les deux axes peuvent être travaillés ensemble.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Regard dur sur votre corps, honte, évitement des miroirs ou des photos ? Ce regard intérieur n'est pas objectif — il a été construit par des expériences passées. L'hypnose ericksonienne le déconstruit et installe une perception plus juste et plus bienveillante.</p>
+
+    <h2>Comment l'hypnose transforme l'image corporelle</h2>
+    <ul>
+      <li>Remonter à l'origine du regard négatif (remarques blessantes, comparaisons, honte)</li>
+      <li>Déconstruire les perceptions déformées installées dans l'inconscient</li>
+      <li>Installer un regard plus neutre, puis plus bienveillant, sur son corps</li>
+      <li>Apaiser le lien entre image corporelle et comportement alimentaire</li>
+    </ul>
+    <p>Un travail en profondeur demande en général 5 à 8 séances, avec une amélioration souvent notable dès les 3 premières.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-alimentaires-paris">Troubles alimentaires</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-boulimie-paris">Boulimie</a> — Crises et douleur intérieure</li>
+      <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi</li>
+      <li><a href="${SITE_URL}/hypnose-alimentation-emotionnelle-paris">Alimentation émotionnelle</a> — Manger ses émotions</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour me réconcilier avec mon corps</a>
     `,
 };
 
