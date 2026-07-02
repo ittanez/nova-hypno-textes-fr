@@ -281,10 +281,15 @@ const ArticlePage = () => {
         break;
       case "copy": {
         const copyText = title + "\n" + description + "\n" + url;
-        navigator.clipboard.writeText(copyText);
-        toast.success("Lien copié dans le presse-papier", {
-          description: "Le titre, la description et le lien ont été copiés"
-        });
+        navigator.clipboard.writeText(copyText)
+          .then(() => {
+            toast.success("Lien copié dans le presse-papier", {
+              description: "Le titre, la description et le lien ont été copiés"
+            });
+          })
+          .catch(() => {
+            toast.error("Erreur lors de la copie dans le presse-papier");
+          });
         return;
       }
     }

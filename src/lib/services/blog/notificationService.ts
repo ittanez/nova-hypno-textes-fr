@@ -35,6 +35,6 @@ export async function notifySubscribersOfNewArticle(
   } catch (err) {
     logger.error('Exception lors de la notification des abonnes:', err);
     logger.debug('=== FIN NOTIFICATION ABONNES - ECHEC ===');
-    return { success: false, error: err.message };
+    return { success: false, error: err instanceof Error ? err.message : String(err) };
   }
 }
