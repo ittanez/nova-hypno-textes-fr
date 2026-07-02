@@ -32,60 +32,62 @@ import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import ContentLayout from '@/components/layout/ContentLayout';
 
+// Diapositives statiques du carrousel (hors composant : pas de recréation à chaque render)
+const CAROUSEL_SLIDES = [
+{
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
+    title: 'Transformez votre vie avec l\'hypnose',
+    description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
+    title: 'PHOBIES',
+    description: 'Libérez-vous de vos peurs irrationnelles et retrouvez votre liberté de mouvement'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/CABINET.webp',
+    title: 'STRESS',
+    description: 'Apprenez à gérer votre stress et retrouvez votre équilibre intérieur'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PAROLEPUBLIC.webp',
+    title: 'PEUR DE PARLER EN PUBLIC',
+    description: 'Surmontez votre anxiété et exprimez-vous avec confiance devant un auditoire'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/sommeil.webp',
+    title: 'SOMMEIL',
+    description: 'Retrouvez un sommeil réparateur et des nuits paisibles grâce à l\'hypnose'
+  },
+  {
+    image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
+    title: 'POIDS',
+    description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
+  }
+];
+
 const Maquette = () => {
   const { openResalibPopup } = useResalibPopup();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const carouselSlides = [
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
-      title: 'Transformez votre vie avec l\'hypnose',
-      description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
-    },
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
-      title: 'PHOBIES',
-      description: 'Libérez-vous de vos peurs irrationnelles et retrouvez votre liberté de mouvement'
-    },
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/CABINET.webp',
-      title: 'STRESS',
-      description: 'Apprenez à gérer votre stress et retrouvez votre équilibre intérieur'
-    },
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PAROLEPUBLIC.webp',
-      title: 'PEUR DE PARLER EN PUBLIC',
-      description: 'Surmontez votre anxiété et exprimez-vous avec confiance devant un auditoire'
-    },
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/sommeil.webp',
-      title: 'SOMMEIL',
-      description: 'Retrouvez un sommeil réparateur et des nuits paisibles grâce à l\'hypnose'
-    },
-    {
-      image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/POIDS.webp',
-      title: 'POIDS',
-      description: 'Atteignez votre poids idéal en modifiant durablement votre rapport à la nourriture'
-    }
-  ];
-
+  
   // Auto-scroll du carrousel toutes les 8 secondes
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+      setCurrentSlide((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
     }, 8000);
 
     return () => clearInterval(timer);
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    setCurrentSlide((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+    setCurrentSlide((prev) => (prev - 1 + CAROUSEL_SLIDES.length) % CAROUSEL_SLIDES.length);
   };
 
   const toggleFaq = (index: number) => {
@@ -216,7 +218,7 @@ const Maquette = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Carrousel d'images */}
         <div className="absolute inset-0">
-          {carouselSlides.map((slide, index) => (
+          {CAROUSEL_SLIDES.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -236,7 +238,7 @@ const Maquette = () => {
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-3xl">
             {/* Contenu texte qui change avec les slides */}
-            {carouselSlides.map((slide, index) => (
+            {CAROUSEL_SLIDES.map((slide, index) => (
               <div
                 key={index}
                 className={`transition-opacity duration-1000 ${
@@ -288,7 +290,7 @@ const Maquette = () => {
 
         {/* Indicateurs de pagination */}
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-          {carouselSlides.map((_, index) => (
+          {CAROUSEL_SLIDES.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}

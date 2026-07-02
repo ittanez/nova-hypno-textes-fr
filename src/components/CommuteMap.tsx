@@ -132,6 +132,11 @@ const CommuteMap: React.FC = () => {
     });
 
     setAutocomplete(auto);
+    // 'autocomplete' est volontairement omis : le garde ci-dessus l'utilise
+    // pour empêcher toute réinitialisation une fois l'autocomplete créé.
+    // 'calculateRoute' est stable en pratique (redéfinie mais non appelée
+    // tant que ce guard bloque les réexécutions).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
   const calculateRoute = async (origin: google.maps.LatLng, mode?: string) => {
