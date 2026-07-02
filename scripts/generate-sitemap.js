@@ -7,27 +7,32 @@ const __dirname = path.dirname(__filename);
 
 const SITE_URL = 'https://novahypnose.fr';
 
-// Pages statiques du site (hors admin, maquettes, 404)
-const STATIC_PAGES = [
-  { loc: '/',                  changefreq: 'weekly',  priority: '1.0' },
-  { loc: '/autohypnose',       changefreq: 'monthly', priority: '0.8' },
-  { loc: '/test-receptivite',  changefreq: 'monthly', priority: '0.7' },
-  { loc: '/test-receptivite-archive', changefreq: 'monthly', priority: '0.3' },
-  { loc: '/zone-intervention', changefreq: 'monthly', priority: '0.7' },
-  { loc: '/hypnose-stress-anxiete-paris',  changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-phobies-paris',         changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-sommeil-paris',         changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-gestion-emotions-paris', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-blocages-paris',        changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-confiance-en-soi-paris', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-professionnels-paris', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/hypnose-en-ligne',   changefreq: 'monthly', priority: '0.8' },
-  { loc: '/autohypnose/quiz',  changefreq: 'monthly', priority: '0.7' },
-  { loc: '/guide-autohypnose', changefreq: 'monthly', priority: '0.6' },
-  { loc: '/blog',              changefreq: 'daily',   priority: '0.9' },
-  { loc: '/blog/categories',   changefreq: 'weekly',  priority: '0.6' },
-  { loc: '/politique-de-confidentialite-novarespire', changefreq: 'yearly', priority: '0.3' },
-];
+// Source de vérité unique : la liste STATIC_PAGES de la fonction Supabase
+// generate-sitemap (celle qui sert le sitemap de production via l'edge
+// function sitemap-proxy). On la parse ici plutôt que de maintenir une
+// seconde liste qui divergerait — cf. AUDIT-SEO-GEO-JUILLET-2026.md.
+// Le garde-fou scripts/__tests__/seo-coverage.test.ts vérifie que cette
+// liste reste alignée avec les routes React, le prerender et llms.txt.
+function loadStaticPages() {
+  const supabaseFn = path.join(
+    __dirname, '..', 'supabase', 'functions', 'generate-sitemap', 'index.ts'
+  );
+  const src = fs.readFileSync(supabaseFn, 'utf8');
+  const pages = [...src.matchAll(
+    /\{\s*loc:\s*['"](\/[^'"]*)['"],\s*changefreq:\s*['"](\w+)['"],\s*priority:\s*['"]([\d.]+)['"]\s*\}/g
+  )].map(([, loc, changefreq, priority]) => ({ loc, changefreq, priority }));
+
+  if (pages.length < 40) {
+    throw new Error(
+      `Extraction de STATIC_PAGES depuis ${supabaseFn} suspecte : ` +
+      `${pages.length} pages trouvées (au moins 40 attendues). ` +
+      `Le format de la liste a probablement changé — adapter la regex.`
+    );
+  }
+  return pages;
+}
+
+const STATIC_PAGES = loadStaticPages();
 
 function escapeXml(unsafe) {
   if (!unsafe) return '';

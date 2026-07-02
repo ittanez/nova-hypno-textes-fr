@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Non bloquant : main porte ~100 erreurs ESLint historiques (no-console,
+      # no-explicit-any…). Passer ce step en bloquant après leur nettoyage.
+      - name: Lint (informatif)
+        run: npm run lint
+        continue-on-error: true
+
+      # Inclut le garde-fou SEO/GEO (scripts/__tests__/seo-coverage.test.ts) :
+      # échoue si une page spécialité manque dans le sitemap, le prerender
+      # bots, netlify.toml ou llms.txt.
+      - name: Tests unitaires
+        run: npm run test:run
+
+      - name: Build
+        run: npm run build

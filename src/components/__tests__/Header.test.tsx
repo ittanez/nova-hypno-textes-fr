@@ -27,8 +27,9 @@ describe('Header Component', () => {
 
   it('affiche le menu de navigation desktop', () => {
     renderHeader();
-    expect(screen.getByText("L'hypnose")).toBeInTheDocument();
-    expect(screen.getByText('Mes accompagnements')).toBeInTheDocument();
+    // Les menus desktop et mobile coexistent dans le DOM : plusieurs occurrences
+    expect(screen.getAllByText("L'hypnose").length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Mes accompagnements').length).toBeGreaterThan(0);
   });
 
   it('affiche le bouton Prendre RDV', () => {
@@ -52,15 +53,15 @@ describe('Header Component', () => {
     fireEvent.click(menuButton);
   });
 
-  it('a un lien vers Instagram', () => {
+  it('a un lien vers le blog', () => {
     renderHeader();
-    const instagramLinks = screen.getAllByLabelText(/Instagram/i);
-    expect(instagramLinks.length).toBeGreaterThan(0);
+    const blogLinks = screen.getAllByText('Blog');
+    expect(blogLinks.length).toBeGreaterThan(0);
   });
 
   it('affiche les dropdowns au survol (desktop)', () => {
     renderHeader();
-    const hypnoseLink = screen.getByText("L'hypnose");
+    const [hypnoseLink] = screen.getAllByText("L'hypnose");
     expect(hypnoseLink).toBeInTheDocument();
 
     // Les sous-menus sont rendus mais cachés initialement
