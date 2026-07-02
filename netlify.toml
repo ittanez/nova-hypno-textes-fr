@@ -440,6 +440,22 @@
 # Évite le contenu dupliqué et consolide l'autorité vers le nouveau site
 # ═══════════════════════════════════════════════════════════════════════
 
+# ═══════════════════════════════════════════════════════════════════════
+# Redirections 301 — Anciennes routes React remplacées par des pages dédiées
+# (les <Navigate> côté client sont invisibles pour les bots sans JS)
+# ═══════════════════════════════════════════════════════════════════════
+[[redirects]]
+  from = "/hypnose-deuil-separation-paris"
+  to = "/hypnose-deuil-paris"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hypnose-frustration-chronique-paris"
+  to = "/hypnose-frustration-paris"
+  status = 301
+  force = true
+
 # Pages principales WordPress → Accueil
 [[redirects]]
   from = "/index.php/nova-hypnose-alain-zenatti/"

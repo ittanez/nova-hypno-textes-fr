@@ -22,9 +22,15 @@ describe('Navigation Data', () => {
 
   describe('mainNavLinksAfter', () => {
     it('should contain Blog link', () => {
-      expect(mainNavLinksAfter).toHaveLength(1);
+      expect(mainNavLinksAfter).toHaveLength(2);
       expect(mainNavLinksAfter[0].name).toBe('Blog');
       expect(mainNavLinksAfter[0].href).toBe('/blog');
+    });
+
+    it('should mark external links correctly', () => {
+      const externalLink = mainNavLinksAfter.find(link => link.external === true);
+      expect(externalLink).toBeDefined();
+      expect(externalLink?.href).toMatch(/^https?:\/\//);
     });
   });
 
@@ -48,10 +54,11 @@ describe('Navigation Data', () => {
   });
 
   describe('accompagnementsLinks', () => {
-    it('should mark external links correctly', () => {
-      const externalLink = accompagnementsLinks.find(link => link.external === true);
-      expect(externalLink).toBeDefined();
-      expect(externalLink?.href).toMatch(/^https?:\/\//);
+    it('should only contain internal links', () => {
+      accompagnementsLinks.forEach((link: NavLink) => {
+        expect(link.external).not.toBe(true);
+        expect(link.href).toMatch(/^\//);
+      });
     });
   });
 
@@ -66,8 +73,8 @@ describe('Navigation Data', () => {
   });
 
   describe('dropdownSections', () => {
-    it('should have 3 dropdown sections', () => {
-      expect(dropdownSections).toHaveLength(3);
+    it('should have 4 dropdown sections', () => {
+      expect(dropdownSections).toHaveLength(4);
     });
 
     it('should have titles and links for each section', () => {
