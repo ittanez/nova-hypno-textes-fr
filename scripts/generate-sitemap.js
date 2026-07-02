@@ -19,7 +19,7 @@ function loadStaticPages() {
   );
   const src = fs.readFileSync(supabaseFn, 'utf8');
   const pages = [...src.matchAll(
-    /\{ loc: '(\/[^']*)',\s*changefreq: '(\w+)',\s*priority: '([\d.]+)' \}/g
+    /\{\s*loc:\s*['"](\/[^'"]*)['"],\s*changefreq:\s*['"](\w+)['"],\s*priority:\s*['"]([\d.]+)['"]\s*\}/g
   )].map(([, loc, changefreq, priority]) => ({ loc, changefreq, priority }));
 
   if (pages.length < 40) {
