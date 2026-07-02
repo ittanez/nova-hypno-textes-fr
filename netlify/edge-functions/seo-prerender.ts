@@ -29,11 +29,19 @@ const BOT_USER_AGENTS = [
   "petalbot",
   "gptbot",
   "oai-searchbot",
-  "claude-web",
+  "chatgpt-user",   // fetcher temps réel ChatGPT (n'exécute pas le JS)
+  "claudebot",      // crawler canonique Anthropic
+  "claude-user",    // fetcher temps réel Claude
+  "claude-searchbot",
+  "claude-web",     // legacy Anthropic
   "perplexitybot",
+  "perplexity-user", // fetcher temps réel Perplexity
   "meta-externalagent",
   "amazonbot",
   "bytespider",
+  "duckassistbot",  // DuckDuckGo AI
+  "mistralai-user", // Le Chat (Mistral)
+  "cohere-ai",
   "dataforseobot",
 ];
 

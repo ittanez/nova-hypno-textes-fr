@@ -67,7 +67,16 @@ serve(async (req) => {
       { loc: '/hypnose-boulimie-paris',        changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-alimentation-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-image-corporelle-paris', changefreq: 'monthly', priority: '0.7' },
+      // Autres spécialités
+      { loc: '/hypnose-arret-tabac-paris',     changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-professionnels-paris',  changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-en-ligne',              changefreq: 'monthly', priority: '0.8' },
+      // Guides gratuits (lead magnets) + quiz
+      { loc: '/guide-autohypnose',             changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-sommeil',                 changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-procrastination',         changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-emotions-travail',        changefreq: 'monthly', priority: '0.6' },
+      { loc: '/autohypnose/quiz',              changefreq: 'monthly', priority: '0.5' },
       { loc: '/alain-zenatti',                 changefreq: 'monthly', priority: '0.6' },
       { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
       { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
