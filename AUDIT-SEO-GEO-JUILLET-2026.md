@@ -16,9 +16,9 @@
 
 | Système | Pages couvertes | Pages manquantes |
 |---|---|---|
-| Sitemap production (fonction Supabase) | 47 | **10** (dont la toute nouvelle page tabac) |
-| Prerender bots (`seo-prerender-static.ts`) | 26 | **≈21 pages spécialités** |
-| `llms.txt` | 8 spécialités | **≈21 pages spécialités** |
+| Sitemap production (fonction Supabase) | 47 | **7** (dont la toute nouvelle page tabac) |
+| Prerender bots (`seo-prerender-static.ts`) | 26 | **19 pages spécialités** |
+| `llms.txt` | 8 spécialités | **≈19 pages spécialités** |
 
 Conséquence directe : **environ la moitié des pages spécialités est invisible pour Bing, ChatGPT, Claude et Perplexity** (crawlers sans JavaScript), qui reçoivent une coquille SPA vide avec le title générique de la homepage et un canonical pointant vers `https://novahypnose.fr`.
 
@@ -43,11 +43,11 @@ Conséquence directe : **environ la moitié des pages spécialités est invisibl
 | Meta `max-snippet:-1, max-image-preview:large` | ✅ (`index.html:18`) |
 | Balises géo (geo.region, ICBM) | ✅ (`index.html:20-24`) |
 
-Le travail éditorial est également remarquable : ≈21 nouvelles sous-pages spécialités (phobies détaillées, troubles émotionnels, troubles alimentaires, blocages) avec FAQ dédiées de qualité, schémas complets et maillage entre pages sœurs.
+Le travail éditorial est également remarquable : ≈19 nouvelles sous-pages spécialités (phobies détaillées, troubles émotionnels, troubles alimentaires, blocages) avec FAQ dédiées de qualité, schémas complets et maillage entre pages sœurs.
 
 ---
 
-## 3. 🔴 Constat critique n°1 — Prerender bots : ≈21 pages servies en coquille vide
+## 3. 🔴 Constat critique n°1 — Prerender bots : 19 pages servies en coquille vide
 
 `netlify/edge-functions/seo-prerender-static.ts` ne définit que **26 routes** dans sa table `PAGES`. Toutes les pages créées depuis (émotions, alimentaire, blocages, procrastination…) tombent dans `context.next()` → les bots reçoivent le `index.html` SPA.
 
@@ -75,8 +75,8 @@ Le travail éditorial est également remarquable : ≈21 nouvelles sous-pages sp
 - `/hypnose-boulimie-paris`
 - `/hypnose-alimentation-emotionnelle-paris`
 - `/hypnose-image-corporelle-paris`
-- `/hypnose-deuil-separation-paris`
-- `/hypnose-frustration-chronique-paris`
+
+*(Nota : `/hypnose-deuil-separation-paris` et `/hypnose-frustration-chronique-paris` sont des redirections `<Navigate>` dans `App.tsx:306-307`, pas des pages — elles sont hors périmètre. Voir §9 pour la limite de ces redirections client-side.)*
 
 ### Impact
 
@@ -88,13 +88,13 @@ Pour tout crawler qui n'exécute pas le JavaScript (Bingbot en pratique, GPTBot,
 
 ### Correctif
 
-1. Ajouter les ≈21 entrées manquantes à `PAGES` (title, description, h1, contenu HTML condensé, JSON-LD Service + FAQ + breadcrumb — tout existe déjà dans les `.tsx`, il s'agit d'une transposition).
+1. Ajouter les 19 entrées manquantes à `PAGES` (title, description, h1, contenu HTML condensé, JSON-LD Service + FAQ + breadcrumb — tout existe déjà dans les `.tsx`, il s'agit d'une transposition).
 2. Ajouter les blocs `[[edge_functions]]` correspondants dans `netlify.toml`.
 3. **Mettre en place un garde-fou** : script de CI (ou test Vitest) qui compare les routes publiques d'`App.tsx` avec les clés de `PAGES`, les entrées du sitemap Supabase et `llms.txt`, et échoue si une page indexable manque. C'est la cause racine — sans ce garde-fou, l'écart se recréera à chaque nouvelle page.
 
 ---
 
-## 4. 🔴 Constat critique n°2 — Sitemap de production : 10 pages indexables absentes
+## 4. 🔴 Constat critique n°2 — Sitemap de production : 7 pages indexables absentes
 
 Le sitemap servi en prod vient de `supabase/functions/generate-sitemap/index.ts` (proxifié par `sitemap-proxy`). Sa liste `STATIC_PAGES` (47 URLs) omet :
 
@@ -102,11 +102,11 @@ Le sitemap servi en prod vient de `supabase/functions/generate-sitemap/index.ts`
 |---|---|
 | `/hypnose-arret-tabac-paris` | **Haute** — page toute neuve (commit `5571f02`), prerender OK mais jamais soumise à Google/Bing |
 | `/hypnose-professionnels-paris` | **Haute** — page business B2B, pourtant prerendue et dans llms.txt |
-| `/hypnose-deuil-separation-paris` | Moyenne |
-| `/hypnose-frustration-chronique-paris` | Moyenne |
 | `/guide-autohypnose`, `/guide-sommeil`, `/guide-procrastination`, `/guide-emotions-travail` | Moyenne — lead magnets, cités dans llms.txt mais hors sitemap |
 | `/autohypnose/quiz` | Basse |
 | `/peurdelavion` | ✅ présent (pour mémoire) |
+
+*(`/hypnose-deuil-separation-paris` et `/hypnose-frustration-chronique-paris` sont des redirections — elles doivent rester **exclues** du sitemap.)*
 
 **Incohérence supplémentaire :** il existe **deux générateurs de sitemap divergents** — `scripts/generate-sitemap.js` (prebuild, ~19 pages seulement, mais inclut `/zone-intervention` et `/test-receptivite-archive` qui sont `noindex` via `netlify.toml:305-323`) et la fonction Supabase (prod). Le fichier statique est masqué en prod par l'edge function, mais sert le déploiement GitHub Pages. Recommandation : faire de la fonction Supabase la source de vérité unique et faire pointer le script prebuild dessus (ou générer les deux depuis une liste partagée), et retirer les pages noindexées du script prebuild.
 
@@ -133,7 +133,7 @@ C'est une correction de quelques lignes avec un impact GEO immédiat : le robots
 
 `public/llms.txt` (maj 17/06/2026) est de très bonne facture (résumé, FAQ, licence de citation) mais sa section « Spécialités » ne liste que **8 pages sur ~29**. Manquent notamment : tabac, procrastination, TOC, boulimie, colère, hypersensibilité, deuil, image corporelle… Les moteurs génératifs qui s'appuient sur ce fichier ignorent donc les pages longue traîne — précisément celles qui répondent aux questions spécifiques posées aux IA (« l'hypnose marche-t-elle contre la boulimie ? »).
 
-À faire : ajouter les ~21 pages manquantes (une ligne chacune, format actuel), rafraîchir la date, et intégrer le fichier au garde-fou CI du §3.
+À faire : ajouter les ~19 pages manquantes (une ligne chacune, format actuel), rafraîchir la date, et intégrer le fichier au garde-fou CI du §3.
 
 ---
 
@@ -169,18 +169,19 @@ Le dispositif local est solide :
 - **Canonical fallback** (`index.html:15`) : envisager de le supprimer du HTML statique (le prerender et React Helmet le définissent correctement par page) — un canonical homepage erroné sur les routes non pré-rendues est pire que pas de canonical. Devient sans objet si le §3 est corrigé intégralement, mais reste une fragilité pour toute future page oubliée.
 - **Maillage interne** : les nouvelles sous-pages ne sont liées qu'entre pages sœurs et depuis leur page parent. Le menu statique du prerender homepage (`index.html:301-313`) ne liste que 6 spécialités + test. Ajouter sur chaque page parent (phobies, émotions, alimentaire, blocages) un bloc « hub » listant toutes ses sous-pages, et envisager un lien footer vers les pages parentes.
 - **hreflang** : absent — acceptable en mono-langue ; à prévoir seulement si une version EN naît.
+- **Redirections client-side** : `/hypnose-deuil-separation-paris` et `/hypnose-frustration-chronique-paris` redirigent via `<Navigate>` React (`App.tsx:306-307`). Un bot sans JS ne voit pas la redirection (pas de 301 HTTP, juste la SPA vide). Si ces URLs ont déjà été indexées ou linkées, ajouter des `[[redirects]]` 301 dans `netlify.toml` ; sinon, supprimer les routes.
 - **`sw.js`** : vérifier qu'il n'intercepte pas les bots (point déjà soulevé en mai, non re-testé ici : l'accès HTTP externe était bloqué par la politique réseau de l'environnement d'audit).
-- **Suivi** : dans GSC, surveiller l'indexation Bing/Google des 21 pages après correction du §3 ; dans Bing Webmaster Tools, le rapport IndexNow (le ping existe déjà via `scripts/indexnow.js`).
+- **Suivi** : dans GSC, surveiller l'indexation Bing/Google des 19 pages après correction du §3 ; dans Bing Webmaster Tools, le rapport IndexNow (le ping existe déjà via `scripts/indexnow.js`).
 
 ---
 
 ## 10. Punch-list priorisée
 
 ### 🔴 P1 — à faire cette semaine (fort impact, effort modéré)
-1. Ajouter les ~21 pages manquantes à `PAGES` dans `seo-prerender-static.ts` + blocs `[[edge_functions]]` dans `netlify.toml` (§3).
-2. Ajouter les 10 URLs manquantes à `STATIC_PAGES` de la fonction Supabase `generate-sitemap` et redéployer (§4) — en priorité `/hypnose-arret-tabac-paris` et `/hypnose-professionnels-paris`.
+1. Ajouter les 19 pages manquantes à `PAGES` dans `seo-prerender-static.ts` + blocs `[[edge_functions]]` dans `netlify.toml` (§3).
+2. Ajouter les 7 URLs manquantes à `STATIC_PAGES` de la fonction Supabase `generate-sitemap` et redéployer (§4) — en priorité `/hypnose-arret-tabac-paris` et `/hypnose-professionnels-paris`.
 3. Mettre à jour la liste `BOT_USER_AGENTS` des 2 edge functions : `chatgpt-user`, `claudebot`, `claude-user`, `claude-searchbot`, `perplexity-user`, `duckassistbot`, `mistralai-user` (§5) — idéalement en module partagé.
-4. Compléter `llms.txt` avec les ~21 pages spécialités manquantes (§6).
+4. Compléter `llms.txt` avec les ~19 pages spécialités manquantes (§6).
 
 ### 🟠 P2 — ce mois-ci
 5. Garde-fou CI : test qui compare routes publiques ↔ PAGES ↔ sitemap ↔ llms.txt (§3, cause racine).
