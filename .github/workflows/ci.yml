@@ -29,11 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Non bloquant : main porte ~100 erreurs ESLint historiques (no-console,
-      # no-explicit-any…). Passer ce step en bloquant après leur nettoyage.
-      - name: Lint (informatif)
+      - name: Lint
         run: npm run lint
-        continue-on-error: true
 
       # Inclut le garde-fou SEO/GEO (scripts/__tests__/seo-coverage.test.ts) :
       # échoue si une page spécialité manque dans le sitemap, le prerender

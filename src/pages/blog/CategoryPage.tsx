@@ -1,7 +1,6 @@
 
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Article } from "@/lib/types/blog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/blog/ArticleCard";

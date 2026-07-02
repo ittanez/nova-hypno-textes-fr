@@ -94,8 +94,6 @@ const ArticlePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
-  const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';
   const canonicalBaseUrl = 'https://novahypnose.fr';
 
   // ✅ CONSTRUIRE L'URL CANONIQUE DE L'ARTICLE
@@ -266,7 +264,6 @@ const ArticlePage = () => {
     const url = window.location.href;
     const title = (article.title || '').replace(/['"]/g, '');
     const description = (article.seo_description || article.excerpt || '').replace(/['"]/g, '');
-    const imageUrl = article.image_url || "";
     
     let shareUrl = "";
     let shareText = "";
@@ -282,13 +279,14 @@ const ArticlePage = () => {
         shareText = title + "\n\n" + description + "\n\n" + url;
         shareUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText);
         break;
-      case "copy":
+      case "copy": {
         const copyText = title + "\n" + description + "\n" + url;
         navigator.clipboard.writeText(copyText);
         toast.success("Lien copié dans le presse-papier", {
           description: "Le titre, la description et le lien ont été copiés"
         });
         return;
+      }
     }
     
     if (shareUrl) {

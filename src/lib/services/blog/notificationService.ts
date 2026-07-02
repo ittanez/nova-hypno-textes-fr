@@ -32,7 +32,7 @@ export async function notifySubscribersOfNewArticle(
     logger.debug('Notification des abonnes reussie');
     logger.debug('=== FIN NOTIFICATION ABONNES - SUCCES ===');
     return { success: true };
-  } catch (err: any) {
+  } catch (err) {
     logger.error('Exception lors de la notification des abonnes:', err);
     logger.debug('=== FIN NOTIFICATION ABONNES - ECHEC ===');
     return { success: false, error: err.message };

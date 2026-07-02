@@ -2,7 +2,7 @@
 // Utilitaire AI minimal pour remplacer les dépendances supprimées
 import { logger } from '@/lib/logger';
 
-export const generateSummaryAndKeywords = async (text: string) => {
+export const generateSummaryAndKeywords = async (_text: string) => {
   logger.debug("Fonction AI appelee mais non implementee");
   
   return {

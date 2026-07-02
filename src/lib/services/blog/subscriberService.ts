@@ -8,7 +8,7 @@ interface Subscriber {
   created_at: string;
 }
 
-export async function addSubscriber(email: string): Promise<{ data: Subscriber | null; error: any }> {
+export async function addSubscriber(email: string): Promise<{ data: Subscriber | null; error: unknown }> {
   logger.debug('=== DEBUT INSCRIPTION ABONNE ===');
   logger.debug('Email a inscrire:', email);
   
@@ -82,7 +82,7 @@ export async function addSubscriber(email: string): Promise<{ data: Subscriber |
   }
 }
 
-export async function getSubscribers(): Promise<{ data: Subscriber[] | null; error: any }> {
+export async function getSubscribers(): Promise<{ data: Subscriber[] | null; error: unknown }> {
   logger.debug('Recuperation de la liste des abonnes');
   
   const { data, error } = await supabase

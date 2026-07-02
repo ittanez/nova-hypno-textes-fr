@@ -160,14 +160,14 @@ const PreviewCharte: React.FC = () => {
       document.head.appendChild(frag);
     };
 
-    if (typeof (window as any).requestIdleCallback === 'function') {
-      idleId = (window as any).requestIdleCallback(injectSchemas, { timeout: 2000 });
+    if (typeof window.requestIdleCallback === 'function') {
+      idleId = window.requestIdleCallback(injectSchemas, { timeout: 2000 });
     } else {
       timeoutId = setTimeout(injectSchemas, 0);
     }
 
     return () => {
-      if (idleId !== null) (window as any).cancelIdleCallback(idleId);
+      if (idleId !== null) window.cancelIdleCallback(idleId);
       if (timeoutId !== null) clearTimeout(timeoutId);
       document.querySelectorAll('script[data-schema="preview-charte"]').forEach(el => el.remove());
     };

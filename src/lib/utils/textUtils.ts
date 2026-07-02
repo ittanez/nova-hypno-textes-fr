@@ -37,7 +37,7 @@ export function escapeJavaScript(str: string): string {
 }
 
 // Fonction pour nettoyer et sécuriser les données avant utilisation
-export function sanitizeData(data: any): any {
+export function sanitizeData(data: unknown): unknown {
   if (typeof data === 'string') {
     return escapeJavaScript(data);
   }
@@ -45,7 +45,7 @@ export function sanitizeData(data: any): any {
     return data.map(sanitizeData);
   }
   if (data && typeof data === 'object') {
-    const sanitized: any = {};
+    const sanitized: Record<string, unknown> = {};
     for (const [key, value] of Object.entries(data)) {
       sanitized[key] = sanitizeData(value);
     }

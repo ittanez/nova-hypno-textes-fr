@@ -13,7 +13,6 @@ import Edit from 'lucide-react/dist/esm/icons/edit';
 import Trash2 from 'lucide-react/dist/esm/icons/trash-2';
 import Send from 'lucide-react/dist/esm/icons/send';
 import ExternalLink from 'lucide-react/dist/esm/icons/external-link';
-import { useToast } from '@/hooks/use-toast';
 
 interface Article {
   id: string;

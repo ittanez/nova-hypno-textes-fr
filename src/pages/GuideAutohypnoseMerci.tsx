@@ -82,7 +82,7 @@ const GuideAutohypnoseMerci: React.FC = () => {
               </div>
 
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 300, lineHeight: 1.1, color: 'var(--texte)', marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                {prenom ? `Merci ${prenom} !` : 'Merci !'}
+                {prenom ? `Merci ${prenom} !` : 'Merci !'}
               </h1>
 
               {/* Carte de confirmation */}

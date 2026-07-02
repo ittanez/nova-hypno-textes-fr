@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Parcours prise de rendez-vous', () => {
-  test('accès à Resalib depuis le header', async ({ page, context }) => {
+  test('accès à Resalib depuis le header', async ({ page }) => {
     await page.goto('/');
 
     // Attendre le chargement complet

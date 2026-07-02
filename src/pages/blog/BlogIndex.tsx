@@ -1,9 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Article, Category } from "@/lib/types/blog";
 import ContentLayout from "@/components/layout/ContentLayout";
 import SEOHead from "@/components/blog/SEOHead";
-import Breadcrumb from "@/components/blog/Breadcrumb";
 import Search from 'lucide-react/dist/esm/icons/search';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import Tag from 'lucide-react/dist/esm/icons/tag';
@@ -22,12 +20,10 @@ const BlogIndex = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // ✅ DÉTECTION DU DOMAINE POUR GESTION DU CONTENU DUPLIQUÉ
-  const isEmergencesDomain = window.location.hostname === 'emergences.novahypnose.fr';
   const canonicalBaseUrl = 'https://novahypnose.fr';
 
   // Utiliser React Query pour récupérer les articles (avec cache)
-  const { data: articlesData, isLoading: articlesLoading, isFetching: articlesFetching } = useQuery({
+  const { data: articlesData, isLoading: articlesLoading } = useQuery({
     queryKey: ['blog-articles'],
     queryFn: async () => {
       logger.debug('📥 [Blog] Chargement des articles depuis Supabase...');
@@ -41,7 +37,7 @@ const BlogIndex = () => {
   });
 
   // Utiliser React Query pour récupérer les catégories (avec cache)
-  const { data: categoriesData, isLoading: categoriesLoading, isFetching: categoriesFetching } = useQuery({
+  const { data: categoriesData, isLoading: categoriesLoading } = useQuery({
     queryKey: ['blog-categories'],
     queryFn: async () => {
       logger.debug('📥 [Blog] Chargement des catégories depuis Supabase...');
@@ -57,7 +53,6 @@ const BlogIndex = () => {
   const articles = articlesData || [];
   const categories = categoriesData || [];
   const isLoading = articlesLoading || categoriesLoading;
-  const isFetching = articlesFetching || categoriesFetching;
 
   // Afficher un indicateur si les données viennent du cache
   useEffect(() => {

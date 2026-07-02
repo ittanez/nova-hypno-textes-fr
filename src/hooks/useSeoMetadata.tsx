@@ -1,6 +1,5 @@
 
 import { useEffect, useMemo } from 'react';
-import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { useLocation } from 'react-router-dom';
 import { safeJSONStringify } from '@/lib/seo-utils';
 

@@ -4,18 +4,9 @@ import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
-import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import Brain from 'lucide-react/dist/esm/icons/brain';
-import Heart from 'lucide-react/dist/esm/icons/heart';
-import Zap from 'lucide-react/dist/esm/icons/zap';
-import Star from 'lucide-react/dist/esm/icons/star';
-import Users from 'lucide-react/dist/esm/icons/users';
-import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Headphones from 'lucide-react/dist/esm/icons/headphones';
 import MessagesSquare from 'lucide-react/dist/esm/icons/messages-square';
-import Shield from 'lucide-react/dist/esm/icons/shield';
-import MessageCircle from 'lucide-react/dist/esm/icons/message-circle';
-import Clock from 'lucide-react/dist/esm/icons/clock';
 
 const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique?hide_event_type_details=1&hide_gdpr_banner=1';
 const WHATSAPP_URL = 'https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20';

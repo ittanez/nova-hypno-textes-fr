@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Sparkles from 'lucide-react/dist/esm/icons/sparkles';
 

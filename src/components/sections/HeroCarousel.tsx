@@ -4,13 +4,11 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useResalibPopup } from '@/hooks/useResalibPopup';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
-import { getResponsiveSrcSet } from '@/lib/utils/imagekit';
 import { getCarouselImageSrcSet } from '@/lib/utils/supabaseImageTransform';
-import { carouselSlides, type CarouselSlide } from '@/data/carouselSlides';
+import { carouselSlides } from '@/data/carouselSlides';
 
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,7 +25,6 @@ const HeroCarousel: React.FC = () => {
   }, [isPaused]);
 
   const nextSlide = () => {
-    const { openResalibPopup } = useResalibPopup();
     setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
   };
 

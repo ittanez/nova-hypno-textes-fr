@@ -20,7 +20,7 @@ serve(async (req) => {
       'Content-Type': 'application/json'
     };
 
-    const { email, firstName, score, category, description, senseDominant, vakogScores, timestamp } = await req.json();
+    const { email, firstName, score, category, description, senseDominant, timestamp } = await req.json();
 
     EmailLogger.logRequest({
       email,

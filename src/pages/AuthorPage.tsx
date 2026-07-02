@@ -8,7 +8,6 @@ import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { personSchema } from '@/data/schemaOrg';
-import LinkedInIcon from 'lucide-react/dist/esm/icons/linkedin';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Award from 'lucide-react/dist/esm/icons/award';

@@ -18,7 +18,7 @@ serve(async (req) => {
       throw new Error('Email et résultats requis');
     }
 
-    const { email, results, userAgent } = requestBody;
+    const { email, results } = requestBody;
 
     // Validation de l'email
     if (!isValidEmail(email)) {
@@ -92,8 +92,27 @@ serve(async (req) => {
   }
 });
 
+// Types des résultats du quiz (champs réellement exploités par l'email)
+interface DimensionPercentages {
+  cognitive?: number;
+  physique?: number;
+  comportementale?: number;
+  sociale?: number;
+}
+interface QuizProfile {
+  name?: string;
+  description?: string;
+}
+interface QuizResults {
+  profile: QuizProfile;
+  totalScore: number;
+  dimensionScores: Record<string, number>;
+  dimensionPercentages: DimensionPercentages;
+  personalizedArguments?: string[];
+}
+
 // Fonctions utilitaires pour l'email
-function getDominantDimension(dimensionPercentages: any) {
+function getDominantDimension(dimensionPercentages: DimensionPercentages) {
   if (!dimensionPercentages) return "Non défini";
 
   const max = Math.max(
@@ -118,7 +137,7 @@ function getUrgencyLevel(totalScore: number) {
   return "Minimale - Sensibilisation suffisante";
 }
 
-function generatePersonalizedRecommendations(profile: any, totalScore: number, dimensionPercentages: any) {
+function generatePersonalizedRecommendations(profile: QuizProfile, totalScore: number, dimensionPercentages: DimensionPercentages) {
   const recommendations = [];
 
   // Analyse par dimension pour recommandations ciblées
@@ -175,7 +194,7 @@ function generatePersonalizedRecommendations(profile: any, totalScore: number, d
   return recommendations.join('<br>');
 }
 
-function generateQuizAvanceEmailContent(results: any) {
+function generateQuizAvanceEmailContent(results: QuizResults) {
   const { profile, totalScore, dimensionScores, dimensionPercentages, personalizedArguments } = results;
 
   console.log('📊 Results reçus:', JSON.stringify(results, null, 2));

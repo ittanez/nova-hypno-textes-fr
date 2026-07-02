@@ -37,7 +37,7 @@ export const useResalibPopup = () => {
     if (popup) {
       try {
         popup.focus();
-      } catch (e) {
+      } catch {
         // Certains navigateurs peuvent bloquer le focus
       }
     }

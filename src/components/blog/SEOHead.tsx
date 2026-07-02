@@ -33,8 +33,7 @@ const SEOHead = ({
   author,
   keywords = [],
   robots = "index, follow",
-  structuredData,
-  breadcrumbs = []
+  structuredData
 }: SEOHeadProps) => {
   const siteTitle = "Blog NovaHypnose";
 
