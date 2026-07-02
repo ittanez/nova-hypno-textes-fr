@@ -532,6 +532,21 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur les phobies et l'hypnose</li>
     </ul>
 
+        <h2>Chaque phobie a sa page dédiée</h2>
+    <ul>
+      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie, aviophobie</li>
+      <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
+      <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Acrophobie</a> — Peur du vide et des hauteurs</li>
+      <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos, ascenseurs, IRM</li>
+      <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie, trac</li>
+      <li><a href="${SITE_URL}/hypnose-peur-dentiste-paris">Peur du dentiste</a> — Phobie dentaire</li>
+      <li><a href="${SITE_URL}/hypnose-peur-aiguilles-paris">Peur des aiguilles</a> — Bélonéphobie, piqûres</li>
+      <li><a href="${SITE_URL}/hypnose-peur-sang-paris">Peur du sang</a> — Hématophobie</li>
+      <li><a href="${SITE_URL}/hypnose-aquaphobie-paris">Aquaphobie</a> — Peur de l'eau</li>
+      <li><a href="${SITE_URL}/hypnose-amaxophobie-paris">Amaxophobie</a> — Peur de conduire</li>
+      <li><a href="${SITE_URL}/hypnose-phobie-sociale-paris">Phobie sociale</a> — Anxiété sociale</li>
+    </ul>
+
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance phobies — 90€</a>
     `,
   },
@@ -825,6 +840,17 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur les émotions et l'hypnose</li>
     </ul>
 
+        <h2>Chaque problématique émotionnelle a sa page dédiée</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels — vue d'ensemble</a></li>
+      <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions, réactions disproportionnées</li>
+      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
+      <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte, rupture</li>
+      <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
+      <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur de craquer, contrôle excessif</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement</li>
+    </ul>
+
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance gestion des émotions — 90€</a>
     `,
   },
@@ -916,6 +942,16 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
       <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
       <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur les blocages et l'hypnose</li>
+    </ul>
+
+        <h2>Chaque blocage ou comportement a sa page dédiée</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-procrastination-paris">Procrastination</a> — Blocage à l'action, peur de l'échec</li>
+      <li><a href="${SITE_URL}/hypnose-onychophagie-paris">Onychophagie</a> — Arrêter de se ronger les ongles</li>
+      <li><a href="${SITE_URL}/hypnose-toc-rituels-paris">TOC et rituels compulsifs</a> — Vérifications, trichotillomanie</li>
+      <li><a href="${SITE_URL}/hypnose-schemas-repetitifs-paris">Schémas répétitifs</a> — Cycles en amour et au travail</li>
+      <li><a href="${SITE_URL}/hypnose-blocages-professionnels-paris">Blocages professionnels</a> — Auto-sabotage, syndrome de l'imposteur</li>
+      <li><a href="${SITE_URL}/hypnose-addictions-comportementales-paris">Addictions comportementales</a> — Écrans, jeux, achats compulsifs</li>
     </ul>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance blocages et comportements — 90€</a>
@@ -1416,6 +1452,16 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Estime de soi, image de soi</li>
       <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — Schémas répétitifs</li>
       <li><a href="${SITE_URL}/blog">Blog hypnose</a> — Articles sur l'hypnose et la relation au corps</li>
+    </ul>
+
+        <h2>Chaque trouble du comportement alimentaire a sa page dédiée</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-compulsions-alimentaires-paris">Compulsions alimentaires</a> — Envies incontrôlables</li>
+      <li><a href="${SITE_URL}/hypnose-grignotage-paris">Grignotage chronique</a> — Automatismes entre les repas</li>
+      <li><a href="${SITE_URL}/hypnose-addiction-sucre-paris">Addiction au sucre</a> — Dépendance sucrée</li>
+      <li><a href="${SITE_URL}/hypnose-boulimie-paris">Boulimie</a> — Crises et causes émotionnelles</li>
+      <li><a href="${SITE_URL}/hypnose-alimentation-emotionnelle-paris">Alimentation émotionnelle</a> — Manger ses émotions</li>
+      <li><a href="${SITE_URL}/hypnose-image-corporelle-paris">Image corporelle</a> — Rapport douloureux au corps</li>
     </ul>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance — 90€</a>

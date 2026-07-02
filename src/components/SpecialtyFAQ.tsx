@@ -16,7 +16,6 @@ const SpecialtyFAQ: React.FC<SpecialtyFAQProps> = ({
   items,
   title,
   accentColor = 'text-blue-500',
-  pageUrl,
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 

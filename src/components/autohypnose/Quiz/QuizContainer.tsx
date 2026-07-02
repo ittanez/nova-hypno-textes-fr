@@ -1,7 +1,7 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Answer, DimensionResult, QuizResult, UserData } from "@/types/quiz";
-import { quizQuestions, getDimensionRecommendation, getOverallConclusion, dimensionNames } from "@/data/quizData";
+import { quizQuestions, getDimensionRecommendation, getOverallConclusion } from "@/data/quizData";
 import QuizIntro from "./QuizIntro";
 import QuizQuestion from "./QuizQuestion";
 import UserForm from "./UserForm";
@@ -17,7 +17,7 @@ const QuizContainer = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [showUserForm, setShowUserForm] = useState(false);
-  const [userData, setUserData] = useState<UserData | null>(null);
+  const [, setUserData] = useState<UserData | null>(null);
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [promoCode, setPromoCode] = useState<string | null>(null);

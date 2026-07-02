@@ -46,7 +46,7 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
             return null;
           }).filter(Boolean);
         }
-      } catch (e) {
+      } catch {
         // Si ce n'est pas du JSON valide, traiter comme une string simple
         return [tags];
       }

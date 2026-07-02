@@ -27,7 +27,7 @@ test.describe('Navigation principale', () => {
     await expect(page.getByRole('button').filter({ hasText: /hypnotisé/i })).toBeVisible();
   });
 
-  test('ouverture et fermeture du menu mobile', async ({ page, viewport }) => {
+  test('ouverture et fermeture du menu mobile', async ({ page }) => {
     // Redimensionner pour mobile
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');

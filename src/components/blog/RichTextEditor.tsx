@@ -44,10 +44,6 @@ interface BlobInfo {
   filename: () => string;
 }
 
-interface UploadHandler {
-  (blobInfo: BlobInfo, progress: (percent: number) => void): Promise<string>;
-}
-
 interface RichTextEditorProps {
   value: string;
   onChange: (value: string) => void;
@@ -128,7 +124,7 @@ const RichTextEditor = ({ value, onChange, label, height = 500 }: RichTextEditor
               'link image media | removeformat | help',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             image_advtab: true,
-            images_upload_handler: (blobInfo: BlobInfo, progress: (percent: number) => void) => {
+            images_upload_handler: (blobInfo: BlobInfo, _progress: (percent: number) => void) => {
               return new Promise<string>((resolve, reject) => {
                 const reader = new FileReader();
                 reader.onload = (e) => {

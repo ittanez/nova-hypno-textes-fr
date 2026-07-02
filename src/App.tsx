@@ -16,7 +16,6 @@ const queryClient = new QueryClient({
 });
 
 import PreviewCharte from "@/pages/PreviewCharte"; // Nouvelle homepage (charte risographie) — eager pour le LCP
-import ContentLayout from "./components/layout/ContentLayout";
 import PrivateRoute from "./components/auth/PrivateRoute";
 
 // Toaster (Radix) chargé en lazy : non nécessaire au premier rendu, il sort
@@ -38,7 +37,6 @@ const BlogMaquette = lazy(() => import("@/pages/BlogMaquette"));
 const Custom404 = lazy(() => import("@/pages/Custom404"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminDirect = lazy(() => import("./pages/admin/AdminDirect"));
-const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 
 // Blog public pages
 const BlogIndex = lazy(() => import("@/pages/blog/BlogIndex"));
@@ -59,7 +57,6 @@ const AutohypnoseQuestionnaire = lazy(() => import("@/pages/autohypnose/Question
 
 // Test de réceptivité
 const TestReceptivite = lazy(() => import("@/pages/TestReceptivite"));
-const TestReceptiviteTest = lazy(() => import("@/pages/TestReceptiviteTest"));
 const PreviewCharteTestReceptivite = lazy(() => import("@/pages/PreviewCharteTestReceptivite"));
 
 // Zone d'intervention

@@ -37,7 +37,6 @@ const AdminArticleEditor = () => {
     handleScheduledDateChange,
     handleFaqChange,
     handleSubmit,
-    getTagsForPreview,
   } = useArticleEditor();
 
   if (isLoading) {
@@ -153,7 +152,18 @@ const AdminArticleEditor = () => {
       <ArticlePreview
         article={{
           ...article,
-          tags: (article.tags as any) || [],
+          tags: Array.isArray(article.tags)
+            ? article.tags
+            : typeof article.tags === 'string'
+              ? (() => {
+                  try {
+                    const parsed = JSON.parse(article.tags);
+                    return Array.isArray(parsed) ? parsed : [article.tags];
+                  } catch {
+                    return [article.tags];
+                  }
+                })()
+              : [],
           created_at: article.created_at || new Date().toISOString()
         }}
         open={showPreview}

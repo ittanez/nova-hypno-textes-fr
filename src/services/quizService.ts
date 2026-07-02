@@ -1,6 +1,6 @@
 
 import { supabase } from "@/integrations/supabase/client";
-import { Answer, DimensionResult, QuizResult, UserData } from "@/types/quiz";
+import { Answer, QuizResult, UserData } from "@/types/quiz";
 import { Json } from "@/integrations/supabase/types";
 import { logger } from '@/lib/logger';
 

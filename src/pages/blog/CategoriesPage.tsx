@@ -6,11 +6,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
-import { Article } from "@/lib/types/blog";
+import { Article, Category } from "@/lib/types/blog";
 import { logger } from '@/lib/logger';
 
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 

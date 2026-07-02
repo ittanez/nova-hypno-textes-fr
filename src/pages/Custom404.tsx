@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import ArrowLeft from 'lucide-react/dist/esm/icons/arrow-left';
 import Search from 'lucide-react/dist/esm/icons/search';
 import Phone from 'lucide-react/dist/esm/icons/phone';
 import Mail from 'lucide-react/dist/esm/icons/mail';

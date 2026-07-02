@@ -53,7 +53,7 @@ serve(async (req) => {
     if (prenomSafe) attributes.PRENOM = prenomSafe
     if (locationSafe) attributes.LOCALISATION = locationSafe
 
-    const createPayload: any = {
+    const createPayload: Record<string, unknown> = {
       email: email,
       updateEnabled: true,
     }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';

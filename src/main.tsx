@@ -6,44 +6,9 @@ import './index.css'
 import '@/styles/preview-charte.css'
 import { logger } from '@/lib/logger';
 
-// Fonction pour charger les ressources non critiques après le rendu initial
-const loadNonCriticalResources = () => {
-  // Chargement des ressources non essentielles avec priorité basse
-  const loadNonCriticalScript = (src: string, cacheTime: number = 604800) => {
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = true;
-    script.setAttribute('fetchPriority', 'low');
-    
-    // Ajout des en-têtes de cache pour les ressources statiques
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = src;
-    link.as = 'script';
-    
-    document.body.appendChild(script);
-  };
-  
-  // Chargement des styles non critiques
-  const loadNonCriticalStyles = (href: string, cacheTime: number = 604800) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.setAttribute('fetchPriority', 'low');
-    document.head.appendChild(link);
-  };
-  
-  // Préconnexion aux domaines tiers
-  const addPreconnect = (url: string) => {
-    const link = document.createElement('link');
-    link.rel = 'preconnect';
-    link.href = url;
-    document.head.appendChild(link);
-  };
-  
-  // Ajouter les préconnexions
-  // Chargement d'autres ressources non critiques
-};
+// Point d'extension pour charger des ressources non critiques après le rendu
+// initial (appelé via requestIdleCallback plus bas). Vide à ce jour.
+const loadNonCriticalResources = () => {};
 
 // Rendu de l'application avec priorité maximale
 const root = createRoot(document.getElementById("root")!);

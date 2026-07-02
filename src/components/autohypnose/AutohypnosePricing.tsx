@@ -1,11 +1,9 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Check from 'lucide-react/dist/esm/icons/check';
-import { useEffect, useRef } from "react";
 
 // Déclaration de type pour le composant Stripe Buy Button
 declare module 'react' {
-  interface HTMLAttributes<T> {
+  interface HTMLAttributes<_T> {
     'buy-button-id'?: string;
     'publishable-key'?: string;
   }
