@@ -37,6 +37,7 @@ const GuideAutohypnoseMerci: React.FC = () => {
       <Helmet>
         <title>Merci ! Guide Autohypnose au Quotidien envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose-merci" />
       </Helmet>
 
       <div className="cz">

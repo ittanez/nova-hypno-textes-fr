@@ -49,6 +49,7 @@ const TestEbook: React.FC = () => {
       <Helmet>
         <title>Test Ebook | NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/test-ebook" />
       </Helmet>
 
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-nova-neutral to-nova-blue-light/30 px-4 py-16">

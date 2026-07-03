@@ -211,6 +211,7 @@ const Maquette = () => {
     <ContentLayout>
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/maquette" />
       </Helmet>
       {/* Hero Section avec Carrousel */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">

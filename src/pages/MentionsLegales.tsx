@@ -26,6 +26,7 @@ const MentionsLegales = () => {
         <title>Mentions Légales - NovaHypnose</title>
         <meta name="description" content="Mentions légales de NovaHypnose, cabinet d'hypnothérapie d'Alain Zenatti à Paris." />
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/mentions-legales" />
       </Helmet>
       <Header />
       <main className="pt-24 pb-16">

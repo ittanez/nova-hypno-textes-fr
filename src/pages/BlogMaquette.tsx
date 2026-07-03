@@ -110,6 +110,7 @@ const BlogMaquette = () => {
     <ContentLayout>
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/blog-maquette" />
       </Helmet>
       {/* Hero Section */}
       <section className="relative bg-nova-blue-dark text-white py-20">

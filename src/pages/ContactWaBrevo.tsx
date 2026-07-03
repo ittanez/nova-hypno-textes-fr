@@ -31,6 +31,7 @@ const ContactWaBrevo: React.FC = () => {
       <Helmet>
         <title>Connexion en cours… — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/contact-wa-brevo" />
       </Helmet>
 
       <div className="contact-wa-page">
