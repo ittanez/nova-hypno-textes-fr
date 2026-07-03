@@ -1,5 +1,5 @@
 /// <reference types="google.maps" />
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import Navigation from 'lucide-react/dist/esm/icons/navigation';
 import Clock from 'lucide-react/dist/esm/icons/clock';
@@ -40,6 +40,7 @@ const CommuteMap: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const calculateRouteRef = useRef<(origin: google.maps.LatLng, mode?: string) => Promise<void>>();
 
   // Initialiser la carte
   useEffect(() => {
@@ -126,8 +127,8 @@ const CommuteMap: React.FC = () => {
 
     auto.addListener('place_changed', () => {
       const place = auto.getPlace();
-      if (place.geometry && place.geometry.location) {
-        calculateRoute(place.geometry.location);
+      if (place.geometry && place.geometry.location && calculateRouteRef.current) {
+        calculateRouteRef.current(place.geometry.location);
       }
     });
 
@@ -139,7 +140,7 @@ const CommuteMap: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
-  const calculateRoute = async (origin: google.maps.LatLng, mode?: string) => {
+  const calculateRoute = useCallback(async (origin: google.maps.LatLng, mode?: string) => {
     if (!directionsService || !directionsRenderer) return;
 
     const travelMode = mode || selectedMode;
@@ -170,7 +171,11 @@ const CommuteMap: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [directionsService, directionsRenderer, selectedMode]);
+
+  useEffect(() => {
+    calculateRouteRef.current = calculateRoute;
+  }, [calculateRoute]);
 
   const handleModeChange = async (mode: string) => {
     setSelectedMode(mode);

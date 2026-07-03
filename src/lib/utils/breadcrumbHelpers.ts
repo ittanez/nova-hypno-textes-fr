@@ -1,10 +1,12 @@
 import type { BreadcrumbItem } from '@/components/blog/Breadcrumbs';
 
 // Helper functions pour générer des breadcrumbs automatiquement
-export const generateArticleBreadcrumbs = (article: { category?: string; title: string }): BreadcrumbItem[] => {
+export const generateArticleBreadcrumbs = (article?: { category?: string; title?: string } | null): BreadcrumbItem[] => {
   const breadcrumbs: BreadcrumbItem[] = [
     { name: 'Accueil', url: '/', isHome: true }
   ];
+
+  if (!article) return breadcrumbs;
 
   // Ajouter la catégorie si elle existe
   if (article.category && article.category !== 'Non classé') {
@@ -15,9 +17,11 @@ export const generateArticleBreadcrumbs = (article: { category?: string; title: 
   }
 
   // Ajouter l'article actuel (pas de lien car c'est la page courante)
-  breadcrumbs.push({
-    name: article.title
-  });
+  if (article.title) {
+    breadcrumbs.push({
+      name: article.title
+    });
+  }
 
   return breadcrumbs;
 };
