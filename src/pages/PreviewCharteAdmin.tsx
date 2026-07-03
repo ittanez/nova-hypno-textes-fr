@@ -35,6 +35,7 @@ const PreviewCharteAdmin: React.FC = () => {
       <Helmet>
         <title>Charte graphique — NovaHypnose (admin)</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/preview-charte-admin" />
         {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 

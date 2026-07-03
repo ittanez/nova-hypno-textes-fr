@@ -37,6 +37,7 @@ const GuideProcrastinationMerci: React.FC = () => {
       <Helmet>
         <title>Merci ! Guide Procrastination envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/guide-procrastination-merci" />
       </Helmet>
 
       <div className="cz">

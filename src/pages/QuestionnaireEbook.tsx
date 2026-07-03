@@ -343,6 +343,7 @@ const QuestionnaireEbook = () => {
       <Helmet>
         <title>Votre avis m'est précieux — NovaHypnose</title>
         <meta name="robots" content="noindex" />
+        <link rel="canonical" href="https://novahypnose.fr/questionnaire-ebook" />
       </Helmet>
       <main className="min-h-screen bg-gradient-to-b from-nova-blue-light to-white flex flex-col items-center justify-center px-4 py-12">
         <div className="w-full max-w-2xl">

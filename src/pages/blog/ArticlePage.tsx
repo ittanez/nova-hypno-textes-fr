@@ -310,11 +310,8 @@ const ArticlePage = () => {
         modifiedTime={article.updated_at}
         author={authorName}
         keywords={Array.isArray(article.keywords) ? article.keywords : []}
-        // ✅ GESTION DU CONTENU DUPLIQUÉ
-        // URL canonique pointe TOUJOURS vers novahypnose.fr (même si on est dessus)
-        // Si on est sur emergences, on désindexe la page
         url={getCanonicalUrl(article.slug)}
-        robots="noindex, nofollow"
+        robots="index, follow"
       />
 
       <Header />

@@ -27,6 +27,7 @@ const GuideEbookMerci: React.FC = () => {
       <Helmet>
         <title>Merci ! Guide Émotions au Travail envoyé — NovaHypnose</title>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/guide-emotions-travail-merci" />
       </Helmet>
 
       <div className="cz">

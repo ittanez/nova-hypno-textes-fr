@@ -28,6 +28,7 @@ const NotFound = () => {
         <title>Page non trouvée | NovaHypnose - Cabinet d'hypnothérapie Paris 4</title>
         <meta name="description" content="Cette page est introuvable, mais mon cabinet d'hypnothérapie à Paris 4 est bien actif. Retrouvez mes services d'hypnose pour stress, sommeil, phobies." />
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://novahypnose.fr/404" />
       </Helmet>
 
       <div className="flex flex-col min-h-screen">
