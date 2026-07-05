@@ -94,11 +94,11 @@ const HypnoseOnychophagieParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose onychophagie (rongement des ongles) Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti</title>
         <meta name="description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Maître Hypnologue Paris." />
         <meta name="keywords" content="hypnose onychophagie paris, arrêter se ronger ongles hypnose, traitement onychophagie hypnose, rongement ongles comportement compulsif hypnose paris, onychophagie adulte traitement, hypnose onychophagie en ligne, séance rongement ongles visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-onychophagie-paris" />
-        <meta property="og:title" content="Hypnose onychophagie (rongement des ongles) Paris & en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
         <meta property="og:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Résultats en 1 à 3 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-onychophagie-paris" />
@@ -109,7 +109,7 @@ const HypnoseOnychophagieParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose onychophagie" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose onychophagie (rongement des ongles) Paris & en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Résultats en 1 à 3 séances." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

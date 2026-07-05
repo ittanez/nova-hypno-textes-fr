@@ -10,6 +10,7 @@
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "indexnow": "node scripts/indexnow.js",
     "prebuild": "npm run generate-sitemap",
+    "postbuild": "node scripts/minify-sw.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
