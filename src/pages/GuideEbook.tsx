@@ -209,7 +209,7 @@ const GuideEbook: React.FC = () => {
           name="description"
           content="Téléchargez gratuitement le guide de 19 pages pour comprendre vos émotions au travail. Pratiques concrètes basées sur l'hypnose ericksonienne."
         />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-emotions-travail" />
       </Helmet>
 

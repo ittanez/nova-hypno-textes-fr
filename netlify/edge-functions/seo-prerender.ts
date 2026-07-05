@@ -24,6 +24,7 @@ const BOT_USER_AGENTS = [
   "twitterbot",
   "applebot",
   "semrushbot",
+  "siteauditbot",  // Semrush Site Audit (UA distinct de SemrushBot)
   "ahrefsbot",
   "mj12bot",
   "petalbot",

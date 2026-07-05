@@ -22,6 +22,7 @@ const BOT_USER_AGENTS = [
   "twitterbot",
   "applebot",
   "semrushbot",
+  "siteauditbot",  // Semrush Site Audit (UA distinct de SemrushBot)
   "ahrefsbot",
   "mj12bot",
   "petalbot",
@@ -1469,7 +1470,7 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-en-ligne": {
-    title: "Hypnose en ligne & visio — Spécialiste France | Alain Zenatti NovaHypnose",
+    title: "Hypnose en ligne & visio — Spécialiste France | Alain Zenatti",
     description:
       "Spécialiste de l'hypnose en visioconférence partout en France. Alain Zenatti, Maître Hypnologue certifié, propose des téléconsultations d'hypnose aussi efficaces qu'au cabinet. 90 € — Résultats en 3 à 5 séances.",
     canonicalPath: "/hypnose-en-ligne",
@@ -2904,7 +2905,7 @@ PAGES["/hypnose-procrastination-paris"] = {
 };
 
 PAGES["/hypnose-onychophagie-paris"] = {
-  title: "Hypnose onychophagie (rongement des ongles) Paris & en ligne | Alain Zenatti",
+  title: "Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti",
   description:
     "Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Maître Hypnologue Paris.",
   canonicalPath: "/hypnose-onychophagie-paris",
