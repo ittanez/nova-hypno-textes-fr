@@ -207,7 +207,7 @@ const Tarifs = () => {
               "Un entretien pour faire le point sur votre objectif et votre avancée",
               "Une séance d'hypnose ericksonienne personnalisée, guidée par la voix",
               "Un debriefing pour ancrer les changements et répondre à vos questions",
-              "Des exercices d'auto-hypnose simples à refaire chez vous entre les séances",
+              "Selon les besoins, quelques exercices simples d'auto-hypnose à pratiquer chez vous",
             ].map((item, i) => (
               <div key={i} className="sp-check-item">
                 <CheckCircle size={18} />
