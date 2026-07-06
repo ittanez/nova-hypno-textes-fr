@@ -3655,7 +3655,7 @@ PAGES["/tarifs"] = {
 
     <h2>Pages liées</h2>
     <ul>
-      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des patients</a></li>
+      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des clients</a></li>
       <li><a href="${SITE_URL}/hypnose-en-ligne">Hypnose en visioconférence</a></li>
       <li><a href="${SITE_URL}/test-receptivite">Test de réceptivité à l'hypnose</a></li>
     </ul>
@@ -3665,11 +3665,11 @@ PAGES["/tarifs"] = {
 };
 
 PAGES["/avis"] = {
-  title: "Avis & témoignages patients — NovaHypnose | Alain Zenatti",
+  title: "Avis & témoignages clients — NovaHypnose | Alain Zenatti",
   description:
-    "Les avis des patients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
+    "Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
   canonicalPath: "/avis",
-  h1: "Avis & témoignages des patients",
+  h1: "Avis & témoignages des clients",
   jsonLd: [
     breadcrumbLd([
       { name: "Accueil", path: "/" },
@@ -3729,7 +3729,95 @@ PAGES["/contact"] = {
     <h2>Pages liées</h2>
     <ul>
       <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a> — 90 € cabinet ou visio</li>
-      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des patients</a></li>
+      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des clients</a></li>
+      <li><a href="${SITE_URL}/hypnose-en-ligne">Hypnose en visioconférence</a></li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+};
+
+PAGES["/faq"] = {
+  title: "FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose",
+  description:
+    "Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio. Par Alain Zenatti, Maître Hypnologue.",
+  canonicalPath: "/faq",
+  h1: "Questions fréquentes sur l'hypnose",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/faq#faq`,
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi consulter un hypnothérapeute à Paris ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments." },
+        },
+        {
+          "@type": "Question",
+          "name": "Comment se déroule une séance d'hypnose ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une séance se déroule en 3 étapes : un entretien pour comprendre votre problématique et définir vos objectifs, la séance d'hypnose ericksonienne proprement dite, puis un debriefing pour ancrer les changements. La première séance dure environ 1h30, les suivantes 1h." },
+        },
+        {
+          "@type": "Question",
+          "name": "L'hypnothérapie est-elle dangereuse ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Vous restez conscient pendant toute la séance et ne ferez jamais quelque chose contre votre volonté. C'est un état modifié de conscience que vous expérimentez naturellement plusieurs fois par jour." },
+        },
+        {
+          "@type": "Question",
+          "name": "Les séances d'hypnose sont-elles remboursées par les mutuelles ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En France, l'hypnothérapie est remboursée par certaines mutuelles selon les contrats souscrits. Il est recommandé de contacter directement votre mutuelle pour le vérifier." },
+        },
+        {
+          "@type": "Question",
+          "name": "L'hypnose en visio est-elle aussi efficace qu'en cabinet ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. Les séances en visioconférence donnent les mêmes résultats qu'en présentiel, en 3 à 5 séances dans la grande majorité des cas." },
+        },
+        {
+          "@type": "Question",
+          "name": "Où se situe le cabinet et comment y accéder ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le cabinet est situé au 16 rue Saint-Antoine, Paris 4ème, au croisement des 4e, 11e et 12e arrondissements, dans le quartier du Marais. Accès à 2 minutes à pied du métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1)." },
+        },
+      ],
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "FAQ", path: "/faq" },
+    ]),
+  ],
+  content: `
+    <p>Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio : les réponses aux questions les plus posées avant de prendre rendez-vous.</p>
+
+    <h2>Pourquoi consulter un hypnothérapeute à Paris ?</h2>
+    <p>Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments.</p>
+
+    <h2>Comment se déroule une séance d'hypnose ?</h2>
+    <p>Une séance se déroule en 3 étapes : un entretien pour comprendre votre problématique et définir vos objectifs, la séance d'hypnose ericksonienne proprement dite (état de relaxation profonde guidée), puis un debriefing pour ancrer les changements. La première séance dure environ 1h30, les suivantes 1h.</p>
+
+    <h2>L'hypnothérapie est-elle dangereuse ?</h2>
+    <p>Non, l'hypnothérapie pratiquée par un professionnel formé est une méthode sûre et naturelle. Vous restez conscient pendant toute la séance et ne ferez jamais quelque chose contre votre volonté — un état modifié de conscience que vous expérimentez naturellement plusieurs fois par jour (absorbé dans un livre ou un film).</p>
+
+    <h2>Est-ce que je révèle des secrets intimes sous hypnose ?</h2>
+    <p>Non, vous ne révélerez que ce que vous souhaitez partager. L'hypnose n'est pas un sérum de vérité et vous gardez votre libre arbitre pendant toute la séance.</p>
+
+    <h2>Les séances sont-elles remboursées par les mutuelles ?</h2>
+    <p>En France, l'hypnothérapie est remboursée par certaines mutuelles selon les contrats souscrits. Il est recommandé de contacter directement votre mutuelle pour le vérifier. Voir aussi la page <a href="${SITE_URL}/tarifs">tarifs des séances</a>.</p>
+
+    <h2>L'hypnose en visio est-elle aussi efficace qu'en cabinet ?</h2>
+    <p>Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux. Les séances en visioconférence donnent les mêmes résultats qu'en présentiel, en 3 à 5 séances dans la grande majorité des cas. Voir la page <a href="${SITE_URL}/hypnose-en-ligne">hypnose en visio</a>.</p>
+
+    <h2>Où se situe le cabinet et comment y accéder ?</h2>
+    <p>Le cabinet est situé au 16 rue Saint-Antoine, Paris 4ème, au croisement des 4e, 11e et 12e arrondissements, dans le quartier du Marais. Accès à 2 minutes à pied du métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1). Voir la page <a href="${SITE_URL}/contact">contact</a>.</p>
+
+    <h2>Quelles sont les modalités de paiement et la politique d'annulation ?</h2>
+    <p>Paiement par carte bancaire, Wero ou en ligne (visio). Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous ; au-delà, la séance est facturée. Consultations réservées aux adultes.</p>
+
+    <h2>Pages liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a></li>
+      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des clients</a></li>
+      <li><a href="${SITE_URL}/contact">Nous contacter</a></li>
       <li><a href="${SITE_URL}/hypnose-en-ligne">Hypnose en visioconférence</a></li>
     </ul>
 

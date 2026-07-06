@@ -511,7 +511,7 @@ const PreviewCharte: React.FC = () => {
                 la voix, l'écoute, la métaphore — s'y prête remarquablement.
               </p>
               <ul className="cabinet__list">
-                <li><strong>Depuis chez vous, sans frontière</strong> — en France comme à l'étranger ; je reçois des patient·es jusqu'au Portugal.</li>
+                <li><strong>Depuis chez vous, sans frontière</strong> — en France comme à l'étranger ; je reçois des client·es jusqu'au Portugal.</li>
                 <li><strong>Un endroit à vous</strong> — calme, casque audio, connexion stable. Rien d'autre.</li>
                 <li><strong>Même tarif qu'au cabinet</strong> — 90 €, 1h30 la première séance.</li>
               </ul>
@@ -721,6 +721,10 @@ const PreviewCharte: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            <p className="tarifs-note reveal">
+              <Link to="/faq">Voir toutes les questions fréquentes →</Link>
+            </p>
           </div>
         </section>
 
@@ -802,6 +806,8 @@ const PreviewCharte: React.FC = () => {
               <Link to="/avis">Avis</Link>
               <span className="foot__sep">·</span>
               <Link to="/contact">Contact</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/faq">FAQ</Link>
               <span className="foot__sep">·</span>
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>

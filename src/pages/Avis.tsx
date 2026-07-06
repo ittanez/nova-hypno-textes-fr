@@ -28,13 +28,13 @@ const Avis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Avis & témoignages patients — NovaHypnose | Alain Zenatti</title>
-        <meta name="description" content="Les avis des patients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi." />
+        <title>Avis & témoignages clients — NovaHypnose | Alain Zenatti</title>
+        <meta name="description" content="Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi." />
         <meta name="keywords" content="avis novahypnose, avis alain zenatti, avis hypnothérapeute paris, témoignage hypnose paris, hypnose paris avis, avis hypnose ericksonienne" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/avis" />
-        <meta property="og:title" content="Avis & témoignages patients — NovaHypnose | Alain Zenatti" />
-        <meta property="og:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés de patients accompagnés en hypnose à Paris et en visio." />
+        <meta property="og:title" content="Avis & témoignages clients — NovaHypnose | Alain Zenatti" />
+        <meta property="og:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés de clients accompagnés en hypnose à Paris et en visio." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/avis" />
         <meta property="og:locale" content="fr_FR" />
@@ -44,7 +44,7 @@ const Avis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Avis & témoignages patients — NovaHypnose | Alain Zenatti" />
+        <meta name="twitter:title" content="Avis & témoignages clients — NovaHypnose | Alain Zenatti" />
         <meta name="twitter:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -68,7 +68,7 @@ const Avis = () => {
         <div className="container sp-hero__inner reveal">
           <div className="tag">Ils en parlent — Avis vérifiés</div>
           <h1 className="sp-hero__h1">
-            Avis & témoignages<br/><em>des patients</em>
+            Avis & témoignages<br/><em>des clients</em>
           </h1>
           <p className="sp-hero__lead">
             <strong>5/5 sur Google</strong> et <strong>5/5 sur Resalib</strong>.

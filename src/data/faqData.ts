@@ -83,7 +83,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "L'hypnose en visio est-elle aussi efficace qu'en cabinet ?",
-    answer: "Oui, les séances d'hypnose en visioconférence sont tout aussi efficaces que les séances au cabinet. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux patients rapportent même se sentir plus détendus chez eux, dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique. Je pratique la téléconsultation hypnose depuis plusieurs années avec les mêmes résultats qu'en présentiel : 3 à 5 séances suffisent dans la grande majorité des cas."
+    answer: "Oui, les séances d'hypnose en visioconférence sont tout aussi efficaces que les séances au cabinet. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux, dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique. Je pratique la téléconsultation hypnose depuis plusieurs années avec les mêmes résultats qu'en présentiel : 3 à 5 séances suffisent dans la grande majorité des cas."
   },
   {
     question: "Comment se préparer à une séance d'hypnose en visio ?",
@@ -95,7 +95,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Quel est le temps de trajet pour rejoindre votre cabinet depuis les principales gares parisiennes ?",
-    answer: "Le cabinet est très bien situé et facilement accessible depuis toutes les gares parisiennes :\n\n• Gare de Lyon : 5 minutes en métro (Ligne 1 directe jusqu'à Bastille)\n• Gare du Nord : 15 minutes (Ligne 5 directe depuis Gare du Nord jusqu'à Bastille)\n• Gare de l'Est : 15 minutes (Ligne 5 directe depuis Gare de l'Est jusqu'à Bastille)\n• Gare Montparnasse : 20-25 minutes (Ligne 6 puis 1, ou Ligne 4 puis 1)\n• Gare Saint-Lazare : 20 minutes (Ligne 14 puis 1, ou Ligne 3 puis 5)\n\nLa station Bastille étant un grand hub de correspondance (lignes 1, 5, 8), le cabinet est idéalement placé pour les patients venant de banlieue ou de province."
+    answer: "Le cabinet est très bien situé et facilement accessible depuis toutes les gares parisiennes :\n\n• Gare de Lyon : 5 minutes en métro (Ligne 1 directe jusqu'à Bastille)\n• Gare du Nord : 15 minutes (Ligne 5 directe depuis Gare du Nord jusqu'à Bastille)\n• Gare de l'Est : 15 minutes (Ligne 5 directe depuis Gare de l'Est jusqu'à Bastille)\n• Gare Montparnasse : 20-25 minutes (Ligne 6 puis 1, ou Ligne 4 puis 1)\n• Gare Saint-Lazare : 20 minutes (Ligne 14 puis 1, ou Ligne 3 puis 5)\n\nLa station Bastille étant un grand hub de correspondance (lignes 1, 5, 8), le cabinet est idéalement placé pour les clients venant de banlieue ou de province."
   },
   {
     question: "Quelles sont les modalités de paiement et la politique d'annulation ?",
