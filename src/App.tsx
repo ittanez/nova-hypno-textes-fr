@@ -91,9 +91,10 @@ const PolitiqueConfidentialite = lazy(() => import("@/pages/PolitiqueConfidentia
 // Page de redirection WhatsApp (emails Brevo)
 const ContactWaBrevo = lazy(() => import("@/pages/ContactWaBrevo"));
 
-// Pages tarifs et avis patients
+// Pages tarifs, avis patients et contact
 const Tarifs = lazy(() => import("@/pages/Tarifs"));
 const Avis = lazy(() => import("@/pages/Avis"));
+const Contact = lazy(() => import("@/pages/Contact"));
 
 // Page de test ebook (isolée, pas dans le menu)
 const TestEbook = lazy(() => import("@/pages/TestEbook"));
@@ -246,9 +247,10 @@ function App() {
             <Route path="/guide-procrastination/merci" element={<GuideProcrastinationMerci />} />
             <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
 
-            {/* Tarifs et avis patients */}
+            {/* Tarifs, avis patients et contact */}
             <Route path="/tarifs" element={<Tarifs />} />
             <Route path="/avis" element={<Avis />} />
+            <Route path="/contact" element={<Contact />} />
 
             {/* Politique de confidentialité du site web */}
             <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />

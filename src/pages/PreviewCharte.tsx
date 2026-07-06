@@ -797,6 +797,12 @@ const PreviewCharte: React.FC = () => {
         <footer className="foot">
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
+              <Link to="/tarifs">Tarifs</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/avis">Avis</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/contact">Contact</Link>
+              <span className="foot__sep">·</span>
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="/politique-de-confidentialite">Confidentialité</a>

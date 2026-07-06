@@ -3700,6 +3700,43 @@ PAGES["/avis"] = {
     `,
 };
 
+PAGES["/contact"] = {
+  title: "Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti",
+  description:
+    "Contactez Alain Zenatti, hypnothérapeute à Paris 4ème (Marais-Bastille) : téléphone, email, formulaire, adresse et horaires. Cabinet et visioconférence, du lundi au vendredi de 11h à 20h30.",
+  canonicalPath: "/contact",
+  h1: "Nous contacter au cabinet ou en visio",
+  jsonLd: [
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ]),
+  ],
+  content: `
+    <p>Un message ou un appel suffit. Nous échangeons quelques minutes, et nous fixons une première séance si vous le souhaitez.</p>
+
+    <h2>Coordonnées</h2>
+    <ul>
+      <li><strong>Téléphone</strong> : <a href="tel:+33649358089">06 49 35 80 89</a></li>
+      <li><strong>Email</strong> : <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a></li>
+      <li><strong>Cabinet</strong> : 16 rue Saint-Antoine, 75004 Paris — Métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1)</li>
+      <li><strong>Horaires</strong> : du lundi au vendredi, 11h — 20h30</li>
+    </ul>
+
+    <h2>Accès au cabinet</h2>
+    <p>Le cabinet se situe au 16 rue Saint-Antoine, 75004 Paris, dans le quartier du Marais-Bastille, à deux pas de la place de la Bastille. Vous préférez ne pas vous déplacer ? Les séances en <a href="${SITE_URL}/hypnose-en-ligne">visioconférence</a> sont aussi efficaces qu'au cabinet, depuis n'importe où en France.</p>
+
+    <h2>Pages liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a> — 90 € cabinet ou visio</li>
+      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des patients</a></li>
+      <li><a href="${SITE_URL}/hypnose-en-ligne">Hypnose en visioconférence</a></li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(
