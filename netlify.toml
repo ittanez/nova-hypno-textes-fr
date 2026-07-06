@@ -291,6 +291,10 @@
   path = "/contact"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/faq"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"

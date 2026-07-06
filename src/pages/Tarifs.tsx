@@ -28,7 +28,7 @@ const tarifsFaqItems = [
   },
   {
     question: "Puis-je annuler ou reporter un rendez-vous ?",
-    answer: "Oui, l'annulation ou le report est sans frais jusqu'à 48 h avant le rendez-vous. Au-delà, la séance est due — ce cadre protège les créneaux des autres patients.",
+    answer: "Oui, l'annulation ou le report est sans frais jusqu'à 48 h avant le rendez-vous. Au-delà, la séance est due — ce cadre protège les créneaux des autres clients.",
   },
   {
     question: "Le tarif est-il le même en visio qu'au cabinet ?",
@@ -273,7 +273,7 @@ const Tarifs = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
-            <Link to="/avis">Avis des patients →</Link>
+            <Link to="/avis">Avis des clients →</Link>
             <Link to="/hypnose-en-ligne">Hypnose en visio →</Link>
             <Link to="/test-receptivite">Tester ma réceptivité →</Link>
             <Link to="/blog">Blog hypnose →</Link>

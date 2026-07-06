@@ -212,7 +212,7 @@ const Contact = () => {
           </div>
           <div className="sp-links">
             <Link to="/tarifs">Tarifs des séances →</Link>
-            <Link to="/avis">Avis des patients →</Link>
+            <Link to="/avis">Avis des clients →</Link>
             <Link to="/hypnose-en-ligne">Hypnose en visio →</Link>
           </div>
         </div>
