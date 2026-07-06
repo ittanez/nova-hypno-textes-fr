@@ -14,11 +14,11 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const onychophagieFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
-    answer: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart de mes patients cessent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
+    answer: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart de mes clients cessent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
   },
   {
     question: "Combien de séances faut-il pour arrêter l'onychophagie par hypnose ?",
-    answer: "Une à trois séances suffisent dans la grande majorité des cas. Certains patients constatent l'arrêt du comportement dès la première séance. C'est l'une des problématiques où l'hypnose obtient les résultats les plus rapides, car l'onychophagie est un automatisme relativement isolé — il n'est pas ancré dans une problématique émotionnelle complexe, même si le stress est souvent un déclencheur."
+    answer: "Une à trois séances suffisent dans la grande majorité des cas. Certains clients constatent l'arrêt du comportement dès la première séance. C'est l'une des problématiques où l'hypnose obtient les résultats les plus rapides, car l'onychophagie est un automatisme relativement isolé — il n'est pas ancré dans une problématique émotionnelle complexe, même si le stress est souvent un déclencheur."
   },
   {
     question: "Je me ronge les ongles sans même m'en rendre compte — est-ce que l'hypnose peut quand même aider ?",
@@ -30,7 +30,7 @@ const onychophagieFaqItems = [
   },
   {
     question: "Puis-je faire une séance d'hypnose pour l'onychophagie depuis chez moi, en visio ?",
-    answer: "Oui, les séances en visioconférence sont aussi efficaces qu'au cabinet pour l'onychophagie. L'état hypnotique s'atteint parfaitement à distance. Pour ce type de comportement compulsif, beaucoup de patients trouvent même plus confortable de faire la séance chez eux, dans leur propre environnement."
+    answer: "Oui, les séances en visioconférence sont aussi efficaces qu'au cabinet pour l'onychophagie. L'état hypnotique s'atteint parfaitement à distance. Pour ce type de comportement compulsif, beaucoup de clients trouvent même plus confortable de faire la séance chez eux, dans leur propre environnement."
   }
 ];
 
@@ -253,7 +253,7 @@ const HypnoseOnychophagieParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Soulagé en une seule séance</div>
               <p>
-                Un patient qui se rongeait les ongles depuis l'adolescence est venu consulter sans vraiment
+                Un client qui se rongeait les ongles depuis l'adolescence est venu consulter sans vraiment
                 y croire. En une seule séance, nous avons identifié le déclencheur principal — un état
                 d'anxiété diffuse lié au travail — et reprogrammé la réponse automatique.
               </p>

@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const blocagesProfFaqItems = [
   {
     question: "L'hypnose peut-elle aider à surmonter les blocages professionnels ?",
-    answer: "Oui, et c'est l'une de ses applications les plus concrètes. Les blocages professionnels — peur de demander une augmentation, incapacité à passer à l'action, auto-sabotage avant une promotion, syndrome de l'imposteur — sont pilotés par des croyances inconscientes. L'hypnose accède directement à ces programmes pour les transformer. Mes patients constatent souvent un changement notable dès les premières séances : une capacité à agir là où ils étaient bloqués."
+    answer: "Oui, et c'est l'une de ses applications les plus concrètes. Les blocages professionnels — peur de demander une augmentation, incapacité à passer à l'action, auto-sabotage avant une promotion, syndrome de l'imposteur — sont pilotés par des croyances inconscientes. L'hypnose accède directement à ces programmes pour les transformer. Mes clients constatent souvent un changement notable dès les premières séances : une capacité à agir là où ils étaient bloqués."
   },
   {
     question: "Qu'est-ce que l'auto-sabotage professionnel et comment l'hypnose le traite-t-elle ?",
@@ -30,7 +30,7 @@ const blocagesProfFaqItems = [
   },
   {
     question: "L'hypnose peut-elle aider à oser se lancer en tant qu'entrepreneur ?",
-    answer: "Absolument. La peur de se lancer, de quitter un emploi stable, d'assumer l'incertitude entrepreneuriale — ce sont des blocages que l'hypnose traite efficacement. Elle travaille sur la peur de l'échec, la peur du regard des autres, les croyances limitantes sur l'argent ou la réussite. Beaucoup de mes patients ont franchi le pas après quelques séances, avec une confiance ancrée plutôt qu'une résolution de surface."
+    answer: "Absolument. La peur de se lancer, de quitter un emploi stable, d'assumer l'incertitude entrepreneuriale — ce sont des blocages que l'hypnose traite efficacement. Elle travaille sur la peur de l'échec, la peur du regard des autres, les croyances limitantes sur l'argent ou la réussite. Beaucoup de mes clients ont franchi le pas après quelques séances, avec une confiance ancrée plutôt qu'une résolution de surface."
   }
 ];
 
@@ -254,7 +254,7 @@ const HypnoseBlocagesProfessionnelsParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Blocages levés — progression professionnelle retrouvée</div>
               <p>
-                Une patiente, cadre dans le secteur juridique, stagnait depuis plusieurs années malgré
+                Une cliente, cadre dans le secteur juridique, stagnait depuis plusieurs années malgré
                 d'excellentes évaluations. Chaque opportunité de promotion la paralysait : elle trouvait
                 des raisons de ne pas postuler, de se mettre en retrait au moment décisif.
               </p>

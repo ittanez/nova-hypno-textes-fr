@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const claustrophobieFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
-    answer: "Oui. La claustrophobie est un programme inconscient appris — et tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des patients constatent une transformation significative en 2 à 4 séances."
+    answer: "Oui. La claustrophobie est un programme inconscient appris — et tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des clients constatent une transformation significative en 2 à 4 séances."
   },
   {
     question: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
@@ -34,7 +34,7 @@ const claustrophobieFaqItems = [
   },
   {
     question: "Les séances en visio sont-elles possibles pour la claustrophobie ?",
-    answer: "Oui. L'hypnose en visio est aussi efficace qu'en cabinet pour la claustrophobie. Vous êtes dans votre propre espace, en sécurité, et je vous guide dans un état hypnotique profond. De nombreux patients claustrophobes ont été traités intégralement en téléconsultation."
+    answer: "Oui. L'hypnose en visio est aussi efficace qu'en cabinet pour la claustrophobie. Vous êtes dans votre propre espace, en sécurité, et je vous guide dans un état hypnotique profond. De nombreux clients claustrophobes ont été traités intégralement en téléconsultation."
   }
 ];
 

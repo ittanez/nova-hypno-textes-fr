@@ -18,7 +18,7 @@ const schemasFaqItems = [
   },
   {
     question: "L'hypnose peut-elle vraiment briser les schémas répétitifs en amour ?",
-    answer: "Oui, c'est l'une de ses applications les plus puissantes. Les schémas amoureux répétitifs — toujours choisir le même type de partenaire, reproduire les mêmes conflits, s'auto-saboter à chaque relation qui commence bien — sont maintenus par des programmes inconscients souvent installés dans l'enfance. L'hypnose identifie le schéma fondateur, remonte à son origine et reprogramme la réponse inconsciente. Mes patients sont souvent surpris de faire naturellement des choix différents après quelques séances."
+    answer: "Oui, c'est l'une de ses applications les plus puissantes. Les schémas amoureux répétitifs — toujours choisir le même type de partenaire, reproduire les mêmes conflits, s'auto-saboter à chaque relation qui commence bien — sont maintenus par des programmes inconscients souvent installés dans l'enfance. L'hypnose identifie le schéma fondateur, remonte à son origine et reprogramme la réponse inconsciente. Mes clients sont souvent surpris de faire naturellement des choix différents après quelques séances."
   },
   {
     question: "Comment savoir si je suis dans un schéma répétitif ?",
@@ -254,7 +254,7 @@ const HypnoseSchemasRepetitifsParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Schémas amoureux répétitifs — rupture du cycle</div>
               <p>
-                Une patiente reproduisait toujours les mêmes schémas dans ses relations amoureuses :
+                Une cliente reproduisait toujours les mêmes schémas dans ses relations amoureuses :
                 elle choisissait systématiquement des partenaires émotionnellement distants, puis s'épuisait
                 à essayer de les rendre disponibles. Consciente du cycle, elle ne parvenait pas à s'en défaire.
               </p>

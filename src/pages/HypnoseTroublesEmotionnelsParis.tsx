@@ -26,7 +26,7 @@ const troublesEmotionnelsFaqItems = [
   },
   {
     question: "L'hypnose peut-elle soulager la charge émotionnelle et le sentiment d'épuisement ?",
-    answer: "Oui. La charge émotionnelle — ce sentiment d'être constamment débordé par les émotions des autres, par les situations, par vos propres ressentis — est l'une des problématiques que l'hypnose accompagne bien. Elle travaille à alléger le poids accumulé, à restaurer des frontières émotionnelles saines et à réduire la perméabilité excessive aux émotions extérieures. Beaucoup de patients décrivent un sentiment de légèreté après les séances."
+    answer: "Oui. La charge émotionnelle — ce sentiment d'être constamment débordé par les émotions des autres, par les situations, par vos propres ressentis — est l'une des problématiques que l'hypnose accompagne bien. Elle travaille à alléger le poids accumulé, à restaurer des frontières émotionnelles saines et à réduire la perméabilité excessive aux émotions extérieures. Beaucoup de clients décrivent un sentiment de légèreté après les séances."
   },
   {
     question: "Combien de séances d'hypnose pour retrouver un équilibre émotionnel ?",

@@ -26,7 +26,7 @@ const chargeFaqItems = [
   },
   {
     question: "Comment l'hypnose aide-t-elle à alléger la charge émotionnelle ?",
-    answer: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de patients décrivent un sentiment de légèreté très concret après les séances."
+    answer: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de clients décrivent un sentiment de légèreté très concret après les séances."
   },
   {
     question: "Combien de séances pour alléger une charge émotionnelle chronique ?",
@@ -171,7 +171,7 @@ const HypnoseChargeEmotionnelleParis = () => {
               </p>
               <p>
                 L'hypnose permet d'accéder à ces couches profondes pour les libérer progressivement,
-                en douceur. Beaucoup de patients décrivent un sentiment concret de légèreté après
+                en douceur. Beaucoup de clients décrivent un sentiment concret de légèreté après
                 les premières séances.
               </p>
             </div>
@@ -252,7 +252,7 @@ const HypnoseChargeEmotionnelleParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title">Infirmière — porter la souffrance des patients sans s'y noyer</div>
+              <div className="sp-case__title">Infirmière — porter la souffrance des clients sans s'y noyer</div>
               <p>
                 Marie*, 39 ans, infirmière en service oncologie, rentrait chaque soir avec un poids
                 qu'elle ne savait pas décrire. Elle n'arrivait plus à "décrocher", dormait mal,
@@ -260,7 +260,7 @@ const HypnoseChargeEmotionnelleParis = () => {
               </p>
               <p>
                 En hypnose, nous avons travaillé à créer une membrane émotionnelle naturelle —
-                être pleinement présente avec les patients sans absorber leur détresse. Après 5 séances,
+                être pleinement présente avec les clients sans absorber leur détresse. Après 5 séances,
                 elle décrivait la capacité de rentrer chez elle "légère" pour la première fois depuis des années.
               </p>
             </div>

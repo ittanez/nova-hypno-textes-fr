@@ -22,7 +22,7 @@ const tocFaqItems = [
   },
   {
     question: "L'hypnose peut-elle traiter la trichotillomanie (arrachage de cheveux) ?",
-    answer: "Oui. La trichotillomanie est un comportement répétitif centré sur le corps (BFRB), apparenté aux TOC, souvent lié à une tension interne ou à un mécanisme de régulation émotionnelle. L'hypnose agit sur le même principe que pour l'onychophagie : elle identifie la fonction du comportement et propose une alternative inconsciente. Certains patients constatent une réduction significative dès les premières séances."
+    answer: "Oui. La trichotillomanie est un comportement répétitif centré sur le corps (BFRB), apparenté aux TOC, souvent lié à une tension interne ou à un mécanisme de régulation émotionnelle. L'hypnose agit sur le même principe que pour l'onychophagie : elle identifie la fonction du comportement et propose une alternative inconsciente. Certains clients constatent une réduction significative dès les premières séances."
   },
   {
     question: "Combien de séances d'hypnose pour traiter les TOC ?",
@@ -253,7 +253,7 @@ const HypnoseTocRituelsParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Trichotillomanie — arrachage de cheveux</div>
               <p>
-                Une patiente s'arrachait les cheveux depuis plusieurs années, principalement lors de moments
+                Une cliente s'arrachait les cheveux depuis plusieurs années, principalement lors de moments
                 de tension intense. La honte l'empêchait d'en parler à son entourage. Le comportement avait
                 commencé à provoquer des zones de calvitie visibles.
               </p>

@@ -34,7 +34,7 @@ const deuilFaqItems = [
   },
   {
     question: "Puis-je faire mes séances en visio ?",
-    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour accompagner le processus de deuil. Beaucoup de mes patients en deuil apprécient la visio car elle leur permet d'être dans un environnement familier et sécurisant, sans avoir à se déplacer dans un état émotionnel parfois fragile."
+    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour accompagner le processus de deuil. Beaucoup de mes clients en deuil apprécient la visio car elle leur permet d'être dans un environnement familier et sécurisant, sans avoir à se déplacer dans un état émotionnel parfois fragile."
   }
 ];
 

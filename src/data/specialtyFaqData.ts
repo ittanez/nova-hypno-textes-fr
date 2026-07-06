@@ -13,7 +13,7 @@ export interface SpecialtyFaqItem {
 export const stressFaqItems: SpecialtyFaqItem[] = [
   {
     question: "Combien de séances d'hypnose faut-il pour traiter le stress et l'anxiété ?",
-    answer: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables sur le stress et l'anxiété. Dès la première séance, la majorité de mes patients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité. Lors de la première consultation, nous définissons ensemble un plan d'accompagnement adapté à votre situation."
+    answer: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables sur le stress et l'anxiété. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité. Lors de la première consultation, nous définissons ensemble un plan d'accompagnement adapté à votre situation."
   },
   {
     question: "L'hypnose est-elle efficace contre le burn-out ?",
@@ -29,7 +29,7 @@ export const stressFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Peut-on combiner l'hypnose avec un suivi psychologique pour traiter le stress ?",
-    answer: "Oui, l'hypnose se combine parfaitement avec un suivi psychologique ou psychiatrique. Les deux approches sont complémentaires : la psychothérapie travaille sur la compréhension consciente des mécanismes, tandis que l'hypnose agit directement sur les automatismes inconscients. Beaucoup de mes patients suivent les deux en parallèle, et leurs thérapeutes constatent que l'hypnose accélère le processus thérapeutique global."
+    answer: "Oui, l'hypnose se combine parfaitement avec un suivi psychologique ou psychiatrique. Les deux approches sont complémentaires : la psychothérapie travaille sur la compréhension consciente des mécanismes, tandis que l'hypnose agit directement sur les automatismes inconscients. Beaucoup de mes clients suivent les deux en parallèle, et leurs thérapeutes constatent que l'hypnose accélère le processus thérapeutique global."
   }
 ];
 
@@ -49,7 +49,7 @@ export const phobiesFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Comment l'hypnose traite-t-elle la peur de l'avion ?",
-    answer: "La peur de l'avion est l'une des phobies que je traite le plus fréquemment à mon cabinet de Paris. L'hypnose identifie d'abord l'origine de la peur (expérience traumatisante, turbulences, peur de perdre le contrôle, claustrophobie associée). Ensuite, en hypnose profonde, je guide votre inconscient pour dissocier la peur de la situation de vol et installer une sensation de calme et de sécurité. Je vous enseigne aussi une technique d'auto-hypnose à utiliser dans l'avion. La plupart de mes patients reprennent l'avion sereinement après 2 à 3 séances."
+    answer: "La peur de l'avion est l'une des phobies que je traite le plus fréquemment à mon cabinet de Paris. L'hypnose identifie d'abord l'origine de la peur (expérience traumatisante, turbulences, peur de perdre le contrôle, claustrophobie associée). Ensuite, en hypnose profonde, je guide votre inconscient pour dissocier la peur de la situation de vol et installer une sensation de calme et de sécurité. Je vous enseigne aussi une technique d'auto-hypnose à utiliser dans l'avion. La plupart de mes clients reprennent l'avion sereinement après 2 à 3 séances."
   },
   {
     question: "L'hypnose peut-elle traiter les phobies chez l'adulte installées depuis l'enfance ?",
@@ -61,15 +61,15 @@ export const phobiesFaqItems: SpecialtyFaqItem[] = [
 export const sommeilFaqItems: SpecialtyFaqItem[] = [
   {
     question: "Combien de séances d'hypnose pour retrouver un bon sommeil ?",
-    answer: "En moyenne, 3 à 5 séances d'hypnose permettent de retrouver un sommeil stable et réparateur. Beaucoup de mes patients constatent une amélioration dès la première séance : endormissement plus rapide, moins de réveils nocturnes, sommeil plus profond. Le travail complet sur 3 à 5 séances permet de stabiliser ces résultats durablement et de vous transmettre des techniques d'auto-hypnose pour maintenir un bon sommeil sur le long terme."
+    answer: "En moyenne, 3 à 5 séances d'hypnose permettent de retrouver un sommeil stable et réparateur. Beaucoup de mes clients constatent une amélioration dès la première séance : endormissement plus rapide, moins de réveils nocturnes, sommeil plus profond. Le travail complet sur 3 à 5 séances permet de stabiliser ces résultats durablement et de vous transmettre des techniques d'auto-hypnose pour maintenir un bon sommeil sur le long terme."
   },
   {
     question: "L'hypnose peut-elle remplacer les somnifères ?",
-    answer: "L'hypnose est une alternative naturelle aux somnifères, mais le sevrage de médicaments doit toujours se faire en accord avec votre médecin. L'hypnose restaure les mécanismes naturels du sommeil sans créer de dépendance. Beaucoup de mes patients réduisent progressivement leurs somnifères au fil des séances, en coordination avec leur médecin traitant, pour finalement s'en passer complètement. L'auto-hypnose que je vous enseigne prend le relais comme outil d'endormissement naturel."
+    answer: "L'hypnose est une alternative naturelle aux somnifères, mais le sevrage de médicaments doit toujours se faire en accord avec votre médecin. L'hypnose restaure les mécanismes naturels du sommeil sans créer de dépendance. Beaucoup de mes clients réduisent progressivement leurs somnifères au fil des séances, en coordination avec leur médecin traitant, pour finalement s'en passer complètement. L'auto-hypnose que je vous enseigne prend le relais comme outil d'endormissement naturel."
   },
   {
     question: "L'auto-hypnose peut-elle aider à s'endormir chaque soir ?",
-    answer: "Oui, c'est même l'un des outils les plus puissants que je transmets à mes patients. Je vous enseigne une technique d'auto-hypnose spécialement conçue pour l'endormissement, que vous pouvez pratiquer chaque soir en quelques minutes. Cette technique induit un état de relaxation profonde qui facilite la transition naturelle vers le sommeil. Avec la pratique, cela devient un réflexe : votre cerveau associe la technique au signal de s'endormir."
+    answer: "Oui, c'est même l'un des outils les plus puissants que je transmets à mes clients. Je vous enseigne une technique d'auto-hypnose spécialement conçue pour l'endormissement, que vous pouvez pratiquer chaque soir en quelques minutes. Cette technique induit un état de relaxation profonde qui facilite la transition naturelle vers le sommeil. Avec la pratique, cela devient un réflexe : votre cerveau associe la technique au signal de s'endormir."
   },
   {
     question: "L'hypnose fonctionne-t-elle pour les réveils nocturnes à 3h ou 4h du matin ?",
@@ -121,11 +121,11 @@ export const confianceFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Les résultats de l'hypnose sur la confiance en soi sont-ils durables ?",
-    answer: "Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Contrairement à la méthode Coué ou aux affirmations positives, l'hypnose ne superpose pas une couche de confiance artificielle sur des croyances négatives. Elle transforme les fondations elles-mêmes. Les patients qui viennent pour un manque de confiance constatent que les changements persistent et s'amplifient même avec le temps, car la confiance nouvellement acquise génère des expériences positives qui la renforcent."
+    answer: "Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Contrairement à la méthode Coué ou aux affirmations positives, l'hypnose ne superpose pas une couche de confiance artificielle sur des croyances négatives. Elle transforme les fondations elles-mêmes. Les clients qui viennent pour un manque de confiance constatent que les changements persistent et s'amplifient même avec le temps, car la confiance nouvellement acquise génère des expériences positives qui la renforcent."
   },
   {
     question: "L'hypnose peut-elle aider à s'affirmer dans ses relations personnelles et professionnelles ?",
-    answer: "Absolument. L'affirmation de soi est directement liée à la confiance en soi. L'hypnose vous aide à poser vos limites, à dire non sans culpabilité, à exprimer vos besoins et à défendre vos positions. Le travail porte sur les schémas inconscients de soumission ou d'évitement du conflit, souvent installés pendant l'enfance. Après les séances, mes patients rapportent une capacité naturelle à s'affirmer — non pas avec agressivité, mais avec une assurance calme qui transforme leurs relations."
+    answer: "Absolument. L'affirmation de soi est directement liée à la confiance en soi. L'hypnose vous aide à poser vos limites, à dire non sans culpabilité, à exprimer vos besoins et à défendre vos positions. Le travail porte sur les schémas inconscients de soumission ou d'évitement du conflit, souvent installés pendant l'enfance. Après les séances, mes clients rapportent une capacité naturelle à s'affirmer — non pas avec agressivité, mais avec une assurance calme qui transforme leurs relations."
   }
 ];
 
@@ -141,11 +141,11 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "L'hypnose peut-elle briser les schémas répétitifs en amour ou au travail ?",
-    answer: "C'est même l'une de ses applications les plus puissantes. Les schémas répétitifs (toujours choisir le même type de partenaire, reproduire les mêmes conflits au travail, s'auto-saboter à chaque réussite) sont maintenus par des programmes inconscients souvent liés à l'enfance. L'hypnose identifie le schéma, remonte à son origine et reprogramme la réponse inconsciente. Mes patients sont souvent surpris de constater qu'après quelques séances, ils font naturellement des choix différents."
+    answer: "C'est même l'une de ses applications les plus puissantes. Les schémas répétitifs (toujours choisir le même type de partenaire, reproduire les mêmes conflits au travail, s'auto-saboter à chaque réussite) sont maintenus par des programmes inconscients souvent liés à l'enfance. L'hypnose identifie le schéma, remonte à son origine et reprogramme la réponse inconsciente. Mes clients sont souvent surpris de constater qu'après quelques séances, ils font naturellement des choix différents."
   },
   {
     question: "L'hypnose fonctionne-t-elle pour arrêter de se ronger les ongles (onychophagie) ?",
-    answer: "Oui, l'onychophagie est l'un des comportements compulsifs les mieux traités par l'hypnose, avec un taux de réussite très élevé. Ce comportement est un automatisme inconscient souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement et propose à l'inconscient une alternative. En 2 à 3 séances, la plupart de mes patients arrêtent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
+    answer: "Oui, l'onychophagie est l'un des comportements compulsifs les mieux traités par l'hypnose, avec un taux de réussite très élevé. Ce comportement est un automatisme inconscient souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement et propose à l'inconscient une alternative. En 2 à 3 séances, la plupart de mes clients arrêtent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
   },
   {
     question: "Peut-on traiter plusieurs blocages comportementaux en même temps avec l'hypnose ?",
@@ -165,11 +165,11 @@ export const tabacFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Peut-on risquer de prendre du poids après l'arrêt du tabac ?",
-    answer: "La prise de poids après l'arrêt du tabac est une crainte fréquente et légitime, mais elle n'est pas une fatalité. Elle survient quand la cigarette était utilisée comme substitut émotionnel ou pour gérer le stress — et que la nourriture prend sa place. Lors des séances d'hypnose, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution. La majorité de mes patients qui passent par l'hypnose ne prennent pas de poids."
+    answer: "La prise de poids après l'arrêt du tabac est une crainte fréquente et légitime, mais elle n'est pas une fatalité. Elle survient quand la cigarette était utilisée comme substitut émotionnel ou pour gérer le stress — et que la nourriture prend sa place. Lors des séances d'hypnose, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution. La majorité de mes clients qui passent par l'hypnose ne prennent pas de poids."
   },
   {
     question: "Une séance en ligne est-elle aussi efficace qu'en cabinet ?",
-    answer: "Oui, les résultats obtenus en visio sont identiques à ceux du cabinet. L'hypnose ericksonienne repose sur la voix et la relation thérapeutique — deux éléments pleinement présents en visio. Beaucoup de mes patients en province ou à l'international ont arrêté de fumer depuis chez eux, confortablement installés. La seule condition est de vous trouver dans un endroit calme, sans interruption possible, et de disposer d'une bonne connexion internet avec caméra."
+    answer: "Oui, les résultats obtenus en visio sont identiques à ceux du cabinet. L'hypnose ericksonienne repose sur la voix et la relation thérapeutique — deux éléments pleinement présents en visio. Beaucoup de mes clients en province ou à l'international ont arrêté de fumer depuis chez eux, confortablement installés. La seule condition est de vous trouver dans un endroit calme, sans interruption possible, et de disposer d'une bonne connexion internet avec caméra."
   },
   {
     question: "Faut-il vraiment vouloir arrêter pour que ça marche ?",
@@ -181,7 +181,7 @@ export const tabacFaqItems: SpecialtyFaqItem[] = [
 export const troublesAlimentairesFaqItems: SpecialtyFaqItem[] = [
   {
     question: "L'hypnose peut-elle aider en cas de compulsions alimentaires ?",
-    answer: "Oui. Les compulsions alimentaires (grignotages incontrôlables, crises de boulimie, eating émotionnel) sont des comportements pilotés par l'inconscient en réponse à une émotion difficile — stress, ennui, tristesse, anxiété. L'hypnose identifie le déclencheur émotionnel et propose des réponses alternatives plus adaptées. En 3 à 5 séances, la plupart de mes patients voient nettement diminuer la fréquence et l'intensité des compulsions."
+    answer: "Oui. Les compulsions alimentaires (grignotages incontrôlables, crises de boulimie, eating émotionnel) sont des comportements pilotés par l'inconscient en réponse à une émotion difficile — stress, ennui, tristesse, anxiété. L'hypnose identifie le déclencheur émotionnel et propose des réponses alternatives plus adaptées. En 3 à 5 séances, la plupart de mes clients voient nettement diminuer la fréquence et l'intensité des compulsions."
   },
   {
     question: "L'hypnose aide-t-elle à retrouver des signaux de faim et de satiété naturels ?",
@@ -189,7 +189,7 @@ export const troublesAlimentairesFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "L'hypnose peut-elle compléter un suivi médical ou nutritionnel ?",
-    answer: "Absolument, et c'est souvent la configuration la plus efficace. L'hypnose ne remplace pas un suivi médical ou diététique, mais elle agit sur la dimension psychologique et émotionnelle que ces approches n'adressent pas toujours. Beaucoup de patients qui n'arrivaient pas à maintenir leurs changements alimentaires malgré une bonne connaissance nutritionnelle ont pu y parvenir grâce à l'hypnose, qui lève les freins inconscients à ces changements."
+    answer: "Absolument, et c'est souvent la configuration la plus efficace. L'hypnose ne remplace pas un suivi médical ou diététique, mais elle agit sur la dimension psychologique et émotionnelle que ces approches n'adressent pas toujours. Beaucoup de clients qui n'arrivaient pas à maintenir leurs changements alimentaires malgré une bonne connaissance nutritionnelle ont pu y parvenir grâce à l'hypnose, qui lève les freins inconscients à ces changements."
   },
   {
     question: "Combien de séances faut-il pour améliorer son rapport à l'alimentation ?",

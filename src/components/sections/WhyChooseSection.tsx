@@ -116,7 +116,7 @@ const WhyChooseSection: React.FC = () => {
             Note moyenne : 5/5 ⭐⭐⭐⭐⭐
           </h3>
           <p className="text-lg mb-6 text-white/90">
-            Basé sur les avis vérifiés de patients accompagnés à Paris et en Île-de-France.
+            Basé sur les avis vérifiés de clients accompagnés à Paris et en Île-de-France.
             Spécialiste reconnu pour le traitement du stress, de l'anxiété et des phobies.
           </p>
           <a

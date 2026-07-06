@@ -255,7 +255,7 @@ const HypnoseHypersensibiliteParis = () => {
               <div className="sp-case__title">Absorption des émotions — retrouver ses propres frontières</div>
               <p>
                 Camille*, 33 ans, thérapeute, rentrait chaque soir épuisée — elle portait littéralement
-                les douleurs de ses patients. Elle ne savait plus où finissaient les émotions des autres
+                les douleurs de ses clients. Elle ne savait plus où finissaient les émotions des autres
                 et où commençaient les siennes.
               </p>
               <p>

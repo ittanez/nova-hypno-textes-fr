@@ -95,7 +95,7 @@ const SeoTextSection: React.FC = () => {
                   L'hypnose pour les troubles du sommeil
                 </Link>{' '}
                 reprogramme naturellement vos cycles et retrouve un sommeil
-                profond et réparateur. La plupart des patients constatent une
+                profond et réparateur. La plupart des clients constatent une
                 amélioration significative dès les 3 premières séances.
               </p>
             </div>
@@ -171,10 +171,10 @@ const SeoTextSection: React.FC = () => {
               Qu'est-ce que l'hypnose ericksonienne ?
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              L'<strong>hypnose ericksonienne</strong> est une approche thérapeutique développée par <strong>Milton H. Erickson</strong>, psychiatre et psychologue américain pionnier de l'hypnothérapie moderne. Contrairement aux formes anciennes et directrices d'hypnose, l'hypnose ericksonienne est une méthode <strong>non-autoritaire et adaptée à chaque patient</strong>. Elle utilise un état de conscience modifié pour accéder aux ressources de l'inconscient et faciliter le changement thérapeutique.
+              L'<strong>hypnose ericksonienne</strong> est une approche thérapeutique développée par <strong>Milton H. Erickson</strong>, psychiatre et psychologue américain pionnier de l'hypnothérapie moderne. Contrairement aux formes anciennes et directrices d'hypnose, l'hypnose ericksonienne est une méthode <strong>non-autoritaire et adaptée à chaque client</strong>. Elle utilise un état de conscience modifié pour accéder aux ressources de l'inconscient et faciliter le changement thérapeutique.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Cette approche repose sur trois principes fondamentaux : le <strong>respect de l'autonomie du patient</strong> (vous gardez toujours le contrôle), l'<strong>utilisation des ressources inconscientes</strong> (votre inconscient détient déjà les solutions), et l'<strong>adaptation personnalisée</strong> (chaque personne reçoit une suggestion formulée pour sa situation unique). L'hypnose ericksonienne est reconnue comme une thérapie brève et efficace, particulièrement adaptée aux problèmes de stress, d'anxiété, de phobies et de troubles du sommeil.
+              Cette approche repose sur trois principes fondamentaux : le <strong>respect de l'autonomie du client</strong> (vous gardez toujours le contrôle), l'<strong>utilisation des ressources inconscientes</strong> (votre inconscient détient déjà les solutions), et l'<strong>adaptation personnalisée</strong> (chaque personne reçoit une suggestion formulée pour sa situation unique). L'hypnose ericksonienne est reconnue comme une thérapie brève et efficace, particulièrement adaptée aux problèmes de stress, d'anxiété, de phobies et de troubles du sommeil.
             </p>
           </div>
 

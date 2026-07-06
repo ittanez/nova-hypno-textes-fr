@@ -34,7 +34,7 @@ const acrophobieFaqItems = [
   },
   {
     question: "Les séances en visio sont-elles aussi efficaces pour une phobie du vide ?",
-    answer: "Oui. L'hypnose en visioconférence est aussi efficace qu'en cabinet pour les phobies. Vous êtes chez vous, confortablement installé, et je vous guide dans un état de relaxation profonde. De nombreux patients ont été libérés de leur acrophobie entièrement en visio."
+    answer: "Oui. L'hypnose en visioconférence est aussi efficace qu'en cabinet pour les phobies. Vous êtes chez vous, confortablement installé, et je vous guide dans un état de relaxation profonde. De nombreux clients ont été libérés de leur acrophobie entièrement en visio."
   }
 ];
 

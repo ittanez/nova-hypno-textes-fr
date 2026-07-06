@@ -145,7 +145,7 @@ const AuthorPage: React.FC = () => {
             <section className="mb-16 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">À propos</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Depuis plus de <strong>5 années d'expérience</strong>, j'accompagne des centaines de patients dans leur démarche de transformation personnelle. Ma spécialité : l'hypnose ericksonienne, une approche douce, non-directive et profondément respectueuse.
+                Depuis plus de <strong>5 années d'expérience</strong>, j'accompagne des centaines de clients dans leur démarche de transformation personnelle. Ma spécialité : l'hypnose ericksonienne, une approche douce, non-directive et profondément respectueuse.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Formé à l'<strong>École Psynapse</strong> avec 9 certifications professionnelles, j'ai développé une approche unique alliant l'hypnose ericksonienne, la PNL et les neurosciences. Chaque accompagnement est entièrement personnalisé : vous êtes au cœur du processus.

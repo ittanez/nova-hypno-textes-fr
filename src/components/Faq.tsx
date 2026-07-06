@@ -5,7 +5,7 @@ import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
 const faqItems = [
   {
     question: "Qui est Alain Zenatti, hypnothérapeute à Paris ?",
-    answer: "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose, au 16 rue Saint-Antoine dans le 4ème arrondissement de Paris (Marais-Bastille), et propose également des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée : il s'appuie sur les ressources inconscientes de chaque patient plutôt que sur des protocoles rigides. Il accompagne exclusivement des adultes. Il est noté 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis)."
+    answer: "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose, au 16 rue Saint-Antoine dans le 4ème arrondissement de Paris (Marais-Bastille), et propose également des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée : il s'appuie sur les ressources inconscientes de chaque client plutôt que sur des protocoles rigides. Il accompagne exclusivement des adultes. Il est noté 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis)."
   },
   {
     question: "Comment fonctionne l'hypnose ericksonienne ?",

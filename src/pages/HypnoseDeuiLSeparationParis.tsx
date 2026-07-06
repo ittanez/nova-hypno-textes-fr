@@ -22,7 +22,7 @@ const deuilFaqItems = [
   },
   {
     question: "Le deuil est bloqué depuis des années — est-il trop tard ?",
-    answer: "Non, il n'est jamais trop tard. Un deuil figé peut durer des années, voire des décennies, sans que les personnes en soient conscientes. Les charges émotionnelles restent présentes dans l'inconscient, même longtemps après les faits. L'hypnose peut rouvrir ce processus suspendu à tout moment, en douceur et en sécurité. Beaucoup de patients décrivent un soulagement profond après avoir enfin pu traverser un deuil qui attendait depuis des années."
+    answer: "Non, il n'est jamais trop tard. Un deuil figé peut durer des années, voire des décennies, sans que les personnes en soient conscientes. Les charges émotionnelles restent présentes dans l'inconscient, même longtemps après les faits. L'hypnose peut rouvrir ce processus suspendu à tout moment, en douceur et en sécurité. Beaucoup de clients décrivent un soulagement profond après avoir enfin pu traverser un deuil qui attendait depuis des années."
   },
   {
     question: "Comment se passe une séance d'hypnose pour accompagner un deuil ?",

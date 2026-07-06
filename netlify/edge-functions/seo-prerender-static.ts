@@ -330,7 +330,7 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Comment se déroule une séance ?</h2>
     <p>La première séance dure environ 1h30. Elle commence par un entretien approfondi pour comprendre votre situation, vos objectifs et votre fonctionnement. Puis, guidé par la voix d'Alain, vous entrez dans un état de relaxation profonde où votre inconscient peut travailler librement.</p>
-    <p>Les séances suivantes durent environ 1h et permettent d'approfondir le travail thérapeutique. La plupart des patients constatent des améliorations significatives dès la première séance.</p>
+    <p>Les séances suivantes durent environ 1h et permettent d'approfondir le travail thérapeutique. La plupart des clients constatent des améliorations significatives dès la première séance.</p>
 
     <h2>Tarifs</h2>
     <ul>
@@ -365,7 +365,7 @@ const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "Combien de séances d'hypnose pour traiter le stress et l'anxiété ?",
-          a: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité des patients ressentent un soulagement significatif.",
+          a: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité des clients ressentent un soulagement significatif.",
         },
         {
           q: "L'hypnose est-elle efficace contre le burn-out ?",
@@ -398,7 +398,7 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Mon approche pour traiter le stress</h2>
     <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Ma méthode combine l'hypnose ericksonienne avec des techniques de PNL et d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien. Chaque séance est personnalisée selon votre situation.</p>
-    <p>Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous guide dans un état de profonde relaxation. La plupart de mes patients ressentent un soulagement significatif dès cette première rencontre.</p>
+    <p>Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous guide dans un état de profonde relaxation. La plupart de mes clients ressentent un soulagement significatif dès cette première rencontre.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Stress professionnel chronique</h3>
@@ -413,14 +413,14 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Résultats concrets</h2>
     <ul>
-      <li><strong>90%</strong> de mes patients constatent une amélioration dès la première séance</li>
+      <li><strong>90%</strong> de mes clients constatent une amélioration dès la première séance</li>
       <li><strong>3 à 5 séances</strong> suffisent en moyenne pour un résultat durable</li>
       <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le stress</h2>
     <h3>Combien de séances d'hypnose pour traiter le stress et l'anxiété ?</h3>
-    <p>En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité de mes patients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
+    <p>En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
     <h3>L'hypnose est-elle efficace contre le burn-out ?</h3>
     <p>Oui, l'hypnose est particulièrement efficace pour accompagner un burn-out. Elle agit à plusieurs niveaux : relâchement des tensions physiques accumulées, reprogrammation des mécanismes de surmenage, restauration de la capacité à poser des limites et retrouver de l'énergie. Elle accélère considérablement la récupération et prévient les rechutes.</p>
     <h3>L'hypnose peut-elle aider en cas de crises d'angoisse ?</h3>
@@ -571,7 +571,7 @@ const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "L'auto-hypnose peut-elle aider à s'endormir chaque soir ?",
-          a: "Oui, c'est même l'un des outils les plus puissants transmis aux patients. Une technique d'auto-hypnose spécialement conçue pour l'endormissement peut être pratiquée chaque soir en quelques minutes pour induire un état de relaxation profonde.",
+          a: "Oui, c'est même l'un des outils les plus puissants transmis aux clients. Une technique d'auto-hypnose spécialement conçue pour l'endormissement peut être pratiquée chaque soir en quelques minutes pour induire un état de relaxation profonde.",
         },
         {
           q: "L'hypnose peut-elle remplacer les somnifères ?",
@@ -624,9 +624,9 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Questions fréquentes sur l'hypnose et le sommeil</h2>
     <h3>L'auto-hypnose peut-elle aider à s'endormir chaque soir ?</h3>
-    <p>Oui, c'est même l'un des outils les plus puissants que je transmets à mes patients. Je vous enseigne une technique d'auto-hypnose spécialement conçue pour l'endormissement, que vous pouvez pratiquer chaque soir en quelques minutes. Cette technique induit un état de relaxation profonde qui facilite la transition naturelle vers le sommeil.</p>
+    <p>Oui, c'est même l'un des outils les plus puissants que je transmets à mes clients. Je vous enseigne une technique d'auto-hypnose spécialement conçue pour l'endormissement, que vous pouvez pratiquer chaque soir en quelques minutes. Cette technique induit un état de relaxation profonde qui facilite la transition naturelle vers le sommeil.</p>
     <h3>L'hypnose peut-elle remplacer les somnifères ?</h3>
-    <p>L'hypnose est une alternative naturelle aux somnifères, mais le sevrage de médicaments doit toujours se faire en accord avec votre médecin. L'hypnose restaure les mécanismes naturels du sommeil sans créer de dépendance. Beaucoup de mes patients réduisent progressivement leurs somnifères au fil des séances.</p>
+    <p>L'hypnose est une alternative naturelle aux somnifères, mais le sevrage de médicaments doit toujours se faire en accord avec votre médecin. L'hypnose restaure les mécanismes naturels du sommeil sans créer de dépendance. Beaucoup de mes clients réduisent progressivement leurs somnifères au fil des séances.</p>
     <h3>L'hypnose fonctionne-t-elle pour les réveils nocturnes à 3h ou 4h du matin ?</h3>
     <p>Oui, les réveils nocturnes sont une problématique que l'hypnose traite très bien. Ces réveils sont souvent liés à un mécanisme d'hyper-vigilance inconscient. L'hypnose identifie la cause spécifique de vos réveils et reprogramme votre cycle de sommeil pour qu'il se déroule sans interruption.</p>
 
@@ -809,7 +809,7 @@ const PAGES: Record<string, PageData> = {
     <h3>Deuil difficile</h3>
     <p>Anne*, 50 ans, était figée dans son deuil depuis la perte de sa mère un an plus tôt. Elle ne parvenait plus à éprouver de joie, s'isolait, et avait perdu tout intérêt pour ses activités. En 5 séances d'hypnose ericksonienne, nous avons accompagné le processus de deuil en douceur, en transformant la douleur en souvenirs apaisés et en gratitude. Anne a retrouvé progressivement goût à la vie.</p>
     <h3>Hypersensibilité envahissante</h3>
-    <p>Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir, elle était vidée, submergée au point de ne plus savoir distinguer ses propres émotions. En 3 séances, nous avons installé une bulle de protection émotionnelle lui permettant de rester empathique sans être envahie. Sarah continue d'exercer avec passion, mais sans se vider émotionnellement.</p>
+    <p>Sarah*, infirmière, absorbait les émotions de ses clients comme une éponge. Le soir, elle était vidée, submergée au point de ne plus savoir distinguer ses propres émotions. En 3 séances, nous avons installé une bulle de protection émotionnelle lui permettant de rester empathique sans être envahie. Sarah continue d'exercer avec passion, mais sans se vider émotionnellement.</p>
     <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
 
     <blockquote><p>« Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre. Me voilà en adéquation avec mon présent. »</p><cite>— Edward, avis Google vérifié</cite></blockquote>
@@ -930,7 +930,7 @@ const PAGES: Record<string, PageData> = {
     <h3>L'hypnose peut-elle aider à arrêter la procrastination ?</h3>
     <p>Oui, l'hypnose est très efficace contre la procrastination car elle traite la cause, pas le symptôme. La procrastination n'est pas un manque de volonté : c'est un mécanisme de protection inconscient, souvent lié à la peur de l'échec, au perfectionnisme ou à l'anxiété de performance. L'hypnose identifie la peur cachée et la neutralise.</p>
     <h3>L'hypnose peut-elle briser les schémas répétitifs en amour ou au travail ?</h3>
-    <p>C'est même l'une de ses applications les plus puissantes. Les schémas répétitifs sont maintenus par des programmes inconscients souvent liés à l'enfance. L'hypnose identifie le schéma, remonte à son origine et reprogramme la réponse inconsciente. Mes patients sont souvent surpris de constater qu'après quelques séances, ils font naturellement des choix différents.</p>
+    <p>C'est même l'une de ses applications les plus puissantes. Les schémas répétitifs sont maintenus par des programmes inconscients souvent liés à l'enfance. L'hypnose identifie le schéma, remonte à son origine et reprogramme la réponse inconsciente. Mes clients sont souvent surpris de constater qu'après quelques séances, ils font naturellement des choix différents.</p>
     <h3>Peut-on traiter plusieurs blocages comportementaux en même temps ?</h3>
     <p>Oui, et c'est même souvent ce qui se passe naturellement. Beaucoup de blocages partagent une racine commune : anxiété, manque de confiance, besoin de contrôle. En traitant cette racine, plusieurs comportements s'améliorent simultanément.</p>
 
@@ -986,7 +986,7 @@ const PAGES: Record<string, PageData> = {
         },
         {
           q: "Les résultats de l'hypnose sur la confiance en soi sont-ils durables ?",
-          a: "Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Les patients constatent que les changements persistent et s'amplifient même avec le temps.",
+          a: "Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Les clients constatent que les changements persistent et s'amplifient même avec le temps.",
         },
       ]),
     ],
@@ -1036,7 +1036,7 @@ const PAGES: Record<string, PageData> = {
     <h3>Comment l'hypnose traite-t-elle le syndrome de l'imposteur ?</h3>
     <p>Le syndrome de l'imposteur repose sur une dissonance entre vos compétences réelles et l'image que vous avez de vous-même. L'hypnose traite ce décalage en identifiant les expériences fondatrices qui ont créé le doute (critique parentale, comparaison sociale) et en les retraitant. En état d'hypnose, votre inconscient intègre une perception plus juste de vos capacités.</p>
     <h3>Les résultats de l'hypnose sur la confiance en soi sont-ils durables ?</h3>
-    <p>Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Les patients constatent que les changements persistent et s'amplifient même avec le temps, car la confiance nouvellement acquise génère des expériences positives qui la renforcent.</p>
+    <p>Oui, les résultats sont durables car l'hypnose modifie les croyances profondes, pas seulement les comportements de surface. Les clients constatent que les changements persistent et s'amplifient même avec le temps, car la confiance nouvellement acquise génère des expériences positives qui la renforcent.</p>
 
     <h2>Autres spécialités</h2>
     <ul>
@@ -1217,7 +1217,7 @@ const PAGES: Record<string, PageData> = {
     content: `
     <p>Installé dans le <strong>4e arrondissement de Paris</strong>, au cœur du quartier Marais-Bastille, le cabinet NovaHypnose est votre référence en <strong>hypnothérapie Paris 4</strong>. À deux pas du métro Bastille (lignes 1, 5, 8) et de Saint-Paul (ligne 1), le cabinet est accessible en moins de 10 minutes depuis la majorité des arrondissements parisiens.</p>
 
-    <p>Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié, accompagne ses patients dans un cadre confidentiel et bienveillant. Le cabinet d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress, l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la confiance en soi — des résultats durables, généralement en 3 à 5 séances.</p>
+    <p>Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié, accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress, l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la confiance en soi — des résultats durables, généralement en 3 à 5 séances.</p>
 
     <h2>Accès au cabinet Paris 4e</h2>
     <ul>
@@ -1237,7 +1237,7 @@ const PAGES: Record<string, PageData> = {
     </ul>
 
     <h2>Séances en visio partout en France</h2>
-    <p>Vous ne pouvez pas vous déplacer à Paris ? Les <strong>séances d'hypnose en visio partout en France</strong> offrent la même qualité d'accompagnement qu'en présentiel — depuis votre domicile, votre bureau ou tout lieu calme avec une connexion internet. Idéal pour les patients en province, à l'étranger, ou qui préfèrent la flexibilité de la téléconsultation.</p>
+    <p>Vous ne pouvez pas vous déplacer à Paris ? Les <strong>séances d'hypnose en visio partout en France</strong> offrent la même qualité d'accompagnement qu'en présentiel — depuis votre domicile, votre bureau ou tout lieu calme avec une connexion internet. Idéal pour les clients en province, à l'étranger, ou qui préfèrent la flexibilité de la téléconsultation.</p>
 
     <h2>Tarifs</h2>
     <ul>
@@ -1316,7 +1316,7 @@ const PAGES: Record<string, PageData> = {
     <p>Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des patients constatent une amélioration dès la première séance.</p>
+    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des clients constatent une amélioration dès la première séance.</p>
 
     <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
     `,
@@ -1440,7 +1440,7 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Questions fréquentes</h2>
     <h3>L'hypnose peut-elle aider les compulsions alimentaires liées au stress ?</h3>
-    <p>Oui. Les compulsions alimentaires sont très souvent un mécanisme de régulation émotionnelle installé par l'inconscient — une réponse au stress, à l'anxiété ou à l'ennui. L'hypnose agit à la source en modifiant ce mécanisme de compensation et en développant des alternatives plus adaptées. Beaucoup de patients observent une réduction significative des compulsions dès les premières séances.</p>
+    <p>Oui. Les compulsions alimentaires sont très souvent un mécanisme de régulation émotionnelle installé par l'inconscient — une réponse au stress, à l'anxiété ou à l'ennui. L'hypnose agit à la source en modifiant ce mécanisme de compensation et en développant des alternatives plus adaptées. Beaucoup de clients observent une réduction significative des compulsions dès les premières séances.</p>
     <h3>Combien de séances sont nécessaires ?</h3>
     <p>En général, 4 à 6 séances permettent d'obtenir des changements durables sur le rapport à la nourriture. Le nombre varie selon la complexité de la situation, l'ancienneté des difficultés et votre réceptivité. Chaque séance est personnalisée selon votre situation.</p>
     <h3>L'hypnose remplace-t-elle un suivi médical ou nutritionnel ?</h3>
@@ -1500,10 +1500,10 @@ const PAGES: Record<string, PageData> = {
       ]),
     ],
     content: `
-    <p>Alain Zenatti, <strong>Maître Hypnologue certifié</strong>, est l'un des rares hypnothérapeutes en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des patients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
+    <p>Alain Zenatti, <strong>Maître Hypnologue certifié</strong>, est l'un des rares hypnothérapeutes en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des clients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
 
     <h2>L'hypnose en visio est-elle aussi efficace qu'au cabinet ?</h2>
-    <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Les résultats obtenus en téléconsultation sont identiques au présentiel : 3 à 5 séances suffisent dans la grande majorité des cas. De nombreux patients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
+    <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Les résultats obtenus en téléconsultation sont identiques au présentiel : 3 à 5 séances suffisent dans la grande majorité des cas. De nombreux clients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
 
     <h2>Comment se déroule une séance d'hypnose en visio ?</h2>
     <ul>
@@ -1517,7 +1517,7 @@ const PAGES: Record<string, PageData> = {
     <p>Toutes les problématiques se traitent efficacement en visio : <strong>stress et anxiété</strong>, phobies (avion, claustrophobie, prise de parole), <strong>troubles du sommeil</strong> (insomnie, réveils nocturnes), confiance en soi, gestion des émotions, procrastination, arrêt du tabac.</p>
 
     <h2>Disponible partout en France</h2>
-    <p>Que vous soyez à Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, Lille, ou dans une zone rurale sans hypnothérapeute qualifié à proximité, vous accédez au même niveau d'expertise qu'un patient parisien. Les séances sont également disponibles pour les francophones à l'étranger.</p>
+    <p>Que vous soyez à Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, Lille, ou dans une zone rurale sans hypnothérapeute qualifié à proximité, vous accédez au même niveau d'expertise qu'un client parisien. Les séances sont également disponibles pour les francophones à l'étranger.</p>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une téléconsultation d'hypnose — 90 €</a>
     `,
@@ -1661,7 +1661,7 @@ PAGES["/hypnose-arachnophobie-paris"] = {
       },
       {
         q: "Combien de séances pour se libérer de l'arachnophobie ?",
-        a: "En général, 2 à 3 séances suffisent. La plupart des patients constatent un changement significatif dès la deuxième séance.",
+        a: "En général, 2 à 3 séances suffisent. La plupart des clients constatent un changement significatif dès la deuxième séance.",
       },
     ]),
   ],
@@ -1787,7 +1787,7 @@ PAGES["/hypnose-claustrophobie-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
-        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des patients constatent une transformation en 2 à 4 séances.",
+        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des clients constatent une transformation en 2 à 4 séances.",
       },
       {
         q: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
@@ -1933,7 +1933,7 @@ PAGES["/hypnose-peur-dentiste-paris"] = {
       },
       {
         q: "Et si j'ai aussi un fort réflexe nauséeux ?",
-        a: "Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété, beaucoup de patients voient leur réflexe nauséeux considérablement réduit dès les premières séances.",
+        a: "Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété, beaucoup de clients voient leur réflexe nauséeux considérablement réduit dès les premières séances.",
       },
     ]),
   ],
@@ -2006,7 +2006,7 @@ PAGES["/hypnose-peur-aiguilles-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle m'aider à supporter les prises de sang ?",
-        a: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver. Beaucoup de patients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances.",
+        a: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver. Beaucoup de clients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances.",
       },
       {
         q: "Combien de séances pour ne plus avoir peur des aiguilles ?",
@@ -2742,7 +2742,7 @@ PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
       },
       {
         q: "J'ai peur de craquer si je commence à ressentir mes émotions — est-ce un risque avec l'hypnose ?",
-        a: "Non. L'hypnose ericksonienne procède toujours à votre rythme et ne force rien. Nous travaillons dans votre zone de confort émotionnel. Si quelque chose de difficile émerge, nous avons des outils pour le gérer en douceur. Beaucoup de patients redoutent cette crainte avant la première séance et se retrouvent au contraire dans un état de calme profond.",
+        a: "Non. L'hypnose ericksonienne procède toujours à votre rythme et ne force rien. Nous travaillons dans votre zone de confort émotionnel. Si quelque chose de difficile émerge, nous avons des outils pour le gérer en douceur. Beaucoup de clients redoutent cette crainte avant la première séance et se retrouvent au contraire dans un état de calme profond.",
       },
       {
         q: "Combien de séances sont nécessaires pour l'anxiété émotionnelle ?",
@@ -2806,7 +2806,7 @@ PAGES["/hypnose-charge-emotionnelle-paris"] = {
       },
       {
         q: "Comment l'hypnose aide-t-elle à alléger la charge émotionnelle ?",
-        a: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de patients décrivent un sentiment de légèreté très concret après les séances.",
+        a: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de clients décrivent un sentiment de légèreté très concret après les séances.",
       },
       {
         q: "Pourquoi ai-je l'impression de porter les émotions des autres en plus des miennes ?",
@@ -2871,7 +2871,7 @@ PAGES["/hypnose-procrastination-paris"] = {
       },
       {
         q: "Combien de séances d'hypnose pour vaincre la procrastination ?",
-        a: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance identifie les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes reprogramment ces automatismes. Beaucoup de patients constatent un changement significatif dès la deuxième ou troisième séance.",
+        a: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance identifie les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes reprogramment ces automatismes. Beaucoup de clients constatent un changement significatif dès la deuxième ou troisième séance.",
       },
       {
         q: "La procrastination est-elle liée à un manque de volonté ?",
@@ -2932,7 +2932,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
-        a: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart des patients cessent de se ronger les ongles sans effort de volonté.",
+        a: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart des clients cessent de se ronger les ongles sans effort de volonté.",
       },
       {
         q: "Je me ronge les ongles sans même m'en rendre compte — est-ce que l'hypnose peut quand même aider ?",
@@ -2945,7 +2945,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
     ]),
   ],
   content: `
-    <p>Vous vous rongez les ongles depuis des années, souvent sans vous en rendre compte ? L'onychophagie est un automatisme inconscient — l'hypnose ericksonienne le désactive en travaillant sur sa fonction cachée. La plupart des patients arrêtent en 1 à 3 séances.</p>
+    <p>Vous vous rongez les ongles depuis des années, souvent sans vous en rendre compte ? L'onychophagie est un automatisme inconscient — l'hypnose ericksonienne le désactive en travaillant sur sa fonction cachée. La plupart des clients arrêtent en 1 à 3 séances.</p>
 
     <h2>Comment l'hypnose fait cesser l'onychophagie</h2>
     <ul>
@@ -2999,7 +2999,7 @@ PAGES["/hypnose-toc-rituels-paris"] = {
       },
       {
         q: "L'hypnose peut-elle traiter la trichotillomanie (arrachage de cheveux) ?",
-        a: "Oui. La trichotillomanie est un comportement répétitif centré sur le corps (BFRB), apparenté aux TOC, souvent lié à une tension interne ou à un mécanisme de régulation émotionnelle. L'hypnose identifie la fonction du comportement et propose une alternative inconsciente. Certains patients constatent une réduction significative dès les premières séances.",
+        a: "Oui. La trichotillomanie est un comportement répétitif centré sur le corps (BFRB), apparenté aux TOC, souvent lié à une tension interne ou à un mécanisme de régulation émotionnelle. L'hypnose identifie la fonction du comportement et propose une alternative inconsciente. Certains clients constatent une réduction significative dès les premières séances.",
       },
       {
         q: "Quelle est la différence entre un TOC et un rituel habituel ?",
@@ -3319,7 +3319,7 @@ PAGES["/hypnose-grignotage-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle arrêter le grignotage chronique ?",
-        a: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart des patients voient le grignotage se réduire considérablement, souvent dès la deuxième séance.",
+        a: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart des clients voient le grignotage se réduire considérablement, souvent dès la deuxième séance.",
       },
       {
         q: "Quelle est la différence entre grignotage et faim normale ?",
@@ -3391,7 +3391,7 @@ PAGES["/hypnose-addiction-sucre-paris"] = {
       },
       {
         q: "L'hypnose peut-elle aider à réduire les envies de sucre même après les repas ?",
-        a: "Oui. Les envies de sucre après les repas sont souvent liées à des associations conditionnées (« je termine toujours par du sucré ») ou à un besoin de clôturer le repas. L'hypnose travaille sur ces associations spécifiques pour les neutraliser. Beaucoup de patients constatent que ces envies systématiques disparaissent après 2 à 3 séances.",
+        a: "Oui. Les envies de sucre après les repas sont souvent liées à des associations conditionnées (« je termine toujours par du sucré ») ou à un besoin de clôturer le repas. L'hypnose travaille sur ces associations spécifiques pour les neutraliser. Beaucoup de clients constatent que ces envies systématiques disparaissent après 2 à 3 séances.",
       },
     ]),
   ],
