@@ -809,7 +809,7 @@ const PAGES: Record<string, PageData> = {
     <h3>Deuil difficile</h3>
     <p>Anne*, 50 ans, était figée dans son deuil depuis la perte de sa mère un an plus tôt. Elle ne parvenait plus à éprouver de joie, s'isolait, et avait perdu tout intérêt pour ses activités. En 5 séances d'hypnose ericksonienne, nous avons accompagné le processus de deuil en douceur, en transformant la douleur en souvenirs apaisés et en gratitude. Anne a retrouvé progressivement goût à la vie.</p>
     <h3>Hypersensibilité envahissante</h3>
-    <p>Sarah*, infirmière, absorbait les émotions de ses clients comme une éponge. Le soir, elle était vidée, submergée au point de ne plus savoir distinguer ses propres émotions. En 3 séances, nous avons installé une bulle de protection émotionnelle lui permettant de rester empathique sans être envahie. Sarah continue d'exercer avec passion, mais sans se vider émotionnellement.</p>
+    <p>Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir, elle était vidée, submergée au point de ne plus savoir distinguer ses propres émotions. En 3 séances, nous avons installé une bulle de protection émotionnelle lui permettant de rester empathique sans être envahie. Sarah continue d'exercer avec passion, mais sans se vider émotionnellement.</p>
     <p><em>* Prénoms modifiés pour préserver la confidentialité</em></p>
 
     <blockquote><p>« Découvrir NovaHypnose est une expérience marquante. J'ai laissé derrière moi certaines croyances figées et j'ai ouvert un espace intérieur plus souple, plus libre. Me voilà en adéquation avec mon présent. »</p><cite>— Edward, avis Google vérifié</cite></blockquote>

@@ -262,7 +262,7 @@ const HypnoseEmotionsParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Hypersensibilité envahissante</div>
               <p>
-                Sarah*, infirmière, absorbait les émotions de ses clients comme une éponge. Le soir,
+                Sarah*, infirmière, absorbait les émotions de ses patients comme une éponge. Le soir,
                 elle était vidée, submergée par les émotions des autres au point de ne plus savoir
                 distinguer les siennes.
               </p>

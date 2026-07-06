@@ -260,7 +260,7 @@ const HypnosePeurSang = () => {
               <p>
                 Nathalie*, 34 ans, aide-soignante depuis 6 ans, avait développé progressivement une
                 peur du sang après un incident marquant en service. Elle faisait des malaises lors
-                de certains soins et craignait pour son poste — et pour ses clients.
+                de certains soins et craignait pour son poste — et pour ses patients.
               </p>
               <p>
                 En 3 séances d'hypnose ericksonienne, nous avons désensibilisé la réaction

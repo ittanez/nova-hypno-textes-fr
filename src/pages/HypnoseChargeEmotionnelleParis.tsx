@@ -252,7 +252,7 @@ const HypnoseChargeEmotionnelleParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title">Infirmière — porter la souffrance des clients sans s'y noyer</div>
+              <div className="sp-case__title">Infirmière — porter la souffrance des patients sans s'y noyer</div>
               <p>
                 Marie*, 39 ans, infirmière en service oncologie, rentrait chaque soir avec un poids
                 qu'elle ne savait pas décrire. Elle n'arrivait plus à "décrocher", dormait mal,
@@ -260,7 +260,7 @@ const HypnoseChargeEmotionnelleParis = () => {
               </p>
               <p>
                 En hypnose, nous avons travaillé à créer une membrane émotionnelle naturelle —
-                être pleinement présente avec les clients sans absorber leur détresse. Après 5 séances,
+                être pleinement présente avec les patients sans absorber leur détresse. Après 5 séances,
                 elle décrivait la capacité de rentrer chez elle "légère" pour la première fois depuis des années.
               </p>
             </div>
