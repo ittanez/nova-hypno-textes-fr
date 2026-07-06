@@ -3667,7 +3667,7 @@ PAGES["/tarifs"] = {
 PAGES["/avis"] = {
   title: "Avis & témoignages patients — NovaHypnose | Alain Zenatti",
   description:
-    "Les avis des patients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis). Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
+    "Les avis des patients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
   canonicalPath: "/avis",
   h1: "Avis & témoignages des patients",
   jsonLd: [
@@ -3677,7 +3677,7 @@ PAGES["/avis"] = {
     ]),
   ],
   content: `
-    <p><strong>5/5 sur Google</strong> (23 avis) et <strong>5/5 sur Resalib</strong> (19 avis). Voici ce que disent les personnes accompagnées par Alain Zenatti au cabinet Paris 4ème ou en visio — sur le stress, l'anxiété, les phobies, le sommeil, la confiance en soi. Les noms sont abrégés par discrétion.</p>
+    <p><strong>5/5 sur Google</strong> et <strong>5/5 sur Resalib</strong>. Voici ce que disent les personnes accompagnées par Alain Zenatti au cabinet Paris 4ème ou en visio — sur le stress, l'anxiété, les phobies, le sommeil, la confiance en soi. Les noms sont abrégés par discrétion.</p>
 
     <h2>Ce qu'ils écrivent, après</h2>
     <p>« J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances. Je recommande vivement. » — <strong>Marie H.</strong>, avis Google vérifié</p>
