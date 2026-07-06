@@ -279,6 +279,18 @@
   path = "/hypnose-image-corporelle-paris"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/tarifs"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/avis"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/contact"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"

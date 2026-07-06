@@ -579,6 +579,10 @@ const PreviewCharte: React.FC = () => {
                 </React.Fragment>
               ))}
             </div>
+
+            <p className="tarifs-note reveal">
+              <Link to="/avis">Lire tous les avis et témoignages →</Link>
+            </p>
           </div>
         </section>
 
@@ -639,7 +643,8 @@ const PreviewCharte: React.FC = () => {
 
             <p className="tarifs-note reveal">
               Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
-              participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.
+              participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.{' '}
+              <Link to="/tarifs">Tout savoir sur les tarifs →</Link>
             </p>
           </div>
         </section>
@@ -792,6 +797,12 @@ const PreviewCharte: React.FC = () => {
         <footer className="foot">
           <div className="container">
             <nav className="foot__links" aria-label="Pieds de page">
+              <Link to="/tarifs">Tarifs</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/avis">Avis</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/contact">Contact</Link>
+              <span className="foot__sep">·</span>
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>
               <a href="/politique-de-confidentialite">Confidentialité</a>

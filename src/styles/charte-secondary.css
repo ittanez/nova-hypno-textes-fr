@@ -371,6 +371,44 @@
   line-height: 1.6;
 }
 .cz .sp-check-item svg { flex-shrink: 0; margin-top: 2px; color: var(--amber); }
+
+/* Formulaire de contact sur les pages secondaires (fond clair, cf. /contact) */
+.cz .sp-form {
+  background: var(--paper);
+  border: 1px solid rgba(43,75,160,.1);
+  border-radius: 16px;
+  padding: 28px;
+}
+.cz .sp-form .field { margin-bottom: 18px; }
+.cz .sp-form .field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.cz .sp-form .field input,
+.cz .sp-form .field textarea {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(43,75,160,.25);
+  color: var(--texte);
+  font-family: var(--f-sans);
+  font-size: 15px;
+  outline: none;
+}
+.cz .sp-form .field textarea { resize: vertical; min-height: 90px; }
+.cz .sp-form .field input::placeholder,
+.cz .sp-form .field textarea::placeholder { color: rgba(28,43,74,.35); }
+.cz .sp-form .field input:focus,
+.cz .sp-form .field textarea:focus { border-bottom-color: var(--amber); }
+.cz .sp-form .req { color: #a83232; }
+.cz .sp-form .contact__success { font-family: var(--f-serif); font-style: italic; font-size: 16px; color: var(--cobalt); margin-top: 12px; }
+.cz .sp-form .contact__error { font-size: .88rem; color: #a83232; margin-top: 12px; }
 .cz .sp-cases { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
 .cz .sp-case {
   background: var(--lin);
