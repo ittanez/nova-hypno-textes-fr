@@ -3611,6 +3611,95 @@ PAGES["/hypnose-image-corporelle-paris"] = {
     `,
 };
 
+PAGES["/tarifs"] = {
+  title: "Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose",
+  description:
+    "Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance. Paiement CB, Stripe, Wero. Annulation sans frais jusqu'à 48 h.",
+  canonicalPath: "/tarifs",
+  h1: "Tarifs des séances d'hypnose à Paris & en visio",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "@id": `${SITE_URL}/tarifs#offres`,
+      "name": "Tarifs des séances d'hypnose — NovaHypnose Paris",
+      "url": `${SITE_URL}/tarifs`,
+      "itemListElement": [
+        { "@type": "Offer", "name": "Séance d'hypnose au cabinet (Paris 4ème)", "price": "90", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Séance d'hypnose en visioconférence", "price": "90", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Séance d'hypnose à domicile (Paris Centre)", "price": "140", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Formation auto-hypnose en groupe (1 journée)", "price": "240", "priceCurrency": "EUR" },
+      ],
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Tarifs", path: "/tarifs" },
+    ]),
+  ],
+  content: `
+    <p>Un cadre clair, posé d'emblée : la séance d'hypnose coûte <strong>90 €</strong>, au cabinet Paris 4ème (Marais-Bastille) comme en visioconférence. La <strong>première séance dure 1h30</strong>, les suivantes 1 heure — le tarif reste identique. Séances réservées aux adultes.</p>
+
+    <h2>Les formules</h2>
+    <ul>
+      <li><strong>Au cabinet — 90 €</strong> : 16 rue Saint-Antoine, Paris 4ème. Métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1).</li>
+      <li><strong>En visio — 90 €</strong> : depuis chez vous, partout en France ou à l'étranger, via Google Meet. Même durée, même efficacité.</li>
+      <li><strong>À domicile — 140 €</strong> : dans Paris Centre (arrondissements 1 à 4 et 9 à 11).</li>
+      <li><strong>Formation auto-hypnose — 240 €</strong> : une journée en petit groupe (6 participants maximum). Voir la page <a href="${SITE_URL}/autohypnose">auto-hypnose</a>.</li>
+    </ul>
+
+    <h2>Combien de séances faut-il prévoir ?</h2>
+    <p>L'hypnose ericksonienne est une thérapie brève : la plupart des accompagnements aboutissent en <strong>3 à 5 séances</strong>. Aucun forfait imposé, aucun engagement de durée — chaque séance se réserve librement.</p>
+
+    <h2>Paiement, remboursement, annulation</h2>
+    <p>Règlement par <strong>carte bancaire, Wero ou en ligne via Stripe</strong> (visio). L'hypnothérapie n'est pas remboursée par la Sécurité sociale, mais de nombreuses <strong>mutuelles</strong> participent via leur forfait « médecines douces » ; une facture est fournie sur demande. <strong>Annulation sans frais jusqu'à 48 h</strong> avant le rendez-vous.</p>
+
+    <h2>Pages liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/avis">Avis &amp; témoignages des patients</a></li>
+      <li><a href="${SITE_URL}/hypnose-en-ligne">Hypnose en visioconférence</a></li>
+      <li><a href="${SITE_URL}/test-receptivite">Test de réceptivité à l'hypnose</a></li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+};
+
+PAGES["/avis"] = {
+  title: "Avis & témoignages patients — NovaHypnose | Alain Zenatti",
+  description:
+    "Les avis des patients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis). Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
+  canonicalPath: "/avis",
+  h1: "Avis & témoignages des patients",
+  jsonLd: [
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Avis & témoignages", path: "/avis" },
+    ]),
+  ],
+  content: `
+    <p><strong>5/5 sur Google</strong> (23 avis) et <strong>5/5 sur Resalib</strong> (19 avis). Voici ce que disent les personnes accompagnées par Alain Zenatti au cabinet Paris 4ème ou en visio — sur le stress, l'anxiété, les phobies, le sommeil, la confiance en soi. Les noms sont abrégés par discrétion.</p>
+
+    <h2>Ce qu'ils écrivent, après</h2>
+    <p>« J'ai consulté pour un problème d'anxiété, dès la première séance je me suis sentie apaisée et sereine. Alain est à l'écoute et mon anxiété a totalement disparu en 3 séances. Je recommande vivement. » — <strong>Marie H.</strong>, avis Google vérifié</p>
+    <p>« Alain m'a aidée à retrouver un sommeil réparateur en 2 séances. Je vous le recommande. » — <strong>Isabelle M.</strong>, avis Google vérifié</p>
+    <p>« Grâce à Alain j'ai pris le dessus sur ma phobie, je recommande à 100 %. Dès le premier contact téléphonique il a su être à mon écoute, et toutes les séances ont été bienveillantes. » — <strong>Karine B.</strong>, avis Google vérifié</p>
+    <p>« Phobique de l'avion, monsieur Zenatti a su m'aider avant un voyage important. Merci encore pour ce que vous avez fait ! » — <strong>Arthur P.</strong>, avis Google vérifié</p>
+    <p>« J'ai apprécié la patience, la douceur, l'écoute et le professionnalisme d'Alain Zenatti. Il m'a aidée au-delà de mes espérances alors que j'étais sceptique vis-à-vis de l'hypnose. Grâce à lui, j'ai repris confiance en moi. » — <strong>Safia A.</strong>, avis Google vérifié</p>
+    <p>« Première séance d'hypnose de ma vie qui a permis de solutionner un problème que j'avais depuis de nombreuses années. Un grand merci et bravo. » — <strong>Regis G.</strong>, avis Google vérifié</p>
+
+    <p>Chaque parcours est unique : ces retours illustrent des accompagnements individuels et ne constituent pas une promesse de résultat. La plupart des accompagnements aboutissent en 3 à 5 séances.</p>
+
+    <h2>Pages liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a> — 90 € cabinet ou visio</li>
+      <li><a href="${SITE_URL}/alain-zenatti">Alain Zenatti, Maître Hypnologue</a></li>
+      <li><a href="${SITE_URL}/test-receptivite">Test de réceptivité à l'hypnose</a></li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+};
+
 // ─── Main handler ──────────────────────────────────────────────────────────
 
 export default async function handler(

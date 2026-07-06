@@ -194,6 +194,10 @@ const CzLayout: React.FC<CzLayoutProps> = ({
           <nav className="foot__links" aria-label="Pied de page">
             <Link to="/">Accueil</Link>
             <span className="foot__sep">·</span>
+            <Link to="/tarifs">Tarifs</Link>
+            <span className="foot__sep">·</span>
+            <Link to="/avis">Avis</Link>
+            <span className="foot__sep">·</span>
             <Link to="/mentions-legales">Mentions légales</Link>
             <span className="foot__sep">·</span>
             <Link to="/politique-de-confidentialite">Confidentialité</Link>

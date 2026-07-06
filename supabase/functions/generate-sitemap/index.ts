@@ -78,6 +78,8 @@ serve(async (req) => {
       { loc: '/guide-emotions-travail',        changefreq: 'monthly', priority: '0.6' },
       { loc: '/autohypnose/quiz',              changefreq: 'monthly', priority: '0.5' },
       { loc: '/alain-zenatti',                 changefreq: 'monthly', priority: '0.6' },
+      { loc: '/tarifs',                        changefreq: 'monthly', priority: '0.8' },
+      { loc: '/avis',                          changefreq: 'monthly', priority: '0.7' },
       { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
       { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
       { loc: '/mentions-legales',              changefreq: 'yearly',  priority: '0.3' },
