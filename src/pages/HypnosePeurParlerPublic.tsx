@@ -34,7 +34,7 @@ const peurParlerFaqItems = [
   },
   {
     question: "Puis-je faire mes séances en visio ?",
-    answer: "Oui. L'hypnose en visioconférence est aussi efficace qu'en cabinet pour la peur de parler en public. Vous êtes chez vous, à l'aise, et cela facilite parfois la profondeur de l'état hypnotique. Je reçois des patients de toute la France pour cet accompagnement entièrement en visio."
+    answer: "Oui. L'hypnose en visioconférence est aussi efficace qu'en cabinet pour la peur de parler en public. Vous êtes chez vous, à l'aise, et cela facilite parfois la profondeur de l'état hypnotique. Je reçois des clients de toute la France pour cet accompagnement entièrement en visio."
   }
 ];
 

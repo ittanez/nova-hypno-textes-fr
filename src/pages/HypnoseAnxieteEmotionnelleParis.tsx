@@ -18,7 +18,7 @@ const anxieteEmotionnelleFaqItems = [
   },
   {
     question: "J'ai peur de craquer si je commence à ressentir mes émotions — est-ce que l'hypnose peut déclencher quelque chose de difficile ?",
-    answer: "Non. L'hypnose ericksonienne procède toujours à votre rythme et ne force rien. Nous travaillons dans votre zone de confort émotionnel. Si quelque chose de difficile émerge, nous avons des outils pour le gérer en douceur. Beaucoup de patients redoutent cette crainte avant la première séance et se retrouvent au contraire dans un état de calme profond."
+    answer: "Non. L'hypnose ericksonienne procède toujours à votre rythme et ne force rien. Nous travaillons dans votre zone de confort émotionnel. Si quelque chose de difficile émerge, nous avons des outils pour le gérer en douceur. Beaucoup de clients redoutent cette crainte avant la première séance et se retrouvent au contraire dans un état de calme profond."
   },
   {
     question: "Je ne pleure jamais — est-ce que c'est un problème pour l'hypnose ?",
@@ -34,7 +34,7 @@ const anxieteEmotionnelleFaqItems = [
   },
   {
     question: "Puis-je faire mes séances en visio ?",
-    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour l'anxiété émotionnelle. De nombreux patients préfèrent même la visio pour ce type de travail, car être dans leur propre espace les aide à se sentir en sécurité pour explorer leurs émotions."
+    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour l'anxiété émotionnelle. De nombreux clients préfèrent même la visio pour ce type de travail, car être dans leur propre espace les aide à se sentir en sécurité pour explorer leurs émotions."
   }
 ];
 

@@ -18,7 +18,7 @@ const colereFaqItems = [
   },
   {
     question: "Est-ce que l'hypnose peut vraiment aider à contrôler les explosions de colère ?",
-    answer: "Oui. Les explosions de colère sont souvent des réponses automatiques déclenchées par l'inconscient avant même que la conscience intervienne. En travaillant directement avec l'inconscient, l'hypnose reprogramme ce mécanisme : le déclencheur reste, mais la réponse change. Beaucoup de patients décrivent un espace de recul qui s'installe naturellement là où avant la colère explosait immédiatement."
+    answer: "Oui. Les explosions de colère sont souvent des réponses automatiques déclenchées par l'inconscient avant même que la conscience intervienne. En travaillant directement avec l'inconscient, l'hypnose reprogramme ce mécanisme : le déclencheur reste, mais la réponse change. Beaucoup de clients décrivent un espace de recul qui s'installe naturellement là où avant la colère explosait immédiatement."
   },
   {
     question: "La colère n'est-elle pas une émotion saine à ne pas supprimer ?",

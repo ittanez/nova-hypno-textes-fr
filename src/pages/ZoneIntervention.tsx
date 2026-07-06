@@ -407,7 +407,7 @@ const ZoneIntervention = () => {
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié,
-              accompagne ses patients dans un cadre confidentiel et bienveillant. Le cabinet
+              accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet
               d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress,
               l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la
               confiance en soi — des résultats durables, généralement en 3 à 5 séances.
@@ -416,7 +416,7 @@ const ZoneIntervention = () => {
               Vous ne pouvez pas vous déplacer à Paris ? Les{' '}
               <strong>séances d'hypnose en visio partout en France</strong> offrent la même qualité
               d'accompagnement qu'en présentiel — depuis votre domicile, votre bureau ou tout lieu
-              calme avec une connexion internet. Idéal pour les patients en province, à l'étranger,
+              calme avec une connexion internet. Idéal pour les clients en province, à l'étranger,
               ou tout simplement qui préfèrent la flexibilité du téléconsultation.{' '}
               <Link to="/hypnose-en-ligne" className="text-blue-600 hover:underline font-medium">
                 En savoir plus sur l'hypnose en visio →

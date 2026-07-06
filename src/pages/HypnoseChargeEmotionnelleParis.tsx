@@ -26,7 +26,7 @@ const chargeFaqItems = [
   },
   {
     question: "Comment l'hypnose aide-t-elle à alléger la charge émotionnelle ?",
-    answer: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de patients décrivent un sentiment de légèreté très concret après les séances."
+    answer: "En état de relaxation profonde, l'hypnose accède directement à l'inconscient où les émotions sont stockées. Je vous guide pour identifier les charges spécifiques — d'où elles viennent, ce qu'elles contiennent — et créer les conditions pour qu'elles puissent être libérées. C'est un processus en douceur, qui va à votre rythme. Beaucoup de clients décrivent un sentiment de légèreté très concret après les séances."
   },
   {
     question: "Combien de séances pour alléger une charge émotionnelle chronique ?",
@@ -171,7 +171,7 @@ const HypnoseChargeEmotionnelleParis = () => {
               </p>
               <p>
                 L'hypnose permet d'accéder à ces couches profondes pour les libérer progressivement,
-                en douceur. Beaucoup de patients décrivent un sentiment concret de légèreté après
+                en douceur. Beaucoup de clients décrivent un sentiment concret de légèreté après
                 les premières séances.
               </p>
             </div>

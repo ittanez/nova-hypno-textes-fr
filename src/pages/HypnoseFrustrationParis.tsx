@@ -34,7 +34,7 @@ const frustrationFaqItems = [
   },
   {
     question: "Puis-je faire mes séances en visio ?",
-    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour traiter la frustration chronique. Je reçois des patients de toute la France pour ce type d'accompagnement, intégralement en visio."
+    answer: "Oui. Les séances en visioconférence sont aussi efficaces qu'en cabinet pour traiter la frustration chronique. Je reçois des clients de toute la France pour ce type d'accompagnement, intégralement en visio."
   }
 ];
 

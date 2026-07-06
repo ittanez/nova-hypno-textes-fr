@@ -26,11 +26,11 @@ const compulsionsFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour traiter les compulsions alimentaires ?",
-    answer: "En général, 3 à 5 séances permettent une amélioration significative. La première séance identifie les déclencheurs émotionnels spécifiques. Les séances suivantes travaillent à modifier ces mécanismes et à installer de nouvelles réponses. Beaucoup de patients constatent une réduction des compulsions dès la deuxième ou troisième séance."
+    answer: "En général, 3 à 5 séances permettent une amélioration significative. La première séance identifie les déclencheurs émotionnels spécifiques. Les séances suivantes travaillent à modifier ces mécanismes et à installer de nouvelles réponses. Beaucoup de clients constatent une réduction des compulsions dès la deuxième ou troisième séance."
   },
   {
     question: "Les séances d'hypnose pour les compulsions alimentaires peuvent-elles se faire en visio ?",
-    answer: "Oui, les séances en visioconférence sont aussi efficaces qu'en cabinet. Pour les compulsions alimentaires, certains patients trouvent même la séance à domicile plus adaptée : ils sont dans l'environnement où les comportements se produisent, ce qui peut faciliter l'identification des déclencheurs. L'état hypnotique s'atteint parfaitement à distance."
+    answer: "Oui, les séances en visioconférence sont aussi efficaces qu'en cabinet. Pour les compulsions alimentaires, certains clients trouvent même la séance à domicile plus adaptée : ils sont dans l'environnement où les comportements se produisent, ce qui peut faciliter l'identification des déclencheurs. L'état hypnotique s'atteint parfaitement à distance."
   }
 ];
 

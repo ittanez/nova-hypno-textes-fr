@@ -18,7 +18,7 @@ const procrastinationFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour vaincre la procrastination ?",
-    answer: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance permet d'identifier les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes travaillent à reprogrammer ces automatismes. Beaucoup de mes patients constatent un changement significatif dès la deuxième ou troisième séance : ils passent à l'action plus naturellement, sans cette résistance interne habituelle."
+    answer: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance permet d'identifier les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes travaillent à reprogrammer ces automatismes. Beaucoup de mes clients constatent un changement significatif dès la deuxième ou troisième séance : ils passent à l'action plus naturellement, sans cette résistance interne habituelle."
   },
   {
     question: "La procrastination est-elle liée à un manque de volonté ?",
@@ -30,7 +30,7 @@ const procrastinationFaqItems = [
   },
   {
     question: "Puis-je faire une séance d'hypnose pour la procrastination en visioconférence ?",
-    answer: "Oui, tout à fait. Les séances en visio sont aussi efficaces qu'au cabinet. L'état hypnotique s'induit parfaitement à distance, par la voix et la relation thérapeutique. Beaucoup de mes patients procrastinateurs trouvent d'ailleurs que la séance en visio réduit une résistance supplémentaire : pas de déplacement à organiser, moins d'excuses pour reporter la séance elle-même."
+    answer: "Oui, tout à fait. Les séances en visio sont aussi efficaces qu'au cabinet. L'état hypnotique s'induit parfaitement à distance, par la voix et la relation thérapeutique. Beaucoup de mes clients procrastinateurs trouvent d'ailleurs que la séance en visio réduit une résistance supplémentaire : pas de déplacement à organiser, moins d'excuses pour reporter la séance elle-même."
   }
 ];
 
@@ -289,7 +289,7 @@ const HypnoseProcrastinationParis = () => {
               l'examen sereinement et je l'ai passé avec une facilité que je n'aurais jamais
               imaginée. Le changement a été profond et durable.
             </p>
-            <footer>— Témoignage d'un patient, séances en visio</footer>
+            <footer>— Témoignage d'un client, séances en visio</footer>
           </blockquote>
         </div>
       </section>

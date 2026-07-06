@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const peurDentisteFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment m'aider à aller chez le dentiste ?",
-    answer: "Oui. La peur du dentiste est un programme inconscient que l'hypnose permet de désactiver directement. Contrairement aux anxiolytiques qui masquent la peur le temps d'un soin, l'hypnose agit sur l'origine même de cette phobie pour un changement durable. La grande majorité des patients que j'accompagne retournent chez leur dentiste sans anxiété après 2 à 4 séances."
+    answer: "Oui. La peur du dentiste est un programme inconscient que l'hypnose permet de désactiver directement. Contrairement aux anxiolytiques qui masquent la peur le temps d'un soin, l'hypnose agit sur l'origine même de cette phobie pour un changement durable. La grande majorité des clients que j'accompagne retournent chez leur dentiste sans anxiété après 2 à 4 séances."
   },
   {
     question: "Combien de séances faut-il pour ne plus avoir peur du dentiste ?",
@@ -26,7 +26,7 @@ const peurDentisteFaqItems = [
   },
   {
     question: "L'hypnose peut-elle traiter aussi le réflexe nauséeux ?",
-    answer: "Oui. Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété dentaire, beaucoup de patients voient leur réflexe nauséeux considérablement réduit dès les premières séances."
+    answer: "Oui. Le réflexe nauséeux est souvent d'origine psychosomatique et répond très bien à l'hypnose. En travaillant sur la détente du système nerveux et en dissociant le réflexe de l'anxiété dentaire, beaucoup de clients voient leur réflexe nauséeux considérablement réduit dès les premières séances."
   },
   {
     question: "Mes enfants ont aussi peur du dentiste. L'hypnose peut-elle les aider ?",

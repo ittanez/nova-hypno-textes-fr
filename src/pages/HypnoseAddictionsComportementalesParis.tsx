@@ -254,7 +254,7 @@ const HypnoseAddictionsComportementalesParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Jeux d'argent — reprendre le contrôle</div>
               <p>
-                Un patient jouait aux paris sportifs en ligne depuis plusieurs années. Ce qu'il cherchait
+                Un client jouait aux paris sportifs en ligne depuis plusieurs années. Ce qu'il cherchait
                 dans le jeu : des sensations fortes, un sentiment de contrôle sur quelque chose dans une
                 vie où il se sentait impuissant. Les dettes s'accumulaient.
               </p>

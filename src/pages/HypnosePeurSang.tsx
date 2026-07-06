@@ -30,7 +30,7 @@ const peurSangFaqItems = [
   },
   {
     question: "Je fais des malaises même à la télévision face à des scènes de blessures. L'hypnose peut-elle traiter ça aussi ?",
-    answer: "Oui. L'hypnose travaille sur la réaction phobique globale à l'image du sang, pas uniquement au sang réel. Les patients que j'accompagne retrouvent généralement la capacité de regarder des films, des informations et des séries médicales sans réaction phobique."
+    answer: "Oui. L'hypnose travaille sur la réaction phobique globale à l'image du sang, pas uniquement au sang réel. Les clients que j'accompagne retrouvent généralement la capacité de regarder des films, des informations et des séries médicales sans réaction phobique."
   },
   {
     question: "Les résultats sont-ils durables ?",

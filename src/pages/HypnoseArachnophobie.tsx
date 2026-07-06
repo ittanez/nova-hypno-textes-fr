@@ -26,7 +26,7 @@ const arachnophobieFaqItems = [
   },
   {
     question: "Combien de temps durent les résultats ?",
-    answer: "Les résultats sont durables. Une fois que votre inconscient a reconfiguré sa réponse face aux araignées, ce changement s'inscrit dans votre système nerveux. La grande majorité des patients ne ressentent plus jamais de réaction phobique après leur accompagnement."
+    answer: "Les résultats sont durables. Une fois que votre inconscient a reconfiguré sa réponse face aux araignées, ce changement s'inscrit dans votre système nerveux. La grande majorité des clients ne ressentent plus jamais de réaction phobique après leur accompagnement."
   },
   {
     question: "L'hypnose fonctionne-t-elle pour les insectes en général ?",
@@ -34,7 +34,7 @@ const arachnophobieFaqItems = [
   },
   {
     question: "Puis-je faire mes séances en visio si je vis en dehors de Paris ?",
-    answer: "Oui. Les séances d'hypnose en visioconférence (Google Meet) sont aussi efficaces qu'en cabinet. L'état hypnotique s'atteint parfaitement à distance. Je reçois des patients de toute la France pour des phobies traitées intégralement en visio."
+    answer: "Oui. Les séances d'hypnose en visioconférence (Google Meet) sont aussi efficaces qu'en cabinet. L'état hypnotique s'atteint parfaitement à distance. Je reçois des clients de toute la France pour des phobies traitées intégralement en visio."
   }
 ];
 

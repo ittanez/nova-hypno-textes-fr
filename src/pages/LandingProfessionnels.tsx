@@ -40,7 +40,7 @@ const LandingProfessionnels: React.FC = () => {
     },
     {
       question: "En combien de séances verra-t-on des résultats ?",
-      answer: "La plupart de mes patients professionnels ressentent une différence réelle après les 2 premières séances. L'accompagnement complet dure généralement 6 à 8 séances sur 10 à 12 semaines. C'est un parcours structuré, pas un soin à durée indéfinie.",
+      answer: "La plupart de mes clients professionnels ressentent une différence réelle après les 2 premières séances. L'accompagnement complet dure généralement 6 à 8 séances sur 10 à 12 semaines. C'est un parcours structuré, pas un soin à durée indéfinie.",
     },
     {
       question: "Est-ce que c'est possible en visio depuis ma région ?",

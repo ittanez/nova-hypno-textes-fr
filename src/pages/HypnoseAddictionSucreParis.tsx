@@ -22,15 +22,15 @@ const addictionSucreFaqItems = [
   },
   {
     question: "L'hypnose peut-elle aider à réduire les envies de sucre même après les repas ?",
-    answer: "Oui. Les envies de sucre après les repas sont souvent liées à des associations conditionnées (« je mange toujours quelque chose de sucré après manger ») ou à un besoin de clôturer le repas. L'hypnose peut travailler sur ces associations spécifiques pour les neutraliser. Beaucoup de patients constatent que ces envies systématiques disparaissent après 2 à 3 séances."
+    answer: "Oui. Les envies de sucre après les repas sont souvent liées à des associations conditionnées (« je mange toujours quelque chose de sucré après manger ») ou à un besoin de clôturer le repas. L'hypnose peut travailler sur ces associations spécifiques pour les neutraliser. Beaucoup de clients constatent que ces envies systématiques disparaissent après 2 à 3 séances."
   },
   {
     question: "Combien de séances d'hypnose pour se libérer de l'addiction au sucre ?",
-    answer: "En général, 3 à 5 séances permettent une transformation durable. Certains patients constatent une réduction significative des envies dès la première ou deuxième séance. L'addiction au sucre peut avoir plusieurs dimensions (émotionnelle, comportementale, conditionnée) que les séances traitent progressivement. Le résultat est durable parce qu'il vient d'un changement intérieur, pas d'une restriction."
+    answer: "En général, 3 à 5 séances permettent une transformation durable. Certains clients constatent une réduction significative des envies dès la première ou deuxième séance. L'addiction au sucre peut avoir plusieurs dimensions (émotionnelle, comportementale, conditionnée) que les séances traitent progressivement. Le résultat est durable parce qu'il vient d'un changement intérieur, pas d'une restriction."
   },
   {
     question: "L'hypnose peut-elle remplacer un suivi nutritionnel pour l'addiction au sucre ?",
-    answer: "L'hypnose et le suivi nutritionnel sont complémentaires, pas en concurrence. Le suivi nutritionnel vous donne les connaissances et les outils alimentaires. L'hypnose travaille sur la dimension émotionnelle et comportementale qui empêche d'appliquer ces outils durablement. Beaucoup de patients qui n'arrivaient pas à maintenir leurs changements alimentaires y parviennent grâce à l'hypnose, qui lève les freins inconscients."
+    answer: "L'hypnose et le suivi nutritionnel sont complémentaires, pas en concurrence. Le suivi nutritionnel vous donne les connaissances et les outils alimentaires. L'hypnose travaille sur la dimension émotionnelle et comportementale qui empêche d'appliquer ces outils durablement. Beaucoup de clients qui n'arrivaient pas à maintenir leurs changements alimentaires y parviennent grâce à l'hypnose, qui lève les freins inconscients."
   }
 ];
 
@@ -254,7 +254,7 @@ const HypnoseAddictionSucreParis = () => {
             <div className="sp-case reveal">
               <div className="sp-case__title">Sucre comme réconfort — libérer le besoin réel</div>
               <p>
-                Une patiente consommait du chocolat chaque soir, après une journée stressante. Elle avait
+                Une cliente consommait du chocolat chaque soir, après une journée stressante. Elle avait
                 essayé de l'éliminer de son alimentation plusieurs fois, sans succès. Le sucre était son
                 seul moment de « pause » dans des journées épuisantes.
               </p>

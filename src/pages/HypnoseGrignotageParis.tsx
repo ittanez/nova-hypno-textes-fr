@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const grignotageFaqItems = [
   {
     question: "L'hypnose peut-elle arrêter le grignotage chronique ?",
-    answer: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart de mes patients voient le grignotage se réduire considérablement, souvent dès la deuxième séance."
+    answer: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart de mes clients voient le grignotage se réduire considérablement, souvent dès la deuxième séance."
   },
   {
     question: "Quelle est la différence entre grignotage et faim normale ?",

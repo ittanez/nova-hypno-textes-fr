@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const peurAiguillesFaqItems = [
   {
     question: "L'hypnose peut-elle m'aider à supporter les prises de sang ?",
-    answer: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver directement. Beaucoup de patients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances. Je vous transmets également des techniques d'auto-hypnose à activer au moment du soin."
+    answer: "Oui. La peur des aiguilles est un programme inconscient que l'hypnose permet de désactiver directement. Beaucoup de clients qui faisaient des malaises vagaux lors des prises de sang arrivent à se faire prélever sereinement après 2 à 3 séances. Je vous transmets également des techniques d'auto-hypnose à activer au moment du soin."
   },
   {
     question: "Combien de séances pour ne plus avoir peur des aiguilles ?",

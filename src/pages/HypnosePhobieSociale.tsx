@@ -34,7 +34,7 @@ const phobieSocialeFaqItems = [
   },
   {
     question: "Les résultats de l'hypnose sur la phobie sociale sont-ils durables ?",
-    answer: "Oui. L'hypnose modifie les croyances inconscientes à l'origine de la peur du jugement, pas seulement les comportements de surface. Une fois que votre inconscient a intégré que les interactions sociales peuvent être sûres et agréables, ce changement est permanent. Les patients constatent que les résultats s'amplifient naturellement avec le temps, à mesure qu'ils accumulent des expériences sociales positives."
+    answer: "Oui. L'hypnose modifie les croyances inconscientes à l'origine de la peur du jugement, pas seulement les comportements de surface. Une fois que votre inconscient a intégré que les interactions sociales peuvent être sûres et agréables, ce changement est permanent. Les clients constatent que les résultats s'amplifient naturellement avec le temps, à mesure qu'ils accumulent des expériences sociales positives."
   }
 ];
 
