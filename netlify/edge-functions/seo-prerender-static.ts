@@ -3766,6 +3766,11 @@ PAGES["/faq"] = {
         },
         {
           "@type": "Question",
+          "name": "Est-ce que je révèle des secrets intimes sous hypnose ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non, vous ne révélerez que ce que vous souhaitez partager. L'hypnose n'est pas un sérum de vérité et vous gardez votre libre arbitre pendant toute la séance." },
+        },
+        {
+          "@type": "Question",
           "name": "Les séances d'hypnose sont-elles remboursées par les mutuelles ?",
           "acceptedAnswer": { "@type": "Answer", "text": "En France, l'hypnothérapie est remboursée par certaines mutuelles selon les contrats souscrits. Il est recommandé de contacter directement votre mutuelle pour le vérifier." },
         },
@@ -3778,6 +3783,11 @@ PAGES["/faq"] = {
           "@type": "Question",
           "name": "Où se situe le cabinet et comment y accéder ?",
           "acceptedAnswer": { "@type": "Answer", "text": "Le cabinet est situé au 16 rue Saint-Antoine, Paris 4ème, au croisement des 4e, 11e et 12e arrondissements, dans le quartier du Marais. Accès à 2 minutes à pied du métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1)." },
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les modalités de paiement et la politique d'annulation ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Paiement par carte bancaire, Wero ou en ligne (visio). Annulation ou report possible sans frais jusqu'à 48 heures avant le rendez-vous ; au-delà, la séance est facturée. Consultations réservées aux adultes." },
         },
       ],
     },

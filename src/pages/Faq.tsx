@@ -24,7 +24,7 @@ const Faq = () => {
     "mainEntity": faqItems.map((item) => ({
       "@type": "Question",
       "name": item.question,
-      "acceptedAnswer": { "@type": "Answer", "text": item.answer.replace(/\n/g, ' ') },
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer.replace(/\s+/g, ' ').trim() },
     })),
   };
 
@@ -94,11 +94,16 @@ const Faq = () => {
           <div>
             {faqItems.map((item, i) => (
               <div key={i} className={`faq__item${openFaq === i ? ' open' : ''}`}>
-                <button className="faq__q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  className="faq__q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.question}
                   <span className="faq__icon">{openFaq === i ? '−' : '+'}</span>
                 </button>
-                <div className="faq__a" style={{whiteSpace: 'pre-line'}}>{item.answer}</div>
+                <div id={`faq-answer-${i}`} className="faq__a" style={{whiteSpace: 'pre-line'}}>{item.answer}</div>
               </div>
             ))}
           </div>
