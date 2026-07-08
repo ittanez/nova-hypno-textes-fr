@@ -55,11 +55,14 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmedPrenom = prenom.trim();
+    const trimmedEmail = email.trim();
+    if (!trimmedPrenom || !trimmedEmail) { setErrorMsg('Veuillez remplir tous les champs requis.'); return; }
     if (!location) { setErrorMsg('Veuillez sélectionner votre localisation.'); return; }
     setLoading(true); setErrorMsg('');
-    const result = await submitTabacLead(prenom, email, location);
+    const result = await submitTabacLead(trimmedPrenom, trimmedEmail, location);
     setLoading(false);
-    if (result.success) { onSuccess(prenom); }
+    if (result.success) { onSuccess(trimmedPrenom); }
     else { setErrorMsg(result.error || 'Une erreur est survenue. Veuillez réessayer.'); }
   };
 

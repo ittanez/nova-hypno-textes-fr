@@ -23,7 +23,9 @@ const GuideTabacMerci: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    getPopularArticles(3).then(({ data }) => { if (data) setArticles(data); });
+    let active = true;
+    getPopularArticles(3).then(({ data }) => { if (active && data) setArticles(data); });
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
@@ -131,7 +133,12 @@ const GuideTabacMerci: React.FC = () => {
                     </div>
                     <div style={{ padding: '16px 20px' }}>
                       <p style={{ fontSize: '11px', color: 'var(--gris)', marginBottom: '6px' }}>
-                        {format(new Date(article.published_at || article.created_at), 'd MMMM yyyy', { locale: fr })}
+                        {(() => {
+                          const dateStr = article.published_at || article.created_at;
+                          if (!dateStr) return '';
+                          const date = new Date(dateStr);
+                          return isNaN(date.getTime()) ? '' : format(date, 'd MMMM yyyy', { locale: fr });
+                        })()}
                       </p>
                       <h3 style={{ fontFamily: 'var(--f-serif)', fontSize: '16px', fontWeight: 400, color: 'var(--texte)', lineHeight: 1.35, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', margin: 0 }}>
                         {article.title}
