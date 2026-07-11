@@ -27,7 +27,17 @@ serve(async (req) => {
       throw new Error('Body vide')
     }
 
-    const { firstName, prenom: prenomField, email, location } = JSON.parse(body)
+    let payload: { firstName?: string; prenom?: string; email?: string; location?: string }
+    try {
+      payload = JSON.parse(body)
+    } catch {
+      return new Response(
+        JSON.stringify({ error: 'Format de requête invalide (JSON incorrect)' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    const { firstName, prenom: prenomField, email, location } = payload
     const prenom = firstName || prenomField
 
     if (!email) {

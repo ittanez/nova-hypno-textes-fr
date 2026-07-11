@@ -58,6 +58,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
     const trimmedPrenom = prenom.trim();
     const trimmedEmail = email.trim();
     if (!trimmedPrenom || !trimmedEmail) { setErrorMsg('Veuillez remplir tous les champs requis.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) { setErrorMsg('Veuillez saisir une adresse email valide.'); return; }
     if (!location) { setErrorMsg('Veuillez sélectionner votre localisation.'); return; }
     setLoading(true); setErrorMsg('');
     const result = await submitColereLead(trimmedPrenom, trimmedEmail, location);
