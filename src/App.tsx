@@ -86,6 +86,10 @@ const GuideProcrastinationMerci = lazy(() => import("@/pages/GuideProcrastinatio
 const GuideTabac = lazy(() => import("@/pages/GuideTabac"));
 const GuideTabacMerci = lazy(() => import("@/pages/GuideTabacMerci"));
 
+// Guide colère (landing page isolée)
+const GuideColere = lazy(() => import("@/pages/GuideColere"));
+const GuideColereMerci = lazy(() => import("@/pages/GuideColereMerci"));
+
 // Politique de confidentialité de l'app mobile NovaRespire (URL déclarée dans Play Console)
 const PolitiqueConfidentialiteNovaRespire = lazy(() => import("@/pages/PolitiqueConfidentialiteNovaRespire"));
 
@@ -252,6 +256,8 @@ function App() {
             <Route path="/guide-procrastination/merci" element={<GuideProcrastinationMerci />} />
             <Route path="/guide-arret-tabac" element={<GuideTabac />} />
             <Route path="/guide-arret-tabac/merci" element={<GuideTabacMerci />} />
+            <Route path="/guide-colere" element={<GuideColere />} />
+            <Route path="/guide-colere/merci" element={<GuideColereMerci />} />
             <Route path="/hypnose-professionnels-paris" element={<LandingProfessionnels />} />
 
             {/* Tarifs, avis clients, contact et FAQ */}
