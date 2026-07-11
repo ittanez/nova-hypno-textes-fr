@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-import { submitSommeilLead } from '@/lib/services/sommeilLeadService';
+import { submitCarriereLead } from '@/lib/services/carriereLeadService';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
@@ -9,7 +9,7 @@ import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
 import '@/styles/preview-charte.css';
 
 /* ─────────────────────────────────────────────
-   Landing page isolée — Guide "Le Sommeil, Votre Allié Secret"
+   Landing page isolée — Guide "Ma Carrière, Enfin Débloquée"
    Charte ZENatti / risographie — ambre · cobalt · lin
    ───────────────────────────────────────────── */
 
@@ -55,11 +55,15 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmedPrenom = prenom.trim();
+    const trimmedEmail = email.trim();
+    if (!trimmedPrenom || !trimmedEmail) { setErrorMsg('Veuillez remplir tous les champs requis.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) { setErrorMsg('Veuillez saisir une adresse email valide.'); return; }
     if (!location) { setErrorMsg('Veuillez sélectionner votre localisation.'); return; }
     setLoading(true); setErrorMsg('');
-    const result = await submitSommeilLead(prenom, email, location);
+    const result = await submitCarriereLead(trimmedPrenom, trimmedEmail, location);
     setLoading(false);
-    if (result.success) { onSuccess(prenom); }
+    if (result.success) { onSuccess(trimmedPrenom); }
     else { setErrorMsg(result.error || 'Une erreur est survenue. Veuillez réessayer.'); }
   };
 
@@ -93,25 +97,26 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
   );
 };
 
-const stats = [
-  { value: '1 / 5', label: "des Français souffrent d'insomnie chronique" },
-  { value: '6h42', label: 'Durée moyenne de sommeil en semaine' },
-  { value: '+81 %', label: "De sommeil profond avec l'hypnose (Sleep, 2014)" },
+const manifestations = [
+  { title: "Syndrome de l'imposteur", desc: 'Vous doutez de votre légitimité malgré vos compétences, vous craignez que vos réussites soient découvertes comme un « coup de chance ».' },
+  { title: 'Auto-sabotage récurrent', desc: 'Vous compromettez vos propres succès au moment décisif — retard, oubli, conflit provoqué inconsciemment.' },
+  { title: 'Stagnation professionnelle', desc: 'Vous restez au même poste depuis des années alors que vous en avez largement les capacités.' },
+  { title: 'Blocage à la décision', desc: "Vous analysez indéfiniment sans jamais trancher, paralysé par la peur de faire le mauvais choix." },
 ];
 
 const chapters = [
-  { title: 'Pourquoi votre corps a besoin de dormir', desc: "Les deux mécanismes biologiques qui orchestrent votre sommeil — et comment les utiliser à votre avantage." },
-  { title: 'Ce qui se passe vraiment pendant la nuit', desc: "Cycles, sommeil profond, REM : chaque stade a un rôle précis. Comprendre l'architecture change tout." },
-  { title: 'Les 5 saboteurs silencieux de votre sommeil', desc: "Caféine, alcool, écrans, température, rumination — et comment les neutraliser dès ce soir." },
-  { title: "Ce que la science dit sur l'hypnose", desc: "Des études EEG publiées dans Sleep et Nature montrent un impact objectif et mesurable sur la qualité du sommeil." },
-  { title: 'Un programme pratique de 30 jours', desc: "Rituel du coucher en 5 étapes, techniques anti-rumination, règles d'hygiène du sommeil fondées sur la science." },
+  { title: 'Pourquoi vous restez bloqué malgré vos compétences', desc: "Comprendre le rôle des croyances inconscientes dans la stagnation professionnelle." },
+  { title: "Le syndrome de l'imposteur : d'où il vient vraiment", desc: "Identifier les expériences fondatrices qui ont créé le doute, pour cesser de vous juger à travers elles." },
+  { title: "Reconnaître l'auto-sabotage avant qu'il n'agisse", desc: "Repérer les signaux précoces du mécanisme pour l'interrompre avant qu'il ne compromette une opportunité." },
+  { title: "La technique de l'ancrage de légitimité", desc: "Un protocole d'auto-hypnose pour installer une perception plus juste de vos capacités, avant un entretien ou une prise de parole clé." },
+  { title: 'Oser la prochaine étape', desc: "Passer de l'intention à l'action : demander, postuler, négocier, se lancer — sans attendre de se sentir totalement prêt." },
 ];
 
-const GuideSommeil: React.FC = () => {
+const GuideCarriere: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const handleSuccess = useCallback((prenom: string) => {
-    navigate('/guide-sommeil/merci', { state: { prenom } });
+    navigate('/guide-carriere/merci', { state: { prenom } });
   }, [navigate]);
 
   useEffect(() => {
@@ -132,17 +137,17 @@ const GuideSommeil: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond — sans médicaments." />
+        <title>Guide gratuit — Ma Carrière, Enfin Débloquée | NovaHypnose</title>
+        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour lever vos blocages professionnels par l'hypnose. Syndrome de l'imposteur, auto-sabotage, stagnation — et un protocole pratique." />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
+        <link rel="canonical" href="https://novahypnose.fr/guide-carriere" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
-          "@id": "https://novahypnose.fr/guide-sommeil#book",
-          "name": "Le Sommeil, Votre Allié Secret",
-          "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond et réparateur, sans médicaments.",
-          "url": "https://novahypnose.fr/guide-sommeil", "inLanguage": "fr-FR",
-          "bookFormat": "https://schema.org/EBook", "numberOfPages": 17, "isAccessibleForFree": true,
+          "@id": "https://novahypnose.fr/guide-carriere#book",
+          "name": "Ma Carrière, Enfin Débloquée",
+          "description": "Guide pratique pour lever les blocages professionnels grâce à l'hypnose. Syndrome de l'imposteur, auto-sabotage, stagnation, et un protocole pour passer à l'action, par Alain Zenatti.",
+          "url": "https://novahypnose.fr/guide-carriere", "inLanguage": "fr-FR",
+          "bookFormat": "https://schema.org/EBook", "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
           "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
@@ -152,16 +157,16 @@ const GuideSommeil: React.FC = () => {
       <div className="cz" ref={rootRef}>
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>
-            <filter id="riso-full-s">
-              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves={2} seed={5} result="turb" />
+            <filter id="riso-full-cr">
+              <feTurbulence type="turbulence" baseFrequency="0.018 0.022" numOctaves={2} seed={14} result="turb" />
               <feDisplacementMap in="SourceGraphic" in2="turb" scale={6} result="displaced" />
-              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves={4} seed={10} result="noise" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.72 0.75" numOctaves={4} seed={19} result="noise" />
               <feColorMatrix type="saturate" values="0" in="noise" result="grey" />
               <feBlend in="displaced" in2="grey" mode="multiply" result="out" />
               <feComposite in="out" in2="displaced" operator="in" />
             </filter>
-            <filter id="paperGrain-s" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves={4} seed={2} />
+            <filter id="paperGrain-cr" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves={4} seed={9} />
               <feColorMatrix values="0 0 0 0 .15  0 0 0 0 .12  0 0 0 0 .08  0 0 0 .15 0" />
             </filter>
           </defs>
@@ -171,28 +176,28 @@ const GuideSommeil: React.FC = () => {
         <section className="hero" style={{ paddingTop: '80px' }}>
           <div className="hero__bg" aria-hidden="true">
             <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
-              <g filter="url(#riso-full-s)">
-                <path d="M 0 0 L 600 0 C 700 40, 760 100, 780 180 C 800 280, 720 360, 640 380 C 540 400, 380 360, 260 300 C 140 240, 40 180, 0 120 Z" fill="#2B4BA0" opacity="0.85" />
+              <g filter="url(#riso-full-cr)">
+                <path d="M 0 0 L 560 0 C 660 50, 720 120, 740 210 C 760 310, 680 390, 580 410 C 460 434, 300 400, 180 340 C 90 294, 30 220, 0 150 Z" fill="#2B4BA0" opacity="0.85" />
               </g>
-              <g filter="url(#riso-full-s)" style={{ mixBlendMode: 'multiply' }}>
-                <path d="M 900 600 C 1020 520, 1180 500, 1320 560 C 1420 600, 1480 640, 1480 700 L 1480 1040 L 600 1040 C 680 960, 780 840, 900 600 Z" fill="#F2A12E" opacity="0.75" />
+              <g filter="url(#riso-full-cr)" style={{ mixBlendMode: 'multiply' }}>
+                <path d="M 940 620 C 1060 540, 1220 520, 1340 580 C 1430 624, 1480 664, 1480 720 L 1480 1040 L 640 1040 C 720 960, 820 850, 940 620 Z" fill="#F2A12E" opacity="0.75" />
               </g>
-              <rect width="1440" height="1000" filter="url(#paperGrain-s)" opacity=".2" />
+              <rect width="1440" height="1000" filter="url(#paperGrain-cr)" opacity=".2" />
             </svg>
           </div>
 
-          <div className="zen-mark" aria-hidden="true">nuit</div>
+          <div className="zen-mark" aria-hidden="true">élan</div>
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · PDF · 17 pages</div>
+              <div className="tag">Guide gratuit · PDF</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
-                Le Sommeil,<br />
-                <em style={{ fontStyle: 'italic', color: 'var(--cobalt)', fontWeight: 400 }}>Votre Allié Secret</em>
+                Ma Carrière,<br />
+                <em style={{ fontStyle: 'italic', color: 'var(--cobalt)', fontWeight: 400 }}>Enfin Débloquée</em>
               </h1>
               <div className="hero__rule" />
               <p style={{ fontFamily: 'var(--f-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(16px, 1.8vw, 21px)', color: 'var(--texte)', marginBottom: '28px', lineHeight: 1.55, maxWidth: '460px' }}>
-                Près d'un Français sur cinq souffre d'insomnie chronique. Ce guide est fait pour vous — <em style={{ color: 'var(--cobalt)' }}>sans médicaments.</em>
+                Vos compétences sont là. Ce qui manque, c'est <em style={{ color: 'var(--cobalt)' }}>l'autorisation intérieure d'avancer.</em>
               </p>
               <p style={{ fontSize: '12px', color: 'var(--gris)', marginBottom: '18px', fontWeight: 400 }}>
                 Recevez immédiatement le PDF — aucun engagement, aucun spam.
@@ -202,8 +207,8 @@ const GuideSommeil: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/EBOOKSOMMEIL.webp"
-                alt="Guide Le Sommeil, Votre Allié Secret — 17 pages"
+                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carriere.png"
+                alt="Guide Ma Carrière, Enfin Débloquée"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotate(0deg)')}
@@ -213,14 +218,18 @@ const GuideSommeil: React.FC = () => {
           </div>
         </section>
 
-        {/* ═══════════ STATS ═══════════ */}
-        <section style={{ background: 'var(--cobalt-2)', padding: '40px 0' }}>
+        {/* ═══════════ MANIFESTATIONS ═══════════ */}
+        <section style={{ background: 'var(--lin-2)', padding: '80px 0' }}>
           <div className="container">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px', textAlign: 'center' }}>
-              {stats.map((s) => (
-                <div key={s.value} className="reveal">
-                  <p style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 400, color: 'var(--amber)', marginBottom: '6px', lineHeight: 1 }}>{s.value}</p>
-                  <p style={{ color: 'rgba(240,236,227,.65)', fontSize: '13px', lineHeight: 1.4 }}>{s.label}</p>
+            <div className="reveal" style={{ marginBottom: '40px' }}>
+              <div className="section-tag">Vous vous reconnaissez ?</div>
+              <h2 className="section-title">Ce que vit une carrière<br /><em>freinée de l'intérieur.</em></h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '20px' }}>
+              {manifestations.map((m) => (
+                <div key={m.title} className="reveal" style={{ background: 'var(--paper)', borderRadius: '16px', padding: '24px', boxShadow: '0 4px 20px rgba(28,43,74,.06)', borderTop: '3px solid var(--amber)' }}>
+                  <h4 style={{ fontFamily: 'var(--f-serif)', fontSize: '18px', fontWeight: 400, color: 'var(--texte)', marginBottom: '8px', lineHeight: 1.2 }}>{m.title}</h4>
+                  <p style={{ fontSize: '14px', lineHeight: 1.7, color: 'var(--corps)' }}>{m.desc}</p>
                 </div>
               ))}
             </div>
@@ -232,7 +241,7 @@ const GuideSommeil: React.FC = () => {
           <div className="container" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">17 pages pour retrouver<br />un sommeil <em>profond et réparateur.</em></h2>
+              <h2 className="section-title">Un guide pour débloquer votre carrière,<br /><em>sans forcer.</em></h2>
               <div style={{ width: '48px', height: '2px', background: 'var(--amber)', marginTop: '24px', boxShadow: '3px 3px 0 rgba(242,161,46,.25)' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -255,8 +264,8 @@ const GuideSommeil: React.FC = () => {
             <div className="reveal">
               <div style={{ width: '40px', height: '2px', background: 'var(--amber)', marginBottom: '24px', boxShadow: '3px 3px 0 rgba(242,161,46,.25)' }} />
               <p style={{ fontFamily: 'var(--f-serif)', fontStyle: 'italic', color: 'var(--texte)', fontSize: 'clamp(18px, 2vw, 24px)', lineHeight: 1.5, marginBottom: '32px' }}>
-                « Votre sommeil est là, quelque part en vous.<br />
-                Parfois il a juste besoin d'un peu d'aide pour revenir. »
+                « Ce n'est pas la compétence qui manque.<br />
+                C'est la permission que vous ne vous êtes pas encore donnée. »
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'var(--cobalt-2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--f-serif)', fontWeight: 500, color: 'var(--lin)', fontSize: '14px', flexShrink: 0 }}>AZ</div>
@@ -286,4 +295,4 @@ const GuideSommeil: React.FC = () => {
   );
 };
 
-export default GuideSommeil;
+export default GuideCarriere;
