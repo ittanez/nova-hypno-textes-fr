@@ -3,8 +3,9 @@ import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts
 
 const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY')
 // TODO: la liste Brevo "ebook-carriere" est en cours de construction —
-// remplacer ce placeholder par l'ID définitif une fois la liste créée.
-const BREVO_LIST_ID = 21
+// remplacer ce placeholder par l'ID définitif une fois la liste créée,
+// ou définir BREVO_LIST_ID_CARRIERE côté Supabase pour l'écraser sans redéployer.
+const BREVO_LIST_ID = Number(Deno.env.get('BREVO_LIST_ID_CARRIERE') || '21')
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req)
@@ -32,6 +33,9 @@ serve(async (req) => {
     let payload: { firstName?: string; prenom?: string; email?: string; location?: string }
     try {
       payload = JSON.parse(body)
+      if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+        throw new Error()
+      }
     } catch {
       return new Response(
         JSON.stringify({ error: 'Format de requête invalide (JSON incorrect)' }),
