@@ -50,8 +50,8 @@ const BlogIndex = () => {
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 
-  const articles = articlesData || [];
-  const categories = categoriesData || [];
+  const articles = useMemo(() => articlesData || [], [articlesData]);
+  const categories = useMemo(() => categoriesData || [], [categoriesData]);
   const isLoading = articlesLoading || categoriesLoading;
 
   // Afficher un indicateur si les données viennent du cache
