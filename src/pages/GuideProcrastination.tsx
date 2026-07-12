@@ -159,14 +159,14 @@ const GuideProcrastination: React.FC = () => {
     <>
       <Helmet>
         <title>Guide Gratuit : Vaincre la Procrastination par l'Hypnose | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 22 pages, 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
+        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 17 pages, 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-procrastination#book",
           "name": "Vaincre la Procrastination par l'Hypnose",
-          "description": "Guide pratique de 22 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
+          "description": "Guide pratique de 17 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
           "url": "https://novahypnose.fr/guide-procrastination", "inLanguage": "fr-FR",
           "bookFormat": "https://schema.org/EBook", "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
@@ -211,7 +211,7 @@ const GuideProcrastination: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · 22 pages · 2 protocoles</div>
+              <div className="tag">Guide gratuit · 17 pages · 2 protocoles</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Libérez-vous de la<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--amber)', fontWeight: 400 }}>procrastination</em>
@@ -244,7 +244,7 @@ const GuideProcrastination: React.FC = () => {
           <div className="container">
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">22 pages, 2 protocoles <em>éprouvés.</em></h2>
+              <h2 className="section-title">17 pages, 2 protocoles <em>éprouvés.</em></h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {benefits.map((b, i) => (
