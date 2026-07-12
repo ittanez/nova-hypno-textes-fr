@@ -106,7 +106,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 };
 
 const benefits = [
-  { icon: Target, title: 'Stratégies anti-procrastination', desc: "8 techniques éprouvées pour passer à l'action immédiatement, même quand la motivation manque." },
+  { icon: Target, title: 'Stratégies anti-procrastination', desc: "2 protocoles d'auto-hypnose éprouvés pour passer à l'action immédiatement, même quand la motivation manque." },
   { icon: CheckCircle, title: '100% pratique et testée', desc: "Pas de théorie abstraite. Chaque stratégie est expliquée étape par étape, validée auprès de 500+ clients." },
   { icon: Briefcase, title: 'Spécial professionnels', desc: "Conçu pour cadres/employés. Techniques adaptées aux contraintes professionnelles et aux délais serrés." },
   { icon: Brain, title: 'Méthode NovaHypnose', desc: "Protocoles d'hypnose propriétaires associés à la psychologie comportementale pour arrêter de remettre à demain." },
@@ -115,16 +115,16 @@ const benefits = [
 ];
 
 const chapters = [
-  { title: 'Introduction', desc: "Comprendre la procrastination : causes réelles et mythes" },
-  { title: 'Chapitre 1', desc: "Les 3 neurotransmetteurs de la motivation (et comment les optimiser)" },
-  { title: 'Chapitre 2', desc: 'La peur sous-jacente : identifier vos patterns de blocage' },
-  { title: 'Chapitre 3', desc: 'Technique 1 : Le Découpage Radical (Break It Down Method)' },
-  { title: 'Chapitre 4', desc: "Technique 2 : L'Engagement Public et la Responsabilité" },
-  { title: 'Chapitre 5', desc: "Technique 3 : L'Ancre de Motivation (hypnose + PNL)" },
-  { title: 'Chapitre 6', desc: 'Technique 4 : La Restructuration Cognitive Anti-Perfectionnisme' },
-  { title: 'Chapitre 7', desc: "Technique 5 : Les Rituels de Passage à l'Action" },
-  { title: 'Chapitre 8', desc: 'Gestion des rechutes : revenir sur les rails rapidement' },
-  { title: 'Bonus', desc: '2 protocoles hypnotiques guidés (MP3) + Kit de suivi 30 jours' },
+  { title: 'Qu\'est-ce que la procrastination ?', desc: 'Définitions et idées reçues' },
+  { title: 'Ce qui se passe vraiment dans votre cerveau', desc: '' },
+  { title: 'Les 7 visages de la procrastination', desc: '' },
+  { title: 'Les conséquences cachées', desc: 'Bien au-delà du travail' },
+  { title: 'Stratégies concrètes pour passer à l\'action', desc: '' },
+  { title: 'PROTOCOLE N°1 — L\'Ancrage de l\'Action', desc: 'Auto-hypnose' },
+  { title: 'PROTOCOLE N°2 — La Ligne du Temps', desc: 'Auto-hypnose' },
+  { title: 'Et si la solution venait de votre inconscient ?', desc: '' },
+  { title: "L'hypnothérapie au service de votre liberté d'action", desc: '' },
+  { title: 'Un premier pas avec Alain Zenatti', desc: '' },
 ];
 
 const testimonials = [
@@ -159,14 +159,14 @@ const GuideProcrastination: React.FC = () => {
     <>
       <Helmet>
         <title>Guide Gratuit : Vaincre la Procrastination par l'Hypnose | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 8 techniques concrètes et protocoles pratiques." />
+        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 17 pages, 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-procrastination#book",
           "name": "Vaincre la Procrastination par l'Hypnose",
-          "description": "Guide pratique pour arrêter de procrastiner grâce à l'hypnose. 8 techniques concrètes et protocoles pratiques par Alain Zenatti.",
+          "description": "Guide pratique de 17 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
           "url": "https://novahypnose.fr/guide-procrastination", "inLanguage": "fr-FR",
           "bookFormat": "https://schema.org/EBook", "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
@@ -211,7 +211,7 @@ const GuideProcrastination: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · 32 pages · 8 techniques</div>
+              <div className="tag">Guide gratuit · 17 pages · 2 protocoles</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Libérez-vous de la<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--amber)', fontWeight: 400 }}>procrastination</em>
@@ -244,7 +244,7 @@ const GuideProcrastination: React.FC = () => {
           <div className="container">
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">32 pages, 8 techniques <em>éprouvées.</em></h2>
+              <h2 className="section-title">17 pages, 2 protocoles <em>éprouvés.</em></h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {benefits.map((b, i) => (
@@ -270,8 +270,8 @@ const GuideProcrastination: React.FC = () => {
                 <div key={i} className="reveal" style={{ transitionDelay: `${i * 0.05}s`, display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '20px', borderRadius: '12px', background: 'var(--paper)', boxShadow: '0 2px 12px rgba(28,43,74,.04)' }}>
                   <span style={{ fontFamily: 'var(--f-serif)', fontSize: '28px', fontWeight: 300, color: 'rgba(43,75,160,.2)', lineHeight: 1, flexShrink: 0, width: '32px' }}>{i + 1}</span>
                   <div>
-                    <p style={{ fontWeight: 500, color: 'var(--cobalt-2)', fontSize: '13px', marginBottom: '4px' }}>{ch.title}</p>
-                    <p style={{ color: 'var(--gris)', fontSize: '13px', lineHeight: 1.55 }}>{ch.desc}</p>
+                    <p style={{ fontWeight: 500, color: 'var(--cobalt-2)', fontSize: '13px', marginBottom: ch.desc ? '4px' : 0 }}>{ch.title}</p>
+                    {ch.desc && <p style={{ color: 'var(--gris)', fontSize: '13px', lineHeight: 1.55 }}>{ch.desc}</p>}
                   </div>
                 </div>
               ))}
