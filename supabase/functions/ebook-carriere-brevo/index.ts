@@ -2,9 +2,8 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts"
 
 const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY')
-// TODO: la liste Brevo "ebook-carriere" est en cours de construction —
-// remplacer ce placeholder par l'ID définitif une fois la liste créée,
-// ou définir BREVO_LIST_ID_CARRIERE côté Supabase pour l'écraser sans redéployer.
+// Liste Brevo "ebook-carriere" (#21). Peut être surchargée via BREVO_LIST_ID_CARRIERE
+// côté Supabase si l'ID change, sans avoir à redéployer cette fonction.
 const BREVO_LIST_ID = Number(Deno.env.get('BREVO_LIST_ID_CARRIERE') || '21')
 
 serve(async (req) => {
