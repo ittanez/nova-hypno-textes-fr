@@ -2686,16 +2686,20 @@ PAGES["/hypnose-traumatismes-paris"] = {
         q: "L'hypnose peut-elle aider en cas de stress post-traumatique (TSPT) ?",
         a: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Pour un TSPT caractérisé et sévère, elle s'inscrit idéalement en complément d'un suivi médical ou psychothérapeutique, jamais en remplacement d'un diagnostic ou d'un traitement en cours.",
       },
+      {
+        q: "Un licenciement peut-il être vécu comme un traumatisme ?",
+        a: "Oui. Un licenciement brutal peut ébranler l'identité professionnelle aussi profondément qu'un choc physique : sentiment d'injustice, de trahison, perte de repères. L'hypnose accompagne ce trauma identitaire comme n'importe quel autre choc.",
+      },
     ]),
   ],
   content: `
-    <p>Accident, agression, choc soudain : quand un événement dépasse la capacité à l'intégrer, l'esprit et le corps restent en état d'alerte. L'hypnose ericksonienne accompagne ces conséquences en douceur, sans obligation de revivre l'événement dans le détail.</p>
+    <p>Accident, agression, choc soudain, licenciement vécu comme une remise en cause identitaire : quand un événement dépasse la capacité à l'intégrer, l'esprit et le corps restent en état d'alerte. L'hypnose ericksonienne accompagne ces conséquences en douceur, sans obligation de revivre l'événement dans le détail.</p>
 
     <h2>Comment l'hypnose accompagne un traumatisme</h2>
     <ul>
       <li>Installer un ancrage de sécurité mobilisable à tout moment</li>
-      <li>Réduire l'intensité émotionnelle du souvenir sans en effacer la mémoire</li>
-      <li>Apaiser l'hypervigilance et restaurer un sentiment de contrôle</li>
+      <li>Aborder le souvenir en dissociation, puis réassocier les ressources internes</li>
+      <li>Apaiser l'hypervigilance et restaurer un sentiment de contrôle, avec un langage permissif qui laisse le client maître du rythme</li>
       <li>Désamorcer les déclencheurs (lieux, sons, sensations) associés au choc</li>
     </ul>
     <p>Selon la nature et l'ancienneté du traumatisme, 4 à 8 séances permettent d'accompagner significativement le processus, au cabinet ou en visio.</p>

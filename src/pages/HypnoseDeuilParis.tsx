@@ -88,6 +88,7 @@ const HypnoseDeuilParis = () => {
     { title: "Isolement progressif", desc: "Vous vous êtes retiré(e) des relations sociales, vous n'avez plus goût aux activités que vous aimiez" },
     { title: "Perte de sens ou de goût à la vie", desc: "Depuis la perte, rien ne semble plus avoir le même sens, vous vous sentez vide ou déconnecté(e)" },
     { title: "Blocage émotionnel", desc: "Vous n'arrivez pas à pleurer, ou à l'inverse, les larmes ne s'arrêtent pas — vous êtes bloqué(e) dans une phase" },
+    { title: "Rupture amoureuse ou familiale", desc: "Une séparation, un divorce ou une rupture familiale laisse un vide difficile à combler, même longtemps après" },
   ];
 
   return (
@@ -95,7 +96,7 @@ const HypnoseDeuilParis = () => {
       <Helmet>
         <title>Hypnose deuil et séparation Paris | Alain Zenatti</title>
         <meta name="description" content="Traversez votre deuil avec l'hypnose à Paris 4ème ou en visio. Perte d'un proche, rupture, séparation — accompagnement doux en 4 à 6 séances." />
-        <meta name="keywords" content="hypnose deuil paris, traverser deuil hypnose, accompagnement deuil hypnose paris, hypnothérapeute deuil paris, hypnose séparation rupture, blocage deuil hypnose, deuil hypnose en ligne" />
+        <meta name="keywords" content="hypnose deuil paris, traverser deuil hypnose, accompagnement deuil hypnose paris, hypnothérapeute deuil paris, hypnose séparation rupture, hypnose rupture amoureuse, blocage deuil hypnose, deuil hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-deuil-paris" />
         <meta property="og:title" content="Hypnose deuil et séparation Paris | Alain Zenatti" />
         <meta property="og:description" content="Traversez votre deuil avec l'hypnose à Paris 4ème ou en visio. Perte d'un proche, rupture, séparation — accompagnement doux en 4 à 6 séances." />
@@ -130,7 +131,7 @@ const HypnoseDeuilParis = () => {
           </svg>
         </div>
         <div className="container sp-hero__inner reveal">
-          <div className="tag">Deuil &amp; séparation — Paris</div>
+          <div className="tag">Deuil, séparation &amp; ruptures — Paris</div>
           <h1 className="sp-hero__h1">
             Traversez votre deuil avec l'hypnose
           </h1>

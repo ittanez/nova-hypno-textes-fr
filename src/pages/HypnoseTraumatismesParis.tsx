@@ -35,7 +35,21 @@ const traumatismesFaqItems = [
   {
     question: "Puis-je faire mes séances en visio pour un traumatisme ?",
     answer: "Oui, les séances en visioconférence sont possibles et efficaces, à condition d'être dans un lieu calme et sécurisant. Pour certains traumatismes récents ou intenses, un premier échange permet d'évaluer ensemble si le cabinet ou la visio est le cadre le plus adapté pour démarrer."
+  },
+  {
+    question: "Un licenciement peut-il être vécu comme un traumatisme ?",
+    answer: "Oui. Un licenciement brutal, surtout après de nombreuses années dans une même entreprise, peut ébranler l'identité professionnelle aussi profondément qu'un choc physique : sentiment d'injustice, de trahison, perte de repères et de statut. L'hypnose accompagne ce trauma identitaire comme n'importe quel autre choc — en aidant à retrouver un sentiment de valeur et de contrôle sur son parcours."
   }
+];
+
+const manifestations = [
+  { title: "Reviviscences et flashbacks", desc: "Des images, sensations ou émotions liées à l'événement reviennent brutalement, comme si vous le reviviez" },
+  { title: "Hypervigilance", desc: "Vous êtes constamment sur le qui-vive, à l'affût du moindre danger, incapable de vous détendre" },
+  { title: "Évitement", desc: "Vous fuyez les lieux, personnes ou situations qui rappellent, même de loin, l'événement traumatique" },
+  { title: "Troubles du sommeil et cauchemars", desc: "Les nuits sont perturbées par des cauchemars récurrents ou une difficulté à trouver le sommeil" },
+  { title: "Sursauts et anxiété diffuse", desc: "Un bruit, une image, une odeur suffisent à déclencher une réaction de sursaut ou une angoisse soudaine" },
+  { title: "Sentiment de dissociation", desc: "Une impression d'être détaché(e) de vous-même ou de la réalité, comme observateur de votre propre vie" },
+  { title: "Choc identitaire après un licenciement", desc: "Une perte d'emploi brutale ébranle votre valeur professionnelle et laisse un sentiment d'injustice ou de vide" },
 ];
 
 const HypnoseTraumatismesParis = () => {
@@ -56,7 +70,7 @@ const HypnoseTraumatismesParis = () => {
     "serviceType": "Hypnothérapie traumatismes psychologiques",
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
+      "serviceUrl": RESALIB_URL,
       "name": "Au cabinet Paris 4ème ou en visioconférence (Google Meet)"
     }
   };
@@ -81,21 +95,12 @@ const HypnoseTraumatismesParis = () => {
     }))
   };
 
-  const manifestations = [
-    { title: "Reviviscences et flashbacks", desc: "Des images, sensations ou émotions liées à l'événement reviennent brutalement, comme si vous le reviviez" },
-    { title: "Hypervigilance", desc: "Vous êtes constamment sur le qui-vive, à l'affût du moindre danger, incapable de vous détendre" },
-    { title: "Évitement", desc: "Vous fuyez les lieux, personnes ou situations qui rappellent, même de loin, l'événement traumatique" },
-    { title: "Troubles du sommeil et cauchemars", desc: "Les nuits sont perturbées par des cauchemars récurrents ou une difficulté à trouver le sommeil" },
-    { title: "Sursauts et anxiété diffuse", desc: "Un bruit, une image, une odeur suffisent à déclencher une réaction de sursaut ou une angoisse soudaine" },
-    { title: "Sentiment de dissociation", desc: "Une impression d'être détaché(e) de vous-même ou de la réalité, comme observateur de votre propre vie" },
-  ];
-
   return (
     <CzLayout>
       <Helmet>
         <title>Hypnose traumatismes psychologiques Paris | Alain Zenatti</title>
         <meta name="description" content="Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
-        <meta name="keywords" content="hypnose traumatisme paris, hypnose choc psychologique, hypnose stress post-traumatique, hypnothérapeute trauma paris, hypnose après agression, hypnose après accident, traumatisme hypnose en ligne" />
+        <meta name="keywords" content="hypnose traumatisme paris, hypnose choc psychologique, hypnose stress post-traumatique, hypnothérapeute trauma paris, hypnose après agression, hypnose après accident, hypnose licenciement, traumatisme hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:title" content="Hypnose traumatismes psychologiques Paris | Alain Zenatti" />
         <meta property="og:description" content="Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
@@ -154,7 +159,7 @@ const HypnoseTraumatismesParis = () => {
               <div className="section-tag">Traumatisme — comprendre</div>
               <h2 className="section-title">Quand le corps et l'esprit<br/><em>restent en état d'alerte.</em></h2>
               <p>
-                Un traumatisme psychologique survient lorsqu'un événement dépasse notre capacité à l'intégrer sur le moment : accident, agression, deuil brutal, choc médical, événement violent vécu ou witnessé. L'esprit et le corps restent alors comme figés en état d'alerte, même longtemps après que le danger a disparu.
+                Un traumatisme psychologique survient lorsqu'un événement dépasse notre capacité à l'intégrer sur le moment : accident, agression, deuil brutal, choc médical, ou licenciement vécu comme une remise en cause identitaire. L'esprit et le corps restent alors comme figés en état d'alerte, même longtemps après que le danger a disparu.
               </p>
               <p>
                 Ce n'est pas une question de volonté ou de « force de caractère » : c'est un mécanisme de survie qui s'est mal refermé. Le souvenir reste stocké de façon brute, non digérée, et peut ressurgir à tout moment sous forme de flashback, de sursaut ou d'angoisse diffuse.
@@ -213,13 +218,13 @@ const HypnoseTraumatismesParis = () => {
               <div className="section-tag">Mécanisme — accompagnement du traumatisme</div>
               <h2 className="section-title">L'hypnose retraite<br/><em>le souvenir en sécurité.</em></h2>
               <p>
-                L'hypnose ericksonienne ne cherche jamais à vous faire revivre brutalement l'événement. Elle installe d'abord un espace de sécurité intérieure, puis permet à l'inconscient de retraiter le souvenir à distance, comme depuis un lieu protégé. En pratique, nous pouvons :
+                L'hypnose ericksonienne ne cherche jamais à vous faire revivre brutalement l'événement. Elle s'appuie sur des techniques de <strong>dissociation</strong> — aborder le souvenir depuis un lieu protégé, à distance de la souffrance — puis de <strong>réassociation</strong> aux ressources internes, pour reconstruire un rapport apaisé à l'expérience. Le langage utilisé est volontairement <strong>permissif</strong> : c'est vous qui gardez le contrôle total du rythme et de la profondeur du travail. En pratique, nous pouvons :
               </p>
               <div className="sp-checklist">
                 {[
                   "Installer un ancrage de sécurité mobilisable à tout moment",
-                  "Réduire l'intensité émotionnelle du souvenir sans en effacer la mémoire",
-                  "Apaiser l'hypervigilance et restaurer un sentiment de contrôle",
+                  "Aborder le souvenir en dissociation, sans en revivre la charge brute",
+                  "Réassocier progressivement les ressources internes et le sentiment de contrôle",
                   "Désamorcer les déclencheurs (lieux, sons, sensations) associés au choc",
                   "Retrouver progressivement un sommeil et un quotidien apaisés"
                 ].map((item, i) => (
@@ -248,6 +253,12 @@ const HypnoseTraumatismesParis = () => {
               <div className="sp-case__title">Reviviscences après une agression</div>
               <p>
                 Karim*, 41 ans, revivait par flashs une agression survenue deux ans auparavant, avec des réveils nocturnes fréquents. Le travail hypnotique s'est fait par étapes, toujours depuis un espace de sécurité, sans jamais forcer le rythme. Après 7 séances, les flashbacks avaient nettement diminué et le sommeil s'était stabilisé.
+              </p>
+            </div>
+            <div className="sp-case reveal">
+              <div className="sp-case__title">Licenciement vécu comme un choc identitaire</div>
+              <p>
+                Sophie*, 47 ans, avait été licenciée brutalement après quinze ans dans la même entreprise. Le sentiment de trahison et de perte de valeur professionnelle l'empêchait de se projeter dans une nouvelle recherche. En 4 séances, le travail de dissociation puis de réassociation aux ressources internes lui a permis de retrouver confiance et de se remettre en mouvement.
               </p>
             </div>
           </div>
