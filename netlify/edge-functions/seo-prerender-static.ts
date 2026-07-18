@@ -847,7 +847,7 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions, réactions disproportionnées</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
       <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte, rupture</li>
-      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes psychologiques</a> — Choc, accident, agression</li>
+      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes</a> — Choc, accident, agression</li>
       <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
       <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur de craquer, contrôle excessif</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement</li>
@@ -2429,7 +2429,7 @@ PAGES["/hypnose-troubles-emotionnels-paris"] = {
     <ul>
       <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions incontrôlées, réactions disproportionnées</li>
       <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte d'un proche, rupture</li>
-      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes psychologiques</a> — Choc, accident, agression</li>
+      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes</a> — Choc, accident, agression</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
       <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement émotionnel</li>
@@ -2649,29 +2649,29 @@ PAGES["/hypnose-deuil-paris"] = {
 };
 
 PAGES["/hypnose-traumatismes-paris"] = {
-  title: "Hypnose traumatismes psychologiques Paris | Alain Zenatti",
+  title: "Hypnose traumatismes Paris | Alain Zenatti",
   description:
-    "Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma.",
+    "Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma. Ne remplace pas un suivi médical.",
   canonicalPath: "/hypnose-traumatismes-paris",
   h1: "Apaisez un traumatisme avec l'hypnose — Choc, accident, agression, stress post-traumatique",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Hypnose traumatismes psychologiques Paris",
-      description: "Accompagnement des traumatismes psychologiques par l'hypnose ericksonienne : chocs, accidents, agressions, stress post-traumatique. Cabinet Paris 4ème ou en visio.",
+      name: "Hypnose traumatismes Paris",
+      description: "Accompagnement des traumatismes par l'hypnose ericksonienne : chocs, accidents, agressions, stress post-traumatique. Cabinet Paris 4ème ou en visio.",
       url: `${SITE_URL}/hypnose-traumatismes-paris`,
       provider: { "@id": `${SITE_URL}/#person` },
       areaServed: [
         { "@type": "City", name: "Paris" },
         { "@type": "Country", name: "France" },
       ],
-      serviceType: "Hypnothérapie traumatismes psychologiques",
+      serviceType: "Hypnothérapie traumatismes",
     },
     breadcrumbLd([
       { name: "Accueil", path: "/" },
       { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
-      { name: "Traumatismes psychologiques", path: "/hypnose-traumatismes-paris" },
+      { name: "Traumatismes", path: "/hypnose-traumatismes-paris" },
     ]),
     faqLd([
       {
@@ -2684,7 +2684,7 @@ PAGES["/hypnose-traumatismes-paris"] = {
       },
       {
         q: "L'hypnose peut-elle aider en cas de stress post-traumatique (TSPT) ?",
-        a: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Pour un TSPT caractérisé et sévère, elle s'inscrit idéalement en complément d'un suivi médical ou psychothérapeutique, jamais en remplacement d'un diagnostic ou d'un traitement en cours.",
+        a: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Il est important de le préciser : l'hypnose ne remplace jamais un diagnostic, un suivi médical ou psychothérapeutique. Pour un TSPT caractérisé, elle s'inscrit uniquement en complément d'une prise en charge médicale.",
       },
       {
         q: "Un licenciement peut-il être vécu comme un traumatisme ?",
@@ -2702,7 +2702,7 @@ PAGES["/hypnose-traumatismes-paris"] = {
       <li>Apaiser l'hypervigilance et restaurer un sentiment de contrôle, avec un langage permissif qui laisse le client maître du rythme</li>
       <li>Désamorcer les déclencheurs (lieux, sons, sensations) associés au choc</li>
     </ul>
-    <p>Selon la nature et l'ancienneté du traumatisme, 4 à 8 séances permettent d'accompagner significativement le processus, au cabinet ou en visio.</p>
+    <p>Selon la nature et l'ancienneté du traumatisme, 4 à 8 séances permettent d'accompagner significativement le processus, au cabinet ou en visio. Cet accompagnement est complémentaire et ne remplace en aucun cas un diagnostic, un suivi médical, psychiatrique ou psychothérapeutique en cours.</p>
 
     <h2>Problématiques liées</h2>
     <ul>

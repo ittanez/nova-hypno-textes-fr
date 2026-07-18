@@ -132,7 +132,7 @@ const Footer = () => {
               <li><Link to="/hypnose-sommeil-paris" className="text-gray-300 hover:text-white transition-colors">Troubles du sommeil</Link></li>
               <li><Link to="/hypnose-gestion-emotions-paris" className="text-gray-300 hover:text-white transition-colors">Gestion des émotions</Link></li>
               <li><Link to="/hypnose-deuil-paris" className="text-gray-300 hover:text-white transition-colors">Deuil et séparation</Link></li>
-              <li><Link to="/hypnose-traumatismes-paris" className="text-gray-300 hover:text-white transition-colors">Traumatismes psychologiques</Link></li>
+              <li><Link to="/hypnose-traumatismes-paris" className="text-gray-300 hover:text-white transition-colors">Traumatismes</Link></li>
               <li><Link to="/hypnose-blocages-paris" className="text-gray-300 hover:text-white transition-colors">Blocages et comportements</Link></li>
               <li><Link to="/hypnose-confiance-en-soi-paris" className="text-gray-300 hover:text-white transition-colors">Confiance en soi</Link></li>
               <li><Link to="/hypnose-en-ligne" className="text-gray-300 hover:text-white transition-colors">Hypnose en ligne (visio)</Link></li>

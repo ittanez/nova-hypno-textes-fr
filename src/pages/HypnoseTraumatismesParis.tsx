@@ -26,11 +26,11 @@ const traumatismesFaqItems = [
   },
   {
     question: "L'hypnose peut-elle aider en cas de stress post-traumatique (TSPT) ?",
-    answer: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Pour un TSPT caractérisé et sévère, elle s'inscrit idéalement en complément d'un suivi médical ou psychothérapeutique, jamais en remplacement d'un diagnostic ou d'un traitement en cours."
+    answer: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Il est important de le préciser : l'hypnose ne remplace jamais un diagnostic, un suivi médical ou psychothérapeutique. Pour un TSPT caractérisé, elle s'inscrit uniquement en complément d'une prise en charge médicale, en coordination avec votre médecin ou psychiatre si besoin."
   },
   {
     question: "Combien de séances sont nécessaires pour un traumatisme ?",
-    answer: "Cela dépend fortement de la nature du choc (accident, agression, deuil traumatique, traumatisme ancien) et de son ancienneté. Un événement récent et isolé peut s'apaiser en 4 à 6 séances. Un traumatisme ancien ou complexe demande souvent un accompagnement plus progressif, construit pas à pas avec vous."
+    answer: "Cela dépend fortement de la nature du choc (accident, agression, deuil traumatique, traumatisme ancien) et de son ancienneté. Comptez généralement 4 à 8 séances pour accompagner significativement le processus. Un traumatisme ancien ou complexe demande souvent un accompagnement plus progressif, construit pas à pas avec vous."
   },
   {
     question: "Puis-je faire mes séances en visio pour un traumatisme ?",
@@ -59,15 +59,15 @@ const HypnoseTraumatismesParis = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Hypnose traumatismes psychologiques Paris",
-    "description": "Accompagnement des traumatismes psychologiques par l'hypnose ericksonienne : chocs, accidents, agressions, stress post-traumatique. Cabinet Paris 4ème ou en visio.",
+    "name": "Hypnose traumatismes Paris",
+    "description": "Accompagnement des traumatismes par l'hypnose ericksonienne : chocs, accidents, agressions, stress post-traumatique. Cabinet Paris 4ème ou en visio.",
     "url": "https://novahypnose.fr/hypnose-traumatismes-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
       { "@type": "City", "name": "Paris" },
       { "@type": "Country", "name": "France" }
     ],
-    "serviceType": "Hypnothérapie traumatismes psychologiques",
+    "serviceType": "Hypnothérapie traumatismes",
     "availableChannel": {
       "@type": "ServiceChannel",
       "serviceUrl": RESALIB_URL,
@@ -81,7 +81,7 @@ const HypnoseTraumatismesParis = () => {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
       { "@type": "ListItem", "position": 2, "name": "Gestion des émotions", "item": "https://novahypnose.fr/hypnose-gestion-emotions-paris" },
-      { "@type": "ListItem", "position": 3, "name": "Traumatismes psychologiques", "item": "https://novahypnose.fr/hypnose-traumatismes-paris" }
+      { "@type": "ListItem", "position": 3, "name": "Traumatismes", "item": "https://novahypnose.fr/hypnose-traumatismes-paris" }
     ]
   };
 
@@ -98,12 +98,12 @@ const HypnoseTraumatismesParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose traumatismes psychologiques Paris | Alain Zenatti</title>
-        <meta name="description" content="Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
+        <title>Hypnose traumatismes Paris | Alain Zenatti</title>
+        <meta name="description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma. Ne remplace pas un suivi médical." />
         <meta name="keywords" content="hypnose traumatisme paris, hypnose choc psychologique, hypnose stress post-traumatique, hypnothérapeute trauma paris, hypnose après agression, hypnose après accident, hypnose licenciement, traumatisme hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-traumatismes-paris" />
-        <meta property="og:title" content="Hypnose traumatismes psychologiques Paris | Alain Zenatti" />
-        <meta property="og:description" content="Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
+        <meta property="og:title" content="Hypnose traumatismes Paris | Alain Zenatti" />
+        <meta property="og:description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -113,8 +113,8 @@ const HypnoseTraumatismesParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose traumatismes" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose traumatismes psychologiques Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
+        <meta name="twitter:title" content="Hypnose traumatismes Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -135,7 +135,7 @@ const HypnoseTraumatismesParis = () => {
           </svg>
         </div>
         <div className="container sp-hero__inner reveal">
-          <div className="tag">Traumatismes psychologiques — Paris</div>
+          <div className="tag">Traumatismes — Paris</div>
           <h1 className="sp-hero__h1">
             Apaisez un traumatisme avec l'hypnose
           </h1>
@@ -149,6 +149,7 @@ const HypnoseTraumatismesParis = () => {
             </a>
             <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
+          <p className="sp-footnote">Cet accompagnement est complémentaire et ne remplace en aucun cas un diagnostic, un suivi médical, psychiatrique ou psychothérapeutique en cours.</p>
         </div>
       </section>
 
@@ -159,7 +160,7 @@ const HypnoseTraumatismesParis = () => {
               <div className="section-tag">Traumatisme — comprendre</div>
               <h2 className="section-title">Quand le corps et l'esprit<br/><em>restent en état d'alerte.</em></h2>
               <p>
-                Un traumatisme psychologique survient lorsqu'un événement dépasse notre capacité à l'intégrer sur le moment : accident, agression, deuil brutal, choc médical, ou licenciement vécu comme une remise en cause identitaire. L'esprit et le corps restent alors comme figés en état d'alerte, même longtemps après que le danger a disparu.
+                Un traumatisme survient lorsqu'un événement dépasse notre capacité à l'intégrer sur le moment : accident, agression, deuil brutal, choc médical, ou licenciement vécu comme une remise en cause identitaire. L'esprit et le corps restent alors comme figés en état d'alerte, même longtemps après que le danger a disparu.
               </p>
               <p>
                 Ce n'est pas une question de volonté ou de « force de caractère » : c'est un mécanisme de survie qui s'est mal refermé. Le souvenir reste stocké de façon brute, non digérée, et peut ressurgir à tout moment sous forme de flashback, de sursaut ou d'angoisse diffuse.
@@ -250,12 +251,6 @@ const HypnoseTraumatismesParis = () => {
               </p>
             </div>
             <div className="sp-case reveal">
-              <div className="sp-case__title">Reviviscences après une agression</div>
-              <p>
-                Karim*, 41 ans, revivait par flashs une agression survenue deux ans auparavant, avec des réveils nocturnes fréquents. Le travail hypnotique s'est fait par étapes, toujours depuis un espace de sécurité, sans jamais forcer le rythme. Après 7 séances, les flashbacks avaient nettement diminué et le sommeil s'était stabilisé.
-              </p>
-            </div>
-            <div className="sp-case reveal">
               <div className="sp-case__title">Licenciement vécu comme un choc identitaire</div>
               <p>
                 Sophie*, 47 ans, avait été licenciée brutalement après quinze ans dans la même entreprise. Le sentiment de trahison et de perte de valeur professionnelle l'empêchait de se projeter dans une nouvelle recherche. En 4 séances, le travail de dissociation puis de réassociation aux ressources internes lui a permis de retrouver confiance et de se remettre en mouvement.
@@ -339,9 +334,9 @@ const HypnoseTraumatismesParis = () => {
       <div className="sp-ext-section">
         <SpecialtyReferences
           pageUrl="https://novahypnose.fr/hypnose-traumatismes-paris"
-          pageTitle="Hypnose pour les traumatismes psychologiques à Paris"
-          pageDescription="Hypnose ericksonienne pour accompagner les traumatismes psychologiques et leurs conséquences. Cabinet Paris 4ème ou en visio."
-          topic="l'accompagnement des traumatismes psychologiques"
+          pageTitle="Hypnose pour les traumatismes à Paris"
+          pageDescription="Hypnose ericksonienne pour accompagner les traumatismes et leurs conséquences, en complément d'un suivi médical si besoin. Cabinet Paris 4ème ou en visio."
+          topic="l'accompagnement des traumatismes"
           dateModified="2026-07-18"
           references={[
             {

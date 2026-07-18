@@ -36,7 +36,7 @@ const ACCOMPAGNEMENTS_LINKS = [
   { label: 'Sommeil', href: '/hypnose-sommeil-paris' },
   { label: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
   { label: 'Deuil et séparation', href: '/hypnose-deuil-paris' },
-  { label: 'Traumatismes psychologiques', href: '/hypnose-traumatismes-paris' },
+  { label: 'Traumatismes', href: '/hypnose-traumatismes-paris' },
   { label: 'Blocages & comportements', href: '/hypnose-blocages-paris' },
   { label: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { label: 'Phobies', href: '/hypnose-phobies-paris' },

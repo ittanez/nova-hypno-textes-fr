@@ -374,7 +374,7 @@ const HypnoseDeuilParis = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
-            <Link to="/hypnose-traumatismes-paris">Traumatismes psychologiques →</Link>
+            <Link to="/hypnose-traumatismes-paris">Traumatismes →</Link>
             <Link to="/hypnose-gestion-emotions-paris">Toutes les émotions →</Link>
             <Link to="/hypnose-charge-emotionnelle-paris">Charge émotionnelle →</Link>
             <Link to="/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle →</Link>
