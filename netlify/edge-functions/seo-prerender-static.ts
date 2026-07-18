@@ -847,6 +847,7 @@ const PAGES: Record<string, PageData> = {
       <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions, réactions disproportionnées</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
       <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte, rupture</li>
+      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes psychologiques</a> — Choc, accident, agression</li>
       <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
       <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur de craquer, contrôle excessif</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement</li>
@@ -2428,6 +2429,7 @@ PAGES["/hypnose-troubles-emotionnels-paris"] = {
     <ul>
       <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions incontrôlées, réactions disproportionnées</li>
       <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte d'un proche, rupture</li>
+      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes psychologiques</a> — Choc, accident, agression</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
       <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement émotionnel</li>
@@ -2643,6 +2645,70 @@ PAGES["/hypnose-deuil-paris"] = {
     </ul>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour traverser mon deuil</a>
+    `,
+};
+
+PAGES["/hypnose-traumatismes-paris"] = {
+  title: "Hypnose traumatismes psychologiques Paris | Alain Zenatti",
+  description:
+    "Apaisez un traumatisme psychologique avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma.",
+  canonicalPath: "/hypnose-traumatismes-paris",
+  h1: "Apaisez un traumatisme avec l'hypnose — Choc, accident, agression, stress post-traumatique",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose traumatismes psychologiques Paris",
+      description: "Accompagnement des traumatismes psychologiques par l'hypnose ericksonienne : chocs, accidents, agressions, stress post-traumatique. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-traumatismes-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie traumatismes psychologiques",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
+      { name: "Traumatismes psychologiques", path: "/hypnose-traumatismes-paris" },
+    ]),
+    faqLd([
+      {
+        q: "L'hypnose peut-elle vraiment aider après un traumatisme ?",
+        a: "Oui. L'hypnose ericksonienne offre un cadre sécurisant pour accompagner les conséquences d'un choc psychologique — reviviscences, hypervigilance, évitement, troubles du sommeil. Elle travaille sur la manière dont le souvenir est stocké et vécu par l'inconscient, sans nécessiter de revivre l'événement dans les moindres détails.",
+      },
+      {
+        q: "Est-ce que je vais devoir revivre l'événement traumatique en séance ?",
+        a: "Non, ce n'est pas nécessaire. Contrairement à certaines idées reçues, l'hypnose ericksonienne ne vous oblige pas à replonger dans les détails du traumatisme. Nous travaillons de façon dissociée et sécurisée, en installant d'abord un espace de sécurité intérieure, puis en retraitant le souvenir en douceur.",
+      },
+      {
+        q: "L'hypnose peut-elle aider en cas de stress post-traumatique (TSPT) ?",
+        a: "L'hypnose peut accompagner certains symptômes du stress post-traumatique (hypervigilance, troubles du sommeil, anxiété anticipatoire). Pour un TSPT caractérisé et sévère, elle s'inscrit idéalement en complément d'un suivi médical ou psychothérapeutique, jamais en remplacement d'un diagnostic ou d'un traitement en cours.",
+      },
+    ]),
+  ],
+  content: `
+    <p>Accident, agression, choc soudain : quand un événement dépasse la capacité à l'intégrer, l'esprit et le corps restent en état d'alerte. L'hypnose ericksonienne accompagne ces conséquences en douceur, sans obligation de revivre l'événement dans le détail.</p>
+
+    <h2>Comment l'hypnose accompagne un traumatisme</h2>
+    <ul>
+      <li>Installer un ancrage de sécurité mobilisable à tout moment</li>
+      <li>Réduire l'intensité émotionnelle du souvenir sans en effacer la mémoire</li>
+      <li>Apaiser l'hypervigilance et restaurer un sentiment de contrôle</li>
+      <li>Désamorcer les déclencheurs (lieux, sons, sensations) associés au choc</li>
+    </ul>
+    <p>Selon la nature et l'ancienneté du traumatisme, 4 à 8 séances permettent d'accompagner significativement le processus, au cabinet ou en visio.</p>
+
+    <h2>Problématiques liées</h2>
+    <ul>
+      <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Quand la perte est aussi un choc</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
+      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Le poids accumulé</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a> — Quand le traumatisme empêche de dormir</li>
+    </ul>
+
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour apaiser mon traumatisme</a>
     `,
 };
 

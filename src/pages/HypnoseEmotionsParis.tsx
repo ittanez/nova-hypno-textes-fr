@@ -63,6 +63,7 @@ const HypnoseEmotionsParis = () => {
     { title: "Colère et irritabilité", desc: "Réactions disproportionnées, explosions de colère, impatience permanente", href: "/hypnose-colere-paris" },
     { title: "Hypersensibilité", desc: "Émotions amplifiées, pleurs faciles, sensation d'être submergé(e)", href: "/hypnose-hypersensibilite-paris" },
     { title: "Deuil et séparation", desc: "Difficulté à surmonter une perte, une rupture ou un changement de vie", href: "/hypnose-deuil-paris" },
+    { title: "Traumatismes psychologiques", desc: "Choc, accident, agression : reviviscences, hypervigilance, évitement", href: "/hypnose-traumatismes-paris" },
     { title: "Frustration chronique", desc: "Sentiment d'insatisfaction permanent, difficulté à accepter les situations", href: "/hypnose-frustration-paris" },
     { title: "Anxiété émotionnelle", desc: "Peur d'être submergé(e) par ses émotions, évitement des situations intenses", href: "/hypnose-anxiete-emotionnelle-paris" },
     { title: "Charge émotionnelle", desc: "Accumulation d'émotions non exprimées, sensation de trop-plein", href: "/hypnose-charge-emotionnelle-paris" }

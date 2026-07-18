@@ -159,6 +159,7 @@ const HypnoseColereParis = lazy(() => import("@/pages/HypnoseColereParis"));
 const HypnoseHypersensibiliteParis = lazy(() => import("@/pages/HypnoseHypersensibiliteParis"));
 const HypnoseChargeEmotionnelleParis = lazy(() => import("@/pages/HypnoseChargeEmotionnelleParis"));
 const HypnoseDeuilParis = lazy(() => import("@/pages/HypnoseDeuilParis"));
+const HypnoseTraumatismesParis = lazy(() => import("@/pages/HypnoseTraumatismesParis"));
 const HypnoseFrustrationParis = lazy(() => import("@/pages/HypnoseFrustrationParis"));
 const HypnoseAnxieteEmotionnelleParis = lazy(() => import("@/pages/HypnoseAnxieteEmotionnelleParis"));
 
@@ -334,6 +335,7 @@ function App() {
             <Route path="/hypnose-frustration-chronique-paris" element={<Navigate to="/hypnose-frustration-paris" replace />} />
             <Route path="/hypnose-charge-emotionnelle-paris" element={<HypnoseChargeEmotionnelleParis />} />
             <Route path="/hypnose-deuil-paris" element={<HypnoseDeuilParis />} />
+            <Route path="/hypnose-traumatismes-paris" element={<HypnoseTraumatismesParis />} />
             <Route path="/hypnose-frustration-paris" element={<HypnoseFrustrationParis />} />
             <Route path="/hypnose-anxiete-emotionnelle-paris" element={<HypnoseAnxieteEmotionnelleParis />} />
 
