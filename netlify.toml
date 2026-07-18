@@ -299,6 +299,34 @@
   path = "/faq"
   function = "seo-prerender-static"
 
+[[edge_functions]]
+  path = "/guide-procrastination"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-autohypnose"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-sommeil"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-emotions-travail"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-colere"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-carriere"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/guide-arret-tabac"
+  function = "seo-prerender-static"
+
 # Optimisations pour les applications monopages (SPA)
 [[headers]]
   for = "/*"
