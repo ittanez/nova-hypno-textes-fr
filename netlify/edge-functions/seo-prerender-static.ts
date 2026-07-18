@@ -3921,6 +3921,7 @@ PAGES["/guide-procrastination"] = {
       "url": `${SITE_URL}/guide-procrastination`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 17,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4100,6 +4101,7 @@ PAGES["/guide-emotions-travail"] = {
       "url": `${SITE_URL}/guide-emotions-travail`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 19,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4111,7 +4113,7 @@ PAGES["/guide-emotions-travail"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 19 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce ne sont pas de la faiblesse : ce sont des signaux d'alarme de votre système nerveux. Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à sa place.</p>
+    <p><strong>Guide gratuit · 19 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce n'est pas de la faiblesse : ce sont des signaux d'alarme de votre système nerveux. Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à sa place.</p>
 
     <h2>Sommaire détaillé</h2>
     <ol>
