@@ -152,7 +152,16 @@ export const getAllArticlesNoPagination = async (publishedOnly: boolean = true):
       throw error;
     }
 
-    return { data: data as Article[], error: null };
+    // Trie par date de publication effective (published_at si renseignée, sinon created_at) :
+    // un article rédigé en brouillon puis publié plus tard doit apparaître à sa date de publication,
+    // pas à sa date de création — cohérent avec la date affichée à l'écran (formatDate).
+    const sorted = ((data as Article[]) || []).slice().sort((a, b) => {
+      const dateA = new Date(a.published_at || a.created_at).getTime();
+      const dateB = new Date(b.published_at || b.created_at).getTime();
+      return dateB - dateA;
+    });
+
+    return { data: sorted, error: null };
   } catch (error) {
     logger.error("Erreur lors de la récupération des articles:", error);
     return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };

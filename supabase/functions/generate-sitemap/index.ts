@@ -55,6 +55,7 @@ serve(async (req) => {
       { loc: '/hypnose-colere-paris',          changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-hypersensibilite-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-deuil-paris',           changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-traumatismes-paris',    changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-frustration-paris',     changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-anxiete-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-charge-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },

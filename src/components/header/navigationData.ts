@@ -41,6 +41,8 @@ export const specialitesLinks: NavLink[] = [
   { name: 'Phobies et peurs', href: '/hypnose-phobies-paris' },
   { name: 'Troubles du sommeil', href: '/hypnose-sommeil-paris' },
   { name: 'Gestion des émotions', href: '/hypnose-gestion-emotions-paris' },
+  { name: 'Deuil et séparation', href: '/hypnose-deuil-paris' },
+  { name: 'Traumatismes', href: '/hypnose-traumatismes-paris' },
   { name: 'Blocages et comportements', href: '/hypnose-blocages-paris' },
   { name: 'Confiance en soi', href: '/hypnose-confiance-en-soi-paris' },
   { name: 'Arrêt du tabac', href: '/hypnose-arret-tabac-paris' },

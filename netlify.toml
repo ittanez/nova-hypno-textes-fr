@@ -216,6 +216,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/hypnose-traumatismes-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/hypnose-frustration-paris"
   function = "seo-prerender-static"
 
