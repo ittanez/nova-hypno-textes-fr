@@ -37,7 +37,9 @@
       "mcp__Ahrefs__management-projects",
       "mcp__Ahrefs__gsc-performance-history",
       "mcp__Ahrefs__gsc-keywords",
-      "mcp__Windsor_ai__get_connectors"
+      "mcp__Windsor_ai__get_connectors",
+      "mcp__Claude_Code_Remote__subscribe_pr_activity",
+      "mcp__Claude_Code_Remote__send_later"
     ],
     "deny": [],
     "ask": []
