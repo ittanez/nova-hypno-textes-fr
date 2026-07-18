@@ -39,7 +39,8 @@
       "mcp__Ahrefs__gsc-keywords",
       "mcp__Windsor_ai__get_connectors",
       "mcp__Claude_Code_Remote__subscribe_pr_activity",
-      "mcp__Claude_Code_Remote__send_later"
+      "mcp__Claude_Code_Remote__send_later",
+      "mcp__Supabase__execute_sql"
     ],
     "deny": [],
     "ask": []
