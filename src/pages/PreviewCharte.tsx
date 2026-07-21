@@ -316,6 +316,7 @@ const PreviewCharte: React.FC = () => {
                   <a href="/blog" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Blog ↗</a>
                   <a href="/autohypnose" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Auto-hypnose ↗</a>
                   <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Hypno-balade ↗</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer nofollow" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>NovaRespire ↗</a>
                 </div>
               </div>
 
@@ -818,6 +819,10 @@ const PreviewCharte: React.FC = () => {
               <a href="tel:+33649358089">06 49 35 80 89</a>
               <span className="foot__sep">·</span>
               <address className="foot__addr">16 rue Saint-Antoine, 75004 Paris</address>
+              <span className="foot__sep">·</span>
+              <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-Balade</a>
+              <span className="foot__sep">·</span>
+              <a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer nofollow">NovaRespire</a>
             </nav>
             <div className="foot__copy">
               © NovaHypnose · Alain Zenatti <em>— pour aller à votre rythme</em> · MMXXVI
