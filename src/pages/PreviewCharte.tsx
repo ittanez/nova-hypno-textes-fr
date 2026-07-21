@@ -15,6 +15,7 @@ import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, website
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
+const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share';
 
 const domaines = [
   { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien.", href: "/hypnose-stress-anxiete-paris" },
@@ -518,6 +519,41 @@ const PreviewCharte: React.FC = () => {
                 <li><strong>Un endroit à vous</strong> — calme, casque audio, connexion stable. Rien d'autre.</li>
                 <li><strong>Même tarif qu'au cabinet</strong> — 90 €, 1h30 la première séance.</li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ── ENTRE LES SÉANCES (NovaRespire) ── */}
+        <section className="cabinet" id="respire">
+          <div className="container cabinet__grid cabinet__grid--reverse reveal">
+            <div className="cabinet__visual respire__visual" aria-hidden="true">
+              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
+                <g className="respire__pulse">
+                  <g filter="url(#riso-full)">
+                    <path d="M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z" fill="#F2A12E" opacity="0.9" />
+                  </g>
+                  <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                    <path d="M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z" fill="none" stroke="#2B4BA0" strokeWidth="5" opacity="0.7" />
+                  </g>
+                </g>
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".2" />
+              </svg>
+            </div>
+            <div className="cabinet__copy">
+              <div className="section-tag">Entre les séances</div>
+              <h2 className="section-title">Respirez, <em>où que vous soyez.</em></h2>
+              <p>
+                L'accompagnement ne s'arrête pas à la porte du cabinet. <strong>NovaRespire</strong>,
+                mon application gratuite, vous propose des exercices de respiration guidée pour
+                retrouver le calme en quelques minutes, chez vous ou en déplacement.
+              </p>
+              <p>
+                Posez le regard sur ce cercle quelques instants, laissez votre respiration se caler
+                sur son rythme — c'est déjà un premier pas.
+              </p>
+              <a className="btn btn--primary" href={NOVARESPIRE_URL} target="_blank" rel="noopener noreferrer nofollow">
+                Télécharger NovaRespire <span className="arrow">→</span>
+              </a>
             </div>
           </div>
         </section>
