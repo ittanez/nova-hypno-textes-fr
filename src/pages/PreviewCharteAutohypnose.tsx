@@ -14,6 +14,7 @@ import { createBreadcrumbSchema, localBusinessSchema } from '@/data/schemaOrg';
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const WAITLIST_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/formation-liste-attente';
 const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire';
+const RESPIRE_PATH = 'M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z';
 
 const benefices = [
   { t: 'Retrouver un état apaisé', d: "Le calme apprivoisé en séance, vous le rappelez en quelques minutes — au bureau, dans les transports, avant un moment qui compte." },
@@ -346,21 +347,17 @@ const PreviewCharteAutohypnose: React.FC = () => {
         {/* ── NOVARESPIRE ── */}
         <section className="visio" id="novarespire">
           <div className="container cabinet__grid cabinet__grid--reverse">
-            <div className="cabinet__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
+            <div className="cabinet__visual respire__visual reveal" style={{ transitionDelay: '.2s' }} aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
-                <g filter="url(#riso-full)">
-                  <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
+                <g className="respire__pulse">
+                  <g filter="url(#riso-full)">
+                    <path d={RESPIRE_PATH} fill="#F2A12E" opacity="0.9" />
+                  </g>
+                  <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
+                    <path d={RESPIRE_PATH} fill="none" stroke="#2B4BA0" strokeWidth="5" opacity="0.7" />
+                  </g>
                 </g>
-                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                  <path d="M 160 200 C 280 160, 380 200, 400 300 C 415 380, 360 450, 260 450 C 160 450, 110 380, 120 290 C 126 240, 140 214, 160 200 Z" fill="#F2A12E" opacity="0.9" />
-                </g>
-                <rect x="200" y="180" width="120" height="220" rx="18" fill="#F0ECE3" opacity="0.95" />
-                <rect x="220" y="210" width="80" height="6" rx="3" fill="#2B4BA0" opacity="0.45" />
-                <circle cx="260" cy="280" r="32" fill="none" stroke="#2B4BA0" strokeWidth="2" opacity="0.7" />
-                <circle cx="260" cy="280" r="20" fill="#F2A12E" opacity="0.85" />
-                <rect x="220" y="340" width="80" height="6" rx="3" fill="#2B4BA0" opacity="0.4" />
-                <rect x="234" y="354" width="52" height="6" rx="3" fill="#2B4BA0" opacity="0.3" />
-                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
+                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".2" />
               </svg>
               <div className="cabinet__addr">NovaRespire · gratuit · Android uniquement</div>
             </div>
