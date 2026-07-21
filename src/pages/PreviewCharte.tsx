@@ -487,6 +487,9 @@ const PreviewCharte: React.FC = () => {
                 </React.Fragment>
               ))}
             </p>
+            <svg className="slogan__flourish" viewBox="0 0 300 40" aria-hidden="true">
+              <path d="M5 25 C 40 5, 70 35, 110 15 C 140 0, 170 30, 200 12 C 220 0, 245 20, 260 10 C 270 5, 280 12, 275 18" />
+            </svg>
           </div>
         </section>
 
