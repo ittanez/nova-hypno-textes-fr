@@ -439,6 +439,14 @@ const PreviewCharte: React.FC = () => {
                   votre rapport à ce qui vous encombre — parce que vos propres ressources, déjà là, retrouvent
                   un chemin d'expression.
                 </p>
+                <img
+                  src="/images/comment-ca-marche-diagramme.png"
+                  alt="Schéma : sous hypnose, le conscient se détend et l'inconscient peut travailler sur ce qui empêche d'être bien"
+                  className="about__diagram"
+                  loading="lazy"
+                  width="1024"
+                  height="1024"
+                />
               </div>
 
               <div className="about__stat">
@@ -469,17 +477,15 @@ const PreviewCharte: React.FC = () => {
                 <li><strong>Un rythme qui ralentit</strong> — séances complètes, jamais expédiées.</li>
               </ul>
             </div>
-            <div className="cabinet__visual reveal d-2" aria-hidden="true">
-              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
-                <g filter="url(#riso-full)">
-                  <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#F2A12E" opacity="0.92" />
-                </g>
-                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                  <path d="M 170 180 C 290 130, 390 180, 410 290 C 425 380, 360 450, 260 450 C 160 450, 110 370, 120 280 C 126 222, 140 196, 170 180 Z" fill="#2B4BA0" opacity="0.9" />
-                </g>
-                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
-              </svg>
-              <div className="cabinet__addr">16 rue Saint-Antoine · 75004 Paris</div>
+            <div className="cabinet__visual reveal d-2">
+              <img
+                src="/images/cabinet-silhouette-fauteuil.png"
+                alt="Illustration d'une personne détendue, installée dans un fauteuil, pendant une séance d'hypnothérapie"
+                loading="lazy"
+                width="896"
+                height="1152"
+              />
+              <div className="cabinet__addr" aria-hidden="true">16 rue Saint-Antoine · 75004 Paris</div>
             </div>
           </div>
         </section>
@@ -699,6 +705,14 @@ const PreviewCharte: React.FC = () => {
                 Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
                 clair, expliqué pas à pas — aucune surprise.
               </p>
+              <img
+                src="/images/deroule-seance-infographie.png"
+                alt="Schéma d'une séance d'hypnose ericksonienne en 4 étapes : accueil et échange, induction, travail thérapeutique, retour et ancrage"
+                className="sessions-infographic"
+                loading="lazy"
+                width="1344"
+                height="768"
+              />
             </div>
 
             <div className="seances__steps reveal d-1">
