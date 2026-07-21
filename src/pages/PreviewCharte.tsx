@@ -61,8 +61,35 @@ const NAV_MOBILE_BREAKPOINT = 760;
 const isDesktopViewport = (): boolean =>
   typeof window !== 'undefined' && window.innerWidth > NAV_MOBILE_BREAKPOINT;
 
+// Anime un nombre de 0 à target une fois que `trigger` passe à true (ex. entrée dans le viewport).
+function useCountUp(target: number, trigger: boolean, duration = 1200): number {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setValue(target);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      setValue(Math.round(progress * target));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [trigger, target, duration]);
+  return value;
+}
+
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsInView, setStatsInView] = useState(false);
+  const statYears = useCountUp(5, statsInView);
+  const statCertifs = useCountUp(9, statsInView);
+  const statRating = useCountUp(5, statsInView);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
@@ -127,6 +154,18 @@ const PreviewCharte: React.FC = () => {
       { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
     );
     els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  // Déclenche le compteur animé (5+ / 9 / 5/5) une seule fois, à l'entrée dans le viewport.
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) { setStatsInView(true); io.disconnect(); } },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
     return () => io.disconnect();
   }, []);
 
@@ -473,10 +512,10 @@ const PreviewCharte: React.FC = () => {
                 />
               </div>
 
-              <div className="about__stat">
-                <div><div className="about__stat-n">5+</div><div className="about__stat-l">années d'expérience</div></div>
-                <div><div className="about__stat-n">9</div><div className="about__stat-l">certifications</div></div>
-                <div><div className="about__stat-n">5/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
+              <div className="about__stat" ref={statsRef}>
+                <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
+                <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
+                <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
               </div>
             </div>
           </div>

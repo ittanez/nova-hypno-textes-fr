@@ -62,6 +62,12 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-220px); }
 }
+/* Zoom d'entrée sur les illustrations : se déclenche au moment précis où la section
+   apparaît au scroll (réutilise .reveal/.in), plus perceptible qu'une animation continue. */
+.cz .cabinet__visual.reveal { transform: translateY(28px) scale(1.08); }
+.cz .cabinet__visual.reveal.in { transform: translateY(0) scale(1); }
+.cz .about__copy.reveal .about__diagram { transform: scale(1.08); transition: transform .9s var(--ease) .15s; }
+.cz .about__copy.reveal.in .about__diagram { transform: scale(1); }
 /* Blobs SVG illustratifs — même respiration douce que les blobs CSS (.about__bg, .contact__blob) */
 .cz .blob-morph-1 { transform-box: fill-box; transform-origin: center; animation: cz-morph1 18s ease-in-out infinite; }
 .cz .blob-morph-2 { transform-box: fill-box; transform-origin: center; animation: cz-morph2 20s ease-in-out infinite; }
