@@ -28,6 +28,7 @@ const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Auto-hypnose', href: '/autohypnose' },
   { label: 'Articles', href: '/blog' },
   { label: 'Hypno-balade', href: 'https://hypno-balade.novahypnose.fr/', external: true },
+  { label: 'NovaRespire', href: 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share', external: true },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -213,6 +214,10 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <Link to="/hypnose-en-ligne">Hypnose en ligne</Link>
             <span className="foot__sep">·</span>
             <Link to="/hypnose-professionnels-paris">Professionnels</Link>
+            <span className="foot__sep">·</span>
+            <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer">Hypno-Balade</a>
+            <span className="foot__sep">·</span>
+            <a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer nofollow">NovaRespire</a>
           </nav>
           <div className="foot__copy">
             © NovaHypnose · Alain Zenatti <em>— hypnothérapeute Paris 4e</em> · {new Date().getFullYear()}

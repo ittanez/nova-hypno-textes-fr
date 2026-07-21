@@ -7,13 +7,16 @@ import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getArticleBySlug, getAllArticlesNoPagination } from '@/lib/services/blog/articleService';
+import { getArticleBySlug, getRelatedArticles } from '@/lib/services/blog/articleService';
 import type { Article } from '@/lib/types/blog';
 import { safeJSONStringify } from '@/lib/seo-utils';
+import { findSpecialtyMatch } from '@/data/specialtyLinks';
 import '@/styles/preview-charte.css';
 import '@/styles/charte-secondary.css';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
+const HYPNO_BALADE_URL = 'https://hypno-balade.novahypnose.fr/';
+const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share';
 
 const formatDate = (iso?: string): string => {
   if (!iso) return '';
@@ -40,17 +43,18 @@ const PreviewCharteBlogArticle: React.FC = () => {
   });
 
   const { data: related } = useQuery({
-    queryKey: ['preview-charte-blog-articles-list'],
+    queryKey: ['preview-charte-blog-related-articles', article?.id],
     queryFn: async () => {
-      const result = await getAllArticlesNoPagination();
+      const result = await getRelatedArticles(article!.id, 3);
       return result.data ?? [];
     },
+    enabled: !!article?.id,
     staleTime: 5 * 60 * 1000,
   });
 
-  const relatedArticles: Article[] = (related ?? [])
-    .filter((a) => a.id !== article?.id)
-    .slice(0, 3);
+  const relatedArticles: Article[] = related ?? [];
+
+  const specialtyMatch = article ? findSpecialtyMatch(article) : null;
 
   useEffect(() => {
     const root = rootRef.current;
@@ -219,6 +223,33 @@ const PreviewCharteBlogArticle: React.FC = () => {
                     ))}
                   </section>
                 )}
+              </div>
+            </section>
+
+            {/* ── POUR ALLER PLUS LOIN ── */}
+            <section className="article-body-sect" style={{ paddingTop: 0 }}>
+              <div className="container">
+                <div className="reveal" style={{ borderTop: '1px solid rgba(28,43,74,.12)', paddingTop: 40, textAlign: 'center' }}>
+                  <div className="section-tag" style={{ justifyContent: 'center' }}>Poursuivre</div>
+                  <h2 className="section-title">Pour aller <em>plus loin.</em></h2>
+                  <p style={{ maxWidth: 560, margin: '0 auto 24px', color: 'var(--corps)' }}>
+                    Prolongez cette lecture par un accompagnement ciblé, une pratique quotidienne
+                    ou une expérience immersive en pleine nature.
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'center' }}>
+                    {specialtyMatch && (
+                      <Link className="btn btn--ghost" to={specialtyMatch.path}>
+                        {specialtyMatch.label} <span className="arrow">→</span>
+                      </Link>
+                    )}
+                    <a className="btn btn--ghost" href={NOVARESPIRE_URL} target="_blank" rel="noopener noreferrer nofollow">
+                      L'app NovaRespire, entre les séances <span className="arrow">→</span>
+                    </a>
+                    <a className="btn btn--ghost" href={HYPNO_BALADE_URL} target="_blank" rel="noopener noreferrer">
+                      Une Hypno-Balade en pleine nature <span className="arrow">→</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </section>
 
