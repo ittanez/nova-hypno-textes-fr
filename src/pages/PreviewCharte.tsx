@@ -439,7 +439,7 @@ const PreviewCharte: React.FC = () => {
               Le markup doit rester identique au pré-rendu statique de index.html. */}
           <div className="container hero__container">
             <div className="hero__panel">
-              <div className="tag">Hypnose Ericksonienne — Paris · Le Marais</div>
+              <div className="tag">Hypnose Ericksonienne — Paris · Le Marais · Visio</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
                 <span className="full"><span className="zen">Zen</span><span className="atti">atti</span></span>
