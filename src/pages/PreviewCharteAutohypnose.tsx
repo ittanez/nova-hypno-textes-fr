@@ -239,7 +239,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         {/* ── L'APPROCHE ── */}
         <section className="about" id="approche">
           <div className="about__bg" aria-hidden="true"></div>
-          <div className="container about__grid">
+          <div className="container">
             <div className="about__copy reveal">
               <div className="section-tag">L'auto-hypnose</div>
               <h2 className="section-title">
@@ -251,8 +251,8 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 sur une route familière, ou bercé par une musique.
               </p>
               <p>
-                Apprendre à y entrer par soi-même, c'est apprendre à <strong>rappeler votre calme</strong>
-                en quelques minutes, sans rien attendre de l'extérieur. Pas de dépendance à une séance.
+                Apprendre à y entrer par soi-même, c'est apprendre à <strong>rappeler votre calme</strong> en
+                quelques minutes, sans rien attendre de l'extérieur. Pas de dépendance à une séance.
                 Pas de matériel. Juste vous, et un outil que vous portez désormais.
               </p>
               <p>
@@ -271,8 +271,6 @@ const PreviewCharteAutohypnose: React.FC = () => {
                 </p>
               </div>
             </div>
-
-            <div className="about__photo reveal" aria-label="Pratique de l'auto-hypnose"></div>
           </div>
         </section>
 
