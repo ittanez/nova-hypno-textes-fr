@@ -668,14 +668,56 @@ const PreviewCharte: React.FC = () => {
                 Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
                 clair, expliqué pas à pas — aucune surprise.
               </p>
-              <img
-                src="/images/deroule-seance-infographie.png"
-                alt="Schéma d'une séance d'hypnose ericksonienne en 4 étapes : accueil et échange, induction, travail thérapeutique, retour et ancrage"
-                className="sessions-infographic"
-                loading="lazy"
-                width="1344"
-                height="768"
-              />
+
+              <div className="sessions-flow" role="list">
+                {[
+                  { label: 'Accueil & échange', icon: 'bubbles' },
+                  { label: 'Induction', icon: 'ripples' },
+                  { label: 'Travail thérapeutique', icon: 'depth' },
+                  { label: 'Retour & ancrage', icon: 'sunrise' },
+                ].map((step, i, arr) => (
+                  <React.Fragment key={step.label}>
+                    <div className="sessions-flow__step" role="listitem">
+                      <svg className="sessions-flow__icon" viewBox="0 0 100 100" aria-hidden="true">
+                        {step.icon === 'bubbles' && (
+                          <g filter="url(#riso-full)">
+                            <circle cx="38" cy="46" r="26" fill="#2B4BA0" opacity="0.9" />
+                            <circle cx="62" cy="54" r="22" fill="#F2A12E" opacity="0.9" style={{ mixBlendMode: 'multiply' as const }} />
+                          </g>
+                        )}
+                        {step.icon === 'ripples' && (
+                          <g filter="url(#riso-full)">
+                            <circle cx="50" cy="50" r="38" fill="none" stroke="#2B4BA0" strokeWidth="6" opacity="0.85" />
+                            <circle cx="50" cy="50" r="24" fill="none" stroke="#F2A12E" strokeWidth="6" opacity="0.9" />
+                            <circle cx="50" cy="50" r="10" fill="#2B4BA0" opacity="0.85" />
+                          </g>
+                        )}
+                        {step.icon === 'depth' && (
+                          <g filter="url(#riso-full)">
+                            <path d="M 50 12 C 74 12, 90 30, 88 52 C 86 74, 68 88, 46 86 C 24 84, 12 66, 15 46 C 18 26, 30 12, 50 12 Z" fill="#2B4BA0" opacity="0.9" />
+                            <ellipse cx="50" cy="50" rx="18" ry="14" fill="#F2A12E" opacity="0.9" style={{ mixBlendMode: 'multiply' as const }} />
+                          </g>
+                        )}
+                        {step.icon === 'sunrise' && (
+                          <g filter="url(#riso-full)">
+                            {Array.from({ length: 7 }).map((_, r) => {
+                              const angle = (Math.PI / 8) * (r + 1);
+                              const x1 = 50 + 34 * Math.cos(Math.PI - angle);
+                              const y1 = 62 - 34 * Math.sin(angle);
+                              const x2 = 50 + 44 * Math.cos(Math.PI - angle);
+                              const y2 = 62 - 44 * Math.sin(angle);
+                              return <line key={r} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#F2A12E" strokeWidth="5" strokeLinecap="round" opacity="0.9" />;
+                            })}
+                            <path d="M 18 62 A 32 32 0 0 1 82 62 Z" fill="#2B4BA0" opacity="0.9" />
+                          </g>
+                        )}
+                      </svg>
+                      <span className="sessions-flow__label">{step.label}</span>
+                    </div>
+                    {i < arr.length - 1 && <span className="sessions-flow__arrow" aria-hidden="true">→</span>}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
 
             <div className="seances__steps reveal d-1">
