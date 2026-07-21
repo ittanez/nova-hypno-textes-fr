@@ -679,9 +679,6 @@
   .cz .floating-cta { display: inline-flex; }
   .cz .foot { padding-bottom: 120px; }
   /* Blog hero : le décor ne doit pas chevaucher le texte sur mobile */
-  /* Déroulé d'une séance : bascule en colonne, flèches masquées */
-  .cz .sessions-flow { flex-direction: column; }
-  .cz .sessions-flow__arrow { display: none; }
 }
 
 /* ── Mentions légales (PreviewCharteMentionsLegales) ── */
@@ -904,6 +901,14 @@
 .cz .sessions-flow__icon { width: 64px; height: 64px; }
 .cz .sessions-flow__label { font-size: 13px; font-weight: 500; color: var(--cobalt-2); text-align: center; line-height: 1.3; }
 .cz .sessions-flow__arrow { color: var(--amber); font-size: 18px; opacity: 0.8; }
+@media (max-width: 760px) {
+  /* Déroulé d'une séance : bascule en colonne, flèches masquées, icônes agrandies */
+  .cz .sessions-flow { flex-direction: column; gap: 20px; }
+  .cz .sessions-flow__arrow { display: none; }
+  .cz .sessions-flow__step { width: auto; }
+  .cz .sessions-flow__icon { width: 96px; height: 96px; }
+  .cz .sessions-flow__label { font-size: 15px; }
+}
 
 /* Formulaire de contact — champs requis et état erreur */
 .cz .req { color: #a83232; }
