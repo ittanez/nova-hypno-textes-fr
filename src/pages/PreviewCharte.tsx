@@ -16,6 +16,13 @@ import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, website
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 
+// 3 groupes de témoignages (longueurs variées dans chaque groupe), pour la rotation automatique.
+const TESTIMONIAL_SETS = [
+  [0, 3, 8],
+  [7, 6, 4],
+  [2, 1, 5],
+];
+
 const domaines = [
   { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien.", href: "/hypnose-stress-anxiete-paris" },
   { t: "Troubles du sommeil — retrouver le repos", d: "Laisser le mental se déposer le soir, et renouer avec un sommeil simple et réparateur.", href: "/hypnose-sommeil-paris" },
@@ -88,6 +95,7 @@ const PreviewCharte: React.FC = () => {
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
   const statYears = useCountUp(5, statsInView);
+  const [testimonialSet, setTestimonialSet] = useState(0);
   const statCertifs = useCountUp(9, statsInView);
   const statRating = useCountUp(5, statsInView);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -167,6 +175,15 @@ const PreviewCharte: React.FC = () => {
     );
     io.observe(el);
     return () => io.disconnect();
+  }, []);
+
+  // Fait défiler automatiquement les groupes de témoignages toutes les 7s.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = window.setInterval(() => {
+      setTestimonialSet((i) => (i + 1) % TESTIMONIAL_SETS.length);
+    }, 7000);
+    return () => window.clearInterval(id);
   }, []);
 
   // Parallax léger sur les formes du hero au scroll. Manipulation directe du DOM
@@ -739,22 +756,43 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <div className="temoignages__list">
-              {[testimonials[0], testimonials[3], testimonials[8]].map((t, i) => (
-                <React.Fragment key={t.name}>
-                  <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
-                    <p className="temoignage__quote">« {t.text} »</p>
-                    <div className="temoignage__author">
-                    <span className="temoignage__stars" aria-label="5 sur 5">★★★★★</span>
-                    <strong>{anonymizeName(t.name)}</strong> · Google
-                  </div>
-                  </div>
-                  {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
-                </React.Fragment>
+              {TESTIMONIAL_SETS[testimonialSet].map((idx, i) => {
+                const t = testimonials[idx];
+                return (
+                  <React.Fragment key={t.name}>
+                    <div className="temoignage temoignage--rotating" style={{ animationDelay: `${i * 0.12}s` }}>
+                      <p className="temoignage__quote">« {t.text} »</p>
+                      <div className="temoignage__author">
+                        <span className="temoignage__stars" aria-label="5 sur 5">
+                          {[0, 1, 2, 3, 4].map((s) => (
+                            <span key={s} className="temoignage__star">★</span>
+                          ))}
+                        </span>
+                        <strong>{anonymizeName(t.name)}</strong> · Google
+                      </div>
+                    </div>
+                    {i < 2 && <div className="wave" aria-hidden="true"></div>}
+                  </React.Fragment>
+                );
+              })}
+            </div>
+
+            <div className="temoignages__dots" role="tablist" aria-label="Choisir un groupe de témoignages">
+              {TESTIMONIAL_SETS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`temoignages__dot${i === testimonialSet ? ' active' : ''}`}
+                  onClick={() => setTestimonialSet(i)}
+                  role="tab"
+                  aria-selected={i === testimonialSet}
+                  aria-label={`Groupe de témoignages ${i + 1}`}
+                />
               ))}
             </div>
 
             <p className="tarifs-note reveal">
-              <Link to="/avis">Lire tous les avis et témoignages →</Link>
+              <Link to="/avis" className="link-underline">Lire tous les avis et témoignages →</Link>
             </p>
           </div>
         </section>
@@ -817,7 +855,7 @@ const PreviewCharte: React.FC = () => {
             <p className="tarifs-note reveal">
               Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
               participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.{' '}
-              <Link to="/tarifs">Tout savoir sur les tarifs →</Link>
+              <Link to="/tarifs" className="link-underline">Tout savoir sur les tarifs →</Link>
             </p>
           </div>
         </section>
@@ -847,7 +885,7 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <p className="tarifs-note reveal">
-              <Link to="/faq">Voir toutes les questions fréquentes →</Link>
+              <Link to="/faq" className="link-underline">Voir toutes les questions fréquentes →</Link>
             </p>
           </div>
         </section>
