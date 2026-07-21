@@ -61,8 +61,35 @@ const NAV_MOBILE_BREAKPOINT = 760;
 const isDesktopViewport = (): boolean =>
   typeof window !== 'undefined' && window.innerWidth > NAV_MOBILE_BREAKPOINT;
 
+// Anime un nombre de 0 à target une fois que `trigger` passe à true (ex. entrée dans le viewport).
+function useCountUp(target: number, trigger: boolean, duration = 1200): number {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (!trigger) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setValue(target);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      setValue(Math.round(progress * target));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [trigger, target, duration]);
+  return value;
+}
+
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsInView, setStatsInView] = useState(false);
+  const statYears = useCountUp(5, statsInView);
+  const statCertifs = useCountUp(9, statsInView);
+  const statRating = useCountUp(5, statsInView);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
@@ -128,6 +155,44 @@ const PreviewCharte: React.FC = () => {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
+  }, []);
+
+  // Déclenche le compteur animé (5+ / 9 / 5/5) une seule fois, à l'entrée dans le viewport.
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => { if (entries[0].isIntersecting) { setStatsInView(true); io.disconnect(); } },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Parallax léger sur les formes du hero au scroll. Manipulation directe du DOM
+  // (pas de className/attribut ajouté au JSX) pour ne pas dévier du markup statique
+  // pré-rendu de index.html, dont dépend le LCP du hero.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const svg = rootRef.current?.querySelector('.hero__bg svg');
+    if (!svg) return;
+    const layers = Array.from(svg.querySelectorAll<SVGGElement>(':scope > g'));
+    const rates = [0.06, 0.12, 0.04];
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layers.forEach((layer, i) => {
+          layer.style.transform = `translateY(${y * (rates[i] ?? 0.05)}px)`;
+        });
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   // Scroll vers l'ancre quand on arrive depuis une autre page (ex. /#about)
@@ -437,12 +502,20 @@ const PreviewCharte: React.FC = () => {
                   votre rapport à ce qui vous encombre — parce que vos propres ressources, déjà là, retrouvent
                   un chemin d'expression.
                 </p>
+                <img
+                  src="/images/comment-ca-marche-diagramme.png"
+                  alt="Schéma : sous hypnose, le conscient se détend et l'inconscient peut travailler sur ce qui empêche d'être bien"
+                  className="about__diagram"
+                  loading="lazy"
+                  width="1024"
+                  height="1024"
+                />
               </div>
 
-              <div className="about__stat">
-                <div><div className="about__stat-n">5+</div><div className="about__stat-l">années d'expérience</div></div>
-                <div><div className="about__stat-n">9</div><div className="about__stat-l">certifications</div></div>
-                <div><div className="about__stat-n">5/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
+              <div className="about__stat" ref={statsRef}>
+                <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
+                <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
+                <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
               </div>
             </div>
           </div>
@@ -467,17 +540,15 @@ const PreviewCharte: React.FC = () => {
                 <li><strong>Un rythme qui ralentit</strong> — séances complètes, jamais expédiées.</li>
               </ul>
             </div>
-            <div className="cabinet__visual reveal d-2" aria-hidden="true">
-              <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
-                <g filter="url(#riso-full)">
-                  <path d="M 110 70 C 250 30, 410 70, 450 200 C 480 300, 440 380, 470 460 C 490 520, 430 540, 340 530 C 220 516, 120 520, 90 430 C 60 340, 70 230, 80 160 C 86 118, 90 86, 110 70 Z" fill="#F2A12E" opacity="0.92" />
-                </g>
-                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
-                  <path d="M 170 180 C 290 130, 390 180, 410 290 C 425 380, 360 450, 260 450 C 160 450, 110 370, 120 280 C 126 222, 140 196, 170 180 Z" fill="#2B4BA0" opacity="0.9" />
-                </g>
-                <rect width="520" height="560" filter="url(#paperGrain)" opacity=".25" />
-              </svg>
-              <div className="cabinet__addr">16 rue Saint-Antoine · 75004 Paris</div>
+            <div className="cabinet__visual reveal d-2">
+              <img
+                src="/images/cabinet-silhouette-fauteuil.png"
+                alt="Illustration d'une personne détendue, installée dans un fauteuil, pendant une séance d'hypnothérapie"
+                loading="lazy"
+                width="896"
+                height="1152"
+              />
+              <div className="cabinet__addr" aria-hidden="true">16 rue Saint-Antoine · 75004 Paris</div>
             </div>
           </div>
         </section>
@@ -487,10 +558,10 @@ const PreviewCharte: React.FC = () => {
           <div className="container cabinet__grid cabinet__grid--reverse">
             <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
-                <g filter="url(#riso-full)">
+                <g className="blob-morph-1" filter="url(#riso-full)">
                   <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
                 </g>
-                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
+                <g className="blob-morph-2" filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
                   <path d="M 160 200 C 280 160, 380 200, 400 300 C 415 380, 360 450, 260 450 C 160 450, 110 380, 120 290 C 126 240, 140 214, 160 200 Z" fill="#F2A12E" opacity="0.9" />
                 </g>
                 <rect x="170" y="240" width="180" height="120" rx="10" fill="#F0ECE3" opacity="0.95" />
@@ -556,6 +627,105 @@ const PreviewCharte: React.FC = () => {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── DÉROULÉ D'UNE SÉANCE ── */}
+        <section className="seances-sect" id="sessions">
+          <div className="container">
+            <div className="reveal section-head--sessions">
+              <div className="section-tag section-tag--center">Transparence</div>
+              <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
+              <p className="sessions-lead">
+                Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
+                clair, expliqué pas à pas — aucune surprise.
+              </p>
+
+              <div className="sessions-flow" role="list">
+                {[
+                  { label: 'Accueil & échange', icon: 'bubbles' },
+                  { label: 'Induction', icon: 'ripples' },
+                  { label: 'Travail thérapeutique', icon: 'depth' },
+                  { label: 'Retour & ancrage', icon: 'sunrise' },
+                ].map((step, i, arr) => (
+                  <React.Fragment key={step.label}>
+                    <div className="sessions-flow__step" role="listitem">
+                      <svg className="sessions-flow__icon" viewBox="0 0 100 100" aria-hidden="true">
+                        {step.icon === 'bubbles' && (
+                          <g filter="url(#riso-full)">
+                            <circle cx="38" cy="46" r="26" fill="#2B4BA0" opacity="0.9" />
+                            <circle cx="62" cy="54" r="22" fill="#F2A12E" opacity="0.9" style={{ mixBlendMode: 'multiply' as const }} />
+                          </g>
+                        )}
+                        {step.icon === 'ripples' && (
+                          <g filter="url(#riso-full)">
+                            <circle cx="50" cy="50" r="38" fill="none" stroke="#2B4BA0" strokeWidth="6" opacity="0.85" />
+                            <circle cx="50" cy="50" r="24" fill="none" stroke="#F2A12E" strokeWidth="6" opacity="0.9" />
+                            <circle cx="50" cy="50" r="10" fill="#2B4BA0" opacity="0.85" />
+                          </g>
+                        )}
+                        {step.icon === 'depth' && (
+                          <g filter="url(#riso-full)">
+                            <path d="M 50 12 C 74 12, 90 30, 88 52 C 86 74, 68 88, 46 86 C 24 84, 12 66, 15 46 C 18 26, 30 12, 50 12 Z" fill="#2B4BA0" opacity="0.9" />
+                            <ellipse cx="50" cy="50" rx="18" ry="14" fill="#F2A12E" opacity="0.9" style={{ mixBlendMode: 'multiply' as const }} />
+                          </g>
+                        )}
+                        {step.icon === 'sunrise' && (
+                          <g filter="url(#riso-full)">
+                            {Array.from({ length: 7 }).map((_, r) => {
+                              const angle = (Math.PI / 8) * (r + 1);
+                              const x1 = 50 + 34 * Math.cos(Math.PI - angle);
+                              const y1 = 62 - 34 * Math.sin(angle);
+                              const x2 = 50 + 44 * Math.cos(Math.PI - angle);
+                              const y2 = 62 - 44 * Math.sin(angle);
+                              return <line key={r} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#F2A12E" strokeWidth="5" strokeLinecap="round" opacity="0.9" />;
+                            })}
+                            <path d="M 18 62 A 32 32 0 0 1 82 62 Z" fill="#2B4BA0" opacity="0.9" />
+                          </g>
+                        )}
+                      </svg>
+                      <span className="sessions-flow__label">{step.label}</span>
+                    </div>
+                    {i < arr.length - 1 && <span className="sessions-flow__arrow" aria-hidden="true">→</span>}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            <div className="seances__steps reveal d-1">
+              {[
+                {
+                  num: '01',
+                  title: 'Échange et cadrage',
+                  desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
+                },
+                {
+                  num: '02',
+                  title: 'Induction guidée',
+                  desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
+                },
+                {
+                  num: '03',
+                  title: 'Retour et débriefing',
+                  desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
+                },
+              ].map((step) => (
+                <div key={step.num} className="seance-step">
+                  <div className="seance-step__num">{step.num}</div>
+                  <div className="seance-step__body">
+                    <div className="seance-step__head">
+                      <strong className="seance-step__title">{step.title}</strong>
+                    </div>
+                    <p className="seance-step__desc">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal seance-promesse d-2">
+              <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
+              Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
             </div>
           </div>
         </section>
@@ -649,55 +819,6 @@ const PreviewCharte: React.FC = () => {
               participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.{' '}
               <Link to="/tarifs">Tout savoir sur les tarifs →</Link>
             </p>
-          </div>
-        </section>
-
-        {/* ── DÉROULÉ D'UNE SÉANCE ── */}
-        <section className="seances-sect" id="sessions">
-          <div className="container">
-            <div className="reveal section-head--sessions">
-              <div className="section-tag section-tag--center">Transparence</div>
-              <h2 className="section-title">Déroulé <em>d'une séance.</em></h2>
-              <p className="sessions-lead">
-                Vous méritez de savoir exactement ce qui va se passer. Chaque séance suit un protocole
-                clair, expliqué pas à pas — aucune surprise.
-              </p>
-            </div>
-
-            <div className="seances__steps reveal d-1">
-              {[
-                {
-                  num: '01',
-                  title: 'Échange et cadrage',
-                  desc: "Le processus vous est expliqué, vos questions trouvent leurs réponses et vous définissez ensemble l'objectif de la séance. C'est le moment de lever toutes vos interrogations.",
-                },
-                {
-                  num: '02',
-                  title: 'Induction guidée',
-                  desc: "Vous êtes guidé pas à pas vers un état de relaxation profonde. Vous gardez le contrôle et la conscience. Ensemble, vos ressources intérieures sont mobilisées grâce à des techniques adaptées.",
-                },
-                {
-                  num: '03',
-                  title: 'Retour et débriefing',
-                  desc: "Retour en douceur à l'état de veille. J'échange avec vous sur vos ressentis, je réponds à vos questions et j'ancre les bénéfices. Vous repartez avec une compréhension claire de ce qui s'est passé.",
-                },
-              ].map((step) => (
-                <div key={step.num} className="seance-step">
-                  <div className="seance-step__num">{step.num}</div>
-                  <div className="seance-step__body">
-                    <div className="seance-step__head">
-                      <strong className="seance-step__title">{step.title}</strong>
-                    </div>
-                    <p className="seance-step__desc">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="reveal seance-promesse d-2">
-              <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
-              Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
-            </div>
           </div>
         </section>
 
