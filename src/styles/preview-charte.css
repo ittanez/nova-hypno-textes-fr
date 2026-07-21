@@ -302,16 +302,6 @@
 .cz .slogan.reveal.in .slogan__word { opacity: 1; transform: translateY(0); }
 .cz .slogan__word--accent { color: var(--amber); font-weight: 500; font-style: normal; }
 
-/* Paraphe qui se trace après la phrase (stroke-dashoffset) */
-.cz .slogan__flourish { display: block; width: 220px; height: 30px; margin: 18px auto 0; overflow: visible; }
-.cz .slogan__flourish path {
-  fill: none; stroke: var(--amber); stroke-width: 3; stroke-linecap: round;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  transition: stroke-dashoffset 1.1s var(--ease) 1.3s;
-}
-.cz .slogan.reveal.in .slogan__flourish path { stroke-dashoffset: 0; }
-
 .cz .zen-mark {
   position: absolute; bottom: -4vw; right: 4vw; z-index: 0;
   font-family: var(--f-serif); font-style: italic;
