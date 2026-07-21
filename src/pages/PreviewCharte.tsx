@@ -471,6 +471,25 @@ const PreviewCharte: React.FC = () => {
           </div>
         </section>
 
+        {/* ── SLOGAN ── */}
+        <section className="slogan reveal" id="slogan">
+          <div className="container">
+            <p className="slogan__text">
+              {"L'hypnose : un chemin de transformation, en douceur.".split(' ').map((word, i, arr) => (
+                <React.Fragment key={i}>
+                  <span
+                    className={`slogan__word${word.startsWith('transformation') ? ' slogan__word--accent' : ''}`}
+                    style={{ transitionDelay: `${0.15 + i * 0.08}s` }}
+                  >
+                    {word}
+                  </span>
+                  {i < arr.length - 1 ? ' ' : ''}
+                </React.Fragment>
+              ))}
+            </p>
+          </div>
+        </section>
+
         {/* ── À PROPOS ── */}
         <section className="about" id="about">
           <div className="about__bg" aria-hidden="true"></div>
