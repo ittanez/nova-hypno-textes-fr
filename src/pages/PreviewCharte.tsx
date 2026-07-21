@@ -130,6 +130,32 @@ const PreviewCharte: React.FC = () => {
     return () => io.disconnect();
   }, []);
 
+  // Parallax léger sur les formes du hero au scroll. Manipulation directe du DOM
+  // (pas de className/attribut ajouté au JSX) pour ne pas dévier du markup statique
+  // pré-rendu de index.html, dont dépend le LCP du hero.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const svg = rootRef.current?.querySelector('.hero__bg svg');
+    if (!svg) return;
+    const layers = Array.from(svg.querySelectorAll<SVGGElement>(':scope > g'));
+    const rates = [0.06, 0.12, 0.04];
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layers.forEach((layer, i) => {
+          layer.style.transform = `translateY(${y * (rates[i] ?? 0.05)}px)`;
+        });
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   // Scroll vers l'ancre quand on arrive depuis une autre page (ex. /#about)
   useEffect(() => {
     const hash = window.location.hash;
@@ -493,10 +519,10 @@ const PreviewCharte: React.FC = () => {
           <div className="container cabinet__grid cabinet__grid--reverse">
             <div className="cabinet__visual reveal d-2" aria-hidden="true">
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
-                <g filter="url(#riso-full)">
+                <g className="blob-morph-1" filter="url(#riso-full)">
                   <path d="M 90 130 C 220 80, 380 100, 440 220 C 480 310, 460 400, 430 470 C 410 520, 340 540, 240 530 C 140 520, 80 470, 70 380 C 60 290, 70 200, 90 130 Z" fill="#2B4BA0" opacity="0.92" />
                 </g>
-                <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
+                <g className="blob-morph-2" filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' }}>
                   <path d="M 160 200 C 280 160, 380 200, 400 300 C 415 380, 360 450, 260 450 C 160 450, 110 380, 120 290 C 126 240, 140 214, 160 200 Z" fill="#F2A12E" opacity="0.9" />
                 </g>
                 <rect x="170" y="240" width="180" height="120" rx="10" fill="#F0ECE3" opacity="0.95" />
@@ -563,98 +589,6 @@ const PreviewCharte: React.FC = () => {
                 );
               })}
             </div>
-          </div>
-        </section>
-
-        {/* ── TÉMOIGNAGES ── */}
-        <section className="temoignages" id="temoignages">
-          <div className="container">
-            <div className="reveal u-center">
-              <div className="section-tag section-tag--center">Ils en parlent</div>
-              <h2 className="section-title">Des mots, <em>après.</em></h2>
-            </div>
-
-            <div className="temoignages__list">
-              {[testimonials[0], testimonials[3], testimonials[8]].map((t, i) => (
-                <React.Fragment key={t.name}>
-                  <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
-                    <p className="temoignage__quote">« {t.text} »</p>
-                    <div className="temoignage__author">
-                    <span className="temoignage__stars" aria-label="5 sur 5">★★★★★</span>
-                    <strong>{anonymizeName(t.name)}</strong> · Google
-                  </div>
-                  </div>
-                  {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
-                </React.Fragment>
-              ))}
-            </div>
-
-            <p className="tarifs-note reveal">
-              <Link to="/avis">Lire tous les avis et témoignages →</Link>
-            </p>
-          </div>
-        </section>
-
-        {/* ── TARIFS ── */}
-        <section className="tarifs-sect" id="tarifs">
-          <div className="container">
-            <div className="reveal section-head">
-              <div className="section-tag section-tag--center">Séances</div>
-              <h2 className="section-title">Un cadre clair, <em>posé d'emblée.</em></h2>
-              <p className="tarifs-sect__intro">
-                Des séances complètes, réservées aux adultes. Au cabinet, en visio, ou à domicile.
-              </p>
-            </div>
-
-            <div className="tarifs-grid">
-              <article className="tarif-card tarif-card--featured reveal">
-                <h3>Au cabinet</h3>
-                <div className="tarif-price">90<sup>€</sup></div>
-                <p className="tarif-desc">Au cœur du Marais</p>
-                <ul>
-                  <li>1h30 — première séance</li>
-                  <li>1h — séances suivantes</li>
-                  <li>Métro Bastille &amp; Saint-Paul</li>
-                </ul>
-                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-                  Réserver <span className="arrow">→</span>
-                </a>
-              </article>
-
-              <article className="tarif-card reveal d-15">
-                <h3>En visio</h3>
-                <div className="tarif-price">90<sup>€</sup></div>
-                <p className="tarif-desc">Depuis chez vous</p>
-                <ul>
-                  <li>1h30 — première séance</li>
-                  <li>1h — séances suivantes</li>
-                  <li>Partout, France ou étranger</li>
-                </ul>
-                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-                  Réserver <span className="arrow">→</span>
-                </a>
-              </article>
-
-              <article className="tarif-card reveal d-3">
-                <h3>À domicile</h3>
-                <div className="tarif-price">140<sup>€</sup></div>
-                <p className="tarif-desc">Paris Centre</p>
-                <ul>
-                  <li>1h30 — première séance</li>
-                  <li>1h — séances suivantes</li>
-                  <li>Arrondissements 1–4, 9–11</li>
-                </ul>
-                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
-                  Réserver <span className="arrow">→</span>
-                </a>
-              </article>
-            </div>
-
-            <p className="tarifs-note reveal">
-              Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
-              participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.{' '}
-              <Link to="/tarifs">Tout savoir sur les tarifs →</Link>
-            </p>
           </div>
         </section>
 
@@ -754,6 +688,98 @@ const PreviewCharte: React.FC = () => {
               <em>Ma promesse :</em> vous ne vivrez jamais quelque chose que vous ne comprenez pas.
               Le temps est pris pour vous expliquer, vous rassurer et s'adapter à votre rythme.
             </div>
+          </div>
+        </section>
+
+        {/* ── TÉMOIGNAGES ── */}
+        <section className="temoignages" id="temoignages">
+          <div className="container">
+            <div className="reveal u-center">
+              <div className="section-tag section-tag--center">Ils en parlent</div>
+              <h2 className="section-title">Des mots, <em>après.</em></h2>
+            </div>
+
+            <div className="temoignages__list">
+              {[testimonials[0], testimonials[3], testimonials[8]].map((t, i) => (
+                <React.Fragment key={t.name}>
+                  <div className="temoignage reveal" style={{ transitionDelay: `${i * 0.15}s` }}>
+                    <p className="temoignage__quote">« {t.text} »</p>
+                    <div className="temoignage__author">
+                    <span className="temoignage__stars" aria-label="5 sur 5">★★★★★</span>
+                    <strong>{anonymizeName(t.name)}</strong> · Google
+                  </div>
+                  </div>
+                  {i < 2 && <div className="wave reveal" aria-hidden="true"></div>}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <p className="tarifs-note reveal">
+              <Link to="/avis">Lire tous les avis et témoignages →</Link>
+            </p>
+          </div>
+        </section>
+
+        {/* ── TARIFS ── */}
+        <section className="tarifs-sect" id="tarifs">
+          <div className="container">
+            <div className="reveal section-head">
+              <div className="section-tag section-tag--center">Séances</div>
+              <h2 className="section-title">Un cadre clair, <em>posé d'emblée.</em></h2>
+              <p className="tarifs-sect__intro">
+                Des séances complètes, réservées aux adultes. Au cabinet, en visio, ou à domicile.
+              </p>
+            </div>
+
+            <div className="tarifs-grid">
+              <article className="tarif-card tarif-card--featured reveal">
+                <h3>Au cabinet</h3>
+                <div className="tarif-price">90<sup>€</sup></div>
+                <p className="tarif-desc">Au cœur du Marais</p>
+                <ul>
+                  <li>1h30 — première séance</li>
+                  <li>1h — séances suivantes</li>
+                  <li>Métro Bastille &amp; Saint-Paul</li>
+                </ul>
+                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="tarif-card reveal d-15">
+                <h3>En visio</h3>
+                <div className="tarif-price">90<sup>€</sup></div>
+                <p className="tarif-desc">Depuis chez vous</p>
+                <ul>
+                  <li>1h30 — première séance</li>
+                  <li>1h — séances suivantes</li>
+                  <li>Partout, France ou étranger</li>
+                </ul>
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="tarif-card reveal d-3">
+                <h3>À domicile</h3>
+                <div className="tarif-price">140<sup>€</sup></div>
+                <p className="tarif-desc">Paris Centre</p>
+                <ul>
+                  <li>1h30 — première séance</li>
+                  <li>1h — séances suivantes</li>
+                  <li>Arrondissements 1–4, 9–11</li>
+                </ul>
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                  Réserver <span className="arrow">→</span>
+                </a>
+              </article>
+            </div>
+
+            <p className="tarifs-note reveal">
+              Règlement par carte bancaire, Wero ou en ligne via Stripe. Certaines mutuelles
+              participent au remboursement. Annulation sans frais jusqu'à 48 h avant le rendez-vous.{' '}
+              <Link to="/tarifs">Tout savoir sur les tarifs →</Link>
+            </p>
           </div>
         </section>
 
