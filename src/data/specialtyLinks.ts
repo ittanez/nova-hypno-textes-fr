@@ -56,33 +56,45 @@ interface ArticleLike {
   title?: string;
   excerpt?: string;
   categories?: string[] | null;
-  tags?: (string | { name: string })[] | null;
+  tags?: (string | { name: string } | null | undefined)[] | null;
   keywords?: string[] | null;
 }
+
+// Supprime les accents et met en minuscules, pour un matching robuste aux variantes orthographiques.
+const normalize = (str: string): string =>
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+const escapeRegExp = (str: string): string => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
  * Retourne la page thématique dont les mots-clés recoupent le mieux
  * le titre/extrait/tags/mots-clés de l'article, ou null si aucune correspondance.
+ * Utilise un matching par mot entier (limites de mots) pour éviter les faux
+ * positifs de sous-chaîne (ex. le mot-clé "eau" ne doit pas matcher "beaucoup").
  */
 export function findSpecialtyMatch(article: ArticleLike): SpecialtyLink | null {
-  const tagNames = (article.tags || []).map((t) => (typeof t === 'string' ? t : t.name));
+  const tagNames = (article.tags || [])
+    .filter(Boolean)
+    .map((t) => (typeof t === 'string' ? t : t!.name));
 
-  const haystack = [
-    article.title || '',
-    article.excerpt || '',
-    ...(article.categories || []),
-    ...tagNames,
-    ...(article.keywords || []),
-  ].join(' ').toLowerCase();
+  const haystack = normalize(
+    [
+      article.title || '',
+      article.excerpt || '',
+      ...(article.categories || []),
+      ...tagNames,
+      ...(article.keywords || []),
+    ].join(' ')
+  );
 
   let best: SpecialtyLink | null = null;
   let bestScore = 0;
 
   for (const specialty of specialtyLinks) {
-    const score = specialty.keywords.reduce(
-      (acc, kw) => acc + (haystack.includes(kw.toLowerCase()) ? 1 : 0),
-      0
-    );
+    const score = specialty.keywords.reduce((acc, kw) => {
+      const pattern = new RegExp(`\\b${escapeRegExp(normalize(kw))}\\b`);
+      return acc + (pattern.test(haystack) ? 1 : 0);
+    }, 0);
     if (score > bestScore) {
       bestScore = score;
       best = specialty;
