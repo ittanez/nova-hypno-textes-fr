@@ -16,6 +16,7 @@ import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, website
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
 const NOVARESPIRE_URL = 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share';
+const RESPIRE_PATH = 'M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z';
 
 const domaines = [
   { t: "Gérer le stress — retrouver le calme", d: "Desserrer la pression intérieure, retrouver une respiration ample et un esprit plus posé, au quotidien.", href: "/hypnose-stress-anxiete-paris" },
@@ -530,10 +531,10 @@ const PreviewCharte: React.FC = () => {
               <svg viewBox="0 0 520 560" preserveAspectRatio="xMidYMid meet">
                 <g className="respire__pulse">
                   <g filter="url(#riso-full)">
-                    <path d="M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z" fill="#F2A12E" opacity="0.9" />
+                    <path d={RESPIRE_PATH} fill="#F2A12E" opacity="0.9" />
                   </g>
                   <g filter="url(#riso-full)" style={{ mixBlendMode: 'multiply' as const }}>
-                    <path d="M 260 30 C 380 20, 490 80, 500 180 C 510 270, 440 310, 380 360 C 460 370, 510 420, 490 490 C 470 540, 380 560, 280 540 C 160 516, 40 480, 20 380 C 0 280, 80 220, 60 130 C 40 50, 150 40, 260 30 Z" fill="none" stroke="#2B4BA0" strokeWidth="5" opacity="0.7" />
+                    <path d={RESPIRE_PATH} fill="none" stroke="#2B4BA0" strokeWidth="5" opacity="0.7" />
                   </g>
                 </g>
                 <rect width="520" height="560" filter="url(#paperGrain)" opacity=".2" />

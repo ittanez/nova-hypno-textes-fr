@@ -69,6 +69,7 @@
 }
 .cz .respire__pulse {
   transform-origin: 260px 280px;
+  transform-box: view-box;
   animation: cz-breathe 8s ease-in-out infinite;
 }
 .cz .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
