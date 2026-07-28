@@ -4,7 +4,7 @@ import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Home from 'lucide-react/dist/esm/icons/home';
 import { safeJSONStringify } from '@/lib/seo-utils';
 
-interface BreadcrumbItem {
+export interface BreadcrumbItem {
   name: string;
   url?: string;
   isHome?: boolean;
@@ -65,62 +65,14 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => {
   );
 };
 
-// Helper functions pour générer des breadcrumbs automatiquement
-export const generateArticleBreadcrumbs = (article: { category?: string; title: string }): BreadcrumbItem[] => {
-  const breadcrumbs: BreadcrumbItem[] = [
-    { name: 'Accueil', url: '/', isHome: true }
-  ];
-
-  // Ajouter la catégorie si elle existe
-  if (article.category && article.category !== 'Non classé') {
-    breadcrumbs.push({
-      name: article.category,
-      url: `/?category=${encodeURIComponent(article.category)}`
-    });
-  }
-
-  // Ajouter l'article actuel (pas de lien car c'est la page courante)
-  breadcrumbs.push({
-    name: article.title
-  });
-
-  return breadcrumbs;
-};
-
-export const generateCategoryBreadcrumbs = (categoryName: string): BreadcrumbItem[] => {
-  return [
-    { name: 'Accueil', url: '/', isHome: true },
-    { name: categoryName }
-  ];
-};
-
-export const generatePageBreadcrumbs = (pageName: string, pageUrl?: string): BreadcrumbItem[] => {
-  const breadcrumbs: BreadcrumbItem[] = [
-    { name: 'Accueil', url: '/', isHome: true }
-  ];
-
-  if (pageUrl) {
-    breadcrumbs.push({
-      name: pageName,
-      url: pageUrl
-    });
-  } else {
-    breadcrumbs.push({
-      name: pageName
-    });
-  }
-
-  return breadcrumbs;
-};
-
 // Breadcrumbs avec structured data automatique
 interface BreadcrumbsWithSchemaProps extends BreadcrumbsProps {
   generateSchema?: boolean;
   siteUrl?: string;
 }
 
-export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({ 
-  items, 
+export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({
+  items,
   className = "",
   generateSchema = true,
   siteUrl = "https://emergences.novahypnose.fr"
@@ -133,8 +85,8 @@ export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      ...(item.url && { 
-        "item": item.url.startsWith('http') ? item.url : `${siteUrl}${item.url}` 
+      ...(item.url && {
+        "item": item.url.startsWith('http') ? item.url : `${siteUrl}${item.url}`
       })
     }))
   } : null;
@@ -142,7 +94,7 @@ export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({
   return (
     <>
       {schemaMarkup && (
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: safeJSONStringify(schemaMarkup)
@@ -155,3 +107,4 @@ export const BreadcrumbsWithSchema: React.FC<BreadcrumbsWithSchemaProps> = ({
 };
 
 export default Breadcrumbs;
+
