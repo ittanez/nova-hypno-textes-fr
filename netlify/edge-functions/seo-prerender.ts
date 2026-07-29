@@ -358,7 +358,7 @@ function renderArticlePage(
     image: imageUrl,
     url: canonicalUrl,
     datePublished: article.published_at,
-    dateModified: article.updated_at,
+    dateModified: article.updated_at || article.published_at || undefined,
     author: {
       "@type": "Person",
       name: article.author || "Alain Zenatti",
@@ -370,7 +370,9 @@ function renderArticlePage(
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/favicon.ico`,
+        url: DEFAULT_IMAGE,
+        width: 1200,
+        height: 630,
       },
     },
     mainEntityOfPage: {
@@ -470,12 +472,12 @@ function renderArticlePage(
 
   return htmlShell({
     title: article.title,
-    description,
+    description: ensureDescriptionLength(description),
     canonicalUrl,
     imageUrl,
     type: "article",
     publishedTime: article.published_at || undefined,
-    modifiedTime: article.updated_at,
+    modifiedTime: article.updated_at || article.published_at || undefined,
     author: article.author || "Alain Zenatti",
     keywords: article.keywords,
     jsonLd,
