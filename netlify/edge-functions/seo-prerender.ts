@@ -44,6 +44,11 @@ const BOT_USER_AGENTS = [
   "mistralai-user", // Le Chat (Mistral)
   "cohere-ai",
   "dataforseobot",
+  "ccbot",          // Common Crawl (dataset d'entraînement LLM)
+  "anthropic-ai",   // ancien UA Anthropic, distinct de ClaudeBot
+  "googleother",    // UA Google distinct de Googlebot
+  "omgili",         // webz.io
+  "diffbot",
 ];
 
 // ─── Types ─────────────────────────────────────────────────────────────────
