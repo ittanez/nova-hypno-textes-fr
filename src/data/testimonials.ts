@@ -2,6 +2,12 @@ import { Testimonial } from "../types/testimonial";
 
 export const testimonials: Testimonial[] = [
   {
+    name: "Etienne Torresani",
+    date: "Il y a 1 jour",
+    text: "Excellent! Je recommande",
+    rating: 5
+  },
+  {
     name: "Edward Achour",
     date: "Il y a 2 semaines",
     text: "Découvrir le travail d'Alain Zenatti est une expérience marquante. Alain propose bien plus que des séances - de véritables parcours de transformation conçus pour libérer l'esprit, dépasser les freins invisibles et renouer avec une forme de clarté personnelle.",
