@@ -195,9 +195,18 @@ export const localBusinessSchema = {
     "ratingValue": 5,
     "bestRating": 5,
     "worstRating": 1,
-    "reviewCount": 23
+    "reviewCount": 24
   },
   "review": [
+    {
+      "@type": "Review",
+      "@id": "https://novahypnose.fr/#review-10",
+      "author": { "@type": "Person", "name": "Etienne Torresani" },
+      "datePublished": "2026-08-05",
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-10", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewBody": "Excellent! Je recommande"
+    },
     {
       "@type": "Review",
       "@id": "https://novahypnose.fr/#review-1",
