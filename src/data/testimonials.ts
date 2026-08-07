@@ -2,6 +2,12 @@ import { Testimonial } from "../types/testimonial";
 
 export const testimonials: Testimonial[] = [
   {
+    name: "Sylvie Kourkine",
+    date: "Il y a 21 minutes",
+    text: "Alain Zenatti est à l'écoute et très professionnel. Un entretien approfondi lui a permis de faire une analyse précise de ma demande et de mon mal être. Pour moi, dès la première séance un changement s'est produit tout en douceur.",
+    rating: 5
+  },
+  {
     name: "Etienne Torresani",
     date: "Il y a 1 jour",
     text: "Excellent! Je recommande",

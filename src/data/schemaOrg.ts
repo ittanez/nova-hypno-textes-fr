@@ -195,9 +195,18 @@ export const localBusinessSchema = {
     "ratingValue": 5,
     "bestRating": 5,
     "worstRating": 1,
-    "reviewCount": 24
+    "reviewCount": 25
   },
   "review": [
+    {
+      "@type": "Review",
+      "@id": "https://novahypnose.fr/#review-11",
+      "author": { "@type": "Person", "name": "Sylvie Kourkine" },
+      "datePublished": "2026-08-06",
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-11", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewBody": "Alain Zenatti est à l'écoute et très professionnel. Un entretien approfondi lui a permis de faire une analyse précise de ma demande et de mon mal être. Pour moi, dès la première séance un changement s'est produit tout en douceur."
+    },
     {
       "@type": "Review",
       "@id": "https://novahypnose.fr/#review-10",
