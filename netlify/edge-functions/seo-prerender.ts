@@ -191,6 +191,19 @@ async function getAllCategories(): Promise<Category[]> {
   return res.json();
 }
 
+// Distribue les liens "à lire aussi" sur toute la catégorie plutôt que de
+// toujours pointer vers les 3 mêmes articles les plus récents : sans cette
+// rotation, un article vieux de quelques mois dans une grande catégorie (32
+// articles pour "Hypnose thérapeutique") ne reçoit jamais de lien depuis ce
+// bloc, sur aucune des pages que Google explore.
+function hashToIndex(id: string, modulo: number): number {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return modulo > 0 ? hash % modulo : 0;
+}
+
 async function getRelatedArticles(
   categories: string[],
   currentSlug: string,
@@ -201,10 +214,14 @@ async function getRelatedArticles(
   // even when the category name contains commas or spaces.
   const primaryCategory = encodeURIComponent('"' + categories[0].replace(/"/g, '\\"') + '"');
   const res = await supabaseFetch(
-    `articles?published=eq.true&categories=cs.{${primaryCategory}}&slug=neq.${encodeURIComponent(currentSlug)}&order=published_at.desc&limit=${limit}&select=title,slug,excerpt,seo_description,published_at,read_time`
+    `articles?published=eq.true&categories=cs.{${primaryCategory}}&slug=neq.${encodeURIComponent(currentSlug)}&order=published_at.desc&select=title,slug,excerpt,seo_description,published_at,read_time`
   );
   if (!res.ok) return [];
-  return res.json();
+  const pool: Article[] = await res.json();
+  if (pool.length <= limit) return pool;
+
+  const start = hashToIndex(currentSlug, pool.length);
+  return Array.from({ length: limit }, (_, i) => pool[(start + i) % pool.length]);
 }
 
 async function getAdjacentArticles(

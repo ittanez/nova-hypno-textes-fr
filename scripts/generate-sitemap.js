@@ -19,8 +19,8 @@ function loadStaticPages() {
   );
   const src = fs.readFileSync(supabaseFn, 'utf8');
   const pages = [...src.matchAll(
-    /\{\s*loc:\s*['"](\/[^'"]*)['"],\s*changefreq:\s*['"](\w+)['"],\s*priority:\s*['"]([\d.]+)['"]\s*\}/g
-  )].map(([, loc, changefreq, priority]) => ({ loc, changefreq, priority }));
+    /\{\s*loc:\s*['"](\/[^'"]*)['"],\s*lastmod:\s*(?:now|['"]([\d-]+)['"]),\s*changefreq:\s*['"](\w+)['"],\s*priority:\s*['"]([\d.]+)['"]\s*\}/g
+  )].map(([, loc, lastmod, changefreq, priority]) => ({ loc, lastmod, changefreq, priority }));
 
   if (pages.length < 40) {
     throw new Error(
@@ -96,7 +96,7 @@ async function generateSitemap() {
   for (const page of STATIC_PAGES) {
     xml += `  <url>
     <loc>${SITE_URL}${page.loc}</loc>
-    <lastmod>${now}</lastmod>
+    <lastmod>${page.lastmod || now}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>`;
 

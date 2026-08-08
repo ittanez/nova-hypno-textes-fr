@@ -21,76 +21,82 @@ serve(async (req) => {
     const SITE_URL = 'https://novahypnose.fr'
     const now = new Date().toISOString().split('T')[0]
 
-    // Pages statiques du site
+    // Pages statiques du site.
+    // `lastmod` reflète la date du dernier commit ayant modifié le contenu de la page
+    // (voir git log sur le fichier source correspondant dans src/pages/). Une valeur
+    // figée à la date du jour à chaque génération est trompeuse pour Google : elle
+    // laisse croire que 60+ pages changent en permanence et dévalue le signal de
+    // fraîcheur du sitemap. Mettre à jour la date ci-dessous quand le contenu d'une
+    // page change réellement.
     const STATIC_PAGES = [
-      { loc: '/',                              changefreq: 'weekly',  priority: '1.0' },
-      { loc: '/autohypnose',                   changefreq: 'monthly', priority: '0.8' },
-      { loc: '/test-receptivite',              changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-stress-anxiete-paris',  changefreq: 'monthly', priority: '0.8' },
+      { loc: '/',                              lastmod: '2026-07-22', changefreq: 'weekly',  priority: '1.0' },
+      { loc: '/autohypnose',                   lastmod: '2026-07-22', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/test-receptivite',              lastmod: '2026-06-13', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-stress-anxiete-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       // Phobies — page parent + 11 sous-pages
-      { loc: '/hypnose-phobies-paris',         changefreq: 'monthly', priority: '0.8' },
-      { loc: '/peurdelavion',                  changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-arachnophobie-paris',   changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-acrophobie-paris',      changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-claustrophobie-paris',  changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-peur-parler-public-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-peur-dentiste-paris',   changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-peur-aiguilles-paris',  changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-peur-sang-paris',       changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-aquaphobie-paris',      changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-amaxophobie-paris',     changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-phobie-sociale-paris',  changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-sommeil-paris',         changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-gestion-emotions-paris', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-phobies-paris',         lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/peurdelavion',                  lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-arachnophobie-paris',   lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-acrophobie-paris',      lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-claustrophobie-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-peur-parler-public-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-peur-dentiste-paris',   lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-peur-aiguilles-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-peur-sang-paris',       lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-aquaphobie-paris',      lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-amaxophobie-paris',     lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-phobie-sociale-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-sommeil-paris',         lastmod: '2026-07-01', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-gestion-emotions-paris', lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.8' },
       // Blocages — page parent + 6 sous-pages
-      { loc: '/hypnose-blocages-paris',        changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-procrastination-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-onychophagie-paris',    changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-toc-rituels-paris',     changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-schemas-repetitifs-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-blocages-professionnels-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-addictions-comportementales-paris', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-blocages-paris',        lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-procrastination-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-onychophagie-paris',    lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-toc-rituels-paris',     lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-schemas-repetitifs-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-blocages-professionnels-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-addictions-comportementales-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       // Troubles émotionnels — page parent + 6 sous-pages
-      { loc: '/hypnose-troubles-emotionnels-paris', changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-colere-paris',          changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-hypersensibilite-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-deuil-paris',           changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-traumatismes-paris',    changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-frustration-paris',     changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-anxiete-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-charge-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-confiance-en-soi-paris', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-troubles-emotionnels-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-colere-paris',          lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-hypersensibilite-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-deuil-paris',           lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-traumatismes-paris',    lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-frustration-paris',     lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-anxiete-emotionnelle-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-charge-emotionnelle-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-confiance-en-soi-paris', lastmod: '2026-06-13', changefreq: 'monthly', priority: '0.8' },
       // Troubles alimentaires — page parent + 6 sous-pages
-      { loc: '/hypnose-troubles-alimentaires-paris', changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-compulsions-alimentaires-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-grignotage-paris',      changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-addiction-sucre-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-boulimie-paris',        changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-alimentation-emotionnelle-paris', changefreq: 'monthly', priority: '0.7' },
-      { loc: '/hypnose-image-corporelle-paris', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-troubles-alimentaires-paris', lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-compulsions-alimentaires-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-grignotage-paris',      lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-addiction-sucre-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-boulimie-paris',        lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-alimentation-emotionnelle-paris', lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-image-corporelle-paris', lastmod: '2026-06-20', changefreq: 'monthly', priority: '0.7' },
       // Autres spécialités
-      { loc: '/hypnose-arret-tabac-paris',     changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-professionnels-paris',  changefreq: 'monthly', priority: '0.8' },
-      { loc: '/hypnose-en-ligne',              changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-arret-tabac-paris',     lastmod: '2026-07-01', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-professionnels-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/hypnose-en-ligne',              lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       // Guides gratuits (lead magnets) + quiz
-      { loc: '/guide-autohypnose',             changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-sommeil',                 changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-procrastination',         changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-emotions-travail',        changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-colere',                  changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-carriere',                changefreq: 'monthly', priority: '0.6' },
-      { loc: '/guide-arret-tabac',             changefreq: 'monthly', priority: '0.6' },
-      { loc: '/autohypnose/quiz',              changefreq: 'monthly', priority: '0.5' },
-      { loc: '/alain-zenatti',                 changefreq: 'monthly', priority: '0.6' },
-      { loc: '/tarifs',                        changefreq: 'monthly', priority: '0.8' },
-      { loc: '/avis',                          changefreq: 'monthly', priority: '0.7' },
-      { loc: '/contact',                       changefreq: 'monthly', priority: '0.8' },
-      { loc: '/faq',                           changefreq: 'monthly', priority: '0.7' },
-      { loc: '/blog',                          changefreq: 'daily',   priority: '0.9' },
-      { loc: '/blog/categories',               changefreq: 'weekly',  priority: '0.6' },
-      { loc: '/mentions-legales',              changefreq: 'yearly',  priority: '0.3' },
-      { loc: '/politique-de-confidentialite', changefreq: 'yearly',  priority: '0.3' },
-      { loc: '/politique-de-confidentialite-novarespire', changefreq: 'yearly', priority: '0.3' },
+      { loc: '/guide-autohypnose',             lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-sommeil',                 lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-procrastination',         lastmod: '2026-07-12', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-emotions-travail',        lastmod: '2026-07-12', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-colere',                  lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-carriere',                lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/guide-arret-tabac',             lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/autohypnose/quiz',              lastmod: '2026-06-13', changefreq: 'monthly', priority: '0.5' },
+      { loc: '/alain-zenatti',                 lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.6' },
+      { loc: '/tarifs',                        lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/avis',                          lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/contact',                       lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      { loc: '/faq',                           lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/blog',                          lastmod: now,          changefreq: 'daily',   priority: '0.9' },
+      { loc: '/blog/categories',               lastmod: '2026-06-13', changefreq: 'weekly',  priority: '0.6' },
+      { loc: '/mentions-legales',              lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
+      { loc: '/politique-de-confidentialite', lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
+      { loc: '/politique-de-confidentialite-novarespire', lastmod: '2026-06-13', changefreq: 'yearly', priority: '0.3' },
     ]
 
     console.log('🚀 Génération du sitemap...')
@@ -145,7 +151,7 @@ serve(async (req) => {
     for (const page of STATIC_PAGES) {
       xml += `  <url>
     <loc>${SITE_URL}${page.loc}</loc>
-    <lastmod>${now}</lastmod>
+    <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>`
 
