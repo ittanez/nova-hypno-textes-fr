@@ -238,6 +238,23 @@ export const getPopularArticles = async (limit: number = 3): Promise<ArticlesRes
 };
 
 // Fonction pour récupérer les articles similaires (basé sur les tags ou catégories)
+//
+// Le pool de candidats est récupéré sans limite stricte puis on en tire un
+// sous-ensemble à une position dérivée de articleId (déterministe, stable
+// pour un même article, mais différente d'un article à l'autre). Sans cette
+// rotation, une requête `.limit(n)` sans `ORDER BY` explicite sur une colonne
+// discriminante renvoie systématiquement le même sous-ensemble d'articles pour
+// toute une catégorie : ce sont toujours les 3 mêmes articles qui reçoivent un
+// lien "à lire aussi", et tous les autres restent orphelins de maillage
+// interne — ce qui nuit à leur indexation.
+const hashToIndex = (id: string, modulo: number): number => {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return modulo > 0 ? hash % modulo : 0;
+};
+
 export const getRelatedArticles = async (articleId: string, limit: number = 3): Promise<ArticlesResponse> => {
   try {
     // Récupérer l'article actuel pour obtenir ses tags ou catégories
@@ -267,13 +284,21 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3): 
       query = query.overlaps('categories', article.categories);
     }
 
-    const { data, error } = await query.limit(limit);
+    const { data, error } = await query.order('published_at', { ascending: false });
 
     if (error) {
       throw error;
     }
 
-    return { data: data as Article[], error: null };
+    const pool = (data as Article[]) || [];
+    if (pool.length <= limit) {
+      return { data: pool, error: null };
+    }
+
+    const start = hashToIndex(articleId, pool.length);
+    const selected = Array.from({ length: limit }, (_, i) => pool[(start + i) % pool.length]);
+
+    return { data: selected, error: null };
   } catch (error) {
     logger.error("Erreur lors de la récupération des articles similaires:", error);
     return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
