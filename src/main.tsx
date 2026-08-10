@@ -5,10 +5,15 @@ import App from './App.tsx'
 import './index.css'
 import '@/styles/preview-charte.css'
 import { logger } from '@/lib/logger';
+import { initConversionTracking } from '@/lib/googleAds';
 
 // Point d'extension pour charger des ressources non critiques après le rendu
 // initial (appelé via requestIdleCallback plus bas). Vide à ce jour.
 const loadNonCriticalResources = () => {};
+
+// Suivi des conversions Google Ads. Doit s'exécuter avant le rendu pour lire les
+// paramètres de clic (gclid…) avant que le routeur ne nettoie l'URL.
+initConversionTracking();
 
 // Rendu de l'application avec priorité maximale
 const root = createRoot(document.getElementById("root")!);
