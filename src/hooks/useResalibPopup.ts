@@ -1,9 +1,19 @@
+import { trackAdsConversion } from '@/lib/googleAds';
+import { trackCTAClick } from '@/lib/analytics';
+
 /**
  * Hook pour ouvrir la fenêtre de réservation Resalib dans un popup
+ *
+ * La réservation elle-même se déroule sur resalib.fr, un domaine tiers que l'on
+ * ne peut pas baliser. L'ouverture du popup est donc le dernier signal mesurable
+ * côté site : c'est lui qui sert de conversion principale à Google Ads.
  */
 
 export const useResalibPopup = () => {
   const openResalibPopup = (url: string = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr') => {
+    trackAdsConversion('booking');
+    trackCTAClick('resalib_booking', window.location.pathname);
+
     // Dimensions du popup
     const width = 900;
     const height = 800;
