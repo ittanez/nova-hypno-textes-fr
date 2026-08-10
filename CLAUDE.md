@@ -109,6 +109,50 @@ The `base` in `vite.config.ts` reads `process.env.VITE_BASE_PATH` (defaults to `
 
 Use `logger` from `@/lib/logger.ts` instead of `console.*`. `logger.debug()` and `logger.info()` are suppressed in production; `logger.warn()` and `logger.error()` remain visible.
 
+### Analytics and conversion tracking
+
+Two rules, both learned from real regressions:
+
+**1. The `gtag` stub in `index.html` must stay global.** It is declared at top level as
+`window.gtag = window.gtag || function(){…}`, deliberately **not** inside the script's
+`onload` callback. A previous version declared `function gtag(){}` inside `s.onload`,
+which made it a local function: `window.gtag` never existed, and every custom event in
+`src/lib/analytics.ts` and `HeroCarousel` was silently dropped for months while GA4
+pageviews kept working — the failure is invisible unless you check `typeof window.gtag`
+in the console. Never move the stub back inside a callback.
+
+**2. gtag.js is deliberately loaded 8 seconds late** to protect Core Web Vitals, via the
+idempotent `window.__nhLoadGtag()`. Calls emitted before the script loads are queued in
+`dataLayer` and replayed on load — that is the intended design, not a bug.
+
+`src/lib/googleAds.ts` handles Google Ads conversions. It detects paid clicks
+(`gclid` / `gbraid` / `wbraid`, or `utm_source=google` + `utm_medium=cpc`), stores the
+fact in `sessionStorage` (URL params vanish on the first SPA navigation) and forces an
+immediate gtag load **for those visits only**. Booking conversions are wired once in
+`useResalibPopup`, which covers its ~60 calling files; phone clicks use a delegated
+listener so no page needs editing.
+
+The module is **inert** unless `VITE_GOOGLE_ADS_ID` and the matching
+`VITE_GOOGLE_ADS_LABEL_*` are set (see `.env.example`). Booking happens on `resalib.fr`,
+a third-party domain that cannot be tagged, so what is measured is the *intent* to book.
+
+### Google Ads campaigns
+
+Search campaigns are prepared in `docs/google-ads/<campagne>/import/` — one folder per
+campaign, five CSV each. `npm run validate:ads` discovers them automatically and checks
+Google Ads length limits (counting code points, so `é` and `€` count as 1) plus keywords
+blocked by their own negative list.
+
+Two conventions when touching campaign files:
+
+- **Never claim in an ad what the landing page does not say.** Keywords and ad copy are
+  built from a survey of the page's actual content; a headline promising something absent
+  from the page is a defect, and so is a price in an ad that the page does not display.
+- **Prefer phrase negatives over broad ones** for terms that legitimately co-occur with
+  the theme (`sommeil`, `confiance`, `peur`). Broad negatives are for terms that never
+  can (`tabac`, `araignée`). Watch for meaning collisions — `réunion` as a broad negative
+  was excluding "prise de parole en réunion" while aiming at the island of La Réunion.
+
 ## Key conventions
 
 ### Commit format
