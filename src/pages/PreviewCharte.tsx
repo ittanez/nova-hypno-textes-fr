@@ -775,13 +775,17 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <div className="reveal seance-promesse d-2">
-              <em>21 avis vérifiés sur Resalib — 5.0/5.</em> Alain Zenatti est unanimement
+              <em>Résumé Resalib — 21 avis vérifiés, 5.0/5.</em> Alain Zenatti est unanimement
               apprécié pour son écoute attentive, sa bienveillance et sa capacité à mettre à
               l'aise, instaurant une confiance immédiate chez chaque personne qu'il accompagne.
               Grâce à son professionnalisme et des techniques efficaces, il aide à lever des
               blocages, résoudre des problèmes profonds et réaliser des transformations
               personnelles avec des résultats rapides et durables. Ceux qui le consultent
               témoignent d'un mieux-être significatif et recommandent vivement son approche.
+              <span style={{ display: 'block', marginTop: '.9rem', fontSize: '.78rem', color: 'var(--gris)', fontStyle: 'normal' }}>
+                Résumé généré automatiquement par Resalib à partir des avis clients vérifiés —{' '}
+                <a href={RESALIB_URL} target="_blank" rel="noopener noreferrer" className="link-underline">voir la fiche Resalib</a>.
+              </span>
             </div>
 
             <div className="temoignages__list">
@@ -821,9 +825,7 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <p className="tarifs-note reveal">
-              Résumé généré par Resalib à partir des avis clients vérifiés —{' '}
-              <a href={RESALIB_URL} target="_blank" rel="noopener noreferrer" className="link-underline">voir la fiche Resalib</a>.
-              {' '}<Link to="/avis" className="link-underline">Lire tous les avis et témoignages →</Link>
+              <Link to="/avis" className="link-underline">Lire tous les avis et témoignages →</Link>
             </p>
           </div>
         </section>
