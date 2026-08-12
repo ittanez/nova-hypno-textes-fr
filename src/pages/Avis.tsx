@@ -88,6 +88,32 @@ const Avis = () => {
         </div>
       </section>
 
+      {/* Résumé Resalib */}
+      <section className="sp-section">
+        <div className="container sp-narrow">
+          <h2 className="sp-h2">21 avis vérifiés sur Resalib</h2>
+          <p style={{marginBottom: 16}}>
+            <span aria-label="5 sur 5">{'★'.repeat(5)}</span> 5.0/5 — avis authentifiés,
+            seuls les clients du praticien peuvent publier un avis.
+          </p>
+          <div className="sp-prose">
+            <p>
+              Alain Zenatti est unanimement apprécié pour son écoute attentive, sa bienveillance
+              et sa capacité à mettre à l'aise, instaurant une confiance immédiate chez chaque
+              personne qu'il accompagne. Grâce à son professionnalisme et des techniques
+              efficaces, il aide à lever des blocages, résoudre des problèmes profonds et
+              réaliser des transformations personnelles avec des résultats rapides et durables.
+              Ceux qui le consultent témoignent d'un mieux-être significatif et recommandent
+              vivement son approche.
+            </p>
+            <p style={{fontSize: '.85rem', color: 'var(--gris)'}}>
+              Résumé généré par Resalib à partir des avis clients vérifiés —{' '}
+              <a href={RESALIB_URL} target="_blank" rel="noopener noreferrer">voir la fiche Resalib d'Alain Zenatti</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Témoignages */}
       <section className="sp-section">
         <div className="container sp-narrow">
