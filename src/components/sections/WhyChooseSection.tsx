@@ -37,7 +37,7 @@ const WhyChooseSection: React.FC = () => {
               Expertise reconnue
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Maître Hypnologue certifié avec plus de 5 ans d'expérience.
+              Maître Hypnologue certifié avec plus de 6 ans d'expérience.
               Formation continue pour garantir les meilleures pratiques.
             </p>
             <ul className="space-y-2 text-gray-600 text-sm">

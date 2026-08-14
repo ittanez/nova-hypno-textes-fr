@@ -112,8 +112,8 @@ const Program = () => {
   const trainerInfo = {
     name: "Alain Zenatti",
     role: "Hypnothérapeute certifié",
-    experience: "Plus de 5 ans d'expérience",
-    description: "J'accompagne depuis plus de 5 ans des personnes souhaitant retrouver calme, sérénité et confiance face aux défis du quotidien.",
+    experience: "Plus de 6 ans d'expérience",
+    description: "J'accompagne depuis plus de 6 ans des personnes souhaitant retrouver calme, sérénité et confiance face aux défis du quotidien.",
     approach: "Mon approche combine différentes techniques pour vous permettre de développer des ressources intérieures durables et cultiver un état de bien-être au quotidien.",
     formations: [
       "Hypnose Ericksonienne",

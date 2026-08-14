@@ -23,7 +23,7 @@ const AuthorPage: React.FC = () => {
       "jobTitle": "Maître Hypnologue certifié",
       "url": "https://novahypnose.fr/alain-zenatti",
       "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
-      "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. Plus de 5 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
+      "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. Plus de 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
       "sameAs": [
         "https://www.instagram.com/novahypnose/",
         "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",

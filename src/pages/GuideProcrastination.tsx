@@ -322,7 +322,7 @@ const GuideProcrastination: React.FC = () => {
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
                   {[
-                    "<strong>5 ans</strong> d'expérience en cabinet (Paris 4e)",
+                    "<strong>6 ans</strong> d'expérience en cabinet (Paris 4e)",
                     "<strong>Formations entreprises</strong> : finance, santé, tech, industrie",
                     "<strong>Méthode NovaHypnose</strong> : 12-15 protocoles propriétaires",
                     "<strong>Approche scientifique</strong> : neuroplasticité + validation clinique",
