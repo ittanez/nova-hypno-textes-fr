@@ -49,7 +49,7 @@ const About = () => {
             Maître Hypnologue • Hypnose Ericksonienne
           </p>
           <p className="text-lg text-gray-600 mt-2">
-            Plus de 5 ans d'expérience • Cabinet Paris 4ème
+            Plus de 6 ans d'expérience • Cabinet Paris 4ème
           </p>
         </div>
         

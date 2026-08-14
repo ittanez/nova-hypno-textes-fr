@@ -41,7 +41,7 @@ const benefits = [
   {
     icon: CheckCircle,
     title: 'Méthode NovaHypnose',
-    desc: "Issu de la pratique clinique d'Alain Zenatti — hypnothérapeute ericksonien à Paris 4e depuis 5 ans.",
+    desc: "Issu de la pratique clinique d'Alain Zenatti — hypnothérapeute ericksonien à Paris 4e depuis 6 ans.",
   },
 ];
 

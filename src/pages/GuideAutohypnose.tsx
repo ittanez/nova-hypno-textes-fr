@@ -116,7 +116,7 @@ const benefits = [
   { icon: Target, title: '9 protocoles complets', desc: "Prêts à utiliser dès ce soir. Du sas de décompression 5 min au protocole de confiance approfondi." },
   { icon: CheckCircle, title: '100% pratique', desc: "Pas de théorie abstraite. Chaque technique est expliquée étape par étape, testée sur 1000+ clients." },
   { icon: Briefcase, title: 'Spécial professionnels', desc: "Conçu pour cadres/employés. Techniques utilisables au bureau, adaptées aux contraintes pro." },
-  { icon: Brain, title: 'Méthode NovaHypnose', desc: "Aperçu exclusif de mes protocoles propriétaires, utilisés en cabinet depuis 5 ans." },
+  { icon: Brain, title: 'Méthode NovaHypnose', desc: "Aperçu exclusif de mes protocoles propriétaires, utilisés en cabinet depuis 6 ans." },
   { icon: BarChart3, title: 'Base scientifique', desc: "Neuroplasticité, méta-analyses, validation clinique. Efficacité prouvée, pas effet placebo." },
   { icon: Wrench, title: 'Totalement autonome', desc: "Devenez indépendant dans votre pratique. Guide complet d'installation et troubleshooting." },
 ];

@@ -35,13 +35,13 @@ const CredibilityBadgesSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Badge 2 : +5 ans d'expérience */}
+            {/* Badge 2 : +6 ans d'expérience */}
             <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-blue-300 transition-colors">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3">
                 <Star className="text-white" size={32} />
               </div>
               <p className="font-bold text-gray-900 text-sm md:text-base">
-                +5 ans
+                +6 ans
               </p>
               <p className="text-xs text-gray-600 mt-1">
                 d'expérience clinique
