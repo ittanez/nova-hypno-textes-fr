@@ -1182,11 +1182,11 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/zone-intervention": {
-    title: "Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose",
+    title: "Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose",
     description:
-      "Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue.",
+      "Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif.",
     canonicalPath: "/zone-intervention",
-    h1: "Hypnothérapeute Paris 4e — Marais · Bastille & Visio France",
+    h1: "Venir au Cabinet à Paris 4e — Marais · Bastille & Visio France",
     jsonLd: [
       breadcrumbLd([
         { name: "Accueil", path: "/" },

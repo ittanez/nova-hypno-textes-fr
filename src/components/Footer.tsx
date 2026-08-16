@@ -120,9 +120,14 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/zone-intervention" className="text-gray-300 hover:text-white transition-colors block">
+                  Zone d'intervention
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           {/* Troisième colonne: Spécialités */}
           <div>
             <h3 className="font-serif text-xl mb-4">Spécialités</h3>

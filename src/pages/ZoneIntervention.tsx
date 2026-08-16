@@ -109,19 +109,19 @@ const ZoneIntervention = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose</title>
+        <title>Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose</title>
         <meta
           name="description"
-          content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue."
+          content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif."
         />
         <meta
           name="keywords"
-          content="hypnothérapeute paris 4, hypnothérapeute bastille, hypnose marais, hypnose paris 4, cabinet hypnose paris 4, hypnothérapeute paris 4ème, hypnose en visio france, séances hypnose visio, hypnothérapeute paris, cabinet hypnose bastille, accès hypnose paris 4"
+          content="accès cabinet hypnose paris 4, hypnothérapeute proche de moi paris, zone desservie hypnothérapeute paris, cabinet hypnose bastille accès, hypnose marais accès métro, transports cabinet hypnose paris, arrondissements desservis hypnothérapeute, hypnose en visio france"
         />
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
-        <meta property="og:title" content="Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose" />
-        <meta property="og:description" content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue." />
+        <meta property="og:title" content="Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose" />
+        <meta property="og:description" content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
         <meta property="og:locale" content="fr_FR" />
@@ -130,8 +130,8 @@ const ZoneIntervention = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnothérapeute Paris 4 · Bastille & Visio France | NovaHypnose" />
-        <meta name="twitter:description" content="Hypnothérapeute Paris 4e, Marais-Bastille (métro Bastille 2 min). Séances cabinet 90€, à domicile 140€, visio partout en France 90€. Alain Zenatti, Maître Hypnologue." />
+        <meta name="twitter:title" content="Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose" />
+        <meta name="twitter:description" content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif." />
         <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbLd)}</script>
@@ -149,7 +149,7 @@ const ZoneIntervention = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              <span className="block text-purple-600 mb-2">Hypnothérapeute Paris 4e</span>
+              <span className="block text-purple-600 mb-2">Venir au Cabinet à Paris 4e</span>
               <span className="block text-blue-600">Marais · Bastille & Visio France</span>
             </h1>
 
