@@ -71,7 +71,7 @@ function llmsTxtPaths(): Set<string> {
 const isSpecialty = (p: string) => /^\/hypnose-[a-z-]+$/.test(p) || p === '/peurdelavion';
 
 /** Pages volontairement noindex (netlify.toml X-Robots-Tag) — jamais dans le sitemap. */
-const NOINDEX_PAGES = ['/zone-intervention', '/test-receptivite-archive'];
+const NOINDEX_PAGES = ['/test-receptivite-archive'];
 
 describe('Garde-fou SEO/GEO — couverture des pages spécialités', () => {
   const routes = appContentRoutes();

@@ -403,11 +403,6 @@
     X-Robots-Tag = "noindex, follow"
 
 [[headers]]
-  for = "/zone-intervention"
-  [headers.values]
-    X-Robots-Tag = "noindex, follow"
-
-[[headers]]
   for = "/maquette"
   [headers.values]
     X-Robots-Tag = "noindex, follow"

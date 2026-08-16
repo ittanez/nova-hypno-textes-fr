@@ -32,6 +32,7 @@ serve(async (req) => {
       { loc: '/',                              lastmod: '2026-07-22', changefreq: 'weekly',  priority: '1.0' },
       { loc: '/autohypnose',                   lastmod: '2026-07-22', changefreq: 'monthly', priority: '0.8' },
       { loc: '/test-receptivite',              lastmod: '2026-06-13', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/zone-intervention',             lastmod: '2026-08-16', changefreq: 'monthly', priority: '0.6' },
       { loc: '/hypnose-stress-anxiete-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       // Phobies — page parent + 11 sous-pages
       { loc: '/hypnose-phobies-paris',         lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.8' },
