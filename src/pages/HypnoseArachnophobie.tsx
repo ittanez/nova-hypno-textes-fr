@@ -94,7 +94,7 @@ const HypnoseArachnophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines — résultats durables en 2 à 3 séances." />
+        <meta name="description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Résultats durables en 2 à 3 séances." />
         <meta name="keywords" content="hypnose arachnophobie paris, peur araignées hypnose, traitement arachnophobie, vaincre peur araignées hypnose, hypnothérapeute arachnophobie paris, hypnose insectes, peur araignées hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-arachnophobie-paris" />
         <meta property="og:title" content="Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti" />

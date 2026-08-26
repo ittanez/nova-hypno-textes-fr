@@ -94,7 +94,7 @@ const HypnosePeurParlerPublic = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur de parler en public Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <meta name="description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral." />
         <meta name="keywords" content="hypnose peur parler public paris, glossophobie hypnose paris, trac prise de parole hypnose, traitement peur de parler, hypnothérapeute glossophobie paris, hypnose trac oral, peur parler public hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
         <meta property="og:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />

@@ -94,7 +94,7 @@ const HypnosePeurAiguilles = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal. Résultats durables en 2 à 3 séances." />
+        <meta name="description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal." />
         <meta name="keywords" content="hypnose peur aiguilles paris, bélonéphobie hypnose paris, peur injections hypnose, vaincre peur prise de sang, hypnothérapeute peur aiguilles paris, malaise vagal hypnose, peur aiguilles hypnose en ligne, séance hypnose bélonéphobie visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-aiguilles-paris" />
         <meta property="og:title" content="Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti" />

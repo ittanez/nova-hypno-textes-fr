@@ -95,7 +95,7 @@ const HypnoseHypersensibiliteParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose hypersensibilité Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel." />
         <meta name="keywords" content="hypnose hypersensibilité paris, hypersensible hypnose, surcharge sensorielle hypnose paris, émotions amplifiées traitement, hypnose HSP paris, hypersensibilité émotionnelle hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-hypersensibilite-paris" />
         <meta property="og:title" content="Hypnose hypersensibilité Paris | Alain Zenatti" />

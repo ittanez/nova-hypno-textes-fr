@@ -95,7 +95,7 @@ const HypnoseImageCorporelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose image corporelle Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle — l'hypnose change le regard intérieur. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle." />
         <meta name="keywords" content="hypnose image corporelle paris, dysmorphophobie légère hypnose, honte corporelle hypnose paris, image du corps traitement hypnose, rapport au corps hypnose paris, image corporelle négative hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-image-corporelle-paris" />
         <meta property="og:title" content="Hypnose image corporelle Paris & en ligne | Alain Zenatti" />

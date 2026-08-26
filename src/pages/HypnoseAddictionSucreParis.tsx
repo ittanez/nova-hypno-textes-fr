@@ -95,7 +95,7 @@ const HypnoseAddictionSucreParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose addiction au sucre Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée." />
         <meta name="keywords" content="hypnose addiction sucre paris, dépendance sucre hypnose, arrêter sucre hypnose paris, envies sucré hypnose, sucre compulsif traitement hypnose, hypnose addiction sucre en ligne, réduire sucre hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-addiction-sucre-paris" />
         <meta property="og:title" content="Hypnose addiction au sucre Paris & en ligne | Alain Zenatti" />

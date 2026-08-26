@@ -79,7 +79,7 @@ const PreviewCharteBlog: React.FC = () => {
     <>
       <Helmet>
         <title>Blog hypnose & bien-être — NovaHypnose | Alain Zenatti</title>
-        <meta name="description" content="Articles sur l'hypnose ericksonienne, l'auto-hypnose, la gestion du stress, du sommeil et des émotions. Conseils et réflexions d'Alain Zenatti, hypnothérapeute à Paris." />
+        <meta name="description" content="Articles sur l'hypnose ericksonienne, l'auto-hypnose, la gestion du stress, du sommeil et des émotions." />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Blog hypnose & bien-être — NovaHypnose" />
         <meta property="og:description" content="Articles sur l'hypnose ericksonienne, l'auto-hypnose, la gestion du stress, du sommeil et des émotions." />

@@ -99,7 +99,7 @@ const HypnoseTraumatismesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose traumatismes Paris | Alain Zenatti</title>
-        <meta name="description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma. Ne remplace pas un suivi médical." />
+        <meta name="description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur." />
         <meta name="keywords" content="hypnose traumatisme paris, hypnose choc psychologique, hypnose stress post-traumatique, hypnothérapeute trauma paris, hypnose après agression, hypnose après accident, hypnose licenciement, traumatisme hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:title" content="Hypnose traumatismes Paris | Alain Zenatti" />

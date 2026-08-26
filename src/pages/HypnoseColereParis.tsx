@@ -95,7 +95,7 @@ const HypnoseColereParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose colère et irritabilité Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées." />
         <meta name="keywords" content="hypnose colère paris, hypnose irritabilité paris, gestion colère hypnose, explosions colère traitement, hypnose réactions disproportionnées paris, hypnose colère en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-colere-paris" />
         <meta property="og:title" content="Hypnose colère et irritabilité Paris | Alain Zenatti" />

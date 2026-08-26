@@ -112,7 +112,7 @@ const ZoneIntervention = () => {
         <title>Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif."
+          content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : Paris et proche banlieue."
         />
         <meta
           name="keywords"

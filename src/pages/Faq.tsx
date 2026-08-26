@@ -32,7 +32,7 @@ const Faq = () => {
     <CzLayout>
       <Helmet>
         <title>FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose</title>
-        <meta name="description" content="Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio. Par Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio." />
         <meta name="keywords" content="faq hypnose, questions hypnose paris, hypnose danger, hypnose remboursement mutuelle, comment se déroule une séance hypnose, hypnose visio faq" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/faq" />

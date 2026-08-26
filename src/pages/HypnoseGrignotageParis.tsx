@@ -95,7 +95,7 @@ const HypnoseGrignotageParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose grignotage chronique Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel." />
         <meta name="keywords" content="hypnose grignotage paris, arrêter grignoter hypnose, grignotage chronique traitement, grignotage anxieux hypnose paris, grignotage bureau hypnose, hypnose grignotage en ligne, automatisme alimentaire hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-grignotage-paris" />
         <meta property="og:title" content="Hypnose grignotage chronique Paris & en ligne | Alain Zenatti" />

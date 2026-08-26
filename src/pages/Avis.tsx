@@ -29,7 +29,7 @@ const Avis = () => {
     <CzLayout>
       <Helmet>
         <title>Avis & témoignages clients — NovaHypnose | Alain Zenatti</title>
-        <meta name="description" content="Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi." />
+        <meta name="description" content="Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib." />
         <meta name="keywords" content="avis novahypnose, avis alain zenatti, avis hypnothérapeute paris, témoignage hypnose paris, hypnose paris avis, avis hypnose ericksonienne" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/avis" />

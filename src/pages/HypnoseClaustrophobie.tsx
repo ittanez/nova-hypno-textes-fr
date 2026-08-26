@@ -94,7 +94,7 @@ const HypnoseClaustrophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro, avion — résultats durables en 2 à 4 séances." />
+        <meta name="description" content="Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro, avion." />
         <meta name="keywords" content="hypnose claustrophobie paris, peur espaces clos hypnose, traitement claustrophobie, vaincre claustrophobie hypnose, hypnothérapeute claustrophobie paris, hypnose peur enfermement, claustrophobie hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-claustrophobie-paris" />
         <meta property="og:title" content="Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti" />

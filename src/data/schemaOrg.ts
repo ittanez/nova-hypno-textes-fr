@@ -195,7 +195,7 @@ export const localBusinessSchema = {
     "ratingValue": 5,
     "bestRating": 5,
     "worstRating": 1,
-    "reviewCount": 25
+    "reviewCount": 11
   },
   "review": [
     {

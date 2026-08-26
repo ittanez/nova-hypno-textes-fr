@@ -94,7 +94,7 @@ const HypnoseAnxieteEmotionnelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose anxiété émotionnelle Paris | Alain Zenatti</title>
-        <meta name="description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — résultats en 3 à 5 séances." />
+        <meta name="description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel." />
         <meta name="keywords" content="hypnose anxiété émotionnelle paris, peur émotions hypnose, contrôle émotions hypnose paris, hypnothérapeute anxiété émotionnelle paris, évitement émotionnel hypnose, exprimer émotions hypnose, anxiété émotionnelle hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-anxiete-emotionnelle-paris" />
         <meta property="og:title" content="Hypnose anxiété émotionnelle Paris | Alain Zenatti" />

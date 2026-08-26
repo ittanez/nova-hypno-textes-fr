@@ -95,7 +95,7 @@ const HypnoseSchemasRepetitifsParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source." />
         <meta name="keywords" content="hypnose schémas répétitifs paris, briser cycle relationnel hypnose, patterns amoureux inconscients hypnose, auto-sabotage répétitif hypnose paris, hypnose répétition comportements paris, cycles négatifs hypnose traitement, hypnose schémas en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-schemas-repetitifs-paris" />
         <meta property="og:title" content="Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti" />

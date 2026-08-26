@@ -95,7 +95,7 @@ const HypnoseProcrastinationParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose procrastination Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — l'hypnose agit sur la cause, pas le symptôme. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action." />
         <meta name="keywords" content="hypnose procrastination paris, arrêter procrastiner hypnose, blocage à l'action hypnose paris, peur échec hypnose paris, perfectionnisme hypnose paris, auto-sabotage hypnose paris, procrastination chronique traitement, hypnose procrastination en ligne, séance hypnose procrastination visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-procrastination-paris" />
         <meta property="og:title" content="Hypnose procrastination Paris & en ligne | Alain Zenatti" />

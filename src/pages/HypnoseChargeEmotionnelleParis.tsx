@@ -95,7 +95,7 @@ const HypnoseChargeEmotionnelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose charge émotionnelle Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions." />
         <meta name="keywords" content="hypnose charge émotionnelle paris, épuisement émotionnel hypnose, saturation émotionnelle traitement, hypnose fatigue émotionnelle paris, porter émotions des autres hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-charge-emotionnelle-paris" />
         <meta property="og:title" content="Hypnose charge émotionnelle Paris | Alain Zenatti" />

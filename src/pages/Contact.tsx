@@ -41,7 +41,7 @@ const Contact = () => {
     <CzLayout>
       <Helmet>
         <title>Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti</title>
-        <meta name="description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4ème (Marais-Bastille) : téléphone, email, formulaire, adresse et horaires. Cabinet et visioconférence, du lundi au vendredi de 11h à 20h30." />
+        <meta name="description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4ème (Marais-Bastille) : téléphone, email, formulaire, adresse et horaires." />
         <meta name="keywords" content="contact novahypnose, contacter hypnothérapeute paris, adresse cabinet hypnose paris, téléphone hypnose paris, hypnose marais bastille" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/contact" />

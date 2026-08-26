@@ -95,7 +95,7 @@ const HypnoseTroublesEmotionnelsParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose troubles émotionnels Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement des troubles émotionnels par l'hypnose à Paris 4ème ou en visio. Colère, deuil, hypersensibilité, frustration chronique, charge émotionnelle. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement des troubles émotionnels par l'hypnose à Paris 4ème ou en visio. Colère, deuil, hypersensibilité, frustration chronique, charge émotionnelle." />
         <meta name="keywords" content="hypnose troubles émotionnels paris, hypnose colère paris, hypnose deuil paris, hypnose hypersensibilité paris, hypnose frustration chronique, charge émotionnelle hypnose paris, régulation émotionnelle hypnose, hypnose troubles émotionnels en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-troubles-emotionnels-paris" />
         <meta property="og:title" content="Hypnose troubles émotionnels Paris & en ligne | Alain Zenatti" />
