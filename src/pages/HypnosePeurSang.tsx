@@ -94,7 +94,7 @@ const HypnosePeurSang = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur du sang (hématophobie) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur du sang par l'hypnose à Paris 4ème ou en visio. Hématophobie, malaises, évanouissements, réaction vasovagale. Résultats durables en 2 à 3 séances." />
+        <meta name="description" content="Libérez-vous de la peur du sang par l'hypnose à Paris 4ème ou en visio. Hématophobie, malaises, évanouissements, réaction vasovagale." />
         <meta name="keywords" content="hypnose peur sang paris, hématophobie hypnose paris, peur du sang hypnose, malaise vagal sang hypnose, vaincre peur sang, hypnothérapeute hématophobie paris, peur sang hypnose en ligne, séance hypnose hématophobie visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-sang-paris" />
         <meta property="og:title" content="Hypnose peur du sang (hématophobie) Paris | Alain Zenatti" />

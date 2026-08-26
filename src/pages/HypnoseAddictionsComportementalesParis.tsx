@@ -95,7 +95,7 @@ const HypnoseAddictionsComportementalesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose addictions comportementales Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause émotionnelle. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio." />
         <meta name="keywords" content="hypnose addiction comportementale paris, hypnose jeux argent paris, hypnose addiction écrans paris, achats compulsifs hypnose, addiction travail hypnose paris, comportement compulsif traitement hypnose, hypnose addiction comportementale en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-addictions-comportementales-paris" />
         <meta property="og:title" content="Hypnose addictions comportementales Paris & en ligne | Alain Zenatti" />

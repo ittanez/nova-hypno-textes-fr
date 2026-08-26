@@ -140,14 +140,21 @@ const SEOHead = ({
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
       
-      {/* Données structurées */}
+      {/* Données structurées : fusionnées en un seul @graph pour que les
+          références croisées entre schémas (@id vers #person, #localbusiness,
+          etc.) se résolvent dans le même document JSON-LD. Des scripts
+          séparés cassent ces références aux yeux des validateurs schema.org. */}
       {structuredData && (
         Array.isArray(structuredData) ? (
-          structuredData.map((data, index) => (
-            <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{
-              __html: safeJSONStringify(data)
-            }} />
-          ))
+          <script type="application/ld+json" dangerouslySetInnerHTML={{
+            __html: safeJSONStringify({
+              "@context": "https://schema.org",
+              "@graph": structuredData.map((data) => {
+                const { "@context": _omit, ...rest } = data as SchemaMarkup & { "@context"?: string };
+                return rest;
+              })
+            })
+          }} />
         ) : (
           <script type="application/ld+json" dangerouslySetInnerHTML={{
             __html: safeJSONStringify(structuredData)

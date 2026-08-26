@@ -95,7 +95,7 @@ const HypnoseBoulimieParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose boulimie Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles." />
         <meta name="keywords" content="hypnose boulimie paris, traitement boulimie hypnose, arrêter boulimie hypnose, boulimie aide paris, hypnose compulsions alimentaires boulimie, boulimie hypnothérapie paris, boulimie traitement en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-boulimie-paris" />
         <meta property="og:title" content="Hypnose boulimie Paris & en ligne | Alain Zenatti" />

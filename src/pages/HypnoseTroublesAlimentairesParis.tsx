@@ -72,7 +72,7 @@ const HypnoseTroublesAlimentairesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Retrouvez un rapport apaisé à la nourriture par l'hypnose à Paris 4ème ou en visio partout en France. Compulsions, boulimie, grignotages, alimentation émotionnelle. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Retrouvez un rapport apaisé à la nourriture par l'hypnose à Paris 4ème ou en visio partout en France." />
         <meta name="keywords" content="hypnose troubles alimentaires paris, hypnose boulimie paris, hypnose compulsions alimentaires paris, hypnose anorexie paris, hypnose grignotage paris, hypnose rapport nourriture paris, troubles comportement alimentaire hypnose, hypnose alimentation émotionnelle paris, hypnose troubles alimentaires en ligne, séance hypnose alimentation visio France" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-troubles-alimentaires-paris" />
         <meta property="og:title" content="Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti" />

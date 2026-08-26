@@ -94,7 +94,7 @@ const HypnosePeurDentiste = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur du dentiste (odontophobie) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur du dentiste par l'hypnose à Paris 4ème ou en visio. Odontophobie, angoisse du fauteuil, réflexe nauséeux. Résultats durables en 2 à 4 séances." />
+        <meta name="description" content="Libérez-vous de la peur du dentiste par l'hypnose à Paris 4ème ou en visio. Odontophobie, angoisse du fauteuil, réflexe nauséeux." />
         <meta name="keywords" content="hypnose peur dentiste paris, odontophobie hypnose paris, peur dentiste hypnose, vaincre peur dentiste, hypnothérapeute peur dentiste paris, réflexe nauséeux hypnose, peur dentiste hypnose en ligne, séance hypnose odontophobie visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-dentiste-paris" />
         <meta property="og:title" content="Hypnose peur du dentiste (odontophobie) Paris | Alain Zenatti" />

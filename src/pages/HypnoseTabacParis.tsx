@@ -64,7 +64,7 @@ const HypnoseTabacParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette en 1 à 3 séances. Alain Zenatti, Maître Praticien." />
+        <meta name="description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette." />
         <meta name="keywords" content="hypnose arrêt tabac paris, hypnose pour arrêter de fumer paris, hypnothérapeute tabac paris, arrêter de fumer hypnose, hypnose cigarette paris, hypnose tabac en ligne, arrêt tabac hypnose visio France, sevrage tabac hypnose, hypnose cigarette électronique paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-arret-tabac-paris" />
         <meta property="og:title" content="Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti" />

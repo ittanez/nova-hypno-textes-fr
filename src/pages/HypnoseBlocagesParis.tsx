@@ -72,7 +72,7 @@ const HypnoseBlocagesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances." />
+        <meta name="description" content="Libérez vos blocages par l'hypnose à Paris 4ème ou en visio partout en France. Procrastination, schémas répétitifs, TOC, addictions." />
         <meta name="keywords" content="hypnose blocage paris, troubles comportement hypnose paris, procrastination hypnose paris, TOC hypnose paris, onychophagie hypnose paris, schémas répétitifs hypnose, hypnose addictions paris, blocage psychologique hypnose, hypnose blocage en ligne, séance hypnose procrastination visio France, hypnose blocages à distance, téléconsultation hypnose blocages" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-paris" />
         <meta property="og:title" content="Hypnose blocages & comportements à Paris et en ligne | Alain Zenatti" />

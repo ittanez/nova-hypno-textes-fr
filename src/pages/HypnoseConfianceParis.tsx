@@ -63,7 +63,7 @@ const HypnoseConfianceParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose confiance en soi à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances." />
+        <meta name="description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi." />
         <meta name="keywords" content="hypnose confiance en soi paris, estime de soi hypnose paris, syndrome imposteur hypnose paris, prise de parole hypnose paris, hypnothérapeute confiance paris, timidité hypnose paris, hypnose confiance en soi en ligne, séance hypnose confiance visio France, hypnose estime de soi à distance, téléconsultation hypnose confiance" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
         <meta property="og:title" content="Hypnose confiance en soi à Paris et en ligne | Alain Zenatti" />

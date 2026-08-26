@@ -95,7 +95,7 @@ const HypnoseAlimentationEmotionnelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle." />
         <meta name="keywords" content="hypnose alimentation émotionnelle paris, manger ses émotions hypnose, faim émotionnelle hypnose paris, manger par stress hypnose, alimentation émotionnelle traitement paris, hypnose manger ennui paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-alimentation-emotionnelle-paris" />
         <meta property="og:title" content="Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti" />

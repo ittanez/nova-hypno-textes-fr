@@ -94,7 +94,7 @@ const HypnoseAcrophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose acrophobie (peur du vide) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, échelles, falaises — résultats durables en 2 à 4 séances." />
+        <meta name="description" content="Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, échelles, falaises." />
         <meta name="keywords" content="hypnose acrophobie paris, peur vide hypnose, traitement acrophobie, peur hauteurs hypnose paris, hypnothérapeute acrophobie paris, hypnose vertige hauteur, peur vide hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-acrophobie-paris" />
         <meta property="og:title" content="Hypnose acrophobie (peur du vide) Paris | Alain Zenatti" />

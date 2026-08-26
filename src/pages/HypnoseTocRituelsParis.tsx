@@ -95,7 +95,7 @@ const HypnoseTocRituelsParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur l'anxiété sous-jacente. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio." />
         <meta name="keywords" content="hypnose TOC paris, traitement TOC hypnose, rituels compulsifs hypnose paris, trichotillomanie hypnose paris, comportements répétitifs hypnose, vérifications compulsives traitement, hypnose TOC en ligne, séance TOC visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-toc-rituels-paris" />
         <meta property="og:title" content="Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti" />

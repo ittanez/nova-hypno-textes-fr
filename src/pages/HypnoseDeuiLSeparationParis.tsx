@@ -95,7 +95,7 @@ const HypnoseDeuiLSeparationParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose deuil et séparation Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement du deuil et des séparations par l'hypnose à Paris 4ème ou en visio. Deuil bloqué, rupture, perte, culpabilité, émotions figées. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Accompagnement du deuil et des séparations par l'hypnose à Paris 4ème ou en visio. Deuil bloqué, rupture, perte, culpabilité, émotions figées." />
         <meta name="keywords" content="hypnose deuil paris, hypnose séparation paris, deuil bloqué hypnose, hypnose rupture amoureuse paris, traverser un deuil hypnose, hypnose perte être cher en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-deuil-separation-paris" />
         <meta property="og:title" content="Hypnose deuil et séparation Paris | Alain Zenatti" />

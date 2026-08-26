@@ -95,7 +95,7 @@ const HypnoseCompulsionsAlimentairesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme. Alain Zenatti, Maître Hypnologue Paris." />
+        <meta name="description" content="Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme." />
         <meta name="keywords" content="hypnose compulsions alimentaires paris, traitement compulsions alimentaires hypnose, craving alimentaire hypnose paris, manger compulsivement hypnose, envies incontrôlables nourriture hypnose paris, hypnose compulsions alimentaires en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-compulsions-alimentaires-paris" />
         <meta property="og:title" content="Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti" />

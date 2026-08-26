@@ -95,7 +95,7 @@ const HypnoseBlocagesProfessionnelsParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose blocages professionnels Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir — l'hypnose agit sur les freins inconscients. Alain Zenatti, Maître Hypnologue." />
+        <meta name="description" content="Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir." />
         <meta name="keywords" content="hypnose blocages professionnels paris, auto-sabotage hypnose paris, syndrome imposteur hypnose paris, peur réussir hypnose, freins carrière hypnose paris, hypnose performance professionnelle paris, blocage entrepreneur hypnose, hypnose blocage professionnel en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-professionnels-paris" />
         <meta property="og:title" content="Hypnose blocages professionnels Paris & en ligne | Alain Zenatti" />

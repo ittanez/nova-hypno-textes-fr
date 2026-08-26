@@ -116,7 +116,7 @@ const Tarifs = () => {
     <CzLayout>
       <Helmet>
         <title>Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose</title>
-        <meta name="description" content="Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance. Paiement CB, Stripe, Wero. Annulation sans frais jusqu'à 48 h." />
+        <meta name="description" content="Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance." />
         <meta name="keywords" content="tarif hypnose paris, prix séance hypnose, tarif hypnothérapeute paris, prix hypnose visio, hypnose paris tarif, séance hypnose prix, remboursement hypnose mutuelle" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/tarifs" />

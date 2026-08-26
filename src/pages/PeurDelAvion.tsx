@@ -93,7 +93,7 @@ const PeurDelAvion = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances." />
+        <meta name="description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine." />
         <meta name="keywords" content="hypnose peur avion paris, aérophobie hypnose paris, traitement peur avion, vaincre peur avion hypnose, hypnothérapeute peur de l'avion paris, hypnose aviophobie, peur avion hypnose en ligne, séance hypnose peur avion visio France, téléconsultation aérophobie" />
         <link rel="canonical" href="https://novahypnose.fr/peurdelavion" />
         <meta property="og:title" content="Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti" />
