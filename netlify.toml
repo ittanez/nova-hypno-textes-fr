@@ -346,7 +346,7 @@
     # Content-Security-Policy - Protection XSS avancée
     Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://assets.calendly.com https://www.clarity.ms;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://maps.googleapis.com https://maps.gstatic.com https://assets.calendly.com https://www.clarity.ms https://scripts.clarity.ms;
       style-src 'self' 'unsafe-inline' https://maps.googleapis.com https://assets.calendly.com;
       img-src 'self' data: https: blob:;
       font-src 'self' data:;
