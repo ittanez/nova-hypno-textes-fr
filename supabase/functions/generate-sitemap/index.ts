@@ -57,8 +57,7 @@ serve(async (req) => {
       { loc: '/hypnose-schemas-repetitifs-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-blocages-professionnels-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-addictions-comportementales-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
-      // Troubles émotionnels — page parent + 6 sous-pages
-      { loc: '/hypnose-troubles-emotionnels-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      // Troubles émotionnels — 6 sous-pages (redirigées vers /hypnose-gestion-emotions-paris, déjà dans le sitemap)
       { loc: '/hypnose-colere-paris',          lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-hypersensibilite-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-deuil-paris',           lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },

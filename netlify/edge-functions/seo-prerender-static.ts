@@ -848,7 +848,7 @@ const PAGES: Record<string, PageData> = {
 
         <h2>Chaque problématique émotionnelle a sa page dédiée</h2>
     <ul>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels — vue d'ensemble</a></li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions — vue d'ensemble</a></li>
       <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions, réactions disproportionnées</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
       <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte, rupture</li>
@@ -2385,81 +2385,6 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
     `,
 };
 
-// ─── Sous-pages troubles émotionnels ───────────────────────────────────────
-
-PAGES["/hypnose-troubles-emotionnels-paris"] = {
-  title: "Hypnose troubles émotionnels Paris & en ligne | Alain Zenatti",
-  description:
-    "Accompagnement des troubles émotionnels par l'hypnose à Paris 4ème ou en visio. Colère, deuil, hypersensibilité, frustration chronique, charge émotionnelle. Alain Zenatti, Maître Hypnologue.",
-  canonicalPath: "/hypnose-troubles-emotionnels-paris",
-  h1: "Hypnose et troubles émotionnels — Retrouvez votre équilibre émotionnel à Paris",
-  jsonLd: [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "Hypnose troubles émotionnels Paris",
-      description: "Accompagnement des troubles émotionnels (colère, deuil, hypersensibilité, frustration, charge émotionnelle) par l'hypnose ericksonienne. Cabinet Paris 4ème ou en visio.",
-      url: `${SITE_URL}/hypnose-troubles-emotionnels-paris`,
-      provider: { "@id": `${SITE_URL}/#person` },
-      areaServed: [
-        { "@type": "City", name: "Paris" },
-        { "@type": "Country", name: "France" },
-      ],
-      serviceType: "Hypnothérapie troubles émotionnels",
-    },
-    breadcrumbLd([
-      { name: "Accueil", path: "/" },
-      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
-      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
-    ]),
-    faqLd([
-      {
-        q: "Comment l'hypnose aide-t-elle à gérer la colère ?",
-        a: "L'hypnose traite la colère en agissant sur deux niveaux. D'abord, elle identifie les déclencheurs inconscients qui provoquent des réactions disproportionnées — souvent liés à des blessures anciennes ou des schémas familiaux. Ensuite, elle reprogramme votre réponse automatique : au lieu de l'explosion, votre inconscient apprend à prendre du recul et à canaliser l'énergie de la colère de façon constructive.",
-      },
-      {
-        q: "L'hypnose peut-elle soulager la charge émotionnelle et le sentiment d'épuisement ?",
-        a: "Oui. La charge émotionnelle — ce sentiment d'être constamment débordé par les émotions des autres, par les situations, par vos propres ressentis — est l'une des problématiques que l'hypnose accompagne bien. Elle travaille à alléger le poids accumulé, à restaurer des frontières émotionnelles saines et à réduire la perméabilité excessive aux émotions extérieures.",
-      },
-      {
-        q: "L'hypnose est-elle adaptée aux personnes hypersensibles ?",
-        a: "Oui. L'objectif n'est pas de rendre une personne moins sensible, mais de l'aider à ne plus être submergée par cette sensibilité : filtres intérieurs, ancres de calme, régulation des environnements surchargés. Vous gardez votre richesse intérieure, vous gagnez la capacité de la réguler.",
-      },
-    ]),
-  ],
-  content: `
-    <p>Colère qui déborde, deuil qui n'avance pas, hypersensibilité épuisante, frustration permanente, charge émotionnelle trop lourde : l'hypnose ericksonienne agit sur les racines inconscientes de ces états pour restaurer un équilibre émotionnel durable.</p>
-
-    <h2>Les troubles émotionnels accompagnés au cabinet</h2>
-    <ul>
-      <li><a href="${SITE_URL}/hypnose-colere-paris">Colère et irritabilité</a> — Explosions incontrôlées, réactions disproportionnées</li>
-      <li><a href="${SITE_URL}/hypnose-deuil-paris">Deuil et séparation</a> — Perte d'un proche, rupture</li>
-      <li><a href="${SITE_URL}/hypnose-traumatismes-paris">Traumatismes</a> — Choc, accident, agression</li>
-      <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées, surcharge sensorielle</li>
-      <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
-      <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation, épuisement émotionnel</li>
-      <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur de craquer, contrôle excessif</li>
-    </ul>
-
-    <h2>Comment l'hypnose restaure l'équilibre émotionnel</h2>
-    <ul>
-      <li>Identifier les déclencheurs et les racines inconscientes des débordements émotionnels</li>
-      <li>Libérer les charges émotionnelles accumulées (blessures anciennes, émotions non digérées)</li>
-      <li>Reprogrammer les réponses automatiques : du débordement à la régulation</li>
-      <li>Installer des ressources intérieures durables (ancres de calme, frontières saines)</li>
-    </ul>
-
-    <h2>Voir aussi</h2>
-    <ul>
-      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
-      <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Anxiété généralisée, burn-out</li>
-      <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
-    </ul>
-
-    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous pour retrouver l'équilibre émotionnel</a>
-    `,
-};
-
 PAGES["/hypnose-colere-paris"] = {
   title: "Hypnose colère et irritabilité Paris | Alain Zenatti",
   description:
@@ -2482,7 +2407,7 @@ PAGES["/hypnose-colere-paris"] = {
     },
     breadcrumbLd([
       { name: "Accueil", path: "/" },
-      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
       { name: "Colère et irritabilité", path: "/hypnose-colere-paris" },
     ]),
     faqLd([
@@ -2514,7 +2439,7 @@ PAGES["/hypnose-colere-paris"] = {
 
     <h2>Problématiques liées</h2>
     <ul>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page d'ensemble</li>
       <li><a href="${SITE_URL}/hypnose-frustration-paris">Frustration chronique</a> — Insatisfaction permanente</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Émotions amplifiées</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Saturation émotionnelle</li>
@@ -2547,7 +2472,7 @@ PAGES["/hypnose-hypersensibilite-paris"] = {
     },
     breadcrumbLd([
       { name: "Accueil", path: "/" },
-      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
       { name: "Hypersensibilité", path: "/hypnose-hypersensibilite-paris" },
     ]),
     faqLd([
@@ -2579,7 +2504,7 @@ PAGES["/hypnose-hypersensibilite-paris"] = {
 
     <h2>Problématiques liées</h2>
     <ul>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page d'ensemble</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Porter les émotions des autres</li>
       <li><a href="${SITE_URL}/hypnose-anxiete-emotionnelle-paris">Anxiété émotionnelle</a> — Peur d'être submergé</li>
       <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Régulation émotionnelle</li>
@@ -2644,7 +2569,7 @@ PAGES["/hypnose-deuil-paris"] = {
     <h2>Problématiques liées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page principale</li>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — Colère, charge émotionnelle</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Colère, charge émotionnelle</li>
       <li><a href="${SITE_URL}/hypnose-charge-emotionnelle-paris">Charge émotionnelle</a> — Le poids accumulé</li>
       <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a> — Quand le deuil empêche de dormir</li>
     </ul>
@@ -2871,7 +2796,7 @@ PAGES["/hypnose-charge-emotionnelle-paris"] = {
     },
     breadcrumbLd([
       { name: "Accueil", path: "/" },
-      { name: "Troubles émotionnels", path: "/hypnose-troubles-emotionnels-paris" },
+      { name: "Gestion des émotions", path: "/hypnose-gestion-emotions-paris" },
       { name: "Charge émotionnelle", path: "/hypnose-charge-emotionnelle-paris" },
     ]),
     faqLd([
@@ -2902,7 +2827,7 @@ PAGES["/hypnose-charge-emotionnelle-paris"] = {
 
     <h2>Problématiques liées</h2>
     <ul>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Troubles émotionnels</a> — La page d'ensemble</li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — La page d'ensemble</li>
       <li><a href="${SITE_URL}/hypnose-hypersensibilite-paris">Hypersensibilité</a> — Absorption des émotions</li>
       <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Épuisement, burn-out</li>
       <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a> — Fatigue chronique</li>
@@ -4192,7 +4117,7 @@ PAGES["/guide-colere"] = {
     <h2>Pages liées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-colere-paris">Hypnose contre la colère à Paris</a></li>
-      <li><a href="${SITE_URL}/hypnose-troubles-emotionnels-paris">Hypnose troubles émotionnels à Paris</a></li>
+      <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Hypnose et gestion des émotions à Paris</a></li>
       <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a></li>
     </ul>
 
