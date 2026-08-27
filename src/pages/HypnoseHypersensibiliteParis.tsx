@@ -67,7 +67,7 @@ const HypnoseHypersensibiliteParis = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
-      { "@type": "ListItem", "position": 2, "name": "Troubles émotionnels", "item": "https://novahypnose.fr/hypnose-troubles-emotionnels-paris" },
+      { "@type": "ListItem", "position": 2, "name": "Gestion des émotions", "item": "https://novahypnose.fr/hypnose-gestion-emotions-paris" },
       { "@type": "ListItem", "position": 3, "name": "Hypersensibilité", "item": "https://novahypnose.fr/hypnose-hypersensibilite-paris" }
     ]
   };
@@ -381,7 +381,7 @@ const HypnoseHypersensibiliteParis = () => {
             <a className="btn btn--ghost" href="tel:+33649358089" style={{borderColor:'rgba(240,236,227,.4)', color:'var(--lin)'}}>06 49 35 80 89</a>
           </div>
           <div className="sp-links">
-            <Link to="/hypnose-troubles-emotionnels-paris">Troubles émotionnels →</Link>
+            <Link to="/hypnose-gestion-emotions-paris">Gestion des émotions →</Link>
             <Link to="/hypnose-colere-paris">Colère et irritabilité →</Link>
             <Link to="/hypnose-stress-anxiete-paris">Stress & Anxiété →</Link>
             <Link to="/hypnose-confiance-en-soi-paris">Confiance en soi →</Link>

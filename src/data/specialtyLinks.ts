@@ -36,7 +36,6 @@ export const specialtyLinks: SpecialtyLink[] = [
   { path: '/hypnose-schemas-repetitifs-paris', label: 'Les schémas répétitifs', keywords: ['schémas répétitifs', 'cycles relationnels', 'auto-sabotage'] },
   { path: '/hypnose-blocages-professionnels-paris', label: 'Les blocages professionnels', keywords: ['blocage professionnel', 'syndrome imposteur', 'confiance professionnelle'] },
   { path: '/hypnose-addictions-comportementales-paris', label: 'Les addictions comportementales', keywords: ["addiction", "jeux d'argent", 'dépendance comportementale'] },
-  { path: '/hypnose-troubles-emotionnels-paris', label: 'Les troubles émotionnels', keywords: ['troubles émotionnels', 'régulation émotionnelle'] },
   { path: '/hypnose-colere-paris', label: "La colère et l'irritabilité", keywords: ['colère', 'irritabilité'] },
   { path: '/hypnose-hypersensibilite-paris', label: "L'hypersensibilité", keywords: ['hypersensibilité', 'sensibilité'] },
   { path: '/hypnose-charge-emotionnelle-paris', label: 'La charge émotionnelle', keywords: ['charge émotionnelle', 'épuisement émotionnel'] },

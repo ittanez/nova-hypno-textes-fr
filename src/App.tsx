@@ -154,7 +154,6 @@ const HypnoseBlocagesProfessionnelsParis = lazy(() => import("@/pages/HypnoseBlo
 const HypnoseAddictionsComportementalesParis = lazy(() => import("@/pages/HypnoseAddictionsComportementalesParis"));
 
 // Sous-pages troubles émotionnels (BLOC 2, pas dans le menu)
-const HypnoseTroublesEmotionnelsParis = lazy(() => import("@/pages/HypnoseTroublesEmotionnelsParis"));
 const HypnoseColereParis = lazy(() => import("@/pages/HypnoseColereParis"));
 const HypnoseHypersensibiliteParis = lazy(() => import("@/pages/HypnoseHypersensibiliteParis"));
 const HypnoseChargeEmotionnelleParis = lazy(() => import("@/pages/HypnoseChargeEmotionnelleParis"));
@@ -328,7 +327,7 @@ function App() {
             <Route path="/hypnose-addictions-comportementales-paris" element={<HypnoseAddictionsComportementalesParis />} />
 
             {/* Sous-page troubles émotionnels (BLOC 2, pas dans le menu) */}
-            <Route path="/hypnose-troubles-emotionnels-paris" element={<HypnoseTroublesEmotionnelsParis />} />
+            <Route path="/hypnose-troubles-emotionnels-paris" element={<Navigate to="/hypnose-gestion-emotions-paris" replace />} />
             <Route path="/hypnose-colere-paris" element={<HypnoseColereParis />} />
             <Route path="/hypnose-hypersensibilite-paris" element={<HypnoseHypersensibiliteParis />} />
             <Route path="/hypnose-deuil-separation-paris" element={<Navigate to="/hypnose-deuil-paris" replace />} />
