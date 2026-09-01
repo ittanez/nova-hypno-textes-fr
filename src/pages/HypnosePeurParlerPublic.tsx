@@ -135,7 +135,7 @@ const HypnosePeurParlerPublic = () => {
           <h1 className="sp-hero__h1">
             Libérez-vous de la peur de parler en public
           </h1>
-          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de <strong>trois personnes sur quatre</strong> à des degrés divers. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner votre aisance à l'oral. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>." }} />
+          <p className="sp-hero__lead" dangerouslySetInnerHTML={{ __html: "Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de <strong>trois personnes sur quatre</strong> à des degrés divers. L'hypnose ericksonienne agit à la racine de cette peur pour vous redonner votre aisance à l'oral. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>. <strong>90 € la séance</strong>, 1h30 pour la première." }} />
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
@@ -375,7 +375,7 @@ const HypnosePeurParlerPublic = () => {
         <div className="sp-cta-final__blob sp-cta-final__blob--2" aria-hidden="true"></div>
         <div className="container sp-narrow">
           <h2 className="sp-h2">Libérez-vous de la peur de parler en public</h2>
-          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France</p>
+          <p className="sp-lead">Cabinet Paris 4ème – Marais-Bastille (Métro Bastille, lignes 1, 5, 8) • Séances au cabinet ou en visio partout en France • 90 € la séance</p>
           <div className="hero__cta" style={{justifyContent:'center'}}>
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
