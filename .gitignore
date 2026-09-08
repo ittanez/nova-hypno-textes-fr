@@ -24,6 +24,8 @@ scripts/gbp_token.json
 scripts/gbp_config.json
 scripts/gbp_stats_weekly.csv
 scripts/gbp_stats_monthly.csv
+# Clé service Supabase (ne jamais committer)
+SUPABASE_SERVICE_ROLE_KEY
 
 # Vite
 .vite/
@@ -51,3 +53,6 @@ nul
 src/nul
 .pr-body.md
 .claude/worktrees/
+
+# Skill symlinks generated locally by `npx skills add` (absolute paths, not portable)
+.claude/skills/
