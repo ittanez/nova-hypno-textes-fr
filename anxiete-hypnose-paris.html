@@ -596,39 +596,15 @@
             gap: 10px;
         }
 
-        /* Chaque étape porte son rang : le chiffre remplace les flèches,
-           qui créaient des cellules vides au milieu de la grille. */
         .step {
-            counter-increment: step;
             position: relative;
             background: var(--surface);
-            padding: 14px 14px 14px 40px;
+            padding: 14px 16px;
             border-radius: 11px;
             font-size: 0.8125rem;
             line-height: 1.45;
             color: var(--ink-soft);
             box-shadow: var(--shadow-sm);
-        }
-
-        .step::before {
-            content: counter(step);
-            position: absolute;
-            left: 12px;
-            top: 13px;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--sand-deep);
-            color: var(--accent);
-            font-size: 0.6875rem;
-            font-weight: 700;
-        }
-
-        .parcours-steps {
-            counter-reset: step;
         }
 
         .step strong {
@@ -1071,14 +1047,15 @@
                 </div>
             </div>
 
-            <h3 style="font-size: 1.125rem; color: var(--ink); margin-top: 32px;">Exemple de parcours type (3 à 5 séances) :</h3>
+            <h3 style="font-size: 1.125rem; color: var(--ink); margin-top: 32px; margin-bottom: 4px;">Exemple de parcours type (3 à 5 séances) :</h3>
+            <p style="font-size: 0.8125rem; color: var(--ink-muted); margin-bottom: 16px;">Ce que chaque phase peut comprendre — pas un compte de séances.</p>
             <div class="parcours">
                 <h3>Diagnostic et calibrage</h3>
                 <div class="parcours-steps">
                     <div class="step"><strong>Anamnèse</strong> Votre histoire, vos déclencheurs, ce qui a déjà été essayé</div>
                     <div class="step"><strong>Profil sensoriel</strong> La séance s'adapte à votre façon de ressentir et de vous détendre</div>
                     <div class="step"><strong>1ère séance</strong> Une induction construite autour d'un cadre qui vous est familier</div>
-                    <div class="step"><strong>Ancrage</strong> Un état de calme profond installé, à retrouver ensuite seul</div>
+                    <div class="step"><strong>Premier ancrage</strong> Un état de calme profond installé, à retrouver ensuite seul</div>
                 </div>
             </div>
 
@@ -1086,16 +1063,18 @@
                 <h3>Travail en profondeur</h3>
                 <div class="parcours-steps">
                     <div class="step"><strong>Métaphore sur mesure</strong> Une histoire symbolique nouvelle à chaque séance, jamais la même</div>
-                    <div class="step"><strong>Travail ciblé</strong> Sur le mécanisme qui entretient l'anxiété, pas seulement les symptômes</div>
+                    <div class="step"><strong>Travail ciblé</strong> Sur le mécanisme qui entretient la difficulté, pas seulement les symptômes</div>
                     <div class="step"><strong>Ancrages renforcés</strong> Consolidés séance après séance pour un accès plus rapide au calme</div>
-                    <div class="step"><strong>Accompagnement continu</strong> Un suivi entre les séances, adapté à votre rythme</div>
                     <div class="step"><strong>Auto-hypnose</strong> Enseignée au bon moment pour vous, pour retrouver le calme seul au quotidien</div>
                 </div>
             </div>
 
+            <p style="margin-top: 16px; padding: 16px 20px; background: var(--sand-deep); border-radius: 12px; font-size: 0.875rem; color: var(--ink);">
+                <strong>Un accompagnement continu entre les séances</strong> — un suivi qui s'ajuste à votre chronologie, jamais l'inverse.
+            </p>
+
             <p style="margin-top: 24px; font-size: 0.875rem; color: var(--ink-muted);">
-                *Résultats basés sur le protocole ericksonien validé en recherche clinique.
-                Chaque personne progresse à son rythme.
+                *L'hypnose ericksonienne s'appuie sur des techniques éprouvées en séance ; chaque personne progresse à son rythme.
             </p>
         </section>
 
