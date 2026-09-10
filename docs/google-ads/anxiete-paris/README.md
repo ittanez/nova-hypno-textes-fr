@@ -4,16 +4,64 @@ Campagne Search pour la landing page `/anxiete-hypnose-paris.html`, à importer 
 **Google Ads Editor** — l'interface web de création de campagne s'est révélée
 instable (brouillon corrompu, page blanche récurrente à l'étape mots-clés).
 
+## Lire d'abord : la déclaration annonces politiques UE
+
+**Un import qui fixe le ciblage géographique échoue tant que la campagne cible n'a
+pas été déclarée.** C'est le premier obstacle rencontré, et il n'a rien d'évident :
+le message d'erreur parle de ciblage géographique, la cause est ailleurs.
+
+Chaque campagne porte un champ `contains_eu_political_advertising`. Tant qu'il vaut
+`UNSPECIFIED`, toute modification de `proximity`, `location` ou `location_group` est
+rejetée avec `MISSING_EU_POLITICAL_ADVERTISING_SELF_DECLARATION`. C'est bloquant
+depuis avril 2026.
+
+Trois pièges, dans l'ordre où on tombe dedans :
+
+1. **La déclaration au niveau du compte ne dispense de rien.** Celle de NOVA HYPNOSE
+   est faite depuis le 24 sept. 2025 (`Admin > Règlement > Compte`, ou directement
+   `ads.google.com/aw/policy/account`) et la campagne reste refusée. Le champ est
+   exigé campagne par campagne.
+2. **Il n'existe aucune colonne CSV pour ce champ.** La liste officielle des colonnes
+   reconnues par Editor n'en contient pas. Un import ne peut donc pas déclarer une
+   campagne : `1-campaign.csv`, seul fichier à porter le ciblage géographique, ne
+   passera pas sur une campagne non déclarée.
+3. **La réponse est « Non »**, sans hésitation : la définition de Google vise les
+   annonces émanant d'un acteur politique ou conçues pour influencer une élection,
+   un référendum, un vote ou un processus législatif. Répondre « Oui » interdit
+   purement et simplement la diffusion dans l'UE.
+
+Référence : https://developers.google.com/google-ads/api/docs/api-policy/eu-par
+
 ## Importer
 
 1. Installer Google Ads Editor : https://ads.google.com/home/tools/ads-editor/
 2. Se connecter au compte **672-748-1209 (NOVA HYPNOSE — ALAIN ZENATTI)**
-3. `Compte > Importer > Depuis un fichier`, puis au choix :
-   - `import/campagne-complete.csv` — tout en un seul import (recommandé)
-   - ou les cinq fichiers séparés **dans l'ordre**, si un import global échoue et
-     qu'il faut isoler l'étape fautive :
-     `1-campaign` → `2-adgroups` → `3-keywords` → `4-negatives` → `5-ads`
+3. Vérifier si Editor expose le réglage : sélectionner une campagne, chercher dans
+   le panneau d'édition un champ « Annonces à caractère politique dans l'UE ».
+   - **S'il existe** : le passer à « Non », puis importer
+     `import/campagne-complete.csv` (tout en un seul import).
+   - **S'il n'existe pas** : suivre la procédure en deux temps ci-dessous.
 4. Vérifier l'aperçu des modifications, puis `Publier`
+
+### Procédure en deux temps (si Editor n'expose pas le réglage)
+
+Elle a un avantage inattendu : elle évite l'étape mots-clés de l'interface web,
+celle-là même qui corrompait les brouillons.
+
+1. **Interface web** : créer la campagne coquille vide, avec les réglages du tableau
+   plus bas (nom `Anxiete Paris Search 2026`, 3,30 €/jour, Maximiser les conversions,
+   Réseau de Recherche seul, français, Paris). La question sur les annonces politiques
+   apparaît pendant la création : répondre « Non ». S'arrêter avant les mots-clés.
+2. **Editor** : `Compte > Obtenir les modifications récentes`, puis importer les
+   fichiers séparés **en sautant `1-campaign.csv`** :
+   `2-adgroups` → `3-keywords` → `4-negatives` → `5-ads`
+
+C'est le cas d'usage pour lequel les cinq fichiers séparés existent : `1-campaign.csv`
+est le seul à porter le ciblage géographique, donc le seul que la déclaration bloque.
+
+Les noms doivent correspondre **au caractère près** — campagne
+`Anxiete Paris Search 2026`, groupe d'annonces `Anxiete Stress` — sinon Editor crée
+des doublons au lieu de rattacher aux éléments existants.
 
 Les deux chemins décrivent la même campagne : toute correction doit être reportée
 dans les deux, sinon l'un des imports réintroduit l'ancienne version.
@@ -76,3 +124,21 @@ Longueurs validées : titres ≤ 30 points de code, descriptions ≤ 90, chemins
   apparaît devient un négatif à ajouter dans `4-negatives.csv`
 - Si le click fraud réapparaît (clics multiples sans conversion, même zone),
   regarder du côté des exclusions d'IP et d'un outil tiers type ClickCease
+
+## Pour toute future campagne
+
+À refaire à chaque nouvelle campagne, quel que soit le sujet :
+
+- **Déclarer « Non » aux annonces politiques UE**, campagne par campagne. La
+  déclaration du compte ne se propage pas. C'est la seule étape qui doit passer par
+  l'interface web tant qu'Editor n'expose pas le réglage.
+- **Vérifier les longueurs avant l'import** : titres ≤ 30, descriptions ≤ 90,
+  chemins ≤ 15, en points de code Unicode. Une correction éditoriale qui rallonge une
+  description la fait passer la limite sans prévenir : c'est arrivé ici, une
+  description est passée de 85 à 97 caractères en corrigeant sa formulation.
+- **Reporter toute correction dans les deux jeux de fichiers**, séparés et fusionné,
+  sinon l'un des deux chemins d'import réintroduit l'ancienne version.
+- **Aligner les annonces sur le contenu réel de la page.** Un titre qui promet ce que
+  la page ne dit pas dégrade le Quality Score en plus du risque de conformité. Quand
+  la landing page change, les annonces changent avec elle.
+- **Ne jamais réenregistrer les CSV depuis Excel** (voir la section Encodage).
