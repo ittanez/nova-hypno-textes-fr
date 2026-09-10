@@ -146,6 +146,34 @@ peuvent passer que par les avis vendeurs, pas par une accroche rédigée à la m
 Pour huit chaînes courtes, les saisir directement dans Editor
 (`Extensions > Accroches`) est souvent plus rapide qu'un import.
 
+### Liens annexes (`7-sitelinks.csv`)
+
+Google en recommande quatre au minimum, et ils pèsent plus sur le CTR que les
+accroches. Six ici, chacun vers une **page réelle et distincte** du site : la landing
+page n'a pas d'ancres internes exploitables, et des liens annexes qui pointeraient
+tous vers la même URL risquent le refus pour destination non unique.
+
+| Lien | Destination | Contenu réel de la page |
+| --- | --- | --- |
+| Tarifs et formules | `/tarifs` | 90 € la séance, formules, paiement et annulation |
+| Avis de clients | `/avis` | 21 avis vérifiés sur Resalib |
+| Questions fréquentes | `/faq` | questions sur l'hypnose et le cabinet |
+| Qui est Alain Zenatti | `/alain-zenatti` | parcours, spécialités, approche |
+| Accès au cabinet | `/zone-intervention` | Paris 4e, Bastille et Marais |
+| Test de réceptivité | `/test-receptivite` | questionnaire en ligne |
+
+Limites respectées : texte ≤ 25 caractères, chaque ligne de description ≤ 35.
+
+Deux points assumés :
+
+- **Le lien Tarifs affiche un prix** (90 €), alors que la landing page n'en montre
+  aucun. Ce n'est pas une contradiction avec la règle « ne rien promettre que la page
+  ne dit pas » : la page de destination du lien, elle, affiche bien ce prix. À 3,30 €
+  de budget quotidien, qualifier le clic avant qu'il ne coûte a de la valeur.
+- **Aucun lien ne pointe vers Resalib.** Les liens annexes doivent partager le domaine
+  de l'URL finale de l'annonce ; `resalib.fr` serait refusé. La prise de rendez-vous
+  passe donc par le CTA de la landing page.
+
 ## Après le lancement
 
 - Laisser tourner **2 semaines sans y toucher** — les enchères automatiques ont
