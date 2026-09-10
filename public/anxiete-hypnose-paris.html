@@ -4,1210 +4,1293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hypnose pour l'anxiété à Paris. Approche ericksonienne bienveillante. Praticien certifié, parcours en 3-5 séances.">
-    <title>Hypnose pour l'Anxiété & le Stress à Paris | NovaHypnose</title>
+    <title>Hypnose pour l'Anxiété &amp; le Stress à Paris | NovaHypnose</title>
+    <link rel="canonical" href="https://novahypnose.fr/anxiete-hypnose-paris.html">
+
+    <!-- Fontes auto-hébergées : aucune requête tierce dans le chemin critique.
+         Seule la face utilisée dans le hero est préchargée. -->
+    <link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
     <style>
+        /* ============================================================
+           FONTES — sous-ensemble latin, woff2, servies depuis /fonts/
+           ============================================================ */
+        @font-face {
+            font-family: 'EB Garamond';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/eb-garamond-latin-400-normal.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'EB Garamond';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/eb-garamond-latin-400-italic.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/dm-sans-latin-400-normal.woff2') format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* ============================================================
+           JETONS — charte "Le Cabinet Risographié" (DESIGN.md)
+           ============================================================ */
         :root {
-            /* Bleu confiance : ton de marque calme/santé */
-            --ink: #17233a;
-            --ink-rgb: 23, 35, 58;
-            --ink-soft: #3d4f66;
-            --ink-muted: #74839a;
-            --sand: #f3f6f9;
-            --sand-deep: #e4ebf2;
-            --surface: #ffffff;
-            --accent: #2f6690;
-            --accent-rgb: 47, 102, 144;
-            --accent-warm: #5b8fb5;
-            --accent-warm-rgb: 91, 143, 181;
+            --lin: #F0ECE3;
+            --lin-2: #F7F3EA;
+            --paper: #FFFFFF;
+            --cobalt: #2B4BA0;
+            --cobalt-2: #1C2B4A;
+            --amber: #F2A12E;
+            --amber-2: #F5BC60;
+            --amber-text: #975D09;
+            --gris: #566B8E;
 
-            /* CTA corail : complémentaire du bleu, réservé aux actions —
-               c'est le contraste qui vend, pas la couleur de marque elle-même. */
-            --cta: #ff6b4a;
-            --cta-dark: #e6552f;
-            --cta-rgb: 255, 107, 74;
-            --on-cta: #ffffff;
+            --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+            --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-            /* Ombres teintées bleu-encre : une ombre grise neutre "salirait" ce fond froid */
-            --shadow-sm: 0 1px 2px rgba(var(--ink-rgb), 0.05), 0 2px 6px rgba(var(--ink-rgb), 0.06);
-            --shadow-md: 0 2px 4px rgba(var(--ink-rgb), 0.05), 0 8px 24px rgba(var(--ink-rgb), 0.08);
-            --shadow-lg: 0 4px 8px rgba(var(--ink-rgb), 0.06), 0 20px 48px rgba(var(--ink-rgb), 0.12);
+            /* Ombres riso : décalage net, jamais de flou, sur tout élément cliquable */
+            --riso-cobalt: 4px 4px 0 rgba(43, 75, 160, .22);
+            --riso-cobalt-hi: 6px 6px 0 rgba(43, 75, 160, .32);
+            --riso-amber: 4px 4px 0 rgba(242, 161, 46, .35);
+            --riso-amber-hi: 6px 6px 0 rgba(242, 161, 46, .5);
+            --verre: 0 24px 60px rgba(28, 43, 74, .08);
 
-            /* §4 : ressorts. Amorti pour l'UI calme, léger rebond réservé au momentum */
-            --ease-calm: cubic-bezier(0.32, 0.72, 0, 1);
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease: cubic-bezier(.16, 1, .3, 1);
+            --ease-calm: cubic-bezier(.32, .72, 0, 1);
+
+            --bloc-radius: 40px;
+            --gouttiere: 14px;
+
+            --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
-            font-size: 100%;
+            scroll-padding-top: 96px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: var(--sand);
-            color: var(--ink);
-            line-height: 1.6;
+            font-family: var(--sans);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.75;
+            background: var(--lin);
+            color: var(--cobalt-2);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
+
+        /* Le grain papier de la charte, posé une fois sur toute la page */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: var(--grain);
+            background-size: 160px;
+            opacity: .045;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            z-index: 60;
+        }
+
+        ::selection { background: var(--amber); color: var(--cobalt-2); }
 
         :focus-visible {
-            outline: 3px solid var(--accent);
+            outline: 3px solid var(--cobalt);
             outline-offset: 3px;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
-        /* === §12 : BARRE DE RÉSERVATION FLOTTANTE (matière translucide) ===
-           Apparaît une fois le hero dépassé : le CTA reste atteignable sans
-           remonter, et le contenu défile dessous au lieu d'être tronqué. */
-        .booking-bar {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 50;
+        img { max-width: 100%; height: auto; display: block; }
+
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 12px;
+            z-index: 200;
+            background: var(--cobalt-2);
+            color: var(--lin);
             padding: 12px 20px;
+            border-radius: 999px;
+            font-size: 14.5px;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 12px; }
+
+        /* ============================================================
+           TYPOGRAPHIE
+           ============================================================ */
+        .display {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(34px, 4.6vw, 62px);
+            line-height: 1.04;
+            letter-spacing: -.025em;
+            text-wrap: balance;
+        }
+        .display em { font-style: italic; color: var(--cobalt); }
+        .on-cobalt .display em { color: var(--amber-2); }
+
+        .titre-carte {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.15;
+            letter-spacing: -.01em;
+        }
+
+        .label {
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gris);
+        }
+
+        p { max-width: 68ch; }
+
+        /* ============================================================
+           BOUTONS — pilule + ombre riso décalée
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--sans);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.2;
+            padding: 15px 26px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease),
+                        background-color .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+        }
+        .btn--cobalt { background: var(--cobalt); color: var(--lin); box-shadow: var(--riso-cobalt); }
+        .btn--cobalt:hover { background: var(--cobalt-2); transform: translate(-2px, -2px); box-shadow: var(--riso-cobalt-hi); }
+        .btn--amber { background: var(--amber); color: var(--cobalt-2); box-shadow: var(--riso-amber); }
+        .btn--amber:hover { background: var(--amber-2); transform: translate(-2px, -2px); box-shadow: var(--riso-amber-hi); }
+        .btn--ghost { background: transparent; color: var(--cobalt-2); border-color: rgba(28, 43, 74, .25); }
+        .btn--ghost:hover { border-color: var(--cobalt); color: var(--cobalt); }
+        .btn--ghost-lin { background: transparent; color: var(--lin); border-color: rgba(240, 236, 227, .42); }
+        .btn--ghost-lin:hover { border-color: var(--lin); background: rgba(240, 236, 227, .08); }
+        .btn--sm { padding: 10px 19px; font-size: 13px; }
+        .btn:active { transform: translate(0, 0); }
+
+        /* ============================================================
+           NAVBAR FLOTTANTE EN PILULE
+           ============================================================ */
+        .topnav {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 55;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            background: rgba(243, 246, 249, 0.72);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-top: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 -8px 32px rgba(var(--ink-rgb), 0.10);
-            transform: translateY(110%);
-            transition: transform 500ms var(--ease-calm);
+            gap: 18px;
+            max-width: calc(100vw - 24px);
+            padding: 8px 8px 8px 22px;
+            border-radius: 999px;
+            background: rgba(247, 243, 234, .74);
+            backdrop-filter: blur(16px) saturate(150%);
+            -webkit-backdrop-filter: blur(16px) saturate(150%);
+            border: 1px solid rgba(28, 43, 74, .1);
+            box-shadow: 0 12px 34px rgba(28, 43, 74, .1);
+            white-space: nowrap;
+        }
+        .wordmark {
+            font-family: var(--serif);
+            font-size: 22px;
+            line-height: 1;
+            letter-spacing: -.02em;
+            color: var(--cobalt-2);
+            text-decoration: none;
+        }
+        .wordmark em { font-style: italic; color: var(--cobalt); }
+        .topnav .tarif { font-size: 13px; letter-spacing: .04em; color: var(--gris); }
+        @media (max-width: 720px) {
+            .topnav .tarif { display: none; }
+            .topnav { gap: 12px; padding-left: 18px; }
+        }
+        @media (max-width: 400px) {
+            .topnav .btn { font-size: 13px; padding: 10px 15px; }
         }
 
-        .booking-bar.visible {
-            transform: translateY(0);
-        }
-
-        .booking-bar-text {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--ink);
-        }
-
-        .booking-bar-text span {
-            display: block;
-            font-size: 0.8125rem;
-            font-weight: 400;
-            color: var(--ink-muted);
-        }
-
-        @media (max-width: 600px) {
-            .booking-bar {
-                justify-content: stretch;
-            }
-
-            .booking-bar-text {
-                display: none;
-            }
-
-            .booking-bar .btn {
-                flex: 1;
-            }
-        }
-
-        /* === §1/§11 : RÉVÉLATION AU SCROLL ===
-           transform + opacity uniquement (propriétés compositées), jamais de
-           height/top qui forceraient un reflow à chaque frame. */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
-            will-change: transform, opacity;
-        }
-
-        .reveal.in {
-            opacity: 1;
-            transform: none;
-            will-change: auto;
-        }
-
-        /* === HEADER / HERO === */
+        /* ============================================================
+           HERO — DIRECTION "LE SOUFFLE"
+           ============================================================ */
         .hero {
             position: relative;
-            background:
-                radial-gradient(120% 80% at 50% 0%, #fbfdff 0%, rgba(251, 253, 255, 0) 60%),
-                linear-gradient(168deg, var(--sand) 0%, var(--sand-deep) 100%);
-            padding: 88px 20px 72px;
-            text-align: center;
+            padding: 128px 20px 76px;
             overflow: hidden;
         }
-
-        /* §16.8 Delight : l'émotion visée est le calme, pas l'excitation.
-           Un halo qui respire lentement (≈14s) évoque le souffle, cœur du sujet. */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -30%;
-            left: 50%;
-            width: min(820px, 120vw);
-            aspect-ratio: 1;
-            transform: translateX(-50%);
-            background: radial-gradient(circle, rgba(var(--accent-warm-rgb), 0.14) 0%, rgba(var(--accent-warm-rgb), 0) 65%);
-            animation: breathe 14s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes breathe {
-            0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
-            50%      { opacity: 1;    transform: translateX(-50%) scale(1.12); }
-        }
-
-        .hero-container {
-            position: relative;
-            max-width: 720px;
+        .hero-grid {
+            max-width: 1240px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 1000px) {
+            .hero { padding: 150px 40px 104px; }
+            .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 32px; }
         }
 
         .breadcrumb {
-            font-size: 0.75rem;
-            color: var(--ink-muted);
-            margin-bottom: 24px;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .22em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            color: var(--gris);
+            margin-bottom: 26px;
         }
-
         .breadcrumb a {
-            color: inherit;
+            color: var(--cobalt);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(43, 75, 160, .3);
         }
+        .breadcrumb a:hover { border-bottom-color: var(--cobalt); }
 
-        /* §15 : le tracking se resserre à mesure que le corps grandit */
-        h1 {
-            font-size: clamp(2.25rem, 6vw, 3.5rem);
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 20px;
-            line-height: 1.03;
-            letter-spacing: -0.035em;
+        .hero h1 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(44px, 8.2vw, 96px);
+            line-height: .95;
+            letter-spacing: -.03em;
             text-wrap: balance;
         }
-
-        h1 em {
-            font-style: normal;
-            color: var(--accent);
-        }
+        .hero h1 .l1 { display: block; }
+        .hero h1 .l2 { display: block; font-style: italic; color: var(--cobalt); }
 
         .hero-subtitle {
-            font-size: clamp(1.0625rem, 2vw, 1.25rem);
-            color: var(--ink-soft);
-            margin: 0 auto 36px;
-            max-width: 34em;
-            line-height: 1.55;
-            text-wrap: pretty;
+            font-size: clamp(16px, 1.35vw, 17px);
+            line-height: 1.7;
+            color: rgba(28, 43, 74, .78);
+            max-width: 50ch;
+            margin-top: 26px;
         }
 
         .hero-cta {
             display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 24px;
             flex-wrap: wrap;
+            gap: 13px;
+            margin: 34px 0 30px;
         }
 
-        .btn {
-            padding: 14px 28px;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
-            text-decoration: none;
-            display: inline-block;
+        .trust-indicators { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+        .trust-indicators li {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            padding: 7px 16px 7px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(43, 75, 160, .22);
+            color: rgba(28, 43, 74, .86);
+        }
+        .trust-indicators svg { width: 15px; height: 15px; flex: none; color: var(--cobalt); }
+
+        /* La spirale : sur mobile elle passe EN FLUX sous les boutons,
+           jamais en filigrane derrière le texte (illisible sur petit écran). */
+        .spiralbox {
+            position: relative;
+            justify-self: center;
+            width: min(100%, 520px);
+            aspect-ratio: 1;
+        }
+        @media (max-width: 999px) {
+            .spiralbox { width: min(82vw, 400px); margin-top: 4px; }
+        }
+        .spiralbox svg { width: 100%; height: 100%; display: block; overflow: visible; }
+        #spiral-path { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; opacity: .34; }
+        .spiral-core { fill: var(--amber); opacity: .9; }
+        .spiral-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+        .spiral-mots text {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 16px;
+            letter-spacing: .2em;
+            fill: var(--cobalt);
+            opacity: .6;
         }
 
-        /* Feedback au press, pas seulement au survol — indispensable sur tactile */
-        .btn:active {
-            transform: scale(0.97);
-            transition-duration: 60ms;
+        /* ============================================================
+           RYTHME DE BLOCS — chaque section est un bloc plein très arrondi
+           ============================================================ */
+        main { padding: 0 var(--gouttiere) var(--gouttiere); }
+
+        .bloc {
+            position: relative;
+            border-radius: var(--bloc-radius);
+            padding: clamp(48px, 6vw, 96px) clamp(24px, 4vw, 72px);
+            margin-bottom: var(--gouttiere);
+            overflow: hidden;
+        }
+        .bloc:last-child { margin-bottom: 0; }
+        .bloc > * { position: relative; z-index: 2; }
+        .bloc-inner { max-width: 1240px; margin: 0 auto; }
+
+        .bloc--lin2 { background: var(--lin-2); }
+        .bloc--paper { background: var(--paper); }
+        .bloc--cobalt { background: var(--cobalt); color: var(--lin); }
+        .bloc--cobalt .label { color: rgba(240, 236, 227, .62); }
+        .bloc--cobalt p { color: rgba(240, 236, 227, .84); }
+
+        @media (max-width: 680px) {
+            :root { --bloc-radius: 28px; }
         }
 
-        /* Le bouton principal porte la couleur d'action (corail), pas la couleur
-           de marque (bleu) — c'est le contraste qui capte le regard et fait cliquer. */
-        .btn-primary {
-            background: linear-gradient(180deg, var(--cta) 0%, var(--cta-dark) 100%);
-            color: var(--on-cta);
-            box-shadow: 0 6px 16px rgba(var(--cta-rgb), 0.32), 0 2px 4px rgba(var(--cta-rgb), 0.2);
+        .bloc > .bloc-inner > .display { margin-bottom: 18px; }
+        .intro-section { font-size: 17px; line-height: 1.85; color: rgba(28, 43, 74, .8); max-width: 62ch; }
+
+        /* ============================================================
+           POURQUOI L'HYPNOSE
+           ============================================================ */
+        .why-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
+            margin-top: 46px;
+        }
+        @media (min-width: 780px) { .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } }
+
+        .why-item {
+            background: rgba(43, 75, 160, .05);
+            border-radius: 24px;
+            padding: 38px 34px 34px;
+            transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+        }
+        .why-item:hover { transform: translateY(-4px); box-shadow: var(--riso-cobalt); }
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 999px;
+            background: rgba(242, 161, 46, .22);
+            display: grid;
+            place-items: center;
+            margin-bottom: 22px;
+        }
+        .why-icon svg { width: 27px; height: 27px; color: var(--cobalt); }
+        .why-item h3 { margin-bottom: 10px; }
+        .why-item p { font-size: 16px; line-height: 1.8; color: rgba(28, 43, 74, .8); }
+
+        /* ============================================================
+           PRATICIEN
+           ============================================================ */
+        .praticien-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 44px;
+            align-items: start;
+            margin-top: 40px;
+        }
+        @media (min-width: 900px) {
+            .praticien-container { grid-template-columns: 300px minmax(0, 1fr); gap: 64px; }
+        }
+        .praticien-portrait {
+            width: min(260px, 70vw);
+            aspect-ratio: 1;
+            border-radius: 999px;
+            overflow: hidden;
+            box-shadow: 10px 10px 0 rgba(242, 161, 46, .35);
+        }
+        .praticien-portrait img { width: 100%; height: 100%; object-fit: cover; }
+        .praticien-bio h3 { margin-bottom: 16px; }
+        .praticien-bio p { font-size: 17px; line-height: 1.85; color: rgba(28, 43, 74, .82); margin-bottom: 16px; }
+        .credentials {
+            margin-top: 26px;
+            background: rgba(43, 75, 160, .05);
+            border: 1px solid rgba(43, 75, 160, .08);
+            border-radius: 16px;
+            padding: 24px 26px;
+            font-size: 14.5px;
+            line-height: 1.8;
+            box-shadow: var(--riso-amber);
+        }
+        .credentials strong { display: block; margin-bottom: 6px; font-weight: 500; }
+
+        /* ============================================================
+           APPROCHE / VALEURS
+           ============================================================ */
+        .values {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
+            margin-top: 46px;
+        }
+        @media (min-width: 700px) { .values { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1060px) { .values { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+        .value-item {
+            background: rgba(43, 75, 160, .05);
+            border-radius: 24px;
+            padding: 32px 28px 30px;
+            transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+        }
+        .value-item:hover { transform: translateY(-4px); box-shadow: var(--riso-cobalt); }
+        .value-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            background: rgba(242, 161, 46, .22);
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+        }
+        .value-icon svg { width: 23px; height: 23px; color: var(--cobalt); }
+        .value-item h3 { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.2; margin-bottom: 8px; }
+        .value-item p { font-size: 16px; line-height: 1.75; color: rgba(28, 43, 74, .8); }
+
+        /* ============================================================
+           PARCOURS — bloc cobalt, chiffre géant rogné par l'arrondi
+           ============================================================ */
+        .bloc--parcours { padding-bottom: clamp(64px, 7vw, 110px); }
+
+        .chiffre {
+            position: absolute;
+            z-index: 1;
+            /* Le débordement se fait vers le bas seulement : c'est l'arrondi du bloc
+               qui rogne le chiffre. Un débordement latéral couperait la légende. */
+            right: 20px;
+            bottom: clamp(-64px, -3.4vw, -26px);
+            text-align: right;
+            pointer-events: none;
+            font-family: var(--serif);
+            color: var(--amber);
+            line-height: .78;
+            letter-spacing: -.05em;
+            opacity: .9;
+        }
+        .chiffre .n { display: block; font-size: clamp(150px, 21vw, 330px); }
+        .chiffre .n em { font-size: .32em; font-style: italic; letter-spacing: 0; vertical-align: .5em; margin: 0 .05em; opacity: .92; }
+        .chiffre .cap {
+            display: block;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: rgba(240, 236, 227, .7);
+            margin-bottom: 1.3em;
+            padding-right: .6em;
+        }
+        /* Sous 1100px, le chiffre ne peut plus déborder sans passer derrière le texte.
+           Il repasse alors en flux, à pleine opacité, en ouverture du bloc : le titre
+           qui suit dit déjà « 3 à 5 séances », donc la légende devient redondante. */
+        @media (max-width: 1100px) {
+            .chiffre {
+                position: static;
+                text-align: left;
+                margin-bottom: 10px;
+            }
+            .chiffre .cap { display: none; }
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(var(--cta-rgb), 0.38), 0 4px 8px rgba(var(--cta-rgb), 0.22);
+        .parcours-stats {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
+            margin: 42px 0 12px;
+            max-width: 720px;
         }
-
-        .btn-primary:active {
-            transform: translateY(-1px) scale(0.97);
+        @media (min-width: 700px) { .parcours-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        .stat-box {
+            background: rgba(240, 236, 227, .08);
+            border-radius: 24px;
+            padding: 28px 28px 26px;
         }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--ink);
-            border: 1px solid rgba(var(--ink-rgb), 0.18);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-secondary:hover {
-            background: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .trust-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 36px;
-            flex-wrap: wrap;
-            font-size: 0.8125rem;
-            color: var(--ink-soft);
-        }
-
-        /* Puces de réassurance : petites capsules, matière légère sur fond sable */
-        .trust-item {
+        .stat-number {
+            font-family: var(--serif);
+            font-size: 34px;
+            line-height: 1.1;
+            color: var(--amber-2);
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 7px 14px;
-            background: rgba(255, 255, 255, 0.66);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: 999px;
-            box-shadow: var(--shadow-sm);
         }
+        .stat-number svg { width: 22px; height: 22px; color: var(--amber-2); }
+        .stat-label { font-size: 14.5px; line-height: 1.7; color: rgba(240, 236, 227, .78); margin-top: 8px; }
 
-        .trust-item svg {
-            width: 15px;
-            height: 15px;
-            flex-shrink: 0;
-            color: var(--accent);
-        }
+        .parcours-titre { margin-top: 56px; }
+        .parcours-titre h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; }
+        .parcours-note { font-size: 13px; color: rgba(240, 236, 227, .62); margin-top: 4px; }
 
-        /* === CONTENEUR PRINCIPAL === */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* === SECTIONS === */
-        section {
-            margin: 60px auto;
-            padding: 40px 20px;
-        }
-
-        section h2 {
-            font-size: clamp(1.625rem, 3.5vw, 2.125rem);
-            color: var(--ink);
-            margin-bottom: 24px;
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: -0.022em;
-            text-wrap: balance;
-        }
-
-        section p {
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--ink-soft);
-            margin-bottom: 16px;
-            text-wrap: pretty;
-        }
-
-        /* === SECTION: POURQUOI L'HYPNOSE === */
-        .section-why {
-            background: var(--surface);
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        @media (max-width: 600px) {
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .why-item {
-            padding: 24px;
-            background: var(--sand);
-            border: 1px solid rgba(var(--ink-rgb), 0.06);
-            border-radius: 14px;
-            transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
-        }
-
-        .why-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .why-icon {
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 11px;
-            background: linear-gradient(160deg, rgba(var(--accent-warm-rgb), 0.18), rgba(var(--accent-rgb), 0.10));
-            color: var(--accent);
-            margin-bottom: 14px;
-        }
-
-        .why-icon svg {
-            width: 19px;
-            height: 19px;
-        }
-
-        .why-item h3 {
-            font-size: 1.0625rem;
-            color: var(--ink);
-            margin-bottom: 8px;
-            font-weight: 650;
-            letter-spacing: -0.01em;
-        }
-
-        .why-item p {
-            font-size: 0.9375rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* === SECTION: PRATICIEN === */
-        .section-praticien {
-            background: var(--surface);
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .praticien-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        @media (max-width: 600px) {
-            .praticien-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-
-        .praticien-photo {
-            display: flex;
-            justify-content: center;
-        }
-
-        .praticien-portrait {
-            width: 17.5rem;
-            height: 20rem;
-            background: linear-gradient(135deg, var(--sand-deep) 0%, #d8e2ea 100%);
-            border-radius: 18px;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-        }
-
-        .praticien-portrait img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .praticien-bio {
-            flex: 1;
-        }
-
-        .praticien-bio h3 {
-            font-size: 1.25rem;
-            color: var(--ink);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .praticien-bio p {
-            font-size: 0.9375rem;
+        .parcours { margin-top: 34px; max-width: 900px; }
+        .parcours > h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-style: italic;
+            font-size: 28px;
+            color: var(--amber-2);
             margin-bottom: 16px;
         }
-
-        .credentials {
-            background: var(--sand);
-            padding: 16px;
-            border-left: 4px solid var(--accent);
-            border-radius: 4px;
-            margin-top: 16px;
-            font-size: 0.875rem;
-            line-height: 1.6;
-        }
-
-        .credentials strong {
-            color: var(--ink);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        /* === SECTION: APPROCHE === */
-        .section-approach {
-            background: linear-gradient(150deg, var(--sand) 0%, var(--sand-deep) 100%);
-            border: 1px solid rgba(var(--ink-rgb), 0.06);
-            border-radius: 20px;
-        }
-
-        .approach-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--ink-soft);
-            margin-bottom: 24px;
-        }
-
-        .values {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 28px;
-        }
-
-        @media (max-width: 600px) {
-            .values {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .value-item {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 14px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
-        }
-
-        .value-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .value-item strong {
-            color: var(--ink);
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            margin-bottom: 8px;
-            font-size: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .value-item strong svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            color: var(--accent);
-        }
-
-        .value-item p {
-            font-size: 0.9375rem;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* === SECTION: RÉSULTATS === */
-        .section-results {
-            background: var(--surface);
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .results-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin: 36px 0;
-        }
-
-        @media (max-width: 600px) {
-            .results-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 28px 20px;
-            background: linear-gradient(165deg, var(--sand) 0%, var(--sand-deep) 100%);
-            border: 1px solid rgba(var(--ink-rgb), 0.06);
-            border-radius: 16px;
-        }
-
-        .stat-number {
-            font-size: clamp(2.25rem, 5vw, 2.75rem);
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 6px;
-            line-height: 1;
-            letter-spacing: -0.03em;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--ink-soft);
-            line-height: 1.4;
-        }
-
-        .parcours {
-            background: var(--sand);
-            border: 1px solid rgba(var(--ink-rgb), 0.07);
-            padding: 24px;
-            border-radius: 16px;
-            margin: 20px 0;
-        }
-
-        .parcours h3 {
-            font-size: 0.8125rem;
-            color: var(--accent);
-            margin-bottom: 16px;
-            font-weight: 650;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-        }
-
-        .parcours-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-        }
-
+        .parcours-steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+        @media (min-width: 780px) { .parcours-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .step {
-            position: relative;
-            background: var(--surface);
-            padding: 14px 16px;
-            border-radius: 11px;
-            font-size: 0.8125rem;
-            line-height: 1.45;
-            color: var(--ink-soft);
-            box-shadow: var(--shadow-sm);
+            background: rgba(240, 236, 227, .07);
+            border-radius: 16px;
+            padding: 20px 22px;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: rgba(240, 236, 227, .82);
         }
-
         .step strong {
             display: block;
-            color: var(--ink);
-            margin-bottom: 2px;
-            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--lin);
+            margin-bottom: 3px;
         }
 
-        /* === SECTION: FAQ === */
-        .section-faq {
-            background: var(--surface);
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
+        .encart-suivi {
+            margin-top: 30px;
+            max-width: 900px;
+            background: rgba(240, 236, 227, .1);
+            border-radius: 16px;
+            padding: 22px 26px;
+            font-size: 16px;
+            line-height: 1.75;
+            box-shadow: var(--riso-amber);
         }
+        .encart-suivi strong { font-weight: 500; color: var(--lin); }
+        .mention { margin-top: 26px; font-size: 13px; line-height: 1.7; color: rgba(240, 236, 227, .62); }
 
-        .faq-item {
-            border-bottom: 1px solid rgba(var(--ink-rgb), 0.09);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .cta-final-price {
-            font-size: 0.95rem;
-            opacity: 0.85;
-            margin-top: -0.5rem;
-            margin-bottom: 1.5rem;
-        }
+        /* ============================================================
+           FAQ
+           ============================================================ */
+        .faq-list { margin-top: 38px; max-width: 880px; }
+        .faq-item { border-top: 1px solid rgba(28, 43, 74, .12); }
+        .faq-item:last-child { border-bottom: 1px solid rgba(28, 43, 74, .12); }
 
         .faq-question {
-            font-family: inherit;
-            font-weight: 600;
-            color: var(--ink);
-            font-size: 1rem;
-            text-align: left;
-            cursor: pointer;
             width: 100%;
-            background: none;
-            border: none;
-            padding: 4px 0;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            letter-spacing: -0.01em;
-            transition: color 200ms ease;
+            gap: 22px;
+            padding: 26px 4px;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            font-family: var(--sans);
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: left;
+            color: var(--cobalt-2);
+            transition: color .3s var(--ease);
         }
+        .faq-question:hover { color: var(--cobalt); }
 
-        .faq-question:hover {
-            color: var(--accent);
-        }
-
-        /* §7 : le chevron pivote — l'état d'ouverture se lit dans la direction,
-           et le chemin retour est exactement l'inverse de l'aller. */
+        /* Le chevron pivote, il n'est jamais remplacé par du texte. */
         .faq-toggle {
-            flex-shrink: 0;
-            width: 26px;
-            height: 26px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--sand);
-            color: var(--accent);
-            transition: transform 300ms var(--ease-out), background-color 300ms ease;
+            flex: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: rgba(242, 161, 46, .2);
+            color: var(--amber-text);
+            transition: transform .4s var(--ease), background-color .3s var(--ease);
         }
+        .faq-toggle svg { width: 17px; height: 17px; }
+        .faq-item.active .faq-toggle { transform: rotate(180deg); background: rgba(242, 161, 46, .38); }
 
-        .faq-toggle svg {
-            width: 13px;
-            height: 13px;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-            background: var(--sand-deep);
-        }
-
-        /* grid-template-rows 0fr→1fr : s'adapte à la hauteur réelle du contenu,
-           contrairement à un max-height plafonné qui tronque les réponses longues */
+        /* Ouverture par piste de grille : la réponse est enveloppée dans un div
+           dédié, donc 0fr → 1fr collapse correctement. Pas de plafond en dur à
+           tenir à jour, et la durée correspond à la hauteur réelle du texte. */
         .faq-answer {
             display: grid;
             grid-template-rows: 0fr;
-            transition: grid-template-rows 300ms ease, margin-top 300ms ease;
+            transition: grid-template-rows .42s var(--ease-calm);
+        }
+        .faq-item.active .faq-answer { grid-template-rows: 1fr; }
+        .faq-answer > div { overflow: hidden; }
+        .faq-answer p {
+            font-size: 16px;
+            line-height: 1.85;
+            color: rgba(28, 43, 74, .82);
+            max-width: 66ch;
+            padding-bottom: 28px;
         }
 
-        .faq-answer > div {
-            overflow: hidden;
-            font-size: 0.875rem;
-            color: var(--ink-soft);
-            line-height: 1.6;
-        }
-
-        .faq-item.active .faq-answer {
-            grid-template-rows: 1fr;
-            margin-top: 12px;
-        }
-
-        /* === SECTION: TÉMOIGNAGE === */
-        .section-testimonial {
-            background: linear-gradient(150deg, var(--sand) 0%, var(--sand-deep) 100%);
-            border: 1px solid rgba(var(--ink-rgb), 0.06);
-            border-radius: 20px;
-            text-align: center;
-            margin: 40px auto;
-            padding: 48px 32px;
-        }
-
-        .testimonial-quote {
-            font-size: clamp(1.0625rem, 2.2vw, 1.375rem);
-            color: var(--ink);
-            margin-bottom: 12px;
-            line-height: 1.55;
-            letter-spacing: -0.015em;
-            max-width: 30em;
-            margin-inline: auto;
-            text-wrap: pretty;
-        }
-
-        .testimonial-author {
-            font-size: 0.8125rem;
-            color: var(--ink-muted);
-            margin-top: 12px;
-        }
-
-        .testimonial-star {
-            color: var(--accent);
-            font-size: 0.875rem;
-            letter-spacing: 2px;
-        }
-
-        /* === SECTION: CTA FINALE === */
-        .section-cta-final {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(100% 120% at 50% 0%, #24354f 0%, rgba(36, 53, 79, 0) 70%),
-                linear-gradient(160deg, var(--ink) 0%, #0e1626 100%);
-            color: #fdfbf7;
-            border-radius: 24px;
-            text-align: center;
-            padding: 56px 32px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .section-cta-final h2 {
-            color: #fdfbf7;
-        }
-
-        /* §12 Vibrance : sur fond sombre, un gris plat perd en lisibilité —
-           on remonte le contraste plutôt que de baisser l'opacité. */
-        .section-cta-final p {
-            color: rgba(253, 251, 247, 0.82);
-            font-size: 1.0625rem;
-            max-width: 32em;
-            margin-inline: auto;
-        }
-
-        .cta-final-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 32px;
-            flex-wrap: wrap;
-        }
-
-        .btn-white {
-            background: #fdfbf7;
-            color: var(--ink);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-        }
-
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
-        }
-
-        .btn-ghost {
-            background: rgba(253, 251, 247, 0.10);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(253, 251, 247, 0.28);
-            color: #fdfbf7;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(253, 251, 247, 0.18);
-            transform: translateY(-2px);
-        }
-
-        /* === FOOTER === */
-        footer {
-            background: var(--ink);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 32px 20px;
-            text-align: center;
-            font-size: 0.8125rem;
-        }
-
-        footer a {
-            color: var(--accent-warm);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-content {
-            max-width: 800px;
+        /* ============================================================
+           TÉMOIGNAGE
+           ============================================================ */
+        .bloc--temoignage { text-align: center; }
+        .temoignage-etoiles { display: inline-flex; gap: 5px; margin-bottom: 26px; }
+        .temoignage-etoiles svg { width: 20px; height: 20px; color: var(--amber); }
+        .temoignage-quote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(24px, 3.2vw, 40px);
+            line-height: 1.32;
+            letter-spacing: -.015em;
+            color: var(--cobalt-2);
+            max-width: 22ch;
             margin: 0 auto;
+            text-wrap: balance;
         }
+        .temoignage-author { margin-top: 26px; font-size: 14.5px; letter-spacing: .04em; color: var(--gris); }
 
-        .footer-info {
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
+        /* ============================================================
+           CTA FINALE
+           ============================================================ */
+        .bloc--final { text-align: center; }
+        .bloc--final .display { max-width: 16ch; margin-left: auto; margin-right: auto; }
+        .bloc--final p { margin-left: auto; margin-right: auto; }
+        .cta-final-lead { font-size: 17px; line-height: 1.8; max-width: 52ch; }
+        .cta-final-price { margin-top: 18px; font-size: 16px; color: rgba(240, 236, 227, .74); max-width: 52ch; }
+        .cta-final-buttons { display: flex; flex-wrap: wrap; gap: 13px; justify-content: center; margin-top: 34px; }
 
-        /* === RESPONSIVE === */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 40px 20px;
-            }
-
-            section {
-                margin: 40px auto;
-                padding: 30px 20px;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .praticien-portrait {
-                width: 100%;
-                max-width: 280px;
-                height: 320px;
-            }
-        }
-
-        /* === OPTIMISATIONS PERFS === */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* === UTILITAIRES === */
-        .skip-link {
+        /* Anneau de souffle : un seul, statique, derrière le CTA final */
+        .bloc--final .anneau {
             position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--ink);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
+            z-index: 0;
+            left: 50%;
+            top: 50%;
+            width: min(120vw, 900px);
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
+            border-radius: 999px;
+            border: 1px solid rgba(245, 188, 96, .16);
+            pointer-events: none;
+        }
+        .bloc--final .anneau::after {
+            content: "";
+            position: absolute;
+            inset: 14%;
+            border-radius: 999px;
+            border: 1px solid rgba(245, 188, 96, .13);
         }
 
-        .skip-link:focus {
-            top: 0;
+        /* ============================================================
+           BARRE DE RÉSERVATION FLOTTANTE
+           ============================================================ */
+        .booking-bar {
+            position: fixed;
+            left: 50%;
+            bottom: 16px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            max-width: calc(100vw - 24px);
+            padding: 9px 9px 9px 24px;
+            border-radius: 999px;
+            background: rgba(247, 243, 234, .82);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            border: 1px solid rgba(28, 43, 74, .1);
+            box-shadow: 0 14px 40px rgba(28, 43, 74, .16);
+            transform: translate(-50%, 160%);
+            transition: transform .55s var(--ease-calm);
+            white-space: nowrap;
+        }
+        .booking-bar.visible { transform: translate(-50%, 0); }
+        .booking-bar-text { font-size: 14.5px; font-weight: 500; line-height: 1.3; }
+        .booking-bar-text span { display: block; font-size: 13px; font-weight: 400; color: var(--gris); }
+        @media (max-width: 720px) { .booking-bar-text { display: none; } .booking-bar { padding-left: 9px; } }
+
+        /* ============================================================
+           PIED DE PAGE
+           ============================================================ */
+        .site-footer {
+            background: var(--cobalt-2);
+            color: rgba(240, 236, 227, .78);
+            border-radius: var(--bloc-radius);
+            margin: 0 var(--gouttiere) var(--gouttiere);
+            padding: clamp(44px, 5vw, 72px) clamp(24px, 4vw, 72px) clamp(96px, 8vw, 104px);
+        }
+        .footer-content { max-width: 1240px; margin: 0 auto; display: grid; gap: 26px; font-size: 14.5px; line-height: 1.85; }
+        @media (min-width: 900px) { .footer-content { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; } }
+        .site-footer strong { font-family: var(--serif); font-weight: 400; font-size: 22px; color: var(--lin); letter-spacing: -.01em; }
+        .site-footer a { color: var(--amber-2); text-decoration: none; border-bottom: 1px solid rgba(245, 188, 96, .3); }
+        .site-footer a:hover { border-bottom-color: var(--amber-2); }
+
+        /* ============================================================
+           MOUVEMENT
+           Une seule boucle sur toute la page : la respiration de la spirale.
+           Tout le reste se joue une fois, au chargement ou à l'apparition.
+           ============================================================ */
+        @media (prefers-reduced-motion: no-preference) {
+            .anim { opacity: 0; animation: rise .9s var(--ease) forwards; animation-delay: var(--d, 0ms); }
+            @keyframes rise {
+                from { opacity: 0; transform: translateY(16px); filter: blur(7px); }
+                to   { opacity: 1; transform: none; filter: blur(0); }
+            }
+
+            #spiral-path {
+                stroke-dasharray: var(--len, 4200);
+                stroke-dashoffset: var(--len, 4200);
+                animation: draw 2.4s var(--ease) .15s forwards;
+            }
+            @keyframes draw { to { stroke-dashoffset: 0; } }
+
+            /* 4 s d'expansion, 7 s de retour : une respiration ralentie */
+            .spiral-breathe { transform-origin: 50% 50%; animation: breathe 11s ease-in-out 2.2s infinite; }
+            @keyframes breathe { 0% { transform: scale(1); } 36% { transform: scale(1.035); } 100% { transform: scale(1); } }
+
+            .spiral-halo { transform-origin: 50% 50%; animation: halo 11s ease-in-out 2.2s infinite; }
+            @keyframes halo {
+                0%   { transform: scale(.55); opacity: 0; }
+                38%  { opacity: .32; }
+                100% { transform: scale(1.5); opacity: 0; }
+            }
+
+            .spiral-mots { transform-origin: 50% 50%; animation: turn 140s linear infinite; }
+            @keyframes turn { to { transform: rotate(360deg); } }
+
+            /* La révélation est "armée" par le script, jamais par le CSS seul :
+               sans JS, ou si l'observateur ne se déclenche pas, la page reste
+               entièrement lisible. Seules les sections hors écran sont armées. */
+            .reveal { transition: opacity .8s var(--ease), transform .8s var(--ease); }
+            .reveal[data-armed] { opacity: .001; transform: translateY(18px); }
         }
 
-        /* === PRÉFÉRENCES UTILISATEUR === */
+        @supports (animation-timeline: view()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .spiral-turn {
+                    transform-origin: 50% 50%;
+                    animation: scrollturn linear both;
+                    animation-timeline: view();
+                    animation-range: entry 0% exit 100%;
+                }
+                @keyframes scrollturn { from { transform: rotate(-9deg); } to { transform: rotate(16deg); } }
+
+                .chiffre {
+                    animation: chiffre-parallaxe linear both;
+                    animation-timeline: view();
+                    animation-range: entry 0% exit 100%;
+                }
+                @keyframes chiffre-parallaxe { from { translate: 0 6%; } to { translate: 0 -7%; } }
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
             }
-
-            .btn:hover,
-            .btn:active {
-                transform: none;
-            }
+            .btn:hover, .btn:active, .why-item:hover, .value-item:hover { transform: none; }
         }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <!-- §12 : chrome flottant translucide, le contenu défile dessous -->
+    <nav class="topnav" aria-label="Accès rapide">
+        <a class="wordmark" href="https://novahypnose.fr">Nova<em>hypnose</em></a>
+        <span class="tarif">90 € la séance</span>
+        <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn--cobalt btn--sm" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
+    </nav>
+
     <div class="booking-bar" id="booking-bar" hidden>
         <div class="booking-bar-text">
             Prêt à retrouver votre calme ?
             <span>Cabinet Marais ou visio</span>
         </div>
-        <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Voir mes disponibilités</a>
+        <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn--cobalt btn--sm">Voir mes disponibilités</a>
     </div>
 
-    <!-- === HERO === -->
-    <div class="hero">
-        <div class="hero-container">
-            <nav class="breadcrumb" aria-label="Fil d'Ariane">
-                <a href="https://novahypnose.fr">NovaHypnose</a> › Anxiété & stress à Paris
-            </nav>
-            <h1>Retrouvez votre calme,<br><em>en 3 à 5 séances</em></h1>
-            <p class="hero-subtitle">
-                Hypnose ericksonienne pour mieux gérer l'anxiété, à Paris.
-                Pas de pensée magique — un accompagnement progressif, à votre rythme.
-            </p>
-            <div class="hero-cta">
-                <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
-                <a href="https://wa.me/33649358089?text=Bonjour,%20je%20souhaite%20plus%20d'informations%20sur%20vos%20séances%20d'hypnose%20pour%20l'anxiété" class="btn btn-secondary" title="Discuter par WhatsApp">Discuter par WhatsApp</a>
+    <!-- === HERO : LE SOUFFLE === -->
+    <header class="hero">
+        <div class="hero-grid">
+            <div>
+                <p class="breadcrumb anim" style="--d:120ms">
+                    <a href="https://novahypnose.fr">NovaHypnose</a> &rsaquo; Anxiété &amp; stress à Paris
+                </p>
+                <h1>
+                    <span class="l1 anim" style="--d:220ms">Retrouvez votre calme,</span>
+                    <span class="l2 anim" style="--d:340ms">en 3 à 5 séances</span>
+                </h1>
+                <p class="hero-subtitle anim" style="--d:470ms">
+                    Hypnose ericksonienne pour mieux gérer l'anxiété, à Paris.
+                    Pas de pensée magique : un accompagnement progressif, à votre rythme.
+                </p>
+                <div class="hero-cta anim" style="--d:580ms">
+                    <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn--cobalt" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
+                    <a href="https://wa.me/33649358089?text=Bonjour,%20je%20souhaite%20plus%20d'informations%20sur%20vos%20séances%20d'hypnose%20pour%20l'anxiété" class="btn btn--ghost" title="Discuter par WhatsApp">Discuter par WhatsApp</a>
+                </div>
+                <ul class="trust-indicators anim" style="--d:680ms">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maître Praticien Certifié</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Parcours en 3-5 séances</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cabinet Marais + Visio</li>
+                </ul>
             </div>
-            <div class="trust-indicators">
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                    <span>Maître Praticien Certifié</span>
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                    <span>Parcours en 3-5 séances</span>
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                    <span>Cabinet Marais + Visio</span>
-                </div>
+
+            <div class="spiralbox" aria-hidden="true">
+                <svg viewBox="0 0 400 400" role="presentation" focusable="false">
+                    <defs>
+                        <path id="cercle-mots" d="M200,200 m-172,0 a172,172 0 1,1 344,0 a172,172 0 1,1 -344,0"/>
+                    </defs>
+                    <g class="spiral-turn">
+                        <g class="spiral-breathe">
+                            <path id="spiral-path" d="M200 193"/>
+                            <circle class="spiral-halo" cx="200" cy="200" r="150"/>
+                            <circle class="spiral-core" cx="200" cy="193" r="4.5"/>
+                        </g>
+                    </g>
+                    <g class="spiral-mots">
+                        <text><textPath href="#cercle-mots" startOffset="0">respirer &middot; relâcher &middot; revenir au calme &middot; respirer &middot; relâcher &middot; revenir au calme &middot;</textPath></text>
+                    </g>
+                </svg>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="container" id="main-content">
-        <!-- === SECTION: POURQUOI L'HYPNOSE === -->
-        <section class="section-why reveal">
-            <h2>Pourquoi l'hypnose pour l'anxiété et les crises de panique ?</h2>
-            <p>
-                L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
-                Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
-                offre une voie différente : pas de positif forcé, pas de pensée magique — juste un
-                apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
-            </p>
+    <main id="main-content">
+        <!-- === POURQUOI L'HYPNOSE === -->
+        <section class="bloc bloc--lin2 reveal">
+            <div class="bloc-inner">
+                <h2 class="display">Pourquoi l'hypnose pour l'anxiété et les <em>crises de panique</em> ?</h2>
+                <p class="intro-section">
+                    L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
+                    Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
+                    offre une voie différente : pas de positif forcé, pas de pensée magique, juste un
+                    apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
+                </p>
 
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125a4 4 0 0 1 2.526 5.77a4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div>
-                    <h3>Approche corps-esprit</h3>
-                    <p>L'hypnose ericksonienne travaille sur le lien entre pensées, sensations et comportements. Elle s'appuie sur des techniques éprouvées en séance, adaptées à votre façon de ressentir.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
-                    <h3>Agit à la racine</h3>
-                    <p>Plutôt que de gérer les symptômes au coup par coup, on travaille sur le mécanisme qui entretient votre anxiété.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5H12l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg></div>
-                    <h3>Rapide et progressif</h3>
-                    <p>Beaucoup de clients ressentent un mieux-être dès la première séance. Le parcours se construit ensuite sur-mesure, en 3 à 5 séances en général.</p>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg></div>
-                    <h3>Une ressource douce</h3>
-                    <p>L'hypnose est une pratique non invasive, sans substance ni dispositif. Elle vient en complément de votre suivi habituel, jamais à sa place.</p>
+                <div class="why-grid">
+                    <article class="why-item">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125a4 4 0 0 1 2.526 5.77a4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div>
+                        <h3 class="titre-carte">Approche corps-esprit</h3>
+                        <p>L'hypnose ericksonienne travaille sur le lien entre pensées, sensations et comportements. Elle s'appuie sur des techniques éprouvées en séance, adaptées à votre façon de ressentir.</p>
+                    </article>
+                    <article class="why-item">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+                        <h3 class="titre-carte">Agit à la racine</h3>
+                        <p>Plutôt que de gérer les symptômes au coup par coup, on travaille sur le mécanisme qui entretient votre anxiété.</p>
+                    </article>
+                    <article class="why-item">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4.5 13.5H12l-1 8.5 8.5-11.5H12l1-8.5Z"/></svg></div>
+                        <h3 class="titre-carte">Rapide et progressif</h3>
+                        <p>Beaucoup de clients ressentent un mieux-être dès la première séance. Le parcours se construit ensuite sur-mesure, en 3 à 5 séances en général.</p>
+                    </article>
+                    <article class="why-item">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg></div>
+                        <h3 class="titre-carte">Une ressource douce</h3>
+                        <p>L'hypnose est une pratique non invasive, sans substance ni dispositif. Elle vient en complément de votre suivi habituel, jamais à sa place.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- === SECTION: PRATICIEN === -->
-        <section class="section-praticien reveal">
-            <h2>Qui suis-je?</h2>
-            <div class="praticien-container">
-                <div class="praticien-photo">
+        <!-- === PRATICIEN === -->
+        <section class="bloc bloc--paper reveal">
+            <div class="bloc-inner">
+                <h2 class="display">Qui <em>suis-je</em> ?</h2>
+                <div class="praticien-container">
                     <div class="praticien-portrait">
-                        <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" alt="Alain Zenatti - Praticien en hypnose ericksonienne" loading="lazy">
+                        <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" alt="Alain Zenatti, praticien en hypnose ericksonienne" width="520" height="520" loading="lazy">
                     </div>
-                </div>
-                <div class="praticien-bio">
-                    <h3>Une approche humaine et rigoureuse</h3>
-                    <p>
-                        Je suis Alain Zenatti, Maître Praticien en Hypnose Ericksonienne, formé à l'écoute active
-                        et à l'accompagnement du changement. Mon travail repose sur trois convictions: vous écouter vraiment,
-                        adapter chaque séance à votre histoire unique, et vous donner les outils pour être autonome.
-                    </p>
-                    <p>
-                        Pas de promesses miracles. Juste de la rigueur, de la bienveillance, et un accompagnement qui vous appartient.
-                    </p>
-                    <div class="credentials">
-                        <strong>Certifications & Formations:</strong>
-                        Maître Praticien en Hypnose Ericksonienne<br>
-                        Formation complémentaire en communication relationnelle (Méthode ESPERE)<br>
-                        Spécialisation: anxiété et gestion du stress
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- === SECTION: MON APPROCHE === -->
-        <section class="section-approach reveal">
-            <h2>Mon approche: Écoute + Rigueur</h2>
-            <p class="approach-text">
-                Lors de notre première séance, nous explorons ensemble la source de votre anxiété.
-                Puis je construis un protocole personnalisé, étape par étape. Vous ne subissez jamais —
-                vous participez activement à votre transformation.
-            </p>
-
-            <div class="values">
-                <div class="value-item">
-                    <strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>Bienveillance</strong>
-                    <p>Zéro jugement. Votre anxiété est légitime. Nous avançons ensemble, sans pression.</p>
-                </div>
-                <div class="value-item">
-                    <strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.5L4.6 19a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8.5 2h7"/><path d="M7 15h10"/></svg>Rigueur</strong>
-                    <p>Méthodes structurées, suivi des progrès, ajustements constants séance après séance.</p>
-                </div>
-                <div class="value-item">
-                    <strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8V7a3 3 0 0 0-6 0v1"/><path d="M6 11a3 3 0 0 1 6 0v6a4 4 0 0 0 8 0v-2"/><circle cx="4" cy="11" r="2"/></svg>Autonomie</strong>
-                    <p>Vous apprenez l'auto-hypnose. À la fin, vous ne dépendez plus de moi — vous êtes libre.</p>
-                </div>
-                <div class="value-item">
-                    <strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Rapidité</strong>
-                    <p>Un accompagnement concentré, en 3 à 5 séances, sans engagement dans la durée.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- === SECTION: RÉSULTATS === -->
-        <section class="section-results reveal">
-            <h2>Un accompagnement en 3 à 5 séances</h2>
-
-            <div class="results-stats">
-                <div class="stat-box">
-                    <div class="stat-number">Sur-mesure</div>
-                    <div class="stat-label">Chaque séance s'adapte à votre histoire, jamais un protocole figé</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">3-5</div>
-                    <div class="stat-label">Séances en moyenne</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">5/5 ★</div>
-                    <div class="stat-label">100% de clients satisfaits sur Google et Resalib</div>
-                </div>
-            </div>
-
-            <h3 style="font-size: 1.125rem; color: var(--ink); margin-top: 32px; margin-bottom: 4px;">Exemple de parcours type (3 à 5 séances) :</h3>
-            <p style="font-size: 0.8125rem; color: var(--ink-muted); margin-bottom: 16px;">Ce que chaque phase peut comprendre — pas un compte de séances.</p>
-            <div class="parcours">
-                <h3>Diagnostic et calibrage</h3>
-                <div class="parcours-steps">
-                    <div class="step"><strong>Anamnèse</strong> Votre histoire, vos déclencheurs, ce qui a déjà été essayé</div>
-                    <div class="step"><strong>Profil sensoriel</strong> La séance s'adapte à votre façon de ressentir et de vous détendre</div>
-                    <div class="step"><strong>1ère séance</strong> Une induction construite autour d'un cadre qui vous est familier</div>
-                    <div class="step"><strong>Premier ancrage</strong> Un état de calme profond installé, à retrouver ensuite seul</div>
-                </div>
-            </div>
-
-            <div class="parcours">
-                <h3>Travail en profondeur</h3>
-                <div class="parcours-steps">
-                    <div class="step"><strong>Métaphore sur mesure</strong> Une histoire symbolique nouvelle à chaque séance, jamais la même</div>
-                    <div class="step"><strong>Travail ciblé</strong> Sur le mécanisme qui entretient la difficulté, pas seulement les symptômes</div>
-                    <div class="step"><strong>Ancrages renforcés</strong> Consolidés séance après séance pour un accès plus rapide au calme</div>
-                    <div class="step"><strong>Auto-hypnose</strong> Enseignée au bon moment pour vous, pour retrouver le calme seul au quotidien</div>
-                </div>
-            </div>
-
-            <p style="margin-top: 16px; padding: 16px 20px; background: var(--sand-deep); border-radius: 12px; font-size: 0.875rem; color: var(--ink);">
-                <strong>Un accompagnement continu entre les séances</strong> — un suivi qui s'ajuste à votre chronologie, jamais l'inverse.
-            </p>
-
-            <p style="margin-top: 24px; font-size: 0.875rem; color: var(--ink-muted);">
-                *L'hypnose ericksonienne s'appuie sur des techniques éprouvées en séance ; chaque personne progresse à son rythme.
-            </p>
-        </section>
-
-        <!-- === SECTION: FAQ === -->
-        <section class="section-faq reveal">
-            <h2>Questions Fréquentes</h2>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
-                    L'hypnose est-elle dangereuse ou contrôlée par le praticien?
-                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                </button>
-                <div class="faq-answer" id="faq-answer-1">
-                    <div>
-                        Non. L'hypnose est un état naturel de concentration, comme rêver ou lire.
-                        Vous gardez le contrôle total. Je ne peux rien vous forcer — vous êtes le décideur.
-                        L'hypnose ericksonienne utilise même votre propre sagesse pour vous aider.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-                    Combien de séances me faut-il vraiment?
-                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                </button>
-                <div class="faq-answer" id="faq-answer-2">
-                    <div>
-                        En moyenne, 3 à 5 séances. Mais cela dépend de vous : l'ancienneté de votre anxiété,
-                        votre ouverture, votre contexte de vie. Lors de la 1ère séance, je pourrai vous donner une estimation
-                        plus précise basée sur votre situation.
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-tarif">
-                    Combien coûte une séance?
-                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                </button>
-                <div class="faq-answer" id="faq-answer-tarif">
-                    <div>
-                        90 € la séance, au cabinet comme en visio. La première dure 1h30, les suivantes 1 heure,
-                        au même tarif. Aucun forfait imposé : chaque séance se réserve librement, et l'annulation
-                        est sans frais jusqu'à 48 h avant le rendez-vous. L'hypnothérapie n'est pas remboursée par
-                        la Sécurité sociale, mais de nombreuses mutuelles participent via leur forfait
-                        « médecines douces ».
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-                    Et si je ne suis pas « hypnotisable »?
-                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                </button>
-                <div class="faq-answer" id="faq-answer-3">
-                    <div>
-                        Tout le monde entre en hypnose — c'est naturel. Certains disent « je n'ai pas senti grand-chose »,
-                        mais de nombreux clients rapportent des changements bien réels : respiration plus calme, sommeil amélioré, anxiété réduite.
-                        L'hypnose ericksonienne fonctionne d'ailleurs mieux pour ceux qui pensent ne pas être hypnotisables!
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-                    Puis-je combiner l'hypnose avec mon traitement médicamenteux?
-                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-                </button>
-                <div class="faq-answer" id="faq-answer-4">
-                    <div>
-                        Oui, absolument. L'hypnose et un traitement médicamenteux se complètent très bien.
-                        Parlez-en simplement à votre médecin pour l'informer de votre démarche.
-                        Je ne vous demande jamais d'arrêter votre traitement.
+                    <div class="praticien-bio">
+                        <h3 class="titre-carte">Une approche humaine et rigoureuse</h3>
+                        <p>
+                            Je suis Alain Zenatti, Maître Praticien en Hypnose Ericksonienne, formé à l'écoute active
+                            et à l'accompagnement du changement. Mon travail repose sur trois convictions : vous écouter vraiment,
+                            adapter chaque séance à votre histoire unique, et vous donner les outils pour être autonome.
+                        </p>
+                        <p>
+                            Pas de promesses miracles. Juste de la rigueur, de la bienveillance, et un accompagnement qui vous appartient.
+                        </p>
+                        <div class="credentials">
+                            <strong>Certifications &amp; formations</strong>
+                            Maître Praticien en Hypnose Ericksonienne<br>
+                            Formation complémentaire en communication relationnelle (Méthode ESPERE)<br>
+                            Spécialisation : anxiété et gestion du stress
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- === SECTION: TÉMOIGNAGE === -->
-        <section class="section-testimonial reveal">
-            <div class="testimonial-star">★ ★ ★ ★ ★</div>
-            <p class="testimonial-quote">
-                « En 4 séances, j'ai retrouvé une sérénité que je n'avais pas connue depuis des années.
-                Une approche professionnelle et humaine. Je recommande sans hésiter. »
-            </p>
-            <p class="testimonial-author">— M.L., Paris 11e</p>
-        </section>
+        <!-- === MON APPROCHE === -->
+        <section class="bloc bloc--lin2 reveal">
+            <div class="bloc-inner">
+                <h2 class="display">Mon approche : <em>écoute</em> et rigueur</h2>
+                <p class="intro-section">
+                    Lors de notre première séance, nous explorons ensemble la source de votre anxiété.
+                    Puis je construis un protocole personnalisé, étape par étape. Vous ne subissez jamais :
+                    vous participez activement à votre transformation.
+                </p>
 
-        <!-- === SECTION: CTA FINALE === -->
-        <section class="section-cta-final reveal">
-            <h2>Prêt à Respirer Librement?</h2>
-            <p>
-                Prenez rendez-vous dès aujourd'hui pour votre 1ère séance.
-                Ensemble, nous construirons votre chemin vers plus de sérénité.
-            </p>
-            <p class="cta-final-price">
-                90 € la séance, au cabinet comme en visio. Annulation sans frais jusqu'à 48 h avant.
-            </p>
-            <div class="cta-final-buttons">
-                <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn-white" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
-                <a href="https://wa.me/33649358089?text=Bonjour,%20j'aimerais%20discuter%20de%20l'hypnose%20pour%20mon%20anxiété" class="btn btn-ghost" title="Contacter par WhatsApp">Contacter par WhatsApp</a>
+                <div class="values">
+                    <article class="value-item">
+                        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+                        <h3>Bienveillance</h3>
+                        <p>Zéro jugement. Votre anxiété est légitime. Nous avançons ensemble, sans pression.</p>
+                    </article>
+                    <article class="value-item">
+                        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v7.5L4.6 19a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 9.5V2"/><path d="M8.5 2h7"/><path d="M7 15h10"/></svg></div>
+                        <h3>Rigueur</h3>
+                        <p>Méthodes structurées, suivi des progrès, ajustements constants séance après séance.</p>
+                    </article>
+                    <article class="value-item">
+                        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8V7a3 3 0 0 0-6 0v1"/><path d="M6 11a3 3 0 0 1 6 0v6a4 4 0 0 0 8 0v-2"/><circle cx="4" cy="11" r="2"/></svg></div>
+                        <h3>Autonomie</h3>
+                        <p>Vous apprenez l'auto-hypnose. À la fin, vous ne dépendez plus de moi : vous êtes libre.</p>
+                    </article>
+                    <article class="value-item">
+                        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+                        <h3>Rapidité</h3>
+                        <p>Un accompagnement concentré, en 3 à 5 séances, sans engagement dans la durée.</p>
+                    </article>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- === FOOTER === -->
-    <footer>
+        <!-- === PARCOURS : bloc cobalt + chiffre géant === -->
+        <section class="bloc bloc--cobalt bloc--parcours on-cobalt reveal">
+            <div class="chiffre" aria-hidden="true">
+                <span class="cap">Séances en moyenne</span>
+                <span class="n">3<em>à</em>5</span>
+            </div>
+            <div class="bloc-inner">
+                <h2 class="display">Un accompagnement en <em>3 à 5 séances</em></h2>
+
+                <div class="parcours-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">Sur-mesure</div>
+                        <p class="stat-label">Chaque séance s'adapte à votre histoire, jamais un protocole figé</p>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                            5/5
+                        </div>
+                        <p class="stat-label">46 avis vérifiés : 21 sur Resalib, 25 sur Google</p>
+                    </div>
+                </div>
+
+                <div class="parcours-titre">
+                    <h3>Exemple de parcours type (3 à 5 séances)</h3>
+                    <p class="parcours-note">Ce que chaque phase peut comprendre. Ce n'est pas un compte de séances.</p>
+                </div>
+
+                <div class="parcours">
+                    <h3>Diagnostic et calibrage</h3>
+                    <div class="parcours-steps">
+                        <div class="step"><strong>Anamnèse</strong> Votre histoire, vos déclencheurs, ce qui a déjà été essayé</div>
+                        <div class="step"><strong>Profil sensoriel</strong> La séance s'adapte à votre façon de ressentir et de vous détendre</div>
+                        <div class="step"><strong>1re séance</strong> Une induction construite autour d'un cadre qui vous est familier</div>
+                        <div class="step"><strong>Premier ancrage</strong> Un état de calme profond installé, à retrouver ensuite seul</div>
+                    </div>
+                </div>
+
+                <div class="parcours">
+                    <h3>Travail en profondeur</h3>
+                    <div class="parcours-steps">
+                        <div class="step"><strong>Métaphore sur mesure</strong> Une histoire symbolique nouvelle à chaque séance, jamais la même</div>
+                        <div class="step"><strong>Travail ciblé</strong> Sur le mécanisme qui entretient la difficulté, pas seulement les symptômes</div>
+                        <div class="step"><strong>Ancrages renforcés</strong> Consolidés séance après séance pour un accès plus rapide au calme</div>
+                        <div class="step"><strong>Auto-hypnose</strong> Enseignée au bon moment pour vous, pour retrouver le calme seul au quotidien</div>
+                    </div>
+                </div>
+
+                <p class="encart-suivi">
+                    <strong>Un accompagnement continu entre les séances.</strong>
+                    Un suivi qui s'ajuste à votre chronologie, jamais l'inverse.
+                </p>
+
+                <p class="mention">
+                    L'hypnose ericksonienne s'appuie sur des techniques éprouvées en séance ; chaque personne progresse à son rythme.
+                </p>
+            </div>
+        </section>
+
+        <!-- === FAQ === -->
+        <section class="bloc bloc--lin2 reveal">
+            <div class="bloc-inner">
+                <h2 class="display">Questions <em>fréquentes</em></h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                            L'hypnose est-elle dangereuse ou contrôlée par le praticien ?
+                            <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-1">
+                            <div>
+                                <p>
+                                    Non. L'hypnose est un état naturel de concentration, comme rêver ou lire.
+                                    Vous gardez le contrôle total. Je ne peux rien vous forcer : vous êtes le décideur.
+                                    L'hypnose ericksonienne utilise même votre propre sagesse pour vous aider.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                            Combien de séances me faut-il vraiment ?
+                            <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-2">
+                            <div>
+                                <p>
+                                    En moyenne, 3 à 5 séances. Mais cela dépend de vous : l'ancienneté de votre anxiété,
+                                    votre ouverture, votre contexte de vie. Lors de la 1re séance, je pourrai vous donner une estimation
+                                    plus précise basée sur votre situation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-tarif">
+                            Combien coûte une séance ?
+                            <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-tarif">
+                            <div>
+                                <p>
+                                    90 € la séance, au cabinet comme en visio. La première dure 1h30, les suivantes 1 heure,
+                                    au même tarif. Aucun forfait imposé : chaque séance se réserve librement, et l'annulation
+                                    est sans frais jusqu'à 48 h avant le rendez-vous. L'hypnothérapie n'est pas remboursée par
+                                    la Sécurité sociale, mais de nombreuses mutuelles participent via leur forfait
+                                    « médecines douces ».
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                            Et si je ne suis pas « hypnotisable » ?
+                            <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-3">
+                            <div>
+                                <p>
+                                    Tout le monde entre en hypnose, c'est naturel. Certains disent « je n'ai pas senti grand-chose »,
+                                    mais de nombreux clients rapportent des changements bien réels : respiration plus calme, sommeil amélioré, anxiété réduite.
+                                    L'hypnose ericksonienne fonctionne d'ailleurs mieux pour ceux qui pensent ne pas être hypnotisables.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                            Puis-je combiner l'hypnose avec mon traitement médicamenteux ?
+                            <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-4">
+                            <div>
+                                <p>
+                                    Oui, absolument. L'hypnose et un traitement médicamenteux se complètent très bien.
+                                    Parlez-en simplement à votre médecin pour l'informer de votre démarche.
+                                    Je ne vous demande jamais d'arrêter votre traitement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === TÉMOIGNAGE === -->
+        <section class="bloc bloc--paper bloc--temoignage reveal">
+            <div class="bloc-inner">
+                <div class="temoignage-etoiles" role="img" aria-label="Note de 5 sur 5">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
+                </div>
+                <blockquote class="temoignage-quote">
+                    « En 4 séances, j'ai retrouvé une sérénité que je n'avais pas connue depuis des années.
+                    Une approche professionnelle et humaine. Je recommande sans hésiter. »
+                </blockquote>
+                <p class="temoignage-author">M.L., Paris 11e</p>
+            </div>
+        </section>
+
+        <!-- === CTA FINALE === -->
+        <section class="bloc bloc--cobalt bloc--final on-cobalt reveal">
+            <span class="anneau" aria-hidden="true"></span>
+            <div class="bloc-inner">
+                <h2 class="display">Prêt à <em>respirer librement</em> ?</h2>
+                <p class="cta-final-lead">
+                    Prenez rendez-vous dès aujourd'hui pour votre 1re séance.
+                    Ensemble, nous construirons votre chemin vers plus de sérénité.
+                </p>
+                <p class="cta-final-price">
+                    90 € la séance, au cabinet comme en visio. Annulation sans frais jusqu'à 48 h avant.
+                </p>
+                <div class="cta-final-buttons">
+                    <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn--amber" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
+                    <a href="https://wa.me/33649358089?text=Bonjour,%20j'aimerais%20discuter%20de%20l'hypnose%20pour%20mon%20anxiété" class="btn btn--ghost-lin" title="Contacter par WhatsApp">Contacter par WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-info">
+            <div>
                 <strong>NovaHypnose</strong><br>
                 16 rue Saint-Antoine, Paris 4e (Marais)<br>
-                <a href="tel:+33649358089">06 49 35 80 89</a> |
+                <a href="tel:+33649358089">06 49 35 80 89</a><br>
                 <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a>
             </div>
-            <div class="footer-info">
-                Maître Praticien en Hypnose Ericksonienne | Formé à la Méthode ESPERE (Jacques Salomé)
+            <div>
+                Maître Praticien en Hypnose Ericksonienne<br>
+                Formé à la Méthode ESPERE (Jacques Salomé)
             </div>
-            <div class="footer-info">
-                <a href="https://novahypnose.fr">← Retour au site principal</a> |
+            <div>
+                <a href="https://novahypnose.fr">Retour au site principal</a><br>
                 <a href="https://novahypnose.fr/politique-de-confidentialite">Politique de confidentialité</a>
             </div>
         </div>
     </footer>
+
+    <!-- === DONNÉES STRUCTURÉES === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HealthAndBeautyBusiness",
+          "@id": "https://novahypnose.fr/#localbusiness",
+          "name": "NovaHypnose - Hypnothérapeute Paris",
+          "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
+          "url": "https://novahypnose.fr",
+          "telephone": "+33649358089",
+          "email": "contact@novahypnose.fr",
+          "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4e (Marais) et en visio. Accompagnement de l'anxiété et du stress, parcours en 3 à 5 séances.",
+          "priceRange": "90 EUR",
+          "hasMap": "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris",
+          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "16 rue Saint-Antoine",
+            "addressLocality": "Paris",
+            "addressRegion": "Île-de-France",
+            "postalCode": "75004",
+            "addressCountry": "FR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.85358,
+            "longitude": 2.36642
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "11:00",
+              "closes": "20:30"
+            }
+          ],
+          "identifier": [
+            { "@type": "PropertyValue", "propertyID": "SIRET", "value": "89489890700015" }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 5,
+            "bestRating": 5,
+            "worstRating": 1,
+            "reviewCount": 46
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Paris" },
+            { "@type": "Country", "name": "France" }
+          ],
+          "availableService": {
+            "@type": "Service",
+            "name": "Hypnose ericksonienne pour l'anxiété et le stress",
+            "serviceType": "Hypnothérapie",
+            "provider": { "@id": "https://novahypnose.fr/#localbusiness" },
+            "areaServed": { "@type": "City", "name": "Paris" },
+            "offers": {
+              "@type": "Offer",
+              "price": "90",
+              "priceCurrency": "EUR",
+              "url": "https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+            }
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Alain Zenatti",
+            "jobTitle": "Maître Praticien en Hypnose Ericksonienne"
+          },
+          "sameAs": [
+            "https://www.instagram.com/novahypnose/",
+            "https://www.linkedin.com/in/alain-zenatti/",
+            "https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://novahypnose.fr/anxiete-hypnose-paris.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "L'hypnose est-elle dangereuse ou contrôlée par le praticien ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Non. L'hypnose est un état naturel de concentration, comme rêver ou lire. Vous gardez le contrôle total. Je ne peux rien vous forcer : vous êtes le décideur. L'hypnose ericksonienne utilise même votre propre sagesse pour vous aider."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien de séances me faut-il vraiment ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "En moyenne, 3 à 5 séances. Mais cela dépend de vous : l'ancienneté de votre anxiété, votre ouverture, votre contexte de vie. Lors de la 1re séance, je pourrai vous donner une estimation plus précise basée sur votre situation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien coûte une séance ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "90 € la séance, au cabinet comme en visio. La première dure 1h30, les suivantes 1 heure, au même tarif. Aucun forfait imposé : chaque séance se réserve librement, et l'annulation est sans frais jusqu'à 48 h avant le rendez-vous. L'hypnothérapie n'est pas remboursée par la Sécurité sociale, mais de nombreuses mutuelles participent via leur forfait « médecines douces »."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Et si je ne suis pas « hypnotisable » ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tout le monde entre en hypnose, c'est naturel. Certains disent « je n'ai pas senti grand-chose », mais de nombreux clients rapportent des changements bien réels : respiration plus calme, sommeil amélioré, anxiété réduite. L'hypnose ericksonienne fonctionne d'ailleurs mieux pour ceux qui pensent ne pas être hypnotisables."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Puis-je combiner l'hypnose avec mon traitement médicamenteux ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui, absolument. L'hypnose et un traitement médicamenteux se complètent très bien. Parlez-en simplement à votre médecin pour l'informer de votre démarche. Je ne vous demande jamais d'arrêter votre traitement."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- === GOOGLE ANALYTICS 4 === -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W9ZQEJKLF"></script>
@@ -1220,16 +1303,6 @@
 
     <!-- === INTERACTIVITÉ + SUIVI DES CONVERSIONS === -->
     <script>
-        // FAQ : boutons natifs, donc clavier (Entrée/Espace) géré par le navigateur
-        document.querySelectorAll('.faq-question').forEach(function (button) {
-            button.addEventListener('click', function () {
-                const faqItem = button.parentElement;
-                const isOpen = faqItem.classList.toggle('active');
-                button.setAttribute('aria-expanded', String(isOpen));
-                button.querySelector('.faq-toggle').textContent = isOpen ? '−' : '+';
-            });
-        });
-
         // Conversion "Prise de rendez-vous" : l'événement confirmation_rdv est importé
         // dans Google Ads depuis GA4 comme action de conversion principale.
         document.querySelectorAll('a[href*="resalib.fr"]').forEach(function (link) {
@@ -1249,30 +1322,62 @@
             });
         });
 
-        const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // FAQ : boutons natifs, donc clavier (Entrée/Espace) géré par le navigateur.
+        // Le chevron pivote, il n'est jamais remplacé par un caractère texte.
+        document.querySelectorAll('.faq-question').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var faqItem = button.parentElement;
+                var isOpen = faqItem.classList.toggle('active');
+                button.setAttribute('aria-expanded', String(isOpen));
+            });
+        });
 
-        // Révélation au scroll, décalée section par section.
+        var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Spirale d'Archimède : une seule courbe de 5,2 tours, dessinée au chargement.
+        (function () {
+            var pts = [], turns = 5.2, steps = 1100, b = 27, a = 7, i, t, r;
+            for (i = 0; i <= steps; i += 4) {
+                t = (i / steps) * turns * 2 * Math.PI;
+                r = a + b * t / (2 * Math.PI);
+                pts.push([(200 + r * Math.cos(t - Math.PI / 2)).toFixed(1), (200 + r * Math.sin(t - Math.PI / 2)).toFixed(1)]);
+            }
+            var d = 'M' + pts[0][0] + ' ' + pts[0][1];
+            for (i = 1; i < pts.length; i++) { d += 'L' + pts[i][0] + ' ' + pts[i][1]; }
+            var p = document.getElementById('spiral-path');
+            if (p) {
+                p.setAttribute('d', d);
+                if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
+            }
+        })();
+
+        // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.
-        const sections = document.querySelectorAll('.reveal');
-        if (calme || !('IntersectionObserver' in window)) {
-            sections.forEach(function (el) { el.classList.add('in'); });
-        } else {
-            const revealObserver = new IntersectionObserver(function (entries) {
+        var sections = document.querySelectorAll('.reveal');
+        if (!calme && 'IntersectionObserver' in window) {
+            var revealObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('in');
+                        entry.target.removeAttribute('data-armed');
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+            }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 
-            sections.forEach(function (el) { revealObserver.observe(el); });
+            sections.forEach(function (el) {
+                // On n'arme que ce qui est déjà hors écran : le premier écran
+                // est toujours rendu à l'état visible, quoi qu'il arrive ensuite.
+                if (el.getBoundingClientRect().top > window.innerHeight) {
+                    el.setAttribute('data-armed', '');
+                }
+                revealObserver.observe(el);
+            });
         }
 
         // Barre de réservation : visible dès que le hero est passé, masquée
-        // à nouveau au retour en haut (§7 : même chemin à l'aller et au retour).
-        const bookingBar = document.getElementById('booking-bar');
-        const hero = document.querySelector('.hero');
+        // à nouveau au retour en haut.
+        var bookingBar = document.getElementById('booking-bar');
+        var hero = document.querySelector('.hero');
         if (bookingBar && hero && 'IntersectionObserver' in window) {
             bookingBar.hidden = false;
             new IntersectionObserver(function (entries) {
