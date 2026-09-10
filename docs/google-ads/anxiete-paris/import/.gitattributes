@@ -1,0 +1,6 @@
+# Ces CSV ne sont pas lus par un humain : ils sont avales tels quels par
+# Google Ads Editor sous Windows, qui ne devine pas l'encodage. Sans le BOM
+# UTF-8 en tete, Editor les lit en ANSI et transforme chaque accent en deux
+# caracteres parasites. On force donc CRLF au checkout, et le BOM fait partie
+# du contenu versionne : ne pas le retirer.
+*.csv text eol=crlf

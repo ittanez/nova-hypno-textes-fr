@@ -8,12 +8,35 @@ instable (brouillon corrompu, page blanche récurrente à l'étape mots-clés).
 
 1. Installer Google Ads Editor : https://ads.google.com/home/tools/ads-editor/
 2. Se connecter au compte **672-748-1209 (NOVA HYPNOSE — ALAIN ZENATTI)**
-3. `Compte > Importer > Depuis un fichier`, puis charger les CSV **dans l'ordre** :
-   `1-campaign` → `2-adgroups` → `3-keywords` → `4-negatives` → `5-ads`
+3. `Compte > Importer > Depuis un fichier`, puis au choix :
+   - `import/campagne-complete.csv` — tout en un seul import (recommandé)
+   - ou les cinq fichiers séparés **dans l'ordre**, si un import global échoue et
+     qu'il faut isoler l'étape fautive :
+     `1-campaign` → `2-adgroups` → `3-keywords` → `4-negatives` → `5-ads`
 4. Vérifier l'aperçu des modifications, puis `Publier`
+
+Les deux chemins décrivent la même campagne : toute correction doit être reportée
+dans les deux, sinon l'un des imports réintroduit l'ancienne version.
+
+À relire dans l'aperçu, là où l'import dérape le plus souvent : le budget doit être
+lu **3,30 €** et non 330 € (séparateur décimal), et la zone doit se résoudre sur
+**Paris ville** et non sur l'Île-de-France entière.
 
 La campagne est importée **en pause** (`Campaign Status: Paused`) : rien ne se
 diffuse tant qu'elle n'est pas activée manuellement.
+
+### Encodage : ne pas y toucher
+
+Les CSV sont en **UTF-8 avec BOM**, en **CRLF**. Les trois comptent.
+
+Google Ads Editor sous Windows ne devine pas l'encodage d'un fichier : sans le BOM
+(`EF BB BF`) en tête, il lit le CSV en ANSI et chaque accent, codé sur deux octets
+en UTF-8, ressort en deux caractères parasites (`é` devient `Ã©`). Un `.gitattributes`
+local force le CRLF au checkout ; le BOM, lui, fait partie du contenu versionné.
+
+Conséquence pratique : **ne pas rouvrir ces fichiers dans Excel**, qui les
+réenregistre volontiers en ANSI et réintroduit le problème. Pour une relecture
+rapide, le Bloc-notes ou un éditeur de code.
 
 ## Choix de configuration, et pourquoi
 
