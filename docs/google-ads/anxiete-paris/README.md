@@ -96,6 +96,7 @@ rapide, le Bloc-notes ou un éditeur de code.
 | Zone | Paris (ville) | Cabinet dans le 4e, déplacement client attendu |
 | Correspondance | Exact + Expression | Aucune requête large : à 3 €/jour, une seule requête hors-sujet mange la journée |
 | AI Max | Désactivé | Élargit les mots clés en requête large et réécrit les annonces — incompatible avec un budget serré et avec la règle « ne rien promettre que la page ne dit pas » |
+| Max CPC du groupe d'annonces | 2,00 € | Editor refuse un groupe d'annonces sans enchère (« Le groupe d'annonces ne comporte aucune enchère »), même quand la campagne est en enchères automatiques. La valeur est stockée sans être utilisée tant que la stratégie reste « Maximiser les conversions » ; elle ne redeviendrait active qu'en repassant en CPC manuel |
 
 ## Conversions
 
