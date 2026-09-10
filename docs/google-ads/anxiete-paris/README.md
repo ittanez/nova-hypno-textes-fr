@@ -228,6 +228,14 @@ Deux points assumés :
   de l'URL finale de l'annonce ; `resalib.fr` serait refusé. La prise de rendez-vous
   passe donc par le CTA de la landing page.
 
+**Importer ce fichier par CSV plutôt que par l'interface web dès qu'il y a plus de
+deux ou trois liens à saisir.** Constaté le 2026-09-10 : le formulaire web d'ajout de
+composants recycle parfois le champ d'un bloc déjà rempli pour le bloc suivant, avec
+son ancien contenu encore affiché comme s'il était vide. Un bloc entier (« Questions
+fréquentes ») a été écrasé de cette façon avant d'être repéré. Le CSV via Editor
+n'a pas ce problème et se réimporte sans créer de doublons : un lien déjà présent
+dans le compte, retrouvé par son texte, est mis à jour plutôt que dupliqué.
+
 ## Après le lancement
 
 - Laisser tourner **2 semaines sans y toucher** — les enchères automatiques ont
