@@ -630,6 +630,13 @@
             border-bottom: none;
         }
 
+        .cta-final-price {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
         .faq-question {
             font-family: inherit;
             font-weight: 600;
@@ -1112,6 +1119,22 @@
             </div>
 
             <div class="faq-item">
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-tarif">
+                    Combien coûte une séance?
+                    <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+                </button>
+                <div class="faq-answer" id="faq-answer-tarif">
+                    <div>
+                        90 € la séance, au cabinet comme en visio. La première dure 1h30, les suivantes 1 heure,
+                        au même tarif. Aucun forfait imposé : chaque séance se réserve librement, et l'annulation
+                        est sans frais jusqu'à 48 h avant le rendez-vous. L'hypnothérapie n'est pas remboursée par
+                        la Sécurité sociale, mais de nombreuses mutuelles participent via leur forfait
+                        « médecines douces ».
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
                 <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
                     Et si je ne suis pas « hypnotisable »?
                     <span class="faq-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
@@ -1154,8 +1177,11 @@
         <section class="section-cta-final reveal">
             <h2>Prêt à Respirer Librement?</h2>
             <p>
-                Prenez rendez-vous dès aujourd'hui pour votre 1ère séance de diagnostic.
+                Prenez rendez-vous dès aujourd'hui pour votre 1ère séance.
                 Ensemble, nous construirons votre chemin vers plus de sérénité.
+            </p>
+            <p class="cta-final-price">
+                90 € la séance, au cabinet comme en visio. Annulation sans frais jusqu'à 48 h avant.
             </p>
             <div class="cta-final-buttons">
                 <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn-white" title="Voir les créneaux disponibles">Voir mes disponibilités</a>
