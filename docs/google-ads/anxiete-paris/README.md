@@ -36,35 +36,33 @@ Référence : https://developers.google.com/google-ads/api/docs/api-policy/eu-pa
 
 1. Installer Google Ads Editor : https://ads.google.com/home/tools/ads-editor/
 2. Se connecter au compte **672-748-1209 (NOVA HYPNOSE — ALAIN ZENATTI)**
-3. Vérifier si Editor expose le réglage : sélectionner une campagne, chercher dans
-   le panneau d'édition un champ « Annonces à caractère politique dans l'UE ».
-   - **S'il existe** : le passer à « Non », puis importer
-     `import/campagne-complete.csv` (tout en un seul import).
-   - **S'il n'existe pas** : suivre la procédure en deux temps ci-dessous.
-4. Vérifier l'aperçu des modifications, puis `Publier`
+3. `Compte > Importer > Depuis un fichier`, charger `import/campagne-complete.csv`
+   (tout en un seul import).
+4. Dans les paramètres de la campagne, vérifier le champ **« Annonces à caractère
+   politique pour l'UE »** (confirmé présent dans Editor le 2026-09-10, malgré
+   l'absence de colonne CSV pour ce champ). Le passer à « Non, elle ne comporte pas
+   d'annonces à caractère politique dans l'UE » s'il n'est pas déjà renseigné.
+5. **Vérifier** (bouton dans la barre d'outils, en haut de la fenêtre) pour lister les
+   infractions et recommandations restantes.
+6. **Intégrer** (le bouton s'appelle ainsi en français, pas « Publier » — dans la
+   même barre d'outils, tout à droite). La boîte de dialogue récapitule ce qui a été
+   publié par type d'entité ; relire la colonne Erreurs avant de fermer.
 
-### Procédure en deux temps (si Editor n'expose pas le réglage)
-
-Elle a un avantage inattendu : elle évite l'étape mots-clés de l'interface web,
-celle-là même qui corrompait les brouillons.
-
-1. **Interface web** : créer la campagne coquille vide, avec les réglages du tableau
-   plus bas (nom `Anxiete Paris Search 2026`, 3,30 €/jour, Maximiser les conversions,
-   Réseau de Recherche seul, français, Paris). La question sur les annonces politiques
-   apparaît pendant la création : répondre « Non ». S'arrêter avant les mots-clés.
-2. **Editor** : `Compte > Obtenir les modifications récentes`, puis importer les
-   fichiers séparés **en sautant `1-campaign.csv`** :
-   `2-adgroups` → `3-keywords` → `4-negatives` → `5-ads`
-
-C'est le cas d'usage pour lequel les cinq fichiers séparés existent : `1-campaign.csv`
-est le seul à porter le ciblage géographique, donc le seul que la déclaration bloque.
-
-Les noms doivent correspondre **au caractère près** — campagne
+Les fichiers séparés (`1-campaign.csv` → `5-ads.csv`) restent utiles pour isoler une
+étape fautive si l'import global échoue, ou pour ne pousser qu'une correction
+ponctuelle (par ex. republier uniquement `2-adgroups.csv` après l'ajout du Max CPC).
+Dans ce cas, les noms doivent correspondre **au caractère près** — campagne
 `Anxiete Paris Search 2026`, groupe d'annonces `Anxiete Stress` — sinon Editor crée
 des doublons au lieu de rattacher aux éléments existants.
 
 Les deux chemins décrivent la même campagne : toute correction doit être reportée
 dans les deux, sinon l'un des imports réintroduit l'ancienne version.
+
+**Intégrer ne publie que la copie locale d'Editor.** Rien ne part vers Google avant
+ce clic ; à l'inverse, rien de ce que fait Editor n'apparaît dans le compte en ligne
+avant ça. Vérifier après coup dans l'interface web (`ads.google.com`, rechercher le
+nom de la campagne) : Editor peut afficher « publié » pour une entité dont Google a
+en réalité rejeté une partie du contenu (voir « Mots clés refusés » plus bas).
 
 À relire dans l'aperçu, là où l'import dérape le plus souvent : le budget doit être
 lu **3,30 €** et non 330 € (séparateur décimal), et la zone doit se résoudre sur
@@ -97,6 +95,62 @@ rapide, le Bloc-notes ou un éditeur de code.
 | Correspondance | Exact + Expression | Aucune requête large : à 3 €/jour, une seule requête hors-sujet mange la journée |
 | AI Max | Désactivé | Élargit les mots clés en requête large et réécrit les annonces — incompatible avec un budget serré et avec la règle « ne rien promettre que la page ne dit pas » |
 | Max CPC du groupe d'annonces | 2,00 € | Editor refuse un groupe d'annonces sans enchère (« Le groupe d'annonces ne comporte aucune enchère »), même quand la campagne est en enchères automatiques. La valeur est stockée sans être utilisée tant que la stratégie reste « Maximiser les conversions » ; elle ne redeviendrait active qu'en repassant en CPC manuel |
+
+## Mots clés : refus santé et volume faible
+
+Après la première intégration, un seul des 9 mots clés était passé
+(`"hypnose pour l'anxiété"`). Les 8 autres étaient refusés dans Editor sans qu'aucun
+détail ne remonte — juste un compteur d'erreurs. Le détail n'existe que côté compte,
+dans l'interface web : `Mots clés`, colonne État.
+
+### Refus « Health in personalized advertising »
+
+Motif affiché pour 7 des 8 mots clés refusés : « Corrigez l'annonce ou demandez une
+dérogation », catégorie **Health in personalized advertising**.
+
+Cette règle encadre normalement le **ciblage par audience et le remarketing**
+(listes clients, audiences similaires, élargissement d'audience) sur des catégories
+sensibles dont la santé mentale — pas les mots clés d'une campagne Search classique,
+où c'est l'internaute qui saisit sa propre requête. Vérifié le 2026-09-10 :
+`Audiences > Segments d'audience` de cette campagne est vide, aucune audience n'y est
+rattachée. Le refus est donc probablement une application trop large du filtre
+automatique plutôt qu'une vraie infraction.
+
+Marche à suivre :
+
+1. Vérifier `Audiences > Segments d'audience` sur la campagne : doit rester vide pour
+   une campagne Search pure. S'il y a une audience, la retirer — le refus tombera de
+   lui-même.
+2. Retirer définitivement `hypnose anxiété généralisée` de la liste (fait le
+   2026-09-10) : c'est le seul des 8 qui nomme réellement un trouble diagnostiqué,
+   la même raison qui l'a fait retirer du hero et des annonces. Le laisser fragilise
+   le recours sur les 7 autres, qui décrivent un service et non un diagnostic.
+3. Cliquer **Demander une dérogation** sur les mots clés restants, en s'appuyant sur
+   l'absence d'audience. L'examen prend quelques jours ; la campagne étant en pause,
+   il n'y a pas d'urgence à le suivre en direct.
+4. Si le recours échoue, le repli est la reformulation : décrire le service
+   (« hypnose ericksonienne à Paris ») plutôt que d'interpeller sur un état supposé
+   du lecteur. Les textes d'annonces actuels sont déjà écrits ainsi.
+
+### État « Volume de recherche faible »
+
+5 des 9 mots clés le portent en plus du refus santé :
+`"séance hypnose anxiété"`, `[hypnothérapeute anxiété paris]`,
+`"hypnothérapie anxiété paris"`, `"hypnose crise d'angoisse paris"`,
+`"hypnothérapeute paris anxiété"`. Google ne les diffusera pas tant que leur volume
+de recherche reste sous son seuil ; il réévalue périodiquement et les réactive seul
+si le volume remonte.
+
+**Ne pas élargir pour compenser.** À 3,30 €/jour, le budget plafonne à 25-50 clics
+par mois au CPC constaté sur ce créneau parisien ; les 3 mots clés à volume normal
+(`hypnose stress paris`, `[hypnose anxiété paris]`, `"hypnose pour l'anxiété"`)
+suffisent à l'absorber. Élargir ne donnerait pas plus de clics, seulement des clics
+moins qualifiés pour le même budget. Les 5 mots clés à volume faible restent en
+place : ils ne coûtent rien et documentent l'intention.
+
+À revoir seulement si, deux semaines après activation, le budget n'est pas consommé
+et les impressions restent proches de zéro — pas avant : ça ne se constate qu'en
+diffusant réellement.
 
 ## Conversions
 
@@ -187,9 +241,17 @@ Deux points assumés :
 
 À refaire à chaque nouvelle campagne, quel que soit le sujet :
 
-- **Déclarer « Non » aux annonces politiques UE**, campagne par campagne. La
-  déclaration du compte ne se propage pas. C'est la seule étape qui doit passer par
-  l'interface web tant qu'Editor n'expose pas le réglage.
+- **Déclarer « Non » aux annonces politiques UE**, campagne par campagne, même
+  quand le compte est déjà déclaré. Editor expose le champ dans les paramètres de
+  campagne (confirmé le 2026-09-10) : pas besoin de passer par l'interface web pour
+  ça.
+- **Vérifier `Audiences > Segments d'audience`** sur une campagne Search qui touche
+  à un sujet santé : doit rester vide. Une audience attachée peut déclencher un refus
+  de mots clés pour « Health in personalized advertising » même sur une campagne
+  Search classique.
+- **Ne pas se fier au compteur d'erreurs d'Editor** pour savoir quels mots clés ont
+  été refusés ni pourquoi : le détail (motif, « volume de recherche faible » vs
+  refus de conformité) n'apparaît que côté compte, dans l'interface web.
 - **Vérifier les longueurs avant l'import** : titres ≤ 30, descriptions ≤ 90,
   chemins ≤ 15, en points de code Unicode. Une correction éditoriale qui rallonge une
   description la fait passer la limite sans prévenir : c'est arrivé ici, une
