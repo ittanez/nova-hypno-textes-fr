@@ -117,6 +117,35 @@ ne dit pas). Aucun prix n'est mentionné, la page n'en affiche aucun.
 
 Longueurs validées : titres ≤ 30 points de code, descriptions ≤ 90, chemins ≤ 15.
 
+### Accroches (`6-callouts.csv`)
+
+Editor signale « Votre campagne sur le Réseau de Recherche comprend moins de quatre
+accroches ». C'est une **recommandation, pas une infraction** : la campagne publie
+sans. Les accroches restent utiles, elles occupent de la place gratuite sous
+l'annonce et améliorent le CTR.
+
+Huit accroches au niveau campagne, toutes tirées du contenu réel de la page
+(≤ 25 caractères chacune) :
+
+| Accroche | Adossée à |
+| --- | --- |
+| Cabinet Marais ou visio | barre sticky et pied de page |
+| Maître Praticien certifié | badges du hero, section Certifications |
+| Hypnose ericksonienne | H1 et section méthode |
+| Auto-hypnose enseignée | « Vous apprenez l'auto-hypnose » (section Autonomie) |
+| Suivi entre les séances | « Un accompagnement continu entre les séances » |
+| Parcours sur mesure | « sur mesure, jamais un protocole figé » |
+| Paris 4e (Marais) | adresse du pied de page |
+| Réservation en ligne | CTA « Voir mes disponibilités » (Resalib) |
+
+**À ne pas transformer en accroche** : la page affiche « 5/5 ★ 100 % de clients
+satisfaits sur Google et Resalib ». Une note ou un pourcentage de satisfaction dans
+le texte d'une annonce tombe sous les règles Google sur les avis : les notes ne
+peuvent passer que par les avis vendeurs, pas par une accroche rédigée à la main.
+
+Pour huit chaînes courtes, les saisir directement dans Editor
+(`Extensions > Accroches`) est souvent plus rapide qu'un import.
+
 ## Après le lancement
 
 - Laisser tourner **2 semaines sans y toucher** — les enchères automatiques ont
