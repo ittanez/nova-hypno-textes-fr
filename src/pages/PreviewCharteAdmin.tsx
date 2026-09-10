@@ -36,7 +36,7 @@ const PreviewCharteAdmin: React.FC = () => {
         <title>Charte graphique — NovaHypnose (admin)</title>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://novahypnose.fr/preview-charte-admin" />
-        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
+        {/* Polices EB Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>
@@ -114,12 +114,12 @@ const PreviewCharteAdmin: React.FC = () => {
               <div className="reveal" style={{ transitionDelay: '.2s' }}>
                 <div className="charte__block-label">② Typographies</div>
                 <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Light</div>
+                  <div className="typo-row__label">— EB Garamond · Regular</div>
                   <div className="typo-row__sample-1">Un sas au milieu de la ville.</div>
                   <div className="typo-row__role">Titres · accroches · élégance, sérénité, légèreté.</div>
                 </div>
                 <div className="typo-row">
-                  <div className="typo-row__label">— Cormorant Garamond · Italic · le fil ZEN</div>
+                  <div className="typo-row__label">— EB Garamond · Italic · le fil ZEN</div>
                   <div className="typo-row__sample-2"><em>Zen</em><span className="at">atti</span></div>
                   <div className="typo-row__role">ZEN en italic cobalt — atti en romain ambre.</div>
                 </div>

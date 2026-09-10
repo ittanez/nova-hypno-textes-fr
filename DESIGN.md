@@ -189,9 +189,16 @@ Palette matière à deux encres sur fond papier : le cobalt structure et rassure
 
 **Pourquoi EB Garamond et non Cormorant Garamond.** Même famille garamond, mais une hauteur d'x nettement plus grande et des fûts plus épais : Cormorant se délave sous 24px à l'écran, EB Garamond tient jusqu'au corps de texte. L'italique est structurel dans cette charte (deuxième ligne des titres, mot émotionnel, chevrons, chiffres) : c'est la face qui doit rester lisible en premier.
 
-**État de la migration (10 septembre 2026).** Seule la landing statique `anxiete-hypnose-paris.html` applique EB Garamond aujourd'hui. Le site React charge encore `@fontsource/cormorant-garamond` : la charte et le code divergent tant que cette migration n'est pas faite. EB Garamond ayant une hauteur d'x plus grande, les titres du site React paraîtront plus gros à taille égale — la migration demande un passage de calibrage sur le hero d'accueil (`clamp(72px, 10vw, 156px)`), pas un simple remplacement de nom de police.
+**État de la migration (10 septembre 2026).** Migration faite, charte et code alignés. Deux mécaniques de chargement coexistent, par nécessité :
 
-**Seules deux graisses existent : romain 400 et italique 400.** La charte d'origine appelait une graisse 300 en display ; EB Garamond n'en a pas, et le sous-ensemble auto-hébergé n'embarque que le 400. Ne jamais déclarer `font-weight: 300` sur du serif : le navigateur synthétiserait un faux maigre.
+- **Site React** : `@fontsource/eb-garamond` en `latin-400`, `latin-500` et leurs italiques, importés dans `src/index.css`. Les woff2 sont hachés par Vite, et `vite-plugin-seo-headers.js` retrouve leur nom dans le bundle pour injecter le `<link rel="preload">` du hero (le nom « ZENatti » est l'élément LCP). Toute modification des variantes importées doit être répercutée dans la liste `CRITICAL_FONTS` du plugin, sinon le préchargement retombe silencieusement à vide.
+- **Landing statique `anxiete-hypnose-paris.html`** : hors du build Vite, donc `@font-face` écrits à la main sur `/fonts/*.woff2` (sous-ensemble latin, 400 romain et italique seulement).
+
+Le calibrage du hero d'accueil a été vérifié plutôt que modifié : `clamp(72px, 10vw, 156px)` tient à 390px (202px de nom pour 229px disponibles) comme à 2080px (470px pour 470px, ajusté au pixel). EB Garamond ayant une hauteur d'x plus grande, le nom remplit désormais le panneau bord à bord là où Cormorant laissait de l'air. C'est un parti pris d'affiche, pas un débordement ; le réduire tient en une valeur si l'on veut respirer davantage.
+
+**Graisses réellement disponibles.** Le site React charge 400 et 500 (romain et italique) : le 500 sert au nom du hero. La landing statique n'embarque que le 400. Le corps de texte DM Sans reste en graisse 300 sur le site React et 400 sur la landing — divergence connue, non traitée.
+
+**Ne jamais déclarer `font-weight: 300` sur du serif.** La charte d'origine appelait une graisse 300 en display ; EB Garamond n'en a pas, et aucune des deux mécaniques de chargement ne l'embarque. Le navigateur synthétiserait un faux maigre. Les déclarations `300` restantes dans `preview-charte.css` retombent déjà sur le 400 réellement chargé.
 
 **Character:** Un serif éditorial élégant et aéré en display (graisse 300, souvent italique pour l'emphase émotionnelle) posé sur un sans-serif neutre et léger en corps — le contraste entre les deux évoque une revue indépendante plutôt qu'un site de service.
 

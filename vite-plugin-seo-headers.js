@@ -1,7 +1,7 @@
 // Plugin Vite : injecte le préchargement des polices critiques du hero (LCP).
 //
 // Le hero de la homepage (charte) est composé de texte : l'élément LCP est le
-// nom géant « ZenAtti » en Cormorant Garamond 500 (normal + italique). Ces
+// nom géant « ZenAtti » en EB Garamond 500 (normal + italique). Ces
 // polices sont normalement découvertes APRÈS le parsing du CSS (les @font-face
 // y sont inlinées), ce qui retarde leur arrivée. On les précharge donc dès le
 // <head>, en parallèle du CSS, pour accélérer le LCP.
@@ -15,10 +15,10 @@
 // par le CSS (priorité VeryHigh, niveau 3) raccourcit la chaîne critique du FCP,
 // pour les vrais utilisateurs comme pour la simulation Lighthouse/PageSpeed.
 const CRITICAL_FONTS = [
-  'cormorant-garamond-latin-500-normal',
-  'cormorant-garamond-latin-500-italic',
-  'cormorant-garamond-latin-400-normal',
-  'cormorant-garamond-latin-400-italic',
+  'eb-garamond-latin-500-normal',
+  'eb-garamond-latin-500-italic',
+  'eb-garamond-latin-400-normal',
+  'eb-garamond-latin-400-italic',
   'dm-sans-latin-300-normal',
   'dm-sans-latin-500-normal',
 ];

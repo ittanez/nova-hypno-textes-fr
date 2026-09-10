@@ -88,7 +88,7 @@ const PreviewCharteBlog: React.FC = () => {
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <link rel="canonical" href="https://novahypnose.fr/blog" />
-        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
+        {/* Polices EB Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>

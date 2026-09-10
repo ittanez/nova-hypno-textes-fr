@@ -80,7 +80,7 @@ const AdminArticles = () => {
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header />
         <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '20px', color: '#8A9BB8', fontStyle: 'italic' }}>Chargement…</p>
+          <p style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: '20px', color: '#8A9BB8', fontStyle: 'italic' }}>Chargement…</p>
         </div>
         <Footer />
       </div>
@@ -98,7 +98,7 @@ const AdminArticles = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <div className="section-tag">Administration</div>
-              <h1 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 300, color: '#1C2B4A', margin: 0, letterSpacing: '-0.02em' }}>
+              <h1 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 300, color: '#1C2B4A', margin: 0, letterSpacing: '-0.02em' }}>
                 Gestion des <em style={{ fontStyle: 'italic', color: '#2B4BA0' }}>articles</em>
               </h1>
               {allArticlesCount > 0 && (
@@ -149,7 +149,7 @@ const AdminArticles = () => {
                   <TableRow key={article.id} style={{ borderBottom: '1px solid rgba(43,75,160,.06)', transition: 'background 0.15s' }}
                     onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(240,236,227,.5)')}
                     onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}>
-                    <TableCell style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '15px', fontWeight: 400, color: '#1C2B4A', maxWidth: '280px' }}>
+                    <TableCell style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: '15px', fontWeight: 400, color: '#1C2B4A', maxWidth: '280px' }}>
                       <div style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={article.title}>
                         {article.title}
                       </div>
@@ -227,7 +227,7 @@ const AdminArticles = () => {
 
           {articles.length === 0 && !isLoading && (
             <div style={{ textAlign: 'center', padding: '60px 24px', background: 'rgba(255,255,255,.6)', borderRadius: '16px', marginTop: '16px' }}>
-              <p style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '20px', color: '#8A9BB8', fontStyle: 'italic', marginBottom: '8px' }}>Aucun article trouvé</p>
+              <p style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: '20px', color: '#8A9BB8', fontStyle: 'italic', marginBottom: '8px' }}>Aucun article trouvé</p>
               <p style={{ fontSize: '13px', color: '#8A9BB8' }}>Essayez de modifier vos critères de recherche</p>
             </div>
           )}
@@ -238,7 +238,7 @@ const AdminArticles = () => {
       {deleteDialogOpen && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(28,43,74,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '24px' }}>
           <div style={{ background: '#F0ECE3', borderRadius: '20px', padding: '32px', maxWidth: '440px', width: '100%', boxShadow: '0 24px 60px rgba(28,43,74,.2)' }}>
-            <h3 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '22px', fontWeight: 400, color: '#1C2B4A', marginBottom: '12px' }}>
+            <h3 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: '22px', fontWeight: 400, color: '#1C2B4A', marginBottom: '12px' }}>
               Confirmer la suppression
             </h3>
             <p style={{ color: '#8A9BB8', fontSize: '14px', lineHeight: 1.6, marginBottom: '24px' }}>

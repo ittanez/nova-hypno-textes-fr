@@ -132,7 +132,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         ]))}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
 
-        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
+        {/* Polices EB Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>

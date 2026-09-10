@@ -10,10 +10,13 @@
    - 300 normal/italic supprimés : retombent sur 400 (section-title, hero-lead, citations)
    - 500 normal/italic conservés : LCP (nom « ZENatti » préchargé par vite-plugin-seo-headers)
    - dm-sans 600 supprimé : strong retombe sur 500 (contraste suffisant sur base 300) */
-@import '@fontsource/cormorant-garamond/latin-400.css';
-@import '@fontsource/cormorant-garamond/latin-500.css';
-@import '@fontsource/cormorant-garamond/latin-400-italic.css';
-@import '@fontsource/cormorant-garamond/latin-500-italic.css';
+/* EB Garamond remplace Cormorant Garamond (voir DESIGN.md) : même famille
+   garamond, hauteur d'x nettement plus grande et fûts plus épais, donc lisible
+   jusqu'au corps de texte là où Cormorant se délavait sous 24px. */
+@import '@fontsource/eb-garamond/latin-400.css';
+@import '@fontsource/eb-garamond/latin-500.css';
+@import '@fontsource/eb-garamond/latin-400-italic.css';
+@import '@fontsource/eb-garamond/latin-500-italic.css';
 @import '@fontsource/dm-sans/latin-300.css';
 @import '@fontsource/dm-sans/latin-400.css';
 @import '@fontsource/dm-sans/latin-500.css';

@@ -108,7 +108,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             "url": `https://novahypnose.fr/blog/article/${article.slug}`,
           })}</script>
         )}
-        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
+        {/* Polices EB Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
       </Helmet>
 
       <div className="cz" ref={rootRef}>

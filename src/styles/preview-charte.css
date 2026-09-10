@@ -5,18 +5,22 @@
    ============================================================= */
 
 .cz {
-  --amber:    #F2A12E;
-  --amber-2:  #F5BC60;
-  --cobalt:   #2B4BA0;
-  --cobalt-2: #1C2B4A;
-  --texte:    #1C2B4A;   /* titres */
-  --corps:    #1C2B4A;   /* corps de texte (risographie) */
-  --gris:     #8A9BB8;   /* labels discrets */
-  --lin:      #F0ECE3;   /* fond lin */
-  --lin-2:    #F7F3EA;   /* lin alternatif */
-  --paper:    #FFFFFF;
+  --amber:      #F2A12E;
+  --amber-2:    #F5BC60;
+  /* Ambre assombri pour usage en texte sur fond lin (WCAG AA ≥4.5:1) —
+     l'ambre plein reste réservé aux fonds/bordures/ombres, pas au texte. */
+  --amber-text: #975D09;
+  --cobalt:     #2B4BA0;
+  --cobalt-2:   #1C2B4A;
+  --texte:      #1C2B4A;   /* titres */
+  --corps:      #1C2B4A;   /* corps de texte (risographie) */
+  /* Assombri depuis #8A9BB8 pour atteindre 4.5:1 sur lin (était 2.39:1) */
+  --gris:       #566B8E;   /* labels discrets */
+  --lin:        #F0ECE3;   /* fond lin */
+  --lin-2:      #F7F3EA;   /* lin alternatif */
+  --paper:      #FFFFFF;
 
-  --f-serif: "Cormorant Garamond", Georgia, serif;
+  --f-serif: "EB Garamond", Georgia, serif;
   --f-sans:  "DM Sans", system-ui, sans-serif;
 
   --r-pill:  999px;
@@ -173,7 +177,8 @@
 /* Burger mobile */
 .cz .nav__burger {
   display: none;
-  background: transparent; border: 0; padding: 8px;
+  background: transparent; border: 0; padding: 11px;
+  min-width: 44px; min-height: 44px;
   cursor: pointer; align-items: center; justify-content: center;
   flex-direction: column; gap: 5px; z-index: 50;
 }
@@ -362,9 +367,10 @@
 .cz .about__approche {
   margin-top: 36px;
   padding: 28px 32px;
-  border-left: 3px solid var(--amber);
   background: rgba(43,75,160,.04);
-  border-radius: 0 16px 16px 0;
+  border: 1px solid rgba(43,75,160,.08);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 rgba(242,161,46,.35);
 }
 .cz .about__approche-label {
   font-family: var(--f-sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
@@ -388,7 +394,7 @@
 .cz .about__copy p { font-size: 17px; line-height: 1.85; max-width: 560px; color: var(--corps); }
 .cz .about__copy p + p { margin-top: 20px; }
 .cz .about__stat { margin-top: 40px; display: flex; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(28,43,74,.12); flex-wrap: wrap; }
-.cz .about__stat-n { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; color: var(--amber); }
+.cz .about__stat-n { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 56px; line-height: 1; color: var(--amber-text); }
 .cz .about__stat-l { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: var(--gris); margin-top: 6px; }
 
 /* ============================================================
@@ -439,7 +445,7 @@
   border: 1px solid rgba(43,75,160,.08);
 }
 .cz .card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 rgba(43,75,160,.18); }
-.cz .card__num { font-family: var(--f-serif); font-style: italic; font-size: 22px; color: var(--amber); opacity: .85; }
+.cz .card__num { font-family: var(--f-serif); font-style: italic; font-size: 22px; color: var(--amber-text); }
 .cz .card__title { font-family: var(--f-serif); font-size: 30px; font-weight: 400; color: var(--texte); margin: 10px 0 12px; letter-spacing: -.01em; }
 .cz .card__desc { font-size: 14px; line-height: 1.7; color: var(--corps); opacity: .78; }
 .cz .card--link { display: block; text-decoration: none; cursor: pointer; }
@@ -576,7 +582,7 @@
 }
 .cz .faq-q:hover, .cz .faq-q.open { color: var(--cobalt); }
 .cz .faq-chevron {
-  font-size: 26px; flex-shrink: 0; color: var(--amber); font-weight: 300;
+  font-size: 26px; flex-shrink: 0; color: var(--amber-text); font-weight: 300;
   line-height: 1; margin-top: 1px; font-family: var(--f-serif);
   display: inline-block; transition: transform .25s var(--ease);
 }
@@ -658,7 +664,7 @@
 .cz .foot__copy { margin-top: 8px; }
 
 /* ============================================================
-   TITRE LONG (Cormorant, version compacte pour titres > 2 mots)
+   TITRE LONG (EB Garamond, version compacte pour titres > 2 mots)
    ============================================================ */
 .cz .hero__title {
   font-family: var(--f-serif); font-weight: 300;
@@ -789,7 +795,7 @@
   justify-content: center;
   font-family: var(--f-serif);
   font-size: 1.1rem;
-  color: var(--amber);
+  color: var(--amber-text);
   position: relative;
   z-index: 1;
 }
@@ -838,7 +844,7 @@
   border: 1px solid rgba(43,75,160,.1);
 }
 .cz .seance-promesse em {
-  color: var(--amber);
+  color: var(--amber-text);
   font-style: normal;
   font-weight: 500;
 }
@@ -906,7 +912,7 @@
   overflow: hidden;
   transition: max-height .4s ease, padding .3s ease;
   font-size: .93rem;
-  color: var(--corps, #2e3a50);
+  color: var(--corps, #1C2B4A);
   line-height: 1.7;
   padding: 0;
 }
@@ -975,11 +981,13 @@
   .cz .sessions-flow__label { font-size: 15px; }
 }
 
-/* Formulaire de contact — champs requis et état erreur */
-.cz .req { color: #a83232; }
+/* Formulaire de contact — champs requis et état erreur.
+   #a83232 était illisible sur le fond cobalt du formulaire (1.21:1) ;
+   #eab7b7 atteint 4.57:1 sur ce même fond. */
+.cz .req { color: #EAB7B7; }
 .cz .contact__error {
   background: rgba(255, 200, 200, 0.2);
-  color: #a83232;
+  color: #EAB7B7;
 }
 
 /* Adresse physique dans le footer (élément <address>) */

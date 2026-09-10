@@ -130,7 +130,7 @@ const AdminLogin = () => {
                 <span style={{ width: '24px', height: '1px', background: '#2B4BA0', display: 'inline-block' }} />
                 Zone administration
               </div>
-              <h1 style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '28px', fontWeight: 300, color: '#1C2B4A', margin: 0, letterSpacing: '-0.01em', lineHeight: 1.2 }}>
+              <h1 style={{ fontFamily: '"EB Garamond", Georgia, serif', fontSize: '28px', fontWeight: 300, color: '#1C2B4A', margin: 0, letterSpacing: '-0.01em', lineHeight: 1.2 }}>
                 Connexion
               </h1>
               <p style={{ color: '#8A9BB8', fontSize: '13px', marginTop: '6px', lineHeight: 1.5 }}>

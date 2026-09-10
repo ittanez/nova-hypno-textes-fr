@@ -287,7 +287,7 @@ const PreviewCharte: React.FC = () => {
         <link rel="alternate" hreflang="fr" href="https://novahypnose.fr" />
         <link rel="alternate" hreflang="x-default" href="https://novahypnose.fr" />
 
-        {/* Polices Cormorant Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
+        {/* Polices EB Garamond + DM Sans auto-hébergées via @fontsource (voir index.css) */}
         {/* JSON-LD injecté via useEffect + requestIdleCallback (hors rendu synchrone) */}
       </Helmet>
 
