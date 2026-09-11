@@ -404,6 +404,12 @@
         @media (min-width: 900px) {
             .praticien-container { grid-template-columns: 300px minmax(0, 1fr); gap: 64px; }
         }
+        .praticien-portrait-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
         .praticien-portrait {
             width: min(260px, 70vw);
             aspect-ratio: 1;
@@ -412,6 +418,13 @@
             box-shadow: 10px 10px 0 rgba(242, 161, 46, .35);
         }
         .praticien-portrait img { width: 100%; height: 100%; object-fit: cover; }
+        .praticien-caption {
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(28, 43, 74, .7);
+        }
+        .praticien-caption strong { display: block; font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--cobalt-2); }
         .praticien-bio h3 { margin-bottom: 16px; }
         .praticien-bio p { font-size: 17px; line-height: 1.85; color: rgba(28, 43, 74, .82); margin-bottom: 16px; }
         .credentials {
@@ -807,7 +820,7 @@
     <div class="booking-bar" id="booking-bar" hidden>
         <div class="booking-bar-text">
             Prêt à retrouver votre calme ?
-            <span>Cabinet Marais ou visio</span>
+            <span>Cabinet Bastille ou visio</span>
         </div>
         <a href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr" target="_blank" rel="noopener noreferrer" class="btn btn--cobalt btn--sm">Voir mes disponibilités</a>
     </div>
@@ -832,7 +845,7 @@
                     <a href="https://wa.me/33649358089?text=Bonjour,%20je%20souhaite%20plus%20d'informations%20sur%20vos%20séances%20d'hypnose%20pour%20l'anxiété" class="btn btn--ghost" title="Discuter par WhatsApp">Discuter par WhatsApp</a>
                 </div>
                 <ul class="trust-indicators anim" style="--d:680ms">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maître Praticien Certifié</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Alain Zenatti, Hypnothérapeute</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Parcours en 3-5 séances</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cabinet Marais + Visio</li>
                 </ul>
@@ -900,13 +913,16 @@
             <div class="bloc-inner">
                 <h2 class="display">Qui <em>suis-je</em> ?</h2>
                 <div class="praticien-container">
-                    <div class="praticien-portrait">
-                        <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" alt="Alain Zenatti, praticien en hypnose ericksonienne" width="520" height="520" loading="lazy">
+                    <div class="praticien-portrait-block">
+                        <div class="praticien-portrait">
+                            <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp" alt="Alain Zenatti, praticien en hypnose ericksonienne" width="520" height="520" loading="lazy">
+                        </div>
+                        <p class="praticien-caption"><strong>Alain Zenatti</strong>Hypnothérapeute — Maître Praticien en Hypnose Ericksonienne</p>
                     </div>
                     <div class="praticien-bio">
                         <h3 class="titre-carte">Une approche humaine et rigoureuse</h3>
                         <p>
-                            Je suis Alain Zenatti, Maître Praticien en Hypnose Ericksonienne, formé à l'écoute active
+                            Je suis Alain Zenatti, Maître Praticien en Hypnose Ericksonienne (hypnothérapeute certifié), formé à l'écoute active
                             et à l'accompagnement du changement. Mon travail repose sur trois convictions : vous écouter vraiment,
                             adapter chaque séance à votre histoire unique, et vous donner les outils pour être autonome.
                         </p>
@@ -978,7 +994,7 @@
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
                             5/5
                         </div>
-                        <p class="stat-label">46 avis vérifiés : 21 sur Resalib, 25 sur Google</p>
+                        <p class="stat-label">5/5</p>
                     </div>
                 </div>
 
@@ -1150,7 +1166,7 @@
     <footer class="site-footer">
         <div class="footer-content">
             <div>
-                <strong>NovaHypnose</strong><br>
+                <strong>Alain Zenatti — NovaHypnose</strong><br>
                 16 rue Saint-Antoine, Paris 4e (Marais)<br>
                 <a href="tel:+33649358089">06 49 35 80 89</a><br>
                 <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a>
@@ -1207,13 +1223,6 @@
           "identifier": [
             { "@type": "PropertyValue", "propertyID": "SIRET", "value": "89489890700015" }
           ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": 5,
-            "bestRating": 5,
-            "worstRating": 1,
-            "reviewCount": 46
-          },
           "areaServed": [
             { "@type": "City", "name": "Paris" },
             { "@type": "Country", "name": "France" }

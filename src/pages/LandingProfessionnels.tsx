@@ -277,7 +277,7 @@ const LandingProfessionnels: React.FC = () => {
           <div className="sp-stats">
             {[
               { value: '5+', label: "années d'accompagnement d'actifs en souffrance au travail" },
-              { value: '5/5', label: 'note moyenne sur plus de 40 avis Google vérifiés' },
+              { value: '5/5', label: 'note moyenne sur 25 avis Google vérifiés' },
               { value: '6', label: 'séances en moyenne pour un résultat durable et ancré' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">

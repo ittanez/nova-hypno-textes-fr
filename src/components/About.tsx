@@ -224,7 +224,7 @@ const About = () => {
               <ul className="space-y-2 text-base">
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>
-                  <span><a href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline"><strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 22 avis 5/5 laissés sur Google</strong></a></span>
+                  <span><a href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z/reviews" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline"><strong>La grande majorité de mes clients constatent une amélioration dès les premières séances — comme en témoignent les 25 avis 5/5 laissés sur Google</strong></a></span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-nova-green mr-2 font-bold">✓</span>

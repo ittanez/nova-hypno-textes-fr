@@ -188,15 +188,6 @@ export const localBusinessSchema = {
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "@id": "https://novahypnose.fr/#aggregateRating",
-    "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
-    "ratingValue": 5,
-    "bestRating": 5,
-    "worstRating": 1,
-    "reviewCount": 46
-  },
   "review": [
     {
       "@type": "Review",
