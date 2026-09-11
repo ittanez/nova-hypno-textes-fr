@@ -17,9 +17,12 @@
  * Le module reste inerte tant que VITE_GOOGLE_ADS_ID n'est pas défini : aucune
  * conversion n'est envoyée et aucun script supplémentaire n'est chargé.
  *
- * Les identifiants se relèvent dans Google Ads : Outils > Mesure > Conversions.
- * Chaque action de conversion expose un identifiant de compte (AW-XXXXXXXXXX) et
- * un libellé, à reporter dans les variables d'environnement ci-dessous.
+ * Les identifiants se relèvent dans Google Ads : Objectifs > Récapitulatif >
+ * une action de conversion > extrait d'événement, méthode « Clic ». Chaque
+ * action expose un identifiant de compte (AW-XXXXXXXXXX, commun à tout le
+ * compte) et un nom d'événement propre à l'action (ex. « conversion_event_
+ * book_appointment »), à reporter dans les variables d'environnement
+ * ci-dessous.
  */
 
 import { logger } from '@/lib/logger';
@@ -34,11 +37,11 @@ declare global {
 
 const ADS_ID = import.meta.env.VITE_GOOGLE_ADS_ID as string | undefined;
 
-/** Libellés des actions de conversion, relevés dans l'interface Google Ads. */
-const CONVERSION_LABELS: Record<ConversionKind, string | undefined> = {
-  booking: import.meta.env.VITE_GOOGLE_ADS_LABEL_BOOKING as string | undefined,
-  phone: import.meta.env.VITE_GOOGLE_ADS_LABEL_PHONE as string | undefined,
-  form: import.meta.env.VITE_GOOGLE_ADS_LABEL_FORM as string | undefined,
+/** Noms d'événement des actions de conversion, relevés dans l'interface Google Ads. */
+const CONVERSION_EVENT_NAMES: Record<ConversionKind, string | undefined> = {
+  booking: import.meta.env.VITE_GOOGLE_ADS_EVENT_BOOKING as string | undefined,
+  phone: import.meta.env.VITE_GOOGLE_ADS_EVENT_PHONE as string | undefined,
+  form: import.meta.env.VITE_GOOGLE_ADS_EVENT_FORM as string | undefined,
 };
 
 /**
@@ -103,20 +106,19 @@ const sendGtag = (...args: unknown[]) => {
 /**
  * Envoie une conversion à Google Ads.
  *
- * Sans identifiant de compte ou sans libellé configuré, l'appel ne fait rien :
- * le suivi GA4 (voir analytics.ts) reste la seule mesure.
+ * Sans identifiant de compte ou sans nom d'événement configuré, l'appel ne
+ * fait rien : le suivi GA4 (voir analytics.ts) reste la seule mesure.
  */
 export const trackAdsConversion = (kind: ConversionKind) => {
   if (!ADS_ID) return;
 
-  const label = CONVERSION_LABELS[kind];
-  if (!label) {
-    logger.debug(`[googleAds] libellé de conversion manquant pour « ${kind} »`);
+  const eventName = CONVERSION_EVENT_NAMES[kind];
+  if (!eventName) {
+    logger.debug(`[googleAds] nom d'événement de conversion manquant pour « ${kind} »`);
     return;
   }
 
-  sendGtag('event', 'conversion', {
-    send_to: `${ADS_ID}/${label}`,
+  sendGtag('event', eventName, {
     value: CONVERSION_VALUES[kind],
     currency: 'EUR',
   });

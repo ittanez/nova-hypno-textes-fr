@@ -18,9 +18,9 @@ const setSearch = (search: string) => {
 
 const ADS_ENV = {
   VITE_GOOGLE_ADS_ID: 'AW-1234567890',
-  VITE_GOOGLE_ADS_LABEL_BOOKING: 'bookingLabel',
-  VITE_GOOGLE_ADS_LABEL_PHONE: 'phoneLabel',
-  VITE_GOOGLE_ADS_LABEL_FORM: 'formLabel',
+  VITE_GOOGLE_ADS_EVENT_BOOKING: 'conversion_event_book_appointment',
+  VITE_GOOGLE_ADS_EVENT_PHONE: 'conversion_event_phone_call',
+  VITE_GOOGLE_ADS_EVENT_FORM: 'conversion_event_form_submit',
 };
 
 describe('googleAds', () => {
@@ -89,10 +89,10 @@ describe('googleAds', () => {
       expect(window.gtag).not.toHaveBeenCalled();
     });
 
-    it("n'envoie rien si le libellé de l'action est absent", async () => {
+    it("n'envoie rien si le nom d'événement de l'action est absent", async () => {
       const { trackAdsConversion } = await loadModule({
         VITE_GOOGLE_ADS_ID: 'AW-1234567890',
-        VITE_GOOGLE_ADS_LABEL_BOOKING: undefined,
+        VITE_GOOGLE_ADS_EVENT_BOOKING: undefined,
       });
       trackAdsConversion('booking');
       expect(window.gtag).not.toHaveBeenCalled();
@@ -102,8 +102,7 @@ describe('googleAds', () => {
       const { trackAdsConversion } = await loadModule(ADS_ENV);
       trackAdsConversion('booking');
 
-      expect(window.gtag).toHaveBeenCalledWith('event', 'conversion', {
-        send_to: 'AW-1234567890/bookingLabel',
+      expect(window.gtag).toHaveBeenCalledWith('event', 'conversion_event_book_appointment', {
         value: 30,
         currency: 'EUR',
       });
@@ -115,15 +114,15 @@ describe('googleAds', () => {
       trackAdsConversion('phone');
       expect(window.gtag).toHaveBeenLastCalledWith(
         'event',
-        'conversion',
-        expect.objectContaining({ send_to: 'AW-1234567890/phoneLabel', value: 35 })
+        'conversion_event_phone_call',
+        expect.objectContaining({ value: 35 })
       );
 
       trackAdsConversion('form');
       expect(window.gtag).toHaveBeenLastCalledWith(
         'event',
-        'conversion',
-        expect.objectContaining({ send_to: 'AW-1234567890/formLabel', value: 15 })
+        'conversion_event_form_submit',
+        expect.objectContaining({ value: 15 })
       );
     });
   });
@@ -178,8 +177,8 @@ describe('googleAds', () => {
 
       expect(window.gtag).toHaveBeenCalledWith(
         'event',
-        'conversion',
-        expect.objectContaining({ send_to: 'AW-1234567890/phoneLabel' })
+        'conversion_event_phone_call',
+        expect.objectContaining({ value: 35 })
       );
 
       document.body.removeChild(link);
