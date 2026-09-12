@@ -71,6 +71,10 @@
   function = "sitemap-proxy"
 
 [[edge_functions]]
+  path = "/api/geo-country"
+  function = "geo-country"
+
+[[edge_functions]]
   path = "/blog"
   function = "seo-prerender"
 

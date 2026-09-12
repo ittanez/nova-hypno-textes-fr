@@ -111,15 +111,29 @@
       setTimeout(function(){window.__nhLoadGtag();},8000);
     </script>
 
-    <!-- Microsoft Clarity optimisé (différé 8s, même stratégie que Google Analytics) -->
+    <!-- Microsoft Clarity optimisé (différé 8s, même stratégie que Google Analytics).
+         Désactivé pour les visiteurs des États-Unis : le pays est résolu tôt via
+         une Edge Function Netlify (/api/geo-country, géolocalisation IP native,
+         aucun service tiers) pendant les 8s d'attente, sans bloquer le rendu ni
+         retarder le chargement du script pour les autres visiteurs. -->
     <script>
-      setTimeout(function(){
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "xukme0orjf");
-      },8000);
+      (function(){
+        var countryPromise = fetch('/api/geo-country').then(function(r){return r.json();}).catch(function(){return {country: null};});
+
+        function loadClarity(){
+          (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "xukme0orjf");
+        }
+
+        setTimeout(function(){
+          countryPromise.then(function(geo){
+            if (geo.country !== 'US') loadClarity();
+          });
+        },8000);
+      })();
     </script>
 
     <!-- Structured Data statique : fallback pour les crawlers sans JS.
