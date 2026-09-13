@@ -1321,11 +1321,11 @@
 
     <!-- === INTERACTIVITÉ + SUIVI DES CONVERSIONS === -->
     <script>
-        // Conversion "Prise de rendez-vous" : l'événement confirmation_rdv est importé
-        // dans Google Ads depuis GA4 comme action de conversion principale.
+        // Conversion "Prise de rendez-vous" : l'événement conversion_event_book_appointment
+        // est celui configuré dans l'action de conversion Google Ads (import GA4).
         document.querySelectorAll('a[href*="resalib.fr"]').forEach(function (link) {
             link.addEventListener('click', function () {
-                gtag('event', 'confirmation_rdv', {
+                gtag('event', 'conversion_event_book_appointment', {
                     source_page: 'anxiete-hypnose-paris',
                     method: 'resalib'
                 });

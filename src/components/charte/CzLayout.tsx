@@ -7,6 +7,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 // Styles des pages secondaires (sp-*) — non inclus dans le CSS global du home.
 import '@/styles/charte-secondary.css';
+import { trackAdsConversion } from '@/lib/googleAds';
+import { trackCTAClick } from '@/lib/analytics';
 
 interface NavLink {
   label: string;
@@ -61,6 +63,14 @@ const CzLayout: React.FC<CzLayoutProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [specialitesOpen, setSpecialitesOpen] = useState(false);
+
+  // Les CTA de réservation ouvrent resalib.fr (ou l'agenda fourni) dans un
+  // nouvel onglet : la page courante ne se décharge jamais, donc l'événement
+  // de conversion a tout le temps nécessaire pour partir avant la navigation.
+  const handleBookingCtaClick = (location: string) => {
+    trackAdsConversion('booking');
+    trackCTAClick('resalib_booking', location);
+  };
 
   useEffect(() => {
     if (!specialitesOpen) return;
@@ -162,11 +172,11 @@ const CzLayout: React.FC<CzLayoutProps> = ({
           </div>
           {ctaLabel === DEFAULT_CTA_LABEL ? (
             <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
-              <a className="btn btn--ghost" href={ctaHref} target="_blank" rel="noopener noreferrer">RDV Paris</a>
-              <a className="btn btn--visio" href={ctaHref} target="_blank" rel="noopener noreferrer">RDV visio <span className="arrow">→</span></a>
+              <a className="btn btn--ghost" href={ctaHref} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_rdv_paris')}>RDV Paris</a>
+              <a className="btn btn--visio" href={ctaHref} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_rdv_visio')}>RDV visio <span className="arrow">→</span></a>
             </div>
           ) : (
-            <a className="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn--primary" href={ctaHref} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_primary_cta')}>
               {ctaLabel} <span className="arrow">→</span>
             </a>
           )}
@@ -185,6 +195,7 @@ const CzLayout: React.FC<CzLayoutProps> = ({
           href={floatingCtaHref}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => handleBookingCtaClick('floating_cta')}
           style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 200, boxShadow: '0 4px 24px rgba(43,75,160,.35)' }}
         >
           {floatingCtaLabel} <span className="arrow">→</span>

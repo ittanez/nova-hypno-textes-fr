@@ -83,10 +83,16 @@ describe('googleAds', () => {
   });
 
   describe('trackAdsConversion', () => {
-    it("n'envoie rien sans identifiant de compte", async () => {
-      const { trackAdsConversion } = await loadModule({ VITE_GOOGLE_ADS_ID: undefined });
+    it("envoie l'événement même sans identifiant de compte (conversions importées depuis GA4)", async () => {
+      const { trackAdsConversion } = await loadModule({
+        VITE_GOOGLE_ADS_ID: undefined,
+        VITE_GOOGLE_ADS_EVENT_BOOKING: 'conversion_event_book_appointment',
+      });
       trackAdsConversion('booking');
-      expect(window.gtag).not.toHaveBeenCalled();
+      expect(window.gtag).toHaveBeenCalledWith('event', 'conversion_event_book_appointment', {
+        value: 30,
+        currency: 'EUR',
+      });
     });
 
     it("n'envoie rien si le nom d'événement de l'action est absent", async () => {

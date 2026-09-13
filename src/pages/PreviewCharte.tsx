@@ -12,9 +12,19 @@ import '@/styles/preview-charte.css';
 import { testimonials } from '@/data/testimonials';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
+import { trackAdsConversion } from '@/lib/googleAds';
+import { trackCTAClick } from '@/lib/analytics';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
+
+// Les CTA de réservation ouvrent resalib.fr dans un nouvel onglet : la page
+// courante ne se décharge jamais, donc l'événement de conversion a tout le
+// temps nécessaire pour partir avant la navigation.
+const handleBookingCtaClick = (location: string) => {
+  trackAdsConversion('booking');
+  trackCTAClick('resalib_booking', location);
+};
 
 // 3 groupes de témoignages (longueurs variées dans chaque groupe), pour la rotation automatique.
 const TESTIMONIAL_SETS = [
@@ -406,8 +416,8 @@ const PreviewCharte: React.FC = () => {
               <a href="#contact">Contact</a>
 
               <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
-                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">RDV Paris</a>
-                <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_rdv_paris')}>RDV Paris</a>
+                <a className="btn btn--visio" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_rdv_visio')}>
                   RDV visio <span className="arrow">→</span>
                 </a>
               </div>
@@ -453,7 +463,7 @@ const PreviewCharte: React.FC = () => {
                 Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
               </div>
               <div className="hero__cta">
-                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('hero')}>
                   Prendre rendez-vous <span className="arrow">→</span>
                 </a>
                 <a className="btn btn--ghost" href="#about">Découvrir l'approche</a>
@@ -851,7 +861,7 @@ const PreviewCharte: React.FC = () => {
                   <li>1h — séances suivantes</li>
                   <li>Métro Bastille &amp; Saint-Paul</li>
                 </ul>
-                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--amber" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('tarifs_cabinet')}>
                   Réserver <span className="arrow">→</span>
                 </a>
               </article>
@@ -865,7 +875,7 @@ const PreviewCharte: React.FC = () => {
                   <li>1h — séances suivantes</li>
                   <li>Partout, France ou étranger</li>
                 </ul>
-                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('tarifs_visio')}>
                   Réserver <span className="arrow">→</span>
                 </a>
               </article>
@@ -879,7 +889,7 @@ const PreviewCharte: React.FC = () => {
                   <li>1h — séances suivantes</li>
                   <li>Arrondissements 1–4, 9–11</li>
                 </ul>
-                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('tarifs_domicile')}>
                   Réserver <span className="arrow">→</span>
                 </a>
               </article>
@@ -1028,6 +1038,7 @@ const PreviewCharte: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Prendre rendez-vous"
+          onClick={() => handleBookingCtaClick('floating_cta')}
         >
           Prendre rendez-vous <span className="arrow">→</span>
         </a>

@@ -104,14 +104,16 @@ const sendGtag = (...args: unknown[]) => {
 };
 
 /**
- * Envoie une conversion à Google Ads.
+ * Envoie une conversion.
  *
- * Sans identifiant de compte ou sans nom d'événement configuré, l'appel ne
- * fait rien : le suivi GA4 (voir analytics.ts) reste la seule mesure.
+ * L'événement part vers GA4 dès qu'un nom d'événement est configuré, que
+ * VITE_GOOGLE_ADS_ID soit défini ou non : les actions de conversion de ce
+ * compte sont importées depuis GA4 (par nom d'événement), pas des tags de
+ * clic natifs Google Ads — un AW-ID n'est donc pas nécessaire pour qu'elles
+ * fonctionnent. Sans nom d'événement configuré, l'appel ne fait rien : le
+ * suivi GA4 générique (voir analytics.ts) reste la seule mesure.
  */
 export const trackAdsConversion = (kind: ConversionKind) => {
-  if (!ADS_ID) return;
-
   const eventName = CONVERSION_EVENT_NAMES[kind];
   if (!eventName) {
     logger.debug(`[googleAds] nom d'événement de conversion manquant pour « ${kind} »`);
