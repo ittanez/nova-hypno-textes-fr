@@ -203,7 +203,7 @@
         .btn--ghost-lin { background: transparent; color: var(--lin); border-color: rgba(240, 236, 227, .42); }
         .btn--ghost-lin:hover { border-color: var(--lin); background: rgba(240, 236, 227, .08); }
         .btn--sm { padding: 10px 19px; font-size: 13px; }
-        .btn:active { transform: translate(0, 0); }
+        .btn:active { transform: translate(0, 0) scale(.97); transition-duration: .16s; }
 
         /* ============================================================
            NAVBAR FLOTTANTE EN PILULE
@@ -792,6 +792,31 @@
             .art-voix-halo { transform-box: view-box; transform-origin: 96px 200px; animation: halo 6s ease-in-out 3s infinite; }
             @keyframes halo { 0% { transform: scale(.6); opacity: 0; } 38% { opacity: .32; } 100% { transform: scale(1.7); opacity: 0; } }
 
+            /* Cascades à la révélation : les groupes entrent l'un après l'autre (60-90 ms). */
+            .reveal[data-armed] .why-item, .reveal[data-armed] .value-item, .reveal[data-armed] .step,
+            .reveal[data-armed] .temoignage-etoiles svg, .reveal[data-armed] .chiffre .n { opacity: 0; }
+            .reveal:not([data-armed]) .why-item, .reveal:not([data-armed]) .value-item,
+            .reveal:not([data-armed]) .step { animation: card-in .7s var(--ease) backwards; }
+            @keyframes card-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+            .why-item:nth-child(2), .value-item:nth-child(2) { animation-delay: 60ms; }
+            .why-item:nth-child(3), .value-item:nth-child(3) { animation-delay: 120ms; }
+            .why-item:nth-child(4), .value-item:nth-child(4) { animation-delay: 180ms; }
+            .step:nth-child(2) { animation-delay: 80ms; }
+            .step:nth-child(3) { animation-delay: 160ms; }
+            .step:nth-child(4) { animation-delay: 240ms; }
+            .parcours + .parcours .step:nth-child(1) { animation-delay: 320ms; }
+            .parcours + .parcours .step:nth-child(2) { animation-delay: 400ms; }
+            .parcours + .parcours .step:nth-child(3) { animation-delay: 480ms; }
+            .parcours + .parcours .step:nth-child(4) { animation-delay: 560ms; }
+            .reveal:not([data-armed]) .temoignage-etoiles svg { animation: star-in .5s var(--ease) backwards; }
+            @keyframes star-in { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+            .temoignage-etoiles svg:nth-child(2) { animation-delay: 90ms; }
+            .temoignage-etoiles svg:nth-child(3) { animation-delay: 180ms; }
+            .temoignage-etoiles svg:nth-child(4) { animation-delay: 270ms; }
+            .temoignage-etoiles svg:nth-child(5) { animation-delay: 360ms; }
+            .reveal:not([data-armed]) .chiffre .n { animation: chiffre-in 1.1s var(--ease) .1s backwards; }
+            @keyframes chiffre-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
             /* La révélation est "armée" par le script, jamais par le CSS seul :
                sans JS, ou si l'observateur ne se déclenche pas, la page reste
                entièrement lisible. Seules les sections hors écran sont armées. */
@@ -1155,9 +1180,9 @@
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.6 2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6Z"/></svg>
                 </div>
                 <blockquote class="temoignage-quote">
-                    « Mr Zenatti est un praticien calme et réfléchi. Son écoute attentive lui a permis de déterminer les axes de travail, les points d'amélioration, les émotions limitantes, ce qui m'encombrait dans ma progression. En quelques séances, avec son accompagnement, j'ai pu me libérer de certains blocages. »
+                    « Qualité d'écoute, clarté de son intervention, bienveillance et professionnalisme. Une approche claire et précise, vraiment modulée en fonction de la demande de la personne. On se sent écouté, en confiance, et en plus, il y a de réels résultats. »
                 </blockquote>
-                <p class="temoignage-author">Philippe A., avis Google</p>
+                <p class="temoignage-author">Jung Ae D., avis Google</p>
             </div>
         </section>
 
