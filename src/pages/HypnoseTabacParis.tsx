@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { tabacFaqItems } from '@/data/specialtyFaqData';
@@ -100,7 +101,8 @@ const HypnoseTabacParis = () => {
             <rect width="1440" height="900" filter="url(#paperGrain)" opacity=".2" />
           </svg>
         </div>
-        <div className="container sp-hero__inner reveal">
+        <div className="container sp-hero__inner sp-hero__inner--art reveal">
+          <div className="sp-hero__copy">
           <div className="tag">Arrêt du tabac — Paris</div>
           <h1 className="sp-hero__h1">
             Libérez-vous de la cigarette<br/><em>durablement</em>
@@ -117,6 +119,8 @@ const HypnoseTabacParis = () => {
             </a>
             <a className="btn btn--ghost" href="tel:+33649358089">06 49 35 80 89</a>
           </div>
+          </div>
+          <HeroArt theme="tabac" />
         </div>
       </section>
 
