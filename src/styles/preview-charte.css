@@ -767,10 +767,14 @@
   .cz .hero__card { padding: 26px 24px; }
   .cz .hero__card-quote { font-size: 19px; margin: 14px 0 18px; }
   .cz .hero__card-row { padding: 10px 0; }
-  /* Lisibilité mobile : labels passent en texte foncé (contraste AA) */
+  /* Lisibilité mobile : labels passent en texte foncé (contraste AA).
+     La carte mise en avant est sur fond cobalt : elle garde son texte clair,
+     sans quoi le détail des séances devient illisible (bleu sombre sur bleu). */
   .cz .hero__card-row span:first-child { color: var(--cobalt-2); opacity: .72; }
-  .cz .tarif-card li { opacity: 1; color: var(--cobalt-2); }
-  .cz .tarif-desc { color: var(--cobalt-2) !important; opacity: .8; }
+  .cz .tarif-card:not(.tarif-card--featured) li { opacity: 1; color: var(--cobalt-2); }
+  .cz .tarif-card:not(.tarif-card--featured) .tarif-desc { color: var(--cobalt-2) !important; opacity: .8; }
+  .cz .tarif-card--featured li { opacity: 1; color: var(--lin); }
+  .cz .tarif-card--featured .tarif-desc { color: rgba(240,236,227,.8) !important; }
   /* CTA flottant : visible sur mobile uniquement, espace dans le footer */
   .cz .floating-cta { display: inline-flex; }
   .cz .foot { padding-bottom: 120px; }
