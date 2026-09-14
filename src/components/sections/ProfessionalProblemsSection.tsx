@@ -31,7 +31,7 @@ const ProfessionalProblemsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+        <div className="stagger grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
           {/* Carte 1 : Incapacité à déconnecter */}
           <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
             <div className="flex items-start gap-4">
@@ -118,13 +118,13 @@ const ProfessionalProblemsSection: React.FC = () => {
             <a
               href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 rounded-lg text-lg font-semibold hover:bg-gray-100 transition active:scale-[0.97] shadow-lg"
             >
               Premier échange gratuit (15 min)
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg text-lg font-semibold hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg text-lg font-semibold hover:bg-white/10 transition active:scale-[0.97]"
             >
               Découvrir la méthode
             </a>

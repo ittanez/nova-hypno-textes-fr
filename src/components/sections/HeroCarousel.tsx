@@ -65,7 +65,7 @@ const HeroCarousel: React.FC = () => {
           return (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity [transition-duration:1800ms] ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-700 ease-out-strong ${
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             >
@@ -108,7 +108,7 @@ const HeroCarousel: React.FC = () => {
               {carouselSlides.map((slide, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                  className={`absolute inset-0 transition-opacity duration-500 ease-out-strong ${
                     index === currentSlide ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -127,7 +127,7 @@ const HeroCarousel: React.FC = () => {
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-base font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-base font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl hover:scale-105"
                   onClick={() => { if (typeof window.gtag === 'function') window.gtag('event', 'cta_click', { event_category: 'conversion', event_label: 'hero_prendre_rdv', cta_location: 'hero' }); }}
                 >
                   <Calendar size={18} />
@@ -137,7 +137,7 @@ const HeroCarousel: React.FC = () => {
               </div>
               <a
                 href="#applications"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition-all text-center"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition active:scale-[0.97] text-center"
               >
                 Découvrir comment je peux vous aider
               </a>
@@ -150,7 +150,7 @@ const HeroCarousel: React.FC = () => {
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-3">
         <button
           onClick={prevSlide}
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-[width,background-color] min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Slide précédent"
         >
           <ChevronLeft className="text-white" size={18} />
@@ -165,7 +165,7 @@ const HeroCarousel: React.FC = () => {
               className="min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label={`Aller au slide ${index + 1}`}
             >
-              <span className={`block h-2 rounded-full transition-all ${
+              <span className={`block h-2 rounded-full transition-[width,background-color] ${
                 index === currentSlide
                   ? 'bg-white w-5'
                   : 'w-2 bg-white/50 hover:bg-white/75'
@@ -176,7 +176,7 @@ const HeroCarousel: React.FC = () => {
 
         <button
           onClick={nextSlide}
-          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="bg-white/10 hover:bg-white/20 backdrop-blur-sm p-2.5 rounded-full transition-[width,background-color] min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Slide suivant"
         >
           <ChevronRight className="text-white" size={18} />

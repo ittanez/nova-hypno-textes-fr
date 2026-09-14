@@ -14,7 +14,7 @@
  * Ce test échoue dès qu'une nouvelle page recrée cet écart.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { resolve } from 'path';
 
 const root = resolve(__dirname, '../..');
@@ -119,10 +119,13 @@ describe('Garde-fou SEO/GEO — couverture des pages spécialités', () => {
     expect(present, `Pages noindex présentes dans le sitemap (contradiction pour Google) : ${present.join(', ')}`).toEqual([]);
   });
 
-  it('chaque URL statique du sitemap correspond à une route App.tsx (pas de 404 dans le sitemap)', () => {
+  it('chaque URL statique du sitemap correspond à une route App.tsx ou à un fichier de public/ (pas de 404 dans le sitemap)', () => {
+    // Les landing pages Google Ads (ex. /sommeil-hypnose-paris.html) sont des
+    // fichiers HTML statiques dans public/, servis tels quels par Netlify.
+    const isStaticFile = (p: string) => p.endsWith('.html') && existsSync(resolve(root, 'public', p.slice(1)));
     const missing = [...sitemap]
-      .filter((p) => !p.startsWith('/blog') && !routes.has(p))
+      .filter((p) => !p.startsWith('/blog') && !routes.has(p) && !isStaticFile(p))
       .sort();
-    expect(missing, `URLs du sitemap sans route React correspondante : ${missing.join(', ')}`).toEqual([]);
+    expect(missing, `URLs du sitemap sans route React ni fichier public/ correspondant : ${missing.join(', ')}`).toEqual([]);
   });
 });

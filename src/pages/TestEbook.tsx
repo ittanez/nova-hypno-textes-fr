@@ -42,7 +42,7 @@ const TestEbook: React.FC = () => {
   };
 
   const inputClasses =
-    'w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-nova-neutral-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-nova-blue/40 focus:border-nova-blue transition-all text-[0.95rem]';
+    'w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-nova-neutral-dark placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-nova-blue/40 focus:border-nova-blue transition active:scale-[0.97] text-[0.95rem]';
 
   return (
     <>
@@ -125,7 +125,7 @@ const TestEbook: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-lg bg-nova-orange text-white font-semibold text-[0.95rem] hover:bg-nova-orange-dark active:scale-[0.98] transition-all shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-wait"
+                className="w-full py-3.5 rounded-lg bg-nova-orange text-white font-semibold text-[0.95rem] hover:bg-nova-orange-dark active:scale-[0.98] transition shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-wait"
               >
                 {loading ? 'Envoi en cours…' : 'Recevoir mon ebook'}
               </button>

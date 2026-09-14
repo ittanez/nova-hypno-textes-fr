@@ -525,3 +525,162 @@
   .cz .sp-hero__h1 { font-size: 2.2rem; } }
 @media (max-width: 480px) {
   .cz .sp-grid-2 { grid-template-columns: 1fr; } }
+
+/* FAQ des pages spécialités : le contenu apparaît en douceur à l'ouverture
+   (details natif : la fermeture reste instantanée, ce qui est acceptable). */
+.cz .article-faq details > :not(summary) { animation: cz-fade-in .32s var(--ease) both; } /* keyframes : preview-charte.css */
+
+/* ============================================================
+   ILLUSTRATION ANIMÉE DU HERO (composant HeroArt)
+   Même grammaire que les landing pages Google Ads : tracé joué une fois à
+   l'arrivée, puis une seule boucle lente ; transform / opacité / offset-distance
+   uniquement. Le mouvement réduit est respecté par la garde en fin de fichier.
+   ============================================================ */
+.cz .sp-hero__inner--art {
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 48px;
+  align-items: center;
+}
+.cz .sp-hero__art { width: min(100%, 460px); aspect-ratio: 1; justify-self: center; }
+.cz .sp-hero__art svg { width: 100%; height: 100%; display: block; overflow: visible; }
+@media (max-width: 999px) {
+  .cz .sp-hero__inner--art { grid-template-columns: 1fr; gap: 12px; }
+  .cz .sp-hero__art { width: min(78vw, 340px); }
+}
+.cz .art-line { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+.cz .art-soft { fill: none; stroke: var(--cobalt); stroke-width: 1; stroke-linecap: round; opacity: .16; }
+.cz .art-fill { fill: var(--cobalt); opacity: .06; }
+.cz .art-core { fill: var(--amber); opacity: .9; }
+.cz .art-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+.cz .art-mots text { font-family: var(--f-serif); font-style: italic; font-size: 16px; letter-spacing: .2em; fill: var(--cobalt); opacity: .6; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrée commune : le tracé se dessine, les points et les mots apparaissent */
+  .cz [data-draw] { stroke-dasharray: var(--len, 1200); stroke-dashoffset: var(--len, 1200); animation: art-draw 2.2s var(--ease) var(--dd, .15s) forwards; }
+  @keyframes art-draw { to { stroke-dashoffset: 0; } }
+  .cz .art-mots { opacity: 0; animation: art-mots 1.4s var(--ease) 1.6s forwards; }
+  @keyframes art-mots { to { opacity: 1; } }
+  .cz .art-core, .cz .art-fill { opacity: 0; animation: art-in 1.2s var(--ease) var(--dd, 1.2s) forwards; }
+  @keyframes art-in { to { opacity: var(--o, .9); } }
+
+  /* Boucles partagées par plusieurs illustrations */
+  @keyframes art-halo { 0% { transform: scale(.6); opacity: 0; } 38% { opacity: .3; } 100% { transform: scale(1.6); opacity: 0; } }
+  @keyframes art-halo-large { 0% { transform: scale(.55); opacity: 0; } 38% { opacity: .32; } 100% { transform: scale(1.5); opacity: 0; } }
+  @keyframes art-halo-tard { 0%, 60% { transform: scale(.6); opacity: 0; } 80% { opacity: .32; } 100% { transform: scale(1.7); opacity: 0; } }
+  @keyframes art-breathe { 0% { transform: scale(1); } 36% { transform: scale(1.02); } 100% { transform: scale(1); } }
+  @keyframes art-scintille { from { opacity: .25; } to { opacity: .75; } }
+
+  /* Sommeil — la marée : trois vagues qui se balancent, une lune qui respire */
+  .cz .art-vague { animation: art-houle 13s ease-in-out infinite alternate; }
+  .cz .art-vague-2 { animation-duration: 15s; animation-delay: -4s; }
+  .cz .art-vague-3 { animation-duration: 17s; animation-delay: -9s; }
+  @keyframes art-houle { from { transform: translateX(-9px); } to { transform: translateX(9px); } }
+  .cz .art-drift { animation: art-lune 11s ease-in-out infinite alternate; }
+  @keyframes art-lune { from { transform: translateY(0); } to { transform: translateY(7px); } }
+  .cz .art-lune-halo { transform-origin: 292px 112px; transform-box: view-box; animation: art-halo 11s ease-in-out 2.2s infinite; }
+  .cz .art-etoile { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-scintille 9s ease-in-out 3s infinite alternate; }
+
+  /* Avion — l'horizon : un point suit la trajectoire, du sol vers le ciel */
+  .cz .art-avion { offset-rotate: 0deg; offset-distance: 0%; animation: art-vol 14s ease-in-out 2.4s infinite alternate; }
+  @keyframes art-vol { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+  .cz .art-avion-halo { transform-box: fill-box; transform-origin: center; animation: art-halo 11s ease-in-out 2.2s infinite; }
+  .cz .art-nuage { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-nuage-drift 19s ease-in-out infinite alternate; }
+  .cz .art-nuage-2 { animation-duration: 1.2s, 23s; animation-delay: var(--dd), -7s; }
+  @keyframes art-nuage-drift { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
+
+  /* Confiance — l'appui : un arbre ancré au sol, qui oscille à peine */
+  .cz .art-arbre { transform-box: view-box; transform-origin: 200px 334px; animation: art-sway 12s ease-in-out 2.6s infinite alternate; }
+  @keyframes art-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+  .cz .art-cime-halo { transform-box: view-box; transform-origin: 200px 152px; animation: art-halo 11s ease-in-out 3s infinite; }
+
+  /* Parole — la voix : des ondes qui partent d'un point et s'éloignent */
+  .cz .art-onde { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-onde-pulse 6s ease-in-out calc(3s + var(--i) * .55s) infinite; }
+  @keyframes art-onde-pulse { 0%, 100% { opacity: .18; } 35% { opacity: .55; } }
+  .cz .art-voix-halo { transform-box: view-box; transform-origin: 96px 200px; animation: art-halo 6s ease-in-out 3s infinite; }
+
+  /* Compulsions — la vague qui s'apaise : un point va de l'agitation au calme */
+  .cz .art-point { offset-rotate: 0deg; offset-distance: 0%; animation: art-apaise 12s ease-in-out 2.4s infinite; }
+  @keyframes art-apaise { 0% { offset-distance: 0%; } 78% { offset-distance: 100%; } 100% { offset-distance: 100%; } }
+  .cz .art-point-halo { transform-box: fill-box; transform-origin: center; animation: art-halo-tard 12s ease-in-out 2.4s infinite; }
+  .cz .art-souffle { transform-origin: 50% 50%; animation: art-breathe 11s ease-in-out 2.2s infinite; }
+
+  /* Stress & anxiété — la spirale : la même respiration que la landing anxiété */
+  .cz .art-respire { transform-origin: 50% 50%; animation: art-breathe-lent 11s ease-in-out 2.2s infinite; }
+  @keyframes art-breathe-lent { 0% { transform: scale(1); } 36% { transform: scale(1.035); } 100% { transform: scale(1); } }
+  .cz .art-spirale-halo { transform-origin: 50% 50%; animation: art-halo-large 11s ease-in-out 2.2s infinite; }
+  .cz .art-mots--tourne { transform-origin: 50% 50%; animation: art-mots 1.4s var(--ease) 1.6s forwards, art-tourne 140s linear infinite; }
+  @keyframes art-tourne { to { transform: rotate(360deg); } }
+
+  /* Émotions — l'éventail : cinq trajectoires nées d'une même source, chacune son rythme */
+  .cz .art-eventail { transform-box: view-box; transform-origin: 200px 336px; animation: art-eventail 15s ease-in-out 2.6s infinite alternate; }
+  @keyframes art-eventail { from { transform: rotate(-2.2deg); } to { transform: rotate(2.2deg); } }
+  .cz .art-brin { transform-box: view-box; transform-origin: 200px 336px; }
+  .cz .art-brin-1 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-brin-jeu 13s ease-in-out 3s infinite alternate; }
+  .cz .art-brin-2 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-brin-jeu 16s ease-in-out 3.4s infinite alternate; }
+  .cz .art-brin-4 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-brin-jeu 14s ease-in-out 4.1s infinite alternate-reverse; }
+  .cz .art-brin-5 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-brin-jeu 17s ease-in-out 3.7s infinite alternate-reverse; }
+  @keyframes art-brin-jeu { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+  .cz .art-bout { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-scintille 9s ease-in-out 3.4s infinite alternate; }
+  .cz .art-bout-2 { animation-delay: var(--dd), 4.2s; }
+  .cz .art-bout-3 { animation-delay: var(--dd), 5s; }
+  .cz .art-bout-4 { animation-delay: var(--dd), 5.8s; }
+  .cz .art-bout-5 { animation-delay: var(--dd), 6.6s; }
+  .cz .art-source-halo { transform-box: view-box; transform-origin: 200px 336px; animation: art-halo 11s ease-in-out 2.6s infinite; }
+
+  /* Deuil & séparation — le lien qui demeure : le second point s'éloigne, le fil tient */
+  .cz .art-tenu { stroke-dasharray: 5 9; opacity: 0; animation: art-tenu-in 1.6s var(--ease) 1.1s forwards; }
+  @keyframes art-tenu-in { to { opacity: .34; } }
+  .cz .art-eloigne { offset-rotate: 0deg; offset-distance: 12%; animation: art-eloigne 16s ease-in-out 2.6s infinite alternate; }
+  @keyframes art-eloigne { from { offset-distance: 12%; } to { offset-distance: 96%; } }
+  .cz .art-ancre-halo { transform-box: view-box; transform-origin: 64px 236px; animation: art-halo 13s ease-in-out 2.6s infinite; }
+
+  /* Traumatismes — la jointure : les fragments se rapprochent, les soudures s'éclairent */
+  .cz .art-eclat { transform-box: view-box; transform-origin: 200px 200px; }
+  .cz .art-eclat-1 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-recolle-1 14s ease-in-out 3s infinite alternate; }
+  .cz .art-eclat-2 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-recolle-2 14s ease-in-out 3s infinite alternate; }
+  .cz .art-eclat-3 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-recolle-3 14s ease-in-out 3s infinite alternate; }
+  .cz .art-eclat-4 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-recolle-4 14s ease-in-out 3s infinite alternate; }
+  @keyframes art-recolle-1 { from { transform: translate(-5px, -5px); } to { transform: none; } }
+  @keyframes art-recolle-2 { from { transform: translate(5px, -5px); } to { transform: none; } }
+  @keyframes art-recolle-3 { from { transform: translate(5px, 5px); } to { transform: none; } }
+  @keyframes art-recolle-4 { from { transform: translate(-5px, 5px); } to { transform: none; } }
+  .cz .art-jointure { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-soudure 14s ease-in-out 3s infinite alternate; }
+  @keyframes art-soudure { from { opacity: .3; } to { opacity: .85; } }
+  .cz .art-centre-halo { transform-origin: 50% 50%; animation: art-halo-large 14s ease-in-out 3.4s infinite; }
+
+  /* Blocages — la boucle qui s'ouvre : le point tourne, puis prend la sortie */
+  .cz .art-echappe { offset-rotate: 0deg; offset-distance: 0%; animation: art-echappe 16s ease-in-out 2.8s infinite; }
+  @keyframes art-echappe {
+    0%   { offset-distance: 0%; }
+    62%  { offset-distance: 62%; }
+    88%  { offset-distance: 100%; }
+    100% { offset-distance: 100%; }
+  }
+  .cz .art-echappe-halo { transform-box: fill-box; transform-origin: center; animation: art-halo-tard 16s ease-in-out 2.8s infinite; }
+
+  /* Phobies — le seuil : un point franchit des arches de plus en plus larges */
+  .cz .art-passe { offset-rotate: 0deg; offset-distance: 0%; animation: art-franchit 15s ease-in-out 2.4s infinite alternate; }
+  @keyframes art-franchit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+  .cz .art-passe-halo { transform-box: fill-box; transform-origin: center; animation: art-halo 7.5s ease-in-out 2.4s infinite; }
+  .cz .art-arche { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-arche-pulse 15s ease-in-out infinite; }
+  .cz .art-arche-1 { animation-delay: var(--dd), 3.4s; }
+  .cz .art-arche-2 { animation-delay: var(--dd), 5.2s; }
+  .cz .art-arche-3 { animation-delay: var(--dd), 7.4s; }
+  .cz .art-arche-4 { animation-delay: var(--dd), 9.8s; }
+  @keyframes art-arche-pulse { 0%, 100% { opacity: .2; } 6% { opacity: .6; } 14% { opacity: .34; } }
+
+  /* Tabac — la volute qui se dissipe : la fumée monte et s'efface, le souffle reste */
+  .cz .art-volute { transform-box: view-box; transform-origin: 200px 268px; }
+  .cz .art-volute-1 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-dissipe 12s ease-in 3s infinite; }
+  .cz .art-volute-2 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-dissipe 12s ease-in 4.4s infinite; }
+  .cz .art-volute-3 { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-dissipe 12s ease-in 5.8s infinite; }
+  @keyframes art-dissipe {
+    0%   { opacity: .34; transform: translateY(0) scaleX(1); }
+    70%  { opacity: .06; transform: translateY(-46px) scaleX(1.5); }
+    100% { opacity: 0;   transform: translateY(-64px) scaleX(1.8); }
+  }
+  .cz .art-souffle-libre { transform-box: view-box; transform-origin: 200px 322px; animation: art-breathe 11s ease-in-out 2.4s infinite; }
+  .cz .art-souffle-halo { transform-box: view-box; transform-origin: 200px 322px; animation: art-halo 11s ease-in-out 2.4s infinite; }
+}

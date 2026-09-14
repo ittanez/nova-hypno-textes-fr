@@ -256,14 +256,14 @@ const Maquette = () => {
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Calendar size={24} />
                 Prendre rendez-vous
               </a>
               <a
                 href="#comment-aider"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-lg font-semibold transition-all text-center"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-lg font-semibold transition active:scale-[0.97] text-center"
               >
                 Découvrir comment je peux vous aider
               </a>
@@ -274,14 +274,14 @@ const Maquette = () => {
         {/* Boutons de navigation du carrousel */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition"
           aria-label="Slide précédent"
         >
           <ChevronLeft className="text-white" size={32} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition"
           aria-label="Slide suivant"
         >
           <ChevronRight className="text-white" size={32} />
@@ -293,7 +293,7 @@ const Maquette = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`w-3 h-3 rounded-full transition ${
                 index === currentSlide
                   ? 'bg-white w-8'
                   : 'bg-white/50 hover:bg-white/75'
@@ -303,7 +303,7 @@ const Maquette = () => {
           ))}
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-3">
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full"></div>
           </div>
@@ -324,7 +324,7 @@ const Maquette = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Brain className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -334,7 +334,7 @@ const Maquette = () => {
               </p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Heart className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -344,7 +344,7 @@ const Maquette = () => {
               </p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Target className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -354,7 +354,7 @@ const Maquette = () => {
               </p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Sparkles className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -364,7 +364,7 @@ const Maquette = () => {
               </p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Shield className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -374,7 +374,7 @@ const Maquette = () => {
               </p>
             </div>
 
-            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
+            <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200 hover:-translate-y-2">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                 <Users className="text-blue-500 group-hover:text-white transition-colors" size={32} />
               </div>
@@ -492,7 +492,7 @@ const Maquette = () => {
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <Calendar size={24} />
                   Prendre rendez-vous
@@ -528,7 +528,7 @@ const Maquette = () => {
               return (
                 <div
                   key={index}
-                  className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
+                  className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200"
                 >
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
                     <Icon className="text-blue-500 group-hover:text-white transition-colors" size={32} />
@@ -693,7 +693,7 @@ const Maquette = () => {
                 href="https://harmonia.novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <BookOpen className="mr-2" size={24} />
                 <span>La Formation : Auto-hypnose anti-stress</span>
@@ -751,7 +751,7 @@ const Maquette = () => {
 
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             {/* Cabinet Paris Bastille */}
-            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-t-2xl">
                 <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <MapPin className="text-blue-600" size={32} />
@@ -798,7 +798,7 @@ const Maquette = () => {
             </div>
 
             {/* Téléconsultation */}
-            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
               <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-t-2xl">
                 <div className="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Video className="text-purple-600" size={32} />
@@ -845,7 +845,7 @@ const Maquette = () => {
             </div>
 
             {/* À Domicile */}
-            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ring-2 ring-green-500 scale-105">
+            <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 ring-2 ring-green-500 scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                 ✨ NOUVEAU
               </div>
@@ -911,14 +911,14 @@ const Maquette = () => {
             <a
               href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <Calendar size={24} />
               Prendre rendez-vous
             </a>
             <a
               href="tel:0649358089"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition active:scale-[0.97]"
             >
               <Phone size={24} />
               Appeler maintenant
@@ -939,7 +939,7 @@ const Maquette = () => {
                 <Star
                   key={i}
                   size={32}
-                  className="text-yellow-400 fill-yellow-400 animate-pulse"
+                  className="text-yellow-400 fill-yellow-400"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 />
               ))}
@@ -1151,7 +1151,7 @@ const Maquette = () => {
                 href="https://harmonia.novahypnose.fr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl"
               >
                 <BookOpen size={24} />
                 Découvrez La Formation : réduire le stress avec l'auto-hypnose
@@ -1231,7 +1231,7 @@ const Maquette = () => {
                     }
                   </button>
                   <div
-                    className={`px-6 overflow-hidden transition-all duration-300 ${
+                    className={`px-6 overflow-hidden transition duration-300 ${
                       openFaqIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
                     }`}
                   >

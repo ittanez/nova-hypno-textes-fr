@@ -29,7 +29,7 @@ const FloatingButton = () => {
       href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
       onClick={handleClick}
       aria-label="Prendre rendez-vous avec Alain Zenatti, hypnothérapeute à Paris"
-      className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-all transform cursor-pointer ${
+      className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 bg-nova-orange text-white rounded-full shadow-lg hover:bg-nova-orange-dark transition-[transform,opacity,background-color] duration-300 ease-out-strong active:scale-[0.97] cursor-pointer ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
       }`}
     >

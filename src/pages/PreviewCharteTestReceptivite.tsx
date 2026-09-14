@@ -3,7 +3,7 @@
  * Remplace TestReceptiviteTest pour la route /test-receptivite.
  */
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import CzLayout from '@/components/charte/CzLayout';
 import { QuestionStepTest } from '@/components/receptivite/test/QuestionStepTest';
@@ -19,6 +19,11 @@ import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 const PreviewCharteTestReceptivite = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'email' | 'results'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // Transition orientée entre étapes : avant → glisse depuis la droite, retour → depuis la gauche.
+  const stepPos = currentStep === 'questions' ? 1 + currentQuestionIndex : currentStep === 'email' ? 100 : currentStep === 'results' ? 101 : 0;
+  const prevStepPos = useRef(stepPos);
+  const stepDir = stepPos >= prevStepPos.current ? 'animate-step-in' : 'animate-step-back';
+  prevStepPos.current = stepPos;
   const [answers, setAnswers] = useState<AnswerTest[]>([]);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -210,6 +215,7 @@ const PreviewCharteTestReceptivite = () => {
         </>
       ) : (
         <div style={{ background: 'var(--lin)', minHeight: '100vh' }}>
+         <div key={stepPos} className={stepDir}>
           {currentStep === 'questions' && (
             <QuestionStepTest
               currentQuestionIndex={currentQuestionIndex}
@@ -240,6 +246,7 @@ const PreviewCharteTestReceptivite = () => {
           {currentStep === 'results' && (
             <ResultsStepTest firstName={firstName} />
           )}
+         </div>
         </div>
       )}
     </CzLayout>

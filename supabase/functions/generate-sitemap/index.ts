@@ -78,6 +78,12 @@ serve(async (req) => {
       { loc: '/hypnose-arret-tabac-paris',     lastmod: '2026-07-01', changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-professionnels-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       { loc: '/hypnose-en-ligne',              lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
+      // Landing pages Google Ads (HTML statiques dans public/)
+      { loc: '/sommeil-hypnose-paris.html', lastmod: '2026-09-14', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/peur-avion-hypnose-paris.html', lastmod: '2026-09-14', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/confiance-en-soi-hypnose-paris.html', lastmod: '2026-09-14', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/prise-de-parole-hypnose-paris.html', lastmod: '2026-09-14', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/compulsions-alimentaires-hypnose-paris.html', lastmod: '2026-09-14', changefreq: 'monthly', priority: '0.7' },
       // Guides gratuits (lead magnets) + quiz
       { loc: '/guide-autohypnose',             lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
       { loc: '/guide-sommeil',                 lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },

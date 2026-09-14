@@ -72,7 +72,7 @@ export const QuestionStep = ({
                     <button
                       key={value}
                       onClick={() => onAnswerSelect(question.id, value)}
-                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full text-center transition-all duration-200 font-semibold ${
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full text-center transition duration-200 font-semibold ${
                         currentValue === value
                           ? 'bg-nova-blue text-white shadow-lg scale-110'
                           : 'bg-white hover:bg-nova-blue/10 hover:shadow-md hover:scale-105 border-2 border-gray-200'

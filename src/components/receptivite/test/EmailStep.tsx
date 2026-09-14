@@ -94,7 +94,7 @@ export const EmailStep = ({
               <button
                 type="button"
                 onClick={() => onLocalisationChange('IDF')}
-                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 ${
+                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition active:scale-[0.97] duration-200 ${
                   localisation === 'IDF'
                     ? 'bg-nova-blue text-white border-nova-blue'
                     : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'
@@ -105,7 +105,7 @@ export const EmailStep = ({
               <button
                 type="button"
                 onClick={() => onLocalisationChange('AUTRE')}
-                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition-all duration-200 ${
+                className={`py-4 px-4 rounded-lg border-2 text-sm font-medium transition active:scale-[0.97] duration-200 ${
                   localisation === 'AUTRE'
                     ? 'bg-nova-blue text-white border-nova-blue'
                     : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'

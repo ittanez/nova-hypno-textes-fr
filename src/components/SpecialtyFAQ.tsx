@@ -70,7 +70,7 @@ const SpecialtyFAQ: React.FC<SpecialtyFAQProps> = ({
                   </button>
                   <div
                     id={`specialty-faq-answer-${index}`}
-                    className={`px-5 md:px-6 overflow-hidden transition-all duration-300 ${
+                    className={`px-5 md:px-6 overflow-hidden transition duration-300 ${
                       openIndex === index ? 'max-h-[500px] pb-5 md:pb-6' : 'max-h-0'
                     }`}
                     role="region"

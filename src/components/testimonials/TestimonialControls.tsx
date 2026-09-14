@@ -24,7 +24,7 @@ const TestimonialControls = ({
         {[...Array(totalSlides)].map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-[width,background-color] duration-300 ${
               index === activeIndex 
                 ? 'bg-[#2C5680] w-6' 
                 : 'bg-gray-300 hover:bg-gray-400'

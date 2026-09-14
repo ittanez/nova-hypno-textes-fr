@@ -41,7 +41,7 @@ const HypnotherapyJourneySection: React.FC = () => {
               </h3>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="stagger grid md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 bg-nova-blue rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-white font-bold text-sm">1</span>
