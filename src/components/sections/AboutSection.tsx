@@ -168,7 +168,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Calendar size={24} />
                 Prendre rendez-vous

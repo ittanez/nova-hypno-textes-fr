@@ -244,7 +244,7 @@ const BlogArticlesSlider: React.FC = () => {
                 {/* CTA */}
                 <Link
                   to={`/blog/article/${currentArticle.slug}`}
-                  className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-300 font-medium w-fit group"
+                  className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition active:scale-[0.97] duration-300 font-medium w-fit group"
                 >
                   Lire l'article
                 </Link>
@@ -258,7 +258,7 @@ const BlogArticlesSlider: React.FC = () => {
               {/* Boutons précédent/suivant */}
               <button
                 onClick={goToPrevious}
-                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Article précédent"
               >
                 <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
@@ -266,7 +266,7 @@ const BlogArticlesSlider: React.FC = () => {
 
               <button
                 onClick={goToNext}
-                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition-all duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 text-gray-700 p-2.5 sm:p-3 rounded-full shadow-lg border-2 border-gray-300 transition duration-300 hover:scale-105 z-30 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Article suivant"
               >
                 <ChevronRight size={18} className="sm:w-6 sm:h-6" />
@@ -281,7 +281,7 @@ const BlogArticlesSlider: React.FC = () => {
                     className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                     aria-label={`Aller à l'article ${index + 1}`}
                   >
-                    <span className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+                    <span className={`block w-3 h-3 rounded-full transition-[width,background-color] duration-300 ${
                       index === currentIndex
                         ? 'bg-purple-600 scale-125'
                         : 'bg-gray-500 hover:bg-gray-600'
@@ -297,7 +297,7 @@ const BlogArticlesSlider: React.FC = () => {
         <div className="text-center mt-12">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 bg-transparent border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300 font-medium"
+            className="inline-flex items-center gap-2 bg-transparent border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg hover:bg-purple-600 hover:text-white transition active:scale-[0.97] duration-300 font-medium"
           >
             Voir tous les articles du blog
           </Link>

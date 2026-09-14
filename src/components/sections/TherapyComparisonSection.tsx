@@ -186,7 +186,7 @@ const TherapyComparisonSection: React.FC = () => {
           </div>
 
           {/* Analyse détaillée */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="stagger grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Choisir l'hypnose ericksonienne si :</h3>
               <ul className="space-y-2 text-gray-700 text-sm">

@@ -28,7 +28,7 @@ const WhyChooseSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="stagger grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
             <div className="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center mb-4">
               <Award className="text-white" size={28} />
@@ -122,7 +122,7 @@ const WhyChooseSection: React.FC = () => {
           <a
             href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg text-lg font-semibold hover:bg-gray-100 transition active:scale-[0.97] shadow-lg"
           >
             <Calendar size={24} />
             Prendre rendez-vous maintenant

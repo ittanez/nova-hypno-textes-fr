@@ -94,7 +94,7 @@ const AutohypnoseGratitude: React.FC = () => {
             download
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-nova-orange hover:bg-nova-orange-dark text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.98] transition-all duration-200"
+            className="inline-flex items-center gap-3 bg-nova-orange hover:bg-nova-orange-dark text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.98] transition duration-200"
           >
             <Download size={22} />
             Télécharger le script gratuitement
@@ -131,7 +131,7 @@ const AutohypnoseGratitude: React.FC = () => {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="bg-nova-neutral rounded-xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                className="bg-nova-neutral rounded-xl p-6 hover:shadow-md hover:-translate-y-0.5 transition"
               >
                 <b.icon size={28} className="text-nova-orange mb-3" />
                 <h3 className="font-semibold text-nova-blue-dark mb-2 text-[0.95rem]">{b.title}</h3>
@@ -147,7 +147,7 @@ const AutohypnoseGratitude: React.FC = () => {
               download
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-nova-orange hover:bg-nova-orange-dark text-white font-semibold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
+              className="inline-flex items-center gap-2 bg-nova-orange hover:bg-nova-orange-dark text-white font-semibold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg active:scale-[0.98] transition"
             >
               <Download size={18} />
               Télécharger le script PDF
@@ -191,7 +191,7 @@ const AutohypnoseGratitude: React.FC = () => {
 
                 <Link
                   to="/guide-autohypnose"
-                  className="inline-flex items-center gap-2 bg-white text-nova-blue-dark font-semibold px-7 py-3.5 rounded-xl hover:bg-nova-neutral active:scale-[0.98] transition-all shadow-md hover:shadow-lg"
+                  className="inline-flex items-center gap-2 bg-white text-nova-blue-dark font-semibold px-7 py-3.5 rounded-xl hover:bg-nova-neutral active:scale-[0.98] transition shadow-md hover:shadow-lg"
                 >
                   Obtenir l'ebook gratuitement
                   <ArrowRight size={18} />

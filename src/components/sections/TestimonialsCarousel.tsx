@@ -64,7 +64,7 @@ const TestimonialsCarousel: React.FC = () => {
               <Star
                 key={i}
                 size={32}
-                className="text-yellow-400 fill-yellow-400 animate-pulse"
+                className="text-yellow-400 fill-yellow-400"
                 style={{ animationDelay: `${i * 0.1}s` }}
               />
             ))}
@@ -152,7 +152,7 @@ const TestimonialsCarousel: React.FC = () => {
                   className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={`Témoignage ${index + 1}`}
                 >
-                  <span className={`block h-2 rounded-full transition-all ${
+                  <span className={`block h-2 rounded-full transition-[width,background-color] ${
                     currentTestimonial === index ? 'w-5 bg-blue-500' : 'w-2 bg-gray-500'
                   }`} />
                 </button>

@@ -38,7 +38,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#about"
-              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-nova-green focus:ring-offset-2"
+              className="px-8 py-4 bg-nova-green text-white rounded-full shadow-lg hover:bg-nova-green-dark transition active:scale-[0.97] text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-nova-green focus:ring-offset-2"
               aria-label="Découvrir ma méthode et mes qualifications"
               role="button"
             >
@@ -48,7 +48,7 @@ const Hero = () => {
               <a
                 href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={handleBookingClick}
-                className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                className="px-8 py-4 border-2 border-white text-white rounded-full hover:bg-white/10 transition active:scale-[0.97] text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 aria-label="Réserver ma première consultation avec Alain Zenatti, hypnothérapeute à Paris 4ème"
                 role="button"
               >
@@ -78,7 +78,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 w-full flex justify-center animate-bounce">
+      <div className="absolute bottom-10 w-full flex justify-center animate-bounce-3">
         <a 
           href="#about" 
           aria-label="Défiler vers la section à propos d'Alain Zenatti"

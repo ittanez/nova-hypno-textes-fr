@@ -21,7 +21,7 @@ const CredibilityBadgesSection: React.FC = () => {
             Certifications et accréditations professionnelles
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="stagger grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {/* Badge 1 : Maître Hypnologue */}
             <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-blue-300 transition-colors">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-3">
@@ -66,7 +66,7 @@ const CredibilityBadgesSection: React.FC = () => {
               href="https://www.google.com/maps/place/NovaHypnose/@48.8534,2.3656,15z"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-yellow-300 hover:shadow-lg transition-all cursor-pointer group"
+              className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-100 flex flex-col items-center text-center hover:border-yellow-300 hover:shadow-lg transition cursor-pointer group"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <Shield className="text-white" size={32} />

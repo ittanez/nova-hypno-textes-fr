@@ -525,3 +525,72 @@
   .cz .sp-hero__h1 { font-size: 2.2rem; } }
 @media (max-width: 480px) {
   .cz .sp-grid-2 { grid-template-columns: 1fr; } }
+
+/* FAQ des pages spécialités : le contenu apparaît en douceur à l'ouverture
+   (details natif : la fermeture reste instantanée, ce qui est acceptable). */
+.cz .article-faq details > :not(summary) { animation: cz-fade-in .32s var(--ease) both; } /* keyframes : preview-charte.css */
+
+/* ============================================================
+   ILLUSTRATION ANIMÉE DU HERO (composant HeroArt) — même grammaire que les
+   landing pages : tracé à l'entrée, une seule boucle lente, transform/opacité.
+   ============================================================ */
+.cz .sp-hero__inner--art {
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 48px;
+  align-items: center;
+}
+.cz .sp-hero__art { width: min(100%, 460px); aspect-ratio: 1; justify-self: center; }
+.cz .sp-hero__art svg { width: 100%; height: 100%; display: block; overflow: visible; }
+@media (max-width: 999px) {
+  .cz .sp-hero__inner--art { grid-template-columns: 1fr; gap: 12px; }
+  .cz .sp-hero__art { width: min(78vw, 340px); }
+}
+.cz .art-line { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+.cz .art-soft { fill: none; stroke: var(--cobalt); stroke-width: 1; stroke-linecap: round; opacity: .16; }
+.cz .art-fill { fill: var(--cobalt); opacity: .06; }
+.cz .art-core { fill: var(--amber); opacity: .9; }
+.cz .art-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+.cz .art-mots text { font-family: var(--f-serif); font-style: italic; font-size: 16px; letter-spacing: .2em; fill: var(--cobalt); opacity: .6; }
+@media (prefers-reduced-motion: no-preference) {
+  .cz [data-draw] { stroke-dasharray: var(--len, 1200); stroke-dashoffset: var(--len, 1200); animation: art-draw 2.2s var(--ease) var(--dd, .15s) forwards; }
+  @keyframes art-draw { to { stroke-dashoffset: 0; } }
+  .cz .art-mots { opacity: 0; animation: art-mots 1.4s var(--ease) 1.6s forwards; }
+  @keyframes art-mots { to { opacity: 1; } }
+  .cz .art-core, .cz .art-fill { opacity: 0; animation: art-in 1.2s var(--ease) var(--dd, 1.2s) forwards; }
+  @keyframes art-in { to { opacity: var(--o, .9); } }
+  @keyframes art-halo { 0% { transform: scale(.6); opacity: 0; } 38% { opacity: .3; } 100% { transform: scale(1.6); opacity: 0; } }
+  /* Sommeil — la marée */
+  .cz .art-vague { animation: art-houle 13s ease-in-out infinite alternate; }
+  .cz .art-vague-2 { animation-duration: 15s; animation-delay: -4s; }
+  .cz .art-vague-3 { animation-duration: 17s; animation-delay: -9s; }
+  @keyframes art-houle { from { transform: translateX(-9px); } to { transform: translateX(9px); } }
+  .cz .art-drift { animation: art-lune 11s ease-in-out infinite alternate; }
+  @keyframes art-lune { from { transform: translateY(0); } to { transform: translateY(7px); } }
+  .cz .art-lune-halo { transform-origin: 292px 112px; transform-box: view-box; animation: art-halo 11s ease-in-out 2.2s infinite; }
+  .cz .art-etoile { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-scintille 9s ease-in-out 3s infinite alternate; }
+  @keyframes art-scintille { from { opacity: .25; } to { opacity: .75; } }
+  /* Avion — l'horizon */
+  .cz .art-avion { offset-rotate: 0deg; offset-distance: 0%; animation: art-vol 14s ease-in-out 2.4s infinite alternate; }
+  @keyframes art-vol { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+  .cz .art-avion-halo { transform-box: fill-box; transform-origin: center; animation: art-halo 11s ease-in-out 2.2s infinite; }
+  .cz .art-nuage { animation: art-in 1.2s var(--ease) var(--dd) forwards, art-nuage 19s ease-in-out infinite alternate; }
+  .cz .art-nuage-2 { animation-duration: 1.2s, 23s; animation-delay: var(--dd), -7s; }
+  @keyframes art-nuage { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
+  /* Confiance — l'appui */
+  .cz .art-arbre { transform-box: view-box; transform-origin: 200px 334px; animation: art-sway 12s ease-in-out 2.6s infinite alternate; }
+  @keyframes art-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+  .cz .art-cime-halo { transform-box: view-box; transform-origin: 200px 152px; animation: art-halo 11s ease-in-out 3s infinite; }
+  /* Prise de parole — la voix */
+  .cz .art-onde { animation: art-draw 2.2s var(--ease) var(--dd) forwards, art-onde 6s ease-in-out calc(3s + var(--i) * .55s) infinite; }
+  @keyframes art-onde { 0%, 100% { opacity: .18; } 35% { opacity: .55; } }
+  .cz .art-voix-halo { transform-box: view-box; transform-origin: 96px 200px; animation: art-halo 6s ease-in-out 3s infinite; }
+  /* Compulsions — la vague qui s'apaise */
+  .cz .art-point { offset-rotate: 0deg; offset-distance: 0%; animation: art-apaise 12s ease-in-out 2.4s infinite; }
+  @keyframes art-apaise { 0% { offset-distance: 0%; } 78% { offset-distance: 100%; } 100% { offset-distance: 100%; } }
+  .cz .art-point-halo { transform-box: fill-box; transform-origin: center; animation: art-halo-tard 12s ease-in-out 2.4s infinite; }
+  @keyframes art-halo-tard { 0%, 60% { transform: scale(.6); opacity: 0; } 80% { opacity: .32; } 100% { transform: scale(1.7); opacity: 0; } }
+  .cz .art-souffle { transform-origin: 50% 50%; animation: art-breathe 11s ease-in-out 2.2s infinite; }
+  @keyframes art-breathe { 0% { transform: scale(1); } 36% { transform: scale(1.02); } 100% { transform: scale(1); } }
+}

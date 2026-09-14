@@ -70,14 +70,14 @@ const OnlineTherapySection: React.FC = () => {
               href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
               onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
               aria-label="Réserver une séance d'hypnose en visio sur Resalib (nouvel onglet)"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg font-bold text-lg transition active:scale-[0.97] shadow-lg hover:shadow-xl hover:scale-105"
             >
               <Calendar size={22} />
               Réserver ma séance en visio
             </a>
             <Link
               to="/hypnose-en-ligne"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg font-semibold transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg font-semibold transition active:scale-[0.97]"
             >
               En savoir plus sur la visio <ArrowRight size={18} />
             </Link>

@@ -39,7 +39,9 @@ const MobileSection: React.FC<MobileSectionProps> = ({ title, links, isExpanded,
       {title}
       <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
     </button>
-    <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+    {/* Accordéon : grid-template-rows 0fr → 1fr, la seule façon d'animer une hauteur inconnue sans max-height */}
+    <div className={`grid transition-[grid-template-rows] duration-200 ease-out-strong ${isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+      <div className="overflow-hidden min-h-0 pl-4 space-y-2 [&>:first-child]:mt-2">
         {links.map((link) => (
           <a
             key={link.name}
@@ -59,6 +61,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({ title, links, isExpanded,
           </a>
         ))}
       </div>
+    </div>
   </div>
 );
 
@@ -69,8 +72,12 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onNavClick, onToggleMenu 
     setOpenSection(openSection === title ? null : title);
   };
 
+  // Entrée/sortie en transform + opacité (200 ms, sortant fort) : jamais de max-height animé.
   return (
-    <div className={`md:hidden bg-white shadow-lg absolute w-full overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[80vh] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'}`}>
+    <div
+      className={`md:hidden bg-white shadow-lg absolute w-full max-h-[80vh] overflow-y-auto origin-top transition-[transform,opacity,visibility] duration-200 ease-out-strong ${isOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-2 opacity-0 invisible'}`}
+      aria-hidden={!isOpen}
+    >
       <div className="container mx-auto px-4 py-4">
         <nav className="flex flex-col space-y-4">
           {/* Liens principaux */}

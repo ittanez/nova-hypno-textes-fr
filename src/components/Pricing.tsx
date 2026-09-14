@@ -46,13 +46,13 @@ const Pricing = () => {
           <p className="text-lg text-gray-600">Choisissez la formule qui vous convient le mieux</p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 mb-12">
+        <div className="stagger max-w-5xl mx-auto grid md:grid-cols-3 gap-6 mb-12">
           {sessions.map((session, index) => {
             const Icon = session.icon;
             return (
               <div
                 key={index}
-                className={`relative rounded-lg p-6 transition-all ${
+                className={`relative rounded-lg p-6 transition ${
                   session.popular
                     ? 'bg-gradient-to-br from-nova-blue-light/5 to-white border-[3px] border-nova-green shadow-xl scale-105 md:scale-105'
                     : 'bg-white border-2 border-gray-200 hover:shadow-lg'

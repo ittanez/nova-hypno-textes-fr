@@ -77,7 +77,7 @@ const ApplicationsCarousel: React.FC = () => {
                 )}
               </>
             );
-            const baseClass = "group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200";
+            const baseClass = "group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100 hover:border-blue-200";
             return app.href ? (
               <Link key={index} to={app.href} className={`${baseClass} block cursor-pointer`}>
                 {cardContent}
@@ -156,7 +156,7 @@ const ApplicationsCarousel: React.FC = () => {
                   className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={`Application ${index + 1}`}
                 >
-                  <span className={`block h-2 rounded-full transition-all ${
+                  <span className={`block h-2 rounded-full transition-[width,background-color] ${
                     currentApplication === index ? 'w-5 bg-blue-500' : 'w-2 bg-gray-500'
                   }`} />
                 </button>
