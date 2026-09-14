@@ -20,6 +20,7 @@ import { safeJSONStringify } from '@/lib/seo-utils';
 
 // Composants critiques (above the fold) - Chargés immédiatement
 import HeroCarousel from '@/components/sections/HeroCarousel';
+import Reveal from '@/components/common/Reveal';
 import ProfessionalProblemsSection from '@/components/sections/ProfessionalProblemsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import OnlineTherapySection from '@/components/sections/OnlineTherapySection';
@@ -136,81 +137,81 @@ const Index: React.FC = () => {
         <HeroCarousel />
 
         {/* Section Problèmes des Professionnels - PRIORITÉ 1 */}
-        <ProfessionalProblemsSection />
+        <Reveal><ProfessionalProblemsSection /></Reveal>
 
         {/* Section À propos */}
-        <AboutSection onOpenVideoModal={() => setIsVideoModalOpen(true)} />
+        <Reveal><AboutSection onOpenVideoModal={() => setIsVideoModalOpen(true)} /></Reveal>
 
         {/* Bandeau + section "Consultations en visio, partout en France" */}
-        <OnlineTherapySection />
+        <Reveal><OnlineTherapySection /></Reveal>
 
         {/* Section Pourquoi choisir */}
-        <WhyChooseSection />
+        <Reveal><WhyChooseSection /></Reveal>
 
         {/* Section SEO – contenu textuel riche pour l'indexation Google */}
-        <SeoTextSection />
+        <Reveal><SeoTextSection /></Reveal>
 
         {/* ===== BELOW THE FOLD (Lazy loaded) ===== */}
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Applications de l'hypnothérapie */}
           <ApplicationsCarousel />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Comment ça fonctionne */}
           <HowItWorksCarousel />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Déroulement d'une séance */}
           <SessionFlowSection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Infographie Parcours Hypnothérapie : Attentes vs Réalité */}
           <HypnotherapyJourneySection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Tarifs */}
           <Pricing />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* CTA intermédiaire */}
           <CTASection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Témoignages */}
           <TestimonialsCarousel />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Badges de crédibilité */}
           <CredibilityBadgesSection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Contact avec carte */}
           <ContactSection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Auto-Hypnose */}
           <SelfHypnosisSection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section Comparaison Hypnose vs Autres Thérapies - GEO */}
           <TherapyComparisonSection />
-        </Suspense>
+        </Suspense></Reveal>
 
-        <Suspense fallback={<SectionLoader />}>
+        <Reveal><Suspense fallback={<SectionLoader />}>
           {/* Section FAQ */}
           <FAQSection />
-        </Suspense>
+        </Suspense></Reveal>
       </ContentLayout>
 
       {/* Modal vidéo (lazy loaded uniquement si ouvert) */}
