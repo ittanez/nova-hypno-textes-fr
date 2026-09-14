@@ -342,10 +342,12 @@
             .spiralbox { width: min(82vw, 400px); margin-top: 4px; }
         }
         .spiralbox svg { width: 100%; height: 100%; display: block; overflow: visible; }
-        #spiral-path { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; opacity: .34; }
-        .spiral-core { fill: var(--amber); opacity: .9; }
-        .spiral-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
-        .spiral-mots text {
+        .art-line { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+        .art-soft { fill: none; stroke: var(--cobalt); stroke-width: 1; stroke-linecap: round; opacity: .16; }
+        .art-fill { fill: var(--cobalt); opacity: .06; }
+        .art-core { fill: var(--amber); opacity: .9; }
+        .art-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+        .art-mots text {
             font-family: var(--serif);
             font-style: italic;
             font-size: 16px;
@@ -763,7 +765,7 @@
 
         /* ============================================================
            MOUVEMENT
-           Une seule boucle sur toute la page : la respiration de la spirale.
+           Une seule boucle sur toute la page : la vague qui s'apaise.
            Tout le reste se joue une fois, au chargement ou à l'apparition.
            ============================================================ */
         @media (prefers-reduced-motion: no-preference) {
@@ -773,26 +775,24 @@
                 to   { opacity: 1; transform: none; filter: blur(0); }
             }
 
-            #spiral-path {
-                stroke-dasharray: var(--len, 4200);
-                stroke-dashoffset: var(--len, 4200);
-                animation: draw 2.4s var(--ease) .15s forwards;
+            [data-draw] {
+                stroke-dasharray: var(--len, 1200);
+                stroke-dashoffset: var(--len, 1200);
+                animation: draw 2.2s var(--ease) var(--dd, .15s) forwards;
             }
             @keyframes draw { to { stroke-dashoffset: 0; } }
+            .art-mots { opacity: 0; animation: mots 1.4s var(--ease) 1.6s forwards; }
+            @keyframes mots { to { opacity: 1; } }
+            .art-core, .art-fill { opacity: 0; animation: art-in 1.2s var(--ease) var(--dd, 1.2s) forwards; }
+            @keyframes art-in { to { opacity: var(--o, .9); } }
 
-            /* 4 s d'expansion, 7 s de retour : une respiration ralentie */
-            .spiral-breathe { transform-origin: 50% 50%; animation: breathe 11s ease-in-out 2.2s infinite; }
-            @keyframes breathe { 0% { transform: scale(1); } 36% { transform: scale(1.035); } 100% { transform: scale(1); } }
-
-            .spiral-halo { transform-origin: 50% 50%; animation: halo 11s ease-in-out 2.2s infinite; }
-            @keyframes halo {
-                0%   { transform: scale(.55); opacity: 0; }
-                38%  { opacity: .32; }
-                100% { transform: scale(1.5); opacity: 0; }
-            }
-
-            .spiral-mots { transform-origin: 50% 50%; animation: turn 140s linear infinite; }
-            @keyframes turn { to { transform: rotate(360deg); } }
+            /* La vague qui s'apaise : un point parcourt l'onde, de l'agitation vers le calme */
+            .art-point { offset-path: path("M24.0 200.0 L27.0 214.8 L30.0 228.1 L33.0 239.0 L36.0 247.0 L39.0 251.6 L42.0 252.5 L45.0 249.9 L48.0 244.0 L51.0 235.3 L54.0 224.5 L57.0 212.5 L60.0 200.0 L63.0 188.0 L66.0 177.2 L69.0 168.3 L72.0 161.9 L75.0 158.3 L78.0 157.6 L81.0 159.8 L84.0 164.6 L87.0 171.7 L90.0 180.3 L93.0 190.0 L96.0 200.0 L99.0 209.6 L102.0 218.2 L105.0 225.2 L108.0 230.2 L111.0 233.0 L114.0 233.5 L117.0 231.7 L120.0 227.8 L123.0 222.2 L126.0 215.4 L129.0 207.8 L132.0 200.0 L135.0 192.6 L138.0 185.9 L141.0 180.5 L144.0 176.7 L147.0 174.6 L150.0 174.3 L153.0 175.8 L156.0 178.8 L159.0 183.1 L162.0 188.3 L165.0 194.1 L168.0 200.0 L171.0 205.6 L174.0 210.6 L177.0 214.6 L180.0 217.4 L183.0 218.9 L186.0 219.0 L189.0 217.9 L192.0 215.6 L195.0 212.4 L198.0 208.5 L201.0 204.3 L204.0 200.0 L207.0 195.9 L210.0 192.4 L213.0 189.5 L216.0 187.6 L219.0 186.5 L222.0 186.5 L225.0 187.3 L228.0 189.0 L231.0 191.3 L234.0 194.0 L237.0 197.0 L240.0 200.0 L243.0 202.8 L246.0 205.3 L249.0 207.2 L252.0 208.5 L255.0 209.2 L258.0 209.2 L261.0 208.6 L264.0 207.4 L267.0 205.9 L270.0 204.0 L273.0 202.0 L276.0 200.0 L279.0 198.1 L282.0 196.5 L285.0 195.3 L288.0 194.4 L291.0 194.0 L294.0 194.0 L297.0 194.4 L300.0 195.2 L303.0 196.2 L306.0 197.4 L309.0 198.7 L312.0 200.0 L315.0 201.2 L318.0 202.2 L321.0 203.1 L324.0 203.6 L327.0 203.9 L330.0 203.9 L333.0 203.7 L336.0 203.2 L339.0 202.6 L342.0 201.8 L345.0 200.9 L348.0 200.0 L351.0 199.2 L354.0 198.4 L357.0 197.8 L360.0 197.3 L363.0 197.0 L366.0 197.0 L369.0 197.1 L372.0 197.4 L375.0 197.9"); offset-rotate: 0deg; offset-distance: 0%; animation: apaise 12s ease-in-out 2.4s infinite; }
+            @keyframes apaise { 0% { offset-distance: 0%; } 78% { offset-distance: 100%; } 100% { offset-distance: 100%; } }
+            .art-point-halo { transform-box: fill-box; transform-origin: center; animation: halo 12s ease-in-out 2.4s infinite; }
+            @keyframes halo { 0%, 60% { transform: scale(.6); opacity: 0; } 80% { opacity: .32; } 100% { transform: scale(1.7); opacity: 0; } }
+            .art-souffle { transform-origin: 50% 50%; animation: breathe 11s ease-in-out 2.2s infinite; }
+            @keyframes breathe { 0% { transform: scale(1); } 36% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
             /* La révélation est "armée" par le script, jamais par le CSS seul :
                sans JS, ou si l'observateur ne se déclenche pas, la page reste
@@ -803,13 +803,12 @@
 
         @supports (animation-timeline: view()) {
             @media (prefers-reduced-motion: no-preference) {
-                .spiral-turn {
-                    transform-origin: 50% 50%;
-                    animation: scrollturn linear both;
+                .art-scroll {
+                    animation: art-parallaxe linear both;
                     animation-timeline: view();
                     animation-range: entry 0% exit 100%;
                 }
-                @keyframes scrollturn { from { transform: rotate(-9deg); } to { transform: rotate(16deg); } }
+                @keyframes art-parallaxe { from { transform: translateY(4%); } to { transform: translateY(-5%); } }
 
                 .chiffre {
                     animation: chiffre-parallaxe linear both;
@@ -876,19 +875,18 @@
 
             <div class="spiralbox" aria-hidden="true">
                 <svg viewBox="0 0 400 400" role="presentation" focusable="false">
-                    <defs>
-                        <path id="cercle-mots" d="M200,200 m-172,0 a172,172 0 1,1 344,0 a172,172 0 1,1 -344,0"/>
-                    </defs>
-                    <g class="spiral-turn">
-                        <g class="spiral-breathe">
-                            <path id="spiral-path" d="M200 193"/>
-                            <circle class="spiral-halo" cx="200" cy="200" r="150"/>
-                            <circle class="spiral-core" cx="200" cy="193" r="4.5"/>
+                    <defs><path id="arc-mots" d="M68.5 287.2 A280 280 0 0 0 331.5 287.2"/></defs>
+                    <g class="art-scroll">
+                        <g class="art-souffle">
+                            <path class="art-soft" data-draw d="M24 200 L376 200" style="--dd:.15s"/>
+                            <path class="art-line" data-draw d="M24.0 200.0 L27.0 214.8 L30.0 228.1 L33.0 239.0 L36.0 247.0 L39.0 251.6 L42.0 252.5 L45.0 249.9 L48.0 244.0 L51.0 235.3 L54.0 224.5 L57.0 212.5 L60.0 200.0 L63.0 188.0 L66.0 177.2 L69.0 168.3 L72.0 161.9 L75.0 158.3 L78.0 157.6 L81.0 159.8 L84.0 164.6 L87.0 171.7 L90.0 180.3 L93.0 190.0 L96.0 200.0 L99.0 209.6 L102.0 218.2 L105.0 225.2 L108.0 230.2 L111.0 233.0 L114.0 233.5 L117.0 231.7 L120.0 227.8 L123.0 222.2 L126.0 215.4 L129.0 207.8 L132.0 200.0 L135.0 192.6 L138.0 185.9 L141.0 180.5 L144.0 176.7 L147.0 174.6 L150.0 174.3 L153.0 175.8 L156.0 178.8 L159.0 183.1 L162.0 188.3 L165.0 194.1 L168.0 200.0 L171.0 205.6 L174.0 210.6 L177.0 214.6 L180.0 217.4 L183.0 218.9 L186.0 219.0 L189.0 217.9 L192.0 215.6 L195.0 212.4 L198.0 208.5 L201.0 204.3 L204.0 200.0 L207.0 195.9 L210.0 192.4 L213.0 189.5 L216.0 187.6 L219.0 186.5 L222.0 186.5 L225.0 187.3 L228.0 189.0 L231.0 191.3 L234.0 194.0 L237.0 197.0 L240.0 200.0 L243.0 202.8 L246.0 205.3 L249.0 207.2 L252.0 208.5 L255.0 209.2 L258.0 209.2 L261.0 208.6 L264.0 207.4 L267.0 205.9 L270.0 204.0 L273.0 202.0 L276.0 200.0 L279.0 198.1 L282.0 196.5 L285.0 195.3 L288.0 194.4 L291.0 194.0 L294.0 194.0 L297.0 194.4 L300.0 195.2 L303.0 196.2 L306.0 197.4 L309.0 198.7 L312.0 200.0 L315.0 201.2 L318.0 202.2 L321.0 203.1 L324.0 203.6 L327.0 203.9 L330.0 203.9 L333.0 203.7 L336.0 203.2 L339.0 202.6 L342.0 201.8 L345.0 200.9 L348.0 200.0 L351.0 199.2 L354.0 198.4 L357.0 197.8 L360.0 197.3 L363.0 197.0 L366.0 197.0 L369.0 197.1 L372.0 197.4 L375.0 197.9" style="--dd:.4s"/>
+                            <g class="art-point">
+                                <circle class="art-halo art-point-halo" cx="0" cy="0" r="14"/>
+                                <circle class="art-core" cx="0" cy="0" r="4.5" style="--dd:1.6s"/>
+                            </g>
                         </g>
                     </g>
-                    <g class="spiral-mots">
-                        <text><textPath href="#cercle-mots" startOffset="0">ressentir &middot; choisir &middot; s'apaiser &middot; ressentir &middot; choisir &middot; s'apaiser &middot;</textPath></text>
-                    </g>
+                    <g class="art-mots"><text><textPath href="#arc-mots" startOffset="0">ressentir &middot; choisir &middot; s'apaiser &middot; ressentir &middot; choisir &middot; s'apaiser &middot;</textPath></text></g>
                 </svg>
             </div>
         </div>
@@ -1378,22 +1376,10 @@
 
         var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Spirale d'Archimède : une seule courbe de 5,2 tours, dessinée au chargement.
-        (function () {
-            var pts = [], turns = 5.2, steps = 1100, b = 27, a = 7, i, t, r;
-            for (i = 0; i <= steps; i += 4) {
-                t = (i / steps) * turns * 2 * Math.PI;
-                r = a + b * t / (2 * Math.PI);
-                pts.push([(200 + r * Math.cos(t - Math.PI / 2)).toFixed(1), (200 + r * Math.sin(t - Math.PI / 2)).toFixed(1)]);
-            }
-            var d = 'M' + pts[0][0] + ' ' + pts[0][1];
-            for (i = 1; i < pts.length; i++) { d += 'L' + pts[i][0] + ' ' + pts[i][1]; }
-            var p = document.getElementById('spiral-path');
-            if (p) {
-                p.setAttribute('d', d);
-                if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
-            }
-        })();
+        // Tracés du hero : la longueur réelle de chaque chemin pilote son animation de dessin.
+        document.querySelectorAll('[data-draw]').forEach(function (p) {
+            if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
+        });
 
         // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.

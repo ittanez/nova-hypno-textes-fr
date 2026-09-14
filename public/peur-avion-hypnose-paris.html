@@ -342,10 +342,12 @@
             .spiralbox { width: min(82vw, 400px); margin-top: 4px; }
         }
         .spiralbox svg { width: 100%; height: 100%; display: block; overflow: visible; }
-        #spiral-path { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; opacity: .34; }
-        .spiral-core { fill: var(--amber); opacity: .9; }
-        .spiral-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
-        .spiral-mots text {
+        .art-line { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+        .art-soft { fill: none; stroke: var(--cobalt); stroke-width: 1; stroke-linecap: round; opacity: .16; }
+        .art-fill { fill: var(--cobalt); opacity: .06; }
+        .art-core { fill: var(--amber); opacity: .9; }
+        .art-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+        .art-mots text {
             font-family: var(--serif);
             font-style: italic;
             font-size: 16px;
@@ -763,7 +765,7 @@
 
         /* ============================================================
            MOUVEMENT
-           Une seule boucle sur toute la page : la respiration de la spirale.
+           Une seule boucle sur toute la page : l'horizon (le point qui suit la trajectoire).
            Tout le reste se joue une fois, au chargement ou à l'apparition.
            ============================================================ */
         @media (prefers-reduced-motion: no-preference) {
@@ -773,26 +775,25 @@
                 to   { opacity: 1; transform: none; filter: blur(0); }
             }
 
-            #spiral-path {
-                stroke-dasharray: var(--len, 4200);
-                stroke-dashoffset: var(--len, 4200);
-                animation: draw 2.4s var(--ease) .15s forwards;
+            [data-draw] {
+                stroke-dasharray: var(--len, 1200);
+                stroke-dashoffset: var(--len, 1200);
+                animation: draw 2.2s var(--ease) var(--dd, .15s) forwards;
             }
             @keyframes draw { to { stroke-dashoffset: 0; } }
+            .art-mots { opacity: 0; animation: mots 1.4s var(--ease) 1.6s forwards; }
+            @keyframes mots { to { opacity: 1; } }
+            .art-core, .art-fill { opacity: 0; animation: art-in 1.2s var(--ease) var(--dd, 1.2s) forwards; }
+            @keyframes art-in { to { opacity: var(--o, .9); } }
 
-            /* 4 s d'expansion, 7 s de retour : une respiration ralentie */
-            .spiral-breathe { transform-origin: 50% 50%; animation: breathe 11s ease-in-out 2.2s infinite; }
-            @keyframes breathe { 0% { transform: scale(1); } 36% { transform: scale(1.035); } 100% { transform: scale(1); } }
-
-            .spiral-halo { transform-origin: 50% 50%; animation: halo 11s ease-in-out 2.2s infinite; }
-            @keyframes halo {
-                0%   { transform: scale(.55); opacity: 0; }
-                38%  { opacity: .32; }
-                100% { transform: scale(1.5); opacity: 0; }
-            }
-
-            .spiral-mots { transform-origin: 50% 50%; animation: turn 140s linear infinite; }
-            @keyframes turn { to { transform: rotate(360deg); } }
+            /* L'horizon : un point qui suit la trajectoire, du sol vers le ciel, et revient */
+            .art-avion { offset-path: path("M42 302 C 130 302, 200 138, 368 108"); offset-rotate: 0deg; offset-distance: 0%; animation: vol 14s ease-in-out 2.4s infinite alternate; }
+            @keyframes vol { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+            .art-avion-halo { transform-box: fill-box; transform-origin: center; animation: halo 11s ease-in-out 2.2s infinite; }
+            @keyframes halo { 0% { transform: scale(.6); opacity: 0; } 38% { opacity: .3; } 100% { transform: scale(1.6); opacity: 0; } }
+            .art-nuage { animation: art-in 1.2s var(--ease) var(--dd) forwards, nuage 19s ease-in-out infinite alternate; }
+            .art-nuage-2 { animation-duration: 1.2s, 23s; animation-delay: var(--dd), -7s; }
+            @keyframes nuage { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
 
             /* La révélation est "armée" par le script, jamais par le CSS seul :
                sans JS, ou si l'observateur ne se déclenche pas, la page reste
@@ -803,13 +804,12 @@
 
         @supports (animation-timeline: view()) {
             @media (prefers-reduced-motion: no-preference) {
-                .spiral-turn {
-                    transform-origin: 50% 50%;
-                    animation: scrollturn linear both;
+                .art-scroll {
+                    animation: art-parallaxe linear both;
                     animation-timeline: view();
                     animation-range: entry 0% exit 100%;
                 }
-                @keyframes scrollturn { from { transform: rotate(-9deg); } to { transform: rotate(16deg); } }
+                @keyframes art-parallaxe { from { transform: translateY(4%); } to { transform: translateY(-5%); } }
 
                 .chiffre {
                     animation: chiffre-parallaxe linear both;
@@ -876,19 +876,18 @@
 
             <div class="spiralbox" aria-hidden="true">
                 <svg viewBox="0 0 400 400" role="presentation" focusable="false">
-                    <defs>
-                        <path id="cercle-mots" d="M200,200 m-172,0 a172,172 0 1,1 344,0 a172,172 0 1,1 -344,0"/>
-                    </defs>
-                    <g class="spiral-turn">
-                        <g class="spiral-breathe">
-                            <path id="spiral-path" d="M200 193"/>
-                            <circle class="spiral-halo" cx="200" cy="200" r="150"/>
-                            <circle class="spiral-core" cx="200" cy="193" r="4.5"/>
+                    <defs><path id="arc-mots" d="M30 250 C 120 250, 190 92, 372 60"/></defs>
+                    <g class="art-scroll">
+                        <ellipse class="art-fill art-nuage art-nuage-1" cx="120" cy="150" rx="46" ry="16" style="--dd:1.4s;--o:.07"/>
+                        <ellipse class="art-fill art-nuage art-nuage-2" cx="300" cy="230" rx="58" ry="19" style="--dd:1.7s;--o:.07"/>
+                        <path class="art-soft" data-draw d="M22 330 L378 330" style="--dd:.15s"/>
+                        <path class="art-line" data-draw d="M42 302 C 130 302, 200 138, 368 108" style="--dd:.5s"/>
+                        <g class="art-avion">
+                            <circle class="art-halo art-avion-halo" cx="0" cy="0" r="14"/>
+                            <circle class="art-core" cx="0" cy="0" r="4.5" style="--dd:1.6s"/>
                         </g>
                     </g>
-                    <g class="spiral-mots">
-                        <text><textPath href="#cercle-mots" startOffset="0">respirer &middot; se poser &middot; voyager léger &middot; respirer &middot; se poser &middot; voyager léger &middot;</textPath></text>
-                    </g>
+                    <g class="art-mots"><text><textPath href="#arc-mots" startOffset="0">respirer &middot; se poser &middot; voyager léger &middot; respirer &middot; se poser &middot; voyager léger &middot;</textPath></text></g>
                 </svg>
             </div>
         </div>
@@ -1379,22 +1378,10 @@
 
         var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Spirale d'Archimède : une seule courbe de 5,2 tours, dessinée au chargement.
-        (function () {
-            var pts = [], turns = 5.2, steps = 1100, b = 27, a = 7, i, t, r;
-            for (i = 0; i <= steps; i += 4) {
-                t = (i / steps) * turns * 2 * Math.PI;
-                r = a + b * t / (2 * Math.PI);
-                pts.push([(200 + r * Math.cos(t - Math.PI / 2)).toFixed(1), (200 + r * Math.sin(t - Math.PI / 2)).toFixed(1)]);
-            }
-            var d = 'M' + pts[0][0] + ' ' + pts[0][1];
-            for (i = 1; i < pts.length; i++) { d += 'L' + pts[i][0] + ' ' + pts[i][1]; }
-            var p = document.getElementById('spiral-path');
-            if (p) {
-                p.setAttribute('d', d);
-                if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
-            }
-        })();
+        // Tracés du hero : la longueur réelle de chaque chemin pilote son animation de dessin.
+        document.querySelectorAll('[data-draw]').forEach(function (p) {
+            if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
+        });
 
         // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.

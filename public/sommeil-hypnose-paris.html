@@ -342,10 +342,12 @@
             .spiralbox { width: min(82vw, 400px); margin-top: 4px; }
         }
         .spiralbox svg { width: 100%; height: 100%; display: block; overflow: visible; }
-        #spiral-path { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; opacity: .34; }
-        .spiral-core { fill: var(--amber); opacity: .9; }
-        .spiral-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
-        .spiral-mots text {
+        .art-line { fill: none; stroke: var(--cobalt); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .34; }
+        .art-soft { fill: none; stroke: var(--cobalt); stroke-width: 1; stroke-linecap: round; opacity: .16; }
+        .art-fill { fill: var(--cobalt); opacity: .06; }
+        .art-core { fill: var(--amber); opacity: .9; }
+        .art-halo { fill: none; stroke: var(--amber); stroke-width: 1; opacity: 0; }
+        .art-mots text {
             font-family: var(--serif);
             font-style: italic;
             font-size: 16px;
@@ -763,7 +765,7 @@
 
         /* ============================================================
            MOUVEMENT
-           Une seule boucle sur toute la page : la respiration de la spirale.
+           Une seule boucle sur toute la page : la marée (vagues et lune).
            Tout le reste se joue une fois, au chargement ou à l'apparition.
            ============================================================ */
         @media (prefers-reduced-motion: no-preference) {
@@ -773,26 +775,28 @@
                 to   { opacity: 1; transform: none; filter: blur(0); }
             }
 
-            #spiral-path {
-                stroke-dasharray: var(--len, 4200);
-                stroke-dashoffset: var(--len, 4200);
-                animation: draw 2.4s var(--ease) .15s forwards;
+            [data-draw] {
+                stroke-dasharray: var(--len, 1200);
+                stroke-dashoffset: var(--len, 1200);
+                animation: draw 2.2s var(--ease) var(--dd, .15s) forwards;
             }
             @keyframes draw { to { stroke-dashoffset: 0; } }
+            .art-mots { opacity: 0; animation: mots 1.4s var(--ease) 1.6s forwards; }
+            @keyframes mots { to { opacity: 1; } }
+            .art-core, .art-fill { opacity: 0; animation: art-in 1.2s var(--ease) var(--dd, 1.2s) forwards; }
+            @keyframes art-in { to { opacity: var(--o, .9); } }
 
-            /* 4 s d'expansion, 7 s de retour : une respiration ralentie */
-            .spiral-breathe { transform-origin: 50% 50%; animation: breathe 11s ease-in-out 2.2s infinite; }
-            @keyframes breathe { 0% { transform: scale(1); } 36% { transform: scale(1.035); } 100% { transform: scale(1); } }
-
-            .spiral-halo { transform-origin: 50% 50%; animation: halo 11s ease-in-out 2.2s infinite; }
-            @keyframes halo {
-                0%   { transform: scale(.55); opacity: 0; }
-                38%  { opacity: .32; }
-                100% { transform: scale(1.5); opacity: 0; }
-            }
-
-            .spiral-mots { transform-origin: 50% 50%; animation: turn 140s linear infinite; }
-            @keyframes turn { to { transform: rotate(360deg); } }
+            /* La marée : trois vagues qui se balancent lentement, une lune qui respire */
+            .art-vague { animation: houle 13s ease-in-out infinite alternate; }
+            .art-vague-2 { animation-duration: 15s; animation-delay: -4s; }
+            .art-vague-3 { animation-duration: 17s; animation-delay: -9s; }
+            @keyframes houle { from { transform: translateX(-9px); } to { transform: translateX(9px); } }
+            .art-drift { animation: lune 11s ease-in-out infinite alternate; }
+            @keyframes lune { from { transform: translateY(0); } to { transform: translateY(7px); } }
+            .art-lune-halo { transform-origin: 292px 112px; transform-box: view-box; animation: halo 11s ease-in-out 2.2s infinite; }
+            @keyframes halo { 0% { transform: scale(.6); opacity: 0; } 38% { opacity: .3; } 100% { transform: scale(1.6); opacity: 0; } }
+            .art-etoile { animation: art-in 1.2s var(--ease) var(--dd) forwards, scintille 9s ease-in-out 3s infinite alternate; }
+            @keyframes scintille { from { opacity: .25; } to { opacity: .75; } }
 
             /* La révélation est "armée" par le script, jamais par le CSS seul :
                sans JS, ou si l'observateur ne se déclenche pas, la page reste
@@ -803,13 +807,12 @@
 
         @supports (animation-timeline: view()) {
             @media (prefers-reduced-motion: no-preference) {
-                .spiral-turn {
-                    transform-origin: 50% 50%;
-                    animation: scrollturn linear both;
+                .art-scroll {
+                    animation: art-parallaxe linear both;
                     animation-timeline: view();
                     animation-range: entry 0% exit 100%;
                 }
-                @keyframes scrollturn { from { transform: rotate(-9deg); } to { transform: rotate(16deg); } }
+                @keyframes art-parallaxe { from { transform: translateY(4%); } to { transform: translateY(-5%); } }
 
                 .chiffre {
                     animation: chiffre-parallaxe linear both;
@@ -876,19 +879,20 @@
 
             <div class="spiralbox" aria-hidden="true">
                 <svg viewBox="0 0 400 400" role="presentation" focusable="false">
-                    <defs>
-                        <path id="cercle-mots" d="M200,200 m-172,0 a172,172 0 1,1 344,0 a172,172 0 1,1 -344,0"/>
-                    </defs>
-                    <g class="spiral-turn">
-                        <g class="spiral-breathe">
-                            <path id="spiral-path" d="M200 193"/>
-                            <circle class="spiral-halo" cx="200" cy="200" r="150"/>
-                            <circle class="spiral-core" cx="200" cy="193" r="4.5"/>
+                    <defs><path id="arc-mots" d="M7.5 165.2 A235 235 0 0 1 392.5 165.2"/></defs>
+                    <g class="art-scroll">
+                        <g class="art-drift">
+                            <circle class="art-halo art-lune-halo" cx="292" cy="112" r="22"/>
+                            <circle class="art-core" cx="292" cy="112" r="9" style="--dd:.6s"/>
                         </g>
+                        <circle class="art-core art-etoile" cx="96" cy="88" r="1.8" style="--dd:1.4s;--o:.7"/>
+                        <circle class="art-core art-etoile" cx="150" cy="136" r="1.4" style="--dd:1.8s;--o:.5"/>
+                        <circle class="art-core art-etoile" cx="352" cy="170" r="1.6" style="--dd:2.1s;--o:.6"/>
+                        <g class="art-vague art-vague-1"><path class="art-line" data-draw d="M-40.0 202.1 L-36.0 202.0 L-32.0 202.3 L-28.0 203.0 L-24.0 204.0 L-20.0 205.3 L-16.0 206.9 L-12.0 208.7 L-8.0 210.7 L-4.0 212.8 L0.0 215.0 L4.0 217.2 L8.0 219.3 L12.0 221.3 L16.0 223.1 L20.0 224.7 L24.0 226.0 L28.0 227.0 L32.0 227.7 L36.0 228.0 L40.0 227.9 L44.0 227.5 L48.0 226.8 L52.0 225.7 L56.0 224.3 L60.0 222.6 L64.0 220.8 L68.0 218.8 L72.0 216.6 L76.0 214.5 L80.0 212.3 L84.0 210.2 L88.0 208.3 L92.0 206.5 L96.0 205.0 L100.0 203.7 L104.0 202.8 L108.0 202.2 L112.0 202.0 L116.0 202.1 L120.0 202.6 L124.0 203.5 L128.0 204.6 L132.0 206.1 L136.0 207.8 L140.0 209.7 L144.0 211.8 L148.0 213.9 L152.0 216.1 L156.0 218.2 L160.0 220.3 L164.0 222.2 L168.0 223.9 L172.0 225.4 L176.0 226.5 L180.0 227.4 L184.0 227.9 L188.0 228.0 L192.0 227.8 L196.0 227.2 L200.0 226.3 L204.0 225.0 L208.0 223.5 L212.0 221.7 L216.0 219.8 L220.0 217.7 L224.0 215.5 L228.0 213.4 L232.0 211.2 L236.0 209.2 L240.0 207.4 L244.0 205.7 L248.0 204.3 L252.0 203.2 L256.0 202.5 L260.0 202.1 L264.0 202.0 L268.0 202.3 L272.0 203.0 L276.0 204.0 L280.0 205.3 L284.0 206.9 L288.0 208.7 L292.0 210.7 L296.0 212.8 L300.0 215.0 L304.0 217.2 L308.0 219.3 L312.0 221.3 L316.0 223.1 L320.0 224.7 L324.0 226.0 L328.0 227.0 L332.0 227.7 L336.0 228.0 L340.0 227.9 L344.0 227.5 L348.0 226.8 L352.0 225.7 L356.0 224.3 L360.0 222.6 L364.0 220.8 L368.0 218.8 L372.0 216.6 L376.0 214.5 L380.0 212.3 L384.0 210.2 L388.0 208.3 L392.0 206.5 L396.0 205.0 L400.0 203.7 L404.0 202.8 L408.0 202.2 L412.0 202.0 L416.0 202.1 L420.0 202.6 L424.0 203.5 L428.0 204.6 L432.0 206.1 L436.0 207.8 L440.0 209.7" style="--dd:.15s"/></g>
+                        <g class="art-vague art-vague-2"><path class="art-line" data-draw d="M-40.0 255.5 L-36.0 257.3 L-32.0 259.3 L-28.0 261.4 L-24.0 263.5 L-20.0 265.6 L-16.0 267.5 L-12.0 269.3 L-8.0 270.7 L-4.0 271.8 L0.0 272.6 L4.0 273.0 L8.0 272.9 L12.0 272.5 L16.0 271.6 L20.0 270.4 L24.0 268.9 L28.0 267.2 L32.0 265.2 L36.0 263.1 L40.0 261.0 L44.0 258.9 L48.0 256.9 L52.0 255.2 L56.0 253.6 L60.0 252.4 L64.0 251.6 L68.0 251.1 L72.0 251.0 L76.0 251.4 L80.0 252.1 L84.0 253.2 L88.0 254.7 L92.0 256.4 L96.0 258.3 L100.0 260.4 L104.0 262.5 L108.0 264.6 L112.0 266.6 L116.0 268.4 L120.0 270.0 L124.0 271.3 L128.0 272.3 L132.0 272.8 L136.0 273.0 L140.0 272.8 L144.0 272.1 L148.0 271.1 L152.0 269.7 L156.0 268.1 L160.0 266.2 L164.0 264.2 L168.0 262.1 L172.0 259.9 L176.0 257.9 L180.0 256.0 L184.0 254.4 L188.0 253.0 L192.0 251.9 L196.0 251.3 L200.0 251.0 L204.0 251.1 L208.0 251.7 L212.0 252.6 L216.0 253.9 L220.0 255.5 L224.0 257.3 L228.0 259.3 L232.0 261.4 L236.0 263.5 L240.0 265.6 L244.0 267.5 L248.0 269.3 L252.0 270.7 L256.0 271.8 L260.0 272.6 L264.0 273.0 L268.0 272.9 L272.0 272.5 L276.0 271.6 L280.0 270.4 L284.0 268.9 L288.0 267.2 L292.0 265.2 L296.0 263.1 L300.0 261.0 L304.0 258.9 L308.0 256.9 L312.0 255.2 L316.0 253.6 L320.0 252.4 L324.0 251.6 L328.0 251.1 L332.0 251.0 L336.0 251.4 L340.0 252.1 L344.0 253.2 L348.0 254.7 L352.0 256.4 L356.0 258.3 L360.0 260.4 L364.0 262.5 L368.0 264.6 L372.0 266.6 L376.0 268.4 L380.0 270.0 L384.0 271.3 L388.0 272.3 L392.0 272.8 L396.0 273.0 L400.0 272.8 L404.0 272.1 L408.0 271.1 L412.0 269.7 L416.0 268.1 L420.0 266.2 L424.0 264.2 L428.0 262.1 L432.0 259.9 L436.0 257.9 L440.0 256.0" style="--dd:.5s"/></g>
+                        <g class="art-vague art-vague-3"><path class="art-line" data-draw d="M-40.0 310.9 L-36.0 312.8 L-32.0 314.5 L-28.0 315.9 L-24.0 317.0 L-20.0 317.7 L-16.0 318.0 L-12.0 317.9 L-8.0 317.3 L-4.0 316.4 L0.0 315.1 L4.0 313.5 L8.0 311.7 L12.0 309.8 L16.0 307.8 L20.0 305.9 L24.0 304.1 L28.0 302.6 L32.0 301.4 L36.0 300.5 L40.0 300.1 L44.0 300.0 L48.0 300.4 L52.0 301.2 L56.0 302.4 L60.0 303.9 L64.0 305.6 L68.0 307.5 L72.0 309.5 L76.0 311.4 L80.0 313.2 L84.0 314.8 L88.0 316.2 L92.0 317.2 L96.0 317.8 L100.0 318.0 L104.0 317.8 L108.0 317.1 L112.0 316.1 L116.0 314.7 L120.0 313.1 L124.0 311.2 L128.0 309.3 L132.0 307.3 L136.0 305.4 L140.0 303.7 L144.0 302.3 L148.0 301.1 L152.0 300.4 L156.0 300.0 L160.0 300.1 L164.0 300.6 L168.0 301.5 L172.0 302.7 L176.0 304.3 L180.0 306.1 L184.0 308.0 L188.0 309.9 L192.0 311.9 L196.0 313.6 L200.0 315.2 L204.0 316.5 L208.0 317.4 L212.0 317.9 L216.0 318.0 L220.0 317.6 L224.0 316.9 L228.0 315.8 L232.0 314.3 L236.0 312.6 L240.0 310.7 L244.0 308.8 L248.0 306.8 L252.0 305.0 L256.0 303.3 L260.0 302.0 L264.0 300.9 L268.0 300.2 L272.0 300.0 L276.0 300.2 L280.0 300.8 L284.0 301.8 L288.0 303.1 L292.0 304.7 L296.0 306.5 L300.0 308.5 L304.0 310.4 L308.0 312.3 L312.0 314.1 L316.0 315.6 L320.0 316.7 L324.0 317.5 L328.0 318.0 L332.0 317.9 L336.0 317.5 L340.0 316.6 L344.0 315.4 L348.0 313.9 L352.0 312.2 L356.0 310.3 L360.0 308.3 L364.0 306.4 L368.0 304.6 L372.0 303.0 L376.0 301.7 L380.0 300.7 L384.0 300.1 L388.0 300.0 L392.0 300.3 L396.0 301.0 L400.0 302.1 L404.0 303.5 L408.0 305.2 L412.0 307.0 L416.0 309.0 L420.0 310.9 L424.0 312.8 L428.0 314.5 L432.0 315.9 L436.0 317.0 L440.0 317.7" style="--dd:.85s"/></g>
                     </g>
-                    <g class="spiral-mots">
-                        <text><textPath href="#cercle-mots" startOffset="0">ralentir &middot; relâcher &middot; s'endormir &middot; ralentir &middot; relâcher &middot; s'endormir &middot;</textPath></text>
-                    </g>
+                    <g class="art-mots"><text><textPath href="#arc-mots" startOffset="0">ralentir &middot; relâcher &middot; s'endormir &middot; ralentir &middot; relâcher &middot; s'endormir &middot;</textPath></text></g>
                 </svg>
             </div>
         </div>
@@ -1378,22 +1382,10 @@
 
         var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Spirale d'Archimède : une seule courbe de 5,2 tours, dessinée au chargement.
-        (function () {
-            var pts = [], turns = 5.2, steps = 1100, b = 27, a = 7, i, t, r;
-            for (i = 0; i <= steps; i += 4) {
-                t = (i / steps) * turns * 2 * Math.PI;
-                r = a + b * t / (2 * Math.PI);
-                pts.push([(200 + r * Math.cos(t - Math.PI / 2)).toFixed(1), (200 + r * Math.sin(t - Math.PI / 2)).toFixed(1)]);
-            }
-            var d = 'M' + pts[0][0] + ' ' + pts[0][1];
-            for (i = 1; i < pts.length; i++) { d += 'L' + pts[i][0] + ' ' + pts[i][1]; }
-            var p = document.getElementById('spiral-path');
-            if (p) {
-                p.setAttribute('d', d);
-                if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
-            }
-        })();
+        // Tracés du hero : la longueur réelle de chaque chemin pilote son animation de dessin.
+        document.querySelectorAll('[data-draw]').forEach(function (p) {
+            if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
+        });
 
         // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.
