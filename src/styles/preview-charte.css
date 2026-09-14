@@ -757,7 +757,16 @@
   .cz .nav__cta .btn { justify-content: center; }
   .cz .container { padding: 0 24px; }
   .cz section { padding: 88px 0; scroll-margin-top: 70px; }
-  .cz .hero { padding: 120px 0 0; }
+  /* Hero mobile compacté : en une seule colonne, la carte « La première séance »
+     (durée, tarif 90 €, adresse) tombait entièrement sous la ligne de flottaison.
+     On resserre le haut du hero pour qu'elle amorce le premier écran. */
+  .cz .hero { padding: 96px 0 0; min-height: auto; }
+  .cz .hero__container { gap: 26px; padding-bottom: 64px; }
+  .cz .hero__panel { padding: 32px 26px; }
+  .cz .hero__cta { margin-top: 28px; }
+  .cz .hero__card { padding: 26px 24px; }
+  .cz .hero__card-quote { font-size: 19px; margin: 14px 0 18px; }
+  .cz .hero__card-row { padding: 10px 0; }
   /* Lisibilité mobile : labels passent en texte foncé (contraste AA) */
   .cz .hero__card-row span:first-child { color: var(--cobalt-2); opacity: .72; }
   .cz .tarif-card li { opacity: 1; color: var(--cobalt-2); }
