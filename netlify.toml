@@ -692,6 +692,13 @@
   status = 200
   force = true
 
+# Landing page anxiété (URL directe Google Ads)
+[[redirects]]
+  from = "/anxiete-hypnose-paris.html"
+  to = "/anxiete-hypnose-paris.html"
+  status = 200
+  force = true
+
 
 # Redirection pour les SPA (uniquement les routes non-HTML)
 [[redirects]]
