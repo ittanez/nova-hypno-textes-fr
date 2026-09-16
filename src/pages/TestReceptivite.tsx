@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -21,6 +21,12 @@ import { logger } from '@/lib/logger';
 const TestReceptivite = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'vakog' | 'email' | 'results'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // Transition orientée entre étapes : avant → glisse depuis la droite, retour → depuis la gauche.
+  const stepOrder: Record<string, number> = { questions: 1, vakog: 5, email: 6, results: 7 };
+  const stepPos = currentStep === 'questions' ? 1 + Math.floor(currentQuestionIndex / 10) : (stepOrder[currentStep] ?? 0);
+  const prevStepPos = useRef(stepPos);
+  const stepDir = stepPos >= prevStepPos.current ? 'animate-step-in' : 'animate-step-back';
+  prevStepPos.current = stepPos;
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -166,6 +172,7 @@ const TestReceptivite = () => {
             </>
           ) : (
             <div className="container mx-auto px-4 py-16 bg-gray-50 min-h-screen">
+             <div key={stepPos} className={stepDir}>
               {currentStep === 'questions' && (
                 <QuestionStep
                   currentQuestionIndex={currentQuestionIndex}
@@ -204,6 +211,7 @@ const TestReceptivite = () => {
                   email={email}
                 />
               )}
+             </div>
             </div>
           )}
         </main>

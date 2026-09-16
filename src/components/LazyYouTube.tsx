@@ -51,7 +51,7 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = "
             className="w-full aspect-[9/16] object-cover rounded-lg"
             loading="lazy"
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg group-hover:bg-opacity-60 transition-all">
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg group-hover:bg-opacity-60 transition">
             <div className="bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform">
               <Play className="text-white" size={32} fill="currentColor" />
             </div>

@@ -11,6 +11,8 @@ export default {
 		"./src/**/*.{ts,tsx}",
 	],
 	prefix: "",
+	// hover: uniquement sur les pointeurs qui le supportent (évite l'état collé après un tap)
+	future: { hoverOnlyWhenSupported: true },
 	theme: {
 		container: {
 			center: true,
@@ -102,6 +104,14 @@ export default {
 						height: '0'
 					}
 				},
+				'step-in': {
+					from: { opacity: '0', transform: 'translateX(16px)' },
+					to: { opacity: '1', transform: 'translateX(0)' }
+				},
+				'step-back': {
+					from: { opacity: '0', transform: 'translateX(-16px)' },
+					to: { opacity: '1', transform: 'translateX(0)' }
+				},
 				'fade-in': {
 					'0%': {
 						opacity: '0',
@@ -116,7 +126,16 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out'
+				'fade-in': 'fade-in 0.5s ease-out',
+				// Le chevron « défiler » rebondit trois fois puis se pose : pas de boucle infinie
+				'bounce-3': 'bounce 1s ease-in-out 3',
+				'step-in': 'step-in 0.2s cubic-bezier(0.23, 1, 0.32, 1) both',
+				'step-back': 'step-back 0.2s cubic-bezier(0.23, 1, 0.32, 1) both'
+			},
+			transitionTimingFunction: {
+				// Courbes fortes (skills .agents/skills/animate) : entrées/sorties et mouvement à l'écran
+				'out-strong': 'cubic-bezier(0.23, 1, 0.32, 1)',
+				'in-out-strong': 'cubic-bezier(0.77, 0, 0.175, 1)'
 			},
 			fontFamily: {
 				'serif': ['Playfair Display', 'serif'],

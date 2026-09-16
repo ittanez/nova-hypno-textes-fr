@@ -375,7 +375,7 @@ const QuestionnaireEbook = () => {
               aria-valuemax={100}
             >
               <div
-                className="h-full bg-gradient-to-r from-nova-blue to-nova-orange transition-all duration-500 ease-out"
+                className="h-full bg-gradient-to-r from-nova-blue to-nova-orange transition duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -465,7 +465,7 @@ const RadioGroup = ({ name, value, onChange, options }: RadioGroupProps) => (
           key={opt.value}
           type="button"
           onClick={() => onChange(opt.value)}
-          className={`w-full text-left px-5 py-4 rounded-xl border-2 transition-all ${
+          className={`w-full text-left px-5 py-4 rounded-xl border-2 transition active:scale-[0.97] ${
             selected
               ? "border-nova-orange bg-orange-50 text-nova-blue-dark font-semibold"
               : "border-gray-200 hover:border-nova-blue hover:bg-gray-50 text-gray-700"
@@ -513,7 +513,7 @@ const CheckboxGroup = ({ value, onChange, options }: CheckboxGroupProps) => {
             key={opt}
             type="button"
             onClick={() => toggle(opt)}
-            className={`text-left px-4 py-3 rounded-xl border-2 transition-all ${
+            className={`text-left px-4 py-3 rounded-xl border-2 transition active:scale-[0.97] ${
               isSelected
                 ? "border-nova-orange bg-orange-50 text-nova-blue-dark font-semibold"
                 : "border-gray-200 hover:border-nova-blue hover:bg-gray-50 text-gray-700"

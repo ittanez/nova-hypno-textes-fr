@@ -85,9 +85,9 @@ const SessionProcess = () => {
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className="step mb-12 relative opacity-0 transform -translate-x-12 transition-all duration-600"
+                className="step mb-12 relative opacity-0 transform -translate-x-12"
                 style={{
-                  transition: 'all 0.6s ease-out'
+                  transition: 'opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out)'
                 }}
               >
                 <div className="absolute -left-[10px] top-0 w-3 h-3 rounded-full bg-nova-blue border-2 border-white"></div>

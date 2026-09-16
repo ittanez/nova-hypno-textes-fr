@@ -216,7 +216,7 @@ const CommuteMap: React.FC = () => {
               <button
                 key={mode.id}
                 onClick={() => handleModeChange(mode.id)}
-                className={`flex flex-col items-center justify-center p-3 rounded-lg border-2 transition-all ${
+                className={`flex flex-col items-center justify-center p-3 rounded-lg border-2 transition ${
                   selectedMode === mode.id
                     ? 'border-nova-blue bg-blue-50 text-nova-blue'
                     : 'border-gray-300 hover:border-gray-400 text-gray-600'

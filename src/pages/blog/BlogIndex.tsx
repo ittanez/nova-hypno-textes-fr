@@ -231,7 +231,7 @@ const BlogIndex = () => {
                 setSelectedCategory("");
                 setCurrentPage(1);
               }}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition ${
                 selectedCategory === ""
                   ? "bg-blue-500 text-white shadow-lg"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -244,7 +244,7 @@ const BlogIndex = () => {
               <Link
                 key={name}
                 to={`/blog/categorie/${slug}`}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition ${
                   selectedCategory === name
                     ? "bg-blue-500 text-white shadow-lg"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -256,7 +256,7 @@ const BlogIndex = () => {
 
             <Link
               to="/blog/categories"
-              className="px-6 py-2 rounded-full text-sm font-medium transition-all bg-gray-50 text-blue-600 hover:bg-blue-50 border border-blue-200"
+              className="px-6 py-2 rounded-full text-sm font-medium transition active:scale-[0.97] bg-gray-50 text-blue-600 hover:bg-blue-50 border border-blue-200"
             >
               Toutes les catégories
             </Link>
@@ -298,7 +298,7 @@ const BlogIndex = () => {
                   <Link
                     key={article.id}
                     to={`/blog/article/${article.slug}`}
-                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                    className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 hover:-translate-y-2"
                   >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
@@ -356,7 +356,7 @@ const BlogIndex = () => {
                         )}
                       </div>
 
-                      <div className="mt-4 flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
+                      <div className="mt-4 flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition">
                         Lire l'article
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                       </div>

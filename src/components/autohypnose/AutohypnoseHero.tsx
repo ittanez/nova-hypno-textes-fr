@@ -82,7 +82,7 @@ const Hero = memo(() => {
         </div>
       </div>
 
-      <div className="absolute bottom-10 w-full flex justify-center animate-bounce z-10">
+      <div className="absolute bottom-10 w-full flex justify-center animate-bounce-3 z-10">
         <a
           href="#roadmap"
           className="focus:outline-none focus:ring-2 focus:ring-white rounded-full p-2"

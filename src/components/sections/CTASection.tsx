@@ -25,7 +25,7 @@ const CTASection: React.FC = () => {
           <a
             href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
                 onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 hover:bg-gray-100 rounded-lg text-lg font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl transform hover:scale-105"
             onClick={() => trackCTAClick('resalib_booking', 'cta_section')}
           >
             <Calendar size={24} />
@@ -33,7 +33,7 @@ const CTASection: React.FC = () => {
           </a>
           <a
             href="tel:0649358089"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-lg text-lg font-semibold transition active:scale-[0.97]"
             onClick={() => trackCTAClick('phone_call', 'cta_section')}
           >
             <Phone size={24} />

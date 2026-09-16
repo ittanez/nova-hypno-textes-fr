@@ -74,7 +74,7 @@ const HeroSection = ({ onStartTest }: HeroSectionProps) => {
                 <Button
                   onClick={onStartTest}
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white font-bold px-8 py-7 text-lg rounded-lg shadow-lg transition-all duration-200"
+                  className="bg-blue-600 hover:bg-blue-700 hover:scale-105 text-white font-bold px-8 py-7 text-lg rounded-lg shadow-lg transition active:scale-[0.97] duration-200"
                 >
                   🧠 Test Gratuit
                 </Button>

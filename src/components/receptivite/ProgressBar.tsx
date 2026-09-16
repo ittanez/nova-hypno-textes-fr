@@ -18,7 +18,7 @@ const ProgressBar = ({ currentStep, totalSteps }: ProgressBarProps) => {
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2.5">
         <div
-          className="bg-nova-blue h-2.5 rounded-full transition-all duration-300"
+          className="bg-nova-blue h-2.5 rounded-full transition-[width] duration-300"
           style={{ width: `${progress}%` }}
         ></div>
       </div>

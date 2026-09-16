@@ -24,7 +24,7 @@
   --f-sans:  "DM Sans", system-ui, sans-serif;
 
   --r-pill:  999px;
-  --ease:    cubic-bezier(.4,0,.2,1);
+  --ease:    cubic-bezier(.23,1,.32,1); /* sortant fort, même courbe que le reste du site */
 
   background: var(--lin);
   color: var(--corps);
@@ -129,8 +129,14 @@
 .cz .nav__dropdown-arrow { font-size: 10px; transition: transform .25s; }
 .cz .nav__dropdown.open .nav__dropdown-arrow { transform: rotate(180deg); }
 .cz .nav__dropdown-menu {
-  display: none;
-  position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%);
+  /* Toujours rendu, masqué par visibilité : l'ouverture s'anime depuis son
+     déclencheur (échelle .97 → 1, origine en haut), 180 ms, sortant fort. */
+  display: flex; flex-direction: column;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  position: absolute; top: calc(100% + 14px); left: 50%;
+  transform: translateX(-50%) translateY(-4px) scale(.97);
+  transform-origin: top center;
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility .18s;
   background: var(--lin); border: 1px solid rgba(43,75,160,.12);
   border-radius: 12px; padding: 8px 0; min-width: 220px;
   box-shadow: 0 8px 32px rgba(28,43,74,.12); z-index: 300;
@@ -140,7 +146,7 @@
 .cz .nav__dropdown-menu::before {
   content: ''; position: absolute; left: 0; right: 0; top: -14px; height: 14px;
 }
-.cz .nav__dropdown.open .nav__dropdown-menu { display: flex; flex-direction: column; }
+.cz .nav__dropdown.open .nav__dropdown-menu { visibility: visible; opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
 .cz .nav__dropdown-menu a {
   font-family: var(--f-sans); font-size: 13.5px; font-weight: 400;
   color: var(--texte); opacity: .8; padding: 10px 20px;
@@ -153,7 +159,7 @@
 /* Ouverture au survol sur desktop */
 @media (min-width: 761px) {
   .cz .nav__dropdown:hover .nav__dropdown-menu,
-  .cz .nav__dropdown:focus-within .nav__dropdown-menu { display: flex; flex-direction: column; }
+  .cz .nav__dropdown:focus-within .nav__dropdown-menu { visibility: visible; opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
   .cz .nav__dropdown:hover .nav__dropdown-arrow,
   .cz .nav__dropdown:focus-within .nav__dropdown-arrow { transform: rotate(180deg); }
 }
@@ -205,6 +211,7 @@
 .cz .btn--ghost:hover { border-color: var(--cobalt); color: var(--cobalt); transform: translate(-1px, -1px); }
 .cz .btn--amber { background: var(--amber); color: var(--cobalt-2); box-shadow: 4px 4px 0 rgba(242,161,46,.35); }
 .cz .btn--amber:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(242,161,46,.5); }
+.cz .btn:active { transform: translate(0, 0) scale(.97); transition-duration: .16s; }
 .cz .btn .arrow { transition: transform .3s var(--ease); }
 .cz .btn:hover .arrow { transform: translateX(4px); }
 
@@ -587,7 +594,13 @@
   display: inline-block; transition: transform .25s var(--ease);
 }
 .cz .faq-q.open .faq-chevron { transform: rotate(45deg); }
-.cz .faq-a { font-size: 15px; line-height: 1.8; color: var(--corps); opacity: .78; padding-bottom: 26px; max-width: 680px; }
+.cz .faq-a { font-size: 15px; line-height: 1.8; color: var(--corps); opacity: .78; padding-bottom: 26px; max-width: 680px; animation: cz-fade-in .32s var(--ease) both; }
+/* Entrée douce d'un contenu qui apparaît (réponse FAQ, sous-menu) */
+@keyframes cz-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: var(--o-fin, 1); transform: none; }
+}
+.cz .faq-a { --o-fin: .78; }
 
 /* ============================================================
    CONTACT
@@ -721,19 +734,22 @@
   .cz .nav { position: fixed; inset: 0 0 auto 0; background: var(--lin); border-bottom: 1px solid rgba(28,43,74,.08); z-index: 100; padding: 18px 0; }
   .cz .nav__burger { display: flex; }
   .cz .nav__links {
-    display: none;
+    /* Entrée/sortie en opacité + translation (200 ms), jamais un display qui saute */
+    display: flex;
+    visibility: hidden; opacity: 0; transform: translateY(-8px); pointer-events: none;
+    transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
     position: absolute; top: 100%; left: 0; right: 0;
     background: var(--lin); padding: 24px 24px 28px;
     border-bottom: 1px solid rgba(28,43,74,.1);
     flex-direction: column; align-items: stretch; gap: 18px;
     box-shadow: 0 14px 24px rgba(28,43,74,.06);
   }
-  .cz .nav__links.open { display: flex; }
+  .cz .nav__links.open { visibility: visible; opacity: 1; transform: none; pointer-events: auto; }
   .cz .nav__links a { font-size: 15px; opacity: .9; padding: 6px 0; }
   .cz .nav__dropdown { width: 100%; }
   .cz .nav__dropdown-toggle { font-size: 15px; opacity: .9; padding: 6px 0; width: 100%; justify-content: space-between; }
-  .cz .nav__dropdown-menu { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; background: transparent; padding: 0 0 0 16px; min-width: auto; }
-  .cz .nav__dropdown.open .nav__dropdown-menu { display: flex; }
+  .cz .nav__dropdown-menu { display: none; position: static; transform: none; visibility: visible; opacity: 1; pointer-events: auto; transition: none; box-shadow: none; border: none; border-radius: 0; background: transparent; padding: 0 0 0 16px; min-width: auto; }
+  .cz .nav__dropdown.open .nav__dropdown-menu { display: flex; transform: none; animation: cz-fade-in .22s var(--ease) both; }
   .cz .nav__dropdown-menu a { font-size: 14px; padding: 5px 0; }
   .cz .nav__dropdown-sep { margin: 8px 0; }
   .cz .nav .btn { padding: 10px 18px; font-size: 12px; }
@@ -741,11 +757,24 @@
   .cz .nav__cta .btn { justify-content: center; }
   .cz .container { padding: 0 24px; }
   .cz section { padding: 88px 0; scroll-margin-top: 70px; }
-  .cz .hero { padding: 120px 0 0; }
-  /* Lisibilité mobile : labels passent en texte foncé (contraste AA) */
+  /* Hero mobile compacté : en une seule colonne, la carte « La première séance »
+     (durée, tarif 90 €, adresse) tombait entièrement sous la ligne de flottaison.
+     On resserre le haut du hero pour qu'elle amorce le premier écran. */
+  .cz .hero { padding: 96px 0 0; min-height: auto; }
+  .cz .hero__container { gap: 26px; padding-bottom: 64px; }
+  .cz .hero__panel { padding: 32px 26px; }
+  .cz .hero__cta { margin-top: 28px; }
+  .cz .hero__card { padding: 26px 24px; }
+  .cz .hero__card-quote { font-size: 19px; margin: 14px 0 18px; }
+  .cz .hero__card-row { padding: 10px 0; }
+  /* Lisibilité mobile : labels passent en texte foncé (contraste AA).
+     La carte mise en avant est sur fond cobalt : elle garde son texte clair,
+     sans quoi le détail des séances devient illisible (bleu sombre sur bleu). */
   .cz .hero__card-row span:first-child { color: var(--cobalt-2); opacity: .72; }
-  .cz .tarif-card li { opacity: 1; color: var(--cobalt-2); }
-  .cz .tarif-desc { color: var(--cobalt-2) !important; opacity: .8; }
+  .cz .tarif-card:not(.tarif-card--featured) li { opacity: 1; color: var(--cobalt-2); }
+  .cz .tarif-card:not(.tarif-card--featured) .tarif-desc { color: var(--cobalt-2) !important; opacity: .8; }
+  .cz .tarif-card--featured li { opacity: 1; color: var(--lin); }
+  .cz .tarif-card--featured .tarif-desc { color: rgba(240,236,227,.8) !important; }
   /* CTA flottant : visible sur mobile uniquement, espace dans le footer */
   .cz .floating-cta { display: inline-flex; }
   .cz .foot { padding-bottom: 120px; }

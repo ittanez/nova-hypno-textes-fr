@@ -40,11 +40,14 @@ const FAQSection: React.FC = () => {
                   }
                 </button>
                 <div
-                  className={`px-6 overflow-hidden transition-all duration-300 ${
-                    openFaqIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out-strong ${
+                    openFaqIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}
+                  aria-hidden={openFaqIndex !== index}
                 >
-                  <p className="text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
+                  <div className="overflow-hidden min-h-0">
+                    <p className="px-6 pb-6 text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
+                  </div>
                 </div>
               </div>
             ))}

@@ -76,13 +76,16 @@ const BlogArticleFAQ: React.FC<BlogArticleFAQProps> = ({ items, articleUrl }) =>
             </button>
             <div
               id={`blog-faq-answer-${index}`}
-              className={`px-5 overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-[500px] pb-5' : 'max-h-0'
+              className={`grid transition-[grid-template-rows] duration-300 ease-out-strong ${
+                openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
               }`}
               role="region"
               aria-labelledby={`blog-faq-question-${index}`}
+              aria-hidden={openIndex !== index}
             >
-              <p className="text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
+              <div className="overflow-hidden min-h-0">
+                <p className="px-5 pb-5 text-gray-600 leading-relaxed whitespace-pre-line">{item.answer}</p>
+              </div>
             </div>
           </div>
         ))}

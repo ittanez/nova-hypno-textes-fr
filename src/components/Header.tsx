@@ -82,7 +82,7 @@ const Header: React.FC = () => {
       </a>
 
       <header
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-50 transition-[background-color,box-shadow] duration-300 ${
           scrolled
             ? 'bg-white shadow-md py-2'
             : 'bg-white/95 backdrop-blur-sm shadow-sm py-2'

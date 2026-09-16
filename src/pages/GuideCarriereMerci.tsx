@@ -78,7 +78,7 @@ const GuideCarriereMerci: React.FC = () => {
             <div style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center' }}>
               <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(43,75,160,.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 28px', border: '2px solid rgba(43,75,160,.25)' }}>
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2B4BA0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
+                  <polyline className="merci-check" points="20 6 9 17 4 12" />
                 </svg>
               </div>
 

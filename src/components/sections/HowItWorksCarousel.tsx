@@ -121,7 +121,7 @@ const HowItWorksCarousel: React.FC = () => {
                   className="min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={`Slide ${index + 1}`}
                 >
-                  <span className={`block h-2 rounded-full transition-all ${
+                  <span className={`block h-2 rounded-full transition-[width,background-color] ${
                     currentHowItWorks === index ? 'w-5 bg-blue-500' : 'w-2 bg-gray-500'
                   }`} />
                 </button>

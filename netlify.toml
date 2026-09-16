@@ -661,6 +661,45 @@
   status = 200
   force = true
 
+# Landing pages Google Ads (HTML statiques dans public/, dérivées de anxiete-hypnose-paris.html)
+[[redirects]]
+  from = "/sommeil-hypnose-paris.html"
+  to = "/sommeil-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/peur-avion-hypnose-paris.html"
+  to = "/peur-avion-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/confiance-en-soi-hypnose-paris.html"
+  to = "/confiance-en-soi-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/prise-de-parole-hypnose-paris.html"
+  to = "/prise-de-parole-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/compulsions-alimentaires-hypnose-paris.html"
+  to = "/compulsions-alimentaires-hypnose-paris.html"
+  status = 200
+  force = true
+
+# Landing page anxiété (URL directe Google Ads)
+[[redirects]]
+  from = "/anxiete-hypnose-paris.html"
+  to = "/anxiete-hypnose-paris.html"
+  status = 200
+  force = true
+
+
 # Redirection pour les SPA (uniquement les routes non-HTML)
 [[redirects]]
   from = "/*"

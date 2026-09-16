@@ -58,7 +58,7 @@ export const QuestionStepTest = ({
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2.5">
           <div
-            className="bg-nova-blue h-2.5 rounded-full transition-all duration-500"
+            className="bg-nova-blue h-2.5 rounded-full transition-[width] duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -76,7 +76,7 @@ export const QuestionStepTest = ({
             <button
               key={value}
               onClick={() => handleSelect(value)}
-              className={`w-full py-4 px-6 rounded-lg text-left font-medium transition-all duration-200 border-2 ${
+              className={`w-full py-4 px-6 rounded-lg text-left font-medium transition active:scale-[0.97]-[width] duration-200 border-2 ${
                 selectedValue === value
                   ? 'bg-nova-blue text-white border-nova-blue shadow-md scale-[1.02]'
                   : 'bg-white text-nova-neutral-dark border-gray-200 hover:border-nova-blue hover:bg-nova-blue/5'

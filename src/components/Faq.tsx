@@ -101,15 +101,18 @@ const Faq = () => {
                     <ChevronDown className="text-nova-blue flex-shrink-0" size={20} aria-hidden="true" />
                   }
                 </button>
-                <div 
+                <div
                   id={`faq-answer-${index}`}
-                  className={`px-4 overflow-hidden transition-all duration-300 ${
-                    openIndex === index ? 'max-h-96 pb-4' : 'max-h-0'
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out-strong ${
+                    openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                   }`}
                   aria-labelledby={`faq-question-${index}`}
+                  aria-hidden={openIndex !== index}
                   role="region"
                 >
-                  <div className="whitespace-pre-line">{item.answer}</div>
+                  <div className="overflow-hidden min-h-0">
+                    <div className="px-4 pb-4 whitespace-pre-line">{item.answer}</div>
+                  </div>
                 </div>
               </div>
             ))}

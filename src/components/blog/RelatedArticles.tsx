@@ -62,7 +62,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
           <Link
             key={article.id}
             to={`/blog/article/${article.slug}`}
-            className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-gray-300"
+            className="block p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition duration-200 border border-gray-200 hover:border-gray-300"
           >
             <h4 className="font-medium text-gray-900 mb-2 line-clamp-1">
               {article.title}
