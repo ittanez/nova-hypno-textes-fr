@@ -42,9 +42,76 @@
       "mcp__Claude_Code_Remote__send_later",
       "mcp__Supabase__execute_sql",
       "mcp__Claude_Code_Remote__delete_trigger",
-      "mcp__Claude_Code_Remote__unsubscribe_pr_activity"
+      "mcp__Claude_Code_Remote__unsubscribe_pr_activity",
+      "Bash(git pull *)",
+      "Skill(firecrawl-scrape)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\zenat\\\\claude-seo\" && powershell -ExecutionPolicy Bypass -File install.ps1)",
+      "PowerShell(python -m pip install -q -r \"C:\\\\Users\\\\zenat\\\\.claude\\\\skills\\\\seo\\\\requirements.txt\" 2>&1)",
+      "PowerShell(python --version 2>&1; python -m pip --version 2>&1)",
+      "PowerShell(py *)",
+      "Bash(firecrawl scrape *)",
+      "Bash(npx tsc *)",
+      "PowerShell(head *)",
+      "PowerShell(git add *)",
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 30)",
+      "PowerShell(git push *)",
+      "PowerShell(npx tsc --noEmit 2>&1 | Select-Object -First 20)",
+      "mcp__claude_ai_Netlify__netlify-project-services-reader",
+      "mcp__claude_ai_Netlify__netlify-deploy-services-reader",
+      "WebSearch",
+      "Bash(pip install *)",
+      "Bash(playwright install *)",
+      "WebFetch(domain:www.hypnosesparis.com)",
+      "Bash(py --version)",
+      "WebFetch(domain:www.resalib.fr)",
+      "WebFetch(domain:mwhypnose.com)",
+      "WebFetch(domain:paris-therapie.fr)",
+      "WebFetch(domain:www.pages-jaunes.fr)",
+      "Bash(/c/Users/zenat/AppData/Local/Programs/Python/Python312-arm64/python.exe --version)",
+      "Bash(/c/Users/zenat/AppData/Local/Programs/Python/Python312-arm64/python.exe -c \"from playwright.sync_api import sync_playwright; print\\('playwright ok'\\)\")",
+      "WebFetch(domain:hypnose-therapeutique-paris.fr)",
+      "WebFetch(domain:hypnotiseurparis.fr)",
+      "Bash(cmd /c deploy-edge-functions.bat)",
+      "Bash(gh api *)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//tmp/**)",
+      "Bash(chmod +x gbp-lookup.sh)",
+      "Bash(GOOGLE_PLACES_API_KEY=AIzaSyDSpuF687hSpBVeMR3Np0UQrOyjgXTI5yY ./gbp-lookup.sh \"NovaHypnose\" \"16 rue Saint-Antoine Paris 4\")",
+      "PowerShell(python --version 2>&1)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:support.google.com)",
+      "PowerShell(git pull *)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const p=process.argv[1];const f=require('fs');if(f.existsSync(p)){const r=require('child_process').spawnSync(process.execPath,[p],{stdio:'inherit'});process.exit(r.status===null?1:r.status);}\" \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const p=process.argv[1];const f=require('fs');if(f.existsSync(p)){const r=require('child_process').spawnSync(process.execPath,[p],{stdio:'inherit'});process.exit(r.status===null?1:r.status);}\" \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Design deep pass"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: immediate-tier checks after Edit/Write/MultiEdit on UI files, full-rule deep pass on Stop."
 }
