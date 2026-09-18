@@ -1,0 +1,88 @@
+[Campaign]
+Campaign,Campaign Type,Campaign Status,Budget,Budget Type,Bid Strategy Type,Search Network,Display Network,Search Partners,Languages,Location,Start Date
+Anxiete Paris Search 2026,Search,Paused,3.30,Daily,Maximize conversions,On,Off,Off,French,"Paris,Ile-de-France,France",2026-09-10
+
+[Ad Groups]
+Campaign,Ad Group,Ad Group Status,Ad Group Type,Max CPC
+Anxiete Paris Search 2026,Anxiete Stress,Enabled,Standard,2.00
+Anxiete Paris Search 2026,Prise Parole Urgent,Enabled,Standard,1.80
+Anxiete Paris Search 2026,Prise Parole Large,Enabled,Standard,1.30
+Anxiete Paris Search 2026,Situations Precises,Enabled,Standard,2.20
+
+[Keywords]
+Campaign,Ad Group,Keyword,Criterion Type,Status
+Anxiete Paris Search 2026,Anxiete Stress,hypnose anxiété paris,Exact,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnothérapeute anxiété,Exact,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnose pour l'anxiété,Phrase,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnothérapie anxiété,Phrase,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnose anxiété généralisée,Phrase,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,séance hypnose anxiété,Phrase,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnose crise d'angoisse,Phrase,Enabled
+Anxiete Paris Search 2026,Anxiete Stress,hypnose stress paris,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,peur de parler en public paris,Exact,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,peur de prendre la parole,Exact,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,anxiete prise de parole public,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,stress presentation orale,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,panique parler devant groupe,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,trac reunion orale,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Urgent,hypnose peur parler public paris,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Large,prise de parole en public,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Large,prise de parole,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Large,hypnose prise de parole paris,Exact,Enabled
+Anxiete Paris Search 2026,Prise Parole Large,coach prise de parole,Phrase,Enabled
+Anxiete Paris Search 2026,Prise Parole Large,orateur formation paris,Phrase,Enabled
+Anxiete Paris Search 2026,Situations Precises,peur oral reunion,Exact,Enabled
+Anxiete Paris Search 2026,Situations Precises,stress presentation travail,Exact,Enabled
+Anxiete Paris Search 2026,Situations Precises,phobie presentation powerpoint,Phrase,Enabled
+Anxiete Paris Search 2026,Situations Precises,angoisse pitch commercial,Phrase,Enabled
+Anxiete Paris Search 2026,Situations Precises,nervosite entretien embauche,Phrase,Enabled
+Anxiete Paris Search 2026,Situations Precises,stress presentiel salle conference,Phrase,Enabled
+
+[Negative Keywords]
+Campaign,Ad Group,Keyword,Criterion Type,Status
+Anxiete Paris Search 2026,,gratuit,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,gratuite,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,formation,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,devenir hypnothérapeute,Campaign Negative Phrase,Enabled
+Anxiete Paris Search 2026,,école,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,cours,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,emploi,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,recrutement,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,pdf,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,livre,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,définition,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,wikipedia,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,symptômes,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,médicament,Campaign Negative Phrase,Enabled
+Anxiete Paris Search 2026,,enfant,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,auto-hypnose,Campaign Negative Phrase,Enabled
+Anxiete Paris Search 2026,,toastmasters,Campaign Negative Phrase,Enabled
+Anxiete Paris Search 2026,,exercice,Campaign Negative Broad,Enabled
+Anxiete Paris Search 2026,,DIY,Campaign Negative Broad,Enabled
+
+[Ads]
+Campaign,Ad Group,Ad Type,Status,Final URL,Path 1,Path 2,Headline 1,Headline 2,Headline 3,Headline 4,Headline 5,Headline 6,Headline 7,Headline 8,Headline 9,Headline 10,Headline 11,Headline 12,Description 1,Description 2,Description 3,Description 4
+Anxiete Paris Search 2026,Anxiete Stress,Responsive search ad,Enabled,https://novahypnose.fr/anxiete-hypnose-paris.html,anxiete,paris,Hypnose Anxiété à Paris,Retrouvez Votre Calme,Parcours en 3-5 Séances,Praticien Certifié Paris,Hypnose Ericksonienne,Cabinet Paris Bastille,Prenez Rendez-Vous,Apaiser les Crises d'Angoisse,Vaincre les Crises de Panique,Apaiser le Mental au Quotidien,Réservez Votre Séance,Alain Zenatti,Hypnose ericksonienne pour l'anxiété et les crises de panique. Parcours en 3 à 5 séances.,"Praticien certifié, approche bienveillante et rigoureuse. Cabinet Bastille ou en visio.",Retrouvez votre calme durablement. Prenez rendez-vous en ligne dès aujourd'hui.,Hypnothérapeute certifié à Paris 4e. Cabinet à Bastille ou séance en visio.
+Anxiete Paris Search 2026,Prise Parole Urgent,Responsive search ad,Enabled,https://novahypnose.fr/prise-de-parole-hypnose-paris.html,prise,parole,Parlez sans panique en 3-5 séances,Hypnose pour vaincre la peur de parler,Prise de parole fluide à Paris et en visio,Réunion, présentation, oral : on y va,90€/séance — 1h30 la première,Voix calme, idées claires, présence,Approche ericksonienne bienveillante,Hypnothérapeute certifié Paris 4,Cabinet Bastille ou en visio partout,Pas de pensée magique : du travail réel,Dès les premières séances : changement,Le stress de parler c'est du corps qui s'emballe,Le trac n'est pas une faiblesse : c'est naturel. L'hypnose ericksonienne agit sur le lien entre vos sensations physiques et votre parole.,"Parcours sur-mesure : 3 à 5 séances. Beaucoup de clients rapportent une prise de parole plus fluide dès les premières.",Praticien certifié, approche bienveillante et rigoureuse. Cabinet à Bastille (Paris 4e) ou en visio partout en France.,Prenez rendez-vous en ligne sans engagement. Annulation sans frais jusqu'à 48h avant.
+Anxiete Paris Search 2026,Prise Parole Large,Responsive search ad,Enabled,https://novahypnose.fr/prise-de-parole-hypnose-paris.html,prise,parole,Prise de parole en public à Paris,Hypnose ericksonienne pour orateur,Maître Praticien certifié,3 à 5 séances en moyenne,Cabinet Bastille et visio,90€ la séance,Aucun forfait imposé,Première séance 1h30,Travail sur-mesure à votre écoute,Résultats rapides et durables,Le trac avant de parler en public ? L'hypnose le transforme en apaisement. Approche naturelle sans substance.,"Accompagnement progressif : vous ne subissez jamais. Chaque séance s'adapte à votre histoire, vos déclencheurs, vos échéances.",Alain Zenatti, Maître Praticien en Hypnose Ericksonienne. Cabinet à Paris 4e ou en visio partout.,Réservez votre première séance. Annulation sans frais jusqu'à 48 heures avant.
+Anxiete Paris Search 2026,Situations Precises,Responsive search ad,Enabled,https://novahypnose.fr/prise-de-parole-hypnose-paris.html,prise,parole,Présentation importante dans 2 semaines ?,Oral, pitch, réunion : préparez ça,L'angoisse monte : on agit,Gorge nouée ? Mains tremblantes ? On arrange ça,Une séance suffit souvent pour passer de la sidération à la fluidité,Système nerveux calmé en 1 heure,Accompagnement immédiat depuis chez vous,Réflexe de panique neutralisé,Cabinet Bastille ou partout en visio,Maître Praticien Hypnose Ericksonienne,Créneaux disponibles rapidement,Chaque intervention face à un groupe déclenche du trac ? L'hypnose ericksonienne agit sur ce qui déclenche la peur : le regard du groupe, la peur de l'erreur, le souvenir mal vécu.,"Urgence proche ? Vous pouvez installer un premier ancrage de calme cette semaine avant votre présentation. Puis poursuivre le parcours après le jour J.",Praticien certifié, approche bienveillante et rigoureuse. Hypnothérapeute à Paris 4e, séances en cabinet ou en visio.,Appelez ou réservez en ligne. Discutez aussi par WhatsApp si vous préférez parler avant.
+
+[Callouts]
+Campaign,Callout text
+Anxiete Paris Search 2026,Cabinet Bastille ou visio
+Anxiete Paris Search 2026,Maître Praticien certifié
+Anxiete Paris Search 2026,Hypnose ericksonienne
+Anxiete Paris Search 2026,Auto-hypnose enseignée
+Anxiete Paris Search 2026,Suivi entre les séances
+Anxiete Paris Search 2026,Parcours sur mesure
+Anxiete Paris Search 2026,Paris 4e (Marais)
+Anxiete Paris Search 2026,Réservation en ligne
+
+[Sitelinks]
+Campaign,Sitelink text,Description line 1,Description line 2,Final URL
+Anxiete Paris Search 2026,Tarifs et formules,"90 € la séance, cabinet ou visio","Paiement, annulation, remboursement",https://novahypnose.fr/tarifs
+Anxiete Paris Search 2026,Avis de clients,Avis vérifiés clients,"Ce qu'ils écrivent, après",https://novahypnose.fr/avis
+Anxiete Paris Search 2026,Questions fréquentes,"L'hypnose, le cabinet, le déroulé",Les réponses avant de réserver,https://novahypnose.fr/faq
+Anxiete Paris Search 2026,Qui est Alain Zenatti,Maître Praticien en hypnose,"Parcours, spécialités, approche",https://novahypnose.fr/alain-zenatti
+Anxiete Paris Search 2026,Accès au cabinet,"16 rue Saint-Antoine, Paris 4e","Bastille et Marais, ou en visio",https://novahypnose.fr/zone-intervention
+Anxiete Paris Search 2026,Test de réceptivité,Évaluez votre réceptivité,"Quelques questions, en ligne",https://novahypnose.fr/test-receptivite
