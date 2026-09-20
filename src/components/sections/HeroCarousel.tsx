@@ -99,7 +99,7 @@ const HeroCarousel: React.FC = () => {
       {/* Conteneur de texte positionné en absolu pour éviter layout shift */}
       <div className="absolute bottom-20 md:bottom-24 left-0 right-0 z-10">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl w-full">
+          <div className="max-w-3xl w-full bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-10 lg:p-12 shadow-2xl">
             {/* H1 visible pour SEO et utilisateurs */}
             <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3 md:mb-4 drop-shadow-lg">Cabinet d'hypnothérapie à Paris 4ème &amp; en visio partout en France – Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose</h1>
 
