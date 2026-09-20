@@ -116,7 +116,12 @@ const HeroCarousel: React.FC = () => {
                     {slide.title}
                   </div>
                   <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md">
-                    {slide.description}
+                    {slide.description.split('plus léger').map((part, i, arr) => (
+                      <React.Fragment key={i}>
+                        {part}
+                        {i < arr.length - 1 && <span className="text-blue-400">plus léger</span>}
+                      </React.Fragment>
+                    ))}
                   </p>
                 </div>
               ))}

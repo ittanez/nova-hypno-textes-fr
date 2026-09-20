@@ -18,7 +18,7 @@ export const carouselSlides: CarouselSlide[] = [
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/alain.mp4',
     poster: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/alaincab.webp',
     title: 'ALAIN',
-    description: 'Un espace pour ralentir. Un accompagnement pour avancer plus léger.',
+    description: 'Un espace pour ralentir.\n\nUn accompagnement pour avancer plus léger.',
     alt: 'Alain Zenatti, hypnothérapeute à Paris 4ème dans son cabinet d\'hypnose Marais-Bastille'
   },
   {
