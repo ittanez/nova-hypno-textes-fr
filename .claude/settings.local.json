@@ -81,7 +81,9 @@
       "PowerShell(python --version 2>&1)",
       "WebFetch(domain:developers.google.com)",
       "WebFetch(domain:support.google.com)",
-      "PowerShell(git pull *)"
+      "PowerShell(git pull *)",
+      "Bash(npm run *)",
+      "Bash(git branch *)"
     ],
     "deny": [],
     "ask": []
