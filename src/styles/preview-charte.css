@@ -226,27 +226,22 @@
   padding: 160px 0 0;
   display: flex; align-items: stretch;
 }
-/* Les formes sont repoussées vers la droite et agrandies : la moitié gauche du
-   hero, où vit le nom, reste en lin nu. Sans ça le « atti » ambre disparaîtrait
-   sur la forme ambre une fois le panneau retiré. */
-.cz .hero__bg { position: absolute; inset: 0 -8% 0 22%; pointer-events: none; }
-@media (max-width: 1040px) { .cz .hero__bg { inset: 0; opacity: .5; } }
+.cz .hero__bg { position: absolute; inset: 0; pointer-events: none; }
 .cz .hero__bg svg { width: 100%; height: 100%; display: block; }
 
 .cz .hero__container { position: relative; z-index: 5; width: 100%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; padding-bottom: 100px; }
 
-/* Direction « Le Nom » : plus de panneau de verre. Le nom devient l'affiche
-   elle-même, posé à même le fond. Le panneau existait pour garantir la lisibilité
-   au-dessus des formes riso — c'est désormais le décalage des formes (voir
-   .hero__bg plus bas) qui s'en charge, en les tenant hors de la zone du nom. */
+/* Panneau de verre : il garantit la lisibilité du nom au-dessus des formes riso,
+   qui occupent toute la largeur du hero. Ne pas le retirer sans déplacer les
+   formes — sinon le « atti » ambre disparaît sur la forme ambre. */
 .cz .hero__panel {
   position: relative;
-  background: none;
-  backdrop-filter: none;
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-  padding: 0;
+  background: rgba(240, 236, 227, .82);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-radius: 28px;
+  padding: 44px 48px;
+  box-shadow: 0 24px 60px rgba(28,43,74,.08);
+  border: 1px solid rgba(255,255,255,.5);
 }
 
 .cz .tag {
@@ -267,11 +262,11 @@
 }
 .cz .hero__name .full {
   display: inline-block;
-  font-size: clamp(64px, 11vw, 178px);
+  font-size: clamp(72px, 10vw, 156px);
   font-weight: 400;
 }
-.cz .hero__name .zen { font-style: italic; font-weight: 500; color: var(--cobalt); position: relative; display: inline-block; }
-.cz .hero__name .atti { color: var(--amber); font-weight: 500; display: inline-block; }
+.cz .hero__name .zen { font-style: italic; font-weight: 500; color: var(--cobalt); position: relative; }
+.cz .hero__name .atti { color: var(--amber); font-weight: 500; }
 
 .cz .hero__rule {
   width: 90px; height: 2px; background: var(--amber); margin: 28px 0 24px;
@@ -292,86 +287,13 @@
 }
 .cz .hero__cta { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* ============================================================
-   MOUVEMENT DU HERO — direction « Le Nom »
-   Sept couches, du chargement au défilement. Le parallaxe des calques du SVG
-   est déjà pris en charge par PreviewCharte.tsx (transform posé en JS sur les
-   <g>) : ne rien animer en CSS sur ces mêmes éléments, les deux se marcheraient
-   dessus.
-
-   NOTE LCP — l'élément LCP de cette page est le nom. Le masque le laisse
-   invisible pendant 0,42 s + 0,8 s. Mesurer le LCP avant de pousser : si la
-   dégradation est réelle, réduire le délai à 0 et la durée à 0,5 s plutôt que
-   de renoncer à l'effet. Le commentaire d'origine (« pas d'animation reveal sur
-   le hero ») visait un fondu sur toute la section, pas ce tracé ciblé. */
-@media (prefers-reduced-motion: no-preference) {
-  /* Le fond se pose */
-  .cz .hero__bg { animation: cz-hero-fond 1.4s var(--ease) both; }
-  @keyframes cz-hero-fond { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: none; } }
-
-  /* Le nom se dévoile derrière un cache qui se retire, moitié par moitié : de
-     l'encre qui se pose de gauche à droite, pas un fondu.
-
-     C'est un cache posé PAR-DESSUS le texte, et non un masque appliqué AU texte
-     (clip-path), pour une raison précise : le nom est l'élément LCP de la page.
-     Avec un clip-path il ne serait pas peint tant que l'animation n'a pas
-     commencé, et le LCP reculerait d'une seconde. Ici le texte est peint dès la
-     première image ; seul le cache bouge. C'est ce que visait le commentaire
-     d'origine « pas d'animation reveal sur le hero » — l'effet est possible, à
-     condition de ne pas retarder la peinture du texte lui-même.
-
-     Le cache est en lin plein : il ne fonctionne que parce que les formes riso
-     ont été repoussées à droite et que le nom repose sur du lin nu. */
-  .cz .hero__name .zen,
-  .cz .hero__name .atti { position: relative; }
-  .cz .hero__name .zen::after,
-  .cz .hero__name .atti::after {
-    content: "";
-    position: absolute;
-    top: -.06em; bottom: -.06em; left: -.04em; right: -.04em;
-    background: var(--lin);
-    transform-origin: right center;
-    /* État par défaut : retiré. Le cache n'existe que le temps de l'animation,
-       grâce à fill-mode both qui tient l'image de départ pendant le délai. Si
-       les animations ne tournent pas du tout, le nom reste lisible. */
-    transform: scaleX(0);
-    animation: cz-encre .8s var(--ease) both;
-    pointer-events: none;
-  }
-  .cz .hero__name .zen::after  { animation-delay: .42s; }
-  .cz .hero__name .atti::after { animation-delay: .62s; }
-  @keyframes cz-encre { from { transform: scaleX(1); } to { transform: scaleX(0); } }
-
-  /* Respiration du nom : 11 s, 4 s d'expansion, 7 s de retour, amplitude 1,2 %.
-     Même rythme que la spirale de la landing anxiété. */
-  .cz .hero__name .full { transform-origin: left center; animation: cz-souffle-nom 11s ease-in-out 2.6s infinite; }
-  @keyframes cz-souffle-nom { 0% { transform: scale(1); } 36% { transform: scale(1.012); } 100% { transform: scale(1); } }
-
-  /* Le filet ambre se trace */
-  .cz .hero__rule { transform-origin: left center; transform: scaleX(0); animation: cz-trace .7s var(--ease) 1.5s forwards; }
-  @keyframes cz-trace { to { transform: scaleX(1); } }
-
-  /* Le reste monte en cascade */
-  .cz .tag,
-  .cz .hero__name .alain,
-  .cz .hero__lead,
-  .cz .hero__sub,
-  .cz .hero__cta { opacity: 0; animation: cz-monte .9s var(--ease) forwards; }
-  .cz .hero__name .alain { animation-delay: .25s; }
-  .cz .tag       { animation-delay: 1s; }
-  .cz .hero__lead { animation-delay: 1.65s; }
-  .cz .hero__sub  { animation-delay: 1.78s; }
-  .cz .hero__cta  { animation-delay: 1.9s; }
-  @keyframes cz-monte {
-    from { opacity: 0; transform: translateY(18px); filter: blur(7px); }
-    to   { opacity: 1; transform: none; filter: blur(0); }
-  }
-
-  /* La fiche monte, puis son ombre riso se décale : une impression mal calée
-     qui se révèle après coup. */
-  .cz .hero__card { animation: cz-monte .9s var(--ease) 1.75s both, cz-ombre-riso .6s var(--ease) 2.5s forwards; }
-  @keyframes cz-ombre-riso { to { box-shadow: 12px 12px 0 rgba(242,161,46,.32); } }
-}
+/* Pas d'animation sur le hero — et surtout aucune sur le nom.
+   Le nom est l'élément LCP de la page : tout masque, fondu ou « respiration »
+   posé dessus retarde sa peinture ou le fait bouger en continu sous les yeux
+   du visiteur. Un bloc « MOUVEMENT DU HERO » (masque d'encre sur Zen/atti,
+   zoom infini de 11 s sur le nom, cascade sur ALAIN) a été ajouté puis retiré :
+   ne pas le réintroduire. Le parallaxe des calques du SVG de fond, posé en JS
+   dans PreviewCharte.tsx, reste la seule mise en mouvement du hero. */
 
 .cz .hero__card {
   background: linear-gradient(155deg, rgba(255,255,255,.75) 0%, rgba(194,207,226,.55) 100%);
