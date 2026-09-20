@@ -188,6 +188,15 @@ Default: `staleTime: 5min`, `gcTime: 10min`. Always call `queryClient.invalidate
 
 Static content (FAQs, testimonials, carousel slides, application descriptions) lives in `src/data/` as typed TypeScript modules. Keep content changes there rather than inline in components.
 
+### Local vs. remote Claude Code sessions — keeping `main` in sync
+
+Claude Code on the web runs in an ephemeral container that clones the repo fresh **from GitHub**. It has zero visibility into the owner's local disk — hours of uncommitted local work are simply invisible to it, and vice versa: a remote session's commits don't exist locally until pulled. This is not a bug to fix, it's the nature of the two environments; the discipline lives in the workflow:
+
+- **Before starting remote work** (this web session, or any Claude Code on the web run): push local commits first, or the remote session will build on a stale `main`.
+- **Before resuming local work** after a remote session touched the repo: `git pull` first.
+- **If a push is rejected** (`non-fast-forward` / diverged history), never `git push --force` on `main`. Instead: `git fetch origin`, inspect the divergence (`git log --oneline main..origin/main` and the reverse), back up the local branch (`git branch backup-local`), then reconcile with `git pull --no-rebase origin main` (a merge commit is safe on a shared branch; a rebase or force-push is not) and resolve conflicts by hand.
+- `git config --global pull.rebase false` avoids the "divergent branches, specify how to reconcile" error recurring.
+
 ## Claude Code orchestration (agentic workflows)
 
 ### Command-Agent-Skill pattern
