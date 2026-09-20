@@ -99,9 +99,9 @@ const HeroCarousel: React.FC = () => {
       {/* Conteneur de texte positionné en absolu pour éviter layout shift */}
       <div className="absolute bottom-20 md:bottom-24 left-0 right-0 z-10">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl w-full bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-10 lg:p-12 shadow-2xl">
+          <div className="max-w-3xl w-full">
             {/* H1 visible pour SEO et utilisateurs */}
-            <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-nova-blue-dark mb-3 md:mb-4">Cabinet d'hypnothérapie à Paris 4ème &amp; en visio partout en France – Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose</h1>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3 md:mb-4 drop-shadow-lg">Cabinet d'hypnothérapie à Paris 4ème &amp; en visio partout en France – Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose</h1>
 
             {/* Contenu visuel dynamique du carrousel - hauteur fixe pour stabilité */}
             <div className="relative h-[240px] sm:h-[220px] md:h-[280px] lg:h-[320px]">
@@ -112,10 +112,10 @@ const HeroCarousel: React.FC = () => {
                     index === currentSlide ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-nova-blue-dark mb-2 md:mb-4 leading-tight">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
                     {slide.title}
                   </div>
-                  <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed drop-shadow-md">
                     {slide.description}
                   </p>
                 </div>
@@ -126,18 +126,18 @@ const HeroCarousel: React.FC = () => {
               <div className="flex flex-col items-center sm:items-start">
                 <a
                   href="https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
-                  onClick={(e) => { e.preventDefault(); }}
+                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-nova-orange hover:bg-nova-orange-dark text-white rounded-lg text-base font-semibold transition active:scale-[0.97] shadow-lg hover:shadow-xl hover:scale-105"
                   onClick={() => { if (typeof window.gtag === 'function') window.gtag('event', 'cta_click', { event_category: 'conversion', event_label: 'hero_prendre_rdv', cta_location: 'hero' }); }}
                 >
                   <Calendar size={18} />
                   Réserver ma première consultation
                 </a>
-                <p className="text-xs text-gray-600 mt-1.5">Premier échange gratuit de 15 min par téléphone</p>
+                <p className="text-xs text-white/80 mt-1.5">Premier échange gratuit de 15 min par téléphone</p>
               </div>
               <a
                 href="#applications"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-nova-blue/10 border-2 border-nova-blue-dark text-nova-blue-dark hover:bg-nova-blue/20 rounded-lg text-sm font-semibold transition active:scale-[0.97] text-center"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white/20 rounded-lg text-sm font-semibold transition active:scale-[0.97] text-center"
               >
                 Découvrir comment je peux vous aider
               </a>
