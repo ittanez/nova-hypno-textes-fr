@@ -20,7 +20,8 @@
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:chromium": "playwright test --project=chromium",
-    "test:all": "npm run test:run && npm run test:e2e"
+    "test:all": "npm run test:run && npm run test:e2e",
+    "validate:ads": "node scripts/validate-google-ads.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.11",
