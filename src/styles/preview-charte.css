@@ -72,8 +72,6 @@
    apparaît au scroll (réutilise .reveal/.in), plus perceptible qu'une animation continue. */
 .cz .cabinet__visual.reveal { transform: translateY(28px) scale(1.08); }
 .cz .cabinet__visual.reveal.in { transform: translateY(0) scale(1); }
-.cz .about__copy.reveal .about__diagram { transform: scale(1.08); transition: transform .9s var(--ease) .15s; }
-.cz .about__copy.reveal.in .about__diagram { transform: scale(1); }
 /* Blobs SVG illustratifs — même respiration douce que les blobs CSS (.about__bg, .contact__blob) */
 .cz .blob-morph-1 { transform-box: fill-box; transform-origin: center; animation: cz-morph1 18s ease-in-out infinite; }
 .cz .blob-morph-2 { transform-box: fill-box; transform-origin: center; animation: cz-morph2 20s ease-in-out infinite; }
@@ -385,31 +383,68 @@
    À PROPOS
    ============================================================ */
 .cz .about { background: var(--lin-2); }
-.cz .about__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
-.cz .about__photo {
-  aspect-ratio: 1; max-width: 380px;
-  border-radius: 50%;
-  box-shadow: 12px 12px 0 rgba(242,161,46,.32);
-  position: relative;
+/* Deux rangées en zigzag : [texte | vidéo] puis [infographie | approche] */
+.cz .about__row { display: grid; gap: 80px; align-items: center; }
+.cz .about__row--intro { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+.cz .about__row--approche { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); margin-top: 112px; }
+.cz .about__row--intro .about__video { justify-self: center; }
+.cz .about__row--approche .about__diagram { justify-self: center; }
+
+/* Photo réduite en signature à côté du titre : la vidéo montre déjà le visage */
+.cz .about__head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+.cz .about__avatar {
+  flex: none; width: 80px; height: 80px;
+  border-radius: 50%; overflow: hidden;
+  box-shadow: 5px 5px 0 rgba(242,161,46,.32);
+}
+.cz .about__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+
+.cz .about__chips { list-style: none; padding: 0; margin: 28px 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+.cz .about__chips li {
+  font-size: 13px; letter-spacing: .03em; color: var(--corps);
+  padding: 7px 16px; border-radius: 999px;
+  border: 1px solid rgba(43,75,160,.22);
+}
+
+/* ── Vidéo de présentation (format vertical 9:16) ── */
+.cz .about__video { width: min(100%, 340px); margin: 0; text-align: center; }
+.cz .about__video-facade,
+.cz .about__video iframe {
+  display: block; width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 0; border-radius: 28px;
+  background: var(--cobalt-2);
+  box-shadow: 8px 8px 0 rgba(43,75,160,.28);
   overflow: hidden;
 }
-.cz .about__photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  border-radius: 50%;
-  display: block;
+.cz .about__video-facade {
+  position: relative; padding: 0; cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
-.cz .about__photo::before {
-  content: ""; position: absolute; inset: 0;
+.cz .about__video-facade:hover { transform: translate(-2px, -2px); box-shadow: 10px 10px 0 rgba(43,75,160,.34); }
+.cz .about__video-facade:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 4px; }
+/* La vignette d'un Short est en 4:3 avec bandes noires latérales :
+   le recadrage "cover" au centre ne garde que l'image utile. */
+.cz .about__video-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cz .about__video-play {
+  position: absolute; top: 50%; left: 50%;
+  width: 72px; height: 72px; margin: -36px 0 0 -36px;
+  display: grid; place-items: center;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(28,43,74,.08);
-  pointer-events: none;
+  background: var(--amber); color: var(--cobalt-2);
+  box-shadow: 5px 5px 0 rgba(242,161,46,.45);
+  transition: transform .3s ease;
+}
+.cz .about__video-play svg { width: 32px; height: 32px; margin-left: 4px; }
+.cz .about__video-facade:hover .about__video-play { transform: scale(1.06); }
+.cz .about__video figcaption { margin-top: 14px; font-size: 13px; letter-spacing: .04em; opacity: .7; }
+@media (max-width: 900px) {
+  .cz .about__video { width: min(72vw, 280px); }
 }
 
 /* ── Mon approche ericksonienne (sous-bloc À propos) ───────────── */
 .cz .about__approche {
-  margin-top: 36px;
+  margin-top: 0;
   padding: 28px 32px;
   background: rgba(43,75,160,.04);
   border: 1px solid rgba(43,75,160,.08);
@@ -427,7 +462,7 @@
 .cz .about__approche-title em { font-style: italic; color: var(--cobalt); }
 .cz .about__approche p { font-size: 16px; line-height: 1.8; color: var(--corps); max-width: 560px; }
 .cz .about__approche p + p { margin-top: 14px; }
-.cz .about__diagram { max-width: 380px; margin: 24px 0 0; border-radius: 12px; }
+.cz .about__diagram { width: 100%; max-width: 460px; height: auto; margin: 0; border-radius: 12px; }
 .cz .about__bg {
   position: absolute; right: -120px; top: 20%; width: 380px; height: 380px;
   background: var(--amber); opacity: .08;
@@ -755,7 +790,6 @@
   .cz .hero__card { justify-self: start; }
 }
 @media (max-width: 900px) {
-  .cz .about__grid,
   .cz .cabinet__grid,
   .cz .seances__head,
   .cz .charte__grid,
@@ -767,6 +801,10 @@
   .cz .cabinet__grid--reverse .cabinet__copy { order: 1; }
   .cz .cabinet__grid--reverse .cabinet__visual { order: 2; }
   .cz .about__approche { padding: 24px; }
+  .cz .about__row--intro,
+  .cz .about__row--approche { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .cz .about__row--approche { margin-top: 72px; }
+  .cz .about__avatar { width: 64px; height: 64px; }
 }
 @media (max-width: 760px) {
   /* burger remplace le menu inline */
