@@ -692,6 +692,36 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/bruxisme-hypnose-paris.html"
+  to = "/bruxisme-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/trichotillomanie-hypnose-paris.html"
+  to = "/trichotillomanie-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/peur-aiguilles-hypnose-paris.html"
+  to = "/peur-aiguilles-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/peur-rougir-hypnose-paris.html"
+  to = "/peur-rougir-hypnose-paris.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/peur-sang-hypnose-paris.html"
+  to = "/peur-sang-hypnose-paris.html"
+  status = 200
+  force = true
+
 # Landing page anxiété (URL directe Google Ads)
 [[redirects]]
   from = "/anxiete-hypnose-paris.html"
