@@ -70,3 +70,16 @@ export const trackQuizStep = (step: string, data?: unknown) => {
     ...(data && typeof data === 'object' ? data : {}),
   });
 };
+
+/**
+ * Track le lancement d'une vidéo (clic sur la vignette)
+ * @param videoId - Identifiant YouTube de la vidéo
+ * @param location - Emplacement sur la page (ex: "about")
+ */
+export const trackVideoPlay = (videoId: string, location: string) => {
+  sendEvent('video_play', {
+    event_category: 'engagement',
+    video_id: videoId,
+    video_location: location,
+  });
+};

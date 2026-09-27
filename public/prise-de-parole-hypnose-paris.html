@@ -356,6 +356,62 @@
             opacity: .6;
         }
 
+        /* Vidéo du hero : format vertical 9:16 (YouTube Short). Sur mobile elle
+           passe en flux sous les boutons, comme l'illustration qu'elle remplace. */
+        .videobox {
+            justify-self: center;
+            width: min(100%, 340px);
+            margin: 0;
+            text-align: center;
+        }
+        @media (max-width: 999px) {
+            .videobox { width: min(74vw, 300px); margin-top: 4px; }
+        }
+        .video-facade,
+        .videobox iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border: 0;
+            border-radius: 28px;
+            background: var(--cobalt-2);
+            box-shadow: var(--riso-cobalt-hi);
+            overflow: hidden;
+        }
+        .video-facade {
+            position: relative;
+            padding: 0;
+            cursor: pointer;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+        }
+        .video-facade:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(43, 75, 160, .32); }
+        /* La vignette YouTube d'un Short est en 4:3 avec bandes noires latérales :
+           le recadrage "cover" au centre ne garde que l'image utile. */
+        .video-facade img { width: 100%; height: 100%; object-fit: cover; }
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 76px;
+            height: 76px;
+            margin: -38px 0 0 -38px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--amber);
+            color: var(--cobalt-2);
+            box-shadow: var(--riso-amber-hi);
+            transition: transform .3s var(--ease);
+        }
+        .video-play svg { width: 34px; height: 34px; margin-left: 4px; }
+        .video-facade:hover .video-play { transform: scale(1.06); }
+        .videobox figcaption {
+            margin-top: 16px;
+            font-size: 13px;
+            letter-spacing: .04em;
+            color: var(--gris);
+        }
+
         /* ============================================================
            RYTHME DE BLOCS — chaque section est un bloc plein très arrondi
            ============================================================ */
@@ -896,21 +952,17 @@
                 </ul>
             </div>
 
-            <div class="spiralbox" aria-hidden="true">
-                <svg viewBox="0 0 400 400" role="presentation" focusable="false">
-                    <defs><path id="arc-mots" d="M278.0 11.5 A262 262 0 0 1 278.0 388.5"/></defs>
-                    <g class="art-scroll">
-                        <path class="art-line art-onde" data-draw d="M130.8 161.4 A52 52 0 0 1 130.8 238.6" style="--dd:0.30s;--i:0"/>
-                        <path class="art-line art-onde" data-draw d="M160.2 128.7 A96 96 0 0 1 160.2 271.3" style="--dd:0.65s;--i:1"/>
-                        <path class="art-line art-onde" data-draw d="M189.7 96.0 A140 140 0 0 1 189.7 304.0" style="--dd:1.00s;--i:2"/>
-                        <path class="art-line art-onde" data-draw d="M219.1 63.3 A184 184 0 0 1 219.1 336.7" style="--dd:1.35s;--i:3"/>
-                        <path class="art-line art-onde" data-draw d="M248.6 30.6 A228 228 0 0 1 248.6 369.4" style="--dd:1.70s;--i:4"/>
-                        <circle class="art-halo art-voix-halo" cx="96" cy="200" r="16"/>
-                        <circle class="art-core" cx="96" cy="200" r="5.5" style="--dd:.2s"/>
-                    </g>
-                    <g class="art-mots"><text><textPath href="#arc-mots" startOffset="0">respirer &middot; poser sa voix &middot; être entendu &middot; respirer &middot; poser sa voix &middot; être entendu &middot;</textPath></text></g>
-                </svg>
-            </div>
+            <!-- Vidéo (YouTube Short) : seule la vignette est chargée à l'arrivée.
+                 Le lecteur YouTube, lourd, n'est inséré qu'au clic (voir script en bas). -->
+            <figure class="videobox anim" style="--d:520ms">
+                <button type="button" class="video-facade" data-video-id="b8yu2d2mZvA" aria-label="Lire la vidéo d'Alain Zenatti, hypnothérapeute">
+                    <img src="https://i.ytimg.com/vi/b8yu2d2mZvA/hqdefault.jpg" alt="" width="480" height="360" fetchpriority="low">
+                    <span class="video-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                    </span>
+                </button>
+                <figcaption>Regarder la vidéo</figcaption>
+            </figure>
         </div>
     </header>
 
@@ -1384,6 +1436,33 @@
                     source_page: 'prise-de-parole-hypnose-paris'
                 });
             });
+        });
+
+        // Vidéo du hero : remplace la vignette par le lecteur au clic, et mesure la lecture
+        // (événement GA4 video_play + événement Clarity) pour savoir si elle est regardée.
+        document.querySelectorAll('.video-facade').forEach(function (facade) {
+            // Vignette indisponible (réseau, bloqueur) : on garde le fond et le bouton, sans icône d'image cassée.
+            var vignette = facade.querySelector('img');
+            function sansVignette() { vignette.remove(); }
+            if (vignette.complete && !vignette.naturalWidth) { sansVignette(); }
+            else { vignette.addEventListener('error', sansVignette); }
+
+            facade.addEventListener('click', function () {
+                var id = facade.getAttribute('data-video-id');
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+                iframe.title = "Vidéo d'Alain Zenatti, hypnothérapeute";
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                iframe.allowFullscreen = true;
+                facade.replaceWith(iframe);
+                iframe.focus();
+
+                gtag('event', 'video_play', {
+                    source_page: 'prise-de-parole-hypnose-paris',
+                    video_id: id
+                });
+                if (window.clarity) { window.clarity('event', 'video_play'); }
+            }, { once: true });
         });
 
         // FAQ : boutons natifs, donc clavier (Entrée/Espace) géré par le navigateur.

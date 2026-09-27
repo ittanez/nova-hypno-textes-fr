@@ -13,7 +13,7 @@ import { testimonials } from '@/data/testimonials';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
 import { trackAdsConversion } from '@/lib/googleAds';
-import { trackCTAClick } from '@/lib/analytics';
+import { trackCTAClick, trackVideoPlay } from '@/lib/analytics';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const CONTACT_URL = 'https://akrlyzmfszumibwgocae.supabase.co/functions/v1/send-contact-preview';
@@ -100,6 +100,9 @@ function useCountUp(target: number, trigger: boolean, duration = 1200): number {
   return value;
 }
 
+// YouTube Short de présentation (le même que sur la page Resalib)
+const ABOUT_VIDEO_ID = 'H9PYB1nW3co';
+
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -110,6 +113,7 @@ const PreviewCharte: React.FC = () => {
   const statRating = useCountUp(5, statsInView);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
 
   // Contact form
@@ -501,67 +505,121 @@ const PreviewCharte: React.FC = () => {
         </section>
 
         {/* ── À PROPOS ── */}
+        {/* Deux blocs en alternance (zigzag) : texte | vidéo, puis infographie | approche.
+            Sur mobile : ordre linéaire titre → texte → vidéo → infographie → approche. */}
         <section className="about" id="about">
           <div className="about__bg" aria-hidden="true"></div>
-          <div className="container about__grid">
-            <div className="about__photo reveal">
-              <img
-                src="/zenatti.webp"
-                alt="Portrait d'Alain Zenatti, hypnothérapeute à Paris — cabinet NovaHypnose"
-                width="380"
-                height="380"
-                loading="lazy"
-              />
-            </div>
-            <div className="about__copy reveal d-15">
-              <div className="section-tag">À propos</div>
-              <h2 className="section-title">
-                Alain Zenatti, hypnothérapeute —<br /><em>vous accueillir simplement.</em>
-              </h2>
-              <p>
-                Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
-                adultes dans un cadre confidentiel et bienveillant, au cœur de Paris.
-              </p>
-              <p>
-                Mon approche est douce et permissive : vous n'êtes pas dirigé, vous êtes accompagné,
-                à votre rythme. Vous gardez le contrôle du premier instant au dernier — l'hypnose
-                ne fait qu'ouvrir l'accès à vos propres ressources.
-              </p>
-              <p>
-                C'est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement
-                en <strong>3 à 5 séances</strong>. Des changements concrets et durables, sans
-                exploration sans fin.
-              </p>
-
-              <div className="about__approche">
-                <div className="about__approche-label">Mon approche</div>
-                <h3 className="about__approche-title">L'hypnose ericksonienne, <em>concrètement.</em></h3>
+          <div className="container">
+            <div className="about__row about__row--intro">
+              <div className="about__copy reveal">
+                <div className="about__head">
+                  <div className="about__avatar">
+                    <img
+                      src="/zenatti.webp"
+                      alt="Portrait d'Alain Zenatti, hypnothérapeute à Paris — cabinet NovaHypnose"
+                      width="80"
+                      height="80"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="section-tag">À propos</div>
+                </div>
+                <h2 className="section-title">
+                  Alain Zenatti, hypnothérapeute —<br /><em>vous accueillir simplement.</em>
+                </h2>
                 <p>
-                  Je pratique l'hypnose ericksonienne, dans la lignée du psychiatre américain Milton H. Erickson.
-                  Loin de l'hypnose de scène et des injonctions, c'est une approche <strong>respectueuse,
-                  indirecte et permissive</strong> — qui parle à votre inconscient par métaphores et suggestions
-                  ouvertes, plutôt qu'en imposant un récit.
+                  Je suis Alain Zenatti, Hypnothérapeute en hypnose ericksonienne et auto-hypnose. Je reçois les
+                  adultes dans un cadre confidentiel et bienveillant, au cœur de Paris.
                 </p>
                 <p>
-                  Concrètement : pas de transe spectaculaire, pas de perte de contrôle. Vous restez présent,
-                  vous entendez tout, vous pouvez ouvrir les yeux quand vous voulez. Ce qui change, c'est
-                  votre rapport à ce qui vous encombre — parce que vos propres ressources, déjà là, retrouvent
-                  un chemin d'expression.
+                  Mon approche est douce et permissive : vous n'êtes pas dirigé, vous êtes accompagné,
+                  à votre rythme. Vous gardez le contrôle du premier instant au dernier — l'hypnose
+                  ne fait qu'ouvrir l'accès à vos propres ressources.
                 </p>
-                <img
-                  src="/images/comment-ca-marche-diagramme.png"
-                  alt="Schéma : sous hypnose, le conscient se détend et l'inconscient peut travailler sur ce qui empêche d'être bien"
-                  className="about__diagram"
-                  loading="lazy"
-                  width="1024"
-                  height="1024"
-                />
+                <p>
+                  C'est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement
+                  en <strong>3 à 5 séances</strong>. Des changements concrets et durables, sans
+                  exploration sans fin.
+                </p>
+                <ul className="about__chips" aria-label="En bref">
+                  <li>Cabinet Paris 4e</li>
+                  <li>Visio</li>
+                  <li>3 à 5 séances</li>
+                </ul>
+                <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('about')}>
+                  Prendre rendez-vous <span className="arrow">→</span>
+                </a>
               </div>
 
-              <div className="about__stat" ref={statsRef}>
-                <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
-                <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
-                <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
+              {/* Vidéo (YouTube Short) : seule la vignette est chargée ; le lecteur,
+                  lourd, n'est inséré qu'au clic pour préserver les Core Web Vitals. */}
+              <figure className="about__video reveal d-15">
+                {videoPlaying ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${ABOUT_VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
+                    title="Vidéo de présentation d'Alain Zenatti, hypnothérapeute à Paris"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowFullScreen
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    className="about__video-facade"
+                    aria-label="Lire la vidéo de présentation d'Alain Zenatti"
+                    onClick={() => {
+                      setVideoPlaying(true);
+                      trackVideoPlay(ABOUT_VIDEO_ID, 'about');
+                    }}
+                  >
+                    <img
+                      src={`https://i.ytimg.com/vi/${ABOUT_VIDEO_ID}/hqdefault.jpg`}
+                      alt=""
+                      width="480"
+                      height="360"
+                      loading="lazy"
+                      onError={(e) => { e.currentTarget.remove(); }}
+                    />
+                    <span className="about__video-play" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
+                    </span>
+                  </button>
+                )}
+                <figcaption>Me découvrir en vidéo</figcaption>
+              </figure>
+            </div>
+
+            <div className="about__row about__row--approche">
+              <img
+                src="/images/comment-ca-marche-diagramme.png"
+                alt="Schéma : sous hypnose, le conscient se détend et l'inconscient peut travailler sur ce qui empêche d'être bien"
+                className="about__diagram reveal"
+                loading="lazy"
+                width="1024"
+                height="1024"
+              />
+              <div className="reveal d-15">
+                <div className="about__approche">
+                  <div className="about__approche-label">Mon approche</div>
+                  <h3 className="about__approche-title">L'hypnose ericksonienne, <em>concrètement.</em></h3>
+                  <p>
+                    Je pratique l'hypnose ericksonienne, dans la lignée du psychiatre américain Milton H. Erickson.
+                    Loin de l'hypnose de scène et des injonctions, c'est une approche <strong>respectueuse,
+                    indirecte et permissive</strong> — qui parle à votre inconscient par métaphores et suggestions
+                    ouvertes, plutôt qu'en imposant un récit.
+                  </p>
+                  <p>
+                    Concrètement : pas de transe spectaculaire, pas de perte de contrôle. Vous restez présent,
+                    vous entendez tout, vous pouvez ouvrir les yeux quand vous voulez. Ce qui change, c'est
+                    votre rapport à ce qui vous encombre — parce que vos propres ressources, déjà là, retrouvent
+                    un chemin d'expression.
+                  </p>
+                </div>
+
+                <div className="about__stat" ref={statsRef}>
+                  <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
+                  <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
+                  <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
+                </div>
               </div>
             </div>
           </div>

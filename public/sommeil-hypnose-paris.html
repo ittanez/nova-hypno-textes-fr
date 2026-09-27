@@ -356,6 +356,62 @@
             opacity: .6;
         }
 
+        /* Vidéo du hero : format vertical 9:16 (YouTube Short). Sur mobile elle
+           passe en flux sous les boutons, comme l'illustration qu'elle remplace. */
+        .videobox {
+            justify-self: center;
+            width: min(100%, 340px);
+            margin: 0;
+            text-align: center;
+        }
+        @media (max-width: 999px) {
+            .videobox { width: min(74vw, 300px); margin-top: 4px; }
+        }
+        .video-facade,
+        .videobox iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border: 0;
+            border-radius: 28px;
+            background: var(--cobalt-2);
+            box-shadow: var(--riso-cobalt-hi);
+            overflow: hidden;
+        }
+        .video-facade {
+            position: relative;
+            padding: 0;
+            cursor: pointer;
+            transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+        }
+        .video-facade:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 rgba(43, 75, 160, .32); }
+        /* La vignette YouTube d'un Short est en 4:3 avec bandes noires latérales :
+           le recadrage "cover" au centre ne garde que l'image utile. */
+        .video-facade img { width: 100%; height: 100%; object-fit: cover; }
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 76px;
+            height: 76px;
+            margin: -38px 0 0 -38px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--amber);
+            color: var(--cobalt-2);
+            box-shadow: var(--riso-amber-hi);
+            transition: transform .3s var(--ease);
+        }
+        .video-play svg { width: 34px; height: 34px; margin-left: 4px; }
+        .video-facade:hover .video-play { transform: scale(1.06); }
+        .videobox figcaption {
+            margin-top: 16px;
+            font-size: 13px;
+            letter-spacing: .04em;
+            color: var(--gris);
+        }
+
         /* ============================================================
            RYTHME DE BLOCS — chaque section est un bloc plein très arrondi
            ============================================================ */
@@ -902,24 +958,17 @@
                 </ul>
             </div>
 
-            <div class="spiralbox" aria-hidden="true">
-                <svg viewBox="0 0 400 400" role="presentation" focusable="false">
-                    <defs><path id="arc-mots" d="M7.5 165.2 A235 235 0 0 1 392.5 165.2"/></defs>
-                    <g class="art-scroll">
-                        <g class="art-drift">
-                            <circle class="art-halo art-lune-halo" cx="292" cy="112" r="22"/>
-                            <circle class="art-core" cx="292" cy="112" r="9" style="--dd:.6s"/>
-                        </g>
-                        <circle class="art-core art-etoile" cx="96" cy="88" r="1.8" style="--dd:1.4s;--o:.7"/>
-                        <circle class="art-core art-etoile" cx="150" cy="136" r="1.4" style="--dd:1.8s;--o:.5"/>
-                        <circle class="art-core art-etoile" cx="352" cy="170" r="1.6" style="--dd:2.1s;--o:.6"/>
-                        <g class="art-vague art-vague-1"><path class="art-line" data-draw d="M-40.0 202.1 L-36.0 202.0 L-32.0 202.3 L-28.0 203.0 L-24.0 204.0 L-20.0 205.3 L-16.0 206.9 L-12.0 208.7 L-8.0 210.7 L-4.0 212.8 L0.0 215.0 L4.0 217.2 L8.0 219.3 L12.0 221.3 L16.0 223.1 L20.0 224.7 L24.0 226.0 L28.0 227.0 L32.0 227.7 L36.0 228.0 L40.0 227.9 L44.0 227.5 L48.0 226.8 L52.0 225.7 L56.0 224.3 L60.0 222.6 L64.0 220.8 L68.0 218.8 L72.0 216.6 L76.0 214.5 L80.0 212.3 L84.0 210.2 L88.0 208.3 L92.0 206.5 L96.0 205.0 L100.0 203.7 L104.0 202.8 L108.0 202.2 L112.0 202.0 L116.0 202.1 L120.0 202.6 L124.0 203.5 L128.0 204.6 L132.0 206.1 L136.0 207.8 L140.0 209.7 L144.0 211.8 L148.0 213.9 L152.0 216.1 L156.0 218.2 L160.0 220.3 L164.0 222.2 L168.0 223.9 L172.0 225.4 L176.0 226.5 L180.0 227.4 L184.0 227.9 L188.0 228.0 L192.0 227.8 L196.0 227.2 L200.0 226.3 L204.0 225.0 L208.0 223.5 L212.0 221.7 L216.0 219.8 L220.0 217.7 L224.0 215.5 L228.0 213.4 L232.0 211.2 L236.0 209.2 L240.0 207.4 L244.0 205.7 L248.0 204.3 L252.0 203.2 L256.0 202.5 L260.0 202.1 L264.0 202.0 L268.0 202.3 L272.0 203.0 L276.0 204.0 L280.0 205.3 L284.0 206.9 L288.0 208.7 L292.0 210.7 L296.0 212.8 L300.0 215.0 L304.0 217.2 L308.0 219.3 L312.0 221.3 L316.0 223.1 L320.0 224.7 L324.0 226.0 L328.0 227.0 L332.0 227.7 L336.0 228.0 L340.0 227.9 L344.0 227.5 L348.0 226.8 L352.0 225.7 L356.0 224.3 L360.0 222.6 L364.0 220.8 L368.0 218.8 L372.0 216.6 L376.0 214.5 L380.0 212.3 L384.0 210.2 L388.0 208.3 L392.0 206.5 L396.0 205.0 L400.0 203.7 L404.0 202.8 L408.0 202.2 L412.0 202.0 L416.0 202.1 L420.0 202.6 L424.0 203.5 L428.0 204.6 L432.0 206.1 L436.0 207.8 L440.0 209.7" style="--dd:.15s"/></g>
-                        <g class="art-vague art-vague-2"><path class="art-line" data-draw d="M-40.0 255.5 L-36.0 257.3 L-32.0 259.3 L-28.0 261.4 L-24.0 263.5 L-20.0 265.6 L-16.0 267.5 L-12.0 269.3 L-8.0 270.7 L-4.0 271.8 L0.0 272.6 L4.0 273.0 L8.0 272.9 L12.0 272.5 L16.0 271.6 L20.0 270.4 L24.0 268.9 L28.0 267.2 L32.0 265.2 L36.0 263.1 L40.0 261.0 L44.0 258.9 L48.0 256.9 L52.0 255.2 L56.0 253.6 L60.0 252.4 L64.0 251.6 L68.0 251.1 L72.0 251.0 L76.0 251.4 L80.0 252.1 L84.0 253.2 L88.0 254.7 L92.0 256.4 L96.0 258.3 L100.0 260.4 L104.0 262.5 L108.0 264.6 L112.0 266.6 L116.0 268.4 L120.0 270.0 L124.0 271.3 L128.0 272.3 L132.0 272.8 L136.0 273.0 L140.0 272.8 L144.0 272.1 L148.0 271.1 L152.0 269.7 L156.0 268.1 L160.0 266.2 L164.0 264.2 L168.0 262.1 L172.0 259.9 L176.0 257.9 L180.0 256.0 L184.0 254.4 L188.0 253.0 L192.0 251.9 L196.0 251.3 L200.0 251.0 L204.0 251.1 L208.0 251.7 L212.0 252.6 L216.0 253.9 L220.0 255.5 L224.0 257.3 L228.0 259.3 L232.0 261.4 L236.0 263.5 L240.0 265.6 L244.0 267.5 L248.0 269.3 L252.0 270.7 L256.0 271.8 L260.0 272.6 L264.0 273.0 L268.0 272.9 L272.0 272.5 L276.0 271.6 L280.0 270.4 L284.0 268.9 L288.0 267.2 L292.0 265.2 L296.0 263.1 L300.0 261.0 L304.0 258.9 L308.0 256.9 L312.0 255.2 L316.0 253.6 L320.0 252.4 L324.0 251.6 L328.0 251.1 L332.0 251.0 L336.0 251.4 L340.0 252.1 L344.0 253.2 L348.0 254.7 L352.0 256.4 L356.0 258.3 L360.0 260.4 L364.0 262.5 L368.0 264.6 L372.0 266.6 L376.0 268.4 L380.0 270.0 L384.0 271.3 L388.0 272.3 L392.0 272.8 L396.0 273.0 L400.0 272.8 L404.0 272.1 L408.0 271.1 L412.0 269.7 L416.0 268.1 L420.0 266.2 L424.0 264.2 L428.0 262.1 L432.0 259.9 L436.0 257.9 L440.0 256.0" style="--dd:.5s"/></g>
-                        <g class="art-vague art-vague-3"><path class="art-line" data-draw d="M-40.0 310.9 L-36.0 312.8 L-32.0 314.5 L-28.0 315.9 L-24.0 317.0 L-20.0 317.7 L-16.0 318.0 L-12.0 317.9 L-8.0 317.3 L-4.0 316.4 L0.0 315.1 L4.0 313.5 L8.0 311.7 L12.0 309.8 L16.0 307.8 L20.0 305.9 L24.0 304.1 L28.0 302.6 L32.0 301.4 L36.0 300.5 L40.0 300.1 L44.0 300.0 L48.0 300.4 L52.0 301.2 L56.0 302.4 L60.0 303.9 L64.0 305.6 L68.0 307.5 L72.0 309.5 L76.0 311.4 L80.0 313.2 L84.0 314.8 L88.0 316.2 L92.0 317.2 L96.0 317.8 L100.0 318.0 L104.0 317.8 L108.0 317.1 L112.0 316.1 L116.0 314.7 L120.0 313.1 L124.0 311.2 L128.0 309.3 L132.0 307.3 L136.0 305.4 L140.0 303.7 L144.0 302.3 L148.0 301.1 L152.0 300.4 L156.0 300.0 L160.0 300.1 L164.0 300.6 L168.0 301.5 L172.0 302.7 L176.0 304.3 L180.0 306.1 L184.0 308.0 L188.0 309.9 L192.0 311.9 L196.0 313.6 L200.0 315.2 L204.0 316.5 L208.0 317.4 L212.0 317.9 L216.0 318.0 L220.0 317.6 L224.0 316.9 L228.0 315.8 L232.0 314.3 L236.0 312.6 L240.0 310.7 L244.0 308.8 L248.0 306.8 L252.0 305.0 L256.0 303.3 L260.0 302.0 L264.0 300.9 L268.0 300.2 L272.0 300.0 L276.0 300.2 L280.0 300.8 L284.0 301.8 L288.0 303.1 L292.0 304.7 L296.0 306.5 L300.0 308.5 L304.0 310.4 L308.0 312.3 L312.0 314.1 L316.0 315.6 L320.0 316.7 L324.0 317.5 L328.0 318.0 L332.0 317.9 L336.0 317.5 L340.0 316.6 L344.0 315.4 L348.0 313.9 L352.0 312.2 L356.0 310.3 L360.0 308.3 L364.0 306.4 L368.0 304.6 L372.0 303.0 L376.0 301.7 L380.0 300.7 L384.0 300.1 L388.0 300.0 L392.0 300.3 L396.0 301.0 L400.0 302.1 L404.0 303.5 L408.0 305.2 L412.0 307.0 L416.0 309.0 L420.0 310.9 L424.0 312.8 L428.0 314.5 L432.0 315.9 L436.0 317.0 L440.0 317.7" style="--dd:.85s"/></g>
-                    </g>
-                    <g class="art-mots"><text><textPath href="#arc-mots" startOffset="0">ralentir &middot; relâcher &middot; s'endormir &middot; ralentir &middot; relâcher &middot; s'endormir &middot;</textPath></text></g>
-                </svg>
-            </div>
+            <!-- Vidéo (YouTube Short) : seule la vignette est chargée à l'arrivée.
+                 Le lecteur YouTube, lourd, n'est inséré qu'au clic (voir script en bas). -->
+            <figure class="videobox anim" style="--d:520ms">
+                <button type="button" class="video-facade" data-video-id="0wgGrY3DnHs" aria-label="Lire la vidéo d'Alain Zenatti, hypnothérapeute">
+                    <img src="https://i.ytimg.com/vi/0wgGrY3DnHs/hqdefault.jpg" alt="" width="480" height="360" fetchpriority="low">
+                    <span class="video-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+                    </span>
+                </button>
+                <figcaption>Regarder la vidéo</figcaption>
+            </figure>
         </div>
     </header>
 
@@ -1393,6 +1442,33 @@
                     source_page: 'sommeil-hypnose-paris'
                 });
             });
+        });
+
+        // Vidéo du hero : remplace la vignette par le lecteur au clic, et mesure la lecture
+        // (événement GA4 video_play + événement Clarity) pour savoir si elle est regardée.
+        document.querySelectorAll('.video-facade').forEach(function (facade) {
+            // Vignette indisponible (réseau, bloqueur) : on garde le fond et le bouton, sans icône d'image cassée.
+            var vignette = facade.querySelector('img');
+            function sansVignette() { vignette.remove(); }
+            if (vignette.complete && !vignette.naturalWidth) { sansVignette(); }
+            else { vignette.addEventListener('error', sansVignette); }
+
+            facade.addEventListener('click', function () {
+                var id = facade.getAttribute('data-video-id');
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+                iframe.title = "Vidéo d'Alain Zenatti, hypnothérapeute";
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+                iframe.allowFullscreen = true;
+                facade.replaceWith(iframe);
+                iframe.focus();
+
+                gtag('event', 'video_play', {
+                    source_page: 'sommeil-hypnose-paris',
+                    video_id: id
+                });
+                if (window.clarity) { window.clarity('event', 'video_play'); }
+            }, { once: true });
         });
 
         // FAQ : boutons natifs, donc clavier (Entrée/Espace) géré par le navigateur.
