@@ -372,6 +372,27 @@
         /* ============================================================
            POURQUOI L'HYPNOSE
            ============================================================ */
+        /* Vidéo YouTube Short (format vertical), chargée au clic */
+        .video-short { max-width: 340px; margin: 32px auto 0; }
+        .video-short-frame {
+            position: relative; aspect-ratio: 9 / 16; width: 100%;
+            border-radius: 24px; overflow: hidden; background: #1C2B4A;
+        }
+        .video-short-frame iframe,
+        .video-short-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .video-short-play {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0; cursor: pointer; background: #1C2B4A center / cover no-repeat;
+        }
+        .video-short-play span {
+            width: 68px; height: 68px; border-radius: 50%;
+            background: rgba(240, 236, 227, .94); color: var(--cobalt);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform .3s var(--ease);
+        }
+        .video-short-play:hover span, .video-short-play:focus-visible span { transform: scale(1.08); }
+        .video-short-play svg { width: 28px; height: 28px; margin-left: 4px; }
+
         .why-grid {
             display: grid;
             grid-template-columns: minmax(0, 1fr);
@@ -930,6 +951,20 @@
             </div>
         </section>
 
+        <!-- === VIDÉO === -->
+        <section class="bloc bloc--paper reveal">
+            <div class="bloc-inner">
+                <h2 class="display">L'hypnose en <em>quelques instants</em></h2>
+                <div class="video-short">
+                    <div class="video-short-frame" data-video-id="SY5KdcVtmfw">
+                        <button type="button" class="video-short-play" aria-label="Lire la vidéo : l'hypnose pour l'anxiété" style="background-image:url('https://img.youtube.com/vi/SY5KdcVtmfw/hqdefault.jpg')">
+                            <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4v16l14-8z"/></svg></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- === PRATICIEN === -->
         <section class="bloc bloc--paper reveal">
             <div class="bloc-inner">
@@ -1381,6 +1416,19 @@
                 if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
             }
         })();
+
+        // Vidéo YouTube : l'iframe n'est chargée qu'au clic (aucun cookie ni requête avant).
+        document.querySelectorAll('.video-short-play').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var frame = btn.parentNode;
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + frame.getAttribute('data-video-id') + '?autoplay=1&rel=0&playsinline=1';
+                iframe.title = 'Vidéo : l\'hypnose pour l\'anxiété';
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                iframe.allowFullscreen = true;
+                frame.replaceChild(iframe, btn);
+            });
+        });
 
         // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.
