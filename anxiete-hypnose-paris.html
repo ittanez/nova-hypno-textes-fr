@@ -373,10 +373,24 @@
            POURQUOI L'HYPNOSE
            ============================================================ */
         /* Vidéo YouTube Short (format vertical), chargée au clic */
-        .video-short { max-width: 340px; margin: 32px auto; }
+        .why-layout { display: grid; gap: 32px; margin-top: 8px; }
+        .why-layout .intro-section { max-width: none; }
+        .why-layout .why-grid { margin-top: 0; }
+        @media (min-width: 1100px) {
+            .why-layout {
+                grid-template-columns: minmax(0, 1fr) 320px;
+                grid-template-areas: "intro video" "cards video";
+                column-gap: 56px; row-gap: 36px; align-items: start;
+            }
+            .why-layout .intro-section { grid-area: intro; }
+            .why-layout .video-short { grid-area: video; position: sticky; top: 100px; }
+            .why-layout .why-grid { grid-area: cards; }
+        }
+        .video-short { width: 100%; max-width: 320px; margin: 0 auto; }
         .video-short-frame {
             position: relative; aspect-ratio: 9 / 16; width: 100%;
-            border-radius: 24px; overflow: hidden; background: #1C2B4A;
+            border-radius: 28px; overflow: hidden; background: #1C2B4A;
+            box-shadow: var(--riso-amber-hi);
         }
         .video-short-frame iframe,
         .video-short-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -919,20 +933,20 @@
         <section class="bloc bloc--lin2 reveal">
             <div class="bloc-inner">
                 <h2 class="display">Pourquoi l'hypnose pour l'anxiété et les <em>crises de panique</em> ?</h2>
-                <p class="intro-section">
-                    L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
-                    Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
-                    offre une voie différente : pas de positif forcé, pas de pensée magique, juste un
-                    apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
-                </p>
-
-                <div class="video-short">
-                    <div class="video-short-frame" data-video-id="SY5KdcVtmfw">
-                        <button type="button" class="video-short-play" aria-label="Lire la vidéo : l'hypnose pour l'anxiété" style="background-image:url('https://img.youtube.com/vi/SY5KdcVtmfw/hqdefault.jpg')">
-                            <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4v16l14-8z"/></svg></span>
-                        </button>
+                <div class="why-layout">
+                    <p class="intro-section">
+                        L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
+                        Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
+                        offre une voie différente : pas de positif forcé, pas de pensée magique, juste un
+                        apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
+                    </p>
+                    <div class="video-short">
+                        <div class="video-short-frame" data-video-id="SY5KdcVtmfw">
+                            <button type="button" class="video-short-play" aria-label="Lire la vidéo : l'hypnose pour l'anxiété" style="background-image:url('https://img.youtube.com/vi/SY5KdcVtmfw/hqdefault.jpg')">
+                                <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4v16l14-8z"/></svg></span>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
                 <div class="why-grid">
                     <article class="why-item">
@@ -955,6 +969,7 @@
                         <h3 class="titre-carte">Une ressource douce</h3>
                         <p>L'hypnose est une pratique non invasive, sans substance ni dispositif. Elle vient en complément de votre suivi habituel, jamais à sa place.</p>
                     </article>
+                </div>
                 </div>
             </div>
         </section>
