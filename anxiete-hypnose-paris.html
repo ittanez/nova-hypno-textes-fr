@@ -372,6 +372,42 @@
         /* ============================================================
            POURQUOI L'HYPNOSE
            ============================================================ */
+        /* Vidéo YouTube Short (format vertical), chargée au clic */
+        .why-layout { display: grid; gap: 32px; margin-top: 8px; }
+        .why-layout .intro-section { max-width: none; }
+        .why-layout .why-grid { margin-top: 0; }
+        @media (min-width: 1100px) {
+            .why-layout {
+                grid-template-columns: minmax(0, 1fr) 370px;
+                grid-template-areas: "intro intro" "cards video";
+                column-gap: 18px; row-gap: 36px; align-items: stretch;
+            }
+            .why-layout .intro-section { grid-area: intro; max-width: 62ch; }
+            .why-layout .why-grid { grid-area: cards; }
+            .why-layout .video-short { grid-area: video; max-width: none; margin: 0; }
+            .why-layout .video-short-frame { height: 100%; aspect-ratio: auto; border-radius: 24px; box-shadow: none; }
+        }
+        .video-short { width: 100%; max-width: 320px; margin: 0 auto; }
+        .video-short-frame {
+            position: relative; aspect-ratio: 9 / 16; width: 100%;
+            border-radius: 28px; overflow: hidden; background: #1C2B4A;
+            box-shadow: var(--riso-amber-hi);
+        }
+        .video-short-frame iframe,
+        .video-short-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        .video-short-play {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0; cursor: pointer; background: #1C2B4A center / cover no-repeat;
+        }
+        .video-short-play span {
+            width: 68px; height: 68px; border-radius: 50%;
+            background: rgba(240, 236, 227, .94); color: var(--cobalt);
+            display: flex; align-items: center; justify-content: center;
+            transition: transform .3s var(--ease);
+        }
+        .video-short-play:hover span, .video-short-play:focus-visible span { transform: scale(1.08); }
+        .video-short-play svg { width: 28px; height: 28px; margin-left: 4px; }
+
         .why-grid {
             display: grid;
             grid-template-columns: minmax(0, 1fr);
@@ -785,6 +821,56 @@
                entièrement lisible. Seules les sections hors écran sont armées. */
             .reveal { transition: opacity .8s var(--ease), transform .8s var(--ease); }
             .reveal[data-armed] { opacity: .001; transform: translateY(18px); }
+
+            /* Cartes, vidéo et étapes : elles apparaissent l'une après l'autre quand
+               leur section se révèle. Fill-mode "backwards" : une fois terminée,
+               l'animation ne retient plus rien et le survol reste libre. */
+            .reveal:not([data-armed]) .why-item,
+            .reveal:not([data-armed]) .value-item,
+            .reveal:not([data-armed]) .step {
+                animation: carte-entree .9s var(--ease) backwards;
+            }
+            .reveal:not([data-armed]) .why-item:nth-child(1),
+            .reveal:not([data-armed]) .value-item:nth-child(1),
+            .reveal:not([data-armed]) .step:nth-child(1) { animation-delay: .10s; }
+            .reveal:not([data-armed]) .why-item:nth-child(2),
+            .reveal:not([data-armed]) .value-item:nth-child(2),
+            .reveal:not([data-armed]) .step:nth-child(2) { animation-delay: .22s; }
+            .reveal:not([data-armed]) .why-item:nth-child(3),
+            .reveal:not([data-armed]) .value-item:nth-child(3),
+            .reveal:not([data-armed]) .step:nth-child(3) { animation-delay: .34s; }
+            .reveal:not([data-armed]) .why-item:nth-child(4),
+            .reveal:not([data-armed]) .value-item:nth-child(4),
+            .reveal:not([data-armed]) .step:nth-child(4) { animation-delay: .46s; }
+            .reveal:not([data-armed]) .step:nth-child(n+5) { animation-delay: .58s; }
+            @keyframes carte-entree {
+                from { opacity: 0; transform: translateY(26px) scale(.97); }
+                to   { opacity: 1; transform: none; }
+            }
+
+            .reveal:not([data-armed]) .video-short-frame {
+                animation: video-entree 1.1s var(--ease) .3s backwards;
+            }
+            @keyframes video-entree {
+                from { opacity: 0; transform: translateY(34px) scale(.94); }
+                to   { opacity: 1; transform: none; }
+            }
+
+            /* Bouton lecture : un anneau qui s'élargit au rythme de la respiration */
+            .video-short-play span { position: relative; }
+            .video-short-play span::after {
+                content: ""; position: absolute; inset: 0; border-radius: 50%;
+                border: 2px solid rgba(240, 236, 227, .75);
+                animation: anneau 4.5s ease-out 1.5s infinite;
+            }
+            @keyframes anneau {
+                0%   { transform: scale(1); opacity: .8; }
+                70%, 100% { transform: scale(1.9); opacity: 0; }
+            }
+
+            /* Pastilles d'icônes : une légère bascule au survol de la carte */
+            .why-icon svg, .value-icon svg { transition: transform .5s var(--ease); }
+            .why-item:hover .why-icon svg, .value-item:hover .value-icon svg { transform: rotate(-8deg) scale(1.12); }
         }
 
         @supports (animation-timeline: view()) {
@@ -898,12 +984,20 @@
         <section class="bloc bloc--lin2 reveal">
             <div class="bloc-inner">
                 <h2 class="display">Pourquoi l'hypnose pour l'anxiété et les <em>crises de panique</em> ?</h2>
-                <p class="intro-section">
-                    L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
-                    Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
-                    offre une voie différente : pas de positif forcé, pas de pensée magique, juste un
-                    apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
-                </p>
+                <div class="why-layout">
+                    <p class="intro-section">
+                        L'anxiété chronique et les crises de panique épuisent votre mental et votre corps.
+                        Vous avez essayé plusieurs approches, mais quelque chose manque. L'hypnose ericksonienne
+                        offre une voie différente : pas de positif forcé, pas de pensée magique, juste un
+                        apprentissage progressif pour retrouver du calme face aux situations qui vous en privent.
+                    </p>
+                    <div class="video-short">
+                        <div class="video-short-frame" data-video-id="SY5KdcVtmfw">
+                            <button type="button" class="video-short-play" aria-label="Lire la vidéo : l'hypnose pour l'anxiété" style="background-image:url('https://img.youtube.com/vi/SY5KdcVtmfw/hqdefault.jpg')">
+                                <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4v16l14-8z"/></svg></span>
+                            </button>
+                        </div>
+                    </div>
 
                 <div class="why-grid">
                     <article class="why-item">
@@ -926,6 +1020,7 @@
                         <h3 class="titre-carte">Une ressource douce</h3>
                         <p>L'hypnose est une pratique non invasive, sans substance ni dispositif. Elle vient en complément de votre suivi habituel, jamais à sa place.</p>
                     </article>
+                </div>
                 </div>
             </div>
         </section>
@@ -1381,6 +1476,19 @@
                 if (p.getTotalLength) { p.style.setProperty('--len', p.getTotalLength().toFixed(0)); }
             }
         })();
+
+        // Vidéo YouTube : l'iframe n'est chargée qu'au clic (aucun cookie ni requête avant).
+        document.querySelectorAll('.video-short-play').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var frame = btn.parentNode;
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + frame.getAttribute('data-video-id') + '?autoplay=1&start=3&rel=0&playsinline=1';
+                iframe.title = 'Vidéo : l\'hypnose pour l\'anxiété';
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                iframe.allowFullscreen = true;
+                frame.replaceChild(iframe, btn);
+            });
+        });
 
         // Révélation au scroll, une seule fois par section.
         // En mouvement réduit : tout est affiché d'emblée, sans translation.
