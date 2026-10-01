@@ -821,6 +821,56 @@
                entièrement lisible. Seules les sections hors écran sont armées. */
             .reveal { transition: opacity .8s var(--ease), transform .8s var(--ease); }
             .reveal[data-armed] { opacity: .001; transform: translateY(18px); }
+
+            /* Cartes, vidéo et étapes : elles apparaissent l'une après l'autre quand
+               leur section se révèle. Fill-mode "backwards" : une fois terminée,
+               l'animation ne retient plus rien et le survol reste libre. */
+            .reveal:not([data-armed]) .why-item,
+            .reveal:not([data-armed]) .value-item,
+            .reveal:not([data-armed]) .step {
+                animation: carte-entree .9s var(--ease) backwards;
+            }
+            .reveal:not([data-armed]) .why-item:nth-child(1),
+            .reveal:not([data-armed]) .value-item:nth-child(1),
+            .reveal:not([data-armed]) .step:nth-child(1) { animation-delay: .10s; }
+            .reveal:not([data-armed]) .why-item:nth-child(2),
+            .reveal:not([data-armed]) .value-item:nth-child(2),
+            .reveal:not([data-armed]) .step:nth-child(2) { animation-delay: .22s; }
+            .reveal:not([data-armed]) .why-item:nth-child(3),
+            .reveal:not([data-armed]) .value-item:nth-child(3),
+            .reveal:not([data-armed]) .step:nth-child(3) { animation-delay: .34s; }
+            .reveal:not([data-armed]) .why-item:nth-child(4),
+            .reveal:not([data-armed]) .value-item:nth-child(4),
+            .reveal:not([data-armed]) .step:nth-child(4) { animation-delay: .46s; }
+            .reveal:not([data-armed]) .step:nth-child(n+5) { animation-delay: .58s; }
+            @keyframes carte-entree {
+                from { opacity: 0; transform: translateY(26px) scale(.97); }
+                to   { opacity: 1; transform: none; }
+            }
+
+            .reveal:not([data-armed]) .video-short-frame {
+                animation: video-entree 1.1s var(--ease) .3s backwards;
+            }
+            @keyframes video-entree {
+                from { opacity: 0; transform: translateY(34px) scale(.94); }
+                to   { opacity: 1; transform: none; }
+            }
+
+            /* Bouton lecture : un anneau qui s'élargit au rythme de la respiration */
+            .video-short-play span { position: relative; }
+            .video-short-play span::after {
+                content: ""; position: absolute; inset: 0; border-radius: 50%;
+                border: 2px solid rgba(240, 236, 227, .75);
+                animation: anneau 4.5s ease-out 1.5s infinite;
+            }
+            @keyframes anneau {
+                0%   { transform: scale(1); opacity: .8; }
+                70%, 100% { transform: scale(1.9); opacity: 0; }
+            }
+
+            /* Pastilles d'icônes : une légère bascule au survol de la carte */
+            .why-icon svg, .value-icon svg { transition: transform .5s var(--ease); }
+            .why-item:hover .why-icon svg, .value-item:hover .value-icon svg { transform: rotate(-8deg) scale(1.12); }
         }
 
         @supports (animation-timeline: view()) {
