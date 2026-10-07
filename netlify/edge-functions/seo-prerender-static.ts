@@ -210,7 +210,7 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "23",
+    reviewCount: "26",
   },
   sameAs: ["https://maps.google.com/?cid=11956530853003446067"],
 };
@@ -1215,7 +1215,7 @@ const PAGES: Record<string, PageData> = {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5",
-          "reviewCount": "23",
+          "reviewCount": "26",
           "bestRating": "5"
         }
       }

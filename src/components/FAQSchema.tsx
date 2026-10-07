@@ -12,7 +12,7 @@ const FAQSchema = () => {
         "name": "Qui est Alain Zenatti, hypnothérapeute à Paris ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose au 16 rue Saint-Antoine, Paris 4ème (Marais-Bastille), et propose des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée, centrée sur les ressources inconscientes de chaque client. Il accompagne exclusivement des adultes. Note : 5/5 sur Google (23 avis) et 5/5 sur Resalib (19 avis)."
+          "text": "Alain Zenatti est Maître Hypnologue certifié par l'École Psynapse, titulaire de 9 certifications en hypnose ericksonienne, hypnothérapie brève et auto-hypnose. Il reçoit au cabinet NovaHypnose au 16 rue Saint-Antoine, Paris 4ème (Marais-Bastille), et propose des séances en visioconférence partout en France. Son approche est douce, non-directive et personnalisée, centrée sur les ressources inconscientes de chaque client. Il accompagne exclusivement des adultes. Note : 5/5 sur Google (26 avis) et 5/5 sur Resalib (23 avis)."
         }
       },
       {

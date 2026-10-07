@@ -843,7 +843,7 @@ const PreviewCharte: React.FC = () => {
             </div>
 
             <div className="reveal seance-promesse d-2">
-              <em>Résumé Resalib — 21 avis vérifiés, 5.0/5.</em> Alain Zenatti est unanimement
+              <em>Résumé Resalib — 23 avis vérifiés, 5.0/5.</em> Alain Zenatti est unanimement
               apprécié pour son écoute attentive, sa bienveillance et sa capacité à mettre à
               l'aise, instaurant une confiance immédiate chez chaque personne qu'il accompagne.
               Grâce à son professionnalisme et des techniques efficaces, il aide à lever des

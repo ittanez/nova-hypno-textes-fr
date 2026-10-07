@@ -15,7 +15,7 @@ interface Testimonial {
   text: string;
 }
 
-// Avis authentiques extraits de Google My Business - 6 sélectionnés parmi les 22 avis 5/5
+// Avis authentiques extraits de Google My Business - 6 sélectionnés parmi les 26 avis 5/5
 const testimonials: Testimonial[] = [
   {
     name: 'Karine B.',

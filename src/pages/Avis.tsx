@@ -91,7 +91,7 @@ const Avis = () => {
       {/* Résumé Resalib */}
       <section className="sp-section">
         <div className="container sp-narrow">
-          <h2 className="sp-h2">21 avis vérifiés sur Resalib</h2>
+          <h2 className="sp-h2">23 avis vérifiés sur Resalib</h2>
           <p style={{marginBottom: 16}}>
             <span aria-label="5 sur 5">{'★'.repeat(5)}</span> 5.0/5 — avis authentifiés,
             seuls les clients du praticien peuvent publier un avis.
