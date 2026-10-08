@@ -27,7 +27,7 @@ import RelatedArticles from "@/components/blog/RelatedArticles";
 import BlogArticleFAQ from "@/components/blog/BlogArticleFAQ";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
-import { getArticleBySlug, getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blog/articleService";
+import { getArticleBySlug, getPublishedArticleRefs, getAllCategories } from "@/lib/services/blog/articleService";
 import { Article, Category } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 import { logger } from "@/lib/logger";
@@ -108,7 +108,7 @@ const ArticlePage = () => {
         // Charger l'article actuel, tous les articles et les catégories en parallèle
         const [articleResult, allResult, categoriesResult] = await Promise.all([
           getArticleBySlug(slug!),
-          getAllArticlesNoPagination(),
+          getPublishedArticleRefs(),
           getAllCategories()
         ]);
 

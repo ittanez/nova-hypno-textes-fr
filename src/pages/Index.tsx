@@ -13,7 +13,7 @@ import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useQueryClient } from '@tanstack/react-query';
 import ContentLayout from '@/components/layout/ContentLayout';
-import { getAllArticlesNoPagination, getAllCategories } from '@/lib/services/blog/articleService';
+import { getAllCategories } from '@/lib/services/blog/articleService';
 import { logger } from '@/lib/logger';
 import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -64,11 +64,6 @@ const Index: React.FC = () => {
       try {
         // Préchargement des articles et catégories pour optimiser le chargement du blog
         await Promise.all([
-          queryClient.prefetchQuery({
-            queryKey: ['articles', 'all'],
-            queryFn: () => getAllArticlesNoPagination(),
-            staleTime: 5 * 60 * 1000, // 5 minutes
-          }),
           queryClient.prefetchQuery({
             queryKey: ['categories'],
             queryFn: () => getAllCategories(),

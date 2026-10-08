@@ -134,6 +134,26 @@ export const getAllArticles = async (page: number = 1, pageSize: number = 10): P
   }
 };
 
+// Liste minimale (titre, slug, dates) des articles publiés, pour la navigation précédent/suivant
+export const getPublishedArticleRefs = async (): Promise<ArticlesResponse> => {
+  try {
+    const { data, error } = await supabase
+      .from('articles')
+      .select('id, title, slug, published, published_at, created_at')
+      .eq('published', true)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      throw error;
+    }
+
+    return { data: data as Article[], error: null };
+  } catch (error) {
+    logger.error("Erreur lors de la récupération des références d'articles:", error);
+    return { data: null, error: error instanceof Error ? error : new Error('Erreur inconnue') };
+  }
+};
+
 // Fonction pour récupérer tous les articles sans pagination
 export const getAllArticlesNoPagination = async (publishedOnly: boolean = true): Promise<ArticlesResponse> => {
   try {
