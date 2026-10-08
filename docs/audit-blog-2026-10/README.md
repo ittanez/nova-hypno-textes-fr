@@ -33,3 +33,7 @@ La « garantie 4e séance offerte » n'existe plus : ne jamais la citer.
 - **Lot 1** (6 articles : moi parallèles, GPS émotionnel, métaphores/réalité, cabinet Bastille, animaux totems, rêve éveillé) : `lot-1/` contient `avant/`, `apres/`, `RELECTURE.html` (avant/après côte à côte) et `METTRE-A-JOUR-LE-LOT-1.sql`. Décisions d'Alain : tarifs 90 € (cabinet et visio) / 140 € (domicile), anecdotes personnelles non vérifiables retirées.
 - Reste à traiter : l'autre article « métaphores » (`les-metaphores-en-hypnotherapie-quand-les-mots-deviennent-des-ponts-vers-la-transformation`), puis les ~110 autres par lots de 10.
 - Autres déclencheurs de la table : `trigger_indexnow_on_article_change` (AFTER INSERT OR UPDATE) envoie probablement les URL à IndexNow à chaque modification.
+
+## Lot 2 (8 octobre 2026) — appliqué
+10 articles réécrits et appliqués via `node scripts/apply-article-updates.js docs/audit-blog-2026-10/lot-2/apres` (règle des 3 %, auto-hypnose rapide, respiration, Milton Erickson, métaphores en hypnothérapie, mémoire, oser l'inconnu, Instagram, cerveau fascinant, FAQ anxiété). `trigger_auto_slug` corrigé (slug généré seulement s'il est vide). Sauvegardes avant écriture : `sauvegardes/<horodatage>/`. Outils : `classer-articles.mjs` (classement par gravité → `classement.md`), `exporter-lot.mjs`, `lire.mjs`, `relecture.mjs`.
+Reste : ~106 articles. Prochain lot : les 10 suivants de `classement.md` (à régénérer, les 19 premiers sont traités).
