@@ -11,6 +11,7 @@ import { getAllArticlesNoPagination, getAllCategories } from "@/lib/services/blo
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import { useQuery } from "@tanstack/react-query";
 import { logger } from "@/lib/logger";
+import { getBlogImageUrl } from "@/lib/utils/imagekit";
 
 const ARTICLES_PER_PAGE = 9;
 
@@ -147,7 +148,7 @@ const BlogIndex = () => {
       "headline": article.title,
       "url": `https://novahypnose.fr/blog/article/${article.slug}`,
       "datePublished": article.published_at || article.created_at,
-      "image": article.image_url,
+      "image": getBlogImageUrl(article.image_url, 1200),
       "author": {
         "@type": "Person",
         "name": "Alain Zenatti"
@@ -302,7 +303,7 @@ const BlogIndex = () => {
                   >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
-                        src={article.image_url || "/placeholder.svg"}
+                        src={getBlogImageUrl(article.image_url, 600) || "/placeholder.svg"}
                         alt={article.title}
                         loading={index < 3 ? "eager" : "lazy"}
                         fetchpriority={index === 0 ? "high" : "auto"}

@@ -5,6 +5,7 @@ import { fr } from "date-fns/locale";
 import { Article } from "@/lib/types/blog";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getBlogImageUrl } from "@/lib/utils/imagekit";
 
 interface ArticleCardProps {
   article: Article;
@@ -79,7 +80,7 @@ const ArticleCard = ({ article, isFirst = false, isLCP = false }: ArticleCardPro
         {/* Container avec aspect-ratio fixe */}
         <div className="aspect-video md:aspect-[5/2] overflow-hidden relative bg-gray-100">
           <img
-            src={article.image_url || "/placeholder.svg"}
+            src={getBlogImageUrl(article.image_url, 600) || "/placeholder.svg"}
             alt={`Article hypnothérapie - ${article.title}`}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading={isFirst || isLCP ? "eager" : "lazy"}

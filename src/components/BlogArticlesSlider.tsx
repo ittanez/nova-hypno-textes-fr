@@ -6,6 +6,7 @@ import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import Calendar from 'lucide-react/dist/esm/icons/calendar';
 import { publicSupabase } from '@/integrations/supabase/public-client';
+import { getBlogImageUrl } from "@/lib/utils/imagekit";
 
 interface BlogArticle {
   id: string;
@@ -193,7 +194,7 @@ const BlogArticlesSlider: React.FC = () => {
               <div className="lg:w-1/2 flex items-center">
                 {currentArticle.image_url ? (
                   <img
-                    src={currentArticle.image_url}
+                    src={getBlogImageUrl(currentArticle.image_url, 800)}
                     alt={`Article hypnothérapie - ${currentArticle.title}`}
                     className="w-full h-64 lg:h-96 object-cover rounded-l-2xl lg:rounded-l-2xl lg:rounded-r-none"
                     loading="lazy"

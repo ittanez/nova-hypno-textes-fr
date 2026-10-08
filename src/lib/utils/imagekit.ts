@@ -82,3 +82,13 @@ export function getResponsiveSrcSet(
     sizes: '100vw' // L'image occupe toute la largeur de la viewport
   };
 }
+
+/**
+ * Image d'article du blog redimensionnée via ImageKit, qui met l'original Supabase
+ * en cache : évite de consommer l'egress Supabase à chaque affichage.
+ * Les URL qui ne viennent pas du Storage Supabase (base64, placeholder) sont renvoyées telles quelles.
+ */
+export function getBlogImageUrl(url: string | null | undefined, width: number): string | undefined {
+  if (!url || !url.startsWith(SUPABASE_BASE)) return url ?? undefined;
+  return getImageKitUrl(url, { width, quality: 75, format: 'auto' });
+}

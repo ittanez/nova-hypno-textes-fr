@@ -32,6 +32,7 @@ import { Article, Category } from "@/lib/types/blog";
 import { parseMarkdownToHtml } from "@/utils/markdownParser";
 import { logger } from "@/lib/logger";
 import { createBreadcrumbSchema } from "@/data/schemaOrg";
+import { getBlogImageUrl } from "@/lib/utils/imagekit";
 
 // ✅ FONCTION POUR OBTENIR LES ARTICLES ADJACENTS
 const getAdjacentArticles = (currentArticle: Article, allArticles: Article[]) => {
@@ -151,7 +152,7 @@ const ArticlePage = () => {
       "@type": "BlogPosting",
       "headline": article.title,
       "description": article.seo_description || article.excerpt,
-      "image": article.image_url || "https://novahypnose.fr/images/og-alain-zenatti.jpg",
+      "image": getBlogImageUrl(article.image_url, 1200) || "https://novahypnose.fr/images/og-alain-zenatti.jpg",
       "datePublished": article.published_at || article.created_at,
       "dateModified": article.updated_at || article.created_at,
       "author": {
@@ -304,7 +305,7 @@ const ArticlePage = () => {
       <SEOHead
         title={article.title}
         description={article.seo_description || article.excerpt}
-        image={article.image_url}
+        image={getBlogImageUrl(article.image_url, 1200)}
         type="article"
         publishedTime={article.created_at}
         modifiedTime={article.updated_at}
@@ -340,7 +341,7 @@ const ArticlePage = () => {
         {/* Article header with image */}
         <div className="w-full h-[40vh] relative">
           <img
-            src={article.image_url || "/placeholder.svg"}
+            src={getBlogImageUrl(article.image_url, 1600) || "/placeholder.svg"}
             alt={article.title}
             className="w-full h-full object-cover"
             loading="eager"

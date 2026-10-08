@@ -7,7 +7,9 @@ const SITE_URL = "https://novahypnose.fr";
 const SITE_NAME = "Blog NovaHypnose";
 const STORAGE_URL =
   "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public";
-const DEFAULT_IMAGE = `${STORAGE_URL}/images/emergences-hypnose.webp`;
+// ImageKit redimensionne et met en cache les images du Storage : évite l egress Supabase à chaque robot
+const IMAGEKIT_ENDPOINT = "https://ik.imagekit.io/7higvzmeg";
+const DEFAULT_IMAGE = `${SITE_URL}/images/emergences-hypnose.webp`;
 
 const BOT_USER_AGENTS = [
   "googlebot",
@@ -119,7 +121,12 @@ function ensureDescriptionLength(desc: string, minLength = 120, maxLength = 160)
 }
 
 function getImageUrl(article: Article): string {
-  return article.storage_image_url || article.image_url || DEFAULT_IMAGE;
+  const url = article.storage_image_url || article.image_url;
+  if (!url) return DEFAULT_IMAGE;
+  if (url.startsWith(`${STORAGE_URL}/`)) {
+    return `${IMAGEKIT_ENDPOINT}/tr:w-1200,q-75/${url.slice(STORAGE_URL.length + 1)}`;
+  }
+  return url.startsWith("data:") ? DEFAULT_IMAGE : url;
 }
 
 function formatDate(dateStr: string | null): string {
