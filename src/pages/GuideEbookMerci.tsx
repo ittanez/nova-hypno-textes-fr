@@ -124,7 +124,7 @@ const GuideEbookMerci: React.FC = () => {
             {/* Signature */}
             <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: '20px', background: 'var(--paper)', borderRadius: '16px', padding: '20px 24px', boxShadow: '0 4px 20px rgba(28,43,74,.06)', borderLeft: '3px solid var(--amber)' }}>
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+                src="/images/zenatti.webp"
                 alt="Alain Zenatti — Hypnothérapeute Paris"
                 style={{ width: '72px', height: '72px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, boxShadow: '6px 6px 0 rgba(242,161,46,.22)' }}
                 loading="lazy"

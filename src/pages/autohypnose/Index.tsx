@@ -28,7 +28,7 @@ const AutohypnoseIndex = () => {
         <meta property="og:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
         <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="fr_FR" />
@@ -36,7 +36,7 @@ const AutohypnoseIndex = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="La Formation Auto-hypnose Paris | NovaHypnose" />
         <meta name="twitter:description" content="Maîtrisez l'auto-hypnose en 1 journée à Paris Bastille ! Formation anti-stress avec Alain Zenatti, hypnothérapeute certifié." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
       </Helmet>
 
       <Header />

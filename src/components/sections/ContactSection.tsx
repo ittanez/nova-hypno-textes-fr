@@ -30,7 +30,7 @@ const ContactSection: React.FC = () => {
               {/* Photo Alain - Format photomaton */}
               <div className="mb-8 flex justify-center md:justify-start">
                 <img
-                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-contact.webp"
+                  src="/images/alain-contact.webp"
                   alt="Alain Zenatti - Hypnothérapeute Paris 4ème"
                   className="w-32 h-32 rounded-full shadow-lg object-cover border-4 border-white"
                   loading="lazy"

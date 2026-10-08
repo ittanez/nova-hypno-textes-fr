@@ -97,7 +97,7 @@ const HeroSection = ({ onStartTest }: HeroSectionProps) => {
           <div className="flex-1 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/hypnotisable.webp"
+                src="/images/hypnotisable.webp"
                 alt="Alain Zenatti - Hypnothérapeute certifié à Paris - Test gratuit de réceptivité à l'hypnose"
                 className="w-full h-auto"
                 loading="eager"

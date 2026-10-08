@@ -178,7 +178,7 @@ const GuideAutohypnose: React.FC = () => {
           "bookFormat": "https://schema.org/EBook", "numberOfPages": 37, "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
           "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
-          "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
         })}</script>
       </Helmet>
@@ -236,7 +236,7 @@ const GuideAutohypnose: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ebookautohypnose.webp"
+                src="/images/ebookautohypnose.webp"
                 alt="Guide L'Autohypnose au Quotidien — 37 pages, 9 protocoles"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
@@ -318,7 +318,7 @@ const GuideAutohypnose: React.FC = () => {
             </div>
             <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '48px', alignItems: 'flex-start', maxWidth: '820px', margin: '0 auto' }}>
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/zenatti.webp"
+                src="/images/zenatti.webp"
                 alt="Alain Zenatti — Hypnothérapeute Paris"
                 style={{ width: '112px', height: '112px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0, boxShadow: '8px 8px 0 rgba(242,161,46,.28)' }}
                 loading="lazy"

@@ -13,7 +13,7 @@ const Hero = memo(() => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/harmonia/autohypnosepartcipants.webp)',
+          backgroundImage: 'url(/images/harmonia/autohypnosepartcipants.webp)',
         }}
         aria-hidden="true"
       >

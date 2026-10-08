@@ -25,7 +25,7 @@ export type { SchemaMarkup };
 const SEOHead = ({
   title,
   description,
-  image = "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/emergences-hypnose.webp",
+  image = "https://novahypnose.fr/images/emergences-hypnose.webp",
   url,
   type = "website",
   publishedTime,

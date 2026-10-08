@@ -205,7 +205,7 @@ const GuideTabac: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ebook-tabac.png"
+                src="/images/ebook-tabac.png"
                 alt="Guide Arrêt du Tabac, Votre Liberté Retrouvée"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"

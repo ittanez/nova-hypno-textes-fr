@@ -77,7 +77,7 @@ const MobileApps = () => {
               <div className="text-center">
                 <div className="max-w-sm mx-auto">
                   <img
-                    src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/Screenshot_20250809_102147.png"
+                    src="/images/Screenshot_20250809_102147.png"
                     alt="Interface de l'application NovaRespire - Techniques de respiration"
                     className="w-full h-auto rounded-2xl shadow-2xl"
                     loading="lazy"

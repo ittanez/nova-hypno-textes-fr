@@ -284,7 +284,7 @@ const PreviewCharte: React.FC = () => {
         <meta property="og:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
@@ -295,7 +295,7 @@ const PreviewCharte: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
         <meta name="twitter:description" content="Alain Zenatti, hypnothérapeute à Paris 4 (Marais-Bastille) et en visio. Hypnose ericksonienne pour stress, anxiété, phobies et troubles du sommeil." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
 
         <link rel="canonical" href="https://novahypnose.fr" />
         <link rel="alternate" hreflang="fr" href="https://novahypnose.fr" />

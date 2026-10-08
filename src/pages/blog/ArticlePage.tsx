@@ -151,7 +151,7 @@ const ArticlePage = () => {
       "@type": "BlogPosting",
       "headline": article.title,
       "description": article.seo_description || article.excerpt,
-      "image": article.image_url || "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+      "image": article.image_url || "https://novahypnose.fr/images/og-alain-zenatti.jpg",
       "datePublished": article.published_at || article.created_at,
       "dateModified": article.updated_at || article.created_at,
       "author": {
@@ -159,7 +159,7 @@ const ArticlePage = () => {
         "name": authorName,
         "@id": "https://novahypnose.fr/#person",
         "url": "https://novahypnose.fr",
-        "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+        "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
         "jobTitle": "Maître Hypnologue certifié"
       },
       "publisher": {
@@ -167,7 +167,7 @@ const ArticlePage = () => {
         "name": "NovaHypnose",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+          "url": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
           "width": 1200,
           "height": 630
         }

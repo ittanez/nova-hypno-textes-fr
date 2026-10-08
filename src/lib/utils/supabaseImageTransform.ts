@@ -91,6 +91,16 @@ export function getCarouselImageSrcSet(url: string): {
   srcSet: string;
   sizes: string;
 } {
+  // Image locale (public/images/carrousel) : variantes pré-générées `<base>-<largeur>.webp`,
+  // servies par Netlify pour ne pas consommer l'egress Supabase
+  if (url.startsWith('/')) {
+    return {
+      src: `${url}-768.webp`,
+      srcSet: [480, 768, 1024, 1536].map((w) => `${url}-${w}.webp ${w}w`).join(', '),
+      sizes: '(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw',
+    };
+  }
+
   return {
     // Image par défaut pour desktop (fallback si srcSet non supporté)
     src: transformSupabaseImage(url, { width: 768, quality: 60 }),

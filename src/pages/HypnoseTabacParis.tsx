@@ -74,14 +74,14 @@ const HypnoseTabacParis = () => {
         <meta property="og:url" content="https://novahypnose.fr/hypnose-arret-tabac-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Praticien en Hypnose Ericksonienne – Cabinet NovaHypnose Paris 4ème – Hypnose arrêt du tabac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti" />
         <meta name="twitter:description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. En 1 à 3 séances, sans manque excessif." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>

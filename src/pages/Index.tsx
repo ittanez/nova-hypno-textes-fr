@@ -94,7 +94,7 @@ const Index: React.FC = () => {
         <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
@@ -107,7 +107,7 @@ const Index: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
         <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
 
         {/* Canonical - sans trailing slash pour cohérence */}
         <link rel="canonical" href="https://novahypnose.fr" />

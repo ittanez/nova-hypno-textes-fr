@@ -68,13 +68,13 @@ const LandingProfessionnels: React.FC = () => {
         <meta property="og:url" content="https://novahypnose.fr/hypnose-professionnels-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose stress au travail Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Accompagnement individuel en hypnose pour professionnels. Stress, burn-out, sommeil, émotions. Appel découverte gratuit." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
       </Helmet>
@@ -250,7 +250,7 @@ const LandingProfessionnels: React.FC = () => {
           <h2 className="sp-h2">Pas encore prêt pour un appel ? Commencez ici.</h2>
           <div style={{background:'var(--paper, #F5F2EB)', borderRadius: 16, padding:'36px 40px', display:'flex', gap: 40, alignItems:'center', flexWrap:'wrap'}}>
             <img
-              src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/couverture-guide.webp"
+              src="/images/couverture-guide.webp"
               alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
               style={{width: 160, borderRadius: 8, boxShadow:'0 8px 32px rgba(0,0,0,.15)', flexShrink: 0}}
               loading="lazy"

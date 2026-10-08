@@ -3,9 +3,7 @@ import type { Context } from "https://edge.netlify.com";
 // ─── Configuration ─────────────────────────────────────────────────────────
 const SITE_URL = "https://novahypnose.fr";
 const SITE_NAME = "NovaHypnose";
-const STORAGE_URL =
-  "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public";
-const DEFAULT_IMAGE = `${STORAGE_URL}/images/alain-nov2025.webp`;
+const DEFAULT_IMAGE = "https://novahypnose.fr/images/og-alain-zenatti.jpg";
 
 const BOT_USER_AGENTS = [
   "googlebot",

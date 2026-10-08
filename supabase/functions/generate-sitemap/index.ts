@@ -164,7 +164,7 @@ serve(async (req) => {
       if (page.loc === '/') {
         xml += `
     <image:image>
-      <image:loc>https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp</image:loc>
+      <image:loc>https://novahypnose.fr/images/og-alain-zenatti.jpg</image:loc>
       <image:caption>Alain Zenatti, Hypnothérapeute à Paris</image:caption>
       <image:title>NovaHypnose - Cabinet d'hypnothérapie à Paris</image:title>
     </image:image>`

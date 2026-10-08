@@ -85,7 +85,7 @@ const PreviewCharteAutohypnose: React.FC = () => {
         <meta property="og:description" content="Apprenez l'auto-hypnose avec Alain Zenatti : formation en présentiel, accompagnement individuel et formations en entreprise sur devis." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta name="twitter:card" content="summary_large_image" />

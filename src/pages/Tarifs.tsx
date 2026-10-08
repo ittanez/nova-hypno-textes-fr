@@ -126,14 +126,14 @@ const Tarifs = () => {
         <meta property="og:url" content="https://novahypnose.fr/tarifs" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose" />
         <meta name="twitter:description" content="90 € au cabinet Paris 4ème ou en visio, 140 € à domicile. Annulation sans frais jusqu'à 48 h." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(offersSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

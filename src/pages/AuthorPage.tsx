@@ -22,7 +22,7 @@ const AuthorPage: React.FC = () => {
       "name": "Alain Zenatti",
       "jobTitle": "Maître Hypnologue certifié",
       "url": "https://novahypnose.fr/alain-zenatti",
-      "image": "https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp",
+      "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
       "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. Plus de 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
       "sameAs": [
         "https://www.instagram.com/novahypnose/",
@@ -114,7 +114,7 @@ const AuthorPage: React.FC = () => {
         <meta property="og:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/alain-zenatti" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="fr_FR" />
@@ -122,7 +122,7 @@ const AuthorPage: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
         <meta name="twitter:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>
 
@@ -132,7 +132,7 @@ const AuthorPage: React.FC = () => {
             {/* Hero Section */}
             <div className="text-center mb-16">
               <img
-                src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp"
+                src="/images/alain-zenatti-portrait.webp"
                 alt="Alain Zenatti - Maître Hypnologue"
                 className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg object-cover"
               />

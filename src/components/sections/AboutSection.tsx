@@ -37,7 +37,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                     loading="lazy"
                     onError={(e) => {
                       // Fallback si l'image YouTube ne charge pas
-                      e.currentTarget.src = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp?width=480&quality=75';
+                      e.currentTarget.src = '/images/alain-zenatti-portrait.webp';
                     }}
                   />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">

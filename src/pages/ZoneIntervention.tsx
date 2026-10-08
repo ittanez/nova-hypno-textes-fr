@@ -126,13 +126,13 @@ const ZoneIntervention = () => {
         <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose" />
         <meta name="twitter:description" content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbLd)}</script>
       </Helmet>

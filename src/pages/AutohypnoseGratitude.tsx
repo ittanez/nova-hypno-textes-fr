@@ -20,7 +20,7 @@ const PDF_URL =
   'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/pdf/Autohypnose-Vivre-dans-une-etat-de-gratitude.pdf';
 
 const IMAGE_URL =
-  'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/autohypnosegratitude.webp';
+  'https://novahypnose.fr/images/autohypnosegratitude.webp';
 
 const benefits = [
   {
@@ -200,7 +200,7 @@ const AutohypnoseGratitude: React.FC = () => {
 
               <div className="hidden md:flex items-center justify-center px-8 py-8">
                 <img
-                  src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ebookautohypnose.webp"
+                  src="/images/ebookautohypnose.webp"
                   alt="Guide L'Autohypnose au Quotidien — 37 pages, 9 protocoles"
                   className="w-[180px] rounded-xl shadow-2xl -rotate-3 hover:rotate-0 transition-transform duration-500"
                   loading="lazy"

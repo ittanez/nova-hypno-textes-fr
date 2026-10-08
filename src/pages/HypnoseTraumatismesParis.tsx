@@ -109,14 +109,14 @@ const HypnoseTraumatismesParis = () => {
         <meta property="og:url" content="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
-        <meta property="og:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose traumatismes" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose traumatismes Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
-        <meta name="twitter:image" content="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/alain-nov2025.webp" />
+        <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>

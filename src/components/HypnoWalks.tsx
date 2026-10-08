@@ -9,7 +9,7 @@ import Euro from 'lucide-react/dist/esm/icons/euro';
 const HypnoWalks = () => {
   return (
     <section id="walks" className="section-padding relative">
-      <div className="absolute inset-0 bg-[url('https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images//balade.webp')] bg-cover bg-center opacity-15" 
+      <div className="absolute inset-0 bg-[url('/images/balade.webp')] bg-cover bg-center opacity-15" 
            role="img" 
            aria-label="Fond de la forêt de Senonches pour hypno-balades"></div>
       <div className="container mx-auto px-4 relative z-10">
