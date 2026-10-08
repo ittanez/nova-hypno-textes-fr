@@ -29,7 +29,7 @@ const handleBookingCtaClick = (location: string) => {
 // 3 groupes de témoignages (longueurs variées dans chaque groupe), pour la rotation automatique.
 const TESTIMONIAL_SETS = [
   [0, 3, 8],
-  [7, 6, 4],
+  [7, 6, 11],
   [2, 1, 5],
 ];
 
