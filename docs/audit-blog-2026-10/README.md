@@ -25,3 +25,11 @@ La « garantie 4e séance offerte » n'existe plus : ne jamais la citer.
 2. Recherche systématique, en lecture seule, des études et chiffres cités dans les 128 autres articles.
 3. Réécriture par lots de 10, avant/après validé par Alain avant chaque écriture en base.
 4. Corriger les meta descriptions et le CSS inline.
+
+## Mise à jour du 8 octobre 2026
+
+- **Pilotes appliqués** (peur de l'avion, régimes, hypnotisable). Leurs slugs avaient été recalculés par le déclencheur `trigger_auto_slug` (BEFORE INSERT OR UPDATE OF title) ; restaurés avec `pilote/RESTAURER-LES-3-SLUGS.sql`.
+- **Règle pour tout script de mise à jour** qui modifie `title` : encadrer par `alter table public.articles disable trigger trigger_auto_slug;` puis `enable trigger`, dans la même transaction. Les slugs ne changent jamais.
+- **Lot 1** (6 articles : moi parallèles, GPS émotionnel, métaphores/réalité, cabinet Bastille, animaux totems, rêve éveillé) : `lot-1/` contient `avant/`, `apres/`, `RELECTURE.html` (avant/après côte à côte) et `METTRE-A-JOUR-LE-LOT-1.sql`. Décisions d'Alain : tarifs 90 € (cabinet et visio) / 140 € (domicile), anecdotes personnelles non vérifiables retirées.
+- Reste à traiter : l'autre article « métaphores » (`les-metaphores-en-hypnotherapie-quand-les-mots-deviennent-des-ponts-vers-la-transformation`), puis les ~110 autres par lots de 10.
+- Autres déclencheurs de la table : `trigger_indexnow_on_article_change` (AFTER INSERT OR UPDATE) envoie probablement les URL à IndexNow à chaque modification.
