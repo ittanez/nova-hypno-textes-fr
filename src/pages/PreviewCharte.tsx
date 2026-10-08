@@ -869,7 +869,7 @@ const PreviewCharte: React.FC = () => {
                             <span key={s} className="temoignage__star">★</span>
                           ))}
                         </span>
-                        <strong>{anonymizeName(t.name)}</strong> · Google
+                        <strong>{anonymizeName(t.name)}</strong> · {t.source ?? 'Google'}
                       </div>
                     </div>
                     {i < 2 && <div className="wave" aria-hidden="true"></div>}

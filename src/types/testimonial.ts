@@ -5,4 +5,5 @@ export interface Testimonial {
   text: string;
   rating: number;
   image?: string;
+  source?: 'Google' | 'Resalib';
 }

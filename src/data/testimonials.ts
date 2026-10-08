@@ -66,5 +66,12 @@ export const testimonials: Testimonial[] = [
     date: "Il y a 27 semaines",
     text: "J'ai apprécié la patience, la douceur, l'écoute et le professionnalisme d'Alain Zenatti. Il m'a aidée au-delà de mes espérances alors que j'étais sceptique vis-à-vis de l'hypnose. Grâce à lui, j'ai repris confiance en moi, me sentant mieux dans ma vie.",
     rating: 5
+  },
+  {
+    name: "Luigi A.",
+    date: "7 octobre 2026",
+    text: "C'était ma toute première expérience avec l'hypnose, et la faire avec Alain s'est révélée très rassurante. Alain donne des outils efficaces pour progresser, garde une approche très orientée vers les objectifs et m'a permis d'obtenir des résultats concrets, applicables directement dans mon quotidien. Je le recommande sans hésiter.",
+    rating: 5,
+    source: 'Resalib'
   }
 ];

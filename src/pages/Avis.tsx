@@ -123,14 +123,15 @@ const Avis = () => {
               <p>{t.text}</p>
               <footer>
                 <span aria-label={`${t.rating} sur 5`}>{'★'.repeat(t.rating)}</span>{' '}
-                — {anonymizeName(t.name)}, avis Google vérifié
+                — {anonymizeName(t.name)}, avis {t.source ?? 'Google'} vérifié
               </footer>
             </blockquote>
           ))}
           <div className="sp-prose" style={{marginTop: 24}}>
             <p>
-              Tous ces témoignages proviennent d'avis publics laissés sur{' '}
-              <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">Google</a> ;
+              Ces témoignages proviennent d'avis publics laissés sur{' '}
+              <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">Google</a>{' '}
+              et sur Resalib ;
               les noms sont abrégés par discrétion. Vous trouverez d'autres avis vérifiés
               sur la fiche Resalib d'Alain Zenatti.
             </p>
