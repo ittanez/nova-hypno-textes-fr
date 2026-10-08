@@ -5,13 +5,8 @@ import { config } from 'dotenv';
 config({ path: new URL('../../.env', import.meta.url) });
 const sb = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
 
-const FAIT = new Set(['hypnose-peur-avion-solution-efficace-3-seances', 'pourquoi-regimes-echouent-hypnose-reussit',
-  'suisje-hypnotisable-la-question-que-tous-mes-clients-me-posent-et-la-reponse-va-vous-surprendre',
-  'la-cartographie-de-ses-moi-paralleles-explorer-les-versions-alternatives-de-soi-pour-debloquer-son-potentiel',
-  'developper-son-gps-emotionnel-affiner-sa-boussole-interieure-pour-naviguer-dans-les-defis-de-la-vie',
-  'comment-les-metaphores-faconnent-la-realite-changez-votre-metaphore-changez-votre-vie',
-  'cabinet-hypnotherapie-paris-bastille-accessibilite', 'le-protocole-des-animaux-totems-en-hypnotherapie-ma-passion-secrete',
-  'reve-eveille-hypnose-protocole']);
+import fs from 'node:fs';
+const FAIT = new Set(JSON.parse(fs.readFileSync(new URL('./traites.json', import.meta.url), 'utf8')));
 
 const PRENOMS = 'Sophie|Marc|Sarah|Thomas|Marie|Julie|Pierre|Claire|Laura|Nicolas|Paul|Emma|Lucas|Camille|Lucie|Émilie|Antoine|Isabelle|Karim|Léa|Julien|Céline|David|Nathalie|Alexandre|Caroline|Vincent|Sandrine|Philippe|Anne|Jean|Mathieu|Éric|Stéphanie|Laurent|Valérie|Hugo|Chloé|Manon|Jérôme|Sylvie|Patrick|Delphine|Olivier|Aurélie|Bruno|Florence';
 const CRITERES = [
