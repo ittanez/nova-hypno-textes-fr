@@ -137,7 +137,7 @@ function getDefaultStructuredData() {
     "name": "NovaHypnose - Hypnothérapeute Paris",
     "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
     "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
-    "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Spécialiste stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances.",
+    "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Spécialiste stress, anxiété, phobies, sommeil.",
     "url": "https://novahypnose.fr",
     "telephone": "+33649358089",
     "email": "contact@novahypnose.fr",

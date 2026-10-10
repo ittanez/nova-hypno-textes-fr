@@ -42,7 +42,7 @@ const HypnoseProcrastinationParis = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hypnose procrastination Paris",
-    "description": "Libérez-vous de la procrastination par l'hypnose ericksonienne à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — résultats en 3 à 5 séances.",
+    "description": "Libérez-vous de la procrastination par l'hypnose ericksonienne à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action.",
     "url": "https://novahypnose.fr/hypnose-procrastination-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [

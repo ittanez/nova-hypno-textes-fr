@@ -68,7 +68,7 @@ const HypnoseSommeilParis = () => {
         <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris, hypnose sommeil en ligne, séance hypnose insomnie visio France, hypnose sommeil à distance, téléconsultation hypnose sommeil" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:title" content="Hypnose sommeil & insomnie à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -79,7 +79,7 @@ const HypnoseSommeilParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose troubles du sommeil" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose sommeil & insomnie à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances." />
+        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

@@ -78,7 +78,7 @@ const HypnoseEmotionsParis = () => {
         <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris, hypnose émotions en ligne, séance hypnose émotions visio France, hypnose gestion émotions à distance, téléconsultation hypnose émotions" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:title" content="Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -89,7 +89,7 @@ const HypnoseEmotionsParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose gestion des émotions" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances." />
+        <meta name="twitter:description" content="Gérez vos émotions par l'hypnose à Paris 4ème ou en visio partout en France. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

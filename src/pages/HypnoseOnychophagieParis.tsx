@@ -42,7 +42,7 @@ const HypnoseOnychophagieParis = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hypnose onychophagie (rongement des ongles) Paris",
-    "description": "Arrêtez de vous ronger les ongles grâce à l'hypnose ericksonienne à Paris 4ème ou en visio. Résultats rapides en 1 à 3 séances. Cabinet Paris Marais-Bastille.",
+    "description": "Arrêtez de vous ronger les ongles grâce à l'hypnose ericksonienne à Paris 4ème ou en visio. Cabinet Paris Marais-Bastille.",
     "url": "https://novahypnose.fr/hypnose-onychophagie-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
@@ -95,11 +95,11 @@ const HypnoseOnychophagieParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances." />
+        <meta name="description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Accompagnement personnalisé de l'onychophagie." />
         <meta name="keywords" content="hypnose onychophagie paris, arrêter se ronger ongles hypnose, traitement onychophagie hypnose, rongement ongles comportement compulsif hypnose paris, onychophagie adulte traitement, hypnose onychophagie en ligne, séance rongement ongles visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-onychophagie-paris" />
         <meta property="og:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Résultats en 1 à 3 séances." />
+        <meta property="og:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-onychophagie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseOnychophagieParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose onychophagie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Résultats en 1 à 3 séances." />
+        <meta name="twitter:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

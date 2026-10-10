@@ -54,7 +54,7 @@ export const localBusinessSchema = {
     "width": 1200,
     "height": 630
   },
-  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille, et téléconsultations visio partout en France. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi. Résultats en 3 à 5 séances.",
+  "description": "Cabinet d'hypnothérapie ericksonienne à Paris 4ème, quartier Marais-Bastille, et téléconsultations visio partout en France. Alain Zenatti, Maître Hypnologue certifié, spécialiste du stress, de l'anxiété, des phobies, du sommeil et de la confiance en soi.",
   "slogan": "Transformez votre vie par l'hypnose",
   "founder": {
     "@type": "Person",
@@ -160,7 +160,7 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Téléconsultation d'hypnose en visio",
-          "description": "Séance d'hypnose en visioconférence partout en France, aussi efficace qu'en cabinet. Plateforme Google Meet.",
+          "description": "Séance d'hypnose en visioconférence partout en France, dans un cadre identique à celui du cabinet. Plateforme Google Meet.",
           "serviceType": "Hypnothérapie en ligne",
           "areaServed": { "@type": "Country", "name": "France" },
           "availableChannel": {

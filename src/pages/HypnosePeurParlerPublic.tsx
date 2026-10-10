@@ -99,7 +99,7 @@ const HypnosePeurParlerPublic = () => {
         <meta name="keywords" content="hypnose peur parler public paris, glossophobie hypnose paris, trac prise de parole hypnose, traitement peur de parler, hypnothérapeute glossophobie paris, hypnose trac oral, peur parler public hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
         <meta property="og:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-peur-parler-public-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnosePeurParlerPublic = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de parler en public" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de parler en public Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances." />
+        <meta name="twitter:description" content="Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions, oraux — retrouvez votre aisance à l'oral." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

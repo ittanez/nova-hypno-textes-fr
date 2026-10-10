@@ -94,11 +94,11 @@ const HypnoseArachnophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Résultats durables en 2 à 3 séances." />
+        <meta name="description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio." />
         <meta name="keywords" content="hypnose arachnophobie paris, peur araignées hypnose, traitement arachnophobie, vaincre peur araignées hypnose, hypnothérapeute arachnophobie paris, hypnose insectes, peur araignées hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-arachnophobie-paris" />
         <meta property="og:title" content="Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines — résultats durables en 2 à 3 séances." />
+        <meta property="og:description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-arachnophobie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnoseArachnophobie = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose arachnophobie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines — résultats durables en 2 à 3 séances." />
+        <meta name="twitter:description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

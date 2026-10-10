@@ -67,7 +67,7 @@ const HypnoseEnLigne = () => {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-en-ligne" />
         <meta property="og:title" content="Hypnose en ligne & visioconférence partout en France | NovaHypnose" />
-        <meta property="og:description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne aussi efficaces qu'au cabinet. Alain Zenatti, Maître Hypnologue." />
+        <meta property="og:description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances d'hypnose en ligne dans le même cadre qu'au cabinet. Alain Zenatti, Maître Hypnologue." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-en-ligne" />
         <meta property="og:locale" content="fr_FR" />
@@ -78,7 +78,7 @@ const HypnoseEnLigne = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Hypnose en visioconférence partout en France" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose en ligne & visioconférence partout en France | NovaHypnose" />
-        <meta name="twitter:description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Séances aussi efficaces qu'au cabinet." />
+        <meta name="twitter:description" content="Consultez un hypnothérapeute certifié en visio, partout en France. Même cadre d'accompagnement qu'au cabinet." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

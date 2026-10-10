@@ -34,7 +34,7 @@ export const carouselSlides: CarouselSlide[] = [
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/stress-anxiete.mp4',
     poster: '/images/carrousel/CABINET',
     title: 'STRESS - ANXIÉTÉ',
-    description: 'Sortez du cercle vicieux de la pression permanente • Performance sans épuisement • Résultats en 3 à 5 séances',
+    description: 'Sortez du cercle vicieux de la pression permanente • Performance sans épuisement •',
     alt: 'Cabinet d\'hypnose Paris 4ème - Séance d\'hypnothérapie pour le stress et l\'anxiété'
   },
   {

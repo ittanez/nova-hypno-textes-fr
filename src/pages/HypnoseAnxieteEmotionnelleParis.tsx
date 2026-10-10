@@ -98,7 +98,7 @@ const HypnoseAnxieteEmotionnelleParis = () => {
         <meta name="keywords" content="hypnose anxiété émotionnelle paris, peur émotions hypnose, contrôle émotions hypnose paris, hypnothérapeute anxiété émotionnelle paris, évitement émotionnel hypnose, exprimer émotions hypnose, anxiété émotionnelle hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-anxiete-emotionnelle-paris" />
         <meta property="og:title" content="Hypnose anxiété émotionnelle Paris | Alain Zenatti" />
-        <meta property="og:description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — résultats en 3 à 5 séances." />
+        <meta property="og:description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-anxiete-emotionnelle-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnoseAnxieteEmotionnelleParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose anxiété émotionnelle" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose anxiété émotionnelle Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — résultats en 3 à 5 séances." />
+        <meta name="twitter:description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
