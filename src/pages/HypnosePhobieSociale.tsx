@@ -94,11 +94,11 @@ const HypnosePhobieSociale = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale</title>
-        <meta name="description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale." />
+        <meta name="description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
         <meta name="keywords" content="hypnose phobie sociale paris, anxiété sociale hypnose paris, peur du jugement hypnose, érythrophobie hypnose paris, hypnothérapeute phobie sociale, peur regard des autres hypnose, hypnose timidité paris, séance hypnose phobie sociale visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-phobie-sociale-paris" />
         <meta property="og:title" content="Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale" />
-        <meta property="og:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale." />
+        <meta property="og:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-phobie-sociale-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnosePhobieSociale = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose phobie sociale" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale" />
-        <meta name="twitter:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale." />
+        <meta name="twitter:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

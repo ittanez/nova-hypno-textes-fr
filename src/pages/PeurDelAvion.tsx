@@ -98,7 +98,7 @@ const PeurDelAvion = () => {
         <meta name="keywords" content="hypnose peur avion paris, aérophobie hypnose paris, traitement peur avion, vaincre peur avion hypnose, hypnothérapeute peur de l'avion paris, hypnose aviophobie, peur avion hypnose en ligne, séance hypnose peur avion visio France, téléconsultation aérophobie" />
         <link rel="canonical" href="https://novahypnose.fr/peurdelavion" />
         <meta property="og:title" content="Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine." />
+        <meta property="og:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/peurdelavion" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const PeurDelAvion = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de l'avion" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de l'avion à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine." />
+        <meta name="twitter:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables visés, souvent dès les premières séances." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

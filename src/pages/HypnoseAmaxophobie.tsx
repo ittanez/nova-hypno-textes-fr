@@ -94,11 +94,11 @@ const HypnoseAmaxophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti</title>
-        <meta name="description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident." />
+        <meta name="description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident. Résultats durables visés, souvent dès les premières séances." />
         <meta name="keywords" content="hypnose peur conduire paris, amaxophobie hypnose paris, peur de conduire hypnose, reprendre volant hypnose, hypnothérapeute amaxophobie paris, peur autoroute hypnose, hypnose peur voiture paris, séance hypnose conduite visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-amaxophobie-paris" />
         <meta property="og:title" content="Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident." />
+        <meta property="og:description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-amaxophobie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnoseAmaxophobie = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de conduire" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident." />
+        <meta name="twitter:description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident. Résultats durables visés, souvent dès les premières séances." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

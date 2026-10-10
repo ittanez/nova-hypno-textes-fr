@@ -342,7 +342,7 @@ const HypnoseChargeEmotionnelleParis = () => {
         <SpecialtyReferences
           pageUrl="https://novahypnose.fr/hypnose-charge-emotionnelle-paris"
           pageTitle="Hypnose pour la charge émotionnelle à Paris"
-          pageDescription="Hypnose ericksonienne pour libérer la charge émotionnelle accumulée et retrouver de la légèreté — au cabinet Paris 4ème ou en visio."
+          pageDescription="Hypnose ericksonienne pour libérer la charge émotionnelle accumulée et retrouver une légèreté durable — au cabinet Paris 4ème ou en visio."
           topic="la charge émotionnelle et l'épuisement émotionnel"
           dateModified="2026-06-20"
           references={[

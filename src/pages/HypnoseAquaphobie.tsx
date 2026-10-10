@@ -94,11 +94,11 @@ const HypnoseAquaphobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation." />
+        <meta name="description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation. Résultats durables visés, souvent dès les premières séances." />
         <meta name="keywords" content="hypnose peur eau paris, aquaphobie hypnose paris, peur de l'eau hypnose, vaincre peur natation, hypnothérapeute aquaphobie paris, peur piscine hypnose, peur eau hypnose en ligne, séance hypnose aquaphobie visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-aquaphobie-paris" />
         <meta property="og:title" content="Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation." />
+        <meta property="og:description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-aquaphobie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnoseAquaphobie = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de l'eau" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation." />
+        <meta name="twitter:description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation. Résultats durables visés, souvent dès les premières séances." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

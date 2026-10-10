@@ -98,7 +98,7 @@ const HypnosePeurAiguilles = () => {
         <meta name="keywords" content="hypnose peur aiguilles paris, bélonéphobie hypnose paris, peur injections hypnose, vaincre peur prise de sang, hypnothérapeute peur aiguilles paris, malaise vagal hypnose, peur aiguilles hypnose en ligne, séance hypnose bélonéphobie visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-aiguilles-paris" />
         <meta property="og:title" content="Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal." />
+        <meta property="og:description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-peur-aiguilles-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,7 +109,7 @@ const HypnosePeurAiguilles = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur des aiguilles" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal." />
+        <meta name="twitter:description" content="Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Bélonéphobie, prises de sang, vaccins, malaise vagal. Résultats durables visés, souvent dès les premières séances." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
