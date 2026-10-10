@@ -236,10 +236,10 @@ async function getAdjacentArticles(
 ): Promise<{ prev: Article | null; next: Article | null }> {
   const [prevRes, nextRes] = await Promise.all([
     supabaseFetch(
-      `articles?published=eq.true&published_at=lt.${publishedAt}&order=published_at.desc&limit=1&select=title,slug`
+      `articles?published=eq.true&published_at=lt.${encodeURIComponent(publishedAt)}&order=published_at.desc&limit=1&select=title,slug`
     ),
     supabaseFetch(
-      `articles?published=eq.true&published_at=gt.${publishedAt}&order=published_at.asc&limit=1&select=title,slug`
+      `articles?published=eq.true&published_at=gt.${encodeURIComponent(publishedAt)}&order=published_at.asc&limit=1&select=title,slug`
     ),
   ]);
 
