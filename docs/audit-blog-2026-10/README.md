@@ -37,3 +37,10 @@ La « garantie 4e séance offerte » n'existe plus : ne jamais la citer.
 ## Lot 2 (8 octobre 2026) — appliqué
 10 articles réécrits et appliqués via `node scripts/apply-article-updates.js docs/audit-blog-2026-10/lot-2/apres` (règle des 3 %, auto-hypnose rapide, respiration, Milton Erickson, métaphores en hypnothérapie, mémoire, oser l'inconnu, Instagram, cerveau fascinant, FAQ anxiété). `trigger_auto_slug` corrigé (slug généré seulement s'il est vide). Sauvegardes avant écriture : `sauvegardes/<horodatage>/`. Outils : `classer-articles.mjs` (classement par gravité → `classement.md`), `exporter-lot.mjs`, `lire.mjs`, `relecture.mjs`.
 Reste : ~106 articles. Prochain lot : les 10 suivants de `classement.md` (à régénérer, les 19 premiers sont traités).
+
+## Lots 3, 4 et 5 (9-10 octobre 2026) — appliqués
+- **Lot 3** : 30 articles. **Lot 4** : 49 articles (n°6 « parcours » et n°44 « arrêter de fumer » exclus). **Lot 5** : 22 articles (« Mon parcours » conservé avec corrections de forme ; articles 17 à 20 déjà propres, inchangés). Les lots 4 et 5 ont été écrits en base le 10 octobre 2026 (71 articles), vérifiés : titres et contenus identiques, 71/71 pré-rendus Googlebot, 125 articles publiés, slugs inchangés. Sauvegardes : `sauvegardes/2026-10-10T10-02-24` (lot 4) et `2026-10-10T10-02-54` (lot 5).
+- Doctrine : aucun faux témoignage ni étude inventée, pas de promesse de résultat ni de nombre de séances, références réelles uniquement, mises en garde médicales et numéros d'urgence, signature « Hypnothérapeute, maître en hypnose ericksonienne ».
+- Classement terminé. L'article 44 (arrêter de fumer) est volontairement resté tel quel : Alain propose l'arrêt du tabac mais n'a pas de demandes.
+- Outils ajoutés : `decoder-lot.mjs` (copie décodée avant → apres), `lot-N/patch.mjs` (remplacements ciblés), `exporter-classement.mjs`.
+- À faire ensuite : revoir les pages du site (meta/og descriptions) qui promettent encore « résultats durables en 2 à 4 séances », et décider du sort des articles qui se recoupent (respiration, soi futur) et de l'article « Hypnose et argent ».
