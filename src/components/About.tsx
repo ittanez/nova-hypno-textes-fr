@@ -177,7 +177,7 @@ const About = () => {
                 Plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
               </p>
               <p className="leading-relaxed">
-                Vous profitez d'une formation approfondie (9 certifications) et d'une approche reconnue — l'hypnose ericksonienne est validée par l'INSERM et utilisée en milieu hospitalier.
+                Vous profitez d'une formation approfondie (9 certifications) et d'une approche reconnue — l'hypnose est étudiée par l'INSERM (expertise collective de 2015) et utilisée en milieu hospitalier.
               </p>
               <p className="leading-relaxed">
                 Un accompagnement professionnel, attentif et à votre rythme.
@@ -246,7 +246,7 @@ const About = () => {
                 Ma méthode expliquée
               </h3>
               <p className="leading-relaxed">
-                Vous bénéficiez de l'hypnose ericksonienne, reconnue par l'INSERM et utilisée dans les hôpitaux.
+                Vous bénéficiez de l'hypnose ericksonienne, étudiée par l'INSERM et utilisée dans les hôpitaux.
               </p>
               <p className="leading-relaxed">
                 Elle respecte votre rythme intérieur.

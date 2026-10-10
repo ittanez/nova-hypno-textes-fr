@@ -160,7 +160,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={24} />
                   <div>
                     <p className="font-semibold text-gray-900">Approches complémentaires reconnues</p>
-                    <p className="text-gray-600">L'hypnose ericksonienne, socle de ma pratique, est reconnue par l'INSERM et utilisée en milieu hospitalier. J'y intègre des outils issus de la PNL et de l'hypnose directive pour adapter chaque accompagnement à votre profil.</p>
+                    <p className="text-gray-600">L'hypnose ericksonienne, socle de ma pratique, est étudiée par l'INSERM et utilisée en milieu hospitalier. J'y intègre des outils issus de la PNL et de l'hypnose directive pour adapter chaque accompagnement à votre profil.</p>
                   </div>
                 </div>
               </div>
