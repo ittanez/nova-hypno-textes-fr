@@ -64,8 +64,8 @@ for (const file of files) {
   const update = JSON.parse(readFileSync(path.join(dir, file), 'utf-8'));
   const fields = Object.fromEntries(FIELDS.filter((f) => update[f] !== undefined).map((f) => [f, update[f]]));
 
-  if (!update.slug || !fields.content) {
-    console.error(`✗ ${file} : slug et content obligatoires`);
+  if (!update.slug || Object.keys(fields).length === 0) {
+    console.error(`✗ ${file} : slug et au moins un champ à mettre à jour obligatoires`);
     failures++;
     continue;
   }
@@ -78,7 +78,7 @@ for (const file of files) {
   }
 
   console.log(`• ${update.slug.slice(0, 70)}`);
-  console.log(`  ${words(row.content)} mots → ${words(fields.content)} mots | titre : ${fields.title ?? '(inchangé)'}`);
+  console.log(`  ${words(row.content)} mots → ${words(fields.content ?? row.content)} mots | titre : ${fields.title ?? '(inchangé)'} | champs : ${Object.keys(fields).join(', ')}`);
   if (dryRun) continue;
 
   mkdirSync(backupDir, { recursive: true });
@@ -95,7 +95,7 @@ for (const file of files) {
   }
 
   // Vérification : le slug doit être resté identique
-  let { data: after } = await supabase.from('articles').select('slug, title, content').eq('id', row.id).single();
+  let { data: after } = await supabase.from('articles').select('slug, title, content, faq').eq('id', row.id).single();
   if (after.slug !== row.slug) {
     console.warn(`  ⚠ le slug a changé (${after.slug}) : remise de l'original`);
     const { error: fixErr } = await supabase.from('articles').update({ slug: row.slug }).eq('id', row.id);
@@ -104,9 +104,10 @@ for (const file of files) {
       failures++;
       continue;
     }
-    ({ data: after } = await supabase.from('articles').select('slug, title, content').eq('id', row.id).single());
+    ({ data: after } = await supabase.from('articles').select('slug, title, content, faq').eq('id', row.id).single());
   }
-  const ok = after.slug === row.slug && after.content === fields.content && (!fields.title || after.title === fields.title);
+  const norm = (f) => JSON.stringify((f || []).map((q) => [q.question, q.answer]));
+  const ok = after.slug === row.slug && (fields.content === undefined || after.content === fields.content) && (!fields.title || after.title === fields.title) && (fields.faq === undefined || norm(after.faq) === norm(fields.faq));
   console.log(ok ? '  ✓ écrit et vérifié' : '  ✗ la relecture ne correspond pas');
   if (!ok) failures++;
 }
