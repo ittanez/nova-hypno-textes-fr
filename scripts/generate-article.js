@@ -103,7 +103,7 @@ Public : personnes curieuses de l'hypnose, du débutant au passionné, langage c
 ## RÈGLES DE VÉRITÉ (impératives, elles priment sur le style)
 1. AUCUN client, patient ou témoignage, même "anonymisé" ou "prénom modifié". N'inventez ni prénom, ni âge, ni métier, ni citation de client. Si un exemple est utile, présentez-le comme une situation fréquente, sans personnage ("Prenons une personne qui…").
 2. AUCUNE étude, statistique, pourcentage, taille d'effet, organisme ou chercheur que vous n'êtes pas certain à 100 % d'avoir correctement cité (auteurs, année, revue). En cas de doute : n'en citez pas. N'attribuez jamais une étude à l'INSERM, à une université ou à un institut sans certitude. Mieux vaut "les études sont peu nombreuses" qu'une référence inventée.
-3. AUCUNE promesse : pas de "résultats en X séances", pas de "durable", "garanti", "définitif", "efficace à X %", pas de "reprogrammer l'inconscient". Écrivez "je ne peux pas vous annoncer de résultat ni de nombre de séances".
+3. AUCUNE promesse absolue : pas de "garanti", "100 %", "définitif", "pour toujours", "efficace à X %", pas de "reprogrammer l'inconscient". "Durable" ou "rapide" est permis seulement comme objectif visé ("changements durables visés"), jamais comme certitude. Un repère de "3 à 5 premières séances" est permis uniquement dans cette formulation : "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances, bien sûr le nombre de séances varie selon chacun et je ne peux pas annoncer de résultat." Jamais "résultat en X séances" sans cette nuance. Écrivez "je ne peux pas vous annoncer de résultat ni de nombre de séances".
 4. L'hypnose est présentée comme un complément (détente, imagination, entraînement), jamais comme un traitement. Quand une approche mieux étudiée existe (TCC, exposition progressive, EMDR pour le trauma, TCC de l'insomnie, etc.), nommez-la comme approche de référence.
 5. Pas de vocabulaire pseudo-scientifique vague ("ondes alpha-thêta", "recâbler le cerveau", "neurones miroirs qui expliquent", "inconscient qui gère 90 % de vos comportements"). Le mot "inconscient" peut être employé comme image, jamais comme un lieu du cerveau.
 6. Pas d'affirmation sur le passé professionnel du praticien (années de pratique, nombre de personnes accompagnées) : ne mentionnez aucun chiffre le concernant.
@@ -119,7 +119,7 @@ Vous DEVEZ retourner un JSON valide et UNIQUEMENT un JSON. Pas de texte avant, p
   "title": "Titre clair intégrant le mot-clé principal (75 caractères max), sans promesse",
   "seo_title": "Titre SEO court (60 caractères max)",
   "slug": "slug-url-friendly-sans-accents",
-  "meta_description": "Méta-description de 150 caractères max avec mot-clé principal, sans promesse de résultat ni de nombre de séances",
+  "meta_description": "Méta-description de 150 caractères max avec mot-clé principal, sans promesse absolue",
   "seo_description": "Même description ou variante",
   "excerpt": "Extrait de 40-60 mots",
   "category": "Une catégorie parmi la liste autorisée",
@@ -150,7 +150,7 @@ Vous DEVEZ retourner un JSON valide et UNIQUEMENT un JSON. Pas de texte avant, p
 
 ## FAQ (champ "faq")
 - 5 questions que les lecteurs poseraient sur Google, 50 à 100 mots par réponse.
-- Sans nombre de séances, sans durée de résultat, sans chiffre inventé. Si la question porte sur la durée ou l'efficacité, répondez honnêtement que cela dépend des personnes et qu'on ne peut pas le prédire.
+- Sans chiffre inventé. Si la question porte sur le nombre de séances ou la durée, répondez : "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances, bien sûr le nombre de séances varie selon chacun et je ne peux pas annoncer de résultat."
 
 ## Catégories autorisées (choisir UNE seule)
 - Hypnose thérapeutique
@@ -186,8 +186,8 @@ export function auditArticle(article) {
     [/pr[ée]nom modifi[ée]|appelons[- ](le|la)|une de mes clientes?|un de mes clients?|mes patients?\b|mon client\b|ma cliente\b|t[ée]moignage\b/i, 'client, patient ou témoignage'],
     [/\b(INSERM|CNRS|Sorbonne|Stanford|Harvard|Universit[ée] d[eu']|Institut (fran[cç]ais|national))\b/i, 'organisme ou université cité (à vérifier à la main)'],
     [/\b\d{1,3}(,\d+)? ?% /i, 'pourcentage (à vérifier, ou à retirer)'],
-    [/\b\d ?(à|-|–) ?\d{1,2} séances?\b|en (une|1) (seule )?séance/i, 'nombre de séances annoncé'],
-    [/garanti|d[ée]finitiv|r[ée]sultats? (durables?|rapides?)|durablement|reprogramm|recâbl|ondes (alpha|th[êe]ta|b[êe]ta)/i, 'promesse ou jargon pseudo-scientifique'],
+    [/en (une|1) (seule )?séance|\b\d ?(à|-|–) ?\d{1,2} séances?\b(?![^.]{0,160}(varie selon chacun|ne peux pas annoncer))/i, 'nombre de séances annoncé sans nuance'],
+    [/garanti|d[ée]finitiv|pour toujours|100 ?%|reprogramm|recâbl|ondes (alpha|th[êe]ta|b[êe]ta)/i, 'promesse ou jargon pseudo-scientifique'],
     [/\b(cinq|5|dix|10) (ans|années) de pratique|depuis 2020|centaines? de (personnes|clients|patients)|des dizaines de (personnes|clients|patients)/i, 'affirmation sur la pratique du praticien'],
     [/arr[êe]t(er)? (du tabac|de fumer)|sevrage tabagique/i, 'sujet tabac (hors périmètre)'],
     [/\b\d{2,3} ?€/i, 'tarif cité (ne pas en donner)'],
