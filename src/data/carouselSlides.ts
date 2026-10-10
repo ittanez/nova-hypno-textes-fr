@@ -82,7 +82,7 @@ export const carouselSlides: CarouselSlide[] = [
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/video/grok-video-db3ca028-5456-4df6-ba51-e63e2b1bbc21.mp4',
     poster: '/images/carrousel/RONGERSESONGLES',
     title: 'RONGER SES ONGLES',
-    description: 'Libérez-vous de cette habitude compulsive de manière définitive',
+    description: 'Libérez-vous de cette habitude compulsive durablement',
     alt: 'Hypnose pour arrêter de se ronger les ongles à Paris - Onychophagie'
   },
   {

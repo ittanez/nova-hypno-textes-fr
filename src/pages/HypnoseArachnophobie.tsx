@@ -26,7 +26,7 @@ const arachnophobieFaqItems = [
   },
   {
     question: "Combien de temps durent les résultats ?",
-    answer: "Les résultats sont durables. Une fois que votre inconscient a reconfiguré sa réponse face aux araignées, ce changement s'inscrit dans votre système nerveux. La grande majorité des clients ne ressentent plus jamais de réaction phobique après leur accompagnement."
+    answer: "Les résultats sont durables. Une fois que votre inconscient a reconfiguré sa réponse face aux araignées, ce changement s'inscrit dans votre système nerveux. Pour beaucoup de personnes, la réaction phobique s'atténue durablement après leur accompagnement, sans que je puisse le garantir."
   },
   {
     question: "L'hypnose fonctionne-t-elle pour les insectes en général ?",

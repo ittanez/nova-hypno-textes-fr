@@ -15,8 +15,7 @@ const Pricing = () => {
     "📚 Matériel pédagogique et support de cours complet",
     "🎧 Audios guidés d'auto-hypnose à télécharger",
     "☕ Pauses café incluses",
-    "📞 Entretien téléphonique de suivi personnalisé (1 mois après)",
-    "💯 Garantie satisfait ou remboursé 14 jours"
+    "📞 Entretien téléphonique de suivi personnalisé (1 mois après)"
   ];
 
   const cancellationPolicy = [
@@ -127,12 +126,6 @@ const Pricing = () => {
                     ))}
                   </dl>
                   
-                  <div className="bg-nova-blue-light p-4 rounded-lg">
-                    <h4 className="font-bold text-nova-blue-dark mb-2">Garantie de satisfaction</h4>
-                    <p className="text-nova-blue-dark text-sm">
-                      Je suis tellement convaincu des bénéfices de la formation que je vous propose une garantie "Satisfait ou remboursé" de 14 jours après la formation. Si vous n'êtes pas satisfait, je vous rembourse intégralement.
-                    </p>
-                  </div>
                 </div>
               </div>
             </CardContent>

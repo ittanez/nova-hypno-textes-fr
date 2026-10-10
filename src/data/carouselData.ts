@@ -50,7 +50,7 @@ export const carouselSlides = [
   {
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/RONGERSESONGLES.webp?width=1920&quality=70',
     title: 'ARRÊTER DE SE RONGER LES ONGLES',
-    description: 'Libérez-vous de cette habitude compulsive de manière définitive',
+    description: 'Libérez-vous de cette habitude compulsive durablement',
     alt: 'Arrêter de se ronger les ongles par hypnose à Paris - Traitement des TOC et comportements compulsifs - Hypnothérapeute Paris 4'
   },
   {

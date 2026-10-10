@@ -180,7 +180,7 @@ const About = () => {
                 Vous profitez d'une formation approfondie (9 certifications) et d'une approche reconnue — l'hypnose ericksonienne est validée par l'INSERM et utilisée en milieu hospitalier.
               </p>
               <p className="leading-relaxed">
-                Un accompagnement professionnel de haut niveau garanti.
+                Un accompagnement professionnel, attentif et à votre rythme.
               </p>
             </div>
 

@@ -110,7 +110,7 @@ const benefits = [
   { icon: CheckCircle, title: '100% pratique et testée', desc: "Pas de théorie abstraite. Chaque stratégie est expliquée étape par étape, validée auprès de 500+ clients." },
   { icon: Briefcase, title: 'Spécial professionnels', desc: "Conçu pour cadres/employés. Techniques adaptées aux contraintes professionnelles et aux délais serrés." },
   { icon: Brain, title: 'Méthode NovaHypnose', desc: "Protocoles d'hypnose propriétaires associés à la psychologie comportementale pour arrêter de remettre à demain." },
-  { icon: BarChart3, title: 'Base scientifique', desc: "Procrastination, motivation, discipline. Fondée sur la neuropsychologie, validation clinique garantie." },
+  { icon: BarChart3, title: 'Base scientifique', desc: "Procrastination, motivation, discipline. Fondée sur la neuropsychologie." },
   { icon: Wrench, title: 'Outils immédiats', desc: "Guide complet avec exercices, checklist et protocoles hypnotiques à pratiquer dès ce soir." },
 ];
 

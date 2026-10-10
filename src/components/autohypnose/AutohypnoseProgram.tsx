@@ -95,8 +95,7 @@ const Program = () => {
       ],
       outcomes: [
         "Un script d'auto-hypnose enregistré (si vous le souhaitez)",
-        "Fiches récapitulatives des techniques apprises",
-        "Garantie satisfait ou remboursé 14 jours"
+        "Fiches récapitulatives des techniques apprises"
       ]
     }
   ];
