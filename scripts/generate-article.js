@@ -15,6 +15,11 @@
  *   --schedule "YYYY-MM-DD" Planifier la publication à cette date
  *   --image fichier.webp   Uploader l'image dans Supabase Storage
  *   --from-json fichier    Importer depuis un fichier JSON (pas besoin de clé API)
+ *   --force                Publier malgré les alertes du contrôle qualité (à vos risques)
+ *
+ * Contrôle qualité : le texte est audité (faux clients, études douteuses, promesses, longueur).
+ *   Si des problèmes sont détectés, l'article est enregistré en BROUILLON même avec --publish,
+ *   sauf si vous ajoutez --force après relecture.
  *
  * Prérequis :
  *   - VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY dans .env
@@ -58,12 +63,15 @@ function parseArgs() {
     schedule: null,
     imagePath: null,
     fromJson: null,
+    force: false,
     topic: ''
   };
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--publish') {
       opts.publish = true;
+    } else if (args[i] === '--force') {
+      opts.force = true;
     } else if (args[i] === '--schedule' && args[i + 1]) {
       opts.schedule = args[++i];
     } else if (args[i] === '--image' && args[i + 1]) {
@@ -83,90 +91,68 @@ function parseArgs() {
 // ═══════════════════════════════════════════════════════════════════════
 
 function buildPrompt(topic) {
-  return `Vous êtes hypnothérapeute expert certifié. Votre mission est de rédiger un article de blog sur : "${topic}"
+  return `Vous rédigez un article de blog pour Alain Zenatti, hypnothérapeute (il n'est ni médecin ni psychologue) au Cabinet Le Marais-Bastille à Paris. Sujet : "${topic}"
 
-Adressez-vous à un public curieux de l'hypnose, allant du débutant au passionné, sans jargon inutile dans un langage parlé.
+Public : personnes curieuses de l'hypnose, du débutant au passionné, langage clair et chaleureux, sans jargon inutile.
 
-L'article doit être un contenu mixte : à la fois accessible (vulgarisation) et informatif (expertise), pour convenir à un lectorat varié.
+## Ton et perspective
+- Première personne autorisée ("je") pour parler de la manière de travailler, jamais pour raconter des faits non vérifiables.
+- Mentionnez Paris / Bastille avec parcimonie.
+- Le ton est honnête et nuancé : on explique, on ne vend pas. L'article peut inviter, en fin de texte, à prendre rendez-vous pour un premier échange, avec cette idée : "je vous dirai honnêtement si l'hypnose me semble adaptée à votre situation".
 
-Vous pouvez, si besoin, orienter l'article vers une tonalité secondaire : pédagogique, thérapeutique ou promotionnelle, selon le contexte ou l'objectif du contenu. Montrez que je suis passionné par mon travail.
-
-## Ton et perspective :
-
-Première personne autorisée : Utilisez "je", "mon expérience", "dans ma pratique" pour personnaliser le contenu
-Références géographiques : Mentionnez occasionnellement votre localisation parisienne quand c'est pertinent
-Signature expertise : Votre identité d'hypnothérapeute (je ne suis pas docteur) du cabinet Marais-Bastille doit transparaître naturellement dans le style
+## RÈGLES DE VÉRITÉ (impératives, elles priment sur le style)
+1. AUCUN client, patient ou témoignage, même "anonymisé" ou "prénom modifié". N'inventez ni prénom, ni âge, ni métier, ni citation de client. Si un exemple est utile, présentez-le comme une situation fréquente, sans personnage ("Prenons une personne qui…").
+2. AUCUNE étude, statistique, pourcentage, taille d'effet, organisme ou chercheur que vous n'êtes pas certain à 100 % d'avoir correctement cité (auteurs, année, revue). En cas de doute : n'en citez pas. N'attribuez jamais une étude à l'INSERM, à une université ou à un institut sans certitude. Mieux vaut "les études sont peu nombreuses" qu'une référence inventée.
+3. AUCUNE promesse : pas de "résultats en X séances", pas de "durable", "garanti", "définitif", "efficace à X %", pas de "reprogrammer l'inconscient". Écrivez "je ne peux pas vous annoncer de résultat ni de nombre de séances".
+4. L'hypnose est présentée comme un complément (détente, imagination, entraînement), jamais comme un traitement. Quand une approche mieux étudiée existe (TCC, exposition progressive, EMDR pour le trauma, TCC de l'insomnie, etc.), nommez-la comme approche de référence.
+5. Pas de vocabulaire pseudo-scientifique vague ("ondes alpha-thêta", "recâbler le cerveau", "neurones miroirs qui expliquent", "inconscient qui gère 90 % de vos comportements"). Le mot "inconscient" peut être employé comme image, jamais comme un lieu du cerveau.
+6. Pas d'affirmation sur le passé professionnel du praticien (années de pratique, nombre de personnes accompagnées) : ne mentionnez aucun chiffre le concernant.
+7. Prix, horaires et coordonnées : n'en donnez aucun.
+8. Santé : incluez une encadré d'avertissement (warning-box) adapté : quand consulter un médecin ou un psychologue, et, si le sujet touche à la détresse, le 3114 (prévention du suicide, 24 h/24, gratuit). Pour les violences : 3919 ; danger immédiat : 17 ou 112. Ne conseillez jamais d'arrêter ou de modifier un traitement.
+9. Ne traitez pas de l'arrêt du tabac.
+10. Les exercices (respiration, visualisation, auto-hypnose) sont sûrs, courts, sans rétention de souffle prolongée, avec une consigne d'arrêt en cas de malaise.
 
 ## IMPORTANT : Format de sortie STRICT
-
 Vous DEVEZ retourner un JSON valide et UNIQUEMENT un JSON. Pas de texte avant, pas de texte après, pas de markdown.
 
-Le JSON doit suivre exactement cette structure :
-
 {
-  "title": "Titre principal accrocheur intégrant le mot-clé principal",
+  "title": "Titre clair intégrant le mot-clé principal (75 caractères max), sans promesse",
   "seo_title": "Titre SEO court (60 caractères max)",
   "slug": "slug-url-friendly-sans-accents",
-  "meta_description": "Méta-description de 140 caractères max avec mot-clé principal",
-  "seo_description": "Description SEO alternative",
-  "excerpt": "Extrait court de 50-60 mots captivant l'essence du contenu",
+  "meta_description": "Méta-description de 150 caractères max avec mot-clé principal, sans promesse de résultat ni de nombre de séances",
+  "seo_description": "Même description ou variante",
+  "excerpt": "Extrait de 40-60 mots",
   "category": "Une catégorie parmi la liste autorisée",
   "categories": ["Même catégorie unique"],
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
   "keywords": ["mot-cle1", "mot-cle2", "mot-cle3"],
-  "read_time": 5,
-  "content": "<style>CSS intégré</style><article class='article-hypnose'>HTML complet de l'article</article>",
+  "read_time": 6,
+  "content": "<article class='article-hypnose'>HTML complet de l'article</article>",
   "faq": [
-    { "question": "Question 1 ?", "answer": "Réponse détaillée 1." },
-    { "question": "Question 2 ?", "answer": "Réponse détaillée 2." },
-    { "question": "Question 3 ?", "answer": "Réponse détaillée 3." },
-    { "question": "Question 4 ?", "answer": "Réponse détaillée 4." },
-    { "question": "Question 5 ?", "answer": "Réponse détaillée 5." }
+    { "question": "Question 1 ?", "answer": "Réponse 1." },
+    { "question": "Question 2 ?", "answer": "Réponse 2." },
+    { "question": "Question 3 ?", "answer": "Réponse 3." },
+    { "question": "Question 4 ?", "answer": "Réponse 4." },
+    { "question": "Question 5 ?", "answer": "Réponse 5." }
   ],
-  "image_prompt": "Description détaillée pour générer l'image avec une IA",
+  "image_prompt": "Description détaillée pour générer l'image avec une IA (sans texte dans l'image)",
   "image_alt": "Texte alternatif de l'image incluant le mot-clé"
 }
 
-## Directives pour le contenu :
+## Directives pour le contenu HTML (champ "content")
+- 900 à 1300 mots.
+- Pas de bloc <style> ni de balise <h1> : le style du site s'applique et le titre est affiché par la page.
+- Structure : <div class='intro-section'> (3-5 phrases, qui annonce ce que l'article apporte ET ses limites), puis des <h2>/<h3>, puis le texte.
+- Intégrez le mot-clé principal dans la première phrase et au moins un sous-titre, naturellement.
+- Utilisez, avec mesure, les encadrés : <div class='highlight-box'> (à retenir), <div class='technique-box'>, <div class='exercise-box'> (exercice pas à pas), <div class='warning-box'> (obligatoire, voir règle 8).
+- Parlez de ce que l'on sait (ou de ce que l'on ne sait pas), des approches de référence, de ce que l'hypnose peut raisonnablement apporter, de ses limites.
+- Terminez par : <div class='author-note'><strong>Alain Zenatti</strong><br>Hypnothérapeute, maître en hypnose ericksonienne<br>Cabinet Le Marais-Bastille https://novahypnose.fr</div>
 
-### Contenu HTML (champ "content")
-- 800-1200 mots pour un SEO optimal
-- Utilisez des sous-titres H2 et H3
-- Intégrez le mot-clé principal dans le titre, la première phrase, et au moins un sous-titre
-- Densité mot-clé : 1-2% (naturelle)
-- Utilisez des métaphores, un brin d'humour
-- Exemples de clients anonymisés issus de votre pratique parisienne
-- En tant qu'Alain Zenatti, référencez naturellement le Cabinet Le Marais-Bastille
-- Mentionnez 2-3 études scientifiques (sources citées sans liens)
-- Note d'auteur en fin : "Cabinet Le Marais-Bastille https://novahypnose.fr"
-- Incluez les CSS classes : .article-hypnose, .intro-section, .highlight-box, .technique-box, .exercise-box, .warning-box, .author-note
+## FAQ (champ "faq")
+- 5 questions que les lecteurs poseraient sur Google, 50 à 100 mots par réponse.
+- Sans nombre de séances, sans durée de résultat, sans chiffre inventé. Si la question porte sur la durée ou l'efficacité, répondez honnêtement que cela dépend des personnes et qu'on ne peut pas le prédire.
 
-Le CSS intégré au début du content :
-<style>
-.article-hypnose { max-width: 100%; line-height: 1.6; color: #333; font-family: inherit; }
-.article-hypnose h1 { color: #2c3e50; font-size: 2.2rem; margin-bottom: 1rem; text-align: center; }
-.article-hypnose h2 { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-top: 2rem; }
-.article-hypnose h3 { color: #2980b9; margin-top: 1.5rem; }
-.article-hypnose .intro-section { font-size: 1.1rem; color: #555; font-style: italic; margin-bottom: 2rem; text-align: center; }
-.article-hypnose .highlight-box { background: #f8f9fa; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 3px; }
-.article-hypnose .technique-box { background: #e8f4fd; border: 1px solid #3498db; padding: 20px; margin: 20px 0; border-radius: 8px; }
-.article-hypnose .exercise-box { background: #f0f8e8; border: 1px solid #27ae60; padding: 20px; margin: 20px 0; border-radius: 8px; }
-.article-hypnose .warning-box { background: #fef5e7; border: 1px solid #f39c12; padding: 15px; margin: 20px 0; border-radius: 8px; border-left: 4px solid #f39c12; }
-.article-hypnose .author-note { background: #ecf0f1; padding: 15px; border-radius: 5px; margin-top: 2rem; text-align: center; font-size: 0.9rem; }
-.article-hypnose blockquote { border-left: 3px solid #3498db; padding-left: 15px; margin: 20px 0; font-style: italic; color: #666; }
-.article-hypnose p { margin-bottom: 1rem; }
-.article-hypnose ul, .article-hypnose ol { margin: 1rem 0; padding-left: 2rem; }
-.article-hypnose li { margin-bottom: 0.5rem; }
-</style>
-
-### FAQ (champ "faq")
-- 5 questions-réponses en rapport direct avec le sujet
-- Questions que les lecteurs poseraient sur Google
-- 50-120 mots par réponse
-- Mentionnez Paris/Bastille/NovaHypnose dans 2-3 réponses
-- Données concrètes : nombre de séances, durée, résultats
-
-### Catégories autorisées (choisir UNE seule) :
+## Catégories autorisées (choisir UNE seule)
 - Hypnose thérapeutique
 - Métaphores & langage symbolique
 - Gestion des émotions & bien-être
@@ -177,10 +163,37 @@ Le CSS intégré au début du content :
 - Auto-hypnose & pratiques personnelles
 - Spiritualité & hypnose
 
-### Slug
-Format URL-friendly : minuscules, traits d'union, sans accents. Exemple : "hypnose-peur-parler-public"
+## Slug
+Minuscules, traits d'union, sans accents. Exemple : "hypnose-peur-parler-public"
 
-RAPPEL : Retournez UNIQUEMENT le JSON, rien d'autre.`;
+RAPPEL : retournez UNIQUEMENT le JSON. Relisez-vous avant de répondre : aucune personne inventée, aucune étude douteuse, aucune promesse.`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// CONTRÔLE QUALITÉ DU TEXTE GÉNÉRÉ (règles de vérité)
+// ═══════════════════════════════════════════════════════════════════════
+
+export function auditArticle(article) {
+  const issues = [];
+  const html = String(article.content || '');
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const all = [text, article.title, article.excerpt, article.meta_description, article.seo_description, JSON.stringify(article.faq || [])].join(' ');
+  const words = text.split(' ').filter(Boolean).length;
+  if (words < 900) issues.push(`texte trop court : ${words} mots (minimum 900)`);
+  if (/<style/i.test(html) || /<h1/i.test(html)) issues.push('bloc <style> ou <h1> présent (le site fournit le style et le titre)');
+  if (!/warning-box/.test(html)) issues.push("aucun encadré d'avertissement (warning-box)");
+  const rules = [
+    [/pr[ée]nom modifi[ée]|appelons[- ](le|la)|une de mes clientes?|un de mes clients?|mes patients?\b|mon client\b|ma cliente\b|t[ée]moignage\b/i, 'client, patient ou témoignage'],
+    [/\b(INSERM|CNRS|Sorbonne|Stanford|Harvard|Universit[ée] d[eu']|Institut (fran[cç]ais|national))\b/i, 'organisme ou université cité (à vérifier à la main)'],
+    [/\b\d{1,3}(,\d+)? ?% /i, 'pourcentage (à vérifier, ou à retirer)'],
+    [/\b\d ?(à|-|–) ?\d{1,2} séances?\b|en (une|1) (seule )?séance/i, 'nombre de séances annoncé'],
+    [/garanti|d[ée]finitiv|r[ée]sultats? (durables?|rapides?)|durablement|reprogramm|recâbl|ondes (alpha|th[êe]ta|b[êe]ta)/i, 'promesse ou jargon pseudo-scientifique'],
+    [/\b(cinq|5|dix|10) (ans|années) de pratique|depuis 2020|centaines? de (personnes|clients|patients)|des dizaines de (personnes|clients|patients)/i, 'affirmation sur la pratique du praticien'],
+    [/arr[êe]t(er)? (du tabac|de fumer)|sevrage tabagique/i, 'sujet tabac (hors périmètre)'],
+    [/\b\d{2,3} ?€/i, 'tarif cité (ne pas en donner)'],
+  ];
+  for (const [re, label] of rules) { const m = all.match(re); if (m) issues.push(`${label} : « ${m[0]} »`); }
+  return issues;
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -390,6 +403,21 @@ async function main() {
 
     console.log('Reponse recue, parsing...\n');
     article = parseArticleJSON(response);
+  }
+
+  // Contrôle qualité du texte
+  const issues = auditArticle(article);
+  if (issues.length) {
+    console.log('\n⚠ CONTRÔLE QUALITÉ : ' + issues.length + ' point(s) à vérifier');
+    issues.forEach((i) => console.log('  - ' + i));
+    if ((opts.publish || opts.schedule) && !opts.force) {
+      console.log("\nPublication/planification annulée : l'article sera enregistré en BROUILLON.");
+      console.log("Relisez-le, corrigez-le, puis publiez depuis l'admin (ou relancez avec --force).");
+      opts.publish = false;
+      opts.schedule = null;
+    }
+  } else {
+    console.log('Contrôle qualité : aucun point détecté.');
   }
 
   // Upload image si fournie
