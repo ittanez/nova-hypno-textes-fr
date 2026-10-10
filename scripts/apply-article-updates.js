@@ -8,7 +8,7 @@
  *   node scripts/apply-article-updates.js docs/audit-blog-2026-10/lot-1/apres
  *
  * Chaque fichier .json du dossier doit contenir : slug, et au choix title, excerpt, meta_description,
- * seo_description, content. L'article est retrouvé par son slug, qui ne change JAMAIS.
+ * seo_description, content, faq (tableau de {question, answer}). L'article est retrouvé par son slug, qui ne change JAMAIS.
  *
  * Sécurité :
  *   - avant toute écriture, la ligne complète de chaque article est sauvegardée dans
@@ -46,7 +46,7 @@ if (!dir) {
   process.exit(1);
 }
 
-const FIELDS = ['title', 'excerpt', 'meta_description', 'seo_description', 'content'];
+const FIELDS = ['title', 'excerpt', 'meta_description', 'seo_description', 'content', 'faq'];
 const files = readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 if (!files.length) {
   console.error(`Aucun .json dans ${dir}`);
