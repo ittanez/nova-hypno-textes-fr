@@ -160,7 +160,7 @@ export const localBusinessSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Téléconsultation d'hypnose en visio",
-          "description": "Séance d'hypnose en visioconférence partout en France, dans un cadre identique à celui du cabinet. Plateforme Google Meet.",
+          "description": "Séance d'hypnose en visioconférence partout en France, aussi efficace qu'en cabinet. Plateforme Google Meet.",
           "serviceType": "Hypnothérapie en ligne",
           "areaServed": { "@type": "Country", "name": "France" },
           "availableChannel": {
