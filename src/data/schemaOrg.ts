@@ -338,6 +338,7 @@ export const personSchema = {
     "Hypnose directive",
     "Hypnose spirituelle",
     "Auto-hypnose",
+    "Protocoles de PNL appliqués à l'hypnose",
     "Hypnose en ligne",
     "Téléconsultation hypnose",
     "Hypnose à distance par visioconférence",
