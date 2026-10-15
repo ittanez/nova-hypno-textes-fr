@@ -23,7 +23,7 @@ const AuthorPage: React.FC = () => {
       "jobTitle": "Maître Hypnologue certifié",
       "url": "https://novahypnose.fr/alain-zenatti",
       "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
-      "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. Plus de 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
+      "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
       "sameAs": [
         "https://www.instagram.com/novahypnose/",
         "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
@@ -105,13 +105,13 @@ const AuthorPage: React.FC = () => {
         <title>Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose</title>
         <meta
           name="description"
-          content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
+          content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
         />
         <meta name="keywords" content="Alain Zenatti, Maître Hypnologue, hypnothérapeute Paris, hypnose ericksonienne" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/alain-zenatti" />
         <meta property="og:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
-        <meta property="og:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta property="og:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/alain-zenatti" />
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
@@ -121,7 +121,7 @@ const AuthorPage: React.FC = () => {
         <meta property="og:site_name" content="NovaHypnose" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose" />
-        <meta name="twitter:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 5+ ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta name="twitter:description" content="Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>

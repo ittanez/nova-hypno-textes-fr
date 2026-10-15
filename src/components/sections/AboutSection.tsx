@@ -75,7 +75,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
               <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
                 <p className="font-semibold text-gray-900 mb-2">Votre hypnothérapeute à Paris : expertise et bienveillance</p>
                 <p className="text-gray-700 leading-relaxed">
-                  En tant que <strong>Maître Hypnologue certifié</strong>, je vous accompagne au cœur de Paris avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
+                  En tant que <strong>Maître Hypnologue certifié</strong>, je vous accompagne au cœur de Paris avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
                   Mon cabinet situé dans le Marais (Paris 4ème) vous offre un accompagnement professionnel de haut niveau, alliant formation approfondie et approche personnalisée.
                 </p>
               </div>

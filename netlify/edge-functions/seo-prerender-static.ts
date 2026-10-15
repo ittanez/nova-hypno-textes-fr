@@ -341,7 +341,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>9 certifications professionnelles</strong> en hypnose et PNL</li>
       <li><strong>Résultats en 3 à 5 séances</strong> pour la plupart des problématiques</li>
-      <li><strong>Note 5/5</strong> — Plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> — 26 avis Google et 23 avis Resalib</li>
       <li><strong>Approche personnalisée</strong> — Chaque séance est adaptée à votre situation</li>
       <li><strong>Cabinet Paris 4ème</strong> — Métro Saint-Paul ou Bastille</li>
     </ul>
@@ -433,7 +433,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>90%</strong> de mes clients constatent une amélioration dès la première séance</li>
       <li><strong>3 à 5 séances</strong> suffisent en moyenne pour un résultat durable</li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le stress</h2>
@@ -529,7 +529,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>2 à 4 séances</strong> suffisent pour les phobies simples</li>
       <li><strong>95%</strong> des phobies simples peuvent être traitées par l'hypnose</li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les phobies</h2>
@@ -637,7 +637,7 @@ const PAGES: Record<string, PageData> = {
       <li><strong>3 à 5 séances</strong> pour retrouver un sommeil stable et réparateur</li>
       <li><strong>0 médicament</strong> nécessaire — une solution 100% naturelle</li>
       <li>Amélioration souvent visible <strong>dès la première séance</strong></li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le sommeil</h2>
@@ -836,7 +836,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> pour retrouver un équilibre émotionnel durable</li>
       <li><strong>100% personnalisé</strong> selon votre histoire et votre fonctionnement</li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les émotions</h2>
@@ -942,7 +942,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> pour des comportements profondément ancrés</li>
       <li><strong>100% personnalisé</strong> — sans jugement, adapté à votre histoire</li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les blocages</h2>
@@ -1046,7 +1046,7 @@ const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> pour une transformation profonde et durable de la confiance en soi</li>
       <li><strong>100% personnalisé</strong> selon vos objectifs et votre histoire</li>
-      <li><strong>Note 5/5</strong> sur plus de 40 avis vérifiés</li>
+      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et la confiance en soi</h2>
@@ -1344,7 +1344,7 @@ const PAGES: Record<string, PageData> = {
   "/alain-zenatti": {
     title: "Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose",
     description:
-      "Alain Zenatti, Maître Hypnologue certifié à Paris 4ème. Hypnose ericksonienne, 5+ ans d'expérience, auteur de nombreux articles sur l'hypnothérapie. Stress, anxiété, phobies, sommeil.",
+      "Alain Zenatti, Maître Hypnologue certifié à Paris 4ème. Hypnose ericksonienne, 6 ans d'expérience, auteur de nombreux articles sur l'hypnothérapie. Stress, anxiété, phobies, sommeil.",
     canonicalPath: "/alain-zenatti",
     h1: "Alain Zenatti — Maître Hypnologue",
     jsonLd: [
@@ -1373,7 +1373,7 @@ const PAGES: Record<string, PageData> = {
       ]),
     ],
     content: `
-    <p>Alain Zenatti est <strong>Maître Hypnologue certifié</strong>, praticien en hypnose ericksonienne et en auto-hypnose depuis 2021. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
+    <p>Alain Zenatti est <strong>Maître Hypnologue certifié</strong>, praticien en hypnose ericksonienne et en auto-hypnose depuis fin 2020. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
 
     <h2>Formations et certifications</h2>
     <ul>

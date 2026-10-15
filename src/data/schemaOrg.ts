@@ -324,7 +324,7 @@ export const personSchema = {
   "@id": "https://novahypnose.fr/#person",
   "name": "Alain Zenatti",
   "jobTitle": "Maître Hypnologue",
-  "description": "Hypnothérapeute certifié à Paris 4ème et spécialiste de l'hypnose en ligne (téléconsultation visio). Maître Hypnologue avec plus de 6 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille et consultations visio partout en France.",
+  "description": "Hypnothérapeute certifié à Paris 4ème et spécialiste de l'hypnose en ligne (téléconsultation visio). Maître Hypnologue avec 6 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille et consultations visio partout en France.",
   "url": "https://novahypnose.fr",
   "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
   "sameAs": [

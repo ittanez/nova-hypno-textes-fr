@@ -444,7 +444,7 @@ const Maquette = () => {
                 <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
                   <p className="font-semibold text-gray-900 mb-2">Pourquoi choisir un Maître Hypnologue ?</p>
                   <p className="text-gray-700 leading-relaxed">
-                    Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
+                    Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
                     Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée qui vous garantissent un accompagnement professionnel de haut niveau.
                   </p>
                 </div>
