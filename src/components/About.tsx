@@ -174,7 +174,7 @@ const About = () => {
                 Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris.
               </p>
               <p className="leading-relaxed">
-                Plus de 5 années d'expérience en hypnose ericksonienne et auto-hypnose.
+                6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
               </p>
               <p className="leading-relaxed">
                 Vous profitez d'une formation approfondie (9 certifications) et d'une approche reconnue — l'hypnose est étudiée par l'INSERM (expertise collective de 2015) et utilisée en milieu hospitalier.

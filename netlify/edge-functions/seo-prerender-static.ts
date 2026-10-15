@@ -1,4 +1,5 @@
 import type { Context } from "https://edge.netlify.com";
+import { allFormations, formationCycles } from "../../src/data/formations.ts";
 
 // ─── Configuration ─────────────────────────────────────────────────────────
 const SITE_URL = "https://novahypnose.fr";
@@ -339,7 +340,7 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Pourquoi choisir NovaHypnose ?</h2>
     <ul>
-      <li><strong>9 certifications professionnelles</strong> en hypnose et PNL</li>
+      <li><strong>9 certificats de formation</strong> en hypnose (École Psynapse, MHD Formation)</li>
       <li><strong>Résultats en 3 à 5 séances</strong> pour la plupart des problématiques</li>
       <li><strong>Note 5/5</strong> — 26 avis Google et 23 avis Resalib</li>
       <li><strong>Approche personnalisée</strong> — Chaque séance est adaptée à votre situation</li>
@@ -1365,7 +1366,18 @@ const PAGES: Record<string, PageData> = {
           "postalCode": "75004",
           "addressCountry": "FR"
         },
-        "sameAs": PERSON_SAME_AS
+        "sameAs": PERSON_SAME_AS,
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
+          { "@type": "EducationalOrganization", "name": "MHD Formation", "url": "https://mhd-formation.com/" }
+        ],
+        "hasCredential": allFormations.map((f) => ({
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Certificat de formation",
+          "name": f.title,
+          "dateCreated": f.year,
+          "recognizedBy": { "@type": "EducationalOrganization", "name": f.school, "url": f.schoolUrl }
+        }))
       },
       breadcrumbLd([
         { name: "Accueil", path: "/" },
@@ -1375,15 +1387,15 @@ const PAGES: Record<string, PageData> = {
     content: `
     <p>Alain Zenatti est <strong>Maître Hypnologue certifié</strong>, praticien en hypnose ericksonienne et en auto-hypnose depuis fin 2020. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
 
+    <p>Formé à l'hypnose ericksonienne dès fin 2020 (MHD Formation, Paris), il a suivi ensuite le cursus complet de l'<a href="https://psynapse.fr/formation-hypnose/">École Psynapse</a> jusqu'au titre de Maître Hypnologue : <strong>9 certificats de formation</strong> et plus de 50 jours de formation en présentiel. L'hypnose ericksonienne reste le socle de sa pratique ; il y ajoute, quand la situation s'y prête, des techniques plus directes (hypnose directe de Dave Elman, inductions rapides, transe profonde).</p>
+
+    <p>Sa formation en <strong>psychopathologie clinique</strong> lui permet de reconnaître ce qui relève d'un médecin ou d'un psychiatre. L'hypnose est un accompagnement complémentaire : elle ne remplace pas un suivi médical, et il oriente vers un professionnel de santé quand c'est nécessaire.</p>
+
     <h2>Formations et certifications</h2>
+${formationCycles.map((c) => `    <h3>${c.name}</h3>
     <ul>
-      <li><strong>Maître Hypnologue</strong> — École Psynapse (2025)</li>
-      <li><strong>Maître Praticien Hypnose Ericksonienne</strong> — École Psynapse (2023)</li>
-      <li><strong>Hypnose Ericksonienne</strong> — École Psynapse (2021)</li>
-      <li><strong>Hypnose Spirituelle</strong> — École Psynapse (2023)</li>
-      <li><strong>Hypnose Directive & Hyperemperia</strong> — Formation Continue (2025)</li>
-      <li><strong>Formation PNL & Neurosciences</strong> — Instituts spécialisés (2022-2024)</li>
-    </ul>
+${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school} (${f.year}${f.days ? `, ${f.days} jours` : ""})${f.description ? ` : ${f.description}` : ""}</li>`).join("\n")}
+    </ul>`).join("\n")}
 
     <h2>Domaines d'intervention</h2>
     <ul>
@@ -1397,7 +1409,7 @@ const PAGES: Record<string, PageData> = {
     </ul>
 
     <h2>Approche thérapeutique</h2>
-    <p>Alain Zenatti pratique l'hypnose ericksonienne, une approche douce et respectueuse qui utilise des suggestions indirectes et la métaphore pour accéder aux ressources intérieures. Les résultats sont généralement observés en <strong>3 à 5 séances</strong>.</p>
+    <p>Alain Zenatti pratique l'hypnose ericksonienne, une approche douce et respectueuse qui utilise des suggestions indirectes et la métaphore pour accéder aux ressources intérieures. Les premiers changements se font en général assez vite, souvent dans les <strong>3 à 5 premières séances</strong> ; le nombre de séances varie selon chacun.</p>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
     `,

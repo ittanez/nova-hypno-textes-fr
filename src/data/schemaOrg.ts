@@ -4,6 +4,7 @@
  */
 
 import { faqItems } from './faqData';
+import { allFormations } from './formations';
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -337,7 +338,6 @@ export const personSchema = {
     "Hypnose directive",
     "Hypnose spirituelle",
     "Auto-hypnose",
-    "PNL",
     "Hypnose en ligne",
     "Téléconsultation hypnose",
     "Hypnose à distance par visioconférence",
@@ -352,48 +352,17 @@ export const personSchema = {
     "Neurosciences du changement comportemental"
   ],
   "workLocation": { "@id": "https://novahypnose.fr/#localbusiness" },
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "École Psynapse",
-    "url": "https://psynapse.fr/"
-  },
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Certification",
-      "name": "Maître Hypnologue",
-      "recognizedBy": {
-        "@type": "EducationalOrganization",
-        "name": "École Psynapse",
-        "url": "https://psynapse.fr/"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Certification",
-      "name": "Maître Praticien Hypnose Ericksonienne",
-      "recognizedBy": {
-        "@type": "EducationalOrganization",
-        "name": "École Psynapse",
-        "url": "https://psynapse.fr/"
-      }
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Certification",
-      "name": "Hypnose Directive et Hyperemperia"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Certification",
-      "name": "Hypnose Spirituelle",
-      "recognizedBy": {
-        "@type": "EducationalOrganization",
-        "name": "École Psynapse",
-        "url": "https://psynapse.fr/"
-      }
-    }
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
+    { "@type": "EducationalOrganization", "name": "MHD Formation", "url": "https://mhd-formation.com/" }
   ],
+  "hasCredential": allFormations.map((f) => ({
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Certificat de formation",
+    "name": f.title,
+    "dateCreated": f.year,
+    "recognizedBy": { "@type": "EducationalOrganization", "name": f.school, "url": f.schoolUrl }
+  })),
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
   "contactPoint": {

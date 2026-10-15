@@ -3,102 +3,17 @@
  * Améliore E-E-A-T et Author schema.org pour les articles
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import ContentLayout from '@/components/layout/ContentLayout';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { personSchema } from '@/data/schemaOrg';
+import { formationCycles } from '@/data/formations';
 import Instagram from 'lucide-react/dist/esm/icons/instagram';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Award from 'lucide-react/dist/esm/icons/award';
 
 const AuthorPage: React.FC = () => {
-  // Author schema.org pour E-E-A-T
-  useEffect(() => {
-    const authorSchema = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://novahypnose.fr/#person",
-      "name": "Alain Zenatti",
-      "jobTitle": "Maître Hypnologue certifié",
-      "url": "https://novahypnose.fr/alain-zenatti",
-      "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
-      "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
-      "sameAs": [
-        "https://www.instagram.com/novahypnose/",
-        "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
-        "https://www.linkedin.com/in/zenatti/"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "@id": "https://novahypnose.fr",
-        "name": "NovaHypnose"
-      },
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Certification",
-          "name": "Maître Hypnologue",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
-          "dateIssued": "2025-01-01"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Certification",
-          "name": "Maître Praticien Hypnose Ericksonienne",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
-          "dateIssued": "2023-06-01"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Certification",
-          "name": "Hypnose Ericksonienne",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
-          "dateIssued": "2021-01-01"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Certification",
-          "name": "Hypnose Spirituelle",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "École Psynapse", "url": "https://psynapse.fr/" },
-          "dateIssued": "2023-01-01"
-        }
-      ],
-      "knowsAbout": [
-        "Hypnose ericksonienne",
-        "Gestion du stress",
-        "Gestion de l'anxiété",
-        "Traitement des phobies",
-        "Amélioration du sommeil",
-        "Confiance en soi",
-        "Auto-hypnose",
-        "PNL",
-        "Neurosciences et hypnose"
-      ],
-      "telephone": "+33649358089",
-      "email": "contact@novahypnose.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "16 rue Saint-Antoine",
-        "addressLocality": "Paris",
-        "addressRegion": "Île-de-France",
-        "postalCode": "75004",
-        "addressCountry": "FR"
-      }
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = safeJSONStringify(authorSchema);
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -145,10 +60,13 @@ const AuthorPage: React.FC = () => {
             <section className="mb-16 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">À propos</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Depuis plus de <strong>5 années d'expérience</strong>, j'accompagne des centaines de clients dans leur démarche de transformation personnelle. Ma spécialité : l'hypnose ericksonienne, une approche douce, non-directive et profondément respectueuse.
+                Depuis <strong>6 ans</strong>, j'accompagne des centaines de clients dans leur démarche de transformation personnelle. Ma spécialité : l'hypnose ericksonienne, une approche douce, non-directive et profondément respectueuse.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Formé à l'<strong>École Psynapse</strong> avec 9 certifications professionnelles, j'ai développé une approche unique alliant l'hypnose ericksonienne, la PNL et les neurosciences. Chaque accompagnement est entièrement personnalisé : vous êtes au cœur du processus.
+                Formé à l'hypnose ericksonienne dès <strong>fin 2020</strong> (MHD Formation), j'ai suivi ensuite le cursus complet de l'<strong>École Psynapse</strong> jusqu'au titre de <strong>Maître Hypnologue</strong> : 9 certificats de formation et plus de 50 jours de formation en présentiel. L'hypnose ericksonienne reste le socle de ma pratique ; j'y ajoute, quand la situation s'y prête, des techniques plus directes (hypnose directe de Dave Elman, inductions rapides, transe profonde).
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Ma formation en <strong>psychopathologie clinique</strong> me permet de reconnaître ce qui relève d'un médecin ou d'un psychiatre. L'hypnose est un accompagnement complémentaire : elle ne remplace pas un suivi médical, et j'oriente vers un professionnel de santé quand c'est nécessaire.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Mon cabinet situé au cœur du <strong>Marais (Paris 4ème)</strong>, à deux minutes du métro Bastille, est un espace de confiance où la transformation commence.
@@ -161,18 +79,22 @@ const AuthorPage: React.FC = () => {
                 <Award className="text-blue-600" size={28} />
                 Certifications & Formation
               </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { title: "Maître Hypnologue", school: "École Psynapse", year: "2025" },
-                  { title: "Maître Praticien Hypnose Ericksonienne", school: "École Psynapse", year: "2023" },
-                  { title: "Hypnose Ericksonienne", school: "École Psynapse", year: "2021" },
-                  { title: "Hypnose Spirituelle", school: "École Psynapse", year: "2023" },
-                  { title: "Hypnose Directive & Hyperemperia", school: "Formation Continue", year: "2025" },
-                  { title: "Formation PNL & Neurosciences", school: "Instituts spécialisés", year: "2022-2024" }
-                ].map((cert, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-lg border-l-4 border-blue-500">
-                    <p className="font-semibold text-gray-900">{cert.title}</p>
-                    <p className="text-sm text-gray-600">{cert.school} • {cert.year}</p>
+              <div className="space-y-8">
+                {formationCycles.map((cycle) => (
+                  <div key={cycle.name}>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">{cycle.name}</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {cycle.formations.map((f) => (
+                        <div key={f.title} className="bg-white p-5 rounded-lg border-l-4 border-blue-500">
+                          <p className="font-semibold text-gray-900">{f.title}</p>
+                          <p className="text-sm text-gray-600">
+                            <a href={f.schoolUrl} target="_blank" rel="noopener noreferrer" className="underline">{f.school}</a>
+                            {' '}• {f.year}{f.days ? ` • ${f.days} jours` : ''}
+                          </p>
+                          {f.description && <p className="text-sm text-gray-700 mt-2">{f.description}</p>}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>

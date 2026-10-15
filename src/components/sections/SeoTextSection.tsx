@@ -31,9 +31,9 @@ const SeoTextSection: React.FC = () => {
             situé au cœur du Marais-Bastille (Paris 4ème). <strong>Alain Zenatti</strong>, Maître
             Praticien en <strong>Hypnose Ericksonienne</strong> et Maître Hypnologue certifié,
             vous accompagne avec bienveillance et expertise dans votre démarche de transformation
-            personnelle. Fort de plus de 5 années d'expérience et de 9 certifications
-            professionnelles obtenues à l'École Psynapse, il a développé une approche thérapeutique
-            unique alliant l'hypnose ericksonienne, la PNL et des techniques de pleine conscience.
+            personnelle. Fort de 6 ans d'expérience et de 9 certificats de formation
+            (École Psynapse et MHD Formation), il a développé une approche thérapeutique
+            centrée sur l'hypnose ericksonienne, complétée au besoin par l'hypnose directe.
           </p>
           <p className="text-gray-700 leading-relaxed mb-8">
             Chaque séance est entièrement personnalisée : vous êtes accueilli dans votre
@@ -291,7 +291,9 @@ const SeoTextSection: React.FC = () => {
               <p className="text-gray-600 text-sm leading-relaxed">
                 Alain Zenatti est Maître Hypnologue et Maître Praticien en Hypnose
                 Ericksonienne, certifié par l'École Psynapse. Il possède également
-                des certifications en Hypnose Directive, Hypnose Spirituelle et PNL.
+                des certificats en psychopathologie clinique, hypnose directe, Deep Hypnose,
+                Speed Hypnose, Hyperempiria et hypnose spirituelle, et une première formation
+                de praticien chez MHD Formation (2020).
                 Sa formation continue lui permet de proposer des techniques
                 thérapeutiques toujours à jour.
               </p>
