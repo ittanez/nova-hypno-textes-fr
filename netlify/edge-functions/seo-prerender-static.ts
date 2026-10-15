@@ -116,6 +116,7 @@ function htmlShell(page: PageData): string {
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
   <meta name="msvalidate.01" content="802C8CF0910ACE394934676CB839E931">
+  <meta name="msvalidate.01" content="681D7D7FCFA71A5A355EE9D14243FE7A">
   <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM">
   <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:type" content="website">
