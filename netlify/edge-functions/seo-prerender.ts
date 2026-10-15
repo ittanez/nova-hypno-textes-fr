@@ -390,8 +390,14 @@ function renderArticlePage(
     dateModified: article.updated_at,
     author: {
       "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
       name: article.author || "Alain Zenatti",
-      url: `${SITE_URL}`,
+      url: `${SITE_URL}/alain-zenatti`,
+      sameAs: [
+        "https://www.linkedin.com/in/zenatti/",
+        "https://www.instagram.com/novahypnose/",
+        "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+      ],
     },
     publisher: {
       "@type": "Organization",

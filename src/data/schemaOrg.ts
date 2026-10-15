@@ -131,11 +131,9 @@ export const localBusinessSchema = {
     { "@type": "City", "name": "Grenoble" }
   ],
   "sameAs": [
+    "https://maps.google.com/?cid=11956530853003446067",
     "https://www.instagram.com/novahypnose/",
-    "https://www.linkedin.com/in/alain-zenatti/",
-    "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-    "https://www.google.com/maps/place/16+Rue+Saint-Antoine,+75004+Paris",
-    "https://maps.google.com/?cid=11956530853003446067"
+    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
   ],
   "employee": { "@id": "https://novahypnose.fr/#person" },
   "hasOfferCatalog": {
@@ -330,9 +328,9 @@ export const personSchema = {
   "url": "https://novahypnose.fr",
   "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
   "sameAs": [
+    "https://www.linkedin.com/in/zenatti/",
     "https://www.instagram.com/novahypnose/",
-    "https://www.linkedin.com/in/alain-zenatti/",
-    "https://www.resalib.fr/agenda/47325?src=novahypnose.fr"
+    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
   ],
   "knowsAbout": [
     "Hypnose ericksonienne",

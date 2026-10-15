@@ -5,6 +5,20 @@ const SITE_URL = "https://novahypnose.fr";
 const SITE_NAME = "NovaHypnose";
 const DEFAULT_IMAGE = "https://novahypnose.fr/images/og-alain-zenatti.jpg";
 
+// Profils externes : une seule liste, pour que les moteurs (et les IA) relient
+// le cabinet et le praticien aux mêmes entités partout. Garder en phase avec
+// src/data/schemaOrg.ts et netlify/edge-functions/seo-prerender.ts.
+const BUSINESS_SAME_AS = [
+  "https://maps.google.com/?cid=11956530853003446067",
+  "https://www.instagram.com/novahypnose/",
+  "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+];
+const PERSON_SAME_AS = [
+  "https://www.linkedin.com/in/zenatti/",
+  "https://www.instagram.com/novahypnose/",
+  "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+];
+
 const BOT_USER_AGENTS = [
   "googlebot",
   "bingbot",
@@ -210,7 +224,7 @@ const localBusinessLd = {
     bestRating: "5",
     reviewCount: "26",
   },
-  sameAs: ["https://maps.google.com/?cid=11956530853003446067"],
+  sameAs: BUSINESS_SAME_AS,
 };
 
 const personLd = {
@@ -232,6 +246,7 @@ const personLd = {
   worksFor: {
     "@id": `${SITE_URL}/#localbusiness`,
   },
+  sameAs: PERSON_SAME_AS,
 };
 
 function breadcrumbLd(items: { name: string; path: string }[]) {
@@ -1350,10 +1365,7 @@ const PAGES: Record<string, PageData> = {
           "postalCode": "75004",
           "addressCountry": "FR"
         },
-        "sameAs": [
-          "https://www.instagram.com/novahypnose/",
-          "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
-        ]
+        "sameAs": PERSON_SAME_AS
       },
       breadcrumbLd([
         { name: "Accueil", path: "/" },

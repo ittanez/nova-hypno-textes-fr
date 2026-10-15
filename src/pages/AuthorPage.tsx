@@ -26,8 +26,8 @@ const AuthorPage: React.FC = () => {
       "description": "Maître Hypnologue certifié spécialisé en hypnose ericksonienne. Plus de 6 ans d'expérience. Cabinet à Paris 4ème (Marais-Bastille). Auteur de 100+ articles sur l'hypnothérapie, la gestion du stress et le développement personnel.",
       "sameAs": [
         "https://www.instagram.com/novahypnose/",
-        "https://www.resalib.fr/agenda/47325?src=novahypnose.fr",
-        "https://www.linkedin.com/in/alain-zenatti/"
+        "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+        "https://www.linkedin.com/in/zenatti/"
       ],
       "worksFor": {
         "@type": "Organization",
