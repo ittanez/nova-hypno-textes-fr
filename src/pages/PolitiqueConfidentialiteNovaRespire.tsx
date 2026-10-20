@@ -29,6 +29,11 @@ const retentionRows = [
     duration: '90 jours maximum, puis suppression automatique',
   },
   {
+    data: 'Mesures techniques de performance',
+    place: 'Firebase Performance',
+    duration: 'Selon les paramètres de Firebase',
+  },
+  {
     data: 'Ambiances sonores téléchargées',
     place: 'Votre appareil uniquement',
     duration: 'Jusqu’à la désinstallation de l’app',
@@ -134,7 +139,7 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
                 Politique de <em>confidentialité.</em>
               </h1>
               <p className="hero__sub" style={{ marginTop: '1rem' }}>
-                Application de respiration guidée NovaRespire · Dernière mise à jour : juin 2026
+                Application de respiration guidée NovaRespire · Dernière mise à jour : octobre 2026
               </p>
             </div>
           </div>
@@ -163,7 +168,7 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
               </h2>
               <p className="legal-text">
                 NovaRespire ne demande <strong>aucune création de compte</strong> et ne collecte <strong>aucune donnée
-                personnelle identifiable</strong> (ni nom, ni email, ni numéro de téléphone, ni localisation).
+                personnelle identifiable</strong> (ni nom, ni email, ni numéro de téléphone, ni localisation précise).
               </p>
               <p className="legal-text" style={{ marginTop: '0.75rem' }}>
                 L'application traite uniquement :
@@ -176,13 +181,23 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
                 </li>
                 <li>
                   <strong>Statistiques d'utilisation anonymes</strong> (nombre de sessions, type d'exercice, durée de
-                  pratique) — via Firebase Analytics (Google), sans identifiant personnel.
+                  pratique, écrans consultés — nom de l'écran uniquement — et clics sur la proposition de séances
+                  en visio) — via Firebase Analytics (Google), sans identifiant personnel.
                 </li>
                 <li>
                   <strong>Rapports de plantage anonymes</strong> (modèle d'appareil, version Android, trace technique
                   de l'erreur) — via Firebase Crashlytics (Google).
                 </li>
+                <li>
+                  <strong>Mesures techniques de performance</strong> (temps de démarrage, fluidité) — via Firebase
+                  Performance (Google).
+                </li>
               </ul>
+              <p className="legal-text" style={{ marginTop: '0.75rem' }}>
+                Les statistiques, rapports de plantage et mesures de performance ne sont collectés{' '}
+                <strong>qu'après votre accord</strong>, donné à l'écran de consentement. Ces services utilisent un
+                identifiant d'installation propre à l'application, qui n'est pas lié à votre identité.
+              </p>
             </div>
 
             {/* Durée de conservation */}
@@ -249,7 +264,7 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
                 <li>du <strong>droit d'accès</strong> : consultez vos données via le menu « Exporter mes données » de l'application ;</li>
                 <li>du <strong>droit à l'effacement</strong> : menu « Supprimer mes données » (voir ci-dessus) ;</li>
                 <li>du <strong>droit à la portabilité</strong> : l'export produit un fichier lisible de vos données de session ;</li>
-                <li>du <strong>droit d'opposition</strong> : vous pouvez réinitialiser ou désactiver l'identifiant publicitaire dans les paramètres Android de votre appareil.</li>
+                <li>du <strong>droit d'opposition</strong> : vous pouvez refuser la collecte à l'écran de consentement, ou utiliser « Supprimer mes données », qui désactive aussi la collecte. L'application n'utilise pas l'identifiant publicitaire.</li>
               </ul>
             </div>
 
@@ -259,8 +274,9 @@ const PolitiqueConfidentialiteNovaRespire: React.FC = () => {
                 Services tiers
               </h2>
               <p className="legal-text">
-                L'application utilise les services Google Firebase (Analytics, Crashlytics, et Firebase Storage pour
-                le téléchargement des ambiances sonores — ce dernier ne collecte aucune donnée utilisateur). Ces
+                L'application utilise les services Google Firebase (Analytics, Crashlytics, Performance, Remote Config,
+                et Storage pour le téléchargement des ambiances sonores — ce dernier ne collecte aucune donnée
+                utilisateur). Ces
                 services sont soumis à la{' '}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
                   politique de confidentialité de Google
