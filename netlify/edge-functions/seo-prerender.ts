@@ -142,6 +142,38 @@ function stripHtmlTags(html: string): string {
   return html.replace(/<[^>]*>/g, "");
 }
 
+// ─── Réponses d'erreur pour les bots ────────────────────────────────────────
+// Ne jamais retomber sur la SPA (context.next()) : index.html est servi en 200,
+// sans canonical et avec un titre générique identique pour toutes ces URLs.
+// Google les regroupe alors comme doublons ("Page en double : Google n'a pas
+// choisi la même URL canonique que l'utilisateur").
+
+function notFoundResponse(): Response {
+  return new Response(
+    `<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Page introuvable | NovaHypnose</title></head><body><h1>Page introuvable</h1><p><a href="${SITE_URL}/blog">Voir tous les articles du blog</a></p></body></html>`,
+    {
+      status: 404,
+      headers: {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "public, s-maxage=3600",
+        "x-robots-tag": "noindex",
+      },
+    }
+  );
+}
+
+// 503 + Retry-After : Google retente plus tard sans indexer ni désindexer la page.
+function unavailableResponse(): Response {
+  return new Response("Service temporairement indisponible", {
+    status: 503,
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "no-store",
+      "retry-after": "600",
+    },
+  });
+}
+
 // ─── Supabase fetch helpers ────────────────────────────────────────────────
 
 async function supabaseFetch(path: string): Promise<Response> {
@@ -158,7 +190,9 @@ async function getArticleBySlug(slug: string): Promise<Article | null> {
   const res = await supabaseFetch(
     `articles?slug=eq.${encodeURIComponent(slug)}&published=eq.true&select=*&limit=1`
   );
-  if (!res.ok) return null;
+  // Une erreur Supabase ne doit pas être confondue avec un article absent :
+  // elle remonte jusqu'au catch du handler, qui répond 503.
+  if (!res.ok) throw new Error(`Supabase ${res.status} on article ${slug}`);
   const data = await res.json();
   return data.length > 0 ? data[0] : null;
 }
@@ -178,7 +212,8 @@ async function getArticlesByCategory(
   const catRes = await supabaseFetch(
     `categories?slug=eq.${encodeURIComponent(categorySlug)}&select=*&limit=1`
   );
-  const categories = catRes.ok ? await catRes.json() : [];
+  if (!catRes.ok) throw new Error(`Supabase ${catRes.status} on category ${categorySlug}`);
+  const categories = await catRes.json();
   const category = categories.length > 0 ? categories[0] : null;
 
   if (!category) return { articles: [], category: null };
@@ -739,7 +774,7 @@ export default async function handler(
       const slug = articleMatch[1];
       const article = await getArticleBySlug(slug);
       if (!article) {
-        return context.next();
+        return notFoundResponse();
       }
       const [adjacent, related] = await Promise.all([
         getAdjacentArticles(article.published_at || article.updated_at),
@@ -761,7 +796,7 @@ export default async function handler(
       const slug = categoryMatch[1];
       const { articles, category } = await getArticlesByCategory(slug);
       if (!category) {
-        return context.next();
+        return notFoundResponse();
       }
       const html = renderCategoryPage(category, articles);
       return new Response(html, {
@@ -800,8 +835,7 @@ export default async function handler(
     }
   } catch (error) {
     console.error("[seo-prerender] Error:", error);
-    // On error, fall through to SPA
-    return context.next();
+    return unavailableResponse();
   }
 
   // Fallback: serve SPA
