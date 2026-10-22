@@ -47,8 +47,8 @@ const PreviewCharteBlog: React.FC = () => {
     staleTime: 10 * 60 * 1000,
   });
 
-  const articles: Article[] = articlesData ?? [];
-  const categories: Category[] = categoriesData ?? [];
+  const articles: Article[] = useMemo(() => articlesData ?? [], [articlesData]);
+  const categories: Category[] = useMemo(() => categoriesData ?? [], [categoriesData]);
 
   const filteredArticles = useMemo(() => {
     if (activeCategory === 'all') return articles;

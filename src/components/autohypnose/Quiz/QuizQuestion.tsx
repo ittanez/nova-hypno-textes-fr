@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Question, Option, Answer } from "@/types/quiz";
 
@@ -19,21 +19,7 @@ const QuizQuestion = ({
 }: QuizQuestionProps) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-  // Automatically proceed to the next question when an option is selected
-  useEffect(() => {
-    if (selectedOption) {
-      const timer = setTimeout(() => {
-        handleNextQuestion();
-      }, 300); // Small delay for better UX
-      return () => clearTimeout(timer);
-    }
-  }, [selectedOption]);
-
-  const handleOptionClick = (option: Option) => {
-    setSelectedOption(option);
-  };
-
-  const handleNextQuestion = () => {
+  const handleNextQuestion = useCallback(() => {
     if (selectedOption) {
       onAnswerSelected({
         questionId: question.id,
@@ -43,6 +29,20 @@ const QuizQuestion = ({
       });
       setSelectedOption(null);
     }
+  }, [selectedOption, onAnswerSelected, question]);
+
+  // Automatically proceed to the next question when an option is selected
+  useEffect(() => {
+    if (selectedOption) {
+      const timer = setTimeout(() => {
+        handleNextQuestion();
+      }, 300); // Small delay for better UX
+      return () => clearTimeout(timer);
+    }
+  }, [selectedOption, handleNextQuestion]);
+
+  const handleOptionClick = (option: Option) => {
+    setSelectedOption(option);
   };
 
   return (

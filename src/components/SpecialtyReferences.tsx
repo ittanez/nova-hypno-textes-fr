@@ -48,7 +48,7 @@ const formatDateFr = (iso: string) => {
   }
 };
 
-export const buildWebPageSchema = (props: Props) => ({
+const buildWebPageSchema = (props: Props) => ({
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
   '@id': `${props.pageUrl}#webpage`,
