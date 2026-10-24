@@ -6,6 +6,7 @@ import CzLayout from '@/components/charte/CzLayout';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -202,6 +203,16 @@ const HypnoseStressParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="CrZ02vfIqYM"
+        title="La respiration 4-7-8, en une minute"
+        description="Inspirez sur 4 temps, retenez sur 7, expirez sur 8. Suivez la marée et laissez le calme revenir, n'importe où."
+        duration="PT51S"
+        uploadDate="2026-10-24T12:00:00+02:00"
+        pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
+      />
 
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">

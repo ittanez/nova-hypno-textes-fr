@@ -6,6 +6,7 @@ import CzLayout from '@/components/charte/CzLayout';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import { sommeilFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -201,6 +202,16 @@ const HypnoseSommeilParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="wYVad2LrNOI"
+        title="Réveillé à 3 h du matin ?"
+        description="Plus on cherche le sommeil, plus il s'éloigne. Une piste simple pour arrêter de lutter et le laisser revenir."
+        duration="PT32S"
+        uploadDate="2026-10-24T12:00:00+02:00"
+        pageUrl="https://novahypnose.fr/hypnose-sommeil-paris"
+      />
 
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">

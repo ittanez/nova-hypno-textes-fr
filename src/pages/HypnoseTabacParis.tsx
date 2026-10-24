@@ -6,6 +6,7 @@ import CzLayout from '@/components/charte/CzLayout';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import { tabacFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -202,6 +203,16 @@ const HypnoseTabacParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="QVyKsweNcg0"
+        title="Changez de ligne, pas de volonté"
+        description="La cigarette suit un trajet automatique, toujours le même. On peut lui en tracer un autre, station après station."
+        duration="PT32S"
+        uploadDate="2026-10-24T12:00:00+02:00"
+        pageUrl="https://novahypnose.fr/hypnose-arret-tabac-paris"
+      />
 
       {/* Comment se passe une séance */}
       <section className="sp-section">

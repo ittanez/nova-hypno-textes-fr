@@ -6,6 +6,7 @@ import CzLayout from '@/components/charte/CzLayout';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import { confianceFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
@@ -203,6 +204,16 @@ const HypnoseConfianceParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="bSr7U4cQFn8"
+        title="« Je ne suis pas à la hauteur » ?"
+        description="Cette petite voix parle fort, mais elle ne dit pas toujours vrai. Un exercice simple pour réécrire la phrase."
+        duration="PT34S"
+        uploadDate="2026-10-24T12:00:00+02:00"
+        pageUrl="https://novahypnose.fr/hypnose-confiance-en-soi-paris"
+      />
 
       {/* Mon approche */}
       <section className="sp-section">
