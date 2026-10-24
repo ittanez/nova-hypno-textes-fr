@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
@@ -244,6 +245,16 @@ const HypnoseProcrastinationParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="KulcNvTWVlg"
+        title="« Je m'y mettrai demain »"
+        description="Et si vous commenciez par une toute petite étape, aujourd'hui ? Une méthode simple pour passer à l'action."
+        duration="PT31S"
+        uploadDate="2026-10-24T12:00:00+02:00"
+        pageUrl="https://novahypnose.fr/hypnose-procrastination-paris"
+      />
 
       {/* Cas concrets */}
       <section className="sp-section sp-section--alt">
