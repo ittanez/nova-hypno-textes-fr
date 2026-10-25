@@ -206,11 +206,11 @@ const HypnoseTabacParis = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="QVyKsweNcg0"
+        videoId="I8GdHUUY_QA"
         title="Changez de ligne, pas de volonté"
         description="La cigarette suit un trajet automatique, toujours le même. On peut lui en tracer un autre, station après station."
         duration="PT32S"
-        uploadDate="2026-10-24T12:00:00+02:00"
+        uploadDate="2026-10-25T18:30:00+01:00"
         pageUrl="https://novahypnose.fr/hypnose-arret-tabac-paris"
       />
 

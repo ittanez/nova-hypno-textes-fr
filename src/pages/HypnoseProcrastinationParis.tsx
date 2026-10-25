@@ -248,11 +248,11 @@ const HypnoseProcrastinationParis = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="KulcNvTWVlg"
+        videoId="1XMStqhmT88"
         title="« Je m'y mettrai demain »"
         description="Et si vous commenciez par une toute petite étape, aujourd'hui ? Une méthode simple pour passer à l'action."
-        duration="PT31S"
-        uploadDate="2026-10-24T12:00:00+02:00"
+        duration="PT28S"
+        uploadDate="2026-10-25T18:30:00+01:00"
         pageUrl="https://novahypnose.fr/hypnose-procrastination-paris"
       />
 

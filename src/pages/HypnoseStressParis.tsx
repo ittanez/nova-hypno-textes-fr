@@ -206,11 +206,11 @@ const HypnoseStressParis = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="CrZ02vfIqYM"
+        videoId="GBiCUnJCfGo"
         title="La respiration 4-7-8, en une minute"
         description="Inspirez sur 4 temps, retenez sur 7, expirez sur 8. Suivez la marée et laissez le calme revenir, n'importe où."
         duration="PT51S"
-        uploadDate="2026-10-24T12:00:00+02:00"
+        uploadDate="2026-10-25T18:30:00+01:00"
         pageUrl="https://novahypnose.fr/hypnose-stress-anxiete-paris"
       />
 

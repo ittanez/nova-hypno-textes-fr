@@ -205,11 +205,11 @@ const HypnoseSommeilParis = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="wYVad2LrNOI"
+        videoId="QvrxyYXnr1Q"
         title="Réveillé à 3 h du matin ?"
         description="Plus on cherche le sommeil, plus il s'éloigne. Une piste simple pour arrêter de lutter et le laisser revenir."
-        duration="PT32S"
-        uploadDate="2026-10-24T12:00:00+02:00"
+        duration="PT30S"
+        uploadDate="2026-10-25T18:30:00+01:00"
         pageUrl="https://novahypnose.fr/hypnose-sommeil-paris"
       />
 
