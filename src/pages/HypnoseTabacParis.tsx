@@ -206,7 +206,7 @@ const HypnoseTabacParis = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="I8GdHUUY_QA"
+        videoId="VhcabYV8scc"
         title="Changez de ligne, pas de volonté"
         description="La cigarette suit un trajet automatique, toujours le même. On peut lui en tracer un autre, station après station."
         duration="PT32S"
