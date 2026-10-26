@@ -296,6 +296,7 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3): 
     let query = supabase
       .from('articles')
       .select('id, title, slug, excerpt, image_url, categories, tags, published_at, created_at, read_time')
+      .eq('published', true)
       .neq('id', articleId);
 
     if (article.tags && article.tags.length > 0) {
@@ -310,11 +311,25 @@ export const getRelatedArticles = async (articleId: string, limit: number = 3): 
       throw error;
     }
 
-    const pool = (data as Article[]) || [];
-    if (pool.length <= limit) {
-      return { data: pool, error: null };
+    const candidates = (data as Article[]) || [];
+    if (candidates.length <= limit) {
+      return { data: candidates, error: null };
     }
 
+    // Pertinence : nombre de tags partagés (un seul tag générique comme
+    // « développement personnel » ne suffit pas à bien classer), + bonus de catégorie.
+    const myTags = new Set(article.tags ?? []);
+    const myCategories = new Set(article.categories ?? []);
+    const score = (a: Article): number =>
+      (a.tags ?? []).filter(t => myTags.has(t)).length * 2 +
+      ((a.categories ?? []).some(c => myCategories.has(c)) ? 1 : 0);
+
+    // Tri stable : à score égal, l'ordre par date (le plus récent d'abord) est conservé.
+    const ranked = [...candidates].sort((a, b) => score(b) - score(a));
+
+    // On ne garde que les meilleurs candidats, puis on tourne dans ce lot selon
+    // articleId : liens pertinents ET répartis sur beaucoup d'articles.
+    const pool = ranked.slice(0, Math.max(limit * 3, 9));
     const start = hashToIndex(articleId, pool.length);
     const selected = Array.from({ length: limit }, (_, i) => pool[(start + i) % pool.length]);
 

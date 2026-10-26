@@ -413,7 +413,7 @@ const ArticlePage = () => {
               <RelatedArticles
                 currentArticleId={article.id}
                 currentArticleCategories={article.categories}
-                maxArticles={3}
+                maxArticles={4}
               />
               
               {/* ✅ NAVIGATION PRÉCÉDENT/SUIVANT */}
