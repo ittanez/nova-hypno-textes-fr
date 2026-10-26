@@ -444,265 +444,50 @@
   status = 200
   force = true
 
-# ═══════════════════════════════════════════════════════════════════════
-# Redirections 301 — Anciennes URLs de prévisualisation (charte) → URLs de prod
-# La maquette /preview-charte* est devenue le site principal
-# ═══════════════════════════════════════════════════════════════════════
-[[redirects]]
-  from = "/preview-charte"
-  to = "/"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/preview-charte-autohypnose"
-  to = "/autohypnose"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/preview-charte-blog/article/*"
-  to = "/blog/article/:splat"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/preview-charte-blog"
-  to = "/blog"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/preview-charte-mentions-legales"
-  to = "/mentions-legales"
-  status = 301
-  force = true
 
 # ═══════════════════════════════════════════════════════════════════════
 # Redirections 301 — Anciennes URLs WordPress encore indexées par Bing
 # Évite le contenu dupliqué et consolide l'autorité vers le nouveau site
 # ═══════════════════════════════════════════════════════════════════════
 
-# ═══════════════════════════════════════════════════════════════════════
-# Redirections 301 — Anciennes routes React remplacées par des pages dédiées
-# (les <Navigate> côté client sont invisibles pour les bots sans JS)
-# ═══════════════════════════════════════════════════════════════════════
-[[redirects]]
-  from = "/hypnose-deuil-separation-paris"
-  to = "/hypnose-deuil-paris"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/hypnose-frustration-chronique-paris"
-  to = "/hypnose-frustration-paris"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/hypnose-troubles-emotionnels-paris"
-  to = "/hypnose-gestion-emotions-paris"
-  status = 301
-  force = true
 
-# Pages principales WordPress → Accueil
-[[redirects]]
-  from = "/index.php/nova-hypnose-alain-zenatti/"
-  to = "/"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/index.php/hypnose/"
-  to = "/"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/index.php/bandeauentest/"
-  to = "/"
-  status = 301
-  force = true
 
-# FAQ WordPress → Blog (contenu équivalent)
-[[redirects]]
-  from = "/index.php/faq/"
-  to = "/blog"
-  status = 301
-  force = true
 
-# Audio/MP3 hypnose → Autohypnose
-[[redirects]]
-  from = "/index.php/mp3-hypnose/"
-  to = "/autohypnose"
-  status = 301
-  force = true
 
-# Estime de soi → Page confiance en soi
-[[redirects]]
-  from = "/index.php/lestime-de-soi-nova-hypnose/"
-  to = "/hypnose-confiance-en-soi-paris"
-  status = 301
-  force = true
 
-# Applications → Autohypnose
-[[redirects]]
-  from = "/index.php/applications-nova-hypnose/"
-  to = "/autohypnose"
-  status = 301
-  force = true
 
-# Guide auto-hypnose → Autohypnose
-[[redirects]]
-  from = "/index.php/jatteins-mes-objectifs-avec-lauto-hypnose-2/"
-  to = "/autohypnose"
-  status = 301
-  force = true
 
-# Hypno-cafés → Blog
-[[redirects]]
-  from = "/index.php/hypno-cafes/"
-  to = "/blog"
-  status = 301
-  force = true
 
-# Contact WordPress → Accueil
-[[redirects]]
-  from = "/index.php/contact-nova-hypnose/"
-  to = "/"
-  status = 301
-  force = true
 
-# Articles WordPress datés — Redirections spécifiques vers les articles du nouveau blog
-[[redirects]]
-  from = "/2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/"
-  to = "/blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/2024/06/24/hypnose-aphantasie-bienfaits-adaptation/"
-  to = "/blog/article/hypnose-aphantasie-bienfaits-adaptation"
-  status = 301
-  force = true
 
-# Anciens slugs d'articles (table article_redirects) → vrais 301 côté serveur
-# (la redirection côté SPA renvoyait un 404 aux robots)
-[[redirects]]
-  from = "/blog/article/developper-gps-emotionnel-boussole-interieure-defis-vie"
-  to = "/blog/article/developper-son-gps-emotionnel-affiner-sa-boussole-interieure-pour-naviguer-dans-les-defis-de-la-vie"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/hypnose-transgenerationnelle-liberer-memoires-familiales-transformer-vie"
-  to = "/blog/article/hypnose-transgenerationnelle-liberer-les-memoires-familiales-pour-transformer-sa-vie"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/cartographie-moi-paralleles-explorer-versions-alternatives-soi-debloquer-potentiel"
-  to = "/blog/article/la-cartographie-de-ses-moi-paralleles-explorer-les-versions-alternatives-de-soi-pour-debloquer-son-potentiel"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/hypnose-alliee-secrete-reussir-examens-competitions-techniques-preparation-mentale"
-  to = "/blog/article/hypnose-votre-alliee-secrete-pour-reussir-examens-et-competitions-techniques-de-preparation-mentale-qui-changent-tout"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/comment-faire-taire-votre-critique-interieur-hypnotherapie-paix-mentale"
-  to = "/blog/article/comment-faire-taire-votre-critique-interieur-lhypnotherapie-au-service-de-la-paix-mentale"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/comment-hypnotherapie-transforme-peur-rougir-confiance-retrouvee"
-  to = "/blog/article/comment-lhypnotherapie-transforme-la-peur-de-rougir-en-confiance-retrouvee"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/art-visualisation-hypnotherapie-transformer-reves-realite"
-  to = "/blog/article/art-de-la-visualisation-en-hypnotherapie-transformer-ses-reves-en-realite"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/comment-hypnose-transforme-relation-argent-libere-anxiete-financiere"
-  to = "/blog/article/comment-lhypnose-transforme-votre-relation-a-largent-et-libere-de-lanxiete-financiere"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/quand-hypnotherapie-debarque-sur-instagram-comment-democratiser-hypnose-sans-faire-danse-tiktok"
-  to = "/blog/article/quand-lhypnotherapie-debarque-sur-instagram-comment-democratiser-lhypnose-sans-faire-de-danse-tiktok"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/blog/article/parties-en-hypnotherapie-voyage-au-coeur-de-notre-multiplicite-interieure"
-  to = "/blog/article/questce-que-les-parties-en-hypnotherapie-voyage-au-cur-de-notre-multiplicite-interieure"
-  status = 301
-  force = true
 
-# Ancienne URL sans article correspondant (jamais en base) → page phobies
-[[redirects]]
-  from = "/blog/article/vaincre-peurs-hypnotherapie"
-  to = "/hypnose-phobies-paris"
-  status = 301
-  force = true
 
-# Articles WordPress datés (catch-all) → Blog
-[[redirects]]
-  from = "/2024/*"
-  to = "/blog"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/2023/*"
-  to = "/blog"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/2022/*"
-  to = "/blog"
-  status = 301
-  force = true
 
-# Catch-all pour toutes les autres URLs WordPress index.php
-[[redirects]]
-  from = "/index.php/*"
-  to = "/"
-  status = 301
-  force = true
 
-# Redirection du sous-domaine emergences vers le domaine principal
-[[redirects]]
-  from = "https://emergences.novahypnose.fr/*"
-  to = "https://novahypnose.fr/:splat"
-  status = 301
-  force = true
 
-# Redirection du sous-domaine harmonia vers la page autohypnose
-[[redirects]]
-  from = "https://harmonia.novahypnose.fr/*"
-  to = "https://novahypnose.fr/autohypnose"
-  status = 301
-  force = true
 
 # Sitemap dynamique : proxifié par l'edge function (injecte apikey depuis env)
 
-# Ancienne page statique /peurdelavion.html → route React /peurdelavion
-[[redirects]]
-  from = "/peurdelavion.html"
-  to = "/peurdelavion"
-  status = 301
-  force = true
 
 # Fichiers HTML statiques ne doivent pas être redirigés
 [[redirects]]
@@ -711,12 +496,6 @@
   status = 200
   force = true
 
-# Ancienne page statique mentions-legales supprimée → route React
-[[redirects]]
-  from = "/mentions-legales.html"
-  to = "/mentions-legales"
-  status = 301
-  force = true
 
 [[redirects]]
   from = "/anxiete-hypnose.html"

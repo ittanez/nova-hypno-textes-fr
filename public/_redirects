@@ -28,5 +28,36 @@
 /blog/article/parties-en-hypnotherapie-voyage-au-coeur-de-notre-multiplicite-interieure  /blog/article/questce-que-les-parties-en-hypnotherapie-voyage-au-cur-de-notre-multiplicite-interieure  301!
 /blog/article/vaincre-peurs-hypnotherapie  /hypnose-phobies-paris  301!
 
+# Anciennes URLs WordPress, pages renommées, previews et sous-domaines (ex netlify.toml,
+# où ces règles n'étaient jamais atteintes). Spécifiques avant les catch-all.
+/preview-charte  /  301!
+/preview-charte-autohypnose  /autohypnose  301!
+/preview-charte-blog/article/*  /blog/article/:splat  301!
+/preview-charte-blog  /blog  301!
+/preview-charte-mentions-legales  /mentions-legales  301!
+/hypnose-deuil-separation-paris  /hypnose-deuil-paris  301!
+/hypnose-frustration-chronique-paris  /hypnose-frustration-paris  301!
+/hypnose-troubles-emotionnels-paris  /hypnose-gestion-emotions-paris  301!
+/index.php/nova-hypnose-alain-zenatti/  /  301!
+/index.php/hypnose/  /  301!
+/index.php/bandeauentest/  /  301!
+/index.php/faq/  /blog  301!
+/index.php/mp3-hypnose/  /autohypnose  301!
+/index.php/lestime-de-soi-nova-hypnose/  /hypnose-confiance-en-soi-paris  301!
+/index.php/applications-nova-hypnose/  /autohypnose  301!
+/index.php/jatteins-mes-objectifs-avec-lauto-hypnose-2/  /autohypnose  301!
+/index.php/hypno-cafes/  /blog  301!
+/index.php/contact-nova-hypnose/  /  301!
+/2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/  /blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie  301!
+/2024/06/24/hypnose-aphantasie-bienfaits-adaptation/  /blog/article/hypnose-aphantasie-bienfaits-adaptation  301!
+/2024/*  /blog  301!
+/2023/*  /blog  301!
+/2022/*  /blog  301!
+/index.php/*  /  301!
+https://emergences.novahypnose.fr/*  https://novahypnose.fr/:splat  301!
+https://harmonia.novahypnose.fr/*  https://novahypnose.fr/autohypnose  301!
+/peurdelavion.html  /peurdelavion  301!
+/mentions-legales.html  /mentions-legales  301!
+
 # SPA fallback - Toutes les autres routes vers index.html
 /*    /index.html   200
