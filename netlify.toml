@@ -427,6 +427,67 @@
   [headers.values]
     X-Robots-Tag = "noindex, follow"
 
+# ── Landing pages Google Ads (campagne en pause) — hors référencement ──
+[[headers]]
+  for = "/anxiete-hypnose.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/anxiete-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/bruxisme-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/compulsions-alimentaires-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/confiance-en-soi-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/peur-aiguilles-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/peur-avion-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/peur-rougir-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/peur-sang-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/prise-de-parole-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/sommeil-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+  for = "/trichotillomanie-hypnose-paris.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
 # ═══════════════════════════════════════════════════════════════════════
 # Fichiers critiques pour le SEO - DOIVENT être servis en statique
 # Google bloque l'indexation de TOUT le site si robots.txt est inaccessible
