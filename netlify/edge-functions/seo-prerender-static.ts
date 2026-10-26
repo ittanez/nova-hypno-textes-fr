@@ -303,9 +303,9 @@ function faqLd(items: { q: string; a: string }[]) {
 
 const PAGES: Record<string, PageData> = {
   "/": {
-    title: "Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose",
+    title: "Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose",
     description:
-      "Hypnothérapeute à Paris 4ème, cabinet Marais-Bastille. Alain Zenatti, Maître Hypnologue certifié. Stress, anxiété, phobies, sommeil. Résultats en 3 à 5 séances.",
+      "Cabinet d'hypnothérapie rue Saint-Antoine, Paris 4e, et séances en visio. Alain Zenatti vous accompagne : stress, sommeil, peurs, confiance en soi.",
     canonicalPath: "/",
     h1: "Hypnothérapeute à Paris — Alain Zenatti, hypnose ericksonienne et auto-hypnose",
     imageUrl: DEFAULT_IMAGE,
@@ -367,9 +367,9 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-stress-anxiete-paris": {
-    title: "Hypnose stress et anxiété Paris | Alain Zenatti",
+    title: "Hypnose anxiété et crise d'angoisse, Paris 4e | NovaHypnose",
     description:
-      "Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Résultats durables en 3 à 5 séances.",
+      "Anxiété, crises d'angoisse, stress : un accompagnement par l'hypnose ericksonienne au cabinet (Paris 4e) ou en visio. Premier échange avec Alain Zenatti.",
     canonicalPath: "/hypnose-stress-anxiete-paris",
     h1: "Hypnose et stress — Retrouvez la sérénité à Paris",
     jsonLd: [
@@ -463,9 +463,9 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-phobies-paris": {
-    title: "Hypnose phobies et peurs Paris | Alain Zenatti",
+    title: "Hypnose pour phobies et peurs, Paris 4e | NovaHypnose",
     description:
-      "Libérez-vous de vos phobies par l'hypnose à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats durables en 2 à 4 séances. Séance 90€.",
+      "Avion, sang, aiguilles, parler en public… Un accompagnement doux par l'hypnose pour mieux vivre vos peurs, à Paris 4e ou en visio. Séance : 90 €.",
     canonicalPath: "/hypnose-phobies-paris",
     h1: "Hypnose et phobies — Libérez-vous de vos peurs à Paris",
     jsonLd: [
@@ -573,9 +573,9 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-sommeil-paris": {
-    title: "Hypnose sommeil et insomnie Paris | Alain Zenatti",
+    title: "Hypnose insomnie et sommeil, Paris 4e | NovaHypnose",
     description:
-      "Retrouvez un sommeil profond par l'hypnose à Paris 4ème. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament. Résultats en 3 à 5 séances.",
+      "Insomnie, endormissement difficile, réveils la nuit : l'hypnose comme ressource pour mieux dormir, en complément d'un avis médical. Paris 4e ou visio.",
     canonicalPath: "/hypnose-sommeil-paris",
     h1: "Hypnose et sommeil — Retrouvez des nuits sereines à Paris",
     jsonLd: [
@@ -981,9 +981,9 @@ const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-confiance-en-soi-paris": {
-    title: "Hypnose confiance en soi Paris | Alain Zenatti",
+    title: "Hypnose confiance en soi, Paris 4e | NovaHypnose",
     description:
-      "Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances.",
+      "Doute, peur du jugement, syndrome de l'imposteur : un accompagnement par l'hypnose pour vous appuyer sur vos ressources. Paris 4e ou en visio.",
     canonicalPath: "/hypnose-confiance-en-soi-paris",
     h1: "Hypnose et confiance en soi — Révélez votre potentiel à Paris",
     jsonLd: [
@@ -1499,9 +1499,9 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   },
 
   "/hypnose-en-ligne": {
-    title: "Hypnose en ligne & visio — Spécialiste France | Alain Zenatti",
+    title: "Hypnose en visio, depuis chez vous | Alain Zenatti",
     description:
-      "Spécialiste de l'hypnose en visioconférence partout en France. Alain Zenatti, Maître Hypnologue certifié, propose des téléconsultations d'hypnose aussi efficaces qu'au cabinet. 90 € — Résultats en 3 à 5 séances.",
+      "Séances d'hypnose ericksonienne en visioconférence, depuis chez vous, avec Alain Zenatti, hypnothérapeute à Paris 4e. Déroulé, matériel, tarif : 90 €.",
     canonicalPath: "/hypnose-en-ligne",
     h1: "Spécialiste de l'hypnose en ligne — Consultez depuis chez vous, partout en France.",
     jsonLd: [
@@ -1554,9 +1554,9 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
 };
 
 PAGES["/peurdelavion"] = {
-  title: "Hypnose peur de l'avion Paris | Alain Zenatti",
+  title: "Hypnose peur de l'avion, Paris et visio | NovaHypnose",
   description:
-    "Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables en 3 à 4 séances.",
+    "Peur de l'avion : un accompagnement par l'hypnose pour préparer votre vol plus sereinement, au cabinet (Paris 4e) ou en visio. Alain Zenatti.",
   canonicalPath: "/peurdelavion",
   h1: "Hypnose et peur de l'avion — Reprenez l'avion sereinement",
   jsonLd: [
@@ -1856,9 +1856,9 @@ PAGES["/hypnose-claustrophobie-paris"] = {
 };
 
 PAGES["/hypnose-peur-parler-public-paris"] = {
-  title: "Hypnose peur de parler en public Paris | Alain Zenatti",
+  title: "Hypnose prise de parole et trac, Paris | NovaHypnose",
   description:
-    "Libérez-vous de la peur de parler en public par l'hypnose à Paris 4ème ou en visio. Présentations, pitchs, réunions — retrouvez votre aisance à l'oral. Résultats en 3 à 5 séances.",
+    "Trac, peur de parler en public : un accompagnement par l'hypnose pour aborder présentations et réunions plus sereinement. Paris 4e ou en visio.",
   canonicalPath: "/hypnose-peur-parler-public-paris",
   h1: "Hypnose et peur de parler en public — Retrouvez l'aisance à l'oral à Paris",
   jsonLd: [
@@ -2004,8 +2004,8 @@ PAGES["/hypnose-peur-dentiste-paris"] = {
 };
 
 PAGES["/hypnose-peur-aiguilles-paris"] = {
-  title: "Hypnose peur des aiguilles (bélonéphobie) Paris | Alain Zenatti",
-  description: "Libérez-vous de la peur des aiguilles par l'hypnose à Paris 4ème ou en visio. Prises de sang, vaccins, perfusions — résultats durables en 2 à 3 séances.",
+  title: "Hypnose peur des aiguilles, Paris 4e | NovaHypnose",
+  description: "Peur des aiguilles, prises de sang, vaccins : un accompagnement par l'hypnose pour aborder les soins plus sereinement. Paris 4e ou visio.",
   canonicalPath: "/hypnose-peur-aiguilles-paris",
   h1: "Hypnose et peur des aiguilles — Prises de sang et vaccins sans angoisse à Paris",
   jsonLd: [
@@ -2085,8 +2085,8 @@ PAGES["/hypnose-peur-aiguilles-paris"] = {
 };
 
 PAGES["/hypnose-peur-sang-paris"] = {
-  title: "Hypnose peur du sang (hématophobie) Paris | Alain Zenatti",
-  description: "Libérez-vous de la peur du sang par l'hypnose à Paris 4ème ou en visio. Hématophobie, malaises, évanouissements — résultats durables en 2 à 3 séances.",
+  title: "Hypnose peur du sang, Paris 4e | NovaHypnose",
+  description: "Peur du sang, malaises à la vue d'une blessure : un accompagnement par l'hypnose pour retrouver des ressources. Paris 4e ou en visio.",
   canonicalPath: "/hypnose-peur-sang-paris",
   h1: "Hypnose et peur du sang — Reprenez le contrôle face au sang à Paris",
   jsonLd: [

@@ -64,11 +64,11 @@ const HypnoseConfianceParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose confiance en soi à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi." />
+        <title>Hypnose confiance en soi, Paris 4e | NovaHypnose</title>
+        <meta name="description" content="Doute, peur du jugement, syndrome de l'imposteur : un accompagnement par l'hypnose pour vous appuyer sur vos ressources. Paris 4e ou en visio." />
         <meta name="keywords" content="hypnose confiance en soi paris, estime de soi hypnose paris, syndrome imposteur hypnose paris, prise de parole hypnose paris, hypnothérapeute confiance paris, timidité hypnose paris, hypnose confiance en soi en ligne, séance hypnose confiance visio France, hypnose estime de soi à distance, téléconsultation hypnose confiance" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
-        <meta property="og:title" content="Hypnose confiance en soi à Paris et en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose confiance en soi, Paris 4e | NovaHypnose" />
         <meta property="og:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-confiance-en-soi-paris" />
@@ -79,7 +79,7 @@ const HypnoseConfianceParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose confiance en soi" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose confiance en soi à Paris et en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose confiance en soi, Paris 4e | NovaHypnose" />
         <meta name="twitter:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

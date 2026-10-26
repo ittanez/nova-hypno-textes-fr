@@ -105,9 +105,17 @@ function safeJsonLd(data: unknown): string {
     .replace(/&/g, "\\u0026");
 }
 
-function truncateTitle(title: string, maxLength = 45): string {
+// Coupe à la limite d'un mot, sans « ... » : le titre reste lisible dans Google
+// (le suffixe « | NovaHypnose » est ajouté après, voir fullTitle).
+function truncateTitle(title: string, maxLength = 46): string {
   if (title.length <= maxLength) return title;
-  return title.substring(0, maxLength).trim() + "...";
+  const cut = title.substring(0, maxLength + 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  const base = lastSpace > 20 ? cut.substring(0, lastSpace) : title.substring(0, maxLength);
+  // Évite de finir sur un mot-outil (« comprendre l'envie de »).
+  return base
+    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que))+$/iu, "")
+    .replace(/[\s:;,.\-–—]+$/u, "");
 }
 
 function ensureDescriptionLength(desc: string, minLength = 120, maxLength = 160): string {

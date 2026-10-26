@@ -85,12 +85,12 @@ const Index: React.FC = () => {
     <>
       {/* SEO Head pour la page d'accueil */}
       <Helmet>
-        <title>Hypnothérapeute Paris 4 & en visio France | Alain Zenatti</title>
-        <meta name="description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil." />
+        <title>Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose</title>
+        <meta name="description" content="Cabinet d'hypnothérapie rue Saint-Antoine, Paris 4e, et séances en visio. Alain Zenatti vous accompagne : stress, sommeil, peurs, confiance en soi." />
         <meta name="keywords" content="hypnothérapeute paris, hypnothérapeute paris 4, hypnose paris, hypnose ericksonienne paris, maître hypnologue paris, cabinet hypnose paris, hypnothérapie paris, séance hypnose paris, hypnothérapeute bastille, hypnothérapeute marais, hypnose stress paris, hypnose anxiété paris, hypnose phobies paris, hypnose sommeil paris, hypnothérapeute paris 4ème, meilleur hypnothérapeute paris, hypnose en ligne, hypnothérapeute en ligne, hypnose visio, séance hypnose visio France, hypnose à distance, téléconsultation hypnose" />
 
         {/* Open Graph - URL cohérente sans trailing slash */}
-        <meta property="og:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta property="og:title" content="Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose" />
         <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
@@ -105,7 +105,7 @@ const Index: React.FC = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnothérapeute Paris 4 & en visio France | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose" />
         <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
 
