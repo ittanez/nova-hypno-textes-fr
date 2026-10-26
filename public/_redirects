@@ -14,5 +14,19 @@
 # URL aliases for specialty pages
 /anxiete-hypnose-paris    /hypnose-stress-anxiete-paris    301
 
+# Anciens slugs d'articles (table article_redirects) -> vrai 301 côté serveur.
+# Doivent rester AVANT le catch-all /* : _redirects est lu avant netlify.toml.
+/blog/article/developper-gps-emotionnel-boussole-interieure-defis-vie  /blog/article/developper-son-gps-emotionnel-affiner-sa-boussole-interieure-pour-naviguer-dans-les-defis-de-la-vie  301!
+/blog/article/hypnose-transgenerationnelle-liberer-memoires-familiales-transformer-vie  /blog/article/hypnose-transgenerationnelle-liberer-les-memoires-familiales-pour-transformer-sa-vie  301!
+/blog/article/cartographie-moi-paralleles-explorer-versions-alternatives-soi-debloquer-potentiel  /blog/article/la-cartographie-de-ses-moi-paralleles-explorer-les-versions-alternatives-de-soi-pour-debloquer-son-potentiel  301!
+/blog/article/hypnose-alliee-secrete-reussir-examens-competitions-techniques-preparation-mentale  /blog/article/hypnose-votre-alliee-secrete-pour-reussir-examens-et-competitions-techniques-de-preparation-mentale-qui-changent-tout  301!
+/blog/article/comment-faire-taire-votre-critique-interieur-hypnotherapie-paix-mentale  /blog/article/comment-faire-taire-votre-critique-interieur-lhypnotherapie-au-service-de-la-paix-mentale  301!
+/blog/article/comment-hypnotherapie-transforme-peur-rougir-confiance-retrouvee  /blog/article/comment-lhypnotherapie-transforme-la-peur-de-rougir-en-confiance-retrouvee  301!
+/blog/article/art-visualisation-hypnotherapie-transformer-reves-realite  /blog/article/art-de-la-visualisation-en-hypnotherapie-transformer-ses-reves-en-realite  301!
+/blog/article/comment-hypnose-transforme-relation-argent-libere-anxiete-financiere  /blog/article/comment-lhypnose-transforme-votre-relation-a-largent-et-libere-de-lanxiete-financiere  301!
+/blog/article/quand-hypnotherapie-debarque-sur-instagram-comment-democratiser-hypnose-sans-faire-danse-tiktok  /blog/article/quand-lhypnotherapie-debarque-sur-instagram-comment-democratiser-lhypnose-sans-faire-de-danse-tiktok  301!
+/blog/article/parties-en-hypnotherapie-voyage-au-coeur-de-notre-multiplicite-interieure  /blog/article/questce-que-les-parties-en-hypnotherapie-voyage-au-cur-de-notre-multiplicite-interieure  301!
+/blog/article/vaincre-peurs-hypnotherapie  /hypnose-phobies-paris  301!
+
 # SPA fallback - Toutes les autres routes vers index.html
 /*    /index.html   200
