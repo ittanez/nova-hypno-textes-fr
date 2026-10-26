@@ -61,8 +61,8 @@ const HypnoseEnLigne = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose en ligne & visio — Spécialiste France | Alain Zenatti</title>
-        <meta name="description" content="Spécialiste de l'hypnose en visioconférence partout en France. Alain Zenatti, Maître Hypnologue certifié, propose des téléconsultations d'hypnose." />
+        <title>Hypnose en visio, depuis chez vous | Alain Zenatti</title>
+        <meta name="description" content="Séances d'hypnose ericksonienne en visioconférence, depuis chez vous, avec Alain Zenatti, hypnothérapeute à Paris 4e. Déroulé, matériel, tarif : 90 €." />
         <meta name="keywords" content="hypnose en ligne, hypnothérapeute en ligne, hypnose visio, spécialiste hypnose visio France, hypnose à distance, téléconsultation hypnose, hypnothérapeute visio certifié, hypnose en ligne France, hypnothérapeute distance France, hypnose ericksonienne en ligne, séance hypnose visio Google Meet, hypnose Lyon, hypnose Marseille, hypnose Bordeaux, hypnose Toulouse, hypnose Nice, hypnose Strasbourg, hypnose Nantes" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-en-ligne" />
