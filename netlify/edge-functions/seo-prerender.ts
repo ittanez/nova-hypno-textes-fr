@@ -186,6 +186,24 @@ async function supabaseFetch(path: string): Promise<Response> {
   });
 }
 
+// Anciens slugs : 301 plutôt que 404, comme pour les visiteurs (public/_redirects).
+// Sans cela, Googlebot recevait notre 404 avant que les règles de redirection
+// ne soient appliquées.
+const ARTICLE_REDIRECTS_TO_PAGES: Record<string, string> = {
+  "vaincre-peurs-hypnotherapie": "/hypnose-phobies-paris",
+};
+
+async function getRedirectTarget(slug: string): Promise<string | null> {
+  const page = ARTICLE_REDIRECTS_TO_PAGES[slug];
+  if (page) return `${SITE_URL}${page}`;
+  const res = await supabaseFetch(
+    `article_redirects?old_slug=eq.${encodeURIComponent(slug)}&select=new_slug&limit=1`
+  );
+  if (!res.ok) return null;
+  const data = await res.json();
+  return data.length > 0 ? `${SITE_URL}/blog/article/${data[0].new_slug}` : null;
+}
+
 async function getArticleBySlug(slug: string): Promise<Article | null> {
   const res = await supabaseFetch(
     `articles?slug=eq.${encodeURIComponent(slug)}&published=eq.true&select=*&limit=1`
@@ -774,6 +792,8 @@ export default async function handler(
       const slug = articleMatch[1];
       const article = await getArticleBySlug(slug);
       if (!article) {
+        const target = await getRedirectTarget(slug);
+        if (target) return Response.redirect(target, 301);
         return notFoundResponse();
       }
       const [adjacent, related] = await Promise.all([
