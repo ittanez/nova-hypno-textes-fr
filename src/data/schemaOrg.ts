@@ -11,7 +11,7 @@ export const localBusinessSchema = {
   "@type": "HealthAndBeautyBusiness",
   "@id": "https://novahypnose.fr/#localbusiness",
   "name": "NovaHypnose - Hypnothérapeute Paris",
-  "alternateName": "Alain Zenatti Hypnothérapeute Paris 4",
+  "alternateName": ["Alain Zenatti Hypnothérapeute et Auto-hypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
   "url": "https://novahypnose.fr",
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
