@@ -31,7 +31,7 @@ const Pricing = () => {
       icon: Home,
       title: "À Domicile",
       price: "140€",
-      description: "Paris Centre",
+      description: "Paris (1er-4e, 9e-11e)",
       features: ["1h30 (première séance)", "1h (séances suivantes)", "Arrond. 1-4, 9-11"],
       badge: "NOUVEAU",
       ctaText: "Réserver à domicile"

@@ -942,7 +942,7 @@ const PreviewCharte: React.FC = () => {
               <article className="tarif-card reveal d-3">
                 <h3>À domicile</h3>
                 <div className="tarif-price">140<sup>€</sup></div>
-                <p className="tarif-desc">Paris Centre</p>
+                <p className="tarif-desc">Paris (1er-4e, 9e-11e)</p>
                 <ul>
                   <li>1h30 — première séance</li>
                   <li>1h — séances suivantes</li>

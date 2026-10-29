@@ -316,7 +316,7 @@ const HOME_FAQ = [
   },
   {
     q: "Combien coûte une séance d'hypnose ?",
-    a: "90 € la séance au cabinet de Paris 4ème ou en visio, 140 € à domicile dans Paris centre. Annulation sans frais jusqu'à 48 h avant le rendez-vous.",
+    a: "90 € la séance au cabinet de Paris 4ème ou en visio, 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11). Annulation sans frais jusqu'à 48 h avant le rendez-vous.",
   },
   {
     q: "Peut-on faire une séance d'hypnose en visio ?",
@@ -357,7 +357,7 @@ export const PAGES: Record<string, PageData> = {
       <li><strong>Praticien</strong> : <a href="${SITE_URL}/alain-zenatti">Alain Zenatti</a>, Maître Hypnologue (École Psynapse), formé à l'hypnose depuis fin 2020, 6 ans d'expérience, 9 certificats de formation</li>
       <li><strong>Adresse</strong> : 16 rue Saint-Antoine, 75004 Paris (Marais-Bastille), métro Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) — <a href="${SITE_URL}/zone-intervention">accès au cabinet</a></li>
       <li><strong>Visio</strong> : <a href="${SITE_URL}/hypnose-en-ligne">séances en visioconférence</a> partout en France et pour les francophones à l'étranger, même déroulement et même tarif qu'au cabinet</li>
-      <li><strong>Tarifs</strong> : 90 € la séance (cabinet ou visio), 140 € à domicile Paris centre — <a href="${SITE_URL}/tarifs">détail des tarifs</a></li>
+      <li><strong>Tarifs</strong> : 90 € la séance (cabinet ou visio), 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11) — <a href="${SITE_URL}/tarifs">détail des tarifs</a></li>
       <li><strong>Horaires</strong> : du lundi au vendredi, 11h-20h30</li>
       <li><strong>Avis</strong> : 5/5 sur Google (26 avis) et 5/5 sur Resalib (23 avis) — <a href="${SITE_URL}/avis">lire les témoignages</a></li>
       <li><strong>Public</strong> : adultes uniquement</li>
@@ -3679,7 +3679,7 @@ PAGES["/hypnose-image-corporelle-paris"] = {
 PAGES["/tarifs"] = {
   title: "Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose",
   description:
-    "Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance. Paiement CB, Stripe, Wero. Annulation sans frais jusqu'à 48 h.",
+    "Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4e ou en visio, 140 € à domicile (Paris 1-4e, 9-11e). 1h30 la première séance.",
   canonicalPath: "/tarifs",
   h1: "Tarifs des séances d'hypnose à Paris & en visio",
   jsonLd: [
@@ -3692,7 +3692,7 @@ PAGES["/tarifs"] = {
       "itemListElement": [
         { "@type": "Offer", "name": "Séance d'hypnose au cabinet (Paris 4ème)", "price": "90", "priceCurrency": "EUR" },
         { "@type": "Offer", "name": "Séance d'hypnose en visioconférence", "price": "90", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "Séance d'hypnose à domicile (Paris Centre)", "price": "140", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Séance d'hypnose à domicile (Paris, arrondissements 1 à 4 et 9 à 11)", "price": "140", "priceCurrency": "EUR" },
         { "@type": "Offer", "name": "Formation auto-hypnose en groupe (1 journée)", "price": "240", "priceCurrency": "EUR" },
       ],
     },
@@ -3708,7 +3708,7 @@ PAGES["/tarifs"] = {
     <ul>
       <li><strong>Au cabinet — 90 €</strong> : 16 rue Saint-Antoine, Paris 4ème. Métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1).</li>
       <li><strong>En visio — 90 €</strong> : depuis chez vous, partout en France ou à l'étranger, via Google Meet. Même durée, même efficacité.</li>
-      <li><strong>À domicile — 140 €</strong> : dans Paris Centre (arrondissements 1 à 4 et 9 à 11).</li>
+      <li><strong>À domicile — 140 €</strong> : dans Paris (arrondissements 1 à 4 et 9 à 11).</li>
       <li><strong>Formation auto-hypnose — 240 €</strong> : une journée en petit groupe (6 participants maximum). Voir la page <a href="${SITE_URL}/autohypnose">auto-hypnose</a>.</li>
     </ul>
 

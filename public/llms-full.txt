@@ -19,7 +19,7 @@ Informations clés :
 - Prise de rendez-vous : https://www.resalib.fr/agenda/47325?src=novahypnose.fr
 - Zone desservie : cabinet à Paris 4ème (présentiel) + visioconférence partout en France et pour les francophones à l'étranger (Portugal, Belgique, Suisse, Canada)
 - Horaires : lundi-vendredi 11h-20h30
-- Tarifs : 90 € (cabinet ou visio) · 140 € (domicile Paris centre)
+- Tarifs : 90 € (cabinet ou visio) · 140 € (domicile Paris, arrondissements 1 à 4 et 9 à 11)
 - Avis : 5/5 Google (26 avis) · 5/5 Resalib (23 avis)
 - Langue : français
 
@@ -56,7 +56,7 @@ Ce sont deux pratiques radicalement différentes. L'hypnose de spectacle sélect
 - [Accueil](https://novahypnose.fr/) : présentation du cabinet, des spécialités et de la démarche en hypnose ericksonienne.
 - [Hypnose en ligne (visio, toute la France)](https://novahypnose.fr/hypnose-en-ligne) : consultations d'hypnose à distance en visioconférence, partout en France, même déroulement et même tarif qu'au cabinet.
 - [À propos — Alain Zenatti](https://novahypnose.fr/alain-zenatti) : parcours, liste datée des 9 formations (École Psynapse, MHD Formation) et approche.
-- [Tarifs des séances](https://novahypnose.fr/tarifs) : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre, formation auto-hypnose 240 €. Annulation sans frais jusqu'à 48 h.
+- [Tarifs des séances](https://novahypnose.fr/tarifs) : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11), formation auto-hypnose 240 €. Annulation sans frais jusqu'à 48 h.
 - [Avis & témoignages des clients](https://novahypnose.fr/avis) : 5/5 sur Google et 5/5 sur Resalib, témoignages vérifiés.
 - [Contact](https://novahypnose.fr/contact) : téléphone, email, formulaire, adresse du cabinet et horaires.
 - [Zone d'intervention — accès au cabinet](https://novahypnose.fr/zone-intervention) : arrondissements desservis, transports, temps de trajet depuis les gares parisiennes.
@@ -171,7 +171,7 @@ Bienvenue au cabinet **NovaHypnose**, situé au cœur du Marais à Paris 4ème. 
 - **Praticien** : [Alain Zenatti](https://novahypnose.fr/alain-zenatti), Maître Hypnologue (École Psynapse), formé à l'hypnose depuis fin 2020, 6 ans d'expérience, 9 certificats de formation
 - **Adresse** : 16 rue Saint-Antoine, 75004 Paris (Marais-Bastille), métro Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) — [accès au cabinet](https://novahypnose.fr/zone-intervention)
 - **Visio** : [séances en visioconférence](https://novahypnose.fr/hypnose-en-ligne) partout en France et pour les francophones à l'étranger, même déroulement et même tarif qu'au cabinet
-- **Tarifs** : 90 € la séance (cabinet ou visio), 140 € à domicile Paris centre — [détail des tarifs](https://novahypnose.fr/tarifs)
+- **Tarifs** : 90 € la séance (cabinet ou visio), 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11) — [détail des tarifs](https://novahypnose.fr/tarifs)
 - **Horaires** : du lundi au vendredi, 11h-20h30
 - **Avis** : 5/5 sur Google (26 avis) et 5/5 sur Resalib (23 avis) — [lire les témoignages](https://novahypnose.fr/avis)
 - **Public** : adultes uniquement
@@ -227,7 +227,7 @@ Les premiers changements apparaissent souvent dans les 3 à 5 premières séance
 
 #### Combien coûte une séance d'hypnose ?
 
-90 € la séance au cabinet de Paris 4ème ou en visio, 140 € à domicile dans Paris centre. Annulation sans frais jusqu'à 48 h avant le rendez-vous.
+90 € la séance au cabinet de Paris 4ème ou en visio, 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11). Annulation sans frais jusqu'à 48 h avant le rendez-vous.
 
 #### Peut-on faire une séance d'hypnose en visio ?
 
@@ -1957,14 +1957,14 @@ Un travail en profondeur demande en général 5 à 8 séances, avec une amélior
 
 URL : https://novahypnose.fr/tarifs
 
-Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance. Paiement CB, Stripe, Wero. Annulation sans frais jusqu'à 48 h.
+Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4e ou en visio, 140 € à domicile (Paris 1-4e, 9-11e). 1h30 la première séance.
 
 Un cadre clair, posé d'emblée : la séance d'hypnose coûte **90 €**, au cabinet Paris 4ème (Marais-Bastille) comme en visioconférence. La **première séance dure 1h30**, les suivantes 1 heure — le tarif reste identique. Séances réservées aux adultes.
 
 ### Les formules
 - **Au cabinet — 90 €** : 16 rue Saint-Antoine, Paris 4ème. Métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1).
 - **En visio — 90 €** : depuis chez vous, partout en France ou à l'étranger, via Google Meet. Même durée, même efficacité.
-- **À domicile — 140 €** : dans Paris Centre (arrondissements 1 à 4 et 9 à 11).
+- **À domicile — 140 €** : dans Paris (arrondissements 1 à 4 et 9 à 11).
 - **Formation auto-hypnose — 240 €** : une journée en petit groupe (6 participants maximum). Voir la page [auto-hypnose](https://novahypnose.fr/autohypnose).
 
 ### Combien de séances faut-il prévoir ?
