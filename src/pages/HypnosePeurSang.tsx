@@ -308,7 +308,7 @@ const HypnosePeurSang = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-3', label: 'séances suffisent en moyenne pour vaincre la peur du sang' },
+              { value: '2-3', label: 'séances comme repère, variable selon chacun' },
               { value: '3-4%', label: 'de la population souffre d\'hématophobie' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

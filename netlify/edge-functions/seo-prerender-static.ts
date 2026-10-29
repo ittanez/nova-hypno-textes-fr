@@ -426,7 +426,7 @@ export const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "Combien de séances d'hypnose pour traiter le stress et l'anxiété ?",
-          a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Dès la première séance, la majorité des clients ressentent un soulagement significatif.",
+          a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Certains clients ressentent un soulagement dès la première séance.",
         },
         {
           q: "L'hypnose est-elle efficace contre le burn-out ?",
@@ -459,7 +459,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Mon approche pour traiter le stress</h2>
     <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Ma méthode combine l'hypnose ericksonienne avec des techniques de PNL et d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien. Chaque séance est personnalisée selon votre situation.</p>
-    <p>Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous guide dans un état de profonde relaxation. La plupart de mes clients ressentent un soulagement significatif dès cette première rencontre.</p>
+    <p>Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous guide dans un état de profonde relaxation. Beaucoup de clients ressentent un premier soulagement dès cette première rencontre.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Stress professionnel chronique</h3>
@@ -474,14 +474,14 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats concrets</h2>
     <ul>
-      <li><strong>90%</strong> de mes clients constatent une amélioration dès la première séance</li>
+      <li><strong>1h30</strong> pour la première séance, entretien compris</li>
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le stress</h2>
     <h3>Combien de séances d'hypnose pour traiter le stress et l'anxiété ?</h3>
-    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Certains clients ressentent un soulagement dès la première séance. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
     <h3>L'hypnose est-elle efficace contre le burn-out ?</h3>
     <p>Oui, l'hypnose est particulièrement efficace pour accompagner un burn-out. Elle agit à plusieurs niveaux : relâchement des tensions physiques accumulées, reprogrammation des mécanismes de surmenage, restauration de la capacité à poser des limites et retrouver de l'énergie. Elle accélère considérablement la récupération et prévient les rechutes.</p>
     <h3>L'hypnose peut-elle aider en cas de crises d'angoisse ?</h3>
@@ -570,8 +570,8 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>2 à 4 séances</strong> suffisent pour les phobies simples</li>
-      <li><strong>95%</strong> des phobies simples peuvent être traitées par l'hypnose</li>
+      <li><strong>2 à 4 séances</strong> comme repère, variable selon chacun</li>
+      <li><strong>1h30</strong> pour la première séance, entretien compris</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
@@ -1140,7 +1140,7 @@ export const PAGES: Record<string, PageData> = {
     </ul>
 
     <h2>Tout le monde est-il réceptif à l'hypnose ?</h2>
-    <p>Oui, à des degrés différents. 95% des personnes sont réceptives à l'hypnose ericksonienne. La réceptivité n'est pas une question de volonté ou d'intelligence — c'est une capacité naturelle que nous possédons tous. Ce test vous aide à identifier vos points forts pour maximiser l'efficacité de vos séances.</p>
+    <p>Oui, à des degrés différents. La grande majorité des personnes sont réceptives à l'hypnose ericksonienne. La réceptivité n'est pas une question de volonté ou d'intelligence — c'est une capacité naturelle que nous possédons tous. Ce test vous aide à identifier vos points forts pour maximiser l'efficacité de vos séances.</p>
 
     <a class="cta" href="${SITE_URL}/test-receptivite">Commencer le test gratuit</a>
     `,
@@ -1378,7 +1378,7 @@ export const PAGES: Record<string, PageData> = {
     <p>Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur 40+ avis vérifiés. 90% des clients constatent une amélioration dès la première séance.</p>
+    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur Google (26 avis) et Resalib (23 avis).</p>
 
     <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
     `,
@@ -1669,8 +1669,8 @@ PAGES["/peurdelavion"] = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>3 à 4 séances</strong> suffisent en moyenne pour vaincre la peur de l'avion</li>
-      <li><strong>85%</strong> des personnes accompagnées retrouvent la sérénité en vol</li>
+      <li><strong>3 à 4 séances</strong> comme repère, variable selon chacun</li>
+      <li><strong>1h30</strong> pour la première séance, entretien compris</li>
       <li><strong>Note 5/5</strong> sur Resalib et Google</li>
     </ul>
 
@@ -1731,7 +1731,7 @@ PAGES["/hypnose-arachnophobie-paris"] = {
       },
       {
         q: "Combien de séances pour se libérer de l'arachnophobie ?",
-        a: "En général, 2 à 3 séances suffisent. La plupart des clients constatent un changement significatif dès la deuxième séance.",
+        a: "En général, 2 à 3 séances suffisent. Les premiers changements apparaissent souvent dès les premières séances.",
       },
     ]),
   ],
@@ -1857,7 +1857,7 @@ PAGES["/hypnose-claustrophobie-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle vraiment soigner la claustrophobie ?",
-        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. La plupart des clients constatent une transformation en 2 à 4 séances.",
+        a: "Oui. La claustrophobie est un programme inconscient appris — tout programme appris peut être reconfiguré. L'hypnose ericksonienne accède directement aux mécanismes inconscients qui déclenchent la panique en espace clos. Les premiers changements apparaissent souvent en 2 à 4 séances.",
       },
       {
         q: "Ma claustrophobie m'empêche de faire une IRM — que faire ?",
@@ -2996,7 +2996,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
-        a: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart des clients cessent de se ronger les ongles sans effort de volonté.",
+        a: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. Souvent en 1 à 3 séances, de nombreux clients cessent de se ronger les ongles sans effort de volonté.",
       },
       {
         q: "Je me ronge les ongles sans même m'en rendre compte — est-ce que l'hypnose peut quand même aider ?",
@@ -3009,7 +3009,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
     ]),
   ],
   content: `
-    <p>Vous vous rongez les ongles depuis des années, souvent sans vous en rendre compte ? L'onychophagie est un automatisme inconscient — l'hypnose ericksonienne le désactive en travaillant sur sa fonction cachée. La plupart des clients arrêtent en 1 à 3 séances.</p>
+    <p>Vous vous rongez les ongles depuis des années, souvent sans vous en rendre compte ? L'onychophagie est un automatisme inconscient — l'hypnose ericksonienne le désactive en travaillant sur sa fonction cachée. De nombreux clients arrêtent souvent en 1 à 3 séances.</p>
 
     <h2>Comment l'hypnose fait cesser l'onychophagie</h2>
     <ul>
@@ -4273,7 +4273,7 @@ PAGES["/guide-arret-tabac"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit.</strong> 73 % des fumeurs déclarent vouloir arrêter (Santé publique France), avec en moyenne 5 à 7 tentatives avant un arrêt définitif — et un taux de réussite x3 avec l'hypnose comparé à la volonté seule. Ce guide d'Alain Zenatti explique la mécanique de la dépendance et propose un programme pratique de 30 jours pour arrêter de fumer durablement.</p>
+    <p><strong>Guide gratuit.</strong> 73 % des fumeurs déclarent vouloir arrêter (Santé publique France), avec en moyenne 5 à 7 tentatives avant un arrêt définitif. Ce guide d'Alain Zenatti explique la mécanique de la dépendance et propose un programme pratique de 30 jours pour arrêter de fumer durablement.</p>
 
     <h2>Sommaire détaillé</h2>
     <ol>

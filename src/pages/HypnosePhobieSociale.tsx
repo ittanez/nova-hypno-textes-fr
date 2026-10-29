@@ -310,7 +310,7 @@ const HypnosePhobieSociale = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '3-5', label: 'séances suffisent en moyenne pour traiter la phobie sociale' },
+              { value: '3-5', label: 'séances comme repère, variable selon chacun' },
               { value: '13%', label: 'de la population souffre d\'anxiété sociale à un moment de sa vie' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

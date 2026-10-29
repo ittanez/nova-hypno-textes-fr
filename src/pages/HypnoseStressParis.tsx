@@ -269,8 +269,8 @@ const HypnoseStressParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '90%', label: 'de mes clients constatent une amélioration dès la première séance' },
-              { value: '3-5', label: 'séances suffisent en moyenne pour un résultat durable' },
+              { value: '1h30', label: 'pour la première séance, entretien compris' },
+              { value: '3-5', label: 'séances comme repère, variable selon chacun' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">

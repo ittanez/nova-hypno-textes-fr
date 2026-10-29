@@ -278,8 +278,8 @@ const HypnoseArachnophobie = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-3', label: 'séances suffisent en moyenne pour traiter l\'arachnophobie' },
-              { value: '90%', label: 'des personnes accompagnées retrouvent une réaction neutre face aux araignées' },
+              { value: '2-3', label: 'séances comme repère, variable selon chacun' },
+              { value: '1h30', label: 'pour la première séance, entretien compris' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">

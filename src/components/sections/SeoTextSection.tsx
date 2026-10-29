@@ -95,8 +95,7 @@ const SeoTextSection: React.FC = () => {
                   L'hypnose pour les troubles du sommeil
                 </Link>{' '}
                 reprogramme naturellement vos cycles et retrouve un sommeil
-                profond et réparateur. La plupart des clients constatent une
-                amélioration significative dès les 3 premières séances.
+                profond et réparateur. Les premiers changements se font souvent dès les 3 premières séances.
               </p>
             </div>
 

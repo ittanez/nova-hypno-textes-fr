@@ -21,7 +21,7 @@ const AutohypnoseFAQ = () => {
     },
     {
       question: 'L\'auto-hypnose peut-elle vraiment aider à gérer le stress et l\'anxiété ?',
-      answer: 'Oui, de nombreuses études scientifiques le confirment. L\'hypnose réduit l\'activation du système nerveux sympathique (réaction "stress") et renforce le système parasympathique (relaxation). Dans ma formation, 95% des participants rapportent une amélioration dans la gestion de leur stress en sortant de la journée. Les témoignages parlent d\'eux-mêmes.',
+      answer: 'Oui, de nombreuses études scientifiques le confirment. L\'hypnose réduit l\'activation du système nerveux sympathique (réaction "stress") et renforce le système parasympathique (relaxation). Dans ma formation, De nombreux participants rapportent une amélioration dans la gestion de leur stress en sortant de la journée. Les témoignages parlent d\'eux-mêmes.',
     },
     {
       question: 'Pourquoi une formation en petit groupe plutôt qu\'en ligne ?',

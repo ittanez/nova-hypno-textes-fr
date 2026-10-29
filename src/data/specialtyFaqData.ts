@@ -13,7 +13,7 @@ export interface SpecialtyFaqItem {
 export const stressFaqItems: SpecialtyFaqItem[] = [
   {
     question: "Combien de séances d'hypnose faut-il pour traiter le stress et l'anxiété ?",
-    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité. Lors de la première consultation, nous définissons ensemble un plan d'accompagnement adapté à votre situation."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Certains clients ressentent un soulagement dès la première séance. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité. Lors de la première consultation, nous définissons ensemble un plan d'accompagnement adapté à votre situation."
   },
   {
     question: "L'hypnose est-elle efficace contre le burn-out ?",
@@ -49,7 +49,7 @@ export const phobiesFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Comment l'hypnose traite-t-elle la peur de l'avion ?",
-    answer: "La peur de l'avion est l'une des phobies que je traite le plus fréquemment à mon cabinet de Paris. L'hypnose identifie d'abord l'origine de la peur (expérience traumatisante, turbulences, peur de perdre le contrôle, claustrophobie associée). Ensuite, en hypnose profonde, je guide votre inconscient pour dissocier la peur de la situation de vol et installer une sensation de calme et de sécurité. Je vous enseigne aussi une technique d'auto-hypnose à utiliser dans l'avion. La plupart de mes clients reprennent l'avion sereinement après 2 à 3 séances."
+    answer: "La peur de l'avion est l'une des phobies que je traite le plus fréquemment à mon cabinet de Paris. L'hypnose identifie d'abord l'origine de la peur (expérience traumatisante, turbulences, peur de perdre le contrôle, claustrophobie associée). Ensuite, en hypnose profonde, je guide votre inconscient pour dissocier la peur de la situation de vol et installer une sensation de calme et de sécurité. Je vous enseigne aussi une technique d'auto-hypnose à utiliser dans l'avion. De nombreux clients reprennent l'avion plus sereinement, souvent après 2 à 3 séances."
   },
   {
     question: "L'hypnose peut-elle traiter les phobies chez l'adulte installées depuis l'enfance ?",
@@ -145,7 +145,7 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "L'hypnose fonctionne-t-elle pour arrêter de se ronger les ongles (onychophagie) ?",
-    answer: "Oui, l'onychophagie est l'un des comportements compulsifs les mieux traités par l'hypnose, avec un taux de réussite très élevé. Ce comportement est un automatisme inconscient souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement et propose à l'inconscient une alternative. En 2 à 3 séances, la plupart de mes clients arrêtent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
+    answer: "Oui, l'onychophagie est l'un des comportements compulsifs les mieux traités par l'hypnose, avec des changements souvent rapides. Ce comportement est un automatisme inconscient souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement et propose à l'inconscient une alternative. Souvent en 2 à 3 séances, de nombreux clients parviennent à arrêter de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
   },
   {
     question: "Peut-on traiter plusieurs blocages comportementaux en même temps avec l'hypnose ?",
@@ -165,7 +165,7 @@ export const tabacFaqItems: SpecialtyFaqItem[] = [
   },
   {
     question: "Peut-on risquer de prendre du poids après l'arrêt du tabac ?",
-    answer: "La prise de poids après l'arrêt du tabac est une crainte fréquente et légitime, mais elle n'est pas une fatalité. Elle survient quand la cigarette était utilisée comme substitut émotionnel ou pour gérer le stress — et que la nourriture prend sa place. Lors des séances d'hypnose, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution. La majorité de mes clients qui passent par l'hypnose ne prennent pas de poids."
+    answer: "La prise de poids après l'arrêt du tabac est une crainte fréquente et légitime, mais elle n'est pas une fatalité. Elle survient quand la cigarette était utilisée comme substitut émotionnel ou pour gérer le stress — et que la nourriture prend sa place. Lors des séances d'hypnose, nous travaillons précisément sur ce risque : neutraliser les compulsions alimentaires compensatoires et renforcer votre capacité à gérer le stress sans substitution. De nombreux clients ne prennent pas de poids, l'hypnose travaillant aussi sur la gestion du stress."
   },
   {
     question: "Une séance en ligne est-elle aussi efficace qu'en cabinet ?",
