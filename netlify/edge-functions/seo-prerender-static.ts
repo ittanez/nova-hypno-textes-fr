@@ -299,9 +299,33 @@ function faqLd(items: { q: string; a: string }[]) {
   };
 }
 
+// Réponses directes reprises de public/llms.txt : à garder synchronisées
+const HOME_FAQ = [
+  {
+    q: "Qui est Alain Zenatti ?",
+    a: "Alain Zenatti est Maître Hypnologue, diplômé de l'École Psynapse. Formé à l'hypnose ericksonienne dès fin 2020, il cumule 9 certificats de formation, dont un cursus en psychopathologie clinique qui lui permet de repérer ce qui relève d'un médecin et d'orienter quand c'est nécessaire. Il exerce au cabinet NovaHypnose, 16 rue Saint-Antoine, Paris 4ème, et en visioconférence, exclusivement auprès d'adultes.",
+  },
+  {
+    q: "Comment fonctionne l'hypnose ericksonienne ?",
+    a: "L'hypnose ericksonienne, issue des travaux du psychiatre Milton H. Erickson, induit un état de conscience modifié — ni sommeil, ni perte de contrôle — qui facilite l'accès aux ressources inconscientes. Elle utilise des suggestions indirectes et des métaphores adaptées à chacun. Le client reste conscient, entend tout et garde le contrôle. Une séance dure 1h à 1h30.",
+  },
+  {
+    q: "Combien de séances faut-il ?",
+    a: "Les premiers changements apparaissent souvent dans les 3 à 5 premières séances. Le nombre de séances varie selon chacun et aucun résultat ne peut être garanti à l'avance.",
+  },
+  {
+    q: "Combien coûte une séance d'hypnose ?",
+    a: "90 € la séance au cabinet de Paris 4ème ou en visio, 140 € à domicile dans Paris centre. Annulation sans frais jusqu'à 48 h avant le rendez-vous.",
+  },
+  {
+    q: "Peut-on faire une séance d'hypnose en visio ?",
+    a: "Oui. Les séances en visioconférence (Google Meet) se déroulent comme au cabinet : même durée, même approche, même tarif. Elles sont ouvertes à tous les francophones, en France et à l'étranger.",
+  },
+];
+
 // ─── Page Data ─────────────────────────────────────────────────────────────
 
-const PAGES: Record<string, PageData> = {
+export const PAGES: Record<string, PageData> = {
   "/": {
     title: "Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose",
     description:
@@ -319,12 +343,25 @@ const PAGES: Record<string, PageData> = {
         "@id": `${SITE_URL}/#webpage`,
         url: SITE_URL,
         name: "Hypnothérapeute Paris 4 | Alain Zenatti - Hypnose",
-        dateModified: "2026-06-13",
+        dateModified: "2026-10-29",
         isPartOf: { "@id": `${SITE_URL}/#website` },
       },
+      faqLd(HOME_FAQ),
     ],
     content: `
     <p>Bienvenue au cabinet <strong>NovaHypnose</strong>, situé au cœur du Marais à Paris 4ème. <strong>Alain Zenatti</strong>, hypnothérapeute en hypnose ericksonienne et auto-hypnose, vous accompagne vers un changement profond et durable.</p>
+
+    <h2>En bref</h2>
+    <ul>
+      <li><strong>Praticien</strong> : <a href="${SITE_URL}/alain-zenatti">Alain Zenatti</a>, Maître Hypnologue (École Psynapse), formé à l'hypnose depuis fin 2020, 6 ans d'expérience, 9 certificats de formation</li>
+      <li><strong>Adresse</strong> : 16 rue Saint-Antoine, 75004 Paris (Marais-Bastille), métro Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) — <a href="${SITE_URL}/zone-intervention">accès au cabinet</a></li>
+      <li><strong>Visio</strong> : <a href="${SITE_URL}/hypnose-en-ligne">séances en visioconférence</a> partout en France et pour les francophones à l'étranger, même déroulement et même tarif qu'au cabinet</li>
+      <li><strong>Tarifs</strong> : 90 € la séance (cabinet ou visio), 140 € à domicile Paris centre — <a href="${SITE_URL}/tarifs">détail des tarifs</a></li>
+      <li><strong>Horaires</strong> : du lundi au vendredi, 11h-20h30</li>
+      <li><strong>Avis</strong> : 5/5 sur Google (26 avis) et 5/5 sur Resalib (23 avis) — <a href="${SITE_URL}/avis">lire les témoignages</a></li>
+      <li><strong>Public</strong> : adultes uniquement</li>
+      <li><strong>Contact</strong> : 06 49 35 80 89 · contact@novahypnose.fr — <a href="${SITE_URL}/contact">page contact</a></li>
+    </ul>
 
     <h2>L'hypnose ericksonienne : une approche douce et efficace</h2>
     <p>L'hypnose ericksonienne est une méthode thérapeutique reconnue qui permet d'accéder à vos ressources inconscientes pour résoudre des problématiques ancrées. Contrairement aux idées reçues, vous restez pleinement conscient et acteur de votre transformation.</p>
@@ -342,7 +379,7 @@ const PAGES: Record<string, PageData> = {
     <h2>Pourquoi choisir NovaHypnose ?</h2>
     <ul>
       <li><strong>9 certificats de formation</strong> en hypnose (École Psynapse, MHD Formation)</li>
-      <li><strong>Résultats en 3 à 5 séances</strong> pour la plupart des problématiques</li>
+      <li><strong>Premiers changements souvent dans les 3 à 5 premières séances</strong> — le nombre de séances varie selon chacun</li>
       <li><strong>Note 5/5</strong> — 26 avis Google et 23 avis Resalib</li>
       <li><strong>Approche personnalisée</strong> — Chaque séance est adaptée à votre situation</li>
       <li><strong>Cabinet Paris 4ème</strong> — Métro Saint-Paul ou Bastille</li>
@@ -350,7 +387,7 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Comment se déroule une séance ?</h2>
     <p>La première séance dure environ 1h30. Elle commence par un entretien approfondi pour comprendre votre situation, vos objectifs et votre fonctionnement. Puis, guidé par la voix d'Alain, vous entrez dans un état de relaxation profonde où votre inconscient peut travailler librement.</p>
-    <p>Les séances suivantes durent environ 1h et permettent d'approfondir le travail thérapeutique. La plupart des clients constatent des améliorations significatives dès la première séance.</p>
+    <p>Les séances suivantes durent environ 1h et permettent d'approfondir le travail thérapeutique. Aucun résultat ne peut être annoncé à l'avance : le rythme dépend de chacun.</p>
 
     <h2>Tarifs</h2>
     <ul>
@@ -361,6 +398,10 @@ const PAGES: Record<string, PageData> = {
 
     <h2>Application mobile NovaRespire</h2>
     <p>Prolongez les bénéfices de vos séances avec l'application NovaRespire, disponible sur Google Play. Exercices de respiration et d'auto-hypnose guidés par Alain Zenatti.</p>
+
+    <h2>Questions fréquentes</h2>
+    ${HOME_FAQ.map((item) => `<h3>${item.q}</h3>\n    <p>${item.a}</p>`).join("\n    ")}
+    <p><a href="${SITE_URL}/faq">Toutes les questions fréquentes</a></p>
 
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
     `,
