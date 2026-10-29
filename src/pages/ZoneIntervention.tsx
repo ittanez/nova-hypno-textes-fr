@@ -188,7 +188,7 @@ const ZoneIntervention = () => {
                     </h3>
                     <p className="text-gray-700 leading-relaxed">
                       Pour les personnes qui ne peuvent pas se déplacer au cabinet, je propose des
-                      <strong> séances d'hypnose à domicile dans Paris centre</strong>.
+                      <strong> séances d'hypnose à domicile dans les arrondissements 1 à 4 et 9 à 11 de Paris</strong>.
                     </p>
                     <p className="text-2xl font-bold text-gray-900 mt-3">
                       140 € la séance

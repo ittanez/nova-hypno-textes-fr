@@ -107,7 +107,7 @@ const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
-  const statYears = useCountUp(5, statsInView);
+  const statYears = useCountUp(6, statsInView);
   const [testimonialSet, setTestimonialSet] = useState(0);
   const statCertifs = useCountUp(9, statsInView);
   const statRating = useCountUp(5, statsInView);
@@ -617,7 +617,7 @@ const PreviewCharte: React.FC = () => {
                 </div>
 
                 <div className="about__stat" ref={statsRef}>
-                  <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
+                  <div><div className="about__stat-n">{statYears}</div><div className="about__stat-l">années d'expérience</div></div>
                   <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
                   <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
                 </div>
@@ -942,7 +942,7 @@ const PreviewCharte: React.FC = () => {
               <article className="tarif-card reveal d-3">
                 <h3>À domicile</h3>
                 <div className="tarif-price">140<sup>€</sup></div>
-                <p className="tarif-desc">Paris Centre</p>
+                <p className="tarif-desc">Paris (1er-4e, 9e-11e)</p>
                 <ul>
                   <li>1h30 — première séance</li>
                   <li>1h — séances suivantes</li>

@@ -12,7 +12,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const tarifsFaqItems = [
   {
     question: "Combien coûte une séance d'hypnose chez NovaHypnose ?",
-    answer: "La séance coûte 90 € au cabinet (Paris 4ème, Marais-Bastille) comme en visioconférence. La séance à domicile, disponible dans Paris Centre (arrondissements 1 à 4 et 9 à 11), est à 140 €. La première séance dure environ 1h30, les suivantes 1 heure — le tarif reste identique.",
+    answer: "La séance coûte 90 € au cabinet (Paris 4ème, Marais-Bastille) comme en visioconférence. La séance à domicile, disponible dans Paris (arrondissements 1 à 4 et 9 à 11), est à 140 €. La première séance dure environ 1h30, les suivantes 1 heure — le tarif reste identique.",
   },
   {
     question: "Les séances d'hypnose sont-elles remboursées par la Sécurité sociale ou les mutuelles ?",
@@ -47,7 +47,7 @@ const formules = [
   },
   {
     t: 'À domicile — 140 €',
-    d: "Dans Paris Centre (arrondissements 1 à 4 et 9 à 11). Pour les personnes à mobilité réduite ou qui préfèrent être accompagnées chez elles.",
+    d: "Dans Paris (arrondissements 1 à 4 et 9 à 11). Pour les personnes à mobilité réduite ou qui préfèrent être accompagnées chez elles.",
   },
   {
     t: 'Formation auto-hypnose — 240 €',
@@ -97,7 +97,7 @@ const Tarifs = () => {
       },
       {
         "@type": "Offer",
-        "name": "Séance d'hypnose à domicile (Paris Centre)",
+        "name": "Séance d'hypnose à domicile (Paris, arrondissements 1 à 4 et 9 à 11)",
         "price": "140",
         "priceCurrency": "EUR",
         "offeredBy": { "@id": "https://novahypnose.fr/#localbusiness" },
@@ -116,7 +116,7 @@ const Tarifs = () => {
     <CzLayout>
       <Helmet>
         <title>Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose</title>
-        <meta name="description" content="Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4ème ou en visio, 140 € à domicile Paris Centre. 1h30 la première séance." />
+        <meta name="description" content="Tarifs des séances d'hypnose avec Alain Zenatti : 90 € au cabinet Paris 4e ou en visio, 140 € à domicile (Paris 1-4e, 9-11e). 1h30 la première séance." />
         <meta name="keywords" content="tarif hypnose paris, prix séance hypnose, tarif hypnothérapeute paris, prix hypnose visio, hypnose paris tarif, séance hypnose prix, remboursement hypnose mutuelle" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/tarifs" />
