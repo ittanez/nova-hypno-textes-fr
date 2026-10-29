@@ -107,7 +107,7 @@ const HypnoseEnLigne = () => {
           <p className="sp-hero__lead">
             Où que vous soyez en France, consultez un hypnothérapeute certifié depuis chez vous.
             Les séances d'hypnose en ligne sont <strong>aussi efficaces qu'au cabinet</strong>, sans
-            aucun déplacement. <strong>Résultats en 3 à 5 séances</strong>.
+            aucun déplacement. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

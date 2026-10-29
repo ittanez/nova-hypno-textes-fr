@@ -627,7 +627,7 @@ function generateFaqFromArticle(article) {
   // Q1 - Toujours incluse : question sur l'efficacité
   faq.push({
     question: `L'hypnose est-elle efficace pour ${getTopicPhrase(title)} ?`,
-    answer: `Oui, l'hypnose ericksonienne est une approche reconnue et efficace pour accompagner les problématiques liées à ${getTopicPhrase(title)}. Elle agit directement sur les mécanismes inconscients impliqués, ce qui permet d'obtenir des résultats durables en 3 à 5 séances. Au cabinet NovaHypnose à Paris 4ème, Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et adapté à chaque situation.`
+    answer: `Oui, l'hypnose ericksonienne est une approche reconnue et efficace pour accompagner les problématiques liées à ${getTopicPhrase(title)}. Elle agit directement sur les mécanismes inconscients impliqués, ce qui permet souvent d'observer les premiers changements dans les 3 à 5 premières séances. Au cabinet NovaHypnose à Paris 4ème, Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et adapté à chaque situation.`
   });
 
   // Q2 - Nombre de séances

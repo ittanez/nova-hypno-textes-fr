@@ -135,7 +135,7 @@ const HypnoseAnxieteEmotionnelleParis = () => {
             Hypnose pour l'anxiété émotionnelle
           </h1>
           <p className="sp-hero__lead">
-            Vous avez peur d'être submergé(e) par vos émotions ? Vous évitez les situations intenses, les confrontations, ou tout ce qui pourrait déclencher une réaction émotionnelle forte ? Cette peur de ses propres émotions peut paralyser votre vie. L'hypnose vous aide à <strong>rétablir la confiance en votre capacité émotionnelle</strong>. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+            Vous avez peur d'être submergé(e) par vos émotions ? Vous évitez les situations intenses, les confrontations, ou tout ce qui pourrait déclencher une réaction émotionnelle forte ? Cette peur de ses propres émotions peut paralyser votre vie. L'hypnose vous aide à <strong>rétablir la confiance en votre capacité émotionnelle</strong>. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

@@ -108,7 +108,7 @@ const HypnoseStressParis = () => {
           </h1>
           <p className="sp-hero__lead">
             Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode
-            naturelle et efficace pour retrouver le calme intérieur. <strong>Résultats durables en 3 à 5 séances</strong>,
+            naturelle et efficace pour retrouver le calme intérieur. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>,
             au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <div className="hero__cta">

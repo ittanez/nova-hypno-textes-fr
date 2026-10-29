@@ -416,7 +416,7 @@ export const PAGES: Record<string, PageData> = {
     jsonLd: [
       serviceLd(
         "Hypnose stress et anxiété Paris",
-        "Traitement du stress et de l'anxiété par l'hypnose ericksonienne à Paris 4ème. Résultats durables en 3 à 5 séances.",
+        "Traitement du stress et de l'anxiété par l'hypnose ericksonienne à Paris 4ème. Premiers changements souvent dans les 3 à 5 premières séances.",
         `${SITE_URL}/hypnose-stress-anxiete-paris`
       ),
       breadcrumbLd([
@@ -815,7 +815,7 @@ export const PAGES: Record<string, PageData> = {
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
-      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Résultats en 3 à 5 séances.",
+      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Premiers changements souvent dans les 3 à 5 premières séances.",
     canonicalPath: "/hypnose-gestion-emotions-paris",
     h1: "Hypnose et gestion des émotions — Retrouvez votre équilibre à Paris",
     jsonLd: [
@@ -1030,7 +1030,7 @@ export const PAGES: Record<string, PageData> = {
     jsonLd: [
       serviceLd(
         "Hypnose confiance en soi Paris",
-        "Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Résultats en 3 à 5 séances.",
+        "Développez votre confiance en soi par l'hypnose à Paris 4ème. Syndrome de l'imposteur, prise de parole, estime de soi. Premiers changements souvent dans les 3 à 5 premières séances.",
         `${SITE_URL}/hypnose-confiance-en-soi-paris`
       ),
       breadcrumbLd([
@@ -1937,7 +1937,7 @@ PAGES["/hypnose-peur-parler-public-paris"] = {
     ]),
   ],
   content: `
-    <p>Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de trois personnes sur quatre. L'hypnose ericksonienne agit à la racine de cette peur. Résultats en 3 à 5 séances.</p>
+    <p>Voix qui tremble, mains moites, trou de mémoire, envie de fuir… La peur de parler en public (glossophobie) touche près de trois personnes sur quatre. L'hypnose ericksonienne agit à la racine de cette peur. Premiers changements souvent dans les 3 à 5 premières séances.</p>
 
     <h2>La peur de parler en public : une compétence à reconstruire</h2>
     <p>Ce n'est pas un manque de préparation ou de compétence : c'est un programme de survie que votre inconscient a codé autour du jugement des autres. L'hypnose permet de reconfigurer ce programme en profondeur — et de remplacer la réaction de panique par un état de confiance activable à volonté.</p>
@@ -2370,7 +2370,7 @@ PAGES["/hypnose-amaxophobie-paris"] = {
 
 PAGES["/hypnose-phobie-sociale-paris"] = {
   title: "Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale",
-  description: "Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale — résultats durables en 3 à 5 séances.",
+  description: "Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale — premiers changements souvent dans les 3 à 5 premières séances.",
   canonicalPath: "/hypnose-phobie-sociale-paris",
   h1: "Hypnose et phobie sociale — Retrouvez le plaisir des interactions à Paris",
   jsonLd: [
@@ -2413,7 +2413,7 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
     ]),
   ],
   content: `
-    <p>Peur intense du jugement, rougissement incontrôlable, évitement des repas et des réunions… La phobie sociale touche environ <strong>13% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de retrouver le plaisir des interactions. <strong>Résultats en 3 à 5 séances.</strong></p>
+    <p>Peur intense du jugement, rougissement incontrôlable, évitement des repas et des réunions… La phobie sociale touche environ <strong>13% de la population</strong>. L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de retrouver le plaisir des interactions. <strong>Premiers changements souvent dans les 3 à 5 premières séances.</strong></p>
 
     <h2>Pourquoi la phobie sociale s'installe</h2>
     <p>Une expérience humiliante, un regard social trop exigeant dans l'enfance, une critique répétée… Votre inconscient a installé un programme de protection autour des interactions sociales. L'hypnose permet de <strong>désactiver ce programme</strong> en profondeur — sans exposition forcée aux situations redoutées.</p>
@@ -2713,7 +2713,7 @@ PAGES["/hypnose-traumatismes-paris"] = {
 PAGES["/hypnose-frustration-paris"] = {
   title: "Hypnose frustration chronique Paris | Alain Zenatti",
   description:
-    "Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio. Résultats en 3 à 5 séances.",
+    "Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio. Premiers changements souvent dans les 3 à 5 premières séances.",
   canonicalPath: "/hypnose-frustration-paris",
   h1: "Hypnose et frustration chronique — Libérez-vous de l'insatisfaction permanente",
   jsonLd: [
@@ -2777,7 +2777,7 @@ PAGES["/hypnose-frustration-paris"] = {
 PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
   title: "Hypnose anxiété émotionnelle Paris | Alain Zenatti",
   description:
-    "Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — résultats en 3 à 5 séances.",
+    "Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — premiers changements souvent dans les 3 à 5 premières séances.",
   canonicalPath: "/hypnose-anxiete-emotionnelle-paris",
   h1: "Hypnose pour l'anxiété émotionnelle — Rétablir la confiance en ses émotions",
   jsonLd: [

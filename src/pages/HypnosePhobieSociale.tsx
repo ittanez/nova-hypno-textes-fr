@@ -139,7 +139,7 @@ const HypnosePhobieSociale = () => {
             Peur intense du jugement, rougissement incontrôlable, évitement des repas et des
             réunions… La phobie sociale touche environ <strong>13% de la population</strong>.
             L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de
-            retrouver le plaisir des interactions. <strong>Résultats en 3 à 5 séances</strong>,
+            retrouver le plaisir des interactions. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>,
             au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <div className="hero__cta">

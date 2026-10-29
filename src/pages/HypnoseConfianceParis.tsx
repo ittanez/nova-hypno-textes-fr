@@ -109,7 +109,7 @@ const HypnoseConfianceParis = () => {
           <p className="sp-hero__lead">
             Vous doutez de vous, vous n'osez pas prendre la parole, vous vous sentez illégitime ?
             L'hypnose reprogramme les croyances limitantes qui sabotent votre confiance.
-            <strong> Résultats visibles en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en
+            <strong> Premiers changements souvent dans les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en
             <strong> visio partout en France</strong>.
           </p>
           <div className="hero__cta">
