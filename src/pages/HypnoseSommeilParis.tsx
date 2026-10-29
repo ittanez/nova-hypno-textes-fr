@@ -109,7 +109,7 @@ const HypnoseSommeilParis = () => {
           <p className="sp-hero__lead">
             Insomnie, réveils nocturnes, difficultés d'endormissement, sommeil non réparateur…
             L'hypnose est une alternative naturelle et efficace aux somnifères.
-            <strong> Retrouvez le sommeil en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en
+            <strong> Premiers changements souvent dès les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en
             <strong> visio partout en France</strong>.
           </p>
           <div className="hero__cta">

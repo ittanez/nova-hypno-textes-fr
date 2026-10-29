@@ -410,7 +410,7 @@ const ZoneIntervention = () => {
               accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet
               d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress,
               l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la
-              confiance en soi — des résultats durables, généralement en 3 à 5 séances.
+              confiance en soi — avec des premiers changements souvent dans les 3 à 5 premières séances.
             </p>
             <p className="text-gray-700 leading-relaxed">
               Vous ne pouvez pas vous déplacer à Paris ? Les{' '}

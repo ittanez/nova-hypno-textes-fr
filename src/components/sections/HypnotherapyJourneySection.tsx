@@ -65,7 +65,7 @@ const HypnotherapyJourneySection: React.FC = () => {
                   <span className="text-white font-bold text-sm">3</span>
                 </div>
                 <p className="text-gray-600 leading-relaxed">
-                  <span className="font-semibold text-gray-900">3 à 5 séances suffisent</span> dans la majorité des cas pour obtenir des résultats durables et significatifs.
+                  Les premiers changements apparaissent <span className="font-semibold text-gray-900">souvent dans les 3 à 5 premières séances</span> ; le nombre varie selon chacun et aucun résultat ne peut être annoncé.
                 </p>
               </div>
             </div>

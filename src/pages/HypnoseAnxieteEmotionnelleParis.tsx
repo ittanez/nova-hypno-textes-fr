@@ -26,7 +26,7 @@ const anxieteEmotionnelleFaqItems = [
   },
   {
     question: "Combien de séances sont nécessaires pour l'anxiété émotionnelle ?",
-    answer: "En général, 3 à 5 séances permettent d'observer des changements significatifs. La première séance identifie l'origine de la peur des émotions et les mécanismes de contrôle en place. Les séances suivantes installent progressivement une confiance dans votre capacité émotionnelle."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie l'origine de la peur des émotions et les mécanismes de contrôle en place. Les séances suivantes installent progressivement une confiance dans votre capacité émotionnelle."
   },
   {
     question: "Mon contrôle excessif vient d'une famille où on ne montrait pas ses émotions — est-ce que l'hypnose peut quand même aider ?",

@@ -426,7 +426,7 @@ export const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "Combien de séances d'hypnose pour traiter le stress et l'anxiété ?",
-          a: "En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité des clients ressentent un soulagement significatif.",
+          a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Dès la première séance, la majorité des clients ressentent un soulagement significatif.",
         },
         {
           q: "L'hypnose est-elle efficace contre le burn-out ?",
@@ -475,13 +475,13 @@ export const PAGES: Record<string, PageData> = {
     <h2>Résultats concrets</h2>
     <ul>
       <li><strong>90%</strong> de mes clients constatent une amélioration dès la première séance</li>
-      <li><strong>3 à 5 séances</strong> suffisent en moyenne pour un résultat durable</li>
+      <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le stress</h2>
     <h3>Combien de séances d'hypnose pour traiter le stress et l'anxiété ?</h3>
-    <p>En général, 3 à 5 séances d'hypnose ericksonienne suffisent pour obtenir des résultats durables. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Dès la première séance, la majorité de mes clients ressentent un soulagement significatif. Le nombre exact dépend de l'ancienneté du stress, de son intensité et de votre réceptivité.</p>
     <h3>L'hypnose est-elle efficace contre le burn-out ?</h3>
     <p>Oui, l'hypnose est particulièrement efficace pour accompagner un burn-out. Elle agit à plusieurs niveaux : relâchement des tensions physiques accumulées, reprogrammation des mécanismes de surmenage, restauration de la capacité à poser des limites et retrouver de l'énergie. Elle accélère considérablement la récupération et prévient les rechutes.</p>
     <h3>L'hypnose peut-elle aider en cas de crises d'angoisse ?</h3>
@@ -622,7 +622,7 @@ export const PAGES: Record<string, PageData> = {
     jsonLd: [
       serviceLd(
         "Hypnose sommeil et insomnie Paris",
-        "Traitement de l'insomnie par l'hypnose à Paris 4ème. Retrouvez un sommeil profond et réparateur sans médicament en 3 à 5 séances.",
+        "Traitement de l'insomnie par l'hypnose à Paris 4ème. Retrouvez un sommeil plus réparateur sans médicament : premiers changements souvent dans les 3 à 5 premières séances.",
         `${SITE_URL}/hypnose-sommeil-paris`
       ),
       breadcrumbLd([
@@ -677,7 +677,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>3 à 5 séances</strong> pour retrouver un sommeil stable et réparateur</li>
+      <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>0 médicament</strong> nécessaire — une solution 100% naturelle</li>
       <li>Amélioration souvent visible <strong>dès la première séance</strong></li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
@@ -877,7 +877,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>3 à 5 séances</strong> pour retrouver un équilibre émotionnel durable</li>
+      <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> selon votre histoire et votre fonctionnement</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
@@ -921,7 +921,7 @@ export const PAGES: Record<string, PageData> = {
   "/hypnose-blocages-paris": {
     title: "Hypnose blocages et comportements Paris | Zenatti",
     description:
-      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. 3 à 5 séances.",
+      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. Premiers changements souvent dans les 3 à 5 premières séances.",
     canonicalPath: "/hypnose-blocages-paris",
     h1: "Blocages et troubles du comportement — Libérez-vous par l'hypnose à Paris",
     jsonLd: [
@@ -983,7 +983,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>3 à 5 séances</strong> pour des comportements profondément ancrés</li>
+      <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> — sans jugement, adapté à votre histoire</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
@@ -1087,7 +1087,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Résultats</h2>
     <ul>
-      <li><strong>3 à 5 séances</strong> pour une transformation profonde et durable de la confiance en soi</li>
+      <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> selon vos objectifs et votre histoire</li>
       <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
     </ul>
@@ -1279,7 +1279,7 @@ export const PAGES: Record<string, PageData> = {
     content: `
     <p>Installé dans le <strong>4e arrondissement de Paris</strong>, au cœur du quartier Marais-Bastille, le cabinet NovaHypnose est votre référence en <strong>hypnothérapie Paris 4</strong>. À deux pas du métro Bastille (lignes 1, 5, 8) et de Saint-Paul (ligne 1), le cabinet est accessible en moins de 10 minutes depuis la majorité des arrondissements parisiens.</p>
 
-    <p>Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié, accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress, l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la confiance en soi — des résultats durables, généralement en 3 à 5 séances.</p>
+    <p>Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié, accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress, l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la confiance en soi — avec des premiers changements souvent dans les 3 à 5 premières séances.</p>
 
     <h2>Accès au cabinet Paris 4e</h2>
     <ul>
@@ -1573,7 +1573,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
     <p>Alain Zenatti, <strong>Maître Hypnologue certifié</strong>, est l'un des rares hypnothérapeutes en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des clients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
 
     <h2>L'hypnose en visio est-elle aussi efficace qu'au cabinet ?</h2>
-    <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Les résultats obtenus en téléconsultation sont identiques au présentiel : 3 à 5 séances suffisent dans la grande majorité des cas. De nombreux clients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
+    <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Le déroulement en téléconsultation est identique au présentiel ; les premiers changements se font souvent dans les 3 à 5 premières séances. De nombreux clients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
 
     <h2>Comment se déroule une séance d'hypnose en visio ?</h2>
     <ul>
@@ -2404,7 +2404,7 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
       },
       {
         q: "Combien de séances d'hypnose pour traiter la phobie sociale ?",
-        a: "En moyenne, 3 à 5 séances permettent d'obtenir des résultats significatifs et durables. La première séance identifie l'origine de la peur du jugement. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale.",
+        a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie l'origine de la peur du jugement. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale.",
       },
       {
         q: "L'hypnose peut-elle aider si je rougis dès que je parle en public ?",
@@ -2481,7 +2481,7 @@ PAGES["/hypnose-colere-paris"] = {
       },
       {
         q: "Combien de séances faut-il pour réduire l'irritabilité chronique ?",
-        a: "En général, 3 à 5 séances permettent une amélioration significative de la gestion de la colère. La première séance identifie les déclencheurs et les racines inconscientes ; les suivantes travaillent la libération des anciennes charges et l'installation de nouvelles réponses automatiques. Les résultats sont souvent perceptibles dès la deuxième ou troisième séance.",
+        a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie les déclencheurs et les racines inconscientes ; les suivantes travaillent la libération des anciennes charges et l'installation de nouvelles réponses automatiques. Les résultats sont souvent perceptibles dès la deuxième ou troisième séance.",
       },
       {
         q: "La colère n'est-elle pas une émotion saine à ne pas supprimer ?",
@@ -2499,7 +2499,7 @@ PAGES["/hypnose-colere-paris"] = {
       <li>Reprogrammer la réponse automatique : de l'explosion au recul</li>
       <li>Canaliser l'énergie de la colère de façon constructive, sans devenir insensible</li>
     </ul>
-    <p>En général, 3 à 5 séances permettent une amélioration significative, souvent perceptible dès la deuxième séance.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances, parfois perceptibles dès la deuxième ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -2742,7 +2742,7 @@ PAGES["/hypnose-frustration-paris"] = {
       },
       {
         q: "Combien de séances faut-il pour libérer la frustration chronique ?",
-        a: "En général, 3 à 5 séances permettent d'observer des changements significatifs. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines.",
+        a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines.",
       },
       {
         q: "Est-ce que l'hypnose va me rendre passif(ve) ou résigné(e) ?",
@@ -2760,7 +2760,7 @@ PAGES["/hypnose-frustration-paris"] = {
       <li>Recalibrer les attentes sans renoncer aux ambitions légitimes</li>
       <li>Retrouver la capacité de savourer ce qui est acquis</li>
     </ul>
-    <p>En général, 3 à 5 séances permettent d'observer des changements significatifs.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -2810,7 +2810,7 @@ PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
       },
       {
         q: "Combien de séances sont nécessaires pour l'anxiété émotionnelle ?",
-        a: "En général, 3 à 5 séances permettent des résultats significatifs : la confiance dans ses propres émotions se rétablit progressivement, le contrôle excessif se relâche, l'évitement émotionnel diminue. Les séances sont possibles au cabinet ou en visio.",
+        a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances : la confiance dans ses propres émotions se rétablit progressivement, le contrôle excessif se relâche, l'évitement émotionnel diminue. Le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Les séances sont possibles au cabinet ou en visio.",
       },
     ]),
   ],
@@ -2824,7 +2824,7 @@ PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
       <li>Apprivoiser progressivement les émotions évitées, à votre rythme</li>
       <li>Installer la confiance : ressentir sans craindre de s'effondrer</li>
     </ul>
-    <p>En général, 3 à 5 séances permettent des résultats significatifs.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -2935,7 +2935,7 @@ PAGES["/hypnose-procrastination-paris"] = {
       },
       {
         q: "Combien de séances d'hypnose pour vaincre la procrastination ?",
-        a: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance identifie les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes reprogramment ces automatismes. Beaucoup de clients constatent un changement significatif dès la deuxième ou troisième séance.",
+        a: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes reprogramment ces automatismes. Beaucoup de clients constatent un changement significatif dès la deuxième ou troisième séance.",
       },
       {
         q: "La procrastination est-elle liée à un manque de volonté ?",
@@ -2953,7 +2953,7 @@ PAGES["/hypnose-procrastination-paris"] = {
       <li>Reprogrammer le passage à l'action : de la résistance à la fluidité</li>
       <li>Ancrer la capacité d'agir sans lutte intérieure</li>
     </ul>
-    <p>En général, 3 à 5 séances suffisent pour des résultats durables.</p>
+    <p>Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -3318,7 +3318,7 @@ PAGES["/hypnose-compulsions-alimentaires-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle vraiment arrêter les compulsions alimentaires ?",
-        a: "Oui. Les compulsions alimentaires — ces envies soudaines et incontrôlables de manger en dehors des repas — sont des comportements pilotés par l'inconscient en réponse à une tension émotionnelle. L'hypnose identifie le déclencheur émotionnel (stress, ennui, anxiété, tristesse) et propose à l'inconscient des réponses alternatives. En 3 à 5 séances, la fréquence et l'intensité des compulsions diminuent significativement.",
+        a: "Oui. Les compulsions alimentaires — ces envies soudaines et incontrôlables de manger en dehors des repas — sont des comportements pilotés par l'inconscient en réponse à une tension émotionnelle. L'hypnose identifie le déclencheur émotionnel (stress, ennui, anxiété, tristesse) et propose à l'inconscient des réponses alternatives. Souvent dès les 3 à 5 premières séances, la fréquence et l'intensité des compulsions peuvent diminuer.",
       },
       {
         q: "Pourquoi les régimes ne résolvent-ils pas les compulsions alimentaires ?",
@@ -3340,7 +3340,7 @@ PAGES["/hypnose-compulsions-alimentaires-paris"] = {
       <li>Dissocier l'émotion du réflexe alimentaire</li>
       <li>Restaurer une relation apaisée à la nourriture, sans restriction ni lutte</li>
     </ul>
-    <p>En 3 à 5 séances, la fréquence et l'intensité des compulsions diminuent significativement.</p>
+    <p>Souvent dès les 3 à 5 premières séances, la fréquence et l'intensité des compulsions peuvent diminuer.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -3383,7 +3383,7 @@ PAGES["/hypnose-grignotage-paris"] = {
     faqLd([
       {
         q: "L'hypnose peut-elle arrêter le grignotage chronique ?",
-        a: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. En 3 à 5 séances, la plupart des clients voient le grignotage se réduire considérablement, souvent dès la deuxième séance.",
+        a: "Oui. Le grignotage chronique est un automatisme alimentaire souvent lié à l'anxiété, à l'ennui ou à la concentration. L'hypnose identifie l'état émotionnel qui déclenche le grignotage et propose à l'inconscient des alternatives. Dans les 3 à 5 premières séances, de nombreux clients voient le grignotage se réduire considérablement, souvent dès la deuxième séance.",
       },
       {
         q: "Quelle est la différence entre grignotage et faim normale ?",
@@ -3405,7 +3405,7 @@ PAGES["/hypnose-grignotage-paris"] = {
       <li>Proposer à l'inconscient d'autres réponses au besoin réel</li>
       <li>Retrouver un rythme alimentaire naturel, sans lutte de volonté</li>
     </ul>
-    <p>En 3 à 5 séances, le grignotage se réduit considérablement — souvent dès la deuxième séance.</p>
+    <p>Souvent dès les 3 à 5 premières séances, le grignotage peut se réduire.</p>
 
     <h2>Problématiques liées</h2>
     <ul>
@@ -3712,7 +3712,7 @@ PAGES["/tarifs"] = {
     </ul>
 
     <h2>Combien de séances faut-il prévoir ?</h2>
-    <p>L'hypnose ericksonienne est une thérapie brève : la plupart des accompagnements aboutissent en <strong>3 à 5 séances</strong>. Aucun forfait imposé, aucun engagement de durée — chaque séance se réserve librement.</p>
+    <p>L'hypnose ericksonienne est une thérapie brève : la plupart des accompagnements montrent leurs premiers changements dans les <strong>3 à 5 premières séances</strong>. Aucun forfait imposé, aucun engagement de durée — chaque séance se réserve librement.</p>
 
     <h2>Paiement, remboursement, annulation</h2>
     <p>Règlement par <strong>carte bancaire, Wero ou en ligne via Stripe</strong> (visio). L'hypnothérapie n'est pas remboursée par la Sécurité sociale, mais de nombreuses <strong>mutuelles</strong> participent via leur forfait « médecines douces » ; une facture est fournie sur demande. <strong>Annulation sans frais jusqu'à 48 h</strong> avant le rendez-vous.</p>
@@ -3751,7 +3751,7 @@ PAGES["/avis"] = {
     <p>« J'ai apprécié la patience, la douceur, l'écoute et le professionnalisme d'Alain Zenatti. Il m'a aidée au-delà de mes espérances alors que j'étais sceptique vis-à-vis de l'hypnose. Grâce à lui, j'ai repris confiance en moi. » — <strong>Safia A.</strong>, avis Google vérifié</p>
     <p>« Première séance d'hypnose de ma vie qui a permis de solutionner un problème que j'avais depuis de nombreuses années. Un grand merci et bravo. » — <strong>Regis G.</strong>, avis Google vérifié</p>
 
-    <p>Chaque parcours est unique : ces retours illustrent des accompagnements individuels et ne constituent pas une promesse de résultat. La plupart des accompagnements aboutissent en 3 à 5 séances.</p>
+    <p>Chaque parcours est unique : ces retours illustrent des accompagnements individuels et ne constituent pas une promesse de résultat. La plupart des accompagnements montrent leurs premiers changements dans les 3 à 5 premières séances.</p>
 
     <h2>Pages liées</h2>
     <ul>
@@ -3816,7 +3816,7 @@ PAGES["/faq"] = {
         {
           "@type": "Question",
           "name": "Pourquoi consulter un hypnothérapeute à Paris ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments." },
+          "acceptedAnswer": { "@type": "Answer", "text": "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments." },
         },
         {
           "@type": "Question",
@@ -3841,7 +3841,7 @@ PAGES["/faq"] = {
         {
           "@type": "Question",
           "name": "L'hypnose en visio est-elle aussi efficace qu'en cabinet ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. Les séances en visioconférence donnent les mêmes résultats qu'en présentiel, en 3 à 5 séances dans la grande majorité des cas." },
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. Les séances en visioconférence suivent le même déroulement qu'en présentiel, avec des premiers changements souvent dans les 3 à 5 premières séances." },
         },
         {
           "@type": "Question",
@@ -3864,7 +3864,7 @@ PAGES["/faq"] = {
     <p>Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio : les réponses aux questions les plus posées avant de prendre rendez-vous.</p>
 
     <h2>Pourquoi consulter un hypnothérapeute à Paris ?</h2>
-    <p>Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments.</p>
+    <p>Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments.</p>
 
     <h2>Comment se déroule une séance d'hypnose ?</h2>
     <p>Une séance se déroule en 3 étapes : un entretien pour comprendre votre problématique et définir vos objectifs, la séance d'hypnose ericksonienne proprement dite (état de relaxation profonde guidée), puis un debriefing pour ancrer les changements. La première séance dure environ 1h30, les suivantes 1h.</p>
@@ -3879,7 +3879,7 @@ PAGES["/faq"] = {
     <p>En France, l'hypnothérapie est remboursée par certaines mutuelles selon les contrats souscrits. Il est recommandé de contacter directement votre mutuelle pour le vérifier. Voir aussi la page <a href="${SITE_URL}/tarifs">tarifs des séances</a>.</p>
 
     <h2>L'hypnose en visio est-elle aussi efficace qu'en cabinet ?</h2>
-    <p>Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux. Les séances en visioconférence donnent les mêmes résultats qu'en présentiel, en 3 à 5 séances dans la grande majorité des cas. Voir la page <a href="${SITE_URL}/hypnose-en-ligne">hypnose en visio</a>.</p>
+    <p>Oui. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux. Les séances en visioconférence suivent le même déroulement qu'en présentiel, avec des premiers changements souvent dans les 3 à 5 premières séances. Voir la page <a href="${SITE_URL}/hypnose-en-ligne">hypnose en visio</a>.</p>
 
     <h2>Où se situe le cabinet et comment y accéder ?</h2>
     <p>Le cabinet est situé au 16 rue Saint-Antoine, Paris 4ème, au croisement des 4e, 11e et 12e arrondissements, dans le quartier du Marais. Accès à 2 minutes à pied du métro Bastille (lignes 1, 5, 8) ou Saint-Paul (ligne 1). Voir la page <a href="${SITE_URL}/contact">contact</a>.</p>

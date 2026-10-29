@@ -26,7 +26,7 @@ const addictionSucreFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour se libérer de l'addiction au sucre ?",
-    answer: "En général, 3 à 5 séances permettent une transformation durable. Certains clients constatent une réduction significative des envies dès la première ou deuxième séance. L'addiction au sucre peut avoir plusieurs dimensions (émotionnelle, comportementale, conditionnée) que les séances traitent progressivement. Le résultat est durable parce qu'il vient d'un changement intérieur, pas d'une restriction."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. Certains clients constatent une réduction significative des envies dès la première ou deuxième séance. L'addiction au sucre peut avoir plusieurs dimensions (émotionnelle, comportementale, conditionnée) que les séances traitent progressivement. Le résultat est durable parce qu'il vient d'un changement intérieur, pas d'une restriction."
   },
   {
     question: "L'hypnose peut-elle remplacer un suivi nutritionnel pour l'addiction au sucre ?",

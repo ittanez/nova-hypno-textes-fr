@@ -20,7 +20,7 @@ const FAQSchema = () => {
         "name": "Comment fonctionne l'hypnose ericksonienne ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "L'hypnose ericksonienne est une thérapie brève fondée sur les travaux du psychiatre américain Milton H. Erickson (1901-1980). Elle induit un état de conscience modifié dans lequel l'accès à l'inconscient est facilité. L'approche utilise des suggestions indirectes, des métaphores et des récits thérapeutiques personnalisés. Le client reste conscient et garde le contrôle à tout moment. Aucune perte de contrôle, aucun acte contre la volonté. Les résultats s'obtiennent en 3 à 5 séances en moyenne."
+          "text": "L'hypnose ericksonienne est une thérapie brève fondée sur les travaux du psychiatre américain Milton H. Erickson (1901-1980). Elle induit un état de conscience modifié dans lequel l'accès à l'inconscient est facilité. L'approche utilise des suggestions indirectes, des métaphores et des récits thérapeutiques personnalisés. Le client reste conscient et garde le contrôle à tout moment. Aucune perte de contrôle, aucun acte contre la volonté. Les premiers changements se font souvent dans les 3 à 5 premières séances, sans résultat garanti."
         }
       },
       {

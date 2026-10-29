@@ -26,7 +26,7 @@ const frustrationFaqItems = [
   },
   {
     question: "Combien de séances faut-il pour libérer la frustration chronique ?",
-    answer: "En général, 3 à 5 séances permettent d'observer des changements significatifs. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines."
   },
   {
     question: "L'hypnose est-elle efficace si j'ai des traits perfectionnistes marqués ?",

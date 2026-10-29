@@ -50,7 +50,7 @@ const SeoTextSection: React.FC = () => {
           <p className="text-gray-700 leading-relaxed mb-6">
             Le <strong>cabinet hypnose Paris 4</strong> traite un large éventail de
             problématiques personnelles et professionnelles. Chaque accompagnement est
-            conçu sur mesure, avec des résultats concrets en 3 à 5 séances.
+            conçu sur mesure, avec des premiers changements souvent dans les 3 à 5 premières séances.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -263,7 +263,7 @@ const SeoTextSection: React.FC = () => {
                 Combien de séances sont nécessaires ?
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                La plupart des problématiques se résolvent en 3 à 5 séances.
+                Les premiers changements se font souvent dans les 3 à 5 premières séances ; le nombre varie selon chacun.
                 Certaines phobies simples ou blocages spécifiques peuvent se traiter en
                 1 à 2 séances. La thérapie est brève et orientée solutions, sans
                 exploration interminable.

@@ -11,7 +11,7 @@ export interface FaqItem {
 export const faqItems: FaqItem[] = [
   {
     question: "Pourquoi consulter un hypnothérapeute à Paris ?",
-    answer: "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui donne des résultats concrets en 3 à 5 séances, sans médicaments. Au cabinet NovaHypnose Paris 4ème (Marais-Bastille), Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et bienveillant."
+    answer: "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments. Au cabinet NovaHypnose Paris 4ème (Marais-Bastille), Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et bienveillant."
   },
   {
     question: "Comment se déroule une séance d'hypnose à Paris chez NovaHypnose ?",
@@ -83,7 +83,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "L'hypnose en visio est-elle aussi efficace qu'en cabinet ?",
-    answer: "Oui, les séances d'hypnose en visioconférence sont tout aussi efficaces que les séances au cabinet. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux, dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique. Je pratique la téléconsultation hypnose depuis plusieurs années avec les mêmes résultats qu'en présentiel : 3 à 5 séances suffisent dans la grande majorité des cas."
+    answer: "Oui, les séances d'hypnose en visioconférence sont tout aussi efficaces que les séances au cabinet. L'état hypnotique repose sur la voix, les suggestions et la relation thérapeutique — pas sur la présence physique. De nombreux clients rapportent même se sentir plus détendus chez eux, dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique. Je pratique la téléconsultation hypnose depuis plusieurs années avec le même déroulement qu'en présentiel ; les premiers changements se font souvent dans les 3 à 5 premières séances."
   },
   {
     question: "Comment se préparer à une séance d'hypnose en visio ?",

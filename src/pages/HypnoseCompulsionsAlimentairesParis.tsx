@@ -15,7 +15,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const compulsionsFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment arrêter les compulsions alimentaires ?",
-    answer: "Oui. Les compulsions alimentaires — ces envies soudaines et incontrôlables de manger en dehors des repas — sont des comportements pilotés par l'inconscient en réponse à une tension émotionnelle. L'hypnose identifie le déclencheur émotionnel (stress, ennui, anxiété, tristesse) et propose à l'inconscient des réponses alternatives. En 3 à 5 séances, la fréquence et l'intensité des compulsions diminuent significativement."
+    answer: "Oui. Les compulsions alimentaires — ces envies soudaines et incontrôlables de manger en dehors des repas — sont des comportements pilotés par l'inconscient en réponse à une tension émotionnelle. L'hypnose identifie le déclencheur émotionnel (stress, ennui, anxiété, tristesse) et propose à l'inconscient des réponses alternatives. Souvent dès les 3 à 5 premières séances, la fréquence et l'intensité des compulsions peuvent diminuer."
   },
   {
     question: "Pourquoi les régimes ne résolvent-ils pas les compulsions alimentaires ?",
@@ -27,7 +27,7 @@ const compulsionsFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour traiter les compulsions alimentaires ?",
-    answer: "En général, 3 à 5 séances permettent une amélioration significative. La première séance identifie les déclencheurs émotionnels spécifiques. Les séances suivantes travaillent à modifier ces mécanismes et à installer de nouvelles réponses. Beaucoup de clients constatent une réduction des compulsions dès la deuxième ou troisième séance."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie les déclencheurs émotionnels spécifiques. Les séances suivantes travaillent à modifier ces mécanismes et à installer de nouvelles réponses. Beaucoup de clients constatent une réduction des compulsions dès la deuxième ou troisième séance."
   },
   {
     question: "Les séances d'hypnose pour les compulsions alimentaires peuvent-elles se faire en visio ?",

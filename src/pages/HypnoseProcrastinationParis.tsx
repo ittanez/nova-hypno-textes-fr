@@ -18,7 +18,7 @@ const procrastinationFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour vaincre la procrastination ?",
-    answer: "En général, 3 à 5 séances suffisent pour des résultats durables. La première séance permet d'identifier les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes travaillent à reprogrammer ces automatismes. Beaucoup de mes clients constatent un changement significatif dès la deuxième ou troisième séance : ils passent à l'action plus naturellement, sans cette résistance interne habituelle."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance permet d'identifier les mécanismes sous-jacents (peur de l'échec, perfectionnisme, auto-sabotage). Les séances suivantes travaillent à reprogrammer ces automatismes. Beaucoup de mes clients constatent un changement significatif dès la deuxième ou troisième séance : ils passent à l'action plus naturellement, sans cette résistance interne habituelle."
   },
   {
     question: "La procrastination est-elle liée à un manque de volonté ?",
