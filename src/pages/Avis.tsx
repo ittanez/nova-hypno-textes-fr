@@ -138,7 +138,7 @@ const Avis = () => {
             <p>
               Chaque parcours est unique : ces retours illustrent des accompagnements
               individuels et ne constituent pas une promesse de résultat. La plupart des
-              accompagnements aboutissent en 3 à 5 séances —{' '}
+              accompagnements montrent leurs premiers changements dans les 3 à 5 premières séances —{' '}
               voir les <Link to="/tarifs">tarifs et le déroulé des séances</Link>.
             </p>
           </div>

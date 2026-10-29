@@ -12,7 +12,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const visioFaqItems = [
   {
     question: "L'hypnose en visio est-elle aussi efficace qu'au cabinet ?",
-    answer: "Oui. L'hypnose ne repose pas sur le contact physique mais sur la voix, l'attention et la relation thérapeutique — qui passent parfaitement par la visioconférence. De nombreux clients suivis à distance obtiennent les mêmes résultats qu'en présentiel, en 3 à 5 séances. Vous restez pleinement conscient et acteur du processus, exactement comme au cabinet.",
+    answer: "Oui. L'hypnose ne repose pas sur le contact physique mais sur la voix, l'attention et la relation thérapeutique — qui passent parfaitement par la visioconférence. De nombreux clients suivis à distance suivent le même déroulement qu'en présentiel. Vous restez pleinement conscient et acteur du processus, exactement comme au cabinet.",
   },
   {
     question: "Comment se déroule concrètement une séance d'hypnose en ligne ?",
@@ -107,7 +107,7 @@ const HypnoseEnLigne = () => {
           <p className="sp-hero__lead">
             Où que vous soyez en France, consultez un hypnothérapeute certifié depuis chez vous.
             Les séances d'hypnose en ligne sont <strong>aussi efficaces qu'au cabinet</strong>, sans
-            aucun déplacement. <strong>Résultats en 3 à 5 séances</strong>.
+            aucun déplacement. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

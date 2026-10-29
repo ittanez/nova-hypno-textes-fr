@@ -307,7 +307,7 @@ const HypnosePeurAiguilles = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-3', label: 'séances suffisent en moyenne pour vaincre la peur des aiguilles' },
+              { value: '2-3', label: 'séances comme repère, variable selon chacun' },
               { value: '10%', label: 'de la population souffre de bélonéphobie' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

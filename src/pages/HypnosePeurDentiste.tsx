@@ -318,7 +318,7 @@ const HypnosePeurDentiste = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour vaincre la peur du dentiste' },
+              { value: '2-4', label: 'séances comme repère, variable selon chacun' },
               { value: '1 sur 5', label: 'adultes souffrent d\'odontophobie en France' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

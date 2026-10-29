@@ -27,7 +27,7 @@ const colereFaqItems = [
   },
   {
     question: "Combien de séances faut-il pour réduire l'irritabilité chronique ?",
-    answer: "En général, 3 à 5 séances permettent une amélioration significative de la gestion de la colère. La première séance identifie les déclencheurs et les racines inconscientes. Les séances suivantes travaillent sur la libération des anciennes charges et l'installation de nouvelles réponses automatiques. Les résultats sont souvent perceptibles dès la deuxième ou troisième séance."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie les déclencheurs et les racines inconscientes. Les séances suivantes travaillent sur la libération des anciennes charges et l'installation de nouvelles réponses automatiques. Les résultats sont souvent perceptibles dès la deuxième ou troisième séance."
   },
   {
     question: "L'hypnose aide-t-elle quand la colère abîme les relations proches ?",

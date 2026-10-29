@@ -100,7 +100,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 const stats = [
   { value: '73 %', label: 'des fumeurs déclarent vouloir arrêter (Santé publique France)' },
   { value: '5 à 7', label: "tentatives en moyenne avant un arrêt définitif" },
-  { value: 'x3', label: "taux de réussite avec l'hypnose comparé à la volonté seule" },
+  { value: '5 à 7', label: "tentatives en moyenne avant un arrêt définitif" },
 ];
 
 const chapters = [

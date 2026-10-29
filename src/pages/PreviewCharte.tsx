@@ -49,7 +49,7 @@ const faq = [
   { q: 'Comment fonctionne l\'hypnose ?', a: "L'hypnose ericksonienne s'appuie sur un état naturel que votre cerveau connaît déjà — une forme de concentration absorbée, proche de ce qu'on ressent lorsqu'on est plongé dans un livre ou dans ses pensées. Dans cet état, le mental critique s'apaise et l'inconscient devient plus accessible. Ce n'est pas un état de transe mystérieux : vous restez présent, conscient, en dialogue. Le thérapeute vous guide avec des suggestions douces, adaptées à votre vécu, pour que vos propres ressources se mobilisent." },
   { q: 'Comment se déroule une séance ?', a: "Un échange pour comprendre ce qui vous amène, puis un temps d'hypnose dans un état de profonde détente. Vous restez présent, à chaque instant." },
   { q: 'Vais-je garder le contrôle ?', a: "Toujours. L'hypnose ericksonienne est un dialogue permissif : vous ne ferez jamais rien qui aille contre vos valeurs. Vous gardez le contrôle du début à la fin." },
-  { q: 'En combien de séances ?', a: "L'hypnose est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement en 3 à 5 séances. Des changements concrets, sans exploration sans fin." },
+  { q: 'En combien de séances ?', a: "L'hypnose est une thérapie brève : la plupart des accompagnements montrent leurs premiers changements dans les 3 à 5 premières séances. Des changements concrets, sans exploration sans fin." },
   { q: 'Est-ce que cela fonctionne en visio ?', a: "Oui, tout aussi bien qu'au cabinet. Depuis chez vous, où que vous soyez — en France comme à l'étranger —, il suffit d'un endroit calme et d'une connexion stable." },
   { q: 'À qui s\'adressent les séances ?', a: "Aux adultes, pour un travail thérapeutique complet et personnalisé, dans un cadre confidentiel et sécurisant." },
 ];
@@ -453,10 +453,11 @@ const PreviewCharte: React.FC = () => {
               Le markup doit rester identique au pré-rendu statique de index.html. */}
           <div className="container hero__container">
             <div className="hero__panel">
-              <div className="tag">Hypnose Ericksonienne — Paris · Le Marais · Visio</div>
+              <div className="tag">Paris · Le Marais · Visio</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
                 <span className="full"><span className="zen">Zen</span><span className="atti">atti</span></span>
+                <span className="role">Hypnothérapeute à Paris,<br /><em>hypnose ericksonienne</em> et <span className="nb">auto-hypnose</span></span>
               </h1>
               <div className="hero__rule"></div>
               <p className="hero__lead">
@@ -464,7 +465,7 @@ const PreviewCharte: React.FC = () => {
                 Un accompagnement pour avancer <em>plus léger</em>.
               </p>
               <div className="hero__sub">
-                Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
+                Adultes · cabinet et visio
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('hero')}>
@@ -537,14 +538,14 @@ const PreviewCharte: React.FC = () => {
                   ne fait qu'ouvrir l'accès à vos propres ressources.
                 </p>
                 <p>
-                  C'est une thérapie brève : la plupart des accompagnements trouvent leur aboutissement
-                  en <strong>3 à 5 séances</strong>. Des changements concrets et durables, sans
+                  C'est une thérapie brève : la plupart des accompagnements montrent leurs premiers changements
+                  dans les <strong>3 à 5 premières séances</strong>. Des changements concrets, sans
                   exploration sans fin.
                 </p>
                 <ul className="about__chips" aria-label="En bref">
                   <li>Cabinet Paris 4e</li>
                   <li>Visio</li>
-                  <li>3 à 5 séances</li>
+                  <li>Souvent 3 à 5 séances</li>
                 </ul>
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('about')}>
                   Prendre rendez-vous <span className="arrow">→</span>

@@ -18,7 +18,7 @@ const phobieSocialeFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour traiter la phobie sociale ?",
-    answer: "En moyenne, 3 à 5 séances permettent d'obtenir des résultats significatifs et durables. La première séance identifie l'origine de la peur du jugement et les mécanismes qui maintiennent la phobie. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale. Un programme personnalisé est défini lors de la première rencontre."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La première séance identifie l'origine de la peur du jugement et les mécanismes qui maintiennent la phobie. Les séances suivantes désensibilisent les situations spécifiques et ancrent un nouvel état d'aisance sociale. Un programme personnalisé est défini lors de la première rencontre."
   },
   {
     question: "L'hypnose peut-elle aider si je rougis dès que je parle en public ?",
@@ -139,7 +139,7 @@ const HypnosePhobieSociale = () => {
             Peur intense du jugement, rougissement incontrôlable, évitement des repas et des
             réunions… La phobie sociale touche environ <strong>13% de la population</strong>.
             L'hypnose ericksonienne agit à la racine de cette peur pour vous permettre de
-            retrouver le plaisir des interactions. <strong>Résultats en 3 à 5 séances</strong>,
+            retrouver le plaisir des interactions. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>,
             au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <div className="hero__cta">
@@ -310,7 +310,7 @@ const HypnosePhobieSociale = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '3-5', label: 'séances suffisent en moyenne pour traiter la phobie sociale' },
+              { value: '3-5', label: 'séances comme repère, variable selon chacun' },
               { value: '13%', label: 'de la population souffre d\'anxiété sociale à un moment de sa vie' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

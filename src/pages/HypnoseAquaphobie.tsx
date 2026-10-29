@@ -308,7 +308,7 @@ const HypnoseAquaphobie = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour vaincre la peur de l\'eau' },
+              { value: '2-4', label: 'séances comme repère, variable selon chacun' },
               { value: '15%', label: 'des adultes souffrent d\'aquaphobie en France' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

@@ -26,7 +26,7 @@ const frustrationFaqItems = [
   },
   {
     question: "Combien de séances faut-il pour libérer la frustration chronique ?",
-    answer: "En général, 3 à 5 séances permettent d'observer des changements significatifs. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La frustration chronique ayant souvent des racines profondes (perfectionnisme, blessures d'injustice anciennes, attentes héritées), le travail peut s'étaler sur plusieurs semaines."
   },
   {
     question: "L'hypnose est-elle efficace si j'ai des traits perfectionnistes marqués ?",
@@ -135,7 +135,7 @@ const HypnoseFrustrationParis = () => {
             Libérez-vous de la frustration chronique
           </h1>
           <p className="sp-hero__lead">
-            Vous avez le sentiment permanent de ne jamais en avoir assez, que les choses ne sont jamais à votre place, que la vie ne correspond pas à vos attentes ? La frustration chronique épuise et abîme vos relations. L'hypnose travaille sur les croyances et attentes inconscientes qui alimentent ce sentiment. <strong>Résultats en 3 à 5 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+            Vous avez le sentiment permanent de ne jamais en avoir assez, que les choses ne sont jamais à votre place, que la vie ne correspond pas à vos attentes ? La frustration chronique épuise et abîme vos relations. L'hypnose travaille sur les croyances et attentes inconscientes qui alimentent ce sentiment. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

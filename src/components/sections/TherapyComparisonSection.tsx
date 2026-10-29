@@ -13,7 +13,7 @@ const TherapyComparisonSection: React.FC = () => {
       name: 'Hypnose Ericksonienne',
       description: 'Approche brève basée sur l\'inconscient',
       features: [
-        { label: 'Durée moyenne', value: '3-5 séances', highlight: true },
+        { label: 'Repère de durée', value: '3 à 5 séances (variable)', highlight: true },
         { label: 'Accès inconscient', value: 'Oui', highlight: true },
         { label: 'Non-directive', value: 'Oui', highlight: true },
         { label: 'Coût moyen', value: '90€/séance', highlight: true },
@@ -192,7 +192,7 @@ const TherapyComparisonSection: React.FC = () => {
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start">
                   <Check className="text-green-600 mr-3 mt-0.5 flex-shrink-0" size={18} />
-                  <span>Vous cherchez des résultats <strong>rapides</strong> (3-5 séances)</span>
+                  <span>Vous cherchez un accompagnement <strong>bref</strong> (souvent 3 à 5 séances)</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="text-green-600 mr-3 mt-0.5 flex-shrink-0" size={18} />

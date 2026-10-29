@@ -286,7 +286,7 @@ const HypnoseAcrophobie = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: "séances suffisent en moyenne pour traiter l'acrophobie" },
+              { value: '2-4', label: 'séances comme repère, variable selon chacun' },
               { value: '1 sur 10', label: "personnes souffrent d'acrophobie, dont beaucoup peuvent en être libérées" },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

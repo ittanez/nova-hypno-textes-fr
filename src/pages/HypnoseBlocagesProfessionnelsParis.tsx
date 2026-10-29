@@ -27,7 +27,7 @@ const blocagesProfFaqItems = [
   },
   {
     question: "Combien de séances d'hypnose pour lever des blocages professionnels ?",
-    answer: "En général, 3 à 5 séances suffisent pour des résultats concrets. La nature du blocage détermine la durée : une peur spécifique comme la prise de parole ou la négociation peut être traitée en 2 à 3 séances, tandis qu'un syndrome de l'imposteur profond ou un schéma d'auto-sabotage récurrent peut nécessiter 4 à 6 séances. Dès la première séance, vous repartez avec des outils concrets à utiliser immédiatement."
+    answer: "Les premiers changements se font en général assez vite, souvent dans les 3 à 5 premières séances ; le nombre de séances varie selon chacun et aucun résultat ne peut être annoncé à l'avance. La nature du blocage détermine la durée : une peur spécifique comme la prise de parole ou la négociation peut être traitée en 2 à 3 séances, tandis qu'un syndrome de l'imposteur profond ou un schéma d'auto-sabotage récurrent peut nécessiter 4 à 6 séances. Dès la première séance, vous repartez avec des outils concrets à utiliser immédiatement."
   },
   {
     question: "L'hypnose peut-elle aider à oser se lancer en tant qu'entrepreneur ?",

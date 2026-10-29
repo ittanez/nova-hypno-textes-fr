@@ -14,7 +14,7 @@ const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 const onychophagieFaqItems = [
   {
     question: "L'hypnose peut-elle vraiment faire arrêter de se ronger les ongles ?",
-    answer: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. En 1 à 3 séances, la plupart de mes clients cessent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
+    answer: "Oui, et c'est l'une des applications les plus efficaces de l'hypnose ericksonienne. L'onychophagie est un automatisme inconscient, souvent lié à la gestion du stress ou à un besoin de réconfort. L'hypnose identifie la fonction cachée du comportement — ce que le geste cherche à satisfaire — et propose à l'inconscient une alternative. Souvent en 1 à 3 séances, de nombreux clients cessent de se ronger les ongles sans effort de volonté, car l'automatisme a été reprogrammé."
   },
   {
     question: "Combien de séances faut-il pour arrêter l'onychophagie par hypnose ?",

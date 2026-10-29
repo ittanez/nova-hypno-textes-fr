@@ -323,8 +323,8 @@ const PeurDelAvion = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '3-4', label: 'séances suffisent en moyenne pour vaincre la peur de l\'avion' },
-              { value: '85%', label: 'des personnes accompagnées retrouvent la sérénité en vol' },
+              { value: '3-4', label: 'séances comme repère, variable selon chacun' },
+              { value: '1h30', label: 'pour la première séance, entretien compris' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">

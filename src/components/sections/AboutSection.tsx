@@ -94,8 +94,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   <strong> l'hypnose ericksonienne respecte votre emploi du temps chargé</strong>.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  <strong>Des résultats concrets, pas d'exploration sans fin.</strong> La plupart des
-                  accompagnements aboutissent en <strong>3 à 5 séances</strong> seulement.
+                  <strong>Des changements concrets, pas d'exploration sans fin.</strong> La plupart des
+                  accompagnements montrent leurs premiers changements dans les <strong>3 à 5 premières séances</strong>.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   Vous gagnez du temps tout en obtenant des changements profonds et durables.

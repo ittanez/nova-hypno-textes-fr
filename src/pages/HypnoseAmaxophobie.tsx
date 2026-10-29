@@ -311,7 +311,7 @@ const HypnoseAmaxophobie = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '2-4', label: 'séances suffisent en moyenne pour reprendre le volant sereinement' },
+              { value: '2-4', label: 'séances comme repère, variable selon chacun' },
               { value: '15M', label: 'de conducteurs souffrent d\'anxiété au volant en France' },
               { value: '5/5', label: 'note moyenne sur Resalib et Google' },
             ].map((s, i) => (

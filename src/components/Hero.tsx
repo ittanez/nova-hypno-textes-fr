@@ -32,7 +32,7 @@ const Hero = () => {
             L'hypnose ericksonienne peut vous aider à retrouver sérénité et confiance en vous.
           </p>
           <p className="text-base md:text-lg mb-12 text-white/80 leading-relaxed">
-            Accompagnement par un <strong>Maître Hypnologue certifié</strong> à Paris • Résultats visibles dès 3 à 5 séances
+            Accompagnement par un <strong>Maître Hypnologue certifié</strong> à Paris • Premiers changements souvent dès les 3 à 5 premières séances
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -24,7 +24,7 @@ const tarifsFaqItems = [
   },
   {
     question: "Combien de séances faut-il prévoir ?",
-    answer: "L'hypnose ericksonienne est une thérapie brève : la plupart des accompagnements aboutissent en 3 à 5 séances. Certaines problématiques ciblées (phobie simple, préparation à un événement) peuvent évoluer dès 1 à 2 séances. Le nombre estimé est discuté dès le premier rendez-vous — sans engagement sur un « forfait ».",
+    answer: "L'hypnose ericksonienne est une thérapie brève : la plupart des accompagnements montrent leurs premiers changements dans les 3 à 5 premières séances. Certaines problématiques ciblées (phobie simple, préparation à un événement) peuvent évoluer dès 1 à 2 séances. Le nombre estimé est discuté dès le premier rendez-vous — sans engagement sur un « forfait ».",
   },
   {
     question: "Puis-je annuler ou reporter un rendez-vous ?",
@@ -162,8 +162,8 @@ const Tarifs = () => {
           <p className="sp-hero__lead">
             <strong>90 € la séance</strong>, au cabinet Paris 4ème comme en visioconférence.
             La première séance dure <strong>1h30</strong>, les suivantes 1 heure. Séances
-            réservées aux adultes — la plupart des accompagnements aboutissent
-            en <strong>3 à 5 séances</strong>.
+            réservées aux adultes — la plupart des accompagnements montrent leurs premiers changements
+            dans les <strong>3 à 5 premières séances</strong>.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
