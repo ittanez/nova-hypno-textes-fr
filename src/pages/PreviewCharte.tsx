@@ -453,10 +453,11 @@ const PreviewCharte: React.FC = () => {
               Le markup doit rester identique au pré-rendu statique de index.html. */}
           <div className="container hero__container">
             <div className="hero__panel">
-              <div className="tag">Hypnose Ericksonienne — Paris · Le Marais · Visio</div>
+              <div className="tag">Paris · Le Marais · Visio</div>
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
                 <span className="full"><span className="zen">Zen</span><span className="atti">atti</span></span>
+                <span className="role">Hypnothérapeute à Paris,<br /><em>hypnose ericksonienne</em> et <span className="nb">auto-hypnose</span></span>
               </h1>
               <div className="hero__rule"></div>
               <p className="hero__lead">
@@ -464,7 +465,7 @@ const PreviewCharte: React.FC = () => {
                 Un accompagnement pour avancer <em>plus léger</em>.
               </p>
               <div className="hero__sub">
-                Hypnothérapeute en hypnose ericksonienne et auto-hypnose · Adultes
+                Adultes · cabinet et visio
               </div>
               <div className="hero__cta">
                 <a className="btn btn--primary" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('hero')}>
