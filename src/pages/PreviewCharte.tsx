@@ -107,7 +107,7 @@ const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsInView, setStatsInView] = useState(false);
-  const statYears = useCountUp(5, statsInView);
+  const statYears = useCountUp(6, statsInView);
   const [testimonialSet, setTestimonialSet] = useState(0);
   const statCertifs = useCountUp(9, statsInView);
   const statRating = useCountUp(5, statsInView);
@@ -617,7 +617,7 @@ const PreviewCharte: React.FC = () => {
                 </div>
 
                 <div className="about__stat" ref={statsRef}>
-                  <div><div className="about__stat-n">{statYears}+</div><div className="about__stat-l">années d'expérience</div></div>
+                  <div><div className="about__stat-n">{statYears}</div><div className="about__stat-l">années d'expérience</div></div>
                   <div><div className="about__stat-n">{statCertifs}</div><div className="about__stat-l">certifications</div></div>
                   <div><div className="about__stat-n">{statRating}/5</div><div className="about__stat-l">sur Resalib &amp; Google</div></div>
                 </div>
