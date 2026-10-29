@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -199,6 +200,16 @@ const HypnoseDeuilParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="Bq9rBBhvspQ"
+        title="Après une perte ou une rupture, vous tenez"
+        description="Votre peine n'est pas un défaut : c'est votre histoire. Une vidéo pour les moments qui suivent une perte, un deuil ou une rupture."
+        duration="PT30S"
+        uploadDate="2026-11-01T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-deuil-paris"
+      />
 
       <section className="sp-section">
         <div className="container">

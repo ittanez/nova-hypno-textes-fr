@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -205,6 +206,16 @@ const HypnoseBlocagesProfessionnelsParis = () => {
       </section>
 
       {/* Comment l'hypnose agit */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="PM5JUOs4mqM"
+        title="Tout est urgent ? Triez avec trois questions"
+        description="Vous ne manquez pas seulement de temps, vous manquez d'un tri : qui attend vraiment cela, que se passe-t-il si c'est demain, suis-je le seul à pouvoir le faire ?"
+        duration="PT28S"
+        uploadDate="2026-11-12T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-blocages-professionnels-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

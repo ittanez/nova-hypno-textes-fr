@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -205,6 +206,16 @@ const HypnoseHypersensibiliteParis = () => {
       </section>
 
       {/* Comment l'hypnose agit */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="5O4nN47T9C0"
+        title="Vous ressentez tout ? Ce n'est pas trop, c'est intense"
+        description="Les bruits, les regards, les humeurs des autres : quand tout arrive en même temps, les vagues se mélangent. Une image pour retrouver votre centre."
+        duration="PT32S"
+        uploadDate="2026-10-27T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-hypersensibilite-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

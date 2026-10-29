@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -209,6 +210,16 @@ const HypnosePeurDentiste = () => {
       </section>
 
       {/* Comment ça marche */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="rM4WuxsyApc"
+        title="Peur du dentiste : et si votre cœur restait calme ?"
+        description="Pourquoi la volonté seule ne suffit pas, et comment l'hypnose aide à descendre en détente profonde avant le rendez-vous, en gardant le contrôle."
+        duration="PT33S"
+        uploadDate="2026-11-05T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-peur-dentiste-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

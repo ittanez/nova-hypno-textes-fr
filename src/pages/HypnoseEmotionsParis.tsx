@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -194,6 +195,16 @@ const HypnoseEmotionsParis = () => {
       </section>
 
       {/* Comment l'hypnose agit */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="wC50C-D1Ekk"
+        title="Trois voix intérieures parlent en vous : comment les entendre ?"
+        description="L'affectif ressent, la logique examine, le normatif juge. Comment séparer les voix, et laisser l'émotion exister avant de l'argumenter."
+        duration="PT35S"
+        uploadDate="2026-11-27T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-gestion-emotions-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

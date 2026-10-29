@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { troublesAlimentairesFaqItems } from '@/data/specialtyFaqData';
@@ -181,6 +182,16 @@ const HypnoseTroublesAlimentairesParis = () => {
       </section>
 
       {/* Comment l'hypnose agit */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="FgobaZRnOAM"
+        title="Régimes stricts : et si vous déposiez les armes ?"
+        description="Ce n'est pas un manque de volonté : la privation, l'aliment interdit, la faim du corps confondue avec l'appétit des émotions."
+        duration="PT31S"
+        uploadDate="2026-12-29T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-troubles-alimentaires-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">
