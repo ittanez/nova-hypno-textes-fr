@@ -12,6 +12,7 @@ import Target from 'lucide-react/dist/esm/icons/target';
 import Lock from 'lucide-react/dist/esm/icons/lock';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
 import ArrowRight from 'lucide-react/dist/esm/icons/arrow-right';
+import LazyYouTube from '@/components/LazyYouTube';
 import '@/styles/preview-charte.css';
 
 /* ─────────────────────────────────────────────
@@ -243,6 +244,22 @@ const GuideAutohypnose: React.FC = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotate(0deg)')}
                 onMouseLeave={(e) => (e.currentTarget.style.transform = 'rotate(-2deg)')}
               />
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════ VIDÉO ═══════════ */}
+        <section style={{ background: 'var(--lin)', padding: '60px 0' }}>
+          <div className="container" style={{ maxWidth: '780px', margin: '0 auto' }}>
+            <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '32px', alignItems: 'center' }}>
+              <div>
+                <div className="section-tag">En vidéo — 30 secondes</div>
+                <h2 className="section-title" style={{ fontSize: '28px' }}>Autohypnose au bureau : cinq minutes, cinq étapes</h2>
+                <p style={{ color: 'var(--corps)', fontSize: '15px', lineHeight: 1.7 }}>Un avant-goût en 30 secondes : une routine courte pour retrouver votre calme et votre concentration, sans matériel.</p>
+              </div>
+              <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(28,43,74,.12)' }}>
+                <LazyYouTube videoId="HG47GixpkDs" title="Autohypnose au bureau : cinq minutes, cinq étapes" className="w-full" />
+              </div>
             </div>
           </div>
         </section>
