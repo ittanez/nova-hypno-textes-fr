@@ -11,6 +11,7 @@ const DEFAULT_IMAGE = "https://novahypnose.fr/images/og-alain-zenatti.jpg";
 // src/data/schemaOrg.ts et netlify/edge-functions/seo-prerender.ts.
 const BUSINESS_SAME_AS = [
   "https://maps.google.com/?cid=11956530853003446067",
+  "https://www.linkedin.com/in/zenatti/",
   "https://www.instagram.com/novahypnose/",
   "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
 ];
