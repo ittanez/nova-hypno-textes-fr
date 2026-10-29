@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -186,6 +187,16 @@ const HypnoseBlocagesParis = () => {
       </section>
 
       {/* Comment l'hypnose débloque */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="FnvlpoTl_tw"
+        title="« Je suis bloqué » : et si vous retourniez la phrase ?"
+        description="Chaque phrase qui vous enferme peut se retourner, comme une carte : je choisis, je sais déjà faire une partie, je suis à ma place."
+        duration="PT34S"
+        uploadDate="2026-11-10T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-blocages-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

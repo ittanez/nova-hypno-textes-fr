@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -203,6 +204,16 @@ const HypnoseColereParis = () => {
       </section>
 
       {/* Comment l'hypnose agit */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="wH9_Yg5a3XM"
+        title="Quelqu'un s'énerve devant vous : une tempête, et un phare"
+        description="Deux tempêtes, c'est trop : votre respiration peut devenir le phare. Un repère simple pour garder votre calme sans vous taire."
+        duration="PT30S"
+        uploadDate="2026-11-08T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-colere-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">

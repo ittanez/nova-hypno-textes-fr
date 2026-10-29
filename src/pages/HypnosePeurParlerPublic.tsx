@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -198,6 +199,16 @@ const HypnosePeurParlerPublic = () => {
       </section>
 
       {/* Comment ça marche */}
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="I59IS68sayU"
+        title="Le trac avant de parler en public : le corps se prépare"
+        description="Le cœur s'emballe, la phrase se fissure. Le trac n'est pas un défaut : c'est le corps qui se prépare. Quelques repères pour l'apprivoiser."
+        duration="PT31S"
+        uploadDate="2026-10-26T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-peur-parler-public-paris"
+      />
+
       <section className="sp-section">
         <div className="container">
           <div className="cabinet__grid cabinet__grid--reverse reveal">
