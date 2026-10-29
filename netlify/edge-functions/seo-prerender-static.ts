@@ -187,6 +187,7 @@ const localBusinessLd = {
   "@type": "HealthAndBeautyBusiness",
   "@id": `${SITE_URL}/#localbusiness`,
   name: "NovaHypnose - Hypnothérapeute Paris",
+  alternateName: ["Alain Zenatti Hypnothérapeute et Auto-hypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
   description:
     "Cabinet d'hypnothérapie à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne pour le stress, les phobies, le sommeil et la confiance en soi.",
   url: SITE_URL,
