@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -211,6 +212,16 @@ const PeurDelAvion = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="t_JSqnOXrdU"
+        title="Peur de l'avion : s'entraîner avant, pas en plein vol"
+        description="Vous évitez l'avion, ou vous le subissez : le corps anticipe le danger bien avant le décollage. Un entraînement assis, au calme, chez vous, pour une autre réponse."
+        duration="PT30S"
+        uploadDate="2027-02-09T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/peurdelavion"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

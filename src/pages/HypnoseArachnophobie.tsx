@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -195,6 +196,16 @@ const HypnoseArachnophobie = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="fRhUyFT_i5E"
+        title="Une araignée, et tout bascule : la peur des araignées"
+        description="Le corps se fige, vous fuyez la pièce. Cette peur est ancienne et le corps peut apprendre autre chose, doucement, par petits pas, jamais de force."
+        duration="PT30S"
+        uploadDate="2027-02-13T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-arachnophobie-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

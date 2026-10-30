@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -209,6 +210,16 @@ const HypnosePhobieSociale = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="n_-cgT2OCEI"
+        title="Peur du regard des autres : poser l'attention dehors (phobie sociale)"
+        description="Un repas, une réunion, et vous vous effacez. Les autres pensent bien moins à vous que vous ne le croyez : un détail du lieu, une expiration, une phrase courte."
+        duration="PT28S"
+        uploadDate="2027-02-21T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-phobie-sociale-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

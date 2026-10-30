@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
@@ -204,6 +205,16 @@ const HypnoseTraumatismesParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="7wyaPnJRQb8"
+        title="Le passé n'est pas maintenant : apaiser un traumatisme"
+        description="Un bruit, une odeur, et tout se rejoue : le corps croit encore que c'est maintenant. Une alarme restée allumée n'est pas une faiblesse. Un geste simple pour revenir au présent. Si des images reviennent trop fort, parlez-en à un professionnel de santé."
+        duration="PT31S"
+        uploadDate="2027-02-01T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-traumatismes-paris"
+      />
 
       <section className="sp-section">
         <div className="container">

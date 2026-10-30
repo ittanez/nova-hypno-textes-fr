@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -194,6 +195,16 @@ const HypnoseFrustrationParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="u8Y6QrCpWP4"
+        title="Tout vous semble injuste ? Comprendre la frustration chronique"
+        description="Tout semble injuste depuis longtemps, la rancune pèse plus sur vous que sur les autres. Une question à vous poser, une chose qui va bien : la frustration montre un besoin, pas une fatalité."
+        duration="PT27S"
+        uploadDate="2027-02-07T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-frustration-paris"
+      />
 
       <section className="sp-section">
         <div className="container">

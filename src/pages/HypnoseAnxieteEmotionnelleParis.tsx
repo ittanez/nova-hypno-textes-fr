@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -194,6 +195,16 @@ const HypnoseAnxieteEmotionnelleParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="q0v2Haportc"
+        title="Vous ruminez, encore ? Poser la pensée pour apaiser le mental"
+        description="La même pensée tourne en boucle, le corps reste tendu. Écrire la pensée, expirer longuement, relâcher la mâchoire : trois gestes pour défaire le nœud."
+        duration="PT29S"
+        uploadDate="2027-02-03T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-anxiete-emotionnelle-paris"
+      />
 
       <section className="sp-section">
         <div className="container">

@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -207,6 +208,16 @@ const HypnosePeurSang = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="Iio7w4f-I2U"
+        title="Le sang vous fait tourner ? Comprendre la peur du sang"
+        description="Vertige, froid, le corps lâche : ce n'est pas de la faiblesse, c'est une réaction du corps. Prévenez les soignants, respirez lentement. L'hypnose accompagne, elle ne remplace pas un avis médical."
+        duration="PT30S"
+        uploadDate="2027-02-23T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-peur-sang-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

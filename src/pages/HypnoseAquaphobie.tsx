@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -208,6 +209,16 @@ const HypnoseAquaphobie = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="2RU1PvsOWv8"
+        title="L'eau vous fait peur ? S'entraîner d'abord au sec, assis et au calme"
+        description="L'eau attire et retient à la fois. Le corps a gardé une alerte, souvent ancienne : l'apprentissage commence assis, au calme, jamais seul dans l'eau."
+        duration="PT30S"
+        uploadDate="2027-02-17T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-aquaphobie-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">
