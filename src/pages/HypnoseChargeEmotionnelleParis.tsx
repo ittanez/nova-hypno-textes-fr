@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -204,6 +205,16 @@ const HypnoseChargeEmotionnelleParis = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="SF1gN-jGgv4"
+        title="Trop d'émotions en réserve : alléger la charge émotionnelle"
+        description="Les émotions non digérées s'accumulent : larmes, tensions, fatigue sans raison. Nommer une émotion à voix basse suffit déjà à l'alléger un peu."
+        duration="PT27S"
+        uploadDate="2027-02-05T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-charge-emotionnelle-paris"
+      />
 
       {/* Comment l'hypnose agit */}
       <section className="sp-section">

@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -201,6 +202,16 @@ const HypnoseClaustrophobie = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="ud8QEZ5m_VY"
+        title="Métro bondé, ascenseur : quand l'espace se rétrécit (claustrophobie)"
+        description="Le métro bondé, l'ascenseur, une cabine d'avion : l'air manque. Faire de la place en soi : une respiration, une main sur le ventre, des murs qui s'éloignent."
+        duration="PT29S"
+        uploadDate="2027-02-11T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-claustrophobie-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

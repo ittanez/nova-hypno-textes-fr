@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -206,6 +207,16 @@ const HypnosePeurAiguilles = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="78slXcxBExk"
+        title="Une piqûre, et le cœur lâche ? La peur des aiguilles"
+        description="Vertiges, souffle retenu : la peur anticipe la douleur. Prévenez toujours le soignant, soufflez longuement, regardez ailleurs. Cette peur ne doit pas vous éloigner des soins."
+        duration="PT30S"
+        uploadDate="2027-02-15T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-peur-aiguilles-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">

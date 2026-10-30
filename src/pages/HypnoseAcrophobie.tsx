@@ -3,6 +3,7 @@ import { useResalibPopup } from '@/hooks/useResalibPopup';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import CzLayout from '@/components/charte/CzLayout';
+import SpecialtyShort from '@/components/SpecialtyShort';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
@@ -195,6 +196,16 @@ const HypnoseAcrophobie = () => {
           </div>
         </div>
       </section>
+
+      {/* Vidéo courte */}
+      <SpecialtyShort
+        videoId="IqzQxLsuApk"
+        title="Le vide vous aspire ? Retrouver un palier solide sous vos pieds"
+        description="Au bord du vide, les jambes tremblent. Entraînez-vous assis, au sol, jamais en hauteur : imaginer un palier solide, sentir le poids du corps."
+        duration="PT31S"
+        uploadDate="2027-02-19T12:30:00+01:00"
+        pageUrl="https://novahypnose.fr/hypnose-acrophobie-paris"
+      />
 
       {/* Comment ça marche */}
       <section className="sp-section">
