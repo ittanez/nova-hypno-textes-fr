@@ -133,6 +133,7 @@ export const localBusinessSchema = {
   ],
   "sameAs": [
     "https://maps.google.com/?cid=11956530853003446067",
+    "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
     "https://www.instagram.com/novahypnose/",
     "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
@@ -330,6 +331,7 @@ export const personSchema = {
   "url": "https://novahypnose.fr",
   "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
   "sameAs": [
+    "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
     "https://www.instagram.com/novahypnose/",
     "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"

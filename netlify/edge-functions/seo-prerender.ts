@@ -456,6 +456,7 @@ function renderArticlePage(
       name: article.author || "Alain Zenatti",
       url: `${SITE_URL}/alain-zenatti`,
       sameAs: [
+        "https://www.youtube.com/@AlainZenatti",
         "https://www.linkedin.com/in/zenatti/",
         "https://www.instagram.com/novahypnose/",
         "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
