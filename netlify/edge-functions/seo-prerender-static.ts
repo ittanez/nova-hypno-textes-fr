@@ -133,6 +133,8 @@ function htmlShell(page: PageData): string {
   <meta name="twitter:title" content="${fullTitle}">
   <meta name="twitter:description" content="${safeDesc}">
   <meta name="twitter:image" content="${imageUrl}">
+  <script type="application/ld+json">${safeJsonLd(localBusinessLd)}</script>
+  <script type="application/ld+json">${safeJsonLd(personLd)}</script>
   ${page.jsonLd.map((ld) => `<script type="application/ld+json">${safeJsonLd(ld)}</script>`).join("\n  ")}
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 900px; margin: 0 auto; padding: 1rem; color: #1a1a2e; line-height: 1.7; }
@@ -228,7 +230,7 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "26",
+    reviewCount: "40",
   },
   sameAs: BUSINESS_SAME_AS,
 };
@@ -338,8 +340,6 @@ export const PAGES: Record<string, PageData> = {
     h1: "Hypnothérapeute à Paris — Alain Zenatti, hypnose ericksonienne et auto-hypnose",
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [
-      localBusinessLd,
-      personLd,
       breadcrumbLd([{ name: "Accueil", path: "/" }]),
       {
         "@context": "https://schema.org",
@@ -357,7 +357,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>En bref</h2>
     <ul>
-      <li><strong>Praticien</strong> : <a href="${SITE_URL}/alain-zenatti">Alain Zenatti</a>, Maître Hypnologue (École Psynapse), formé à l'hypnose depuis fin 2020, 6 ans d'expérience, 9 certificats de formation</li>
+      <li><strong>Praticien</strong> : <a href="${SITE_URL}/alain-zenatti">Alain Zenatti</a>, Hypnothérapeute certifié (titre de Maître Hypnologue, École Psynapse), formé à l'hypnose depuis fin 2020, 6 ans d'expérience, 9 certificats de formation</li>
       <li><strong>Adresse</strong> : 16 rue Saint-Antoine, 75004 Paris (Marais-Bastille), métro Bastille (lignes 1, 5, 8) et Saint-Paul (ligne 1) — <a href="${SITE_URL}/zone-intervention">accès au cabinet</a></li>
       <li><strong>Visio</strong> : <a href="${SITE_URL}/hypnose-en-ligne">séances en visioconférence</a> partout en France et pour les francophones à l'étranger, même déroulement et même tarif qu'au cabinet</li>
       <li><strong>Tarifs</strong> : 90 € la séance (cabinet ou visio), 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11) — <a href="${SITE_URL}/tarifs">détail des tarifs</a></li>
