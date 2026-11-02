@@ -136,7 +136,8 @@ export const localBusinessSchema = {
     "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
     "https://www.instagram.com/novahypnose/",
-    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+    "https://www.wikidata.org/wiki/Q141975458"
   ],
   "employee": { "@id": "https://novahypnose.fr/#person" },
   "hasOfferCatalog": {
@@ -334,7 +335,8 @@ export const personSchema = {
     "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
     "https://www.instagram.com/novahypnose/",
-    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris"
+    "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+    "https://www.wikidata.org/wiki/Q141975458"
   ],
   "knowsAbout": [
     "Hypnose ericksonienne",

@@ -15,12 +15,14 @@ const BUSINESS_SAME_AS = [
   "https://www.linkedin.com/in/zenatti/",
   "https://www.instagram.com/novahypnose/",
   "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+  "https://www.wikidata.org/wiki/Q141975458",
 ];
 const PERSON_SAME_AS = [
   "https://www.youtube.com/@AlainZenatti",
   "https://www.linkedin.com/in/zenatti/",
   "https://www.instagram.com/novahypnose/",
   "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
+  "https://www.wikidata.org/wiki/Q141975458",
 ];
 
 const BOT_USER_AGENTS = [
