@@ -11,11 +11,13 @@ const DEFAULT_IMAGE = "https://novahypnose.fr/images/og-alain-zenatti.jpg";
 // src/data/schemaOrg.ts et netlify/edge-functions/seo-prerender.ts.
 const BUSINESS_SAME_AS = [
   "https://maps.google.com/?cid=11956530853003446067",
+  "https://www.youtube.com/@AlainZenatti",
   "https://www.linkedin.com/in/zenatti/",
   "https://www.instagram.com/novahypnose/",
   "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
 ];
 const PERSON_SAME_AS = [
+  "https://www.youtube.com/@AlainZenatti",
   "https://www.linkedin.com/in/zenatti/",
   "https://www.instagram.com/novahypnose/",
   "https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris",
@@ -4001,7 +4003,7 @@ PAGES["/guide-autohypnose"] = {
       <li><strong>9 protocoles complets</strong> — du sas de décompression 5 minutes au protocole de confiance approfondi.</li>
       <li><strong>100 % pratique</strong> — chaque technique expliquée étape par étape, testée sur 1000+ clients.</li>
       <li><strong>Spécial professionnels</strong> — techniques utilisables au bureau, adaptées aux contraintes pro.</li>
-      <li><strong>Méthode NovaHypnose</strong> — aperçu des protocoles utilisés en cabinet depuis 5 ans.</li>
+      <li><strong>Méthode NovaHypnose</strong> — aperçu des protocoles utilisés en cabinet depuis 6 ans.</li>
       <li><strong>Base scientifique</strong> — neuroplasticité, méta-analyses, validation clinique.</li>
       <li><strong>Totalement autonome</strong> — guide complet d'installation et de dépannage pour pratiquer seul.</li>
     </ul>
