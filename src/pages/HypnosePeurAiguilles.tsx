@@ -412,7 +412,7 @@ const HypnosePeurAiguilles = () => {
             <Link to="/hypnose-phobies-paris">Hypnose et phobies →</Link>
             <Link to="/hypnose-peur-dentiste-paris">Peur du dentiste →</Link>
             <Link to="/hypnose-peur-sang-paris">Peur du sang →</Link>
-            <Link to="/peurdelavion">Peur de l'avion →</Link>
+            <Link to="/hypnose-peur-avion-paris">Peur de l'avion →</Link>
             <Link to="/hypnose-stress-anxiete-paris">Hypnose et stress →</Link>
             <Link to="/test-receptivite">Tester ma réceptivité →</Link>
             <Link to="/blog">Blog hypnose →</Link>

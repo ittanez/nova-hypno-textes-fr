@@ -40,7 +40,7 @@ const accompagnements = [
   { title: 'Stress et anxiété', desc: 'Retrouver calme et sérénité au quotidien.', href: '/hypnose-stress-anxiete-paris' },
   { title: 'Troubles du sommeil', desc: 'Retrouver un sommeil profond et réparateur.', href: '/hypnose-sommeil-paris' },
   { title: 'Phobies', desc: 'Dépasser les peurs qui limitent votre quotidien.', href: '/hypnose-phobies-paris' },
-  { title: "Peur de l'avion", desc: 'Voyager à nouveau sereinement.', href: '/peurdelavion' },
+  { title: "Peur de l'avion", desc: 'Voyager à nouveau sereinement.', href: '/hypnose-peur-avion-paris' },
   { title: 'Arrêt du tabac', desc: 'Arrêter de fumer durablement, sans stress.', href: '/hypnose-arret-tabac-paris' },
   { title: 'Confiance en soi', desc: "Renforcer l'estime et l'affirmation de soi.", href: '/hypnose-confiance-en-soi-paris' },
 ];

@@ -56,7 +56,8 @@
 /index.php/*  /  301!
 https://emergences.novahypnose.fr/*  https://novahypnose.fr/:splat  301!
 https://harmonia.novahypnose.fr/*  https://novahypnose.fr/autohypnose  301!
-/peurdelavion.html  /peurdelavion  301!
+/peurdelavion.html  /hypnose-peur-avion-paris  301!
+/peurdelavion  /hypnose-peur-avion-paris  301!
 /mentions-legales.html  /mentions-legales  301!
 
 # SPA fallback - Toutes les autres routes vers index.html

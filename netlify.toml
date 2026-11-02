@@ -164,7 +164,7 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
-  path = "/peurdelavion"
+  path = "/hypnose-peur-avion-paris"
   function = "seo-prerender-static"
 
 [[edge_functions]]

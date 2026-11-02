@@ -68,7 +68,7 @@ function llmsTxtPaths(): Set<string> {
 }
 
 /** Pages spécialités = celles où l'écart s'est produit historiquement. */
-const isSpecialty = (p: string) => /^\/hypnose-[a-z-]+$/.test(p) || p === '/peurdelavion';
+const isSpecialty = (p: string) => /^\/hypnose-[a-z-]+$/.test(p) || p === '/hypnose-peur-avion-paris';
 
 /** Pages volontairement noindex (netlify.toml X-Robots-Tag) — jamais dans le sitemap. */
 const NOINDEX_PAGES = ['/test-receptivite-archive'];

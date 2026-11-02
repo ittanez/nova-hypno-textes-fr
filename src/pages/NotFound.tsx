@@ -141,7 +141,7 @@ const NotFound = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/peurdelavion.html" className="text-blue-600 hover:text-blue-700">
+                    <a href="/hypnose-peur-avion-paris.html" className="text-blue-600 hover:text-blue-700">
                       Peur de l'avion
                     </a>
                   </li>

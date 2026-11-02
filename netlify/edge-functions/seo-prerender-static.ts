@@ -600,7 +600,7 @@ export const PAGES: Record<string, PageData> = {
 
         <h2>Chaque phobie a sa page dédiée</h2>
     <ul>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie, aviophobie</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie, aviophobie</li>
       <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
       <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Acrophobie</a> — Peur du vide et des hauteurs</li>
       <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos, ascenseurs, IRM</li>
@@ -1598,21 +1598,21 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   },
 };
 
-PAGES["/peurdelavion"] = {
+PAGES["/hypnose-peur-avion-paris"] = {
   title: "Hypnose peur de l'avion, Paris et visio | NovaHypnose",
   description:
     "Peur de l'avion : un accompagnement par l'hypnose pour préparer votre vol plus sereinement, au cabinet (Paris 4e) ou en visio. Alain Zenatti.",
-  canonicalPath: "/peurdelavion",
+  canonicalPath: "/hypnose-peur-avion-paris",
   h1: "Hypnose et peur de l'avion — Reprenez l'avion sereinement",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "@id": `${SITE_URL}/peurdelavion#service`,
+      "@id": `${SITE_URL}/hypnose-peur-avion-paris#service`,
       name: "Hypnose pour la peur de l'avion à Paris",
       description:
         "Traitement de la peur de l'avion (aérophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio. Résultats en 3 à 4 séances.",
-      url: `${SITE_URL}/peurdelavion`,
+      url: `${SITE_URL}/hypnose-peur-avion-paris`,
       provider: { "@id": `${SITE_URL}/#person` },
       areaServed: [
         { "@type": "City", name: "Paris" },
@@ -1622,7 +1622,7 @@ PAGES["/peurdelavion"] = {
     },
     breadcrumbLd([
       { name: "Accueil", path: "/" },
-      { name: "Peur de l'avion", path: "/peurdelavion" },
+      { name: "Peur de l'avion", path: "/hypnose-peur-avion-paris" },
     ]),
     faqLd([
       {
@@ -1756,7 +1756,7 @@ PAGES["/hypnose-arachnophobie-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, peur de parler en public</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
       <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
@@ -1823,7 +1823,7 @@ PAGES["/hypnose-acrophobie-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
       <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
       <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
@@ -1890,7 +1890,7 @@ PAGES["/hypnose-claustrophobie-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, acrophobie, arachnophobie</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-arachnophobie-paris">Arachnophobie</a> — Peur des araignées</li>
       <li><a href="${SITE_URL}/hypnose-peur-parler-public-paris">Peur de parler en public</a> — Glossophobie et trac</li>
@@ -1957,7 +1957,7 @@ PAGES["/hypnose-peur-parler-public-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur</li>
       <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Hypnose stress et anxiété</a> — Trac et anxiété sociale</li>
       <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
@@ -2281,7 +2281,7 @@ PAGES["/hypnose-aquaphobie-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
       <li><a href="${SITE_URL}/hypnose-acrophobie-paris">Peur du vide</a> — Acrophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>
@@ -2362,7 +2362,7 @@ PAGES["/hypnose-amaxophobie-paris"] = {
     <h2>Autres phobies traitées</h2>
     <ul>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Toutes les phobies</a> — Phobie avion, claustrophobie, arachnophobie</li>
-      <li><a href="${SITE_URL}/peurdelavion">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
+      <li><a href="${SITE_URL}/hypnose-peur-avion-paris">Peur de l'avion</a> — Aérophobie traitée en hypnose</li>
       <li><a href="${SITE_URL}/hypnose-claustrophobie-paris">Claustrophobie</a> — Espaces clos et enfermement</li>
       <li><a href="${SITE_URL}/hypnose-phobie-sociale-paris">Phobie sociale</a> — Peur du jugement et des interactions</li>
       <li><a href="${SITE_URL}/test-receptivite">Tester ma réceptivité à l'hypnose</a> — Test gratuit</li>

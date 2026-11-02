@@ -126,7 +126,7 @@ const HypnoseTroublesAlimentairesParis = lazy(() => import("@/pages/HypnoseTroub
 const HypnoseTabacParis = lazy(() => import("@/pages/HypnoseTabacParis"));
 const HypnoseEnLigne = lazy(() => import("@/pages/HypnoseEnLigne"));
 
-// Page peur de l'avion (URL héritée /peurdelavion — pas dans le menu)
+// Page peur de l'avion
 const PeurDelAvion = lazy(() => import("@/pages/PeurDelAvion"));
 
 // Sous-pages phobies spécifiques (pas dans le menu)
@@ -299,8 +299,8 @@ function App() {
             <Route path="/hypnose-arret-tabac-paris" element={<HypnoseTabacParis />} />
             <Route path="/hypnose-en-ligne" element={<HypnoseEnLigne />} />
 
-            {/* Page peur de l'avion (pas dans le menu) */}
-            <Route path="/peurdelavion" element={<PeurDelAvion />} />
+            {/* Page peur de l'avion */}
+            <Route path="/hypnose-peur-avion-paris" element={<PeurDelAvion />} />
 
             {/* Sous-pages phobies spécifiques (pas dans le menu) */}
             <Route path="/hypnose-arachnophobie-paris" element={<HypnoseArachnophobie />} />
