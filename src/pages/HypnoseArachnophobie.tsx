@@ -392,7 +392,7 @@ const HypnoseArachnophobie = () => {
           </div>
           <div className="sp-links">
             <Link to="/hypnose-phobies-paris">Toutes les phobies →</Link>
-            <Link to="/peurdelavion">Peur de l'avion →</Link>
+            <Link to="/hypnose-peur-avion-paris">Peur de l'avion →</Link>
             <Link to="/hypnose-claustrophobie-paris">Claustrophobie →</Link>
             <Link to="/hypnose-acrophobie-paris">Peur du vide →</Link>
             <Link to="/hypnose-peur-parler-public-paris">Peur de parler en public →</Link>

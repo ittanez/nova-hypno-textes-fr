@@ -36,7 +36,7 @@ serve(async (req) => {
       { loc: '/hypnose-stress-anxiete-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       // Phobies — page parent + 11 sous-pages
       { loc: '/hypnose-phobies-paris',         lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.8' },
-      { loc: '/peurdelavion',                  lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-peur-avion-paris',                  lastmod: '2026-06-18', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-arachnophobie-paris',   lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-acrophobie-paris',      lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-claustrophobie-paris',  lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },

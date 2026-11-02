@@ -61,7 +61,7 @@ const HypnosePhobiesParis = () => {
   };
 
   const phobies: { title: string; desc: string; href?: string }[] = [
-    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique", href: "/peurdelavion" },
+    { title: "Phobie de l'avion", desc: "Voyagez enfin sereinement, sans anxiété ni crise de panique", href: "/hypnose-peur-avion-paris" },
     { title: "Claustrophobie", desc: "Ascenseurs, métro, IRM… retrouvez votre liberté de mouvement", href: "/hypnose-claustrophobie-paris" },
     { title: "Arachnophobie", desc: "Araignées, insectes… cessez de vivre dans l'appréhension", href: "/hypnose-arachnophobie-paris" },
     { title: "Peur du vide (acrophobie)", desc: "Balcons, escaliers, hauteurs… reprenez le contrôle", href: "/hypnose-acrophobie-paris" },
@@ -122,7 +122,7 @@ const HypnosePhobiesParis = () => {
             Libérez-vous de vos peurs<br/><em>pour de bon</em>
           </h1>
           <p className="sp-hero__lead">
-            <Link to="/peurdelavion" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
+            <Link to="/hypnose-peur-avion-paris" style={{color:'inherit', textDecoration:'underline'}}>Peur de l'avion</Link>,{' '}
             <Link to="/hypnose-phobie-sociale-paris" style={{color:'inherit', textDecoration:'underline'}}>phobie sociale</Link>,{' '}
             <Link to="/hypnose-amaxophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>peur de conduire</Link>,{' '}
             <Link to="/hypnose-arachnophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>araignées</Link>,{' '}
@@ -253,7 +253,7 @@ const HypnosePhobiesParis = () => {
           <h2 className="sp-h2">Exemples de parcours au cabinet</h2>
           <div className="sp-cases">
             <div className="sp-case reveal">
-              <div className="sp-case__title"><Link to="/peurdelavion" style={{color:'inherit'}}>Peur de l'avion →</Link></div>
+              <div className="sp-case__title"><Link to="/hypnose-peur-avion-paris" style={{color:'inherit'}}>Peur de l'avion →</Link></div>
               <p>
                 Thomas*, consultant international, refusait systématiquement les missions nécessitant
                 un vol. Sa phobie de l'avion, installée depuis un vol turbulent 10 ans plus tôt,

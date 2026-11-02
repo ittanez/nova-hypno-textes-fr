@@ -49,7 +49,7 @@ const PeurDelAvion = () => {
     "@type": "Service",
     "name": "Hypnose pour la peur de l'avion à Paris",
     "description": "Traitement de la peur de l'avion (aérophobie) par l'hypnose ericksonienne. Cabinet Paris 4ème Marais-Bastille ou en visio.",
-    "url": "https://novahypnose.fr/peurdelavion",
+    "url": "https://novahypnose.fr/hypnose-peur-avion-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
       { "@type": "City", "name": "Paris" },
@@ -68,7 +68,7 @@ const PeurDelAvion = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://novahypnose.fr" },
-      { "@type": "ListItem", "position": 2, "name": "Peur de l'avion", "item": "https://novahypnose.fr/peurdelavion" }
+      { "@type": "ListItem", "position": 2, "name": "Peur de l'avion", "item": "https://novahypnose.fr/hypnose-peur-avion-paris" }
     ]
   };
 
@@ -97,11 +97,11 @@ const PeurDelAvion = () => {
         <title>Hypnose peur de l'avion, Paris et visio | NovaHypnose</title>
         <meta name="description" content="Peur de l'avion : un accompagnement par l'hypnose pour préparer votre vol plus sereinement, au cabinet (Paris 4e) ou en visio. Alain Zenatti." />
         <meta name="keywords" content="hypnose peur avion paris, aérophobie hypnose paris, traitement peur avion, vaincre peur avion hypnose, hypnothérapeute peur de l'avion paris, hypnose aviophobie, peur avion hypnose en ligne, séance hypnose peur avion visio France, téléconsultation aérophobie" />
-        <link rel="canonical" href="https://novahypnose.fr/peurdelavion" />
+        <link rel="canonical" href="https://novahypnose.fr/hypnose-peur-avion-paris" />
         <meta property="og:title" content="Hypnose peur de l'avion, Paris et visio | NovaHypnose" />
         <meta property="og:description" content="Libérez-vous de la peur de l'avion par l'hypnose à Paris 4ème ou en visio partout en France. Aérophobie, crises de panique, claustrophobie en cabine. Résultats durables visés, souvent dès les premières séances." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://novahypnose.fr/peurdelavion" />
+        <meta property="og:url" content="https://novahypnose.fr/hypnose-peur-avion-paris" />
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:site_name" content="NovaHypnose" />
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
@@ -389,7 +389,7 @@ const PeurDelAvion = () => {
 
       <div className="sp-ext-section">
         <SpecialtyReferences
-          pageUrl="https://novahypnose.fr/peurdelavion"
+          pageUrl="https://novahypnose.fr/hypnose-peur-avion-paris"
           pageTitle="Hypnose pour la peur de l'avion à Paris"
           pageDescription="Hypnose ericksonienne pour vaincre la peur de l'avion (aérophobie) au cabinet Paris 4ème ou en visio."
           topic="la peur de l'avion et l'aérophobie"
