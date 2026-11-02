@@ -191,7 +191,7 @@ const localBusinessLd = {
   name: "NovaHypnose - Hypnothérapeute Paris",
   alternateName: ["Alain Zenatti Hypnothérapeute et Auto-hypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
   description:
-    "Cabinet d'hypnothérapie à Paris 4ème. Alain Zenatti, Maître Hypnologue certifié. Hypnose ericksonienne pour le stress, les phobies, le sommeil et la confiance en soi.",
+    "Cabinet d'hypnothérapie à Paris 4ème. Alain Zenatti, Hypnothérapeute certifié. Hypnose ericksonienne pour le stress, les phobies, le sommeil et la confiance en soi.",
   url: SITE_URL,
   telephone: "+33649358089",
   email: "contact@novahypnose.fr",
@@ -201,7 +201,7 @@ const localBusinessLd = {
     url: DEFAULT_IMAGE,
     width: 1200,
     height: 630,
-    caption: "Alain Zenatti, Maître Hypnologue certifié — Cabinet NovaHypnose Paris 4ème",
+    caption: "Alain Zenatti, Hypnothérapeute certifié — Cabinet NovaHypnose Paris 4ème",
   },
   address: {
     "@type": "PostalAddress",
@@ -238,7 +238,7 @@ const personLd = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
   name: "Alain Zenatti",
-  jobTitle: "Maître Hypnologue",
+  jobTitle: "Hypnothérapeute",
   url: SITE_URL,
   image: {
     "@type": "ImageObject",
@@ -462,7 +462,7 @@ export const PAGES: Record<string, PageData> = {
     </ul>
 
     <h2>Mon approche pour traiter le stress</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Ma méthode combine l'hypnose ericksonienne avec des techniques de PNL et d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien. Chaque séance est personnalisée selon votre situation.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Ma méthode combine l'hypnose ericksonienne avec des techniques de PNL et d'auto-hypnose que vous pourrez réutiliser seul(e) au quotidien. Chaque séance est personnalisée selon votre situation.</p>
     <p>Lors de la première séance, nous identifions ensemble les déclencheurs de votre stress et je vous guide dans un état de profonde relaxation. Beaucoup de clients ressentent un premier soulagement dès cette première rencontre.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
@@ -559,7 +559,7 @@ export const PAGES: Record<string, PageData> = {
     <p>L'hypnose agit directement sur ce circuit en <strong>désensibilisant la réponse phobique</strong> au niveau inconscient. En état hypnotique, votre cerveau devient particulièrement réceptif à la création de nouveaux chemins neuronaux. Je guide votre inconscient pour qu'il associe progressivement le stimulus à un état de calme et de sécurité plutôt qu'à la panique. Ce processus de reconditionnement est rapide car il s'adresse directement à la mémoire émotionnelle.</p>
 
     <h2>Mon approche pour traiter les phobies</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème, quartier Marais-Bastille. Chaque accompagnement est personnalisé selon votre phobie spécifique et votre histoire. Lors de la première séance, nous identifions l'origine de la peur et les mécanismes qui la maintiennent. Je combine l'hypnose ericksonienne avec des techniques de désensibilisation douce et d'auto-hypnose.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème, quartier Marais-Bastille. Chaque accompagnement est personnalisé selon votre phobie spécifique et votre histoire. Lors de la première séance, nous identifions l'origine de la peur et les mécanismes qui la maintiennent. Je combine l'hypnose ericksonienne avec des techniques de désensibilisation douce et d'auto-hypnose.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Peur de l'avion</h3>
@@ -666,7 +666,7 @@ export const PAGES: Record<string, PageData> = {
     <p>En état d'hypnose, votre cerveau réapprend à activer naturellement les ondes alpha et thêta nécessaires au sommeil profond. Je vous transmets des techniques d'auto-hypnose spécialement conçues pour l'endormissement que vous pourrez pratiquer chaque soir. Avec la pratique, cela devient un réflexe : votre cerveau associe la technique au signal naturel de s'endormir.</p>
 
     <h2>Mon approche pour traiter l'insomnie</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème. Mon approche combine l'hypnose ericksonienne avec des techniques de PNL pour traiter à la fois les causes du trouble du sommeil et les automatismes qui le maintiennent. Chaque séance est personnalisée selon votre type d'insomnie et votre situation de vie.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème. Mon approche combine l'hypnose ericksonienne avec des techniques de PNL pour traiter à la fois les causes du trouble du sommeil et les automatismes qui le maintiennent. Chaque séance est personnalisée selon votre type d'insomnie et votre situation de vie.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Insomnie chronique liée au travail</h3>
@@ -819,7 +819,7 @@ export const PAGES: Record<string, PageData> = {
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
-      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Maître Hypnologue. Premiers changements souvent dans les 3 à 5 premières séances.",
+      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Hypnothérapeute. Premiers changements souvent dans les 3 à 5 premières séances.",
     canonicalPath: "/hypnose-gestion-emotions-paris",
     h1: "Hypnose et gestion des émotions — Retrouvez votre équilibre à Paris",
     jsonLd: [
@@ -866,7 +866,7 @@ export const PAGES: Record<string, PageData> = {
     <p>Je vous transmets également des <strong>techniques d'auto-hypnose</strong> pour gérer les moments d'intensité émotionnelle au quotidien — un outil que vous garderez pour la vie.</p>
 
     <h2>Mon approche pour l'équilibre émotionnel</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème. La gestion des émotions est au coeur de ma pratique. Que vous soyez submergé(e) par la colère, paralysé(e) par un deuil ou épuisé(e) par votre hypersensibilité, je vous accompagne vers un nouvel équilibre. Mon approche est douce et progressive, entièrement personnalisée selon votre histoire et votre fonctionnement.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème. La gestion des émotions est au coeur de ma pratique. Que vous soyez submergé(e) par la colère, paralysé(e) par un deuil ou épuisé(e) par votre hypersensibilité, je vous accompagne vers un nouvel équilibre. Mon approche est douce et progressive, entièrement personnalisée selon votre histoire et votre fonctionnement.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Colères incontrôlables</h3>
@@ -925,7 +925,7 @@ export const PAGES: Record<string, PageData> = {
   "/hypnose-blocages-paris": {
     title: "Hypnose blocages et comportements Paris | Zenatti",
     description:
-      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Maître Hypnologue. Premiers changements souvent dans les 3 à 5 premières séances.",
+      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Hypnothérapeute. Premiers changements souvent dans les 3 à 5 premières séances.",
     canonicalPath: "/hypnose-blocages-paris",
     h1: "Blocages et troubles du comportement — Libérez-vous par l'hypnose à Paris",
     jsonLd: [
@@ -972,7 +972,7 @@ export const PAGES: Record<string, PageData> = {
     <p>Je combine l'hypnose ericksonienne avec des techniques de PNL pour maximiser l'efficacité. Vous repartirez aussi avec des outils d'auto-hypnose pour consolider le travail entre les séances.</p>
 
     <h2>Mon approche pour les blocages</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème. Les blocages et les troubles du comportement sont des problématiques que je traite quotidiennement au cabinet. Mon approche est sans jugement et entièrement personnalisée. Lors de la première séance, nous explorons ensemble le comportement qui vous pose problème et ses déclencheurs.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème. Les blocages et les troubles du comportement sont des problématiques que je traite quotidiennement au cabinet. Mon approche est sans jugement et entièrement personnalisée. Lors de la première séance, nous explorons ensemble le comportement qui vous pose problème et ses déclencheurs.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Procrastination chronique</h3>
@@ -1076,7 +1076,7 @@ export const PAGES: Record<string, PageData> = {
     <p>J'installe également de nouvelles ressources durables : assurance naturelle, capacité à s'affirmer, sentiment légitime de compétence, aisance sociale.</p>
 
     <h2>Mon approche pour développer la confiance</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème. Mon approche est personnalisée selon vos objectifs spécifiques et votre histoire. La prise de parole en public, le syndrome de l'imposteur, la timidité — chaque problématique de confiance a ses propres mécanismes que nous explorons ensemble lors de la première séance.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème. Mon approche est personnalisée selon vos objectifs spécifiques et votre histoire. La prise de parole en public, le syndrome de l'imposteur, la timidité — chaque problématique de confiance a ses propres mécanismes que nous explorons ensemble lors de la première séance.</p>
 
     <h2>Exemples de parcours au cabinet</h2>
     <h3>Syndrome de l'imposteur</h3>
@@ -1389,19 +1389,19 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/alain-zenatti": {
-    title: "Alain Zenatti - Maître Hypnologue à Paris | NovaHypnose",
+    title: "Alain Zenatti - Hypnothérapeute à Paris | NovaHypnose",
     description:
-      "Alain Zenatti, Maître Hypnologue certifié à Paris 4ème. Hypnose ericksonienne, 6 ans d'expérience, auteur de nombreux articles sur l'hypnothérapie. Stress, anxiété, phobies, sommeil.",
+      "Alain Zenatti, Hypnothérapeute certifié à Paris 4ème. Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne, 6 ans d'expérience, auteur de nombreux articles sur l'hypnothérapie.",
     canonicalPath: "/alain-zenatti",
-    h1: "Alain Zenatti — Maître Hypnologue",
+    h1: "Alain Zenatti — Hypnothérapeute certifié",
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
         "name": "Alain Zenatti",
-        "jobTitle": "Maître Hypnologue",
-        "description": "Maître Hypnologue certifié, praticien en hypnose ericksonienne et auto-hypnose. Cabinet à Paris 4ème (Marais-Bastille) et séances en visioconférence.",
+        "jobTitle": "Hypnothérapeute",
+        "description": "Hypnothérapeute certifié, Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne. Cabinet à Paris 4ème (Marais-Bastille) et séances en visioconférence.",
         "url": `${SITE_URL}/alain-zenatti`,
         "image": DEFAULT_IMAGE,
         "worksFor": { "@type": "Organization", "name": "NovaHypnose", "@id": `${SITE_URL}/#localbusiness` },
@@ -1431,7 +1431,7 @@ export const PAGES: Record<string, PageData> = {
       ]),
     ],
     content: `
-    <p>Alain Zenatti est <strong>Maître Hypnologue certifié</strong>, praticien en hypnose ericksonienne et en auto-hypnose depuis fin 2020. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
+    <p>Alain Zenatti est <strong>Hypnothérapeute certifié</strong>, Maître Hypnologue et praticien en hypnose ericksonienne et en auto-hypnose depuis fin 2020. Son cabinet est situé au <strong>16 rue Saint-Antoine, Paris 4ème</strong> (Marais-Bastille), et il propose également des séances en visioconférence partout en France.</p>
 
     <p>Formé à l'hypnose ericksonienne dès fin 2020 (MHD Formation, Paris), il a suivi ensuite le cursus complet de l'<a href="https://psynapse.fr/formation-hypnose/">École Psynapse</a> jusqu'au titre de Maître Hypnologue : <strong>9 certificats de formation</strong> et plus de 50 jours de formation en présentiel. L'hypnose ericksonienne reste le socle de sa pratique ; il y ajoute, quand la situation s'y prête, des techniques plus directes (hypnose directe de Dave Elman, inductions rapides, transe profonde).</p>
 
@@ -1464,7 +1464,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   "/hypnose-troubles-alimentaires-paris": {
     title: "Hypnose troubles alimentaires Paris | Rapport au corps | Alain Zenatti",
     description:
-      "Retrouvez un rapport apaisé à la nourriture grâce à l'hypnose à Paris 4ème. Compulsions, restriction, relation difficile à l'alimentation. Alain Zenatti, Maître Hypnologue. 90 €.",
+      "Retrouvez un rapport apaisé à la nourriture grâce à l'hypnose à Paris 4ème. Compulsions, restriction, relation difficile à l'alimentation. Alain Zenatti, Hypnothérapeute. 90 €.",
     canonicalPath: "/hypnose-troubles-alimentaires-paris",
     h1: "Hypnose et rapport au corps — Retrouvez une relation apaisée à la nourriture",
     jsonLd: [
@@ -1510,7 +1510,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
     <p>En état hypnotique, votre cerveau devient particulièrement réceptif à l'installation de nouveaux schémas. L'hypnose permet de déconstruire les associations émotionnelles négatives liées à la nourriture, de restaurer les signaux naturels de faim et de satiété, et de développer une relation plus douce au corps.</p>
 
     <h2>Mon approche</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Mon accompagnement est complémentaire — et non substitut — à un suivi médical ou nutritionnel. Je travaille sur la dimension émotionnelle et inconsciente du rapport au corps, en coordination avec les professionnels de santé qui vous suivent si nécessaire.</p>
+    <p>Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong>, installé à Paris 4ème dans le quartier Marais-Bastille. Mon accompagnement est complémentaire — et non substitut — à un suivi médical ou nutritionnel. Je travaille sur la dimension émotionnelle et inconsciente du rapport au corps, en coordination avec les professionnels de santé qui vous suivent si nécessaire.</p>
 
     <h2>Questions fréquentes</h2>
     <h3>L'hypnose peut-elle aider les compulsions alimentaires liées au stress ?</h3>
@@ -1574,7 +1574,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
       ]),
     ],
     content: `
-    <p>Alain Zenatti, <strong>Maître Hypnologue certifié</strong>, est l'un des rares hypnothérapeutes en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des clients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
+    <p>Alain Zenatti, <strong>Hypnothérapeute certifié</strong>, est l'un des rares praticiens en France à proposer des séances exclusivement <strong>en ligne, via visioconférence</strong>, avec un protocole aussi rigoureux qu'en cabinet. Depuis Paris 4ème, il accompagne des clients de toute la France — Lyon, Marseille, Bordeaux, Toulouse, Nice, Strasbourg, Nantes, Rennes, Grenoble, Montpellier, et partout en métropole, DOM-TOM et à l'étranger.</p>
 
     <h2>L'hypnose en visio est-elle aussi efficace qu'au cabinet ?</h2>
     <p>Oui. L'état hypnotique repose sur la <strong>voix, le rythme et la relation thérapeutique</strong> — pas sur la proximité physique. Le déroulement en téléconsultation est identique au présentiel ; les premiers changements se font souvent dans les 3 à 5 premières séances. De nombreux clients se sentent même <em>plus détendus</em> dans leur environnement familier, ce qui facilite l'accès à l'état hypnotique.</p>
@@ -2456,7 +2456,7 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
 PAGES["/hypnose-colere-paris"] = {
   title: "Hypnose colère et irritabilité Paris | Alain Zenatti",
   description:
-    "Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées. Alain Zenatti, Maître Hypnologue.",
+    "Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-colere-paris",
   h1: "Hypnose colère et irritabilité — Retrouvez le calme sans perdre votre énergie",
   jsonLd: [
@@ -2521,7 +2521,7 @@ PAGES["/hypnose-colere-paris"] = {
 PAGES["/hypnose-hypersensibilite-paris"] = {
   title: "Hypnose hypersensibilité Paris | Alain Zenatti",
   description:
-    "Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel. Alain Zenatti, Maître Hypnologue.",
+    "Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-hypersensibilite-paris",
   h1: "Hypnose et hypersensibilité — Ressentir profondément sans être submergé(e)",
   jsonLd: [
@@ -2845,7 +2845,7 @@ PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
 PAGES["/hypnose-charge-emotionnelle-paris"] = {
   title: "Hypnose charge émotionnelle Paris | Alain Zenatti",
   description:
-    "Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions. Alain Zenatti, Maître Hypnologue.",
+    "Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-charge-emotionnelle-paris",
   h1: "Hypnose et charge émotionnelle — Déposer le poids que vous portez seul(e)",
   jsonLd: [
@@ -2910,7 +2910,7 @@ PAGES["/hypnose-charge-emotionnelle-paris"] = {
 PAGES["/hypnose-procrastination-paris"] = {
   title: "Hypnose procrastination Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — l'hypnose agit sur la cause, pas le symptôme. Alain Zenatti, Maître Hypnologue.",
+    "Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — l'hypnose agit sur la cause, pas le symptôme. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-procrastination-paris",
   h1: "Hypnose et procrastination — Libérez-vous du blocage à l'action",
   jsonLd: [
@@ -2975,7 +2975,7 @@ PAGES["/hypnose-procrastination-paris"] = {
 PAGES["/hypnose-onychophagie-paris"] = {
   title: "Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti",
   description:
-    "Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Maître Hypnologue Paris.",
+    "Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Hypnothérapeute Paris.",
   canonicalPath: "/hypnose-onychophagie-paris",
   h1: "Hypnose et onychophagie — Arrêtez de vous ronger les ongles définitivement",
   jsonLd: [
@@ -3038,7 +3038,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
 PAGES["/hypnose-toc-rituels-paris"] = {
   title: "Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur l'anxiété sous-jacente. Alain Zenatti, Maître Hypnologue.",
+    "Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur l'anxiété sous-jacente. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-toc-rituels-paris",
   h1: "Hypnose, TOC et rituels compulsifs — Libérez-vous des comportements répétitifs",
   jsonLd: [
@@ -3102,7 +3102,7 @@ PAGES["/hypnose-toc-rituels-paris"] = {
 PAGES["/hypnose-schemas-repetitifs-paris"] = {
   title: "Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti",
   description:
-    "Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source. Alain Zenatti, Maître Hypnologue.",
+    "Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-schemas-repetitifs-paris",
   h1: "Hypnose et schémas répétitifs — Brisez les cycles qui se répètent",
   jsonLd: [
@@ -3165,7 +3165,7 @@ PAGES["/hypnose-schemas-repetitifs-paris"] = {
 PAGES["/hypnose-blocages-professionnels-paris"] = {
   title: "Hypnose blocages professionnels Paris & en ligne | Alain Zenatti",
   description:
-    "Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir — l'hypnose agit sur les freins inconscients. Alain Zenatti, Maître Hypnologue.",
+    "Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir — l'hypnose agit sur les freins inconscients. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-blocages-professionnels-paris",
   h1: "Hypnose et blocages professionnels — Levez les freins qui bloquent votre carrière",
   jsonLd: [
@@ -3230,7 +3230,7 @@ PAGES["/hypnose-blocages-professionnels-paris"] = {
 PAGES["/hypnose-addictions-comportementales-paris"] = {
   title: "Hypnose addictions comportementales Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause émotionnelle. Alain Zenatti, Maître Hypnologue.",
+    "Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause émotionnelle. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-addictions-comportementales-paris",
   h1: "Hypnose et addictions comportementales — Libérez-vous des comportements dont vous n'arrivez pas à vous défaire",
   jsonLd: [
@@ -3297,7 +3297,7 @@ PAGES["/hypnose-addictions-comportementales-paris"] = {
 PAGES["/hypnose-compulsions-alimentaires-paris"] = {
   title: "Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme. Alain Zenatti, Maître Hypnologue Paris.",
+    "Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme. Alain Zenatti, Hypnothérapeute Paris.",
   canonicalPath: "/hypnose-compulsions-alimentaires-paris",
   h1: "Hypnose et compulsions alimentaires — Libérez-vous des envies incontrôlables",
   jsonLd: [
@@ -3362,7 +3362,7 @@ PAGES["/hypnose-compulsions-alimentaires-paris"] = {
 PAGES["/hypnose-grignotage-paris"] = {
   title: "Hypnose grignotage chronique Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel. Alain Zenatti, Maître Hypnologue.",
+    "Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-grignotage-paris",
   h1: "Hypnose et grignotage — Arrêtez de grignoter entre les repas",
   jsonLd: [
@@ -3426,7 +3426,7 @@ PAGES["/hypnose-grignotage-paris"] = {
 PAGES["/hypnose-addiction-sucre-paris"] = {
   title: "Hypnose addiction au sucre Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée. Alain Zenatti, Maître Hypnologue.",
+    "Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-addiction-sucre-paris",
   h1: "Hypnose et addiction au sucre — Libérez-vous de la dépendance sucrée",
   jsonLd: [
@@ -3490,7 +3490,7 @@ PAGES["/hypnose-addiction-sucre-paris"] = {
 PAGES["/hypnose-boulimie-paris"] = {
   title: "Hypnose boulimie Paris & en ligne | Alain Zenatti",
   description:
-    "Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Maître Hypnologue.",
+    "Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-boulimie-paris",
   h1: "Hypnose et boulimie — Se libérer en allant au cœur du problème",
   jsonLd: [
@@ -3554,7 +3554,7 @@ PAGES["/hypnose-boulimie-paris"] = {
 PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
   title: "Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle. Alain Zenatti, Maître Hypnologue.",
+    "Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-alimentation-emotionnelle-paris",
   h1: "Hypnose et alimentation émotionnelle — Arrêter de manger ses émotions",
   jsonLd: [
@@ -3618,7 +3618,7 @@ PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
 PAGES["/hypnose-image-corporelle-paris"] = {
   title: "Hypnose image corporelle Paris & en ligne | Alain Zenatti",
   description:
-    "Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle — l'hypnose change le regard intérieur. Alain Zenatti, Maître Hypnologue.",
+    "Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle — l'hypnose change le regard intérieur. Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/hypnose-image-corporelle-paris",
   h1: "Hypnose et image corporelle — Se réconcilier avec son corps",
   jsonLd: [
@@ -3760,7 +3760,7 @@ PAGES["/avis"] = {
     <h2>Pages liées</h2>
     <ul>
       <li><a href="${SITE_URL}/tarifs">Tarifs des séances</a> — 90 € cabinet ou visio</li>
-      <li><a href="${SITE_URL}/alain-zenatti">Alain Zenatti, Maître Hypnologue</a></li>
+      <li><a href="${SITE_URL}/alain-zenatti">Alain Zenatti, Hypnothérapeute</a></li>
       <li><a href="${SITE_URL}/test-receptivite">Test de réceptivité à l'hypnose</a></li>
     </ul>
 
@@ -3808,7 +3808,7 @@ PAGES["/contact"] = {
 PAGES["/faq"] = {
   title: "FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose",
   description:
-    "Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio. Par Alain Zenatti, Maître Hypnologue.",
+    "Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio. Par Alain Zenatti, Hypnothérapeute.",
   canonicalPath: "/faq",
   h1: "Questions fréquentes sur l'hypnose",
   jsonLd: [

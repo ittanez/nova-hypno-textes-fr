@@ -124,7 +124,7 @@ const BlogMaquette = () => {
               Plongez dans l'univers fascinant de l'hypnose ericksonienne à travers des articles approfondis,
               des témoignages inspirants et des conseils pratiques. Découvrez comment mobiliser vos ressources
               intérieures pour transformer votre vie, gérer vos émotions et atteindre vos objectifs.
-              Un espace de réflexion et d'apprentissage guidé par Alain Zenatti, Maître Hypnologue à Paris.
+              Un espace de réflexion et d'apprentissage guidé par Alain Zenatti, Hypnothérapeute à Paris.
             </p>
 
             {/* Search Bar */}

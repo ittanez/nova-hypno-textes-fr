@@ -42,7 +42,7 @@ const Avis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Avis & témoignages clients — NovaHypnose | Alain Zenatti" />
         <meta name="twitter:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés." />

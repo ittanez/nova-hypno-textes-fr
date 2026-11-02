@@ -91,13 +91,13 @@ const Index: React.FC = () => {
 
         {/* Open Graph - URL cohérente sans trailing slash */}
         <meta property="og:title" content="Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose" />
-        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil." />
+        <meta property="og:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Hypnothérapeute. Stress, anxiété, phobies, sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr" />
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
 
         {/* Locale et site_name */}
         <meta property="og:locale" content="fr_FR" />
@@ -106,7 +106,7 @@ const Index: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnothérapeute à Paris 4e | Alain Zenatti – NovaHypnose" />
-        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Maître Hypnologue. Stress, anxiété, phobies, sommeil." />
+        <meta name="twitter:description" content="Hypnothérapie à Paris 4ème (Marais-Bastille) et en visio partout en France. Alain Zenatti, Hypnothérapeute. Stress, anxiété, phobies, sommeil." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
 
         {/* Canonical - sans trailing slash pour cohérence */}

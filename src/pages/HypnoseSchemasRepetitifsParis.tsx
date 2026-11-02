@@ -107,7 +107,7 @@ const HypnoseSchemasRepetitifsParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose schémas répétitifs" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose schémas répétitifs" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti" />
         <meta name="twitter:description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio." />

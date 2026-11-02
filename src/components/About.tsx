@@ -46,7 +46,7 @@ const About = () => {
             À propos d'Alain Zenatti
           </h2>
           <p className="text-xl text-nova-blue font-semibold">
-            Maître Hypnologue • Hypnose Ericksonienne
+            Hypnothérapeute certifié • Hypnose Ericksonienne
           </p>
           <p className="text-lg text-gray-600 mt-2">
             Plus de 6 ans d'expérience • Cabinet Paris 4ème
@@ -168,10 +168,10 @@ const About = () => {
           <div className="space-y-6">
             <div className="bg-nova-blue-light bg-opacity-5 p-6 rounded-lg border-l-4 border-nova-blue mb-6 space-y-3">
               <h3 className="font-semibold text-nova-blue-dark text-xl mb-3">
-                Pourquoi choisir un Maître Hypnologue ?
+                Pourquoi choisir un Hypnothérapeute certifié ?
               </h3>
               <p className="leading-relaxed">
-                Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris.
+                Je suis Alain Zenatti, <strong>Hypnothérapeute certifié</strong> à Paris.
               </p>
               <p className="leading-relaxed">
                 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
@@ -280,7 +280,7 @@ const About = () => {
             <div className="rounded-xl overflow-hidden shadow-lg">
               <LazyYouTube 
                 videoId="4VRNBAoAcAE"
-                title="Alain Zenatti - Maître Hypnologue Paris 4ème - Présentation Cabinet NovaHypnose"
+                title="Alain Zenatti - Hypnothérapeute Paris 4ème - Présentation Cabinet NovaHypnose"
                 className="w-full"
               />
               
@@ -289,8 +289,8 @@ const About = () => {
                 {safeJSONStringify({
                   "@context": "https://schema.org",
                   "@type": "VideoObject",
-                  "name": "Présentation d'Alain Zenatti - Maître Hypnologue Paris",
-                  "description": "Découvrez l'approche d'Alain Zenatti, Maître Hypnologue certifié à Paris 4ème, spécialisé en hypnose ericksonienne et auto-hypnose.",
+                  "name": "Présentation d'Alain Zenatti - Hypnothérapeute Paris",
+                  "description": "Découvrez l'approche d'Alain Zenatti, Hypnothérapeute certifié à Paris 4ème, spécialisé en hypnose ericksonienne et auto-hypnose.",
                   "thumbnailUrl": "https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg",
                   "uploadDate": "2025-06-29T10:00:00+02:00",
                   "duration": "PT1M14S",
@@ -314,7 +314,7 @@ const About = () => {
                   "creator": {
                     "@type": "Person",
                     "name": "Alain Zenatti",
-                    "jobTitle": "Maître Hypnologue",
+                    "jobTitle": "Hypnothérapeute",
                     "worksFor": {
                       "@type": "MedicalBusiness",
                       "name": "NovaHypnose"

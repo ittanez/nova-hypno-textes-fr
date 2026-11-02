@@ -2,8 +2,8 @@ export const carouselSlides = [
   {
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/ALAIN.webp?width=1920&quality=70',
     title: 'Transformez votre vie avec l\'hypnose',
-    description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée',
-    alt: 'Alain ZENATTI, Maître Hypnologue certifié et hypnothérapeute à Paris 4ème, cabinet Marais Bastille - Hypnose Ericksonienne'
+    description: 'Alain ZENATTI, Hypnothérapeute certifié à Paris 4ème - Hypnose Ericksonienne personnalisée',
+    alt: 'Alain ZENATTI, Hypnothérapeute certifié et hypnothérapeute à Paris 4ème, cabinet Marais Bastille - Hypnose Ericksonienne'
   },
   {
     image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/render/image/public/images/carroussel/PHOBIE.webp?width=1920&quality=70',

@@ -161,7 +161,7 @@ const ArticlePage = () => {
         "@id": "https://novahypnose.fr/#person",
         "url": "https://novahypnose.fr",
         "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
-        "jobTitle": "Maître Hypnologue certifié"
+        "jobTitle": "Hypnothérapeute"
       },
       "publisher": {
         "@type": "Organization",

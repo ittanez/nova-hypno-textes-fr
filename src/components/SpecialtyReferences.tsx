@@ -100,7 +100,7 @@ const SpecialtyReferences: React.FC<Props> = (props) => {
                 href="https://novahypnose.fr/alain-zenatti"
                 className="underline hover:text-gray-700"
               >
-                Alain Zenatti, Maître Hypnologue certifié
+                Alain Zenatti, Hypnothérapeute certifié
               </a>
               .
             </p>

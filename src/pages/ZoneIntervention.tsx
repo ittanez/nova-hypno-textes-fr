@@ -406,7 +406,7 @@ const ZoneIntervention = () => {
               la majorité des arrondissements parisiens.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Maître Hypnologue certifié,
+              Alain Zenatti, <strong>hypnothérapeute Bastille</strong> et Hypnothérapeute certifié,
               accompagne ses clients dans un cadre confidentiel et bienveillant. Le cabinet
               d'<strong>hypnose Marais</strong> propose des séances individuelles pour le stress,
               l'anxiété, les phobies, les troubles du sommeil, la gestion des émotions et la

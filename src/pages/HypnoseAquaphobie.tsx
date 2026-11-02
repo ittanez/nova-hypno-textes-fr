@@ -106,7 +106,7 @@ const HypnoseAquaphobie = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de l'eau" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose peur de l'eau" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de l'eau (aquaphobie) Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Libérez-vous de la peur de l'eau par l'hypnose à Paris 4ème ou en visio. Aquaphobie, piscine, mer, immersion, natation. Résultats durables visés, souvent dès les premières séances." />

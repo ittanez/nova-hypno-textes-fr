@@ -106,7 +106,7 @@ const HypnoseAmaxophobie = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose peur de conduire" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose peur de conduire" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident. Résultats durables visés, souvent dès les premières séances." />

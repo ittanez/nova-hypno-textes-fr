@@ -47,7 +47,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
           <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-            title="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+            title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
@@ -57,7 +57,7 @@ const VideoModal: React.FC<VideoModalProps> = ({
             <iframe
               className="absolute inset-0 w-full h-full"
               src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-              title="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+              title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>

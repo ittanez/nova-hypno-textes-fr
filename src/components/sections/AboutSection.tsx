@@ -30,7 +30,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 >
                   <img
                     src="https://i.ytimg.com/vi/r8OUp2OJRp4/oar2.jpg"
-                    alt="Vidéo de présentation d'Alain Zenatti - Maître Hypnologue Paris - Cabinet d'hypnothérapie NovaHypnose"
+                    alt="Vidéo de présentation d'Alain Zenatti - Hypnothérapeute Paris - Cabinet d'hypnothérapie NovaHypnose"
                     width="480"
                     height="360"
                     className="w-full h-auto object-cover rounded-xl"
@@ -69,13 +69,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                 Alain Zenatti, Hypnothérapeute à Paris
               </h2>
               <p className="text-xl text-blue-600 font-semibold">
-                Maître Hypnologue certifié • Cabinet Paris 4ème Marais-Bastille
+                Hypnothérapeute certifié • Cabinet Paris 4ème Marais-Bastille
               </p>
 
               <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
                 <p className="font-semibold text-gray-900 mb-2">Votre hypnothérapeute à Paris : expertise et bienveillance</p>
                 <p className="text-gray-700 leading-relaxed">
-                  En tant que <strong>Maître Hypnologue certifié</strong>, je vous accompagne au cœur de Paris avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
+                  En tant que <strong>Hypnothérapeute certifié</strong>, je vous accompagne au cœur de Paris avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
                   Mon cabinet situé dans le Marais (Paris 4ème) vous offre un accompagnement professionnel de haut niveau, alliant formation approfondie et approche personnalisée.
                 </p>
               </div>
@@ -139,7 +139,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onOpenVideoModal }) => {
                   <CheckCircle className="text-blue-500 flex-shrink-0 mt-1" size={24} />
                   <div>
                     <p className="font-semibold text-gray-900">Formation approfondie et continue</p>
-                    <p className="text-gray-600">Maître Hypnologue certifié, formation continue en hypnose ericksonienne</p>
+                    <p className="text-gray-600">Hypnothérapeute certifié, formation continue en hypnose ericksonienne</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
