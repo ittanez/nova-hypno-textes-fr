@@ -29,7 +29,7 @@ const SeoTextSection: React.FC = () => {
           <p className="text-gray-700 leading-relaxed mb-4">
             Bienvenue chez <strong>NovaHypnose</strong>, cabinet d'<strong>hypnothérapie Paris</strong>{' '}
             situé au cœur du Marais-Bastille (Paris 4ème). <strong>Alain Zenatti</strong>, Maître
-            Praticien en <strong>Hypnose Ericksonienne</strong> et Maître Hypnologue certifié,
+            Praticien en <strong>Hypnose Ericksonienne</strong> et Hypnothérapeute certifié,
             vous accompagne avec bienveillance et expertise dans votre démarche de transformation
             personnelle. Fort de 6 ans d'expérience et de 9 certificats de formation
             (École Psynapse et MHD Formation), il a développé une approche thérapeutique

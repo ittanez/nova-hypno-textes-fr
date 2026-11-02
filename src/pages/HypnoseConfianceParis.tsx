@@ -77,7 +77,7 @@ const HypnoseConfianceParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose confiance en soi" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose confiance en soi" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose confiance en soi, Paris 4e | NovaHypnose" />
         <meta name="twitter:description" content="Développez votre confiance en soi par l'hypnose à Paris 4ème ou en visio partout en France. Syndrome de l'imposteur, prise de parole, estime de soi." />
@@ -221,7 +221,7 @@ const HypnoseConfianceParis = () => {
           <h2 className="sp-h2">Mon approche pour développer votre confiance</h2>
           <div className="sp-prose">
             <p>
-              Je suis <strong>Alain Zenatti, Maître Hypnologue certifié</strong> à Paris 4ème.
+              Je suis <strong>Alain Zenatti, Hypnothérapeute certifié</strong> à Paris 4ème.
               Le manque de confiance en soi est l'un des motifs les plus fréquents dans mon cabinet.
             </p>
             <p>

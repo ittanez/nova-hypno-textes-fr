@@ -109,7 +109,7 @@ const HypnoseDeuilParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose deuil" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose deuil" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose deuil et séparation Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Traversez votre deuil avec l'hypnose à Paris 4ème ou en visio. Perte d'un proche, rupture, séparation — accompagnement en douceur, à votre rythme." />

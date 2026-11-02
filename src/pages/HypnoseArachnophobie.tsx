@@ -107,7 +107,7 @@ const HypnoseArachnophobie = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose arachnophobie" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose arachnophobie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes, vermines. Résultats durables visés, souvent dès les premières séances." />

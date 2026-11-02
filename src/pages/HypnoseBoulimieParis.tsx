@@ -42,7 +42,7 @@ const HypnoseBoulimieParis = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hypnose boulimie Paris",
-    "description": "Accompagnement par l'hypnose ericksonienne pour la boulimie à Paris 4ème ou en visio. Approche profonde, bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Maître Hypnologue.",
+    "description": "Accompagnement par l'hypnose ericksonienne pour la boulimie à Paris 4ème ou en visio. Approche profonde, bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Hypnothérapeute.",
     "url": "https://novahypnose.fr/hypnose-boulimie-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
@@ -107,7 +107,7 @@ const HypnoseBoulimieParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose boulimie" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose boulimie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose boulimie Paris & en ligne | Alain Zenatti" />
         <meta name="twitter:description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante." />
@@ -295,7 +295,7 @@ const HypnoseBoulimieParis = () => {
               de survie qui a besoin d'évoluer. Mon rôle est de vous accompagner
               à comprendre ce qu'elle dit — et à ne plus avoir besoin d'elle. »
             </p>
-            <cite>Alain Zenatti, Maître Hypnologue — NovaHypnose Paris</cite>
+            <cite>Alain Zenatti, Hypnothérapeute — NovaHypnose Paris</cite>
           </blockquote>
         </div>
       </section>

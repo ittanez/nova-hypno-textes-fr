@@ -45,7 +45,7 @@ const Faq = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose" />
         <meta name="twitter:description" content="Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio." />

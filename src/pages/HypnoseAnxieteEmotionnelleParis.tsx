@@ -107,7 +107,7 @@ const HypnoseAnxieteEmotionnelleParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème – Hypnose anxiété émotionnelle" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose anxiété émotionnelle" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose anxiété émotionnelle Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel." />

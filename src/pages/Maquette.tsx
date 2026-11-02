@@ -42,7 +42,7 @@ const Maquette = () => {
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/ALAIN.webp',
       title: 'Transformez votre vie avec l\'hypnose',
-      description: 'Alain ZENATTI, Maître Hypnologue certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
+      description: 'Alain ZENATTI, Hypnothérapeute certifié à Paris 4ème - Hypnose Ericksonienne personnalisée'
     },
     {
       image: 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/carroussel/PHOBIE.webp',
@@ -395,7 +395,7 @@ const Maquette = () => {
               <div className="space-y-6 order-2 md:order-1">
                 <img
                   src="/zenatti.webp"
-                  alt="Alain Zenatti - Maître Hypnologue Paris"
+                  alt="Alain Zenatti - Hypnothérapeute Paris"
                   className="rounded-2xl shadow-2xl w-full"
                 />
 
@@ -406,7 +406,7 @@ const Maquette = () => {
                   >
                     <img
                       src="https://img.youtube.com/vi/4VRNBAoAcAE/sddefault.jpg"
-                      alt="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+                      alt="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
                       className="w-full h-auto"
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
@@ -438,13 +438,13 @@ const Maquette = () => {
                   Alain Zenatti
                 </h2>
                 <p className="text-xl text-blue-600 font-semibold">
-                  Maître Hypnologue certifié • Paris 4ème
+                  Hypnothérapeute certifié • Paris 4ème
                 </p>
 
                 <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-                  <p className="font-semibold text-gray-900 mb-2">Pourquoi choisir un Maître Hypnologue ?</p>
+                  <p className="font-semibold text-gray-900 mb-2">Pourquoi choisir un Hypnothérapeute certifié ?</p>
                   <p className="text-gray-700 leading-relaxed">
-                    Je suis Alain Zenatti, <strong>Maître Hypnologue certifié</strong> à Paris, avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
+                    Je suis Alain Zenatti, <strong>Hypnothérapeute certifié</strong> à Paris, avec 6 ans d'expérience en hypnose ericksonienne et auto-hypnose.
                     Vous profitez d'une formation approfondie (9 certifications) et d'une approche scientifiquement fondée qui vous garantissent un accompagnement professionnel de haut niveau.
                   </p>
                 </div>
@@ -455,7 +455,7 @@ const Maquette = () => {
 
                 <blockquote className="pl-6 border-l-4 border-blue-500 italic text-gray-700">
                   "Un mouvement intérieur qui ne force rien, mais qui facilite l'émergence de votre mieux-être authentique, durable et aligné avec qui vous êtes."
-                  <footer className="text-gray-600 text-sm mt-2 not-italic">— Alain Zenatti, Maître Hypnologue</footer>
+                  <footer className="text-gray-600 text-sm mt-2 not-italic">— Alain Zenatti, Hypnothérapeute</footer>
                 </blockquote>
 
                 <div className="space-y-3">
@@ -1265,7 +1265,7 @@ const Maquette = () => {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/4VRNBAoAcAE?autoplay=1"
-                title="Présentation d'Alain Zenatti - Maître Hypnologue Paris"
+                title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

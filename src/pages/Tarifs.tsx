@@ -129,7 +129,7 @@ const Tarifs = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Hypnologue – Cabinet NovaHypnose Paris 4ème" />
+        <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tarifs hypnose Paris & visio — 90 € la séance | NovaHypnose" />
         <meta name="twitter:description" content="90 € au cabinet Paris 4ème ou en visio, 140 € à domicile. Annulation sans frais jusqu'à 48 h." />
