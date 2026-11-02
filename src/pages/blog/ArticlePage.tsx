@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import RelatedArticles from "@/components/blog/RelatedArticles";
 import BlogArticleFAQ from "@/components/blog/BlogArticleFAQ";
+import { findPillarPage } from "@/data/pillarMapping";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
 import { getArticleBySlug, getPublishedArticleRefs, getAllCategories } from "@/lib/services/blog/articleService";
@@ -401,6 +402,25 @@ const ArticlePage = () => {
                 }}
               />
               
+              {/* ✅ LIEN VERS LA PAGE PILIER */}
+              {(() => {
+                const pillar = findPillarPage(article.slug);
+                if (!pillar) return null;
+                return (
+                  <div className="my-8 p-5 bg-blue-50 border border-blue-200 rounded-xl">
+                    <p className="text-sm text-blue-800 mb-2 font-medium">
+                      Vous souhaitez être accompagné(e) sur ce sujet ?
+                    </p>
+                    <Link
+                      to={pillar.url}
+                      className="text-blue-700 font-semibold hover:underline"
+                    >
+                      → {pillar.label}
+                    </Link>
+                  </div>
+                );
+              })()}
+
               {/* ✅ FAQ DE L'ARTICLE */}
               {article.faq && article.faq.length > 0 && (
                 <BlogArticleFAQ
