@@ -150,6 +150,47 @@ function stripHtmlTags(html: string): string {
   return html.replace(/<[^>]*>/g, "");
 }
 
+// ─── Lien pilier (article → page service) ─────────────────────────────────
+const PILLAR_RULES: { keywords: string[]; url: string; label: string }[] = [
+  { keywords: ["avion", "vol-long"], url: "/hypnose-peur-avion-paris", label: "Hypnose peur de l’avion à Paris" },
+  { keywords: ["conduire", "amaxophobie", "volant"], url: "/hypnose-amaxophobie-paris", label: "Hypnose peur de conduire à Paris" },
+  { keywords: ["araign", "arachnophobie"], url: "/hypnose-arachnophobie-paris", label: "Hypnose arachnophobie à Paris" },
+  { keywords: ["claustrophobie", "ascenseur"], url: "/hypnose-claustrophobie-paris", label: "Hypnose claustrophobie à Paris" },
+  { keywords: ["acrophobie", "peur-du-vide", "vertige"], url: "/hypnose-acrophobie-paris", label: "Hypnose peur du vide à Paris" },
+  { keywords: ["aquaphobie", "peur-de-l-eau"], url: "/hypnose-aquaphobie-paris", label: "Hypnose peur de l’eau à Paris" },
+  { keywords: ["peur-du-sang", "hemophobie", "phobie-du-sang"], url: "/hypnose-peur-sang-paris", label: "Hypnose peur du sang à Paris" },
+  { keywords: ["aiguille", "piqure"], url: "/hypnose-peur-aiguilles-paris", label: "Hypnose peur des aiguilles à Paris" },
+  { keywords: ["dentiste"], url: "/hypnose-peur-dentiste-paris", label: "Hypnose peur du dentiste à Paris" },
+  { keywords: ["parler-en-public", "parler-public", "glossophobie"], url: "/hypnose-peur-parler-public-paris", label: "Hypnose peur de parler en public à Paris" },
+  { keywords: ["phobie-sociale", "rougir", "ereutophobie"], url: "/hypnose-phobie-sociale-paris", label: "Hypnose phobie sociale à Paris" },
+  { keywords: ["sommeil", "insomni", "dormir", "endormissement"], url: "/hypnose-sommeil-paris", label: "Hypnose troubles du sommeil à Paris" },
+  { keywords: ["confiance-en-soi", "estime-de-soi", "devalorisation", "imposteur"], url: "/hypnose-confiance-en-soi-paris", label: "Hypnose confiance en soi à Paris" },
+  { keywords: ["stress", "anxie", "panique", "respiration-anti-stress", "bruxisme"], url: "/hypnose-stress-anxiete-paris", label: "Hypnose stress et anxiété à Paris" },
+  { keywords: ["colere", "emotion", "hypersensib", "frustration", "charge-emotionnelle"], url: "/hypnose-gestion-emotions-paris", label: "Hypnose gestion des émotions à Paris" },
+  { keywords: ["procrastin"], url: "/hypnose-procrastination-paris", label: "Hypnose procrastination à Paris" },
+  { keywords: ["toc", "rituels-compulsifs", "trichotillomanie", "mysophobie"], url: "/hypnose-toc-rituels-paris", label: "Hypnose TOC et rituels à Paris" },
+  { keywords: ["schema-repetitif", "schemas-repetitifs", "relation-toxique"], url: "/hypnose-schemas-repetitifs-paris", label: "Hypnose schémas répétitifs à Paris" },
+  { keywords: ["blocage-professionnel", "autosabotage", "peur-de-reussir"], url: "/hypnose-blocages-professionnels-paris", label: "Hypnose blocages professionnels à Paris" },
+  { keywords: ["tabac", "fumer", "cigarette"], url: "/hypnose-arret-tabac-paris", label: "Hypnose arrêt du tabac à Paris" },
+  { keywords: ["alimenta", "boulimi", "grignot", "compulsion", "addiction-sucre", "image-corporelle"], url: "/hypnose-troubles-alimentaires-paris", label: "Hypnose troubles alimentaires à Paris" },
+  { keywords: ["deuil", "separation", "rupture"], url: "/hypnose-deuil-paris", label: "Hypnose deuil et séparation à Paris" },
+  { keywords: ["traumatisme", "trauma", "choc"], url: "/hypnose-traumatismes-paris", label: "Hypnose traumatismes à Paris" },
+  { keywords: ["phobie", "peur"], url: "/hypnose-phobies-paris", label: "Hypnose phobies et peurs à Paris" },
+];
+
+function getPillarLink(slug: string): string {
+  const s = slug.toLowerCase();
+  for (const rule of PILLAR_RULES) {
+    if (rule.keywords.some((kw) => s.includes(kw))) {
+      return `<div style="margin:2rem 0;padding:1.25rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px">
+  <p style="margin:0 0 0.5rem;font-weight:600;color:#1e40af;font-size:0.9rem">Vous souhaitez être accompagné(e) sur ce sujet ?</p>
+  <a href="${SITE_URL}${rule.url}" style="color:#1d4ed8;font-weight:600;text-decoration:none">→ ${rule.label}</a>
+</div>`;
+    }
+  }
+  return "";
+}
+
 // ─── Réponses d'erreur pour les bots ────────────────────────────────────────
 // Ne jamais retomber sur la SPA (context.next()) : index.html est servi en 200,
 // sans canonical et avec un titre générique identique pour toutes ces URLs.
@@ -561,6 +602,7 @@ function renderArticlePage(
     ${imageUrl ? `<img class="article-image" src="${imageUrl}" alt="${escapeHtml(article.title)}" width="800" height="450">` : ""}
     <p><em>${escapeHtml(article.excerpt)}</em></p>
     <div class="article-content">${article.content}</div>
+    ${getPillarLink(article.slug)}
     ${faqHtml}
   </article>
   ${relatedHtml}
