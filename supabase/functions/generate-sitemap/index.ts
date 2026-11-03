@@ -61,6 +61,7 @@ serve(async (req) => {
       { loc: '/hypnose-colere-paris',          lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-hypersensibilite-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-deuil-paris',           lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-douleur-chronique-paris', lastmod: '2026-11-03', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-traumatismes-paris',    lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-frustration-paris',     lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-anxiete-emotionnelle-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },

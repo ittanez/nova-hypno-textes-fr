@@ -2653,6 +2653,38 @@ PAGES["/hypnose-deuil-paris"] = {
     `,
 };
 
+PAGES["/hypnose-douleur-chronique-paris"] = {
+  title: "Hypnose douleur chronique à Paris 4e | NovaHypnose",
+  description:
+    "Migraines, fibromyalgie, douleurs de dos : l'hypnose accompagne le vécu de la douleur, en complément d'un suivi médical. Paris 4e ou visio. 90 €.",
+  canonicalPath: "/hypnose-douleur-chronique-paris",
+  h1: "Hypnose et douleur chronique à Paris",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Hypnose douleur chronique Paris",
+      description: "Accompagnement du vécu de la douleur chronique par l'hypnose ericksonienne, en complément d'un suivi médical. Cabinet Paris 4ème ou en visio.",
+      url: `${SITE_URL}/hypnose-douleur-chronique-paris`,
+      provider: { "@id": `${SITE_URL}/#person` },
+      areaServed: [
+        { "@type": "City", name: "Paris" },
+        { "@type": "Country", name: "France" },
+      ],
+      serviceType: "Hypnothérapie douleur chronique",
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Douleur chronique", path: "/hypnose-douleur-chronique-paris" },
+    ]),
+  ],
+  content: `
+    <p>Une douleur chronique doit d'abord être évaluée par un médecin. L'hypnose ericksonienne n'en traite pas la cause : elle peut aider à changer la relation à la douleur (tension, anxiété, sommeil), en complément du suivi médical. Séances à 90 €, au cabinet Paris 4e ou en visio.</p>
+    <p><a href="${SITE_URL}/tarifs">Tarifs</a> · <a href="${SITE_URL}/contact">Contact</a> · <a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> · <a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil</a></p>
+    <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Prendre rendez-vous</a>
+    `,
+};
+
 PAGES["/hypnose-traumatismes-paris"] = {
   title: "Hypnose traumatismes Paris | Alain Zenatti",
   description:

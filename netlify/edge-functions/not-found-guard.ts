@@ -64,6 +64,7 @@ export const KNOWN_PATHS = new Set<string>([
   "/hypnose-compulsions-alimentaires-paris",
   "/hypnose-confiance-en-soi-paris",
   "/hypnose-deuil-paris",
+  "/hypnose-douleur-chronique-paris",
   "/hypnose-deuil-separation-paris",
   "/hypnose-en-ligne",
   "/hypnose-frustration-chronique-paris",
