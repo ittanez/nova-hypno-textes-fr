@@ -1261,6 +1261,25 @@ export const PAGES: Record<string, PageData> = {
       ]),
       {
         "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/zone-intervention#service-domicile`,
+        "name": "Séances d'hypnose à domicile — NovaHypnose",
+        "serviceType": "Hypnose à domicile",
+        "url": `${SITE_URL}/zone-intervention`,
+        "provider": { "@id": `${SITE_URL}/#person` },
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Paris 1er arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 2e arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 3e arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 4e arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 9e arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 10e arrondissement" },
+          { "@type": "AdministrativeArea", "name": "Paris 11e arrondissement" }
+        ],
+        "offers": { "@type": "Offer", "price": "140", "priceCurrency": "EUR" },
+      },
+      {
+        "@context": "https://schema.org",
         "@type": ["HealthAndBeautyBusiness", "MedicalBusiness"],
         "@id": `${SITE_URL}/#localbusiness`,
         "name": "NovaHypnose — Alain Zenatti, hypnothérapeute Paris 4",
@@ -1557,6 +1576,14 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
     canonicalPath: "/hypnose-en-ligne",
     h1: "Spécialiste de l'hypnose en ligne — Consultez depuis chez vous, partout en France.",
     jsonLd: [
+      faqLd([
+        { q: "L'hypnose en visio est-elle aussi efficace qu'au cabinet ?", a: "Oui. L'hypnose ne repose pas sur le contact physique mais sur la voix, l'attention et la relation thérapeutique — qui passent parfaitement par la visioconférence. De nombreux clients suivis à distance suivent le même déroulement qu'en présentiel. Vous restez pleinement conscient et acteur du processus, exactement comme au cabinet." },
+        { q: "Comment se déroule concrètement une séance d'hypnose en ligne ?", a: "Vous recevez un lien de connexion sécurisé (Google Meet). La première séance dure environ 1h30 : entretien pour cerner votre objectif, séance d'hypnose guidée par la voix, puis debriefing. Les séances suivantes durent 1h. Vous avez simplement besoin d'un endroit calme, d'une connexion internet stable et d'un casque ou d'écouteurs." },
+        { q: "Depuis où peut-on consulter en visio ?", a: "Depuis n'importe où dans le monde ! La séance en visio n'a pas de frontières : que vous soyez en France, à l'étranger ou en voyage, la seule condition est de disposer d'une connexion internet stable et d'un endroit calme et confortable." },
+        { q: "De quel matériel ai-je besoin pour une téléconsultation d'hypnose ?", a: "Un ordinateur, une tablette ou un smartphone avec caméra et micro, une connexion internet stable, un casque ou des écouteurs (pour une meilleure immersion), et un endroit calme où vous ne serez pas dérangé pendant environ une heure. C'est tout." },
+        { q: "Comment payer une séance d'hypnose en visio ?", a: "Le règlement s'effectue en ligne de façon simple et sécurisée, selon votre préférence : par carte bancaire via Stripe — le lien de paiement vous est transmis lors de la réservation — ou par Wero, en envoyant le paiement au 06 49 35 80 89. Une facture peut vous être fournie sur demande." },
+        { q: "Puis-je alterner séances en visio et séances au cabinet ?", a: "Tout à fait. Vous pouvez commencer en visio puis venir au cabinet à Paris 4ème, ou inversement, selon votre situation et vos déplacements. L'accompagnement reste cohérent quel que soit le format choisi." },
+      ]),
       {
         "@context": "https://schema.org",
         "@type": "Service",

@@ -162,6 +162,10 @@
   font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px;
   background: rgba(43,75,160,.08); padding: 2px 6px; border-radius: 4px;
 }
+.cz .article-share { max-width: 740px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(28,43,74,.12); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.cz .article-share__label { font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: var(--gris); }
+.cz .article-share__buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.cz .article-share__btn { padding: 8px 16px; font-size: .9rem; min-height: 44px; }
 .cz .article-faq { max-width: 740px; margin: 56px auto 0; }
 .cz .article-faq h2 {
   font-family: var(--f-serif); font-weight: 400; font-size: 28px; color: var(--texte);

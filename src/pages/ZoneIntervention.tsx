@@ -21,6 +21,26 @@ const breadcrumbLd = {
   ]
 };
 
+const domicileServiceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://novahypnose.fr/zone-intervention#service-domicile",
+  "name": "Séances d'hypnose à domicile — NovaHypnose",
+  "serviceType": "Hypnose à domicile",
+  "url": "https://novahypnose.fr/zone-intervention",
+  "provider": { "@id": "https://novahypnose.fr/#person" },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Paris 1er arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 2e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 3e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 4e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 9e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 10e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 11e arrondissement" }
+  ],
+  "offers": { "@type": "Offer", "price": "140", "priceCurrency": "EUR" }
+};
+
 const ZoneIntervention = () => {
   const arrondissements = [
     {
@@ -135,6 +155,7 @@ const ZoneIntervention = () => {
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{safeJSONStringify(domicileServiceLd)}</script>
       </Helmet>
 
       {/* Hero Section */}

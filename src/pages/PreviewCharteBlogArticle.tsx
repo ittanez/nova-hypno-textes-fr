@@ -6,6 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
+import ArticleShare from '@/components/blog/ArticleShare';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/services/blog/articleService';
 import type { Article } from '@/lib/types/blog';
@@ -212,6 +213,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                   className="article-body reveal"
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
+                <ArticleShare url={`https://novahypnose.fr/blog/article/${article.slug}`} title={article.title} />
                 {Array.isArray(article.faq) && article.faq.length > 0 && (
                   <section className="article-faq reveal">
                     <h2>Questions fréquentes</h2>

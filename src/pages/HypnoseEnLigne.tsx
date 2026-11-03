@@ -49,6 +49,16 @@ const HypnoseEnLigne = () => {
     ]
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": visioFaqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  };
+
   const avantages = [
     { t: "Aucun déplacement", d: "Pas de transport, pas de temps perdu : vous gagnez en énergie et en sérénité avant la séance." },
     { t: "Partout en France", d: "Le même accompagnement, que vous soyez à Lyon, Marseille, Lille, Bordeaux, en campagne ou à l'étranger." },
@@ -82,6 +92,7 @@ const HypnoseEnLigne = () => {
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqLd)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>
