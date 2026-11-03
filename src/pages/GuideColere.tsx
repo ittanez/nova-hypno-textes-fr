@@ -139,7 +139,7 @@ const GuideColere: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — La Colère, Enfin Apprivoisée | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour apaiser la colère et l'irritabilité chronique par l'hypnose." />
+        <meta name="description" content="Guide gratuit d'Alain Zenatti pour apaiser la colère et l'irritabilité : comprendre vos déclencheurs et un protocole d'auto-hypnose pratique." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-colere" />
         <script type="application/ld+json">{safeJSONStringify({

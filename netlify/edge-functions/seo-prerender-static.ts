@@ -344,7 +344,7 @@ export const PAGES: Record<string, PageData> = {
     description:
       "Cabinet d'hypnothérapie rue Saint-Antoine, Paris 4e, et séances en visio. Alain Zenatti vous accompagne : stress, sommeil, peurs, confiance en soi.",
     canonicalPath: "/",
-    h1: "Hypnothérapeute à Paris — Alain Zenatti, hypnose ericksonienne et auto-hypnose",
+    h1: "Hypnothérapeute à Paris 4e (Marais-Bastille) — Alain Zenatti",
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [
       breadcrumbLd([{ name: "Accueil", path: "/" }]),
@@ -419,11 +419,11 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-stress-anxiete-paris": {
-    title: "Hypnose anxiété et crise d'angoisse, Paris 4e | NovaHypnose",
+    title: "Hypnose stress et anxiété à Paris 4e | NovaHypnose",
     description:
       "Anxiété, crises d'angoisse, stress : un accompagnement par l'hypnose ericksonienne au cabinet (Paris 4e) ou en visio. Premier échange avec Alain Zenatti.",
     canonicalPath: "/hypnose-stress-anxiete-paris",
-    h1: "Hypnose et stress — Retrouvez la sérénité à Paris",
+    h1: "Hypnose pour le stress et l'anxiété à Paris",
     jsonLd: [
       serviceLd(
         "Hypnose stress et anxiété Paris",
@@ -718,11 +718,11 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-arret-tabac-paris": {
-    title: "Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti",
+    title: "Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose",
     description:
-      "Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne neutralise les automatismes liés à la cigarette en 1 à 3 séances. Alain Zenatti, Maître Praticien.",
+      "Arrêter de fumer avec l'hypnose à Paris 4e ou en visio : agir sur les automatismes liés à la cigarette. 90 € la séance. Alain Zenatti.",
     canonicalPath: "/hypnose-arret-tabac-paris",
-    h1: "Libérez-vous de la cigarette durablement",
+    h1: "Hypnose pour arrêter de fumer à Paris et en visio",
     jsonLd: [
       serviceLd(
         "Hypnose arrêt du tabac Paris",
@@ -826,7 +826,7 @@ export const PAGES: Record<string, PageData> = {
   "/hypnose-gestion-emotions-paris": {
     title: "Hypnose gestion des émotions Paris | Alain Zenatti",
     description:
-      "Gérez vos émotions par l'hypnose à Paris 4ème. Colère, hypersensibilité, deuil, frustration. Alain Zenatti, Hypnothérapeute. Premiers changements souvent dans les 3 à 5 premières séances.",
+      "Colère, hypersensibilité, deuil, frustration : apprivoisez vos émotions avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
     canonicalPath: "/hypnose-gestion-emotions-paris",
     h1: "Hypnose et gestion des émotions — Retrouvez votre équilibre à Paris",
     jsonLd: [
@@ -930,9 +930,9 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/hypnose-blocages-paris": {
-    title: "Hypnose blocages et comportements Paris | Zenatti",
+    title: "Hypnose blocages et comportements, Paris | NovaHypnose",
     description:
-      "Libérez vos blocages par l'hypnose à Paris 4ème. Procrastination, schémas répétitifs, TOC, addictions. Alain Zenatti, Hypnothérapeute. Premiers changements souvent dans les 3 à 5 premières séances.",
+      "Procrastination, schémas répétitifs, TOC, addictions : levez vos blocages avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
     canonicalPath: "/hypnose-blocages-paris",
     h1: "Blocages et troubles du comportement — Libérez-vous par l'hypnose à Paris",
     jsonLd: [
@@ -1177,7 +1177,7 @@ export const PAGES: Record<string, PageData> = {
   "/autohypnose": {
     title: "Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose",
     description:
-      "Apprenez l'auto-hypnose avec Alain Zenatti à Paris : formation en groupe (1 journée, max 6, 240 €), accompagnement individuel et formations en entreprise sur devis. Gérez stress, sommeil et émotions en autonomie.",
+      "Apprenez l'auto-hypnose à Paris : formation en groupe (1 journée, 6 max, 240 €) ou accompagnement individuel. Stress, sommeil, émotions. Alain Zenatti.",
     canonicalPath: "/autohypnose",
     h1: "Auto-hypnose — Devenir acteur de votre changement.",
     jsonLd: [
@@ -1249,9 +1249,9 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/zone-intervention": {
-    title: "Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose",
+    title: "Cabinet d'hypnose Paris 4e, Bastille Marais | NovaHypnose",
     description:
-      "Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif.",
+      "Cabinet d'hypnose au 16 rue Saint-Antoine, Paris 4e (Bastille, Marais, Saint-Paul), 2 min du métro Bastille. Accès, plan et séances en visio.",
     canonicalPath: "/zone-intervention",
     h1: "Venir au Cabinet à Paris 4e — Marais · Bastille & Visio France",
     jsonLd: [
@@ -1398,7 +1398,7 @@ export const PAGES: Record<string, PageData> = {
   "/alain-zenatti": {
     title: "Alain Zenatti - Hypnothérapeute à Paris | NovaHypnose",
     description:
-      "Alain Zenatti, Hypnothérapeute certifié à Paris 4ème. Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne, 6 ans d'expérience, auteur de nombreux articles sur l'hypnothérapie.",
+      "Alain Zenatti, hypnothérapeute à Paris 4e : parcours, formations en hypnose ericksonienne, approche. Rendez-vous au cabinet ou en visio.",
     canonicalPath: "/alain-zenatti",
     h1: "Alain Zenatti — Hypnothérapeute certifié",
     jsonLd: [
@@ -1471,7 +1471,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   "/hypnose-troubles-alimentaires-paris": {
     title: "Hypnose troubles alimentaires Paris | Rapport au corps | Alain Zenatti",
     description:
-      "Retrouvez un rapport apaisé à la nourriture grâce à l'hypnose à Paris 4ème. Compulsions, restriction, relation difficile à l'alimentation. Alain Zenatti, Hypnothérapeute. 90 €.",
+      "Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
     canonicalPath: "/hypnose-troubles-alimentaires-paris",
     h1: "Hypnose et rapport au corps — Retrouvez une relation apaisée à la nourriture",
     jsonLd: [
@@ -1776,7 +1776,7 @@ PAGES["/hypnose-arachnophobie-paris"] = {
 PAGES["/hypnose-acrophobie-paris"] = {
   title: "Hypnose acrophobie (peur du vide) Paris | Alain Zenatti",
   description:
-    "Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, hauteurs — résultats durables en 2 à 4 séances.",
+    "Peur du vide et des hauteurs : un accompagnement par l'hypnose à Paris 4e ou en visio. Balcons, escaliers, ponts. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-acrophobie-paris",
   h1: "Hypnose et acrophobie — Libérez-vous de la peur du vide à Paris",
   jsonLd: [
@@ -1843,7 +1843,7 @@ PAGES["/hypnose-acrophobie-paris"] = {
 PAGES["/hypnose-claustrophobie-paris"] = {
   title: "Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti",
   description:
-    "Libérez-vous de la claustrophobie (peur des espaces clos) par l'hypnose à Paris 4ème ou en visio. Ascenseurs, IRM, métro — résultats durables en 2 à 4 séances.",
+    "Ascenseur, IRM, métro : un accompagnement de la claustrophobie par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-claustrophobie-paris",
   h1: "Hypnose et claustrophobie — Libérez-vous de la peur des espaces clos à Paris",
   jsonLd: [
@@ -2300,7 +2300,7 @@ PAGES["/hypnose-aquaphobie-paris"] = {
 
 PAGES["/hypnose-amaxophobie-paris"] = {
   title: "Hypnose peur de conduire (amaxophobie) Paris | Alain Zenatti",
-  description: "Reprenez le volant en confiance par l'hypnose à Paris 4ème ou en visio. Amaxophobie, peur autoroute, séquelles accident — résultats durables en 2 à 4 séances.",
+  description: "Peur de conduire, d'aller sur l'autoroute, séquelles d'un accident : reprenez le volant avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-amaxophobie-paris",
   h1: "Hypnose et peur de conduire — Reprenez le volant en confiance à Paris",
   jsonLd: [
@@ -2381,7 +2381,7 @@ PAGES["/hypnose-amaxophobie-paris"] = {
 
 PAGES["/hypnose-phobie-sociale-paris"] = {
   title: "Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale",
-  description: "Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale — premiers changements souvent dans les 3 à 5 premières séances.",
+  description: "Peur du jugement, rougissement, anxiété sociale : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-phobie-sociale-paris",
   h1: "Hypnose et phobie sociale — Retrouvez le plaisir des interactions à Paris",
   jsonLd: [
@@ -2463,7 +2463,7 @@ PAGES["/hypnose-phobie-sociale-paris"] = {
 PAGES["/hypnose-colere-paris"] = {
   title: "Hypnose colère et irritabilité Paris | Alain Zenatti",
   description:
-    "Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées. Alain Zenatti, Hypnothérapeute.",
+    "Colère chronique, irritabilité, réactions disproportionnées : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-colere-paris",
   h1: "Hypnose colère et irritabilité — Retrouvez le calme sans perdre votre énergie",
   jsonLd: [
@@ -2528,7 +2528,7 @@ PAGES["/hypnose-colere-paris"] = {
 PAGES["/hypnose-hypersensibilite-paris"] = {
   title: "Hypnose hypersensibilité Paris | Alain Zenatti",
   description:
-    "Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel. Alain Zenatti, Hypnothérapeute.",
+    "Émotions amplifiées, surcharge sensorielle, épuisement : un accompagnement de l'hypersensibilité par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-hypersensibilite-paris",
   h1: "Hypnose et hypersensibilité — Ressentir profondément sans être submergé(e)",
   jsonLd: [
@@ -2656,7 +2656,7 @@ PAGES["/hypnose-deuil-paris"] = {
 PAGES["/hypnose-traumatismes-paris"] = {
   title: "Hypnose traumatismes Paris | Alain Zenatti",
   description:
-    "Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma. Ne remplace pas un suivi médical.",
+    "Choc, accident, agression : apaisez un traumatisme avec l'hypnose à Paris 4e ou en visio, sans le revivre. Complémentaire d'un suivi médical. 90 €.",
   canonicalPath: "/hypnose-traumatismes-paris",
   h1: "Apaisez un traumatisme avec l'hypnose — Choc, accident, agression, stress post-traumatique",
   jsonLd: [
@@ -2724,7 +2724,7 @@ PAGES["/hypnose-traumatismes-paris"] = {
 PAGES["/hypnose-frustration-paris"] = {
   title: "Hypnose frustration chronique Paris | Alain Zenatti",
   description:
-    "Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio. Premiers changements souvent dans les 3 à 5 premières séances.",
+    "Frustration chronique, insatisfaction permanente : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-frustration-paris",
   h1: "Hypnose et frustration chronique — Libérez-vous de l'insatisfaction permanente",
   jsonLd: [
@@ -2788,7 +2788,7 @@ PAGES["/hypnose-frustration-paris"] = {
 PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
   title: "Hypnose anxiété émotionnelle Paris | Alain Zenatti",
   description:
-    "Rétablissez la confiance en vos émotions par l'hypnose à Paris 4ème ou en visio. Peur de craquer, contrôle excessif, évitement émotionnel — premiers changements souvent dans les 3 à 5 premières séances.",
+    "Peur de craquer, contrôle excessif, évitement des émotions : retrouvez confiance avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-anxiete-emotionnelle-paris",
   h1: "Hypnose pour l'anxiété émotionnelle — Rétablir la confiance en ses émotions",
   jsonLd: [
@@ -2852,7 +2852,7 @@ PAGES["/hypnose-anxiete-emotionnelle-paris"] = {
 PAGES["/hypnose-charge-emotionnelle-paris"] = {
   title: "Hypnose charge émotionnelle Paris | Alain Zenatti",
   description:
-    "Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions. Alain Zenatti, Hypnothérapeute.",
+    "Fatigue émotionnelle, saturation, absorption des émotions des autres : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-charge-emotionnelle-paris",
   h1: "Hypnose et charge émotionnelle — Déposer le poids que vous portez seul(e)",
   jsonLd: [
@@ -2917,7 +2917,7 @@ PAGES["/hypnose-charge-emotionnelle-paris"] = {
 PAGES["/hypnose-procrastination-paris"] = {
   title: "Hypnose procrastination Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action — l'hypnose agit sur la cause, pas le symptôme. Alain Zenatti, Hypnothérapeute.",
+    "Peur de l'échec, perfectionnisme, blocage à l'action : cessez de procrastiner avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-procrastination-paris",
   h1: "Hypnose et procrastination — Libérez-vous du blocage à l'action",
   jsonLd: [
@@ -2982,7 +2982,7 @@ PAGES["/hypnose-procrastination-paris"] = {
 PAGES["/hypnose-onychophagie-paris"] = {
   title: "Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti",
   description:
-    "Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. L'onychophagie cède souvent en 1 à 3 séances. Alain Zenatti, Hypnothérapeute Paris.",
+    "Se ronger les ongles : arrêtez avec l'hypnose à Paris 4e ou en visio. Un accompagnement sur le geste et le stress qui l'entretient. 90 € la séance.",
   canonicalPath: "/hypnose-onychophagie-paris",
   h1: "Hypnose et onychophagie — Arrêtez de vous ronger les ongles définitivement",
   jsonLd: [
@@ -3045,7 +3045,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
 PAGES["/hypnose-toc-rituels-paris"] = {
   title: "Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous des TOC, rituels compulsifs et comportements répétitifs (trichotillomanie) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur l'anxiété sous-jacente. Alain Zenatti, Hypnothérapeute.",
+    "TOC, rituels de vérification, comportements répétitifs : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-toc-rituels-paris",
   h1: "Hypnose, TOC et rituels compulsifs — Libérez-vous des comportements répétitifs",
   jsonLd: [
@@ -3109,7 +3109,7 @@ PAGES["/hypnose-toc-rituels-paris"] = {
 PAGES["/hypnose-schemas-repetitifs-paris"] = {
   title: "Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti",
   description:
-    "Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source. Alain Zenatti, Hypnothérapeute.",
+    "Mêmes histoires en amour ou au travail ? Explorez vos schémas répétitifs avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-schemas-repetitifs-paris",
   h1: "Hypnose et schémas répétitifs — Brisez les cycles qui se répètent",
   jsonLd: [
@@ -3172,7 +3172,7 @@ PAGES["/hypnose-schemas-repetitifs-paris"] = {
 PAGES["/hypnose-blocages-professionnels-paris"] = {
   title: "Hypnose blocages professionnels Paris & en ligne | Alain Zenatti",
   description:
-    "Levez vos blocages professionnels par l'hypnose à Paris 4ème ou en visio. Auto-sabotage, syndrome de l'imposteur, peur de réussir — l'hypnose agit sur les freins inconscients. Alain Zenatti, Hypnothérapeute.",
+    "Auto-sabotage, syndrome de l'imposteur, peur de réussir : levez vos freins professionnels avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-blocages-professionnels-paris",
   h1: "Hypnose et blocages professionnels — Levez les freins qui bloquent votre carrière",
   jsonLd: [
@@ -3237,7 +3237,7 @@ PAGES["/hypnose-blocages-professionnels-paris"] = {
 PAGES["/hypnose-addictions-comportementales-paris"] = {
   title: "Hypnose addictions comportementales Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause émotionnelle. Alain Zenatti, Hypnothérapeute.",
+    "Jeux d'argent, écrans, achats compulsifs : un accompagnement des addictions comportementales par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-addictions-comportementales-paris",
   h1: "Hypnose et addictions comportementales — Libérez-vous des comportements dont vous n'arrivez pas à vous défaire",
   jsonLd: [
@@ -3304,7 +3304,7 @@ PAGES["/hypnose-addictions-comportementales-paris"] = {
 PAGES["/hypnose-compulsions-alimentaires-paris"] = {
   title: "Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous des compulsions alimentaires par l'hypnose à Paris 4ème ou en visio. L'hypnose traite la cause émotionnelle, pas le symptôme. Alain Zenatti, Hypnothérapeute Paris.",
+    "Envies irrépressibles de manger : un accompagnement des compulsions alimentaires par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-compulsions-alimentaires-paris",
   h1: "Hypnose et compulsions alimentaires — Libérez-vous des envies incontrôlables",
   jsonLd: [
@@ -3369,7 +3369,7 @@ PAGES["/hypnose-compulsions-alimentaires-paris"] = {
 PAGES["/hypnose-grignotage-paris"] = {
   title: "Hypnose grignotage chronique Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de grignoter grâce à l'hypnose à Paris 4ème ou en visio. Grignotage anxieux, au bureau, devant la télé — l'hypnose traite le déclencheur émotionnel. Alain Zenatti, Hypnothérapeute.",
+    "Grignotage au bureau, devant la télé, par anxiété : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-grignotage-paris",
   h1: "Hypnose et grignotage — Arrêtez de grignoter entre les repas",
   jsonLd: [
@@ -3433,7 +3433,7 @@ PAGES["/hypnose-grignotage-paris"] = {
 PAGES["/hypnose-addiction-sucre-paris"] = {
   title: "Hypnose addiction au sucre Paris & en ligne | Alain Zenatti",
   description:
-    "Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée. Alain Zenatti, Hypnothérapeute.",
+    "Envies de sucre incontrôlables : un accompagnement de la dépendance au sucre par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-addiction-sucre-paris",
   h1: "Hypnose et addiction au sucre — Libérez-vous de la dépendance sucrée",
   jsonLd: [
@@ -3497,7 +3497,7 @@ PAGES["/hypnose-addiction-sucre-paris"] = {
 PAGES["/hypnose-boulimie-paris"] = {
   title: "Hypnose boulimie Paris & en ligne | Alain Zenatti",
   description:
-    "Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles. Alain Zenatti, Hypnothérapeute.",
+    "Boulimie : un accompagnement bienveillant par l'hypnose à Paris 4e ou en visio, en complément d'un suivi médical. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-boulimie-paris",
   h1: "Hypnose et boulimie — Se libérer en allant au cœur du problème",
   jsonLd: [
@@ -3561,7 +3561,7 @@ PAGES["/hypnose-boulimie-paris"] = {
 PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
   title: "Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti",
   description:
-    "Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle. Alain Zenatti, Hypnothérapeute.",
+    "Manger par stress, ennui ou tristesse : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-alimentation-emotionnelle-paris",
   h1: "Hypnose et alimentation émotionnelle — Arrêter de manger ses émotions",
   jsonLd: [
@@ -3625,7 +3625,7 @@ PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
 PAGES["/hypnose-image-corporelle-paris"] = {
   title: "Hypnose image corporelle Paris & en ligne | Alain Zenatti",
   description:
-    "Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle — l'hypnose change le regard intérieur. Alain Zenatti, Hypnothérapeute.",
+    "Image corporelle négative, honte de son corps : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-image-corporelle-paris",
   h1: "Hypnose et image corporelle — Se réconcilier avec son corps",
   jsonLd: [
@@ -3742,7 +3742,7 @@ PAGES["/tarifs"] = {
 PAGES["/avis"] = {
   title: "Avis & témoignages clients — NovaHypnose | Alain Zenatti",
   description:
-    "Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés sur le stress, l'anxiété, les phobies, le sommeil et la confiance en soi.",
+    "Avis vérifiés sur Alain Zenatti, hypnothérapeute à Paris 4e : 5/5 sur Google et sur Resalib. Témoignages sur le stress, les phobies et le sommeil.",
   canonicalPath: "/avis",
   h1: "Avis & témoignages des clients",
   jsonLd: [
@@ -3778,7 +3778,7 @@ PAGES["/avis"] = {
 PAGES["/contact"] = {
   title: "Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti",
   description:
-    "Contactez Alain Zenatti, hypnothérapeute à Paris 4ème (Marais-Bastille) : téléphone, email, formulaire, adresse et horaires. Cabinet et visioconférence, du lundi au vendredi de 11h à 20h30.",
+    "Contactez Alain Zenatti, hypnothérapeute à Paris 4e (Marais-Bastille) : téléphone, adresse, horaires du lundi au vendredi, visio. 90 € la séance.",
   canonicalPath: "/contact",
   h1: "Nous contacter au cabinet ou en visio",
   jsonLd: [
@@ -3815,7 +3815,7 @@ PAGES["/contact"] = {
 PAGES["/faq"] = {
   title: "FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose",
   description:
-    "Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio. Par Alain Zenatti, Hypnothérapeute.",
+    "Déroulé d'une séance, sécurité, remboursement, accès au cabinet Paris 4e, hypnose en visio : les réponses d'Alain Zenatti, hypnothérapeute.",
   canonicalPath: "/faq",
   h1: "Questions fréquentes sur l'hypnose",
   jsonLd: [
@@ -3913,7 +3913,7 @@ PAGES["/faq"] = {
 PAGES["/guide-procrastination"] = {
   title: "Guide gratuit — Vaincre la Procrastination par l'Hypnose | NovaHypnose",
   description:
-    "Guide gratuit de 17 pages par Alain Zenatti pour arrêter de procrastiner grâce à l'hypnose : 2 protocoles d'auto-hypnose guidés et stratégies concrètes pour passer à l'action.",
+    "Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes.",
   canonicalPath: "/guide-procrastination",
   h1: "Libérez-vous de la procrastination",
   jsonLd: [
@@ -3978,7 +3978,7 @@ PAGES["/guide-procrastination"] = {
 PAGES["/guide-autohypnose"] = {
   title: "Guide gratuit — L'Autohypnose au Quotidien | NovaHypnose",
   description:
-    "Guide gratuit de 37 pages par Alain Zenatti : 9 protocoles d'auto-hypnose pour gérer le stress, retrouver confiance, mieux dormir et améliorer son bien-être au quotidien.",
+    "Guide gratuit de 37 pages d'Alain Zenatti : 9 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien.",
   canonicalPath: "/guide-autohypnose",
   h1: "Reprenez la main sur votre bien-être",
   jsonLd: [
@@ -4043,7 +4043,7 @@ PAGES["/guide-autohypnose"] = {
 PAGES["/guide-sommeil"] = {
   title: "Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose",
   description:
-    "Guide gratuit de 17 pages sur le sommeil et l'hypnose par Alain Zenatti. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
+    "Guide gratuit de 17 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin.",
   canonicalPath: "/guide-sommeil",
   h1: "Le sommeil, votre allié secret",
   jsonLd: [
@@ -4093,7 +4093,7 @@ PAGES["/guide-sommeil"] = {
 PAGES["/guide-emotions-travail"] = {
   title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ? | NovaHypnose",
   description:
-    "Guide gratuit de 19 pages par Alain Zenatti pour comprendre vos émotions au travail : irritabilité, épuisement, auto-suppression émotionnelle — et des pratiques issues de l'hypnose ericksonienne.",
+    "Guide gratuit de 19 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne.",
   canonicalPath: "/guide-emotions-travail",
   h1: "Vous tenez. Mais jusqu'à quand ?",
   jsonLd: [
@@ -4146,7 +4146,7 @@ PAGES["/guide-emotions-travail"] = {
 PAGES["/guide-colere"] = {
   title: "Guide gratuit — La Colère, Enfin Apprivoisée | NovaHypnose",
   description:
-    "Guide gratuit par Alain Zenatti pour apaiser la colère et l'irritabilité chronique par l'hypnose : comprendre les déclencheurs et un protocole d'auto-hypnose pratique.",
+    "Guide gratuit d'Alain Zenatti pour apaiser la colère et l'irritabilité : comprendre vos déclencheurs et un protocole d'auto-hypnose pratique.",
   canonicalPath: "/guide-colere",
   h1: "La colère, enfin apprivoisée",
   jsonLd: [
@@ -4203,7 +4203,7 @@ PAGES["/guide-colere"] = {
 PAGES["/guide-carriere"] = {
   title: "Guide gratuit — Ma Carrière, Enfin Débloquée | NovaHypnose",
   description:
-    "Guide gratuit par Alain Zenatti pour lever les blocages professionnels par l'hypnose : syndrome de l'imposteur, auto-sabotage, stagnation — et un protocole pratique pour passer à l'action.",
+    "Guide gratuit d'Alain Zenatti pour lever les blocages professionnels : syndrome de l'imposteur, auto-sabotage, stagnation et protocole pratique.",
   canonicalPath: "/guide-carriere",
   h1: "Ma carrière, enfin débloquée",
   jsonLd: [

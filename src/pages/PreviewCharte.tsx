@@ -457,7 +457,7 @@ const PreviewCharte: React.FC = () => {
               <h1 className="hero__name">
                 <span className="alain">Alain</span>
                 <span className="full"><span className="zen">Zen</span><span className="atti">atti</span></span>
-                <span className="role">Hypnothérapeute à Paris,<br /><em>hypnose ericksonienne</em> et <span className="nb">auto-hypnose</span></span>
+                <span className="role">Hypnothérapeute à Paris 4e (Marais-Bastille),<br /><em>hypnose ericksonienne</em> et <span className="nb">auto-hypnose</span></span>
               </h1>
               <div className="hero__rule"></div>
               <p className="hero__lead">

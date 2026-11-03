@@ -73,11 +73,11 @@ const HypnoseTroublesAlimentairesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Retrouvez un rapport apaisé à la nourriture par l'hypnose à Paris 4ème ou en visio partout en France." />
+        <meta name="description" content="Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose troubles alimentaires paris, hypnose boulimie paris, hypnose compulsions alimentaires paris, hypnose anorexie paris, hypnose grignotage paris, hypnose rapport nourriture paris, troubles comportement alimentaire hypnose, hypnose alimentation émotionnelle paris, hypnose troubles alimentaires en ligne, séance hypnose alimentation visio France" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-troubles-alimentaires-paris" />
         <meta property="og:title" content="Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Retrouvez un rapport apaisé à la nourriture par l'hypnose à Paris 4ème ou en visio partout en France. Compulsions, boulimie, grignotages, alimentation émotionnelle." />
+        <meta property="og:description" content="Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-troubles-alimentaires-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -88,7 +88,7 @@ const HypnoseTroublesAlimentairesParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose troubles alimentaires" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Retrouvez un rapport apaisé à la nourriture par l'hypnose à Paris 4ème ou en visio partout en France." />
+        <meta name="twitter:description" content="Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

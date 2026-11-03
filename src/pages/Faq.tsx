@@ -32,12 +32,12 @@ const Faq = () => {
     <CzLayout>
       <Helmet>
         <title>FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose</title>
-        <meta name="description" content="Toutes les réponses sur l'hypnose ericksonienne : déroulement d'une séance, sécurité, remboursement, accès au cabinet Paris 4ème, hypnose en visio." />
+        <meta name="description" content="Déroulé d'une séance, sécurité, remboursement, accès au cabinet Paris 4e, hypnose en visio : les réponses d'Alain Zenatti, hypnothérapeute." />
         <meta name="keywords" content="faq hypnose, questions hypnose paris, hypnose danger, hypnose remboursement mutuelle, comment se déroule une séance hypnose, hypnose visio faq" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/faq" />
         <meta property="og:title" content="FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose" />
-        <meta property="og:description" content="Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio : toutes les réponses avant de prendre rendez-vous." />
+        <meta property="og:description" content="Déroulé d'une séance, sécurité, remboursement, accès au cabinet Paris 4e, hypnose en visio : les réponses d'Alain Zenatti, hypnothérapeute." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/faq" />
         <meta property="og:locale" content="fr_FR" />
@@ -48,7 +48,7 @@ const Faq = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FAQ — Questions sur l'hypnose et le cabinet | NovaHypnose" />
-        <meta name="twitter:description" content="Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio." />
+        <meta name="twitter:description" content="Déroulé d'une séance, sécurité, remboursement, accès au cabinet Paris 4e, hypnose en visio : les réponses d'Alain Zenatti, hypnothérapeute." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

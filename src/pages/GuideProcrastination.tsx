@@ -160,7 +160,7 @@ const GuideProcrastination: React.FC = () => {
     <>
       <Helmet>
         <title>Guide Gratuit : Vaincre la Procrastination par l'Hypnose | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 17 pages, protocoles guidés et stratégies concrètes." />
+        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
         <script type="application/ld+json">{safeJSONStringify({

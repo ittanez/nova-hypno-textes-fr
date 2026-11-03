@@ -41,12 +41,12 @@ const Contact = () => {
     <CzLayout>
       <Helmet>
         <title>Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti</title>
-        <meta name="description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4ème (Marais-Bastille) : téléphone, email, formulaire, adresse et horaires." />
+        <meta name="description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4e (Marais-Bastille) : téléphone, adresse, horaires du lundi au vendredi, visio. 90 € la séance." />
         <meta name="keywords" content="contact novahypnose, contacter hypnothérapeute paris, adresse cabinet hypnose paris, téléphone hypnose paris, hypnose marais bastille" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/contact" />
         <meta property="og:title" content="Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti" />
-        <meta property="og:description" content="Téléphone, email, formulaire, adresse et horaires du cabinet NovaHypnose. Paris 4ème (Marais-Bastille) et visioconférence partout en France." />
+        <meta property="og:description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4e (Marais-Bastille) : téléphone, adresse, horaires du lundi au vendredi, visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/contact" />
         <meta property="og:locale" content="fr_FR" />
@@ -57,7 +57,7 @@ const Contact = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact — Cabinet NovaHypnose Paris 4ème | Alain Zenatti" />
-        <meta name="twitter:description" content="Téléphone, email, formulaire, adresse et horaires du cabinet NovaHypnose." />
+        <meta name="twitter:description" content="Contactez Alain Zenatti, hypnothérapeute à Paris 4e (Marais-Bastille) : téléphone, adresse, horaires du lundi au vendredi, visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>

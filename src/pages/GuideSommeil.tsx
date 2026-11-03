@@ -134,7 +134,7 @@ const GuideSommeil: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical." />
+        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
         <script type="application/ld+json">{safeJSONStringify({

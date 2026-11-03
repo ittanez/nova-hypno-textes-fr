@@ -78,11 +78,11 @@ const PreviewCharteAutohypnose: React.FC = () => {
     <>
       <Helmet>
         <title>Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose</title>
-        <meta name="description" content="Apprenez l'auto-hypnose avec Alain Zenatti à Paris : formation en présentiel, accompagnement individuel et formations en entreprise sur devis." />
+        <meta name="description" content="Apprenez l'auto-hypnose à Paris : formation en groupe (1 journée, 6 max, 240 €) ou accompagnement individuel. Stress, sommeil, émotions. Alain Zenatti." />
         <meta name="robots" content="index, follow" />
 
         <meta property="og:title" content="Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose" />
-        <meta property="og:description" content="Apprenez l'auto-hypnose avec Alain Zenatti : formation en présentiel, accompagnement individuel et formations en entreprise sur devis." />
+        <meta property="og:description" content="Apprenez l'auto-hypnose à Paris : formation en groupe (1 journée, 6 max, 240 €) ou accompagnement individuel. Stress, sommeil, émotions. Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/autohypnose" />
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
