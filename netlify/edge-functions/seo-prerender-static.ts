@@ -197,8 +197,8 @@ const localBusinessLd = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
   "@id": `${SITE_URL}/#localbusiness`,
-  name: "NovaHypnose - Hypnothérapeute Paris",
-  alternateName: ["Alain Zenatti Hypnothérapeute et Auto-hypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
+  name: "Alain Zenatti Hypnothérapeute et Auto-hypnose",
+  alternateName: ["NovaHypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
   description:
     "Cabinet d'hypnothérapie à Paris 4ème. Alain Zenatti, Hypnothérapeute certifié. Hypnose ericksonienne pour le stress, les phobies, le sommeil et la confiance en soi.",
   url: SITE_URL,
@@ -1570,7 +1570,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   },
 
   "/hypnose-en-ligne": {
-    title: "Hypnose en visio, depuis chez vous | Alain Zenatti",
+    title: "Hypnose en ligne, visio partout en France | Alain Zenatti",
     description:
       "Séances d'hypnose ericksonienne en visioconférence, depuis chez vous, avec Alain Zenatti, hypnothérapeute à Paris 4e. Déroulé, matériel, tarif : 90 €.",
     canonicalPath: "/hypnose-en-ligne",
