@@ -110,11 +110,14 @@ const HypnoseTabacParis = () => {
           </h1>
           <p className="sp-hero__lead">
             L'hypnose ericksonienne travaille sur les automatismes et les rituels liés à la cigarette,
-            en complément d'un suivi médical ou tabacologique. Séances au cabinet à Paris ou
-            en <strong>visio partout en France</strong> ; le nombre de séances varie selon chaque personne.
+            en complément d'un suivi médical ou tabacologique. Repère : <strong>1 à 3 séances*</strong>,
+            au cabinet à Paris ou en <strong>visio partout en France</strong>.
           </p>
           <p className="sp-answer">
-            L'hypnose ericksonienne peut accompagner une démarche d'arrêt du tabac en travaillant sur les rituels et automatismes liés à la cigarette. Son efficacité n'est pas établie (Inserm, 2015) : elle s'envisage en complément d'un suivi médical ou tabacologique. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Aucun résultat n'est garanti.
+            L'hypnose ericksonienne peut accompagner une démarche d'arrêt du tabac en travaillant sur les rituels et automatismes liés à la cigarette. Son efficacité n'est pas établie (Inserm, 2015) : elle s'envisage en complément d'un suivi médical ou tabacologique. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Repère : 1 à 3 séances*. Le premier échange permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

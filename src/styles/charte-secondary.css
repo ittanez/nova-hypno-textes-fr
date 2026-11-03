@@ -434,6 +434,7 @@
   margin-bottom: 12px;
 }
 .cz .sp-case p { font-size: .93rem; color: var(--corps); line-height: 1.75; margin-top: 8px; }
+.cz .sp-answer + .sp-footnote { margin: -20px 0 24px; max-width: 560px; }
 .cz .sp-footnote { font-size: .78rem; color: var(--gris); font-style: italic; margin-top: 16px; }
 .cz .sp-quote {
   background: var(--lin);

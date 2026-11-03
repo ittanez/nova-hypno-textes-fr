@@ -157,7 +157,7 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
 export const tabacFaqItems: SpecialtyFaqItem[] = [
   {
     question: "Combien de séances sont nécessaires pour arrêter de fumer ?",
-    answer: "Le nombre de séances varie d'une personne à l'autre : ancienneté du tabagisme, rituels associés, présence d'autres dépendances (stress, café, alcool). Aucun nombre de séances ni aucun résultat ne peuvent être garantis, et l'efficacité de l'hypnose pour arrêter de fumer n'est pas établie : le rapport Inserm de 2015 indique que les données sont insuffisantes, voire décevantes, pour le sevrage tabagique. Lors de la première consultation, nous faisons le point sur votre situation et définissons ensemble un nombre de séances adapté. Je peux aussi vous orienter vers votre médecin ou un tabacologue : l'hypnose peut s'envisager en complément d'un suivi médical, pas à sa place."
+    answer: "Mon repère est de une à trois séances : des changements se font généralement sentir dès les deux ou trois premières séances, et s'il n'y en a pas, il est inutile de poursuivre. Ce nombre varie d'une personne à l'autre (ancienneté du tabagisme, rituels associés, présence d'autres dépendances comme le stress, le café ou l'alcool). À noter : l'efficacité de l'hypnose pour arrêter de fumer n'est pas établie, le rapport Inserm de 2015 jugeant les données insuffisantes, voire décevantes, pour le sevrage tabagique. Je peux aussi vous orienter vers votre médecin ou un tabacologue : l'hypnose s'envisage en complément d'un suivi médical, pas à sa place."
   },
   {
     question: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",

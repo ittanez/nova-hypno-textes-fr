@@ -110,11 +110,14 @@ const HypnoseSommeilParis = () => {
           <p className="sp-hero__lead">
             Insomnie, réveils nocturnes, difficultés d'endormissement, sommeil non réparateur…
             L'hypnose est une alternative naturelle et efficace aux somnifères.
-            <strong> Premiers changements souvent dès les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en
+            <strong> Premiers changements souvent dès les 3 à 5 premières séances*</strong>, au cabinet à Paris 4ème ou en
             <strong> visio partout en France</strong>.
           </p>
           <p className="sp-answer">
-            L'hypnose ericksonienne peut accompagner les troubles du sommeil (endormissement, réveils nocturnes), en complément d'un suivi médical : elle ne remplace pas une consultation si l'insomnie persiste. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Le nombre de séances varie selon la personne et aucun résultat n'est garanti.
+            L'hypnose ericksonienne peut accompagner les troubles du sommeil (endormissement, réveils nocturnes), en complément d'un suivi médical : elle ne remplace pas une consultation si l'insomnie persiste. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Premiers changements souvent perçus dans les 3 à 5 premières séances*. Le premier échange permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

@@ -109,11 +109,14 @@ const HypnoseStressParis = () => {
           </h1>
           <p className="sp-hero__lead">
             Le stress et l'anxiété vous empêchent de vivre pleinement ? L'hypnose ericksonienne est une méthode
-            naturelle et efficace pour retrouver le calme intérieur. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>,
+            naturelle et efficace pour retrouver le calme intérieur. <strong>Premiers changements souvent dans les 3 à 5 premières séances*</strong>,
             au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <p className="sp-answer">
-            L'hypnose ericksonienne peut accompagner la gestion du stress et de l'anxiété, en complément d'un suivi médical lorsque c'est nécessaire. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio. La séance coûte 90 €. Le nombre de séances dépend de chaque personne et aucun résultat ne peut être garanti : le premier échange sert à faire le point.
+            L'hypnose ericksonienne peut accompagner la gestion du stress et de l'anxiété, en complément d'un suivi médical lorsque c'est nécessaire. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio. La séance coûte 90 €. Premiers changements souvent perçus dans les 3 à 5 premières séances*. Le premier échange permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

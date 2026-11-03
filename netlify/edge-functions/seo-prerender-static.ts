@@ -737,7 +737,7 @@ export const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "Combien de séances sont nécessaires pour arrêter de fumer ?",
-          a: "Le nombre de séances varie d'une personne à l'autre et aucun résultat ne peut être garanti. L'efficacité de l'hypnose pour arrêter de fumer n'est pas établie : le rapport Inserm de 2015 juge les données insuffisantes, voire décevantes, pour le sevrage tabagique. Nous faisons le point lors de la première consultation, en complément d'un suivi médical ou tabacologique.",
+          a: "Mon repère est de une à trois séances : des changements se font généralement sentir dès les deux ou trois premières séances, et s'il n'y en a pas, il est inutile de poursuivre. Ce nombre varie d'une personne à l'autre. À noter : l'efficacité de l'hypnose pour arrêter de fumer n'est pas établie, le rapport Inserm de 2015 jugeant les données insuffisantes, voire décevantes, pour le sevrage tabagique. L'hypnose s'envisage en complément d'un suivi médical ou tabacologique.",
         },
         {
           q: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",
@@ -803,7 +803,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Questions fréquentes sur l'hypnose et le tabac</h2>
     <h3>Combien de séances sont nécessaires pour arrêter de fumer ?</h3>
-    <p>Le nombre de séances varie d'une personne à l'autre et aucun résultat ne peut être garanti. L'efficacité de l'hypnose pour arrêter de fumer n'est pas établie : le rapport Inserm de 2015 juge les données insuffisantes, voire décevantes, pour le sevrage tabagique. Nous faisons le point lors de la première consultation, en complément d'un suivi médical ou tabacologique.</p>
+    <p>Mon repère est de une à trois séances : des changements se font généralement sentir dès les deux ou trois premières séances, et s'il n'y en a pas, il est inutile de poursuivre. Ce nombre varie d'une personne à l'autre. À noter : l'efficacité de l'hypnose pour arrêter de fumer n'est pas établie, le rapport Inserm de 2015 jugeant les données insuffisantes, voire décevantes, pour le sevrage tabagique. L'hypnose s'envisage en complément d'un suivi médical ou tabacologique.</p>
     <h3>L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?</h3>
     <p>Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique, et l'hypnose travaille directement sur ces automatismes.</p>
     <h3>Peut-on risquer de prendre du poids après l'arrêt du tabac ?</h3>

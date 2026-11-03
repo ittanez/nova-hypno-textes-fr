@@ -139,10 +139,13 @@ const HypnoseDeuilParis = () => {
             Traversez votre deuil avec l'hypnose
           </h1>
           <p className="sp-hero__lead">
-            Vous avez perdu un proche, vécu une rupture douloureuse, ou traversé un changement de vie difficile ? Le deuil peut vous bloquer des mois, voire des années. L'hypnose ericksonienne accompagne ce processus en douceur, vous aidant à <strong>transformer la douleur en souvenirs apaisés</strong>. <strong>Résultats en 4 à 6 séances</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
+            Vous avez perdu un proche, vécu une rupture douloureuse, ou traversé un changement de vie difficile ? Le deuil peut vous bloquer des mois, voire des années. L'hypnose ericksonienne accompagne ce processus en douceur, vous aidant à <strong>transformer la douleur en souvenirs apaisés</strong>. <strong>Changements souvent perçus en 4 à 6 séances*</strong>, au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
           <p className="sp-answer">
-            L'hypnose ericksonienne peut accompagner une période de deuil, de rupture ou de séparation. Elle ne remplace pas un suivi psychologique ou médical, conseillé quand la souffrance est intense ou durable. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Le nombre de séances varie selon la personne ; aucun résultat n'est garanti.
+            L'hypnose ericksonienne peut accompagner une période de deuil, de rupture ou de séparation. Elle ne remplace pas un suivi psychologique ou médical, conseillé quand la souffrance est intense ou durable. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Repère : 4 à 6 séances*. Le premier échange permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
