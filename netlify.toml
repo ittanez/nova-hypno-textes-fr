@@ -29,6 +29,16 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/lovable-uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
   for = "*.webp"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
@@ -217,6 +227,10 @@
 
 [[edge_functions]]
   path = "/hypnose-deuil-paris"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/hypnose-douleur-chronique-paris"
   function = "seo-prerender-static"
 
 [[edge_functions]]
@@ -645,3 +659,12 @@
   to = "/index.html"
   status = 200
   force = false
+
+# ═══════════════════════════════════════════════════════════════════════
+# Garde anti soft-404 : toute URL HTML inconnue reçoit un vrai statut 404
+# (le shell SPA est conservé pour que Custom404 s'affiche, noindex).
+# Déclarée EN DERNIER pour ne pas interférer avec les prérendus bots.
+# ═══════════════════════════════════════════════════════════════════════
+[[edge_functions]]
+  path = "/*"
+  function = "not-found-guard"

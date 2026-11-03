@@ -121,7 +121,7 @@ const GuideEbook: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Vous tenez. Mais jusqu'à quand ? | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide de 19 pages pour comprendre vos émotions au travail. Pratiques concrètes basées sur l'hypnose ericksonienne." />
+        <meta name="description" content="Guide gratuit de 19 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-emotions-travail" />
         <script type="application/ld+json">{safeJSONStringify({

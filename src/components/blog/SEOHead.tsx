@@ -37,15 +37,33 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const siteTitle = "Blog NovaHypnose";
 
-  // Fonction pour tronquer le titre si trop long (max 60 caractères total)
-  const truncateTitle = (title: string, maxLength: number = 45): string => {
-    if (title.length <= maxLength) return title;
-    return title.substring(0, maxLength).trim() + '...';
+  // Titre SERP (audit R-03) : 58 caractères max, coupé au dernier mot entier,
+  // jamais sur un mot-outil (préposition, article...), sans points de suspension.
+  // Le suffixe de marque court n'est ajouté que s'il tient dans la limite.
+  const MAX_TITLE = 58;
+  const BRAND_SUFFIX = " | NovaHypnose";
+  const DANGLING_WORDS = new Set([
+    "à", "a", "au", "aux", "de", "du", "des", "d'", "l'", "la", "le", "les", "un", "une",
+    "et", "ou", "en", "pour", "par", "sur", "sous", "dans", "avec", "sans", "vers", "chez",
+    "que", "qui", "ce", "se", "ne", "est", "son", "sa", "ses", "votre", "vos", "notre",
+  ]);
+
+  const truncateTitle = (raw: string, maxLength: number = MAX_TITLE): string => {
+    const text = raw.trim();
+    if (text.length <= maxLength) return text;
+    const words = text.slice(0, maxLength + 1).split(/\s+/);
+    // Le dernier mot est peut-être coupé : on le retire sauf si le texte tombait pile sur un espace
+    if (text[maxLength] !== " ") words.pop();
+    while (words.length > 1 && DANGLING_WORDS.has(words[words.length - 1].toLowerCase())) {
+      words.pop();
+    }
+    return words.join(" ").replace(/[\s,;:\-–—]+$/, "");
   };
 
-  const fullTitle = title === siteTitle
-    ? title
-    : `${truncateTitle(title)} | ${siteTitle}`;
+  const baseTitle = truncateTitle(title);
+  const fullTitle = title === siteTitle || baseTitle.length + BRAND_SUFFIX.length > MAX_TITLE
+    ? baseTitle
+    : `${baseTitle}${BRAND_SUFFIX}`;
 
   // Normaliser l'URL pour éviter les différences canonical/og:url
   const normalizeUrl = (rawUrl: string): string => {

@@ -9,7 +9,7 @@ import SpecialtyReferences from '@/components/SpecialtyReferences';
 import SpecialtyShort from '@/components/SpecialtyShort';
 import { tabacFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -65,12 +65,12 @@ const HypnoseTabacParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne propose un accompagnement sur les automatismes liés à la cigarette." />
+        <title>Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose</title>
+        <meta name="description" content="Arrêter de fumer avec l'hypnose à Paris 4e ou en visio : agir sur les automatismes liés à la cigarette. 90 € la séance. Alain Zenatti." />
         <meta name="keywords" content="hypnose arrêt tabac paris, hypnose pour arrêter de fumer paris, hypnothérapeute tabac paris, arrêter de fumer hypnose, hypnose cigarette paris, hypnose tabac en ligne, arrêt tabac hypnose visio France, sevrage tabac hypnose, hypnose cigarette électronique paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-arret-tabac-paris" />
-        <meta property="og:title" content="Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. L'hypnose ericksonienne propose un accompagnement sur les automatismes liés à la cigarette." />
+        <meta property="og:title" content="Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose" />
+        <meta property="og:description" content="Arrêter de fumer avec l'hypnose à Paris 4e ou en visio : agir sur les automatismes liés à la cigarette. 90 € la séance. Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-arret-tabac-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -80,13 +80,14 @@ const HypnoseTabacParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Maître Praticien en Hypnose Ericksonienne – Cabinet NovaHypnose Paris 4ème – Hypnose arrêt du tabac" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose arrêt du tabac à Paris et en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Arrêtez de fumer par l'hypnose à Paris 4ème ou en visio partout en France. Accompagnement personnalisé, sans promesse de résultat." />
+        <meta name="twitter:title" content="Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose" />
+        <meta name="twitter:description" content="Arrêter de fumer avec l'hypnose à Paris 4e ou en visio : agir sur les automatismes liés à la cigarette. 90 € la séance. Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-arret-tabac-paris', 'Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose'))}</script>
       </Helmet>
 
       {/* Hero */}
@@ -106,12 +107,18 @@ const HypnoseTabacParis = () => {
           <div className="sp-hero__copy">
           <div className="tag">Arrêt du tabac — Paris</div>
           <h1 className="sp-hero__h1">
-            Libérez-vous de la cigarette<br/><em>durablement</em>
+            Hypnose pour arrêter de fumer<br/><em>à Paris et en visio</em>
           </h1>
           <p className="sp-hero__lead">
-            L'hypnose ericksonienne agit directement sur les automatismes liés au tabac.
-            Arrêtez de fumer en <strong>1 à 3 séances</strong>, au cabinet à Paris ou
-            en <strong>visio partout en France</strong>.
+            L'hypnose ericksonienne travaille sur les automatismes et les rituels liés à la cigarette,
+            en complément d'un suivi médical ou tabacologique. Repère : <strong>1 à 3 séances*</strong>,
+            au cabinet à Paris ou en <strong>visio partout en France</strong>.
+          </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner une démarche d'arrêt du tabac en travaillant sur les rituels et automatismes liés à la cigarette. Son efficacité n'est pas établie (Inserm, 2015) : elle s'envisage en complément d'un suivi médical ou tabacologique. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Repère : 1 à 3 séances*. Le premier échange permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
@@ -355,9 +362,9 @@ const HypnoseTabacParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '1-3', label: 'séances en moyenne pour arrêter de fumer durablement' },
-              { value: '0', label: 'substitut nicotinique nécessaire — une libération naturelle' },
-              { value: '5/5', label: 'satisfaction cabinet et visio sur avis vérifiés' },
+              { value: '90 €', label: 'la séance, au cabinet à Paris 4e ou en visio' },
+              { value: '1h15–1h30', label: "durée d'une séance, dont un échange approfondi en première partie" },
+              { value: 'Paris 4e', label: 'cabinet Marais-Bastille, ou visio partout en France' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

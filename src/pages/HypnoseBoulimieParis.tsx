@@ -95,11 +95,11 @@ const HypnoseBoulimieParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose boulimie Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante, centrée sur les causes émotionnelles." />
+        <meta name="description" content="Boulimie : un accompagnement bienveillant par l'hypnose à Paris 4e ou en visio, en complément d'un suivi médical. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose boulimie paris, traitement boulimie hypnose, arrêter boulimie hypnose, boulimie aide paris, hypnose compulsions alimentaires boulimie, boulimie hypnothérapie paris, boulimie traitement en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-boulimie-paris" />
         <meta property="og:title" content="Hypnose boulimie Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde, bienveillante, sans jugement." />
+        <meta property="og:description" content="Boulimie : un accompagnement bienveillant par l'hypnose à Paris 4e ou en visio, en complément d'un suivi médical. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-boulimie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseBoulimieParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose boulimie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose boulimie Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Accompagnement par l'hypnose pour la boulimie à Paris 4ème ou en visio. Approche profonde et bienveillante." />
+        <meta name="twitter:description" content="Boulimie : un accompagnement bienveillant par l'hypnose à Paris 4e ou en visio, en complément d'un suivi médical. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

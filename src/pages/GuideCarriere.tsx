@@ -139,7 +139,7 @@ const GuideCarriere: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Ma Carrière, Enfin Débloquée | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour lever vos blocages professionnels par l'hypnose." />
+        <meta name="description" content="Guide gratuit d'Alain Zenatti pour lever les blocages professionnels : syndrome de l'imposteur, auto-sabotage, stagnation et protocole pratique." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-carriere" />
         <script type="application/ld+json">{safeJSONStringify({

@@ -11,7 +11,7 @@ export interface FaqItem {
 export const faqItems: FaqItem[] = [
   {
     question: "Pourquoi consulter un hypnothérapeute à Paris ?",
-    answer: "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments. Au cabinet NovaHypnose Paris 4ème (Marais-Bastille), Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et bienveillant."
+    answer: "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, en complément d'un suivi médical si nécessaire. Au cabinet NovaHypnose Paris 4ème (Marais-Bastille), Alain Zenatti, Maître Hypnologue certifié, propose un accompagnement personnalisé et bienveillant."
   },
   {
     question: "Comment se déroule une séance d'hypnose à Paris chez NovaHypnose ?",

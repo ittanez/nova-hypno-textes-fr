@@ -95,7 +95,7 @@ const LeadForm: React.FC<LeadFormProps> = ({ id, onSuccess, buttonLabel = 'Recev
 };
 
 const stats = [
-  { value: '1 / 5', label: "des Français souffrent d'insomnie chronique" },
+  { value: '19 %', label: "des 16 ans et plus déclaraient une insomnie chronique avec retentissement en journée (enquête ESPS 2008, Santé publique France)" },
   { value: '6h42', label: 'Durée moyenne de sommeil en semaine' },
   { value: '+81 %', label: "De sommeil profond avec l'hypnose (Sleep, 2014)" },
 ];
@@ -134,14 +134,14 @@ const GuideSommeil: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond — sans médicaments." />
+        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-sommeil#book",
           "name": "Le Sommeil, Votre Allié Secret",
-          "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond et réparateur, sans médicaments.",
+          "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
           "url": "https://novahypnose.fr/guide-sommeil", "inLanguage": "fr-FR",
           "bookFormat": "https://schema.org/EBook", "numberOfPages": 17, "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
@@ -193,7 +193,7 @@ const GuideSommeil: React.FC = () => {
               </h1>
               <div className="hero__rule" />
               <p style={{ fontFamily: 'var(--f-serif)', fontStyle: 'italic', fontWeight: 300, fontSize: 'clamp(16px, 1.8vw, 21px)', color: 'var(--texte)', marginBottom: '28px', lineHeight: 1.55, maxWidth: '460px' }}>
-                Près d'un Français sur cinq souffre d'insomnie chronique. Ce guide est fait pour vous — <em style={{ color: 'var(--cobalt)' }}>sans médicaments.</em>
+                En 2008, 19 % des personnes de 16 ans et plus en France métropolitaine déclaraient une insomnie chronique avec retentissement en journée (<a href="https://www.santepubliquefrance.fr/sommeil/article/insomnie-fatigue-et-somnolence-prevalence-et-etat-de-sante-associe-declares-par-les-plus-de-16-ans" target="_blank" rel="noopener noreferrer">Santé publique France, BEH 2012</a>). Ce guide est fait pour vous — <em style={{ color: 'var(--cobalt)' }}>en complément d'un suivi médical.</em>
               </p>
               <p style={{ fontSize: '12px', color: 'var(--gris)', marginBottom: '18px', fontWeight: 400 }}>
                 Recevez immédiatement le PDF — aucun engagement, aucun spam.

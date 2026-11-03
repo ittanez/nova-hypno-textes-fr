@@ -25,7 +25,7 @@ const AutohypnoseTargetAudience = () => {
     },
     {
       title: 'Quiconque veut gérer l\'anxiété et l\'insomnie',
-      description: 'sans médicament',
+      description: 'en complément d\'un suivi médical',
       icon: '🌙',
     },
   ];

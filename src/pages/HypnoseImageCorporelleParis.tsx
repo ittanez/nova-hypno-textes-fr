@@ -95,11 +95,11 @@ const HypnoseImageCorporelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose image corporelle Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. Image corporelle négative, honte corporelle." />
+        <meta name="description" content="Image corporelle négative, honte de son corps : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose image corporelle paris, dysmorphophobie légère hypnose, honte corporelle hypnose paris, image du corps traitement hypnose, rapport au corps hypnose paris, image corporelle négative hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-image-corporelle-paris" />
         <meta property="og:title" content="Hypnose image corporelle Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio. L'hypnose change le regard intérieur." />
+        <meta property="og:description" content="Image corporelle négative, honte de son corps : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-image-corporelle-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseImageCorporelleParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose image corporelle" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose image corporelle Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Transformez votre rapport à votre corps par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Image corporelle négative, honte de son corps : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

@@ -24,8 +24,8 @@
     <!-- Balises géographiques (SEO local) - Cabinet 16 rue Saint-Antoine, Paris 4ème -->
     <meta name="geo.region" content="FR-75" />
     <meta name="geo.placename" content="Paris" />
-    <meta name="geo.position" content="48.8566;2.3685" />
-    <meta name="ICBM" content="48.8566, 2.3685" />
+    <meta name="geo.position" content="48.85358;2.36642" />
+    <meta name="ICBM" content="48.85358, 2.36642" />
 
     <!-- Preconnect Supabase retiré : non sollicité au premier rendu de la page d'accueil.
          Le navigateur ouvre la connexion à la demande lors du premier appel API réel (formulaire, blog…). -->
@@ -157,7 +157,8 @@
         {
           "@type": "HealthAndBeautyBusiness",
           "@id": "https://novahypnose.fr/#localbusiness",
-          "name": "NovaHypnose - Hypnothérapeute Paris",
+          "name": "Alain Zenatti Hypnothérapeute et Auto-hypnose",
+          "alternateName": ["NovaHypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
           "url": "https://novahypnose.fr",
           "telephone": "+33649358089",
           "email": "contact@novahypnose.fr",
@@ -188,7 +189,13 @@
           "name": "Alain Zenatti",
           "jobTitle": "Maître Hypnologue",
           "url": "https://novahypnose.fr",
-          "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://novahypnose.fr/images/alain-zenatti-portrait.webp",
+            "width": 600,
+            "height": 796,
+            "caption": "Alain Zenatti, hypnothérapeute à Paris 4e"
+          },
           "worksFor": { "@id": "https://novahypnose.fr/#localbusiness" },
           "sameAs": [
             "https://www.linkedin.com/in/zenatti/",

@@ -29,12 +29,12 @@ const Avis = () => {
     <CzLayout>
       <Helmet>
         <title>Avis & témoignages clients — NovaHypnose | Alain Zenatti</title>
-        <meta name="description" content="Les avis des clients d'Alain Zenatti, hypnothérapeute à Paris 4ème : 5/5 sur Google et 5/5 sur Resalib." />
+        <meta name="description" content="Avis vérifiés sur Alain Zenatti, hypnothérapeute à Paris 4e : 5/5 sur Google et sur Resalib. Témoignages sur le stress, les phobies et le sommeil." />
         <meta name="keywords" content="avis novahypnose, avis alain zenatti, avis hypnothérapeute paris, témoignage hypnose paris, hypnose paris avis, avis hypnose ericksonienne" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/avis" />
         <meta property="og:title" content="Avis & témoignages clients — NovaHypnose | Alain Zenatti" />
-        <meta property="og:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés de clients accompagnés en hypnose à Paris et en visio." />
+        <meta property="og:description" content="Avis vérifiés sur Alain Zenatti, hypnothérapeute à Paris 4e : 5/5 sur Google et sur Resalib. Témoignages sur le stress, les phobies et le sommeil." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/avis" />
         <meta property="og:locale" content="fr_FR" />
@@ -45,7 +45,7 @@ const Avis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Avis & témoignages clients — NovaHypnose | Alain Zenatti" />
-        <meta name="twitter:description" content="5/5 sur Google et 5/5 sur Resalib. Témoignages vérifiés." />
+        <meta name="twitter:description" content="Avis vérifiés sur Alain Zenatti, hypnothérapeute à Paris 4e : 5/5 sur Google et sur Resalib. Témoignages sur le stress, les phobies et le sommeil." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>

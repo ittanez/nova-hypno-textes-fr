@@ -49,6 +49,16 @@ const HypnoseEnLigne = () => {
     ]
   };
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": visioFaqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  };
+
   const avantages = [
     { t: "Aucun déplacement", d: "Pas de transport, pas de temps perdu : vous gagnez en énergie et en sérénité avant la séance." },
     { t: "Partout en France", d: "Le même accompagnement, que vous soyez à Lyon, Marseille, Lille, Bordeaux, en campagne ou à l'étranger." },
@@ -61,7 +71,7 @@ const HypnoseEnLigne = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose en visio, depuis chez vous | Alain Zenatti</title>
+        <title>Hypnose en ligne, visio partout en France | Alain Zenatti</title>
         <meta name="description" content="Séances d'hypnose ericksonienne en visioconférence, depuis chez vous, avec Alain Zenatti, hypnothérapeute à Paris 4e. Déroulé, matériel, tarif : 90 €." />
         <meta name="keywords" content="hypnose en ligne, hypnothérapeute en ligne, hypnose visio, spécialiste hypnose visio France, hypnose à distance, téléconsultation hypnose, hypnothérapeute visio certifié, hypnose en ligne France, hypnothérapeute distance France, hypnose ericksonienne en ligne, séance hypnose visio Google Meet, hypnose Lyon, hypnose Marseille, hypnose Bordeaux, hypnose Toulouse, hypnose Nice, hypnose Strasbourg, hypnose Nantes" />
         <meta name="robots" content="index, follow" />
@@ -82,6 +92,7 @@ const HypnoseEnLigne = () => {
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(visioServiceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(faqLd)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>

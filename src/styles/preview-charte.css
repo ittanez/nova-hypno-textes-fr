@@ -573,14 +573,15 @@
 .cz .temoignage__star:nth-child(4) { animation-delay: .86s; }
 .cz .temoignage__star:nth-child(5) { animation-delay: .98s; }
 
-.cz .temoignages__dots { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
+.cz .temoignages__dots { display: flex; justify-content: center; gap: 2px; margin-top: 8px; }
 .cz .temoignages__dot {
-  width: 8px; height: 8px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
-  background: rgba(43,75,160,.2);
+  /* zone cliquable 24 px (padding 8 px) pour un dot visible de 8 px — audit T-09 */
+  width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; border: none; padding: 8px; cursor: pointer;
+  background: rgba(43,75,160,.2); background-clip: content-box;
   transition: background .25s var(--ease), transform .25s var(--ease);
 }
-.cz .temoignages__dot:hover { background: rgba(43,75,160,.4); }
-.cz .temoignages__dot.active { background: var(--cobalt); transform: scale(1.25); }
+.cz .temoignages__dot:hover { background: rgba(43,75,160,.4); background-clip: content-box; }
+.cz .temoignages__dot.active { background: var(--cobalt); background-clip: content-box; transform: scale(1.25); }
 
 /* Soulignement qui se "dessine" au survol/focus (au lieu d'apparaître d'un coup) */
 .cz .link-underline {

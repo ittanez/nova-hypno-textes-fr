@@ -129,7 +129,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title={`${category.name} - Blog NovaHypnose`}
+        title={`${category.name} : articles d'hypnose`}
         description={category.description || `Découvrez tous nos articles sur ${category.name} - Hypnose ericksonienne et bien-être par Alain Zenatti`}
         type="website"
         url={`https://novahypnose.fr/blog/categorie/${slug}`}

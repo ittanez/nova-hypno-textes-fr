@@ -21,6 +21,26 @@ const breadcrumbLd = {
   ]
 };
 
+const domicileServiceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://novahypnose.fr/zone-intervention#service-domicile",
+  "name": "Séances d'hypnose à domicile — NovaHypnose",
+  "serviceType": "Hypnose à domicile",
+  "url": "https://novahypnose.fr/zone-intervention",
+  "provider": { "@id": "https://novahypnose.fr/#person" },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Paris 1er arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 2e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 3e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 4e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 9e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 10e arrondissement" },
+    { "@type": "AdministrativeArea", "name": "Paris 11e arrondissement" }
+  ],
+  "offers": { "@type": "Offer", "price": "140", "priceCurrency": "EUR" }
+};
+
 const ZoneIntervention = () => {
   const arrondissements = [
     {
@@ -109,10 +129,10 @@ const ZoneIntervention = () => {
   return (
     <ContentLayout>
       <Helmet>
-        <title>Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose</title>
+        <title>Cabinet d'hypnose Paris 4e, Bastille Marais | NovaHypnose</title>
         <meta
           name="description"
-          content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : Paris et proche banlieue."
+          content="Cabinet d'hypnose au 16 rue Saint-Antoine, Paris 4e (Bastille, Marais, Saint-Paul), 2 min du métro Bastille. Accès, plan et séances en visio."
         />
         <meta
           name="keywords"
@@ -120,8 +140,8 @@ const ZoneIntervention = () => {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/zone-intervention" />
-        <meta property="og:title" content="Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose" />
-        <meta property="og:description" content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif." />
+        <meta property="og:title" content="Cabinet d'hypnose Paris 4e, Bastille Marais | NovaHypnose" />
+        <meta property="og:description" content="Cabinet d'hypnose au 16 rue Saint-Antoine, Paris 4e (Bastille, Marais, Saint-Paul), 2 min du métro Bastille. Accès, plan et séances en visio." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/zone-intervention" />
         <meta property="og:locale" content="fr_FR" />
@@ -130,11 +150,12 @@ const ZoneIntervention = () => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Accès Cabinet Hypnothérapeute Paris 4 · Bastille & Marais | NovaHypnose" />
-        <meta name="twitter:description" content="Cabinet d'hypnothérapie au 16 rue Saint-Antoine, Paris 4e (métro Bastille, 2 min à pied). Zone desservie : tous les arrondissements parisiens et proche banlieue. Accès, transports, temps de trajet, plan interactif." />
+        <meta name="twitter:title" content="Cabinet d'hypnose Paris 4e, Bastille Marais | NovaHypnose" />
+        <meta name="twitter:description" content="Cabinet d'hypnose au 16 rue Saint-Antoine, Paris 4e (Bastille, Marais, Saint-Paul), 2 min du métro Bastille. Accès, plan et séances en visio." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{safeJSONStringify(domicileServiceLd)}</script>
       </Helmet>
 
       {/* Hero Section */}

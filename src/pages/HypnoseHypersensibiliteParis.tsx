@@ -96,11 +96,11 @@ const HypnoseHypersensibiliteParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose hypersensibilité Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel." />
+        <meta name="description" content="Émotions amplifiées, surcharge sensorielle, épuisement : un accompagnement de l'hypersensibilité par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose hypersensibilité paris, hypersensible hypnose, surcharge sensorielle hypnose paris, émotions amplifiées traitement, hypnose HSP paris, hypersensibilité émotionnelle hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-hypersensibilite-paris" />
         <meta property="og:title" content="Hypnose hypersensibilité Paris | Alain Zenatti" />
-        <meta property="og:description" content="Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio. Émotions amplifiées, surcharge sensorielle, épuisement émotionnel." />
+        <meta property="og:description" content="Émotions amplifiées, surcharge sensorielle, épuisement : un accompagnement de l'hypersensibilité par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-hypersensibilite-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -111,7 +111,7 @@ const HypnoseHypersensibiliteParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose hypersensibilité" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose hypersensibilité Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Accompagnement de l'hypersensibilité par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Émotions amplifiées, surcharge sensorielle, épuisement : un accompagnement de l'hypersensibilité par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

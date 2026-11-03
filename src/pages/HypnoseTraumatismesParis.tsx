@@ -101,11 +101,11 @@ const HypnoseTraumatismesParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose traumatismes Paris | Alain Zenatti</title>
-        <meta name="description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur." />
+        <meta name="description" content="Choc, accident, agression : apaisez un traumatisme avec l'hypnose à Paris 4e ou en visio, sans le revivre. Complémentaire d'un suivi médical. 90 €." />
         <meta name="keywords" content="hypnose traumatisme paris, hypnose choc psychologique, hypnose stress post-traumatique, hypnothérapeute trauma paris, hypnose après agression, hypnose après accident, hypnose licenciement, traumatisme hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:title" content="Hypnose traumatismes Paris | Alain Zenatti" />
-        <meta property="og:description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
+        <meta property="og:description" content="Choc, accident, agression : apaisez un traumatisme avec l'hypnose à Paris 4e ou en visio, sans le revivre. Complémentaire d'un suivi médical. 90 €." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-traumatismes-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -116,7 +116,7 @@ const HypnoseTraumatismesParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose traumatismes" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose traumatismes Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Apaisez un traumatisme avec l'hypnose à Paris 4ème ou en visio. Choc, accident, agression, stress post-traumatique — accompagnement en douceur, sans revivre le trauma." />
+        <meta name="twitter:description" content="Choc, accident, agression : apaisez un traumatisme avec l'hypnose à Paris 4e ou en visio, sans le revivre. Complémentaire d'un suivi médical. 90 €." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
