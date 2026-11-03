@@ -73,7 +73,9 @@ const PreviewCharteBlogArticle: React.FC = () => {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [article?.id]);
+  // `related` se charge après l'article : sans lui dans les dépendances, les cartes « D'autres lectures »
+  // (classe .reveal) apparaissent après l'observer et restent invisibles (opacity: 0).
+  }, [article?.id, related?.length]);
 
   return (
     <>
