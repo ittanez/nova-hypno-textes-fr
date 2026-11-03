@@ -1,4 +1,5 @@
 import { looksAutomated, withVaryUA } from "./lib/ua.ts";
+import { PRERENDER_EXTRA } from "./lib/prerender-extra.generated.ts";
 import type { Context } from "https://edge.netlify.com";
 import { allFormations, formationCycles } from "../../src/data/formations.ts";
 
@@ -380,7 +381,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><a href="${SITE_URL}/hypnose-stress-anxiete-paris">Stress et anxiété</a> — Retrouvez la sérénité au quotidien</li>
       <li><a href="${SITE_URL}/hypnose-phobies-paris">Phobies et peurs</a> — Libérez-vous de vos peurs irrationnelles</li>
-      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil et insomnie</a> — Retrouvez des nuits réparatrices sans médicament</li>
+      <li><a href="${SITE_URL}/hypnose-sommeil-paris">Sommeil et insomnie</a> — Retrouvez des nuits plus réparatrices, en complément d'un suivi médical</li>
       <li><a href="${SITE_URL}/hypnose-gestion-emotions-paris">Gestion des émotions</a> — Apprenez à vivre vos émotions sans en être prisonnier</li>
       <li><a href="${SITE_URL}/hypnose-blocages-paris">Blocages et comportements</a> — Procrastination, schémas répétitifs, TOC</li>
       <li><a href="${SITE_URL}/hypnose-confiance-en-soi-paris">Confiance en soi</a> — Syndrome de l'imposteur, prise de parole</li>
@@ -632,7 +633,7 @@ export const PAGES: Record<string, PageData> = {
     jsonLd: [
       serviceLd(
         "Hypnose sommeil et insomnie Paris",
-        "Traitement de l'insomnie par l'hypnose à Paris 4ème. Retrouvez un sommeil plus réparateur sans médicament : premiers changements souvent dans les 3 à 5 premières séances.",
+        "Traitement de l'insomnie par l'hypnose à Paris 4ème. Retrouvez un sommeil plus réparateur, en complément d'un suivi médical : premiers changements souvent dans les 3 à 5 premières séances.",
         `${SITE_URL}/hypnose-sommeil-paris`
       ),
       breadcrumbLd([
@@ -3826,7 +3827,7 @@ PAGES["/faq"] = {
         {
           "@type": "Question",
           "name": "Pourquoi consulter un hypnothérapeute à Paris ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments." },
+          "acceptedAnswer": { "@type": "Answer", "text": "Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, en complément d'un suivi médical si nécessaire." },
         },
         {
           "@type": "Question",
@@ -3874,7 +3875,7 @@ PAGES["/faq"] = {
     <p>Déroulement d'une séance, sécurité, remboursement, accès au cabinet, hypnose en visio : les réponses aux questions les plus posées avant de prendre rendez-vous.</p>
 
     <h2>Pourquoi consulter un hypnothérapeute à Paris ?</h2>
-    <p>Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, sans médicaments.</p>
+    <p>Consulter un hypnothérapeute à Paris permet de bénéficier d'un accompagnement professionnel pour résoudre des problématiques comme le stress, l'anxiété, les phobies, les troubles du sommeil ou le manque de confiance en soi. L'hypnose ericksonienne est une thérapie brève qui vise des changements concrets, souvent dès les 3 à 5 premières séances, en complément d'un suivi médical si nécessaire.</p>
 
     <h2>Comment se déroule une séance d'hypnose ?</h2>
     <p>Une séance se déroule en 3 étapes : un entretien pour comprendre votre problématique et définir vos objectifs, la séance d'hypnose ericksonienne proprement dite (état de relaxation profonde guidée), puis un debriefing pour ancrer les changements. La première séance dure environ 1h30, les suivantes 1h.</p>
@@ -4042,7 +4043,7 @@ PAGES["/guide-autohypnose"] = {
 PAGES["/guide-sommeil"] = {
   title: "Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose",
   description:
-    "Guide gratuit de 17 pages sur le sommeil et l'hypnose par Alain Zenatti. Programme pratique de 30 jours pour retrouver un sommeil profond et réparateur, sans médicaments.",
+    "Guide gratuit de 17 pages sur le sommeil et l'hypnose par Alain Zenatti. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
   canonicalPath: "/guide-sommeil",
   h1: "Le sommeil, votre allié secret",
   jsonLd: [
@@ -4051,7 +4052,7 @@ PAGES["/guide-sommeil"] = {
       "@type": "Book",
       "@id": `${SITE_URL}/guide-sommeil#book`,
       "name": "Le Sommeil, Votre Allié Secret",
-      "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil profond et réparateur, sans médicaments.",
+      "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
       "url": `${SITE_URL}/guide-sommeil`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
@@ -4326,7 +4327,17 @@ export default async function handler(
     return withVaryUA(await context.next());
   }
 
-  const html = htmlShell(pageData);
+  // Les pages dont le résumé pré-rendu est court (< 500 mots) reçoivent le contenu
+  // complet extrait de la vraie page React (scripts/generate-prerender-content.mjs),
+  // pour que les robots voient la même chose que les visiteurs (audit C1/C3/C4/C6).
+  const extra = PRERENDER_EXTRA[pathname];
+  const baseWords = pageData.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const enriched =
+    extra && baseWords < 500
+      ? { ...pageData, content: `${pageData.content}\n${extra}` }
+      : pageData;
+
+  const html = htmlShell(enriched);
   return new Response(html, {
     headers: {
       "content-type": "text/html; charset=utf-8",

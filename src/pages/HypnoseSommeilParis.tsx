@@ -69,7 +69,7 @@ const HypnoseSommeilParis = () => {
         <meta name="keywords" content="hypnose sommeil paris, hypnose insomnie paris, troubles sommeil hypnose, hypnothérapeute insomnie paris, retrouver sommeil hypnose, réveils nocturnes hypnose, endormissement hypnose paris, hypnose sommeil en ligne, séance hypnose insomnie visio France, hypnose sommeil à distance, téléconsultation hypnose sommeil" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:title" content="Hypnose insomnie et sommeil, Paris 4e | NovaHypnose" />
-        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament." />
+        <meta property="og:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Approche complémentaire d'un suivi médical." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-sommeil-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -80,7 +80,7 @@ const HypnoseSommeilParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose troubles du sommeil" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose insomnie et sommeil, Paris 4e | NovaHypnose" />
-        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Sans médicament." />
+        <meta name="twitter:description" content="Retrouvez un sommeil profond par l'hypnose à Paris 4ème ou en visio partout en France. Insomnie, réveils nocturnes, endormissement difficile. Approche complémentaire d'un suivi médical." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -190,7 +190,7 @@ const HypnoseSommeilParis = () => {
                   "Restaurer le cycle naturel veille-sommeil",
                   "Éliminer les réveils nocturnes et les ruminations",
                   "Apprendre l'auto-hypnose pour vous endormir seul(e)",
-                  "Retrouver un sommeil profond et réparateur sans médicament"
+                  "Retrouver un sommeil plus réparateur, en complément d'un suivi médical si besoin"
                 ].map((item, i) => (
                   <div key={i} className="sp-check-item">
                     <CheckCircle size={18} />
