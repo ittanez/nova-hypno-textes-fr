@@ -330,7 +330,13 @@ export const personSchema = {
   "jobTitle": "Hypnothérapeute",
   "description": "Hypnothérapeute certifié à Paris 4ème, Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne. 6 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille et consultations visio partout en France.",
   "url": "https://novahypnose.fr",
-  "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://novahypnose.fr/images/alain-zenatti-portrait.webp",
+    "width": 600,
+    "height": 796,
+    "caption": "Alain Zenatti, hypnothérapeute à Paris 4e"
+  },
   "sameAs": [
     "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
