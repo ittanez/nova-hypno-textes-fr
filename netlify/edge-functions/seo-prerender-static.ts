@@ -1,3 +1,4 @@
+import { looksAutomated, withVaryUA } from "./lib/ua.ts";
 import type { Context } from "https://edge.netlify.com";
 import { allFormations, formationCycles } from "../../src/data/formations.ts";
 
@@ -71,7 +72,10 @@ const BOT_USER_AGENTS = [
 
 function isBot(request: Request): boolean {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
-  return BOT_USER_AGENTS.some((bot) => ua.includes(bot));
+  return (
+    BOT_USER_AGENTS.some((bot) => ua.includes(bot)) ||
+    looksAutomated(request.headers.get("user-agent"))
+  );
 }
 
 function escapeHtml(str: string): string {
@@ -4309,7 +4313,7 @@ export default async function handler(
 ): Promise<Response> {
   // Only intercept for bots
   if (!isBot(request)) {
-    return context.next();
+    return withVaryUA(await context.next());
   }
 
   const url = new URL(request.url);
@@ -4319,7 +4323,7 @@ export default async function handler(
 
   const pageData = PAGES[pathname];
   if (!pageData) {
-    return context.next();
+    return withVaryUA(await context.next());
   }
 
   const html = htmlShell(pageData);
@@ -4329,6 +4333,7 @@ export default async function handler(
       "cache-control":
         "public, s-maxage=3600, stale-while-revalidate=86400",
       "x-robots-tag": "index, follow",
+      vary: "User-Agent",
     },
   });
 }

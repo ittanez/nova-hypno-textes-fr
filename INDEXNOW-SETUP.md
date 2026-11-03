@@ -14,15 +14,15 @@ IndexNow est un protocole simple qui permet de notifier instantanément les mote
 
 La clé IndexNow est déjà configurée et intégrée :
 
-- **Clé** : `5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3`
-- **Fichier de vérification** : `/public/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt`
+- **Clé** : `1290617b03634f6a91131c77a141c8c6`
+- **Fichier de vérification** : `/public/1290617b03634f6a91131c77a141c8c6.txt`
 - **Edge Function** : La clé est intégrée en dur (publique par design)
 
 ### Vérifier que tout fonctionne
 
 ```bash
 # Vérifier que le fichier de clé est accessible
-curl https://novahypnose.fr/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt
+curl https://novahypnose.fr/1290617b03634f6a91131c77a141c8c6.txt
 ```
 
 > **Note** : La clé IndexNow est publique par design (Bing doit pouvoir y accéder pour vérification). Pas besoin de la configurer comme secret Supabase.
@@ -123,7 +123,7 @@ Si vous changez de domaine ou restructurez le site :
 **Solution** :
 ```bash
 # Vérifier que le fichier de clé est accessible
-curl https://novahypnose.fr/5968d7e532b5983b2fd3e35266137f4dea73cd37a3d99ef2a32b86ad1fe3e1f3.txt
+curl https://novahypnose.fr/1290617b03634f6a91131c77a141c8c6.txt
 ```
 
 ### Les URLs ne sont pas indexées

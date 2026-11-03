@@ -132,6 +132,13 @@ export function normalizePath(pathname: string): string {
   return pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
 }
 
+export function caseRedirectTarget(pathname: string): string | null {
+  const p = normalizePath(pathname);
+  if (p === p.toLowerCase()) return null;
+  const lower = p.toLowerCase();
+  return KNOWN_PATHS.has(lower) ? lower : null;
+}
+
 export function shouldReturn404(pathname: string): boolean {
   const p = normalizePath(pathname);
   if (KNOWN_PATHS.has(p)) return false;
@@ -147,6 +154,15 @@ export default async function handler(request: Request, context: Context): Promi
   }
 
   const url = new URL(request.url);
+
+  // Variantes de casse (/Hypnose-Deuil-Paris) -> 301 vers la version minuscule
+  // si elle correspond à une page connue (audit T-11).
+  const lower = caseRedirectTarget(url.pathname);
+  if (lower) {
+    url.pathname = lower;
+    return Response.redirect(url.toString(), 301);
+  }
+
   if (!shouldReturn404(url.pathname)) {
     return context.next();
   }

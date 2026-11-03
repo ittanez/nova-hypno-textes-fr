@@ -356,10 +356,10 @@ const PreviewCharte: React.FC = () => {
                   Découvrir <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
                 </button>
                 <div className="nav__dropdown-menu">
-                  <a href="#about" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>À propos</a>
+                  <Link to="/alain-zenatti" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>À propos</Link>
                   <span className="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
-                  <a href="#visio" className="nav__dropdown-link--accent" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>En visio — partout en France</a>
-                  <a href="#cabinet" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Le cabinet — Paris</a>
+                  <Link to="/hypnose-en-ligne" className="nav__dropdown-link--accent" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>En visio — partout en France</Link>
+                  <Link to="/zone-intervention" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Le cabinet — Paris</Link>
                 </div>
               </div>
 
@@ -380,7 +380,7 @@ const PreviewCharte: React.FC = () => {
                   Accompagnement <span className="nav__dropdown-arrow" aria-hidden="true">▾</span>
                 </button>
                 <div className="nav__dropdown-menu">
-                  <a href="#sessions" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Séance</a>
+                  <Link to="/tarifs" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Séance et tarifs</Link>
                   <span className="nav__dropdown-sep" role="separator" aria-hidden="true"></span>
                   {ACCOMPAGNEMENT_THEMES_LINKS.map((link) => (
                     <Link key={link.href} to={link.href} onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>
@@ -416,8 +416,8 @@ const PreviewCharte: React.FC = () => {
                 </div>
               </div>
 
-              <a href="#temoignages">Avis</a>
-              <a href="#contact">Contact</a>
+              <Link to="/avis">Avis</Link>
+              <Link to="/contact">Contact</Link>
 
               <div className="nav__cta" onClick={(e) => e.stopPropagation()}>
                 <a className="btn btn--ghost" href={RESALIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => handleBookingCtaClick('nav_rdv_paris')}>RDV Paris</a>

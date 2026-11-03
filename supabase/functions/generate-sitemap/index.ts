@@ -97,7 +97,6 @@ serve(async (req) => {
       { loc: '/blog/categories',               lastmod: '2026-06-13', changefreq: 'weekly',  priority: '0.6' },
       { loc: '/mentions-legales',              lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
       { loc: '/politique-de-confidentialite', lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
-      { loc: '/politique-de-confidentialite-novarespire', lastmod: '2026-06-13', changefreq: 'yearly', priority: '0.3' },
     ]
 
     console.log('🚀 Génération du sitemap...')
