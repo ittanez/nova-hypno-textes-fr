@@ -32,7 +32,7 @@ const ArticleShare: React.FC<ArticleShareProps> = ({ url, title }) => {
   ];
 
   return (
-    <div className="article-share reveal" role="group" aria-label="Partager cet article">
+    <div className="article-share" role="group" aria-label="Partager cet article">
       <span className="article-share__label">Partager cet article</span>
       <div className="article-share__buttons">
         {links.map((l) => (
