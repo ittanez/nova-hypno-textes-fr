@@ -645,3 +645,12 @@
   to = "/index.html"
   status = 200
   force = false
+
+# ═══════════════════════════════════════════════════════════════════════
+# Garde anti soft-404 : toute URL HTML inconnue reçoit un vrai statut 404
+# (le shell SPA est conservé pour que Custom404 s'affiche, noindex).
+# Déclarée EN DERNIER pour ne pas interférer avec les prérendus bots.
+# ═══════════════════════════════════════════════════════════════════════
+[[edge_functions]]
+  path = "/*"
+  function = "not-found-guard"

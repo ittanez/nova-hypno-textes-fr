@@ -232,7 +232,7 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "40",
+    reviewCount: "26",
   },
   sameAs: BUSINESS_SAME_AS,
 };
