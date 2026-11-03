@@ -109,9 +109,12 @@ const HypnoseTabacParis = () => {
             Hypnose pour arrêter de fumer<br/><em>à Paris et en visio</em>
           </h1>
           <p className="sp-hero__lead">
-            L'hypnose ericksonienne agit directement sur les automatismes liés au tabac.
-            Arrêtez de fumer en <strong>1 à 3 séances</strong>, au cabinet à Paris ou
-            en <strong>visio partout en France</strong>.
+            L'hypnose ericksonienne travaille sur les automatismes et les rituels liés à la cigarette,
+            en complément d'un suivi médical ou tabacologique. Séances au cabinet à Paris ou
+            en <strong>visio partout en France</strong> ; le nombre de séances varie selon chaque personne.
+          </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner une démarche d'arrêt du tabac en travaillant sur les rituels et automatismes liés à la cigarette. Son efficacité n'est pas établie (Inserm, 2015) : elle s'envisage en complément d'un suivi médical ou tabacologique. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Aucun résultat n'est garanti.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
@@ -355,9 +358,9 @@ const HypnoseTabacParis = () => {
         <div className="container sp-narrow">
           <div className="sp-stats">
             {[
-              { value: '1-3', label: 'séances en moyenne pour arrêter de fumer durablement' },
-              { value: '0', label: 'substitut nicotinique nécessaire — une libération naturelle' },
-              { value: '5/5', label: 'satisfaction cabinet et visio sur avis vérifiés' },
+              { value: '90 €', label: 'la séance, au cabinet à Paris 4e ou en visio' },
+              { value: '1h15–1h30', label: "durée d'une séance, dont un échange approfondi en première partie" },
+              { value: 'Paris 4e', label: 'cabinet Marais-Bastille, ou visio partout en France' },
             ].map((s, i) => (
               <div key={i} className="sp-stat reveal">
                 <div className="sp-stat__val">{s.value}</div>

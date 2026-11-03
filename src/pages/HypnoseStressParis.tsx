@@ -112,6 +112,9 @@ const HypnoseStressParis = () => {
             naturelle et efficace pour retrouver le calme intérieur. <strong>Premiers changements souvent dans les 3 à 5 premières séances</strong>,
             au cabinet à Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner la gestion du stress et de l'anxiété, en complément d'un suivi médical lorsque c'est nécessaire. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio. La séance coûte 90 €. Le nombre de séances dépend de chaque personne et aucun résultat ne peut être garanti : le premier échange sert à faire le point.
+          </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>

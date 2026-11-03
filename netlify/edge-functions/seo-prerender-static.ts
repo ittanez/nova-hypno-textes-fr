@@ -726,7 +726,7 @@ export const PAGES: Record<string, PageData> = {
     jsonLd: [
       serviceLd(
         "Hypnose arrêt du tabac Paris",
-        "Arrêtez de fumer par l'hypnose ericksonienne à Paris 4ème. En 1 à 3 séances, sans substitut nicotinique, au cabinet ou en visio partout en France.",
+        "Hypnose ericksonienne à Paris 4ème pour accompagner l'arrêt du tabac, en complément d'un suivi médical, au cabinet ou en visio partout en France.",
         `${SITE_URL}/hypnose-arret-tabac-paris`
       ),
       breadcrumbLd([
@@ -737,7 +737,7 @@ export const PAGES: Record<string, PageData> = {
       faqLd([
         {
           q: "Combien de séances sont nécessaires pour arrêter de fumer ?",
-          a: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.",
+          a: "Le nombre de séances varie d'une personne à l'autre et aucun résultat ne peut être garanti. L'efficacité de l'hypnose pour arrêter de fumer n'est pas établie : le rapport Inserm de 2015 juge les données insuffisantes, voire décevantes, pour le sevrage tabagique. Nous faisons le point lors de la première consultation, en complément d'un suivi médical ou tabacologique.",
         },
         {
           q: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",
@@ -785,11 +785,11 @@ export const PAGES: Record<string, PageData> = {
 
     <blockquote><p>« J'avais fumé pendant 15 ans. Après une séance avec Alain, je n'ai plus eu envie de cigarettes. Pas de manque, pas d'irritabilité — juste une liberté retrouvée. »</p><cite>— Sophie R., avis Google vérifié</cite></blockquote>
 
-    <h2>Résultats</h2>
+    <h2>En pratique</h2>
     <ul>
-      <li><strong>1 à 3 séances</strong> en moyenne pour arrêter de fumer durablement</li>
-      <li><strong>0 substitut nicotinique</strong> nécessaire — une libération naturelle</li>
-      <li><strong>Note 5/5</strong> sur avis vérifiés cabinet et visio</li>
+      <li><strong>90 €</strong> la séance, au cabinet à Paris 4e ou en visio</li>
+      <li><strong>1h15 à 1h30</strong> : durée d'une séance</li>
+      <li><strong>Paris 4e</strong> (Marais-Bastille) ou visio partout en France</li>
     </ul>
 
     <h2>Préparez votre arrêt du tabac</h2>
@@ -803,7 +803,7 @@ export const PAGES: Record<string, PageData> = {
 
     <h2>Questions fréquentes sur l'hypnose et le tabac</h2>
     <h3>Combien de séances sont nécessaires pour arrêter de fumer ?</h3>
-    <p>Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette.</p>
+    <p>Le nombre de séances varie d'une personne à l'autre et aucun résultat ne peut être garanti. L'efficacité de l'hypnose pour arrêter de fumer n'est pas établie : le rapport Inserm de 2015 juge les données insuffisantes, voire décevantes, pour le sevrage tabagique. Nous faisons le point lors de la première consultation, en complément d'un suivi médical ou tabacologique.</p>
     <h3>L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?</h3>
     <p>Oui, l'hypnose est tout aussi efficace pour arrêter la vape que la cigarette traditionnelle. La dépendance à la cigarette électronique est d'abord comportementale et psychologique, et l'hypnose travaille directement sur ces automatismes.</p>
     <h3>Peut-on risquer de prendre du poids après l'arrêt du tabac ?</h3>

@@ -113,6 +113,9 @@ const HypnoseSommeilParis = () => {
             <strong> Premiers changements souvent dès les 3 à 5 premières séances</strong>, au cabinet à Paris 4ème ou en
             <strong> visio partout en France</strong>.
           </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner les troubles du sommeil (endormissement, réveils nocturnes), en complément d'un suivi médical : elle ne remplace pas une consultation si l'insomnie persiste. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Le nombre de séances varie selon la personne et aucun résultat n'est garanti.
+          </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>

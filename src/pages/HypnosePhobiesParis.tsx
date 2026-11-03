@@ -132,6 +132,9 @@ const HypnosePhobiesParis = () => {
             efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
             Paris 4ème ou en <strong>visio partout en France</strong>.
           </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner les peurs et phobies (avion, vide, araignées, conduite, prise de parole…), en complément d'un suivi médical si besoin. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Le nombre de séances varie selon la personne et aucun résultat n'est garanti : la première rencontre permet de faire le point.
+          </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}
                onClick={(e) => { e.preventDefault(); openResalibPopup(); }}>
