@@ -8,7 +8,7 @@ import HeroArt from '@/components/charte/HeroArt';
 import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -118,6 +118,7 @@ const HypnoseDeuilParis = () => {
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-deuil-paris', 'Hypnose deuil et séparation Paris | Alain Zenatti'))}</script>
       </Helmet>
 
       <section className="sp-hero">

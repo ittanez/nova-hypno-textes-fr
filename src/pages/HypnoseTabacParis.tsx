@@ -9,7 +9,7 @@ import SpecialtyReferences from '@/components/SpecialtyReferences';
 import SpecialtyShort from '@/components/SpecialtyShort';
 import { tabacFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -87,6 +87,7 @@ const HypnoseTabacParis = () => {
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-arret-tabac-paris', 'Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose'))}</script>
       </Helmet>
 
       {/* Hero */}

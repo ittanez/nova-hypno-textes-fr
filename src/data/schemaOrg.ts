@@ -461,3 +461,20 @@ export const websiteSchema = {
     "query-input": "required name=search_term_string"
   }
 };
+
+/**
+ * WebPage + speakable : désigne le bloc « réponse directe » (.sp-answer) comme extrait
+ * lisible à voix haute. Les sélecteurs doivent exister dans le HTML (React et pré-rendu).
+ */
+export const speakablePageSchema = (path: string, name: string) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `https://novahypnose.fr${path}#webpage`,
+  "url": `https://novahypnose.fr${path}`,
+  "name": name,
+  "inLanguage": "fr-FR",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".sp-answer"]
+  }
+});

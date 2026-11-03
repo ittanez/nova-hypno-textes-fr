@@ -84,6 +84,8 @@ function extract(file) {
 
   let html = '';
   let modified = '';
+  let answer = '';
+  let afterAnswer = false;
   const SKIP = new Set(['svg', 'script', 'Helmet', 'button', 'HeroArt', 'SpecialtyShort', 'SpecialtyBlogArticles', 'style', 'noscript']);
 
   const emitRefs = (el) => {
@@ -111,6 +113,8 @@ function extract(file) {
       const clsText = cls && ts.isStringLiteral(cls) ? cls.text : '';
       if (ts.isJsxElement(n)) {
         if (/^h[1-4]$/.test(tag)) { const t = textOf(n); if (t) html += `<${tag === 'h1' ? 'h2' : tag}>${esc(t)}</${tag === 'h1' ? 'h2' : tag}>`; return; }
+        if (tag === 'p' && /sp-answer/.test(clsText)) { const t = textOf(n); if (t) { const p = `<p class="sp-answer">${esc(t)}</p>`; html += p; answer += p; afterAnswer = true; } return; }
+        if (tag === 'p' && afterAnswer && /sp-footnote/.test(clsText)) { const t = textOf(n); if (t) { const p = `<p><em>${esc(t)}</em></p>`; html += p; answer += p; } afterAnswer = false; return; }
         if (tag === 'p' || tag === 'li') { const t = textOf(n); if (t.length > 20 && !n.getText().includes('<Link')) html += `<${tag}>${esc(t)}</${tag}>`; else if (t.length > 20) html += `<${tag}>${esc(t)}</${tag}>`; return; }
         if (tag === 'div' && /__title$/.test(clsText)) { const t = textOf(n); if (t) html += `<h3>${esc(t)}</h3>`; return; }
         if (tag === 'div' && /__desc$/.test(clsText)) { const t = textOf(n); if (t) html += `<p>${esc(t)}</p>`; return; }
@@ -141,20 +145,22 @@ function extract(file) {
   findReturn(sf);
   const biggest = mainReturn.sort((a, b) => b.getEnd() - b.getStart() - (a.getEnd() - a.getStart()))[0];
   if (biggest) walk(biggest);
-  return { html, modified };
+  return { html, modified, answer };
 }
 
 const out = {};
+const answers = {};
 for (const [comp, route] of routeOf) {
   const file = importOf.get(comp);
   if (!file) continue;
   const path = resolve(pagesDir, `${file}.tsx`);
   try {
-    const { html, modified } = extract(path);
+    const { html, modified, answer } = extract(path);
     const words = html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
     if (words < 150) { console.warn(`  ignoré ${route} (${words} mots extraits)`); continue; }
     const dateHtml = modified ? `<p><em>Dernière mise à jour : ${new Date(modified).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</em></p>` : '';
     out[route] = `<section>${html}${dateHtml}</section>`;
+    if (answer) answers[route] = answer;
     console.log(`  ${route}: ${words} mots`);
   } catch (e) {
     console.warn(`  erreur ${route}: ${e.message}`);
@@ -164,6 +170,7 @@ for (const [comp, route] of routeOf) {
 const header = '// FICHIER GÉNÉRÉ par scripts/generate-prerender-content.mjs — ne pas modifier à la main.\n';
 writeFileSync(
   resolve(root, 'netlify/edge-functions/lib/prerender-extra.generated.ts'),
-  `${header}export const PRERENDER_EXTRA: Record<string, string> = ${JSON.stringify(out, null, 2)};\n`,
+  `${header}export const PRERENDER_EXTRA: Record<string, string> = ${JSON.stringify(out, null, 2)};\n` +
+    `// Bloc « réponse directe » (hero) : ajouté en tête du contenu même quand PRERENDER_EXTRA n'est pas utilisé.\nexport const PRERENDER_ANSWER: Record<string, string> = ${JSON.stringify(answers, null, 2)};\n`,
 );
 console.log(`${Object.keys(out).length} pages générées`);

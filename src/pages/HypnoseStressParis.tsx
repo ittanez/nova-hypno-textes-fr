@@ -9,7 +9,7 @@ import SpecialtyReferences from '@/components/SpecialtyReferences';
 import SpecialtyShort from '@/components/SpecialtyShort';
 import { stressFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -69,7 +69,7 @@ const HypnoseStressParis = () => {
         <meta name="keywords" content="hypnose stress paris, hypnose anxiété paris, hypnothérapeute stress paris, gestion stress hypnose, burn-out hypnose paris, anxiété hypnothérapie paris, stress travail hypnose, hypnose stress en ligne, séance hypnose anxiété visio France, hypnose stress à distance, téléconsultation hypnose stress" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:title" content="Hypnose stress et anxiété à Paris 4e | NovaHypnose" />
-        <meta property="og:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Hypnothérapeute certifié. Résultats durables visés, souvent dès les premières séances." />
+        <meta property="og:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, hypnothérapeute, en complément d'un suivi médical si nécessaire." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-stress-anxiete-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -80,12 +80,13 @@ const HypnoseStressParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose stress et anxiété" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose stress et anxiété à Paris 4e | NovaHypnose" />
-        <meta name="twitter:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, Hypnothérapeute certifié. Résultats durables visés, souvent dès les premières séances." />
+        <meta name="twitter:description" content="Libérez-vous du stress chronique et de l'anxiété par l'hypnose à Paris 4ème ou en visio partout en France. Alain Zenatti, hypnothérapeute, en complément d'un suivi médical si nécessaire." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-stress-anxiete-paris', 'Hypnose stress et anxiété à Paris 4e | NovaHypnose'))}</script>
       </Helmet>
 
       {/* Hero */}

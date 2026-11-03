@@ -9,7 +9,7 @@ import SpecialtyReferences from '@/components/SpecialtyReferences';
 import SpecialtyShort from '@/components/SpecialtyShort';
 import { sommeilFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -86,6 +86,7 @@ const HypnoseSommeilParis = () => {
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-sommeil-paris', 'Hypnose insomnie et sommeil, Paris 4e | NovaHypnose'))}</script>
       </Helmet>
 
       {/* Hero */}

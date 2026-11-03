@@ -1,5 +1,5 @@
 import { looksAutomated, withVaryUA } from "./lib/ua.ts";
-import { PRERENDER_EXTRA } from "./lib/prerender-extra.generated.ts";
+import { PRERENDER_EXTRA, PRERENDER_ANSWER } from "./lib/prerender-extra.generated.ts";
 import type { Context } from "https://edge.netlify.com";
 import { allFormations, formationCycles } from "../../src/data/formations.ts";
 
@@ -300,6 +300,18 @@ function serviceLd(name: string, description: string, url: string) {
   };
 }
 
+function speakableLd(path: string, name: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}${path}#webpage`,
+    url: `${SITE_URL}${path}`,
+    name,
+    inLanguage: "fr-FR",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: [".sp-answer"] },
+  };
+}
+
 function faqLd(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -425,6 +437,7 @@ export const PAGES: Record<string, PageData> = {
     canonicalPath: "/hypnose-stress-anxiete-paris",
     h1: "Hypnose pour le stress et l'anxiété à Paris",
     jsonLd: [
+      speakableLd("/hypnose-stress-anxiete-paris", "Hypnose stress et anxiété à Paris 4e | NovaHypnose"),
       serviceLd(
         "Hypnose stress et anxiété Paris",
         "Traitement du stress et de l'anxiété par l'hypnose ericksonienne à Paris 4ème. Premiers changements souvent dans les 3 à 5 premières séances.",
@@ -521,6 +534,7 @@ export const PAGES: Record<string, PageData> = {
     canonicalPath: "/hypnose-phobies-paris",
     h1: "Hypnose et phobies — Libérez-vous de vos peurs à Paris",
     jsonLd: [
+      speakableLd("/hypnose-phobies-paris", "Hypnose pour phobies et peurs, Paris 4e | NovaHypnose"),
       serviceLd(
         "Hypnose phobies et peurs Paris",
         "Traitement des phobies par l'hypnose ericksonienne à Paris 4ème. Phobie avion, claustrophobie, peur de parler en public. Résultats en 2 à 4 séances.",
@@ -631,6 +645,7 @@ export const PAGES: Record<string, PageData> = {
     canonicalPath: "/hypnose-sommeil-paris",
     h1: "Hypnose et sommeil — Retrouvez des nuits sereines à Paris",
     jsonLd: [
+      speakableLd("/hypnose-sommeil-paris", "Hypnose insomnie et sommeil, Paris 4e | NovaHypnose"),
       serviceLd(
         "Hypnose sommeil et insomnie Paris",
         "Traitement de l'insomnie par l'hypnose à Paris 4ème. Retrouvez un sommeil plus réparateur, en complément d'un suivi médical : premiers changements souvent dans les 3 à 5 premières séances.",
@@ -724,6 +739,7 @@ export const PAGES: Record<string, PageData> = {
     canonicalPath: "/hypnose-arret-tabac-paris",
     h1: "Hypnose pour arrêter de fumer à Paris et en visio",
     jsonLd: [
+      speakableLd("/hypnose-arret-tabac-paris", "Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose"),
       serviceLd(
         "Hypnose arrêt du tabac Paris",
         "Hypnose ericksonienne à Paris 4ème pour accompagner l'arrêt du tabac, en complément d'un suivi médical, au cabinet ou en visio partout en France.",
@@ -2623,6 +2639,7 @@ PAGES["/hypnose-deuil-paris"] = {
   canonicalPath: "/hypnose-deuil-paris",
   h1: "Traversez votre deuil avec l'hypnose — Perte, rupture, séparation",
   jsonLd: [
+    speakableLd("/hypnose-deuil-paris", "Hypnose deuil et séparation Paris | Alain Zenatti"),
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -4391,10 +4408,13 @@ export default async function handler(
   // pour que les robots voient la même chose que les visiteurs (audit C1/C3/C4/C6).
   const extra = PRERENDER_EXTRA[pathname];
   const baseWords = pageData.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const answer = PRERENDER_ANSWER[pathname];
   const enriched =
     extra && baseWords < 500
       ? { ...pageData, content: `${pageData.content}\n${extra}` }
-      : pageData;
+      : answer
+        ? { ...pageData, content: `${answer}\n${pageData.content}` }
+        : pageData;
 
   const html = htmlShell(enriched);
   return new Response(html, {
