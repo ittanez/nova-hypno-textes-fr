@@ -315,8 +315,8 @@ async function getArticlesByCategory(
   if (!category) return { articles: [], category: null };
 
   // Get articles that contain this category name
-  // Valeur entre guillemets : sans cela, un nom avec espaces (« Troubles Anxieux ») ne
-  // correspond à aucun article et la page catégorie annonce « 0 article ».
+  // Valeur entre guillemets (comme getRelatedArticles) : robuste si un nom de catégorie
+  // contient une virgule ou un guillemet. Les noms avec espaces fonctionnaient déjà.
   const quotedCategory = encodeURIComponent('"' + category.name.replace(/"/g, '\\"') + '"');
   const artRes = await supabaseFetch(
     `articles?published=eq.true&categories=cs.{${quotedCategory}}&order=published_at.desc&select=id,title,slug,excerpt,image_url,storage_image_url,published_at,categories,read_time,author,seo_description`
