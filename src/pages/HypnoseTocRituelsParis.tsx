@@ -94,11 +94,11 @@ const HypnoseTocRituelsParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose TOC et rituels compulsifs Paris | Alain Zenatti</title>
         <meta name="description" content="TOC, rituels de vérification, comportements répétitifs : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose TOC paris, traitement TOC hypnose, rituels compulsifs hypnose paris, trichotillomanie hypnose paris, comportements répétitifs hypnose, vérifications compulsives traitement, hypnose TOC en ligne, séance TOC visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-toc-rituels-paris" />
-        <meta property="og:title" content="Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose TOC et rituels compulsifs Paris | Alain Zenatti" />
         <meta property="og:description" content="TOC, rituels de vérification, comportements répétitifs : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-toc-rituels-paris" />
@@ -109,7 +109,7 @@ const HypnoseTocRituelsParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose TOC rituels" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose TOC et rituels compulsifs Paris | Alain Zenatti" />
         <meta name="twitter:description" content="TOC, rituels de vérification, comportements répétitifs : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

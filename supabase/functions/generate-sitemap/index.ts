@@ -174,6 +174,8 @@ serve(async (req) => {
     if (categories && categories.length > 0) {
       xml += `\n  <!-- Catégories du blog -->\n`
       categories.forEach(category => {
+        // Une catégorie sans aucun article publié est une page vide : pas dans le sitemap.
+        if (!category.name || !categoryLastmod[category.name]) return
         const rawLastmod = (category.name && categoryLastmod[category.name])
           ? categoryLastmod[category.name]
           : category.created_at

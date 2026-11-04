@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 import ArticleShare from '@/components/blog/ArticleShare';
+import { demoteH1, trimDescription } from '@/lib/seo-text';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/services/blog/articleService';
 import type { Article } from '@/lib/types/blog';
@@ -81,11 +82,11 @@ const PreviewCharteBlogArticle: React.FC = () => {
     <>
       <Helmet>
         <title>{article ? `${article.title} | NovaHypnose` : 'Article | NovaHypnose'}</title>
-        {article && <meta name="description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
+        {article && <meta name="description" content={trimDescription(article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`)} />}
         <meta name="robots" content="index, follow" />
         {article && <link rel="canonical" href={`https://novahypnose.fr/blog/article/${article.slug}`} />}
         {article && <meta property="og:title" content={article.title} />}
-        {article && <meta property="og:description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
+        {article && <meta property="og:description" content={trimDescription(article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`)} />}
         <meta property="og:type" content="article" />
         {article && <meta property="og:url" content={`https://novahypnose.fr/blog/article/${article.slug}`} />}
         {article?.storage_image_url && <meta property="og:image" content={article.storage_image_url} />}
@@ -213,7 +214,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <div className="container">
                 <article
                   className="article-body reveal"
-                  dangerouslySetInnerHTML={{ __html: article.content }}
+                  dangerouslySetInnerHTML={{ __html: demoteH1(article.content) }}
                 />
                 <ArticleShare url={`https://novahypnose.fr/blog/article/${article.slug}`} title={article.title} />
                 {Array.isArray(article.faq) && article.faq.length > 0 && (

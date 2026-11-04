@@ -302,6 +302,22 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/mentions-legales"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/politique-de-confidentialite"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/politique-de-confidentialite-novarespire"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
+  path = "/autohypnose/quiz"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/avis"
   function = "seo-prerender-static"
 

@@ -1143,6 +1143,74 @@ export const PAGES: Record<string, PageData> = {
     `,
   },
 
+  "/mentions-legales": {
+    title: "Mentions légales — NovaHypnose",
+    description:
+      "Mentions légales du site novahypnose.fr — éditeur Alain Zenatti EI, hébergement, propriété intellectuelle, données personnelles et médiation.",
+    canonicalPath: "/mentions-legales",
+    h1: "Mentions légales",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Mentions légales", path: "/mentions-legales" },
+      ]),
+    ],
+    content: `
+    <p>Mentions légales du site novahypnose.fr : éditeur Alain Zenatti EI, hébergement, responsabilité civile professionnelle, conditions d'utilisation, propriété intellectuelle, données personnelles et médiation.</p>
+    <p><a href="/mentions-legales">Lire les mentions légales</a> · <a href="/politique-de-confidentialite">Politique de confidentialité</a></p>
+    `,
+  },
+  "/politique-de-confidentialite": {
+    title: "Politique de confidentialité — NovaHypnose",
+    description:
+      "Politique de confidentialité du site novahypnose.fr — traitement des données personnelles, droits RGPD, cookies, hébergement.",
+    canonicalPath: "/politique-de-confidentialite",
+    h1: "Politique de confidentialité",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Politique de confidentialité", path: "/politique-de-confidentialite" },
+      ]),
+    ],
+    content: `
+    <p>Politique de confidentialité du site novahypnose.fr : responsable du traitement, données collectées et finalités, durée de conservation, vos droits (RGPD), hébergement et sécurité.</p>
+    <p><a href="/mentions-legales">Mentions légales</a></p>
+    `,
+  },
+  "/politique-de-confidentialite-novarespire": {
+    title: "Politique de confidentialité — Application NovaRespire",
+    description:
+      "Politique de confidentialité de l'application de respiration guidée NovaRespire : données traitées, durées de conservation, suppression et vos droits.",
+    canonicalPath: "/politique-de-confidentialite-novarespire",
+    h1: "Politique de confidentialité — Application NovaRespire",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Politique de confidentialité NovaRespire", path: "/politique-de-confidentialite-novarespire" },
+      ]),
+    ],
+    content: `
+    <p>Politique de confidentialité de l'application de respiration guidée NovaRespire : données collectées, durée de conservation, comment supprimer vos données, vos droits (RGPD) et responsable du traitement.</p>
+    <p><a href="/mentions-legales">Mentions légales</a></p>
+    `,
+  },
+  "/autohypnose/quiz": {
+    title: "Quiz Auto-évaluation - Formation Auto-hypnose | NovaHypnose",
+    description:
+      "Évaluez votre niveau de stress et découvrez comment l'auto-hypnose peut vous aider. Quiz gratuit et personnalisé.",
+    canonicalPath: "/autohypnose/quiz",
+    h1: "Quiz d'auto-évaluation — Formation auto-hypnose",
+    jsonLd: [
+      breadcrumbLd([
+        { name: "Accueil", path: "/" },
+        { name: "Quiz auto-hypnose", path: "/autohypnose/quiz" },
+      ]),
+    ],
+    content: `
+    <p>Évaluez votre niveau de stress et découvrez comment l'auto-hypnose peut vous aider. Quiz gratuit et personnalisé.</p>
+    <p><a href="/autohypnose">Découvrir la formation auto-hypnose</a></p>
+    `,
+  },
   "/test-receptivite": {
     title: "Test de Réceptivité à l'Hypnose | NovaHypnose",
     description:
@@ -1191,7 +1259,7 @@ export const PAGES: Record<string, PageData> = {
   },
 
   "/autohypnose": {
-    title: "Auto-hypnose à Paris — Formation & accompagnement | NovaHypnose",
+    title: "Auto-hypnose à Paris : formation et accompagnement",
     description:
       "Apprenez l'auto-hypnose à Paris : formation en groupe (1 journée, 6 max, 240 €) ou accompagnement individuel. Stress, sommeil, émotions. Alain Zenatti.",
     canonicalPath: "/autohypnose",
@@ -1504,7 +1572,7 @@ ${c.formations.map((f) => `      <li><strong>${f.title}</strong> — ${f.school}
   },
 
   "/hypnose-troubles-alimentaires-paris": {
-    title: "Hypnose troubles alimentaires Paris | Rapport au corps | Alain Zenatti",
+    title: "Hypnose troubles alimentaires Paris | Alain Zenatti",
     description:
       "Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
     canonicalPath: "/hypnose-troubles-alimentaires-paris",
@@ -1750,7 +1818,7 @@ PAGES["/hypnose-peur-avion-paris"] = {
 };
 
 PAGES["/hypnose-arachnophobie-paris"] = {
-  title: "Hypnose arachnophobie (peur des araignées) Paris | Alain Zenatti",
+  title: "Hypnose arachnophobie, peur des araignées | Alain Zenatti",
   description:
     "Libérez-vous de l'arachnophobie (peur des araignées) par l'hypnose à Paris 4ème ou en visio. Araignées, insectes — résultats durables en 2 à 3 séances.",
   canonicalPath: "/hypnose-arachnophobie-paris",
@@ -1884,7 +1952,7 @@ PAGES["/hypnose-acrophobie-paris"] = {
 };
 
 PAGES["/hypnose-claustrophobie-paris"] = {
-  title: "Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti",
+  title: "Hypnose claustrophobie, espaces clos Paris | Alain Zenatti",
   description:
     "Ascenseur, IRM, métro : un accompagnement de la claustrophobie par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-claustrophobie-paris",
@@ -2018,7 +2086,7 @@ PAGES["/hypnose-peur-parler-public-paris"] = {
 };
 
 PAGES["/hypnose-peur-dentiste-paris"] = {
-  title: "Hypnose peur du dentiste (odontophobie) Paris | Alain Zenatti",
+  title: "Hypnose peur du dentiste Paris | Alain Zenatti",
   description: "Libérez-vous de la peur du dentiste par l'hypnose à Paris 4ème ou en visio. Odontophobie, angoisse du fauteuil — résultats durables en 2 à 4 séances.",
   canonicalPath: "/hypnose-peur-dentiste-paris",
   h1: "Hypnose et peur du dentiste — Soignez vos dents sans angoisse à Paris",
@@ -2423,7 +2491,7 @@ PAGES["/hypnose-amaxophobie-paris"] = {
 };
 
 PAGES["/hypnose-phobie-sociale-paris"] = {
-  title: "Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale",
+  title: "Hypnose phobie sociale, anxiété sociale | Alain Zenatti",
   description: "Peur du jugement, rougissement, anxiété sociale : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-phobie-sociale-paris",
   h1: "Hypnose et phobie sociale — Retrouvez le plaisir des interactions à Paris",
@@ -3056,7 +3124,7 @@ PAGES["/hypnose-procrastination-paris"] = {
 };
 
 PAGES["/hypnose-onychophagie-paris"] = {
-  title: "Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti",
+  title: "Hypnose onychophagie (ongles rongés) Paris | Alain Zenatti",
   description:
     "Se ronger les ongles : arrêtez avec l'hypnose à Paris 4e ou en visio. Un accompagnement sur le geste et le stress qui l'entretient. 90 € la séance.",
   canonicalPath: "/hypnose-onychophagie-paris",
@@ -3119,7 +3187,7 @@ PAGES["/hypnose-onychophagie-paris"] = {
 };
 
 PAGES["/hypnose-toc-rituels-paris"] = {
-  title: "Hypnose TOC & rituels compulsifs Paris & en ligne | Alain Zenatti",
+  title: "Hypnose TOC et rituels compulsifs Paris | Alain Zenatti",
   description:
     "TOC, rituels de vérification, comportements répétitifs : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-toc-rituels-paris",
@@ -3246,7 +3314,7 @@ PAGES["/hypnose-schemas-repetitifs-paris"] = {
 };
 
 PAGES["/hypnose-blocages-professionnels-paris"] = {
-  title: "Hypnose blocages professionnels Paris & en ligne | Alain Zenatti",
+  title: "Hypnose blocages professionnels Paris | Alain Zenatti",
   description:
     "Auto-sabotage, syndrome de l'imposteur, peur de réussir : levez vos freins professionnels avec l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-blocages-professionnels-paris",
@@ -3311,7 +3379,7 @@ PAGES["/hypnose-blocages-professionnels-paris"] = {
 };
 
 PAGES["/hypnose-addictions-comportementales-paris"] = {
-  title: "Hypnose addictions comportementales Paris & en ligne | Alain Zenatti",
+  title: "Hypnose addictions comportementales Paris | Alain Zenatti",
   description:
     "Jeux d'argent, écrans, achats compulsifs : un accompagnement des addictions comportementales par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-addictions-comportementales-paris",
@@ -3378,7 +3446,7 @@ PAGES["/hypnose-addictions-comportementales-paris"] = {
 // ─── Sous-pages troubles alimentaires ──────────────────────────────────────
 
 PAGES["/hypnose-compulsions-alimentaires-paris"] = {
-  title: "Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti",
+  title: "Hypnose compulsions alimentaires Paris | Alain Zenatti",
   description:
     "Envies irrépressibles de manger : un accompagnement des compulsions alimentaires par l'hypnose à Paris 4e ou en visio. 90 € la séance.",
   canonicalPath: "/hypnose-compulsions-alimentaires-paris",
@@ -3443,7 +3511,7 @@ PAGES["/hypnose-compulsions-alimentaires-paris"] = {
 };
 
 PAGES["/hypnose-grignotage-paris"] = {
-  title: "Hypnose grignotage chronique Paris & en ligne | Alain Zenatti",
+  title: "Hypnose grignotage Paris & en ligne | Alain Zenatti",
   description:
     "Grignotage au bureau, devant la télé, par anxiété : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-grignotage-paris",
@@ -3635,7 +3703,7 @@ PAGES["/hypnose-boulimie-paris"] = {
 };
 
 PAGES["/hypnose-alimentation-emotionnelle-paris"] = {
-  title: "Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti",
+  title: "Hypnose alimentation émotionnelle Paris | Alain Zenatti",
   description:
     "Manger par stress, ennui ou tristesse : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti.",
   canonicalPath: "/hypnose-alimentation-emotionnelle-paris",
@@ -3987,7 +4055,7 @@ PAGES["/faq"] = {
 };
 
 PAGES["/guide-procrastination"] = {
-  title: "Guide gratuit — Vaincre la Procrastination par l'Hypnose | NovaHypnose",
+  title: "Guide gratuit : vaincre la procrastination par l'hypnose",
   description:
     "Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes.",
   canonicalPath: "/guide-procrastination",
@@ -4167,7 +4235,7 @@ PAGES["/guide-sommeil"] = {
 };
 
 PAGES["/guide-emotions-travail"] = {
-  title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ? | NovaHypnose",
+  title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ?",
   description:
     "Guide gratuit de 19 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne.",
   canonicalPath: "/guide-emotions-travail",
@@ -4334,7 +4402,7 @@ PAGES["/guide-carriere"] = {
 };
 
 PAGES["/guide-arret-tabac"] = {
-  title: "Guide gratuit — Arrêt du Tabac, Votre Liberté Retrouvée | NovaHypnose",
+  title: "Guide gratuit : arrêt du tabac, liberté retrouvée",
   description:
     "Guide gratuit sur l'arrêt du tabac par l'hypnose, par Alain Zenatti. Comprendre la dépendance, éviter les rechutes, et un programme pratique de 30 jours.",
   canonicalPath: "/guide-arret-tabac",
