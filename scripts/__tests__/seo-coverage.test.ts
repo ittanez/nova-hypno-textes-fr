@@ -40,8 +40,8 @@ function sitemapStaticPages(): Set<string> {
 function prerenderPages(): Set<string> {
   const src = read('netlify/edge-functions/seo-prerender-static.ts');
   const keys = new Set<string>();
-  for (const m of src.matchAll(/^ {2}"(\/[a-z0-9-]*)":/gm)) keys.add(m[1]);
-  for (const m of src.matchAll(/PAGES\["(\/[a-z0-9-]+)"\]\s*=/g)) keys.add(m[1]);
+  for (const m of src.matchAll(/^ {2}"(\/[a-z0-9/-]*)":/gm)) keys.add(m[1]);
+  for (const m of src.matchAll(/PAGES\["(\/[a-z0-9/-]+)"\]\s*=/g)) keys.add(m[1]);
   return keys;
 }
 

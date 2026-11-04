@@ -118,8 +118,33 @@ function truncateTitle(title: string, maxLength = 46): string {
   const base = lastSpace > 20 ? cut.substring(0, lastSpace) : title.substring(0, maxLength);
   // Évite de finir sur un mot-outil (« comprendre l'envie de »).
   return base
-    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que))+$/iu, "")
+    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que|avec|pour|sur|dans|par|ou))+$/iu, "")
     .replace(/[\s:;,.\-–—]+$/u, "");
+}
+
+// Titre de page ≤ 60 caractères : avec le suffixe de marque si ça tient, sinon sans
+// suffixe (le titre de l'article reste entier), sinon coupé à la limite d'un mot.
+function buildTitle(title: string, maxTotal = 60): string {
+  const withBrand = `${title} | ${SITE_NAME}`;
+  if (withBrand.length <= maxTotal) return withBrand;
+  if (title.length <= maxTotal) return title;
+  return truncateTitle(title, maxTotal);
+}
+
+// Description de page ≤ 155 caractères, coupée à la limite d'un mot.
+function trimDescription(desc: string, maxLength = 155): string {
+  const clean = (desc || "").replace(/\s+/g, " ").trim();
+  if (clean.length <= maxLength) return clean;
+  const cut = clean.substring(0, maxLength + 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  const base = lastSpace > 80 ? cut.substring(0, lastSpace) : clean.substring(0, maxLength);
+  return base.replace(/[\s:;,.\-–—]+$/u, "") + "…";
+}
+
+// Un article ne doit avoir qu'un seul H1 : celui de la page. Les H1 présents dans le
+// contenu de l'article sont rétrogradés en H2.
+function demoteH1(html: string): string {
+  return (html || "").replace(/<h1(\s|>)/gi, "<h2$1").replace(/<\/h1>/gi, "</h2>");
 }
 
 function ensureDescriptionLength(desc: string, minLength = 120, maxLength = 160): string {
@@ -290,8 +315,11 @@ async function getArticlesByCategory(
   if (!category) return { articles: [], category: null };
 
   // Get articles that contain this category name
+  // Valeur entre guillemets : sans cela, un nom avec espaces (« Troubles Anxieux ») ne
+  // correspond à aucun article et la page catégorie annonce « 0 article ».
+  const quotedCategory = encodeURIComponent('"' + category.name.replace(/"/g, '\\"') + '"');
   const artRes = await supabaseFetch(
-    `articles?published=eq.true&categories=cs.{${encodeURIComponent(category.name)}}&order=published_at.desc&select=id,title,slug,excerpt,image_url,storage_image_url,published_at,categories,read_time,author,seo_description`
+    `articles?published=eq.true&categories=cs.{${quotedCategory}}&order=published_at.desc&select=id,title,slug,excerpt,image_url,storage_image_url,published_at,categories,read_time,author,seo_description`
   );
   const articles = artRes.ok ? await artRes.json() : [];
 
@@ -387,7 +415,7 @@ function htmlShell(options: {
     body,
   } = options;
 
-  const fullTitle = `${truncateTitle(title)} | ${SITE_NAME}`;
+  const fullTitle = buildTitle(title);
   const safeTitle = escapeHtml(fullTitle);
   const safeDesc = escapeHtml(description);
 
@@ -605,7 +633,7 @@ function renderArticlePage(
     </div>
     ${imageUrl ? `<img class="article-image" src="${imageUrl}" alt="${escapeHtml(article.title)}" width="800" height="450">` : ""}
     <p><em>${escapeHtml(article.excerpt)}</em></p>
-    <div class="article-content">${article.content}</div>
+    <div class="article-content">${demoteH1(article.content)}</div>
     ${getPillarLink(article.slug)}
     ${faqHtml}
   </article>
@@ -614,7 +642,7 @@ function renderArticlePage(
 
   return htmlShell({
     title: article.title,
-    description,
+    description: trimDescription(description),
     canonicalUrl,
     imageUrl,
     type: "article",

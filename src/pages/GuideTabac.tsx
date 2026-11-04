@@ -136,7 +136,7 @@ const GuideTabac: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Guide gratuit — Arrêt du Tabac, Votre Liberté Retrouvée | NovaHypnose</title>
+        <title>Guide gratuit : arrêt du tabac, liberté retrouvée</title>
         <meta name="description" content="Téléchargez gratuitement le guide sur l'arrêt du tabac par l'hypnose. Comprendre la dépendance, éviter les rechutes, et un programme pratique de 30 jours." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-arret-tabac" />

@@ -95,11 +95,11 @@ const HypnoseCompulsionsAlimentairesParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose compulsions alimentaires Paris | Alain Zenatti</title>
         <meta name="description" content="Envies irrépressibles de manger : un accompagnement des compulsions alimentaires par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose compulsions alimentaires paris, traitement compulsions alimentaires hypnose, craving alimentaire hypnose paris, manger compulsivement hypnose, envies incontrôlables nourriture hypnose paris, hypnose compulsions alimentaires en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-compulsions-alimentaires-paris" />
-        <meta property="og:title" content="Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose compulsions alimentaires Paris | Alain Zenatti" />
         <meta property="og:description" content="Envies irrépressibles de manger : un accompagnement des compulsions alimentaires par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-compulsions-alimentaires-paris" />
@@ -110,7 +110,7 @@ const HypnoseCompulsionsAlimentairesParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose compulsions alimentaires" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose compulsions alimentaires Paris & en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose compulsions alimentaires Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Envies irrépressibles de manger : un accompagnement des compulsions alimentaires par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

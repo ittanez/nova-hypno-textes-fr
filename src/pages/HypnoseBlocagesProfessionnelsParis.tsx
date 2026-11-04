@@ -95,11 +95,11 @@ const HypnoseBlocagesProfessionnelsParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose blocages professionnels Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose blocages professionnels Paris | Alain Zenatti</title>
         <meta name="description" content="Auto-sabotage, syndrome de l'imposteur, peur de réussir : levez vos freins professionnels avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose blocages professionnels paris, auto-sabotage hypnose paris, syndrome imposteur hypnose paris, peur réussir hypnose, freins carrière hypnose paris, hypnose performance professionnelle paris, blocage entrepreneur hypnose, hypnose blocage professionnel en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-blocages-professionnels-paris" />
-        <meta property="og:title" content="Hypnose blocages professionnels Paris & en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose blocages professionnels Paris | Alain Zenatti" />
         <meta property="og:description" content="Auto-sabotage, syndrome de l'imposteur, peur de réussir : levez vos freins professionnels avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-blocages-professionnels-paris" />
@@ -110,7 +110,7 @@ const HypnoseBlocagesProfessionnelsParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose blocages professionnels" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose blocages professionnels Paris & en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose blocages professionnels Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Auto-sabotage, syndrome de l'imposteur, peur de réussir : levez vos freins professionnels avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

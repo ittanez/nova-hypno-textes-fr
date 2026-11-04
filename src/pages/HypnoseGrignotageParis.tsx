@@ -94,11 +94,11 @@ const HypnoseGrignotageParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose grignotage chronique Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose grignotage Paris & en ligne | Alain Zenatti</title>
         <meta name="description" content="Grignotage au bureau, devant la télé, par anxiété : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose grignotage paris, arrêter grignoter hypnose, grignotage chronique traitement, grignotage anxieux hypnose paris, grignotage bureau hypnose, hypnose grignotage en ligne, automatisme alimentaire hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-grignotage-paris" />
-        <meta property="og:title" content="Hypnose grignotage chronique Paris & en ligne | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose grignotage Paris & en ligne | Alain Zenatti" />
         <meta property="og:description" content="Grignotage au bureau, devant la télé, par anxiété : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-grignotage-paris" />
@@ -109,7 +109,7 @@ const HypnoseGrignotageParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose grignotage" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose grignotage chronique Paris & en ligne | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose grignotage Paris & en ligne | Alain Zenatti" />
         <meta name="twitter:description" content="Grignotage au bureau, devant la télé, par anxiété : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>

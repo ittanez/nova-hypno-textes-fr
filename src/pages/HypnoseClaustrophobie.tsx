@@ -94,11 +94,11 @@ const HypnoseClaustrophobie = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti</title>
+        <title>Hypnose claustrophobie, espaces clos Paris | Alain Zenatti</title>
         <meta name="description" content="Ascenseur, IRM, métro : un accompagnement de la claustrophobie par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose claustrophobie paris, peur espaces clos hypnose, traitement claustrophobie, vaincre claustrophobie hypnose, hypnothérapeute claustrophobie paris, hypnose peur enfermement, claustrophobie hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-claustrophobie-paris" />
-        <meta property="og:title" content="Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti" />
+        <meta property="og:title" content="Hypnose claustrophobie, espaces clos Paris | Alain Zenatti" />
         <meta property="og:description" content="Ascenseur, IRM, métro : un accompagnement de la claustrophobie par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-claustrophobie-paris" />
@@ -109,7 +109,7 @@ const HypnoseClaustrophobie = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose claustrophobie" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose claustrophobie (peur des espaces clos) Paris | Alain Zenatti" />
+        <meta name="twitter:title" content="Hypnose claustrophobie, espaces clos Paris | Alain Zenatti" />
         <meta name="twitter:description" content="Ascenseur, IRM, métro : un accompagnement de la claustrophobie par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
