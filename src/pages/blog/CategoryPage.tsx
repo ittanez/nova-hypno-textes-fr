@@ -134,6 +134,7 @@ const CategoryPage = () => {
         type="website"
         url={`https://novahypnose.fr/blog/categorie/${slug}`}
         structuredData={[categorySchema, breadcrumbSchema]}
+        robots={sortedArticles.length === 0 ? "noindex, follow" : "index, follow"}
       />
 
       <Header />

@@ -400,6 +400,7 @@ function htmlShell(options: {
   keywords?: string[];
   jsonLd: unknown[];
   body: string;
+  robots?: string;
 }): string {
   const {
     title,
@@ -413,6 +414,7 @@ function htmlShell(options: {
     keywords = [],
     jsonLd,
     body,
+    robots = "index, follow",
   } = options;
 
   const fullTitle = buildTitle(title);
@@ -426,9 +428,9 @@ function htmlShell(options: {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${safeTitle}</title>
   <meta name="description" content="${safeDesc}">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
+  <meta name="robots" content="${robots}">
+  <meta name="googlebot" content="${robots}">
+  <meta name="bingbot" content="${robots}">
   <meta name="msvalidate.01" content="802C8CF0910ACE394934676CB839E931">
   <meta name="msvalidate.01" content="681D7D7FCFA71A5A355EE9D14243FE7A">
   <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM">
@@ -798,6 +800,8 @@ function renderCategoryPage(
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [collectionLd, breadcrumbLd],
     body,
+    // Une catégorie sans article est une page vide : pas d'indexation.
+    robots: articles.length === 0 ? "noindex, follow" : "index, follow",
   });
 }
 
@@ -907,7 +911,7 @@ export default async function handler(
         headers: {
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "x-robots-tag": "index, follow",
+          "x-robots-tag": articles.length === 0 ? "noindex, follow" : "index, follow",
           vary: "User-Agent",
         },
       });
@@ -915,7 +919,12 @@ export default async function handler(
 
     // Route: /blog/categories
     if (pathname === "/blog/categories" || pathname === "/blog/categories/") {
-      const categories = await getAllCategories();
+      const allCategories = await getAllCategories();
+      // Catégories vides masquées : on ne garde que celles qui ont au moins un article publié.
+      const usedRes = await supabaseFetch(`articles?published=eq.true&select=categories`);
+      const usedRows: { categories: string[] | null }[] = usedRes.ok ? await usedRes.json() : [];
+      const used = new Set(usedRows.flatMap((r) => r.categories ?? []));
+      const categories = usedRes.ok ? allCategories.filter((c) => used.has(c.name)) : allCategories;
       const html = renderCategoriesPage(categories);
       return new Response(html, {
         headers: {

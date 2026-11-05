@@ -50,7 +50,7 @@ const CategoriesPage = () => {
       article.categories && article.categories.includes(category.name)
     ).length;
     return { ...category, count };
-  });
+  }).filter(category => category.count > 0); // catégories vides masquées
   
   return (
     <>

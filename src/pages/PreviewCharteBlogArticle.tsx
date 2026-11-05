@@ -218,7 +218,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                 />
                 <ArticleShare url={`https://novahypnose.fr/blog/article/${article.slug}`} title={article.title} />
                 {Array.isArray(article.faq) && article.faq.length > 0 && (
-                  <section className="article-faq reveal">
+                  <section className="article-faq">
                     <h2>Questions fréquentes</h2>
                     {article.faq.map((item, i) => (
                       <details key={i}>
@@ -234,7 +234,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {/* ── POUR ALLER PLUS LOIN ── */}
             <section className="article-body-sect" style={{ paddingTop: 0 }}>
               <div className="container">
-                <div className="reveal" style={{ borderTop: '1px solid rgba(28,43,74,.12)', paddingTop: 40, textAlign: 'center' }}>
+                <div style={{ borderTop: '1px solid rgba(28,43,74,.12)', paddingTop: 40, textAlign: 'center' }}>
                   <div className="section-tag" style={{ justifyContent: 'center' }}>Poursuivre</div>
                   <h2 className="section-title">Pour aller <em>plus loin.</em></h2>
                   <p style={{ maxWidth: 560, margin: '0 auto 24px', color: 'var(--corps)' }}>
@@ -262,7 +262,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {relatedArticles.length > 0 && (
               <section className="blog-grid-sect" style={{ paddingTop: 40 }}>
                 <div className="container">
-                  <div className="reveal" style={{ marginBottom: 40, textAlign: 'center' }}>
+                  <div style={{ marginBottom: 40, textAlign: 'center' }}>
                     <div className="section-tag" style={{ justifyContent: 'center' }}>Continuer</div>
                     <h2 className="section-title">D'autres <em>lectures.</em></h2>
                   </div>
@@ -271,7 +271,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                       <Link
                         to={`/blog/article/${a.slug}`}
                         key={a.id}
-                        className="blog-card reveal"
+                        className="blog-card"
                         style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
                       >
                         <div className="blog-card__image">
