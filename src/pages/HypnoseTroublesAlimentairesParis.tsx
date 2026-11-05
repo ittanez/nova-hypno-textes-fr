@@ -72,7 +72,7 @@ const HypnoseTroublesAlimentairesParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose troubles alimentaires Paris & en ligne | Alain Zenatti</title>
+        <title>Hypnose troubles alimentaires Paris | Alain Zenatti</title>
         <meta name="description" content="Compulsions, grignotage, restriction : retrouvez un rapport apaisé à l'alimentation avec l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose troubles alimentaires paris, hypnose boulimie paris, hypnose compulsions alimentaires paris, hypnose anorexie paris, hypnose grignotage paris, hypnose rapport nourriture paris, troubles comportement alimentaire hypnose, hypnose alimentation émotionnelle paris, hypnose troubles alimentaires en ligne, séance hypnose alimentation visio France" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-troubles-alimentaires-paris" />

@@ -74,7 +74,7 @@ const HypnoseEmotionsParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose gestion des émotions à Paris et en ligne | Alain Zenatti</title>
+        <title>Hypnose gestion des émotions Paris | Alain Zenatti</title>
         <meta name="description" content="Colère, hypersensibilité, deuil, frustration : apprivoisez vos émotions avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose gestion émotions paris, hypnose colère paris, hypersensibilité hypnose paris, deuil hypnose paris, débordement émotionnel hypnose, gestion colère hypnothérapie paris, hypnose émotions paris, hypnose émotions en ligne, séance hypnose émotions visio France, hypnose gestion émotions à distance, téléconsultation hypnose émotions" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-gestion-emotions-paris" />
