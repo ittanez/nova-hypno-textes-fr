@@ -215,7 +215,7 @@ const PeurDelAvion = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="t_JSqnOXrdU"
+        videoId="QS0gs6ZJrOw"
         title="Peur de l'avion : s'entraîner avant, pas en plein vol"
         description="Vous évitez l'avion, ou vous le subissez : le corps anticipe le danger bien avant le décollage. Un entraînement assis, au calme, chez vous, pour une autre réponse."
         duration="PT30S"

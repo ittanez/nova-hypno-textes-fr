@@ -213,7 +213,7 @@ const HypnosePhobieSociale = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="n_-cgT2OCEI"
+        videoId="brFlwb3XwqA"
         title="Peur du regard des autres : poser l'attention dehors (phobie sociale)"
         description="Un repas, une réunion, et vous vous effacez. Les autres pensent bien moins à vous que vous ne le croyez : un détail du lieu, une expiration, une phrase courte."
         duration="PT28S"
