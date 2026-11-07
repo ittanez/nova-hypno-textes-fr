@@ -189,7 +189,7 @@ const HypnoseBlocagesParis = () => {
       {/* Comment l'hypnose débloque */}
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="FnvlpoTl_tw"
+        videoId="ZJkCvxowm4M"
         title="« Je suis bloqué » : et si vous retourniez la phrase ?"
         description="Chaque phrase qui vous enferme peut se retourner, comme une carte : je choisis, je sais déjà faire une partie, je suis à ma place."
         duration="PT34S"

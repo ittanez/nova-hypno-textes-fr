@@ -208,7 +208,7 @@ const HypnoseBlocagesProfessionnelsParis = () => {
       {/* Comment l'hypnose agit */}
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="PM5JUOs4mqM"
+        videoId="9LOdSCACuTI"
         title="Tout est urgent ? Triez avec trois questions"
         description="Vous ne manquez pas seulement de temps, vous manquez d'un tri : qui attend vraiment cela, que se passe-t-il si c'est demain, suis-je le seul à pouvoir le faire ?"
         duration="PT28S"
