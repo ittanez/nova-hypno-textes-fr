@@ -229,7 +229,7 @@ const GuideColere: React.FC = () => {
                 <p style={{ color: 'var(--corps)', fontSize: '15px', lineHeight: 1.7 }}>Deux tempêtes, c'est trop : votre respiration peut devenir le phare. Un repère simple pour garder votre calme.</p>
               </div>
               <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(28,43,74,.12)' }}>
-                <LazyYouTube videoId="wH9_Yg5a3XM" title="Quelqu'un s'énerve devant vous : une tempête, et un phare" className="w-full" />
+                <LazyYouTube videoId="PG28HUMxxmE" title="Quelqu'un s'énerve devant vous : une tempête, et un phare" className="w-full" />
               </div>
             </div>
           </div>

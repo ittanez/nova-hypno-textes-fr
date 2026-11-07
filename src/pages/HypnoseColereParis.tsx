@@ -206,7 +206,7 @@ const HypnoseColereParis = () => {
       {/* Comment l'hypnose agit */}
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="wH9_Yg5a3XM"
+        videoId="PG28HUMxxmE"
         title="Quelqu'un s'énerve devant vous : une tempête, et un phare"
         description="Deux tempêtes, c'est trop : votre respiration peut devenir le phare. Un repère simple pour garder votre calme sans vous taire."
         duration="PT30S"

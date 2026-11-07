@@ -229,7 +229,7 @@ const GuideCarriere: React.FC = () => {
                 <p style={{ color: 'var(--corps)', fontSize: '15px', lineHeight: 1.7 }}>Un repère concret pour alléger votre charge au travail, en 30 secondes.</p>
               </div>
               <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(28,43,74,.12)' }}>
-                <LazyYouTube videoId="frZ2NwkX3do" title="Déléguer, c'est passer le témoin" className="w-full" />
+                <LazyYouTube videoId="8CeL7yAQtfk" title="Déléguer, c'est passer le témoin" className="w-full" />
               </div>
             </div>
           </div>
