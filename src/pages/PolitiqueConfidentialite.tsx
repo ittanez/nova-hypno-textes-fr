@@ -153,6 +153,21 @@ const PolitiqueConfidentialite: React.FC = () => {
                 envoyer des ressources liées à votre démarche. Elles ne sont jamais revendues ni transmises à des tiers à des
                 fins commerciales.
               </p>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: '1.25rem 0 0.5rem' }}>Décryptage en 5 questions</h3>
+              <p className="legal-text">
+                Les réponses au questionnaire « Décryptage » (page <a href="/decryptage">/decryptage</a>) concernent votre
+                bien-être : elles sont traitées avec une attention particulière. Sans adresse e-mail, elles restent dans votre
+                navigateur et ne sont pas enregistrées. Si vous indiquez votre e-mail et cochez la case d'accord, votre prénom,
+                votre e-mail, vos réponses et votre éventuel message sont enregistrés pour vous envoyer votre décryptage et
+                préparer un éventuel échange. Seul Alain Zenatti y a accès. L'e-mail est envoyé par <strong>Brevo</strong> (envoi
+                transactionnel, sans ajout à une liste de diffusion). Ces données sont <strong>supprimées automatiquement au bout
+                de 12 mois</strong>, ou plus tôt sur simple demande. Vous pouvez retirer votre accord à tout moment en écrivant à{' '}
+                <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a>.
+              </p>
+              <p className="legal-text">
+                La prise de rendez-vous pour l'échange de 15 minutes est gérée par <strong>Calendly</strong> (tierce partie),
+                qui reçoit les informations que vous saisissez dans son agenda.
+              </p>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: '1.25rem 0 0.5rem' }}>Prise de rendez-vous en ligne</h3>
               <p className="legal-text">
                 La réservation est gérée par <strong>Resalib</strong> (tierce partie). Consultez la{' '}
@@ -179,7 +194,8 @@ const PolitiqueConfidentialite: React.FC = () => {
               </h2>
               <p className="legal-text">
                 Les données issues des formulaires sont conservées pendant <strong>3 ans</strong> à compter du dernier contact,
-                puis supprimées. Les données d'analyse agrégées ne contiennent pas d'informations personnelles et peuvent être
+                puis supprimées. Exception : les réponses au Décryptage sont supprimées au bout de <strong>12 mois</strong>.
+                Les données d'analyse agrégées ne contiennent pas d'informations personnelles et peuvent être
                 conservées indéfiniment.
               </p>
             </div>

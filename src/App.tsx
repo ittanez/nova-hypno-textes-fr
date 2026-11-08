@@ -66,6 +66,7 @@ const ZoneIntervention = lazy(() => import("@/pages/ZoneIntervention"));
 const GuideEbook = lazy(() => import("@/pages/GuideEbook"));
 const GuideEbookMerci = lazy(() => import("@/pages/GuideEbookMerci"));
 const LandingProfessionnels = lazy(() => import("@/pages/LandingProfessionnels"));
+const Decryptage = lazy(() => import("@/pages/Decryptage"));
 
 // Guide autohypnose (landing page isolée)
 const GuideAutohypnose = lazy(() => import("@/pages/GuideAutohypnose"));
@@ -240,6 +241,9 @@ function App() {
             {/* Routes Auto-hypnose — /autohypnose est servi par la charte (voir plus haut) */}
             <Route path="/autohypnose/quiz" element={<AutohypnoseQuiz />} />
             <Route path="/autohypnose-questionnaire" element={<AutohypnoseQuestionnaire />} />
+
+            {/* Tunnel « Décryptage » (page autonome) */}
+            <Route path="/decryptage" element={<Decryptage />} />
 
             {/* Test de réceptivité */}
             <Route path="/test-receptivite" element={<PreviewCharteTestReceptivite />} />
