@@ -14,6 +14,26 @@
         "value": "arial",
         "createdAt": "2026-11-08T21:50:52.629Z",
         "reason": "Claude: emails HTML transactionnels (Brevo), seules les polices système sont fiables dans les clients mail"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "createdAt": "2026-11-08T22:16:12.083Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#3a4660",
+        "createdAt": "2026-11-08T22:16:12.285Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12px",
+        "createdAt": "2026-11-08T22:16:12.494Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "createdAt": "2026-11-08T22:16:12.711Z"
       }
     ]
   }
