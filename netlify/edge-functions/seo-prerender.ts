@@ -269,6 +269,7 @@ async function supabaseFetch(path: string): Promise<Response> {
 // ne soient appliquées.
 const ARTICLE_REDIRECTS_TO_PAGES: Record<string, string> = {
   "vaincre-peurs-hypnotherapie": "/hypnose-phobies-paris",
+  "liberez-vous-enfin-de-lemprise-de-lautophobie": "/hypnose-phobies-paris",
 };
 
 async function getRedirectTarget(slug: string): Promise<string | null> {

@@ -48,7 +48,9 @@
 /index.php/jatteins-mes-objectifs-avec-lauto-hypnose-2/  /autohypnose  301!
 /index.php/hypno-cafes/  /blog  301!
 /index.php/contact-nova-hypnose/  /  301!
-/2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/  /blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie  301!
+# Aucun article autophobie en base : la cible précédente renvoyait 404 (GSC « Introuvable »)
+/2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/  /hypnose-phobies-paris  301!
+/blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie  /hypnose-phobies-paris  301!
 # Anciens articles WordPress dupliquant titre/meta de l'accueil (Bing Webmaster) -> article équivalent
 /2024/06/10/comprendre-et-depasser-laquaphobie-grace-a-lhypnose/  /blog/article/peur-de-l-eau-hypnose-aquaphobie  301!
 /2024/06/10/hypnose-aquaphobie-liberation-baignade/  /blog/article/peur-de-l-eau-hypnose-aquaphobie  301!
