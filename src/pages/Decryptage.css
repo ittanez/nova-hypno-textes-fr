@@ -132,6 +132,10 @@ textarea.dx__input { min-height: 96px; resize: vertical; }
 .dx__cta p { margin: 0; font-size: 16px; line-height: 1.6; }
 .dx__cta .dx__engagement { font-size: 15px; padding-top: 14px; border-top: 1px solid #6F86C4; }
 
+.dx__cta .dx__sms { font-size: 15px; text-align: center; }
+.dx__sms a { color: #FFFFFF; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.dx__sms a:focus-visible { outline: 3px solid var(--dx-ambre); outline-offset: 3px; }
+
 .dx__calendly { background: var(--dx-carte); border-radius: 16px; overflow: hidden; }
 .dx__calendly iframe { display: block; width: 100%; height: 720px; border: 0; }
 

@@ -28,7 +28,10 @@ import {
   MAX_PRENOM,
   QUESTIONS,
   REPERE_LABEL,
+  SMS_NUMERO_AFFICHE,
+  SMS_TEXTE,
   buildDecryptage,
+  buildSmsHref,
   computeRepere,
   computeSignaux,
   isValidAnswers,
@@ -137,6 +140,7 @@ ${h("Une piste pour la suite")}${p(d.blocC)}
 <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#FFFFFF">${esc(BLOC_D.texte)}</p>
 <p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#FFFFFF"><strong>Mon engagement :</strong> ${esc(BLOC_D.engagement)}</p>
 <a href="${esc(calendly)}" style="display:block;text-align:center;background:#FFFFFF;color:#1C2B4A;font-weight:bold;font-size:16px;text-decoration:none;padding:15px 18px;border-radius:999px">Choisir un créneau d'appel (15 min, gratuit)</a>
+<p style="margin:16px 0 0;font-size:15px;line-height:1.6;color:#FFFFFF;text-align:center">${esc(SMS_TEXTE)} <a href="${esc(buildSmsHref(prenom))}" style="color:#FFFFFF;font-weight:bold">SMS au ${SMS_NUMERO_AFFICHE}</a></p>
 </div>
 <p style="margin:0 0 4px;font-size:15px">Alain Zenatti</p>
 <p style="margin:0 0 24px;font-size:13px;line-height:1.5;color:#3A4660">Hypnothérapeute · 16 rue Saint-Antoine, 75004 Paris · 06 49 35 80 89<br><a href="https://novahypnose.fr" style="color:#2B4BA0">novahypnose.fr</a></p>
@@ -159,6 +163,7 @@ ${h("Une piste pour la suite")}${p(d.blocC)}
     `Mon engagement : ${BLOC_D.engagement}`,
     "",
     `Choisir un créneau d'appel (15 min, gratuit) : ${calendly}`,
+    `${SMS_TEXTE} SMS au ${SMS_NUMERO_AFFICHE}`,
     "",
     "Alain Zenatti, hypnothérapeute, 16 rue Saint-Antoine, 75004 Paris, 06 49 35 80 89",
     "",

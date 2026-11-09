@@ -27,7 +27,10 @@ import {
   MAX_PRENOM,
   QUESTIONS,
   RESALIB_URL,
+  SMS_NUMERO_AFFICHE,
+  SMS_TEXTE,
   buildDecryptage,
+  buildSmsHref,
   type DecryptageAnswers,
   type QuestionId,
 } from '@/data/decryptage';
@@ -421,6 +424,12 @@ const Decryptage = () => {
               <button type="button" className="dx__btn dx__btn--light" onClick={openCalendly}>
                 Choisir un créneau d'appel (15 min, gratuit)
               </button>
+              <p className="dx__sms">
+                {SMS_TEXTE}{' '}
+                <a href={buildSmsHref(prenom)} onClick={() => trackCTAClick('sms', 'decryptage_result')}>
+                  Envoyer un SMS au {SMS_NUMERO_AFFICHE}
+                </a>
+              </p>
             </section>
 
             {showCalendly && (

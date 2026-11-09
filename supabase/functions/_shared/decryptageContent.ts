@@ -181,6 +181,18 @@ export const BANDEAU_PRUDENCE =
 export const CALENDLY_URL = 'https://calendly.com/zenatti/rdvtelephonique';
 export const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
 
+/** Alternative à Calendly (peu de créneaux) : la personne envoie un SMS, Alain rappelle. */
+export const SMS_NUMERO_AFFICHE = '06 49 35 80 89';
+export const SMS_TEXTE =
+  "Aucun créneau ne vous convient ? Envoyez-moi un SMS avec les moments où vous êtes joignable, je vous rappelle.";
+
+/** Lien `sms:` prérempli. La forme `?&body=` fonctionne sur iPhone et Android. */
+export function buildSmsHref(prenom: string): string {
+  const nom = prenom.trim();
+  const body = `Bonjour Alain, ${nom ? `c'est ${nom}. ` : ''}Suite à mon décryptage, vous pouvez me rappeler : `;
+  return `sms:+33649358089?&body=${encodeURIComponent(body)}`;
+}
+
 /** Version du texte de consentement, enregistrée avec chaque réponse. */
 export const CONSENT_VERSION = '2026-11-08';
 
