@@ -34,6 +34,21 @@
         "rule": "design-system-font-size",
         "value": "20px",
         "createdAt": "2026-11-08T22:16:12.711Z"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "20px",
+        "createdAt": "2026-11-09T07:38:45.774Z"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "14px",
+        "createdAt": "2026-11-09T07:38:45.936Z"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "2px",
+        "createdAt": "2026-11-09T07:38:46.121Z"
       }
     ]
   }
