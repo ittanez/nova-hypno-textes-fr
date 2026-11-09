@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 import ArticleShare from '@/components/blog/ArticleShare';
+import DecryptageEncart from '@/components/blog/DecryptageEncart';
 import { demoteH1, trimDescription } from '@/lib/seo-text';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/services/blog/articleService';
@@ -216,6 +217,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                   className="article-body reveal"
                   dangerouslySetInnerHTML={{ __html: demoteH1(article.content) }}
                 />
+                <DecryptageEncart articleSlug={article.slug} />
                 <ArticleShare url={`https://novahypnose.fr/blog/article/${article.slug}`} title={article.title} />
                 {Array.isArray(article.faq) && article.faq.length > 0 && (
                   <section className="article-faq">

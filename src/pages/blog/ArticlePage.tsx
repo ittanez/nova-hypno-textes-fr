@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import RelatedArticles from "@/components/blog/RelatedArticles";
 import BlogArticleFAQ from "@/components/blog/BlogArticleFAQ";
+import DecryptageEncart from "@/components/blog/DecryptageEncart";
 import { findPillarPage } from "@/data/pillarMapping";
 import Breadcrumb from "@/components/blog/Breadcrumb";
 import { toast } from "@/hooks/use-toast";
@@ -402,6 +403,9 @@ const ArticlePage = () => {
                 }}
               />
               
+              {/* ✅ ENCART DÉCRYPTAGE (question 1 du tunnel) */}
+              <DecryptageEncart articleSlug={article.slug} />
+
               {/* ✅ LIEN VERS LA PAGE PILIER */}
               {(() => {
                 const pillar = findPillarPage(article.slug);

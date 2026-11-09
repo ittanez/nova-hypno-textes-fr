@@ -1,0 +1,47 @@
+/* Encart « Décryptage » en fin d'article : mêmes couleurs que /decryptage. */
+.dxe {
+  --dxe-cobalt: #2B4BA0;
+  --dxe-encre: #1C2B4A;
+  --dxe-ambre: #F2A12E;
+  --dxe-lin: #F7F3EA;
+  --dxe-doux: #3A4660;
+  max-width: 740px;
+  margin: 48px auto 0;
+  box-sizing: border-box;
+  padding: 24px 20px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(28, 43, 74, 0.12);
+  color: var(--dxe-encre);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dxe__bar { width: 48px; height: 3px; border-radius: 2px; background: var(--dxe-ambre); }
+.dxe__kicker { margin: 0; font-size: 13px; font-weight: 500; color: var(--dxe-cobalt); }
+.dxe__titre {
+  margin: 0 0 4px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(24px, 5.5vw, 28px);
+  line-height: 1.15;
+  color: var(--dxe-encre);
+  text-wrap: balance;
+}
+.dxe__opts { display: grid; gap: 10px; }
+.dxe .dxe__opt {
+  display: block;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--dxe-encre);
+  text-decoration: none;
+  background: var(--dxe-lin);
+  border: 2px solid var(--dxe-lin);
+  border-radius: 14px;
+  padding: 13px 16px;
+  transition: border-color 0.15s;
+}
+.dxe .dxe__opt:hover { border-color: var(--dxe-cobalt); color: var(--dxe-encre); }
+.dxe__opt:focus-visible { outline: 3px solid var(--dxe-ambre); outline-offset: 3px; }
+.dxe__fine { margin: 4px 0 0; font-size: 13px; color: var(--dxe-doux); text-align: center; }

@@ -12,7 +12,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { logger } from '@/lib/logger';
 import { trackConversion, trackCTAClick, trackQuizStep } from '@/lib/analytics';
@@ -55,10 +55,22 @@ const AVIS = [
   },
 ];
 
+/**
+ * Réponse à la question 1 transmise par l'encart du blog, via l'état de
+ * navigation (jamais dans l'URL : GA4 enregistre l'adresse des pages).
+ */
+function q1FromEncart(state: unknown): string | null {
+  const v = (state as { q1?: unknown } | null)?.q1;
+  if (typeof v !== 'string' || v === 'autre') return null;
+  return QUESTIONS[0].options.some((o) => o.value === v) ? v : null;
+}
+
 const Decryptage = () => {
-  const [step, setStep] = useState<Step>('intro');
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Partial5>({});
+  const location = useLocation();
+  const [q1Initial] = useState(() => q1FromEncart(location.state));
+  const [step, setStep] = useState<Step>(q1Initial ? 'questions' : 'intro');
+  const [index, setIndex] = useState(q1Initial ? 1 : 0);
+  const [answers, setAnswers] = useState<Partial5>(q1Initial ? { q1: q1Initial } : {});
   const [autreTexte, setAutreTexte] = useState('');
   const [prenom, setPrenom] = useState('');
   const [email, setEmail] = useState('');
@@ -80,6 +92,11 @@ const Decryptage = () => {
     window.scrollTo({ top: 0 });
     headingRef.current?.focus();
   }, [step, index]);
+
+  // Arrivée depuis l'encart du blog : la question 1 est déjà répondue.
+  useEffect(() => {
+    if (q1Initial) trackQuizStep('decryptage_q2_depuis_blog');
+  }, [q1Initial]);
 
   // Calendly signale une réservation par postMessage.
   useEffect(() => {
