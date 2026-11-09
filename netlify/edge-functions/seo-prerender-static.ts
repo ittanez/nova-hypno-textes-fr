@@ -104,6 +104,8 @@ interface PageData {
   h1: string;
   content: string;
   imageUrl?: string;
+  /** Page de tunnel : aperçu de partage correct, mais hors index. */
+  noindex?: boolean;
   jsonLd: unknown[];
 }
 
@@ -114,6 +116,7 @@ function htmlShell(page: PageData): string {
   const safeDesc = escapeHtml(page.description);
   const canonicalUrl = `${SITE_URL}${page.canonicalPath}`;
   const imageUrl = page.imageUrl || DEFAULT_IMAGE;
+  const robots = page.noindex ? "noindex, follow" : "index, follow";
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -122,9 +125,9 @@ function htmlShell(page: PageData): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${fullTitle}</title>
   <meta name="description" content="${safeDesc}">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
+  <meta name="robots" content="${robots}">
+  <meta name="googlebot" content="${robots}">
+  <meta name="bingbot" content="${robots}">
   <meta name="msvalidate.01" content="802C8CF0910ACE394934676CB839E931">
   <meta name="msvalidate.01" content="681D7D7FCFA71A5A355EE9D14243FE7A">
   <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM">
@@ -3883,6 +3886,20 @@ PAGES["/tarifs"] = {
     `,
 };
 
+PAGES["/decryptage"] = {
+  title: "Décryptage : 5 questions pour faire le point | NovaHypnose",
+  description:
+    "5 questions, 2 minutes : une lecture de votre situation et des pistes pour la suite, par Alain Zenatti, hypnothérapeute à Paris 4e. Gratuit.",
+  canonicalPath: "/decryptage",
+  h1: "Décryptage : 5 questions pour faire le point",
+  noindex: true,
+  jsonLd: [],
+  content: `
+    <p>Stress, sommeil, peur, confiance en soi : répondez à 5 questions en 2 minutes. Vous recevez une lecture de votre situation et des pistes pour la suite. Ce n'est pas un diagnostic.</p>
+    <p>Si vous le souhaitez, Alain Zenatti vous propose ensuite un échange de 15 minutes par téléphone, gratuit, pour voir si l'hypnose est adaptée à votre situation.</p>
+    `,
+};
+
 PAGES["/avis"] = {
   title: "Avis & témoignages clients — NovaHypnose | Alain Zenatti",
   description:
@@ -4490,7 +4507,7 @@ export default async function handler(
       "content-type": "text/html; charset=utf-8",
       "cache-control":
         "public, s-maxage=3600, stale-while-revalidate=86400",
-      "x-robots-tag": "index, follow",
+      "x-robots-tag": enriched.noindex ? "noindex, follow" : "index, follow",
       vary: "User-Agent",
     },
   });

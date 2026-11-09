@@ -322,6 +322,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/decryptage"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/contact"
   function = "seo-prerender-static"
 
