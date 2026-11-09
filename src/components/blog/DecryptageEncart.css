@@ -10,7 +10,8 @@
   box-sizing: border-box;
   padding: 24px 20px;
   border-radius: 20px;
-  background: var(--dxe-lin);
+  background: #FFFFFF;
+  border: 1px solid rgba(28, 43, 74, 0.12);
   color: var(--dxe-encre);
   font-family: 'DM Sans', system-ui, sans-serif;
   display: flex;
@@ -35,8 +36,8 @@
   line-height: 1.4;
   color: var(--dxe-encre);
   text-decoration: none;
-  background: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  background: var(--dxe-lin);
+  border: 2px solid var(--dxe-lin);
   border-radius: 14px;
   padding: 13px 16px;
   transition: border-color 0.15s;
