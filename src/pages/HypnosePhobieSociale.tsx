@@ -94,12 +94,12 @@ const HypnosePhobieSociale = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale</title>
-        <meta name="description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
+        <title>Hypnose phobie sociale, anxiété sociale | Alain Zenatti</title>
+        <meta name="description" content="Peur du jugement, rougissement, anxiété sociale : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose phobie sociale paris, anxiété sociale hypnose paris, peur du jugement hypnose, érythrophobie hypnose paris, hypnothérapeute phobie sociale, peur regard des autres hypnose, hypnose timidité paris, séance hypnose phobie sociale visio france" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-phobie-sociale-paris" />
-        <meta property="og:title" content="Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale" />
-        <meta property="og:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
+        <meta property="og:title" content="Hypnose phobie sociale, anxiété sociale | Alain Zenatti" />
+        <meta property="og:description" content="Peur du jugement, rougissement, anxiété sociale : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-phobie-sociale-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,8 +109,8 @@ const HypnosePhobieSociale = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose phobie sociale" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose phobie sociale Paris | Alain Zenatti – Anxiété sociale" />
-        <meta name="twitter:description" content="Libérez-vous de la phobie sociale par l'hypnose à Paris 4ème ou en visio. Peur du jugement, rougissement, anxiété sociale. Résultats durables visés, souvent dès les premières séances." />
+        <meta name="twitter:title" content="Hypnose phobie sociale, anxiété sociale | Alain Zenatti" />
+        <meta name="twitter:description" content="Peur du jugement, rougissement, anxiété sociale : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -213,7 +213,7 @@ const HypnosePhobieSociale = () => {
 
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="n_-cgT2OCEI"
+        videoId="brFlwb3XwqA"
         title="Peur du regard des autres : poser l'attention dehors (phobie sociale)"
         description="Un repas, une réunion, et vous vous effacez. Les autres pensent bien moins à vous que vous ne le croyez : un détail du lieu, une expiration, une phrase courte."
         duration="PT28S"

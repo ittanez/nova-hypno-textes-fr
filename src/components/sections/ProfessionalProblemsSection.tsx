@@ -112,7 +112,7 @@ const ProfessionalProblemsSection: React.FC = () => {
           </h3>
           <p className="text-lg md:text-xl mb-6 text-white/95 leading-relaxed">
             L'hypnose ericksonienne vous aide à <strong>sortir de ce cercle vicieux</strong> en quelques séances.
-            Sans médicaments, sans thérapie interminable. Juste des résultats concrets et durables.
+            Une approche brève, complémentaire d'un suivi médical, sans thérapie interminable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

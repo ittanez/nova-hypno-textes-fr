@@ -96,11 +96,11 @@ const HypnoseProcrastinationParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose procrastination Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. Peur de l'échec, perfectionnisme, blocage à l'action." />
+        <meta name="description" content="Peur de l'échec, perfectionnisme, blocage à l'action : cessez de procrastiner avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose procrastination paris, arrêter procrastiner hypnose, blocage à l'action hypnose paris, peur échec hypnose paris, perfectionnisme hypnose paris, auto-sabotage hypnose paris, procrastination chronique traitement, hypnose procrastination en ligne, séance hypnose procrastination visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-procrastination-paris" />
         <meta property="og:title" content="Hypnose procrastination Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause réelle : peur de l'échec, perfectionnisme, auto-sabotage." />
+        <meta property="og:description" content="Peur de l'échec, perfectionnisme, blocage à l'action : cessez de procrastiner avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-procrastination-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -111,7 +111,7 @@ const HypnoseProcrastinationParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose procrastination" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose procrastination Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Arrêtez de procrastiner grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur la cause réelle : peur de l'échec, perfectionnisme, auto-sabotage." />
+        <meta name="twitter:description" content="Peur de l'échec, perfectionnisme, blocage à l'action : cessez de procrastiner avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

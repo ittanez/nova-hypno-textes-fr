@@ -61,6 +61,7 @@ serve(async (req) => {
       { loc: '/hypnose-colere-paris',          lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-hypersensibilite-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-deuil-paris',           lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
+      { loc: '/hypnose-douleur-chronique-paris', lastmod: '2026-11-03', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-traumatismes-paris',    lastmod: '2026-07-18', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-frustration-paris',     lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
       { loc: '/hypnose-anxiete-emotionnelle-paris', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.7' },
@@ -97,7 +98,6 @@ serve(async (req) => {
       { loc: '/blog/categories',               lastmod: '2026-06-13', changefreq: 'weekly',  priority: '0.6' },
       { loc: '/mentions-legales',              lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
       { loc: '/politique-de-confidentialite', lastmod: '2026-06-13', changefreq: 'yearly',  priority: '0.3' },
-      { loc: '/politique-de-confidentialite-novarespire', lastmod: '2026-06-13', changefreq: 'yearly', priority: '0.3' },
     ]
 
     console.log('🚀 Génération du sitemap...')
@@ -174,6 +174,8 @@ serve(async (req) => {
     if (categories && categories.length > 0) {
       xml += `\n  <!-- Catégories du blog -->\n`
       categories.forEach(category => {
+        // Une catégorie sans aucun article publié est une page vide : pas dans le sitemap.
+        if (!category.name || !categoryLastmod[category.name]) return
         const rawLastmod = (category.name && categoryLastmod[category.name])
           ? categoryLastmod[category.name]
           : category.created_at

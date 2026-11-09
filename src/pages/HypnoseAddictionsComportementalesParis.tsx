@@ -94,12 +94,12 @@ const HypnoseAddictionsComportementalesParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose addictions comportementales Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de vos addictions comportementales (jeux d'argent, écrans, achats compulsifs) par l'hypnose à Paris 4ème ou en visio." />
+        <title>Hypnose addictions comportementales Paris | Alain Zenatti</title>
+        <meta name="description" content="Jeux d'argent, écrans, achats compulsifs : un accompagnement des addictions comportementales par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose addiction comportementale paris, hypnose jeux argent paris, hypnose addiction écrans paris, achats compulsifs hypnose, addiction travail hypnose paris, comportement compulsif traitement hypnose, hypnose addiction comportementale en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-addictions-comportementales-paris" />
-        <meta property="og:title" content="Hypnose addictions comportementales Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de vos addictions comportementales par l'hypnose à Paris 4ème ou en visio. Jeux d'argent, écrans, achats compulsifs — l'hypnose agit sur la cause émotionnelle." />
+        <meta property="og:title" content="Hypnose addictions comportementales Paris | Alain Zenatti" />
+        <meta property="og:description" content="Jeux d'argent, écrans, achats compulsifs : un accompagnement des addictions comportementales par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-addictions-comportementales-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,8 +109,8 @@ const HypnoseAddictionsComportementalesParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose addictions comportementales" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose addictions comportementales Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de vos addictions comportementales par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:title" content="Hypnose addictions comportementales Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Jeux d'argent, écrans, achats compulsifs : un accompagnement des addictions comportementales par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

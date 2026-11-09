@@ -157,7 +157,7 @@ export const blocagesFaqItems: SpecialtyFaqItem[] = [
 export const tabacFaqItems: SpecialtyFaqItem[] = [
   {
     question: "Combien de séances sont nécessaires pour arrêter de fumer ?",
-    answer: "Pour l'arrêt du tabac, une à trois séances suffisent dans la majorité des cas. La première séance est souvent la plus transformatrice : elle neutralise les déclencheurs automatiques les plus forts et installe une nouvelle relation à la cigarette. Une ou deux séances de consolidation peuvent être utiles selon l'ancienneté de la dépendance et la présence de co-dépendances (stress, café, alcool). Lors de la première consultation, nous évaluons ensemble votre profil de fumeur et définissons le nombre de séances adapté."
+    answer: "Mon repère est de une à trois séances : des changements se font généralement sentir dès les deux ou trois premières séances, et s'il n'y en a pas, il est inutile de poursuivre. Ce nombre varie d'une personne à l'autre (ancienneté du tabagisme, rituels associés, présence d'autres dépendances comme le stress, le café ou l'alcool). À noter : l'efficacité de l'hypnose pour arrêter de fumer n'est pas établie, le rapport Inserm de 2015 jugeant les données insuffisantes, voire décevantes, pour le sevrage tabagique. Je peux aussi vous orienter vers votre médecin ou un tabacologue : l'hypnose s'envisage en complément d'un suivi médical, pas à sa place."
   },
   {
     question: "L'hypnose fonctionne-t-elle aussi pour la cigarette électronique ?",

@@ -96,11 +96,11 @@ const HypnoseChargeEmotionnelleParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose charge émotionnelle Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de la charge émotionnelle et de l'épuisement émotionnel par l'hypnose à Paris 4ème ou en visio. Fatigue, saturation, absorption des émotions." />
+        <meta name="description" content="Fatigue émotionnelle, saturation, absorption des émotions des autres : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose charge émotionnelle paris, épuisement émotionnel hypnose, saturation émotionnelle traitement, hypnose fatigue émotionnelle paris, porter émotions des autres hypnose" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-charge-emotionnelle-paris" />
         <meta property="og:title" content="Hypnose charge émotionnelle Paris | Alain Zenatti" />
-        <meta property="og:description" content="Accompagnement de la charge émotionnelle par l'hypnose à Paris 4ème ou en visio. Épuisement, saturation, absorption des émotions." />
+        <meta property="og:description" content="Fatigue émotionnelle, saturation, absorption des émotions des autres : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-charge-emotionnelle-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -111,7 +111,7 @@ const HypnoseChargeEmotionnelleParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose charge émotionnelle" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose charge émotionnelle Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Accompagnement de la charge émotionnelle par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Fatigue émotionnelle, saturation, absorption des émotions des autres : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

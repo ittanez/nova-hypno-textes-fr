@@ -1,3 +1,4 @@
+import { looksAutomated, withVaryUA } from "./lib/ua.ts";
 import type { Context } from "https://edge.netlify.com";
 
 // ─── Configuration ─────────────────────────────────────────────────────────
@@ -86,7 +87,10 @@ interface Category {
 
 function isBot(request: Request): boolean {
   const ua = (request.headers.get("user-agent") || "").toLowerCase();
-  return BOT_USER_AGENTS.some((bot) => ua.includes(bot));
+  return (
+    BOT_USER_AGENTS.some((bot) => ua.includes(bot)) ||
+    looksAutomated(request.headers.get("user-agent"))
+  );
 }
 
 function escapeHtml(str: string): string {
@@ -114,8 +118,33 @@ function truncateTitle(title: string, maxLength = 46): string {
   const base = lastSpace > 20 ? cut.substring(0, lastSpace) : title.substring(0, maxLength);
   // Évite de finir sur un mot-outil (« comprendre l'envie de »).
   return base
-    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que))+$/iu, "")
+    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que|avec|pour|sur|dans|par|ou))+$/iu, "")
     .replace(/[\s:;,.\-–—]+$/u, "");
+}
+
+// Titre de page ≤ 60 caractères : avec le suffixe de marque si ça tient, sinon sans
+// suffixe (le titre de l'article reste entier), sinon coupé à la limite d'un mot.
+function buildTitle(title: string, maxTotal = 60): string {
+  const withBrand = `${title} | ${SITE_NAME}`;
+  if (withBrand.length <= maxTotal) return withBrand;
+  if (title.length <= maxTotal) return title;
+  return truncateTitle(title, maxTotal);
+}
+
+// Description de page ≤ 155 caractères, coupée à la limite d'un mot.
+function trimDescription(desc: string, maxLength = 155): string {
+  const clean = (desc || "").replace(/\s+/g, " ").trim();
+  if (clean.length <= maxLength) return clean;
+  const cut = clean.substring(0, maxLength + 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  const base = lastSpace > 80 ? cut.substring(0, lastSpace) : clean.substring(0, maxLength);
+  return base.replace(/[\s:;,.\-–—]+$/u, "") + "…";
+}
+
+// Un article ne doit avoir qu'un seul H1 : celui de la page. Les H1 présents dans le
+// contenu de l'article sont rétrogradés en H2.
+function demoteH1(html: string): string {
+  return (html || "").replace(/<h1(\s|>)/gi, "<h2$1").replace(/<\/h1>/gi, "</h2>");
 }
 
 function ensureDescriptionLength(desc: string, minLength = 120, maxLength = 160): string {
@@ -286,8 +315,11 @@ async function getArticlesByCategory(
   if (!category) return { articles: [], category: null };
 
   // Get articles that contain this category name
+  // Valeur entre guillemets (comme getRelatedArticles) : robuste si un nom de catégorie
+  // contient une virgule ou un guillemet. Les noms avec espaces fonctionnaient déjà.
+  const quotedCategory = encodeURIComponent('"' + category.name.replace(/"/g, '\\"') + '"');
   const artRes = await supabaseFetch(
-    `articles?published=eq.true&categories=cs.{${encodeURIComponent(category.name)}}&order=published_at.desc&select=id,title,slug,excerpt,image_url,storage_image_url,published_at,categories,read_time,author,seo_description`
+    `articles?published=eq.true&categories=cs.{${quotedCategory}}&order=published_at.desc&select=id,title,slug,excerpt,image_url,storage_image_url,published_at,categories,read_time,author,seo_description`
   );
   const articles = artRes.ok ? await artRes.json() : [];
 
@@ -368,6 +400,7 @@ function htmlShell(options: {
   keywords?: string[];
   jsonLd: unknown[];
   body: string;
+  robots?: string;
 }): string {
   const {
     title,
@@ -381,9 +414,10 @@ function htmlShell(options: {
     keywords = [],
     jsonLd,
     body,
+    robots = "index, follow",
   } = options;
 
-  const fullTitle = `${truncateTitle(title)} | ${SITE_NAME}`;
+  const fullTitle = buildTitle(title);
   const safeTitle = escapeHtml(fullTitle);
   const safeDesc = escapeHtml(description);
 
@@ -394,9 +428,9 @@ function htmlShell(options: {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${safeTitle}</title>
   <meta name="description" content="${safeDesc}">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
+  <meta name="robots" content="${robots}">
+  <meta name="googlebot" content="${robots}">
+  <meta name="bingbot" content="${robots}">
   <meta name="msvalidate.01" content="802C8CF0910ACE394934676CB839E931">
   <meta name="msvalidate.01" content="681D7D7FCFA71A5A355EE9D14243FE7A">
   <meta name="google-site-verification" content="3VKz5JfNFaPVPQOGFV9iuTBzPZsQghbXpgb8vwiyjfM">
@@ -601,7 +635,7 @@ function renderArticlePage(
     </div>
     ${imageUrl ? `<img class="article-image" src="${imageUrl}" alt="${escapeHtml(article.title)}" width="800" height="450">` : ""}
     <p><em>${escapeHtml(article.excerpt)}</em></p>
-    <div class="article-content">${article.content}</div>
+    <div class="article-content">${demoteH1(article.content)}</div>
     ${getPillarLink(article.slug)}
     ${faqHtml}
   </article>
@@ -610,7 +644,7 @@ function renderArticlePage(
 
   return htmlShell({
     title: article.title,
-    description,
+    description: trimDescription(description),
     canonicalUrl,
     imageUrl,
     type: "article",
@@ -766,6 +800,8 @@ function renderCategoryPage(
     imageUrl: DEFAULT_IMAGE,
     jsonLd: [collectionLd, breadcrumbLd],
     body,
+    // Une catégorie sans article est une page vide : pas d'indexation.
+    robots: articles.length === 0 ? "noindex, follow" : "index, follow",
   });
 }
 
@@ -830,7 +866,7 @@ export default async function handler(
 ): Promise<Response> {
   // Only intercept for bots
   if (!isBot(request)) {
-    return context.next();
+    return withVaryUA(await context.next());
   }
 
   const url = new URL(request.url);
@@ -857,6 +893,7 @@ export default async function handler(
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",
           "x-robots-tag": "index, follow",
+          vary: "User-Agent",
         },
       });
     }
@@ -874,20 +911,27 @@ export default async function handler(
         headers: {
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "x-robots-tag": "index, follow",
+          "x-robots-tag": articles.length === 0 ? "noindex, follow" : "index, follow",
+          vary: "User-Agent",
         },
       });
     }
 
     // Route: /blog/categories
     if (pathname === "/blog/categories" || pathname === "/blog/categories/") {
-      const categories = await getAllCategories();
+      const allCategories = await getAllCategories();
+      // Catégories vides masquées : on ne garde que celles qui ont au moins un article publié.
+      const usedRes = await supabaseFetch(`articles?published=eq.true&select=categories`);
+      const usedRows: { categories: string[] | null }[] = usedRes.ok ? await usedRes.json() : [];
+      const used = new Set(usedRows.flatMap((r) => r.categories ?? []));
+      const categories = usedRes.ok ? allCategories.filter((c) => used.has(c.name)) : allCategories;
       const html = renderCategoriesPage(categories);
       return new Response(html, {
         headers: {
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",
           "x-robots-tag": "index, follow",
+          vary: "User-Agent",
         },
       });
     }
@@ -901,6 +945,7 @@ export default async function handler(
           "content-type": "text/html; charset=utf-8",
           "cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",
           "x-robots-tag": "index, follow",
+          vary: "User-Agent",
         },
       });
     }
@@ -910,5 +955,5 @@ export default async function handler(
   }
 
   // Fallback: serve SPA
-  return context.next();
+  return withVaryUA(await context.next());
 }

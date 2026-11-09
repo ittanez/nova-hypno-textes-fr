@@ -10,8 +10,8 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HealthAndBeautyBusiness",
   "@id": "https://novahypnose.fr/#localbusiness",
-  "name": "NovaHypnose - Hypnothérapeute Paris",
-  "alternateName": ["Alain Zenatti Hypnothérapeute et Auto-hypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
+  "name": "Alain Zenatti Hypnothérapeute et Auto-hypnose",
+  "alternateName": ["NovaHypnose", "Alain Zenatti Hypnothérapeute Paris 4"],
   "url": "https://novahypnose.fr",
   "telephone": "+33649358089",
   "email": "contact@novahypnose.fr",
@@ -330,7 +330,13 @@ export const personSchema = {
   "jobTitle": "Hypnothérapeute",
   "description": "Hypnothérapeute certifié à Paris 4ème, Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne. 6 ans d'expérience et 9 certifications professionnelles. Cabinet Marais-Bastille et consultations visio partout en France.",
   "url": "https://novahypnose.fr",
-  "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://novahypnose.fr/images/alain-zenatti-portrait.webp",
+    "width": 600,
+    "height": 796,
+    "caption": "Alain Zenatti, hypnothérapeute à Paris 4e"
+  },
   "sameAs": [
     "https://www.youtube.com/@AlainZenatti",
     "https://www.linkedin.com/in/zenatti/",
@@ -461,3 +467,20 @@ export const websiteSchema = {
     "query-input": "required name=search_term_string"
   }
 };
+
+/**
+ * WebPage + speakable : désigne le bloc « réponse directe » (.sp-answer) comme extrait
+ * lisible à voix haute. Les sélecteurs doivent exister dans le HTML (React et pré-rendu).
+ */
+export const speakablePageSchema = (path: string, name: string) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `https://novahypnose.fr${path}#webpage`,
+  "url": `https://novahypnose.fr${path}`,
+  "name": name,
+  "inLanguage": "fr-FR",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".sp-answer"]
+  }
+});

@@ -95,11 +95,11 @@ const HypnoseAddictionSucreParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose addiction au sucre Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles de la dépendance sucrée." />
+        <meta name="description" content="Envies de sucre incontrôlables : un accompagnement de la dépendance au sucre par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="keywords" content="hypnose addiction sucre paris, dépendance sucre hypnose, arrêter sucre hypnose paris, envies sucré hypnose, sucre compulsif traitement hypnose, hypnose addiction sucre en ligne, réduire sucre hypnose paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-addiction-sucre-paris" />
         <meta property="og:title" content="Hypnose addiction au sucre Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio. L'hypnose agit sur les causes émotionnelles." />
+        <meta property="og:description" content="Envies de sucre incontrôlables : un accompagnement de la dépendance au sucre par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-addiction-sucre-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseAddictionSucreParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose addiction sucre" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose addiction au sucre Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de l'addiction au sucre par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Envies de sucre incontrôlables : un accompagnement de la dépendance au sucre par l'hypnose à Paris 4e ou en visio. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

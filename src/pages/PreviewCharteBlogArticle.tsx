@@ -6,6 +6,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
+import ArticleShare from '@/components/blog/ArticleShare';
+import { demoteH1, trimDescription } from '@/lib/seo-text';
 import { useQuery } from '@tanstack/react-query';
 import { getArticleBySlug, getRelatedArticles } from '@/lib/services/blog/articleService';
 import type { Article } from '@/lib/types/blog';
@@ -72,17 +74,19 @@ const PreviewCharteBlogArticle: React.FC = () => {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [article?.id]);
+  // `related` se charge après l'article : sans lui dans les dépendances, les cartes « D'autres lectures »
+  // (classe .reveal) apparaissent après l'observer et restent invisibles (opacity: 0).
+  }, [article?.id, related?.length]);
 
   return (
     <>
       <Helmet>
         <title>{article ? `${article.title} | NovaHypnose` : 'Article | NovaHypnose'}</title>
-        {article && <meta name="description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
+        {article && <meta name="description" content={trimDescription(article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`)} />}
         <meta name="robots" content="index, follow" />
         {article && <link rel="canonical" href={`https://novahypnose.fr/blog/article/${article.slug}`} />}
         {article && <meta property="og:title" content={article.title} />}
-        {article && <meta property="og:description" content={article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`} />}
+        {article && <meta property="og:description" content={trimDescription(article.seo_description || article.excerpt || `Article sur l'hypnose ericksonienne par Alain Zenatti — NovaHypnose`)} />}
         <meta property="og:type" content="article" />
         {article && <meta property="og:url" content={`https://novahypnose.fr/blog/article/${article.slug}`} />}
         {article?.storage_image_url && <meta property="og:image" content={article.storage_image_url} />}
@@ -210,10 +214,11 @@ const PreviewCharteBlogArticle: React.FC = () => {
               <div className="container">
                 <article
                   className="article-body reveal"
-                  dangerouslySetInnerHTML={{ __html: article.content }}
+                  dangerouslySetInnerHTML={{ __html: demoteH1(article.content) }}
                 />
+                <ArticleShare url={`https://novahypnose.fr/blog/article/${article.slug}`} title={article.title} />
                 {Array.isArray(article.faq) && article.faq.length > 0 && (
-                  <section className="article-faq reveal">
+                  <section className="article-faq">
                     <h2>Questions fréquentes</h2>
                     {article.faq.map((item, i) => (
                       <details key={i}>
@@ -229,7 +234,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {/* ── POUR ALLER PLUS LOIN ── */}
             <section className="article-body-sect" style={{ paddingTop: 0 }}>
               <div className="container">
-                <div className="reveal" style={{ borderTop: '1px solid rgba(28,43,74,.12)', paddingTop: 40, textAlign: 'center' }}>
+                <div style={{ borderTop: '1px solid rgba(28,43,74,.12)', paddingTop: 40, textAlign: 'center' }}>
                   <div className="section-tag" style={{ justifyContent: 'center' }}>Poursuivre</div>
                   <h2 className="section-title">Pour aller <em>plus loin.</em></h2>
                   <p style={{ maxWidth: 560, margin: '0 auto 24px', color: 'var(--corps)' }}>
@@ -257,7 +262,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
             {relatedArticles.length > 0 && (
               <section className="blog-grid-sect" style={{ paddingTop: 40 }}>
                 <div className="container">
-                  <div className="reveal" style={{ marginBottom: 40, textAlign: 'center' }}>
+                  <div style={{ marginBottom: 40, textAlign: 'center' }}>
                     <div className="section-tag" style={{ justifyContent: 'center' }}>Continuer</div>
                     <h2 className="section-title">D'autres <em>lectures.</em></h2>
                   </div>
@@ -266,7 +271,7 @@ const PreviewCharteBlogArticle: React.FC = () => {
                       <Link
                         to={`/blog/article/${a.slug}`}
                         key={a.id}
-                        className="blog-card reveal"
+                        className="blog-card"
                         style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
                       >
                         <div className="blog-card__image">

@@ -94,12 +94,12 @@ const HypnoseOnychophagieParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio. Accompagnement personnalisé de l'onychophagie." />
+        <title>Hypnose onychophagie (ongles rongés) Paris | Alain Zenatti</title>
+        <meta name="description" content="Se ronger les ongles : arrêtez avec l'hypnose à Paris 4e ou en visio. Un accompagnement sur le geste et le stress qui l'entretient. 90 € la séance." />
         <meta name="keywords" content="hypnose onychophagie paris, arrêter se ronger ongles hypnose, traitement onychophagie hypnose, rongement ongles comportement compulsif hypnose paris, onychophagie adulte traitement, hypnose onychophagie en ligne, séance rongement ongles visio" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-onychophagie-paris" />
-        <meta property="og:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio." />
+        <meta property="og:title" content="Hypnose onychophagie (ongles rongés) Paris | Alain Zenatti" />
+        <meta property="og:description" content="Se ronger les ongles : arrêtez avec l'hypnose à Paris 4e ou en visio. Un accompagnement sur le geste et le stress qui l'entretient. 90 € la séance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-onychophagie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,8 +109,8 @@ const HypnoseOnychophagieParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose onychophagie" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose onychophagie (rongement des ongles) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Arrêtez de vous ronger les ongles grâce à l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:title" content="Hypnose onychophagie (ongles rongés) Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Se ronger les ongles : arrêtez avec l'hypnose à Paris 4e ou en visio. Un accompagnement sur le geste et le stress qui l'entretient. 90 € la séance." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

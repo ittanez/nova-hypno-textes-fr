@@ -159,8 +159,8 @@ const GuideProcrastination: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Guide Gratuit : Vaincre la Procrastination par l'Hypnose | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour arrêter de procrastiner par l'hypnose. 17 pages, protocoles guidés et stratégies concrètes." />
+        <title>Guide gratuit : vaincre la procrastination par l'hypnose</title>
+        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
         <script type="application/ld+json">{safeJSONStringify({
@@ -250,7 +250,7 @@ const GuideProcrastination: React.FC = () => {
                 <p style={{ color: 'var(--corps)', fontSize: '15px', lineHeight: 1.7 }}>Une méthode simple pour passer à l'action sans vous forcer, en 30 secondes.</p>
               </div>
               <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(28,43,74,.12)' }}>
-                <LazyYouTube videoId="UJeiw-YiOUk" title="Cette tâche qui pèse comme un rocher : découpez-la" className="w-full" />
+                <LazyYouTube videoId="fnbMAh2v098" title="Cette tâche qui pèse comme un rocher : découpez-la" className="w-full" />
               </div>
             </div>
           </div>

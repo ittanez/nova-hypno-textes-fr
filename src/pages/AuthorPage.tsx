@@ -20,13 +20,13 @@ const AuthorPage: React.FC = () => {
         <title>Alain Zenatti - Hypnothérapeute à Paris | NovaHypnose</title>
         <meta
           name="description"
-          content="Alain Zenatti, Hypnothérapeute certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie."
+          content="Alain Zenatti, hypnothérapeute à Paris 4e : parcours, formations en hypnose ericksonienne, approche. Rendez-vous au cabinet ou en visio."
         />
         <meta name="keywords" content="Alain Zenatti, Maître Hypnologue, hypnothérapeute Paris, hypnose ericksonienne" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/alain-zenatti" />
         <meta property="og:title" content="Alain Zenatti - Hypnothérapeute à Paris | NovaHypnose" />
-        <meta property="og:description" content="Alain Zenatti, Hypnothérapeute certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta property="og:description" content="Alain Zenatti, hypnothérapeute à Paris 4e : parcours, formations en hypnose ericksonienne, approche. Rendez-vous au cabinet ou en visio." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/alain-zenatti" />
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
@@ -36,7 +36,7 @@ const AuthorPage: React.FC = () => {
         <meta property="og:site_name" content="NovaHypnose" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Alain Zenatti - Hypnothérapeute à Paris | NovaHypnose" />
-        <meta name="twitter:description" content="Alain Zenatti, Hypnothérapeute certifié. Hypnose ericksonienne, 6 ans d'expérience, cabinet Paris 4ème. Auteur de 100+ articles sur l'hypnothérapie." />
+        <meta name="twitter:description" content="Alain Zenatti, hypnothérapeute à Paris 4e : parcours, formations en hypnose ericksonienne, approche. Rendez-vous au cabinet ou en visio." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(personSchema)}</script>
       </Helmet>

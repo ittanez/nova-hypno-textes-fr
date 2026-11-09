@@ -139,7 +139,7 @@ const GuideCarriere: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Ma Carrière, Enfin Débloquée | NovaHypnose</title>
-        <meta name="description" content="Téléchargez gratuitement le guide d'Alain Zenatti pour lever vos blocages professionnels par l'hypnose." />
+        <meta name="description" content="Guide gratuit d'Alain Zenatti pour lever les blocages professionnels : syndrome de l'imposteur, auto-sabotage, stagnation et protocole pratique." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-carriere" />
         <script type="application/ld+json">{safeJSONStringify({
@@ -229,7 +229,7 @@ const GuideCarriere: React.FC = () => {
                 <p style={{ color: 'var(--corps)', fontSize: '15px', lineHeight: 1.7 }}>Un repère concret pour alléger votre charge au travail, en 30 secondes.</p>
               </div>
               <div style={{ width: '100%', maxWidth: '280px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(28,43,74,.12)' }}>
-                <LazyYouTube videoId="frZ2NwkX3do" title="Déléguer, c'est passer le témoin" className="w-full" />
+                <LazyYouTube videoId="8CeL7yAQtfk" title="Déléguer, c'est passer le témoin" className="w-full" />
               </div>
             </div>
           </div>

@@ -96,11 +96,11 @@ const HypnoseColereParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose colère et irritabilité Paris | Alain Zenatti</title>
-        <meta name="description" content="Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées." />
+        <meta name="description" content="Colère chronique, irritabilité, réactions disproportionnées : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose colère paris, hypnose irritabilité paris, gestion colère hypnose, explosions colère traitement, hypnose réactions disproportionnées paris, hypnose colère en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-colere-paris" />
         <meta property="og:title" content="Hypnose colère et irritabilité Paris | Alain Zenatti" />
-        <meta property="og:description" content="Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio. Explosions incontrôlées, irritabilité, réactions disproportionnées." />
+        <meta property="og:description" content="Colère chronique, irritabilité, réactions disproportionnées : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-colere-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -111,7 +111,7 @@ const HypnoseColereParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose colère" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose colère et irritabilité Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Accompagnement de la colère chronique par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Colère chronique, irritabilité, réactions disproportionnées : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
@@ -206,7 +206,7 @@ const HypnoseColereParis = () => {
       {/* Comment l'hypnose agit */}
       {/* Vidéo courte */}
       <SpecialtyShort
-        videoId="wH9_Yg5a3XM"
+        videoId="OGSa3lG-xE4"
         title="Quelqu'un s'énerve devant vous : une tempête, et un phare"
         description="Deux tempêtes, c'est trop : votre respiration peut devenir le phare. Un repère simple pour garder votre calme sans vous taire."
         duration="PT30S"

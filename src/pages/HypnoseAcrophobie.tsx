@@ -95,11 +95,11 @@ const HypnoseAcrophobie = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose acrophobie (peur du vide) Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, échelles, falaises." />
+        <meta name="description" content="Peur du vide et des hauteurs : un accompagnement par l'hypnose à Paris 4e ou en visio. Balcons, escaliers, ponts. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose acrophobie paris, peur vide hypnose, traitement acrophobie, peur hauteurs hypnose paris, hypnothérapeute acrophobie paris, hypnose vertige hauteur, peur vide hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-acrophobie-paris" />
         <meta property="og:title" content="Hypnose acrophobie (peur du vide) Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, échelles, falaises. Résultats durables visés, souvent dès les premières séances." />
+        <meta property="og:description" content="Peur du vide et des hauteurs : un accompagnement par l'hypnose à Paris 4e ou en visio. Balcons, escaliers, ponts. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-acrophobie-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseAcrophobie = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose acrophobie" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose acrophobie (peur du vide) Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de l'acrophobie (peur du vide et des hauteurs) par l'hypnose à Paris 4ème ou en visio. Balcons, escaliers, échelles, falaises. Résultats durables visés, souvent dès les premières séances." />
+        <meta name="twitter:description" content="Peur du vide et des hauteurs : un accompagnement par l'hypnose à Paris 4e ou en visio. Balcons, escaliers, ponts. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

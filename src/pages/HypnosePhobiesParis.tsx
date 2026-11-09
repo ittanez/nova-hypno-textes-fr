@@ -8,7 +8,7 @@ import SpecialtyBlogArticles from '@/components/blog/SpecialtyBlogArticles';
 import SpecialtyReferences from '@/components/SpecialtyReferences';
 import { phobiesFaqItems } from '@/data/specialtyFaqData';
 import { safeJSONStringify } from '@/lib/seo-utils';
-import { localBusinessSchema } from '@/data/schemaOrg';
+import { localBusinessSchema, speakablePageSchema } from '@/data/schemaOrg';
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const RESALIB_URL = 'https://www.resalib.fr/agenda/47325?src=novahypnose.fr';
@@ -100,6 +100,7 @@ const HypnosePhobiesParis = () => {
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(faqSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{safeJSONStringify(speakablePageSchema('/hypnose-phobies-paris', 'Hypnose pour phobies et peurs, Paris 4e | NovaHypnose'))}</script>
       </Helmet>
 
       {/* Hero */}
@@ -129,8 +130,14 @@ const HypnosePhobiesParis = () => {
             <Link to="/hypnose-acrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>vide</Link>,{' '}
             <Link to="/hypnose-claustrophobie-paris" style={{color:'inherit', textDecoration:'underline'}}>espaces clos</Link>…
             Vos phobies limitent votre vie quotidienne ? L'hypnose est l'une des méthodes les plus
-            efficaces pour s'en libérer. <strong>Résultats en 2 à 4 séances</strong>, au cabinet à
+            efficaces pour s'en libérer. <strong>Changements souvent perçus en 2 à 4 séances*</strong>, au cabinet à
             Paris 4ème ou en <strong>visio partout en France</strong>.
+          </p>
+          <p className="sp-answer">
+            L'hypnose ericksonienne peut accompagner les peurs et phobies (avion, vide, araignées, conduite, prise de parole…), en complément d'un suivi médical si besoin. Alain Zenatti, hypnothérapeute, reçoit au cabinet à Paris 4e (Marais-Bastille) ou en visio, pour 90 € la séance. Repère : 2 à 4 séances*. La première rencontre permet de faire le point.
+          </p>
+          <p className="sp-footnote">
+            * Repère issu de ma pratique ; le nombre de séances varie d'une personne à l'autre. Si aucun changement n'apparaît au bout de quelques séances, il est inutile de poursuivre.
           </p>
           <div className="hero__cta">
             <a className="btn btn--primary" href={RESALIB_URL}

@@ -95,11 +95,11 @@ const HypnoseSchemasRepetitifsParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose reprogramme les cycles inconscients à leur source." />
+        <meta name="description" content="Mêmes histoires en amour ou au travail ? Explorez vos schémas répétitifs avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose schémas répétitifs paris, briser cycle relationnel hypnose, patterns amoureux inconscients hypnose, auto-sabotage répétitif hypnose paris, hypnose répétition comportements paris, cycles négatifs hypnose traitement, hypnose schémas en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-schemas-repetitifs-paris" />
         <meta property="og:title" content="Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio." />
+        <meta property="og:description" content="Mêmes histoires en amour ou au travail ? Explorez vos schémas répétitifs avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-schemas-repetitifs-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseSchemasRepetitifsParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose schémas répétitifs" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose schémas répétitifs Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Brisez vos schémas répétitifs en amour et au travail grâce à l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Mêmes histoires en amour ou au travail ? Explorez vos schémas répétitifs avec l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

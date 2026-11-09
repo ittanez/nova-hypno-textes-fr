@@ -95,11 +95,11 @@ const HypnoseFrustrationParis = () => {
     <CzLayout>
       <Helmet>
         <title>Hypnose frustration chronique Paris | Alain Zenatti</title>
-        <meta name="description" content="Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="description" content="Frustration chronique, insatisfaction permanente : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose frustration paris, insatisfaction chronique hypnose, frustration permanente hypnose paris, hypnothérapeute frustration paris, ressentiment hypnose, perfectionnisme frustration hypnose, frustration hypnose en ligne" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-frustration-paris" />
         <meta property="og:title" content="Hypnose frustration chronique Paris | Alain Zenatti" />
-        <meta property="og:description" content="Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio." />
+        <meta property="og:description" content="Frustration chronique, insatisfaction permanente : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-frustration-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -110,7 +110,7 @@ const HypnoseFrustrationParis = () => {
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose frustration" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose frustration chronique Paris | Alain Zenatti" />
-        <meta name="twitter:description" content="Libérez-vous de la frustration chronique et de l'insatisfaction permanente par l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:description" content="Frustration chronique, insatisfaction permanente : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>

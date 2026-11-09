@@ -49,7 +49,14 @@
 /index.php/hypno-cafes/  /blog  301!
 /index.php/contact-nova-hypnose/  /  301!
 /2024/03/16/liberez-vous-enfin-de-lemprise-de-lautophobie/  /blog/article/liberez-vous-enfin-de-lemprise-de-lautophobie  301!
-/2024/06/24/hypnose-aphantasie-bienfaits-adaptation/  /blog/article/hypnose-aphantasie-bienfaits-adaptation  301!
+# Anciens articles WordPress dupliquant titre/meta de l'accueil (Bing Webmaster) -> article équivalent
+/2024/06/10/comprendre-et-depasser-laquaphobie-grace-a-lhypnose/  /blog/article/peur-de-l-eau-hypnose-aquaphobie  301!
+/2024/06/10/hypnose-aquaphobie-liberation-baignade/  /blog/article/peur-de-l-eau-hypnose-aquaphobie  301!
+/2024/01/09/comment-utilise-t-on-les-metaphores-en-hypnose/  /blog/article/les-metaphores-en-hypnotherapie-quand-les-mots-deviennent-des-ponts-vers-la-transformation  301!
+# Aphantasie et bouclier de sécurité : plus aucune page ni article équivalent -> 410 Gone
+# (désindexation rapide, sans rediriger vers un contenu sans rapport)
+/2024/06/24/hypnose-aphantasie-bienfaits-adaptation/  /index.html  410!
+/2024/04/22/le-bouclier-de-securite/  /index.html  410!
 /2024/*  /blog  301!
 /2023/*  /blog  301!
 /2022/*  /blog  301!
@@ -58,6 +65,7 @@ https://emergences.novahypnose.fr/*  https://novahypnose.fr/:splat  301!
 https://harmonia.novahypnose.fr/*  https://novahypnose.fr/autohypnose  301!
 /peurdelavion.html  /hypnose-peur-avion-paris  301!
 /peurdelavion  /hypnose-peur-avion-paris  301!
+/hypnose-aviophobie-paris  /hypnose-peur-avion-paris  301!
 /mentions-legales.html  /mentions-legales  301!
 
 # SPA fallback - Toutes les autres routes vers index.html

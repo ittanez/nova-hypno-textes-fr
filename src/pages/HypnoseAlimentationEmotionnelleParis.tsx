@@ -94,12 +94,12 @@ const HypnoseAlimentationEmotionnelleParis = () => {
   return (
     <CzLayout>
       <Helmet>
-        <title>Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti</title>
-        <meta name="description" content="Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio. L'hypnose traite les causes émotionnelles de la faim émotionnelle." />
+        <title>Hypnose alimentation émotionnelle Paris | Alain Zenatti</title>
+        <meta name="description" content="Manger par stress, ennui ou tristesse : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="keywords" content="hypnose alimentation émotionnelle paris, manger ses émotions hypnose, faim émotionnelle hypnose paris, manger par stress hypnose, alimentation émotionnelle traitement paris, hypnose manger ennui paris" />
         <link rel="canonical" href="https://novahypnose.fr/hypnose-alimentation-emotionnelle-paris" />
-        <meta property="og:title" content="Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti" />
-        <meta property="og:description" content="Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose. L'hypnose traite les causes émotionnelles de la faim émotionnelle." />
+        <meta property="og:title" content="Hypnose alimentation émotionnelle Paris | Alain Zenatti" />
+        <meta property="og:description" content="Manger par stress, ennui ou tristesse : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://novahypnose.fr/hypnose-alimentation-emotionnelle-paris" />
         <meta property="og:locale" content="fr_FR" />
@@ -109,8 +109,8 @@ const HypnoseAlimentationEmotionnelleParis = () => {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Alain Zenatti, Hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose alimentation émotionnelle" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hypnose alimentation émotionnelle Paris & en ligne | Alain Zenatti" />
-        <meta name="twitter:description" content="Arrêtez de manger par stress, ennui ou tristesse grâce à l'hypnose à Paris 4ème ou en visio." />
+        <meta name="twitter:title" content="Hypnose alimentation émotionnelle Paris | Alain Zenatti" />
+        <meta name="twitter:description" content="Manger par stress, ennui ou tristesse : un accompagnement par l'hypnose à Paris 4e ou en visio. 90 € la séance, Alain Zenatti." />
         <meta name="twitter:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <script type="application/ld+json">{safeJSONStringify(serviceSchema)}</script>
         <script type="application/ld+json">{safeJSONStringify(breadcrumbSchema)}</script>
