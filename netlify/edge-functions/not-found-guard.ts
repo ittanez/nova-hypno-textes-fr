@@ -31,6 +31,7 @@ export const KNOWN_PATHS = new Set<string>([
   "/blog/categories",
   "/contact",
   "/contact-wa-brevo",
+  "/decryptage",
   "/faq",
   "/guide-arret-tabac",
   "/guide-arret-tabac/merci",
