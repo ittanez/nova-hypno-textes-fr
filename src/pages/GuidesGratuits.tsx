@@ -108,7 +108,7 @@ const GuidesGratuits: React.FC = () => {
                       loading={i < 3 ? 'eager' : 'lazy'}
                       style={{ width: '100%', maxWidth: '190px', alignSelf: 'center', borderRadius: '10px', boxShadow: '8px 8px 0 rgba(28,43,74,.14)', marginBottom: '22px' }}
                     />
-                    <p style={{ fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--amber-text)', marginBottom: '6px' }}>
+                    <p style={{ fontSize: '11px', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--amber-text, #975D09)', marginBottom: '6px' }}>
                       {g.pages} pages
                     </p>
                     <h2 style={{ fontFamily: 'var(--f-serif)', fontSize: '22px', fontWeight: 400, lineHeight: 1.2, color: 'var(--texte)', margin: '0 0 8px' }}>
@@ -137,7 +137,7 @@ const GuidesGratuits: React.FC = () => {
               </p>
               <a
                 href={DECRYPTAGE}
-                style={{ display: 'inline-block', background: '#fff', color: 'var(--texte)', borderRadius: '999px', padding: '12px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}
+                style={{ display: 'inline-block', background: '#fff', color: 'var(--encre, #1C2B4A)', borderRadius: '999px', padding: '12px 28px', fontSize: '15px', fontWeight: 500, textDecoration: 'none' }}
               >
                 Faire mon décryptage
               </a>
