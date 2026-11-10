@@ -180,7 +180,7 @@ function htmlShell(page: PageData): string {
   </main>
   <div class="contact">
     <h2>Prendre rendez-vous</h2>
-    <p><strong>Alain Zenatti</strong> — Maître Praticien en Hypnose Ericksonienne</p>
+    <p><strong>Alain Zenatti</strong> — Hypnothérapeute</p>
     <p>16 rue Saint-Antoine, 75004 Paris (Marais-Bastille)</p>
     <p>Téléphone : <a href="tel:0649358089">06 49 35 80 89</a></p>
     <p>Email : <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a></p>
@@ -784,7 +784,7 @@ export const PAGES: Record<string, PageData> = {
     </ul>
 
     <h2>Mon approche pour l'arrêt du tabac</h2>
-    <p>Je suis <strong>Alain Zenatti, Maître Praticien en Hypnose Ericksonienne</strong> à Paris 4ème. Ma pratique de l'arrêt du tabac combine des techniques d'hypnose ericksonienne classiques avec des suggestions adaptées à votre profil de fumeur : durée de la dépendance, rituels spécifiques, déclencheurs émotionnels. Chaque séance est entièrement personnalisée.</p>
+    <p>Je suis <strong>Alain Zenatti, hypnothérapeute</strong> à Paris 4ème. Ma pratique de l'arrêt du tabac combine des techniques d'hypnose ericksonienne classiques avec des suggestions adaptées à votre profil de fumeur : durée de la dépendance, rituels spécifiques, déclencheurs émotionnels. Chaque séance est entièrement personnalisée.</p>
 
     <h2>Comment se passe une séance d'arrêt du tabac ?</h2>
     <p>La séance dure environ 1h15 à 1h30, au cabinet à Paris ou en visio. Elle se déroule en deux temps complémentaires.</p>
@@ -1495,7 +1495,7 @@ export const PAGES: Record<string, PageData> = {
     <p>Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p><strong>Alain Zenatti</strong>, Maître Praticien en Hypnose Ericksonienne et en Auto-Hypnose, Praticien en Communication Relationnelle (approche Jacques Salomé). Note 5/5 sur Google (26 avis) et Resalib (23 avis).</p>
+    <p><strong>Alain Zenatti</strong>, hypnothérapeute formé à l'hypnose ericksonienne et à l'auto-hypnose, praticien en communication relationnelle (approche Jacques Salomé). Note 5/5 sur Google (26 avis) et Resalib (23 avis).</p>
 
     <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
     `,
@@ -1514,7 +1514,7 @@ export const PAGES: Record<string, PageData> = {
         "@id": `${SITE_URL}/#person`,
         "name": "Alain Zenatti",
         "jobTitle": "Hypnothérapeute",
-        "description": "Hypnothérapeute certifié, Maître Hypnologue et Maître Praticien en Hypnose Ericksonienne. Cabinet à Paris 4ème (Marais-Bastille) et séances en visioconférence.",
+        "description": "Hypnothérapeute certifié et Maître Hypnologue. Cabinet à Paris 4ème (Marais-Bastille) et séances en visioconférence.",
         "url": `${SITE_URL}/alain-zenatti`,
         "image": DEFAULT_IMAGE,
         "worksFor": { "@type": "Organization", "name": "NovaHypnose", "@id": `${SITE_URL}/#localbusiness` },
