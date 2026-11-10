@@ -103,8 +103,8 @@ td { padding: 2.2mm 3mm; border-bottom: .3mm solid #E4DDCF; vertical-align: top;
 .cta h3 { color: #fff; margin: 0 0 2.4mm; font-size: 18pt; }
 .cta p, .cta strong { color: #fff; }
 .cta a.btn { display: inline-block; background: #fff; color: var(--encre); border-radius: 999px; padding: 3mm 7mm; border: 0; margin-top: 2mm; }
-.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 3mm; break-inside: avoid; }
-.contact .box { background: var(--lin-2); border-radius: 3mm; padding: 3.6mm 4.4mm; font-size: 9.4pt; line-height: 1.5; }
+.contact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin-top: 3mm; break-inside: avoid; }
+.contact .box { background: var(--lin-2); border-radius: 3mm; padding: 3.2mm 4mm; font-size: 9pt; line-height: 1.5; }
 .contact .box::before { content: attr(data-label); display: block; font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 1mm; }
 .contact .box p { margin: 0; }
 .sig { break-inside: avoid; margin-top: 4mm; font-family: var(--serif); font-size: 13pt; }

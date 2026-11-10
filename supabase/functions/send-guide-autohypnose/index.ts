@@ -49,7 +49,7 @@ serve(async (req) => {
         from: 'Alain Zenatti - NovaHypnose <contact@updates.novahypnose.fr>',
         to: [email],
         bcc: ['a.zenatti@gmail.com'],
-        subject: '\u{1F381} Votre guide "Autohypnose au Quotidien" est prêt — + 2 protocoles exclusifs\u{00A0}!',
+        subject: '\u{1F381} Votre guide "Reprenez la main sur votre bien-être" est prêt',
         html: `
           <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; background: #ffffff;">
 
@@ -59,7 +59,7 @@ serve(async (req) => {
                 Votre guide est prêt
               </h1>
               <p style="color: rgba(255,255,255,0.8); font-size: 15px; margin: 0;">
-                L'Autohypnose au Quotidien — 37 pages + 2 protocoles exclusifs
+                Reprenez la main sur votre bien-être — 19 pages, 8 protocoles
               </p>
             </div>
 
@@ -70,7 +70,7 @@ serve(async (req) => {
               </p>
 
               <p style="font-size: 16px; line-height: 1.7; color: #333; margin: 0 0 20px 0;">
-                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 37 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, sans vous prendre plus de 30 minutes par jour.
+                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 19 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, sans vous prendre plus de 30 minutes par jour.
               </p>
 
               <p style="font-size: 15px; line-height: 1.7; color: #555; margin: 0 0 24px 0;">
@@ -84,14 +84,14 @@ serve(async (req) => {
                   \u{1F4E5} Accéder à mon guide gratuit maintenant
                 </a>
                 <p style="margin: 10px 0 0 0; font-size: 13px; color: #888;">
-                  9 protocoles prêts à l'emploi + 2 techniques NovaHypnose exclusives
+                  8 protocoles à pratiquer chez vous
                 </p>
               </div>
 
               <!-- Image ebook -->
               <div style="text-align: center; margin: 24px 0;">
-                <img src="https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/ebookautohypnose.webp"
-                     alt="Guide L'Autohypnose au Quotidien"
+                <img src="https://novahypnose.fr/images/couverture-guide-autohypnose.webp"
+                     alt="Guide Reprenez la main sur votre bien-être"
                      style="max-width: 280px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
               </div>
 
@@ -102,7 +102,7 @@ serve(async (req) => {
                 </p>
                 <ul style="margin: 0; padding: 0 0 0 20px; color: #555;">
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>9 protocoles complets</strong> \u{2192} Pour vous sentir plus calme dès la première séance
+                    <strong>8 protocoles complets</strong> \u{2192} Pour vous sentir plus calme dès la première séance
                   </li>
                   <li style="margin: 10px 0; line-height: 1.6;">
                     <strong>Gestion du stress et des émotions</strong> \u{2192} Pour aborder vos journées avec sérénité
@@ -175,7 +175,7 @@ serve(async (req) => {
               <p style="font-size: 15px; line-height: 1.7; color: #555;">
                 À très bientôt,<br>
                 <strong style="color: #233C67;">Alain Zenatti — NovaHypnose</strong><br>
-                <span style="font-size: 13px; color: #888;">Maître Praticien en Hypnose Ericksonienne</span><br>
+                <span style="font-size: 13px; color: #888;">Hypnothérapeute</span><br>
                 <span style="font-size: 13px; color: #888;">\u{1F4CD} 16 rue Saint-Antoine, 75004 Paris</span><br>
                 <span style="font-size: 13px; color: #888;">\u{1F4DE} 06 49 35 80 89</span><br>
                 <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none; font-size: 13px;">\u{1F310} novahypnose.fr</a>

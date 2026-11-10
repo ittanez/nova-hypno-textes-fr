@@ -32,7 +32,7 @@ Sortie : `guides-pdf/dist/<guide>.pdf` et `.docx`. La mise en page est dans `cha
 
 ## Version de relecture ou version finale
 
-Chaque `guide.md` commence par un bloc `relecture: true` : la couverture affiche alors un bandeau et les repères `[à vérifier]` sont surlignés en jaune. Pour la version finale : passer `relecture: false` (ou supprimer la ligne) et traiter chaque repère `{.verif}` (confirmer avec une source, reformuler ou retirer).
+Chaque `guide.md` commence par un bloc `relecture:` (actuellement `false` : version finale). Avec `relecture: true` : la couverture affiche alors un bandeau et les repères `[à vérifier]` sont surlignés en jaune. Pour la version finale : passer `relecture: false` (ou supprimer la ligne) et traiter chaque repère `{.verif}` (confirmer avec une source, reformuler ou retirer).
 
 ## Syntaxe utile dans `guide.md`
 

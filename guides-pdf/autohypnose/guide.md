@@ -3,7 +3,7 @@ title: "Reprenez la main sur votre bien-être"
 title1: "Reprenez la main"
 title2: "sur votre bien-être"
 subtitle: "Le guide d'autohypnose pour les professionnels sous pression."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Un mot avant de commencer"}
@@ -57,7 +57,7 @@ Suivent le journal de bord, l'aperçu des protocoles NovaHypnose, l'index des pr
 
 Vous êtes cadre, manager, employé. Votre quotidien oscille entre réunions sous tension, deadlines serrées et exigences multiples. Le soir, difficile de « décrocher ». Le matin, l'anxiété vous réveille parfois avant le réveil. Au bureau, ce nœud au ventre avant une présentation importante, cette difficulté à vous concentrer en open-space, ces doutes qui surgissent au moment crucial.
 
-Si ce portrait vous correspond, vous n'êtes pas seul(e). Selon l'INRS, plus de 60 % des salariés français déclareraient ressentir du stress au travail [à vérifier]{.verif}. Face à cela, les solutions proposées sont souvent les mêmes : sport, méditation, yoga. Toutes excellentes, mais qui demandent du temps, justement ce qui vous manque.
+Si ce portrait vous correspond, vous n'êtes pas seul(e). Selon le baromètre Qualisocial-Ipsos de décembre 2024, environ un salarié français sur quatre juge sa santé mentale mauvaise ou très mauvaise. Face à cela, les solutions proposées sont souvent les mêmes : sport, méditation, yoga. Toutes excellentes, mais qui demandent du temps, justement ce qui vous manque.
 
 L'autohypnose est différente : elle ne demande pas de changer votre mode de vie. 15 à 20 minutes suffisent, chez vous, dans un lieu calme.
 
@@ -422,7 +422,7 @@ Les protocoles de ce guide sont des outils utilisables dès maintenant. Mes prot
 - **Le nouveau chemin** (35-40 min) : défaire un comportement indésirable et en installer un autre.
 - **L'écoute profonde** (30-35 min) : dialogue avec les signaux de l'inconscient pour comprendre vos blocages.
 
-Ces protocoles sont appris et pratiqués dans le cadre de mes formations NovaHypnose, en groupe ou en individuel. Pour en savoir plus, contactez-moi.
+Ces protocoles sont appris et pratiqués dans le cadre de ma formation NovaHypnose, au cabinet à Paris 4e (jusqu'à 6 personnes) ou, pour un groupe plus large, sur devis. Pour en savoir plus, contactez-moi.
 
 ### Index des protocoles
 
@@ -469,7 +469,7 @@ J'ai préparé 5 questions. Elles prennent 2 minutes. Vous obtenez tout de suite
 ### Comment je peux vous accompagner
 
 - **Séances individuelles d'hypnothérapie.** Mon activité principale. Je reçois en cabinet à Paris 4e ou en visioconférence des personnes qui souhaitent traverser une difficulté précise : stress, anxiété, phobies, manque de confiance, troubles du sommeil, deuil, blocages comportementaux. Première séance de 1 h 30, 90 € ; séances suivantes : 1 heure, 90 €. Je ne peux pas vous promettre de résultat : si après 2 ou 3 séances rien n'a bougé pour vous, je vous le dis franchement, et je ne vous propose pas de continuer.
-- **Formations en groupe pour particuliers.** Initiation à l'autohypnose en petit groupe (6 à 12 personnes), à Paris ou en ligne, à la demande : journée intensive ou programme sur plusieurs séances.
+- **Formation à l'autohypnose.** Au cabinet à Paris 4e, jusqu'à 6 personnes. Pour un groupe plus large, jusqu'à 12 personnes (une entreprise, par exemple), la formation se fait sur devis.
 - **Formations en entreprise.** Interventions sur mesure pour aider les équipes à mieux gérer le stress, la concentration, le sommeil et la résilience émotionnelle : atelier découverte (3 h), programme « Sérénité au travail » (6 sessions), séminaire résidentiel.
 
 ::: contact
@@ -482,6 +482,9 @@ J'ai préparé 5 questions. Elles prennent 2 minutes. Vous obtenez tout de suite
 ::: {.box label="Téléphone"}
 06 49 35 80 89
 :::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
+:::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris
 :::
@@ -490,7 +493,7 @@ J'ai préparé 5 questions. Elles prennent 2 minutes. Vous obtenez tout de suite
 ::: sig
 Alain Zenatti
 
-[Hypnothérapeute]{.role} · [alain.zenatti@novahypnose.fr](mailto:alain.zenatti@novahypnose.fr) · [novahypnose.fr](https://novahypnose.fr)
+[Hypnothérapeute]{.role}
 :::
 
 ::: {.card .limite title="Limites"}

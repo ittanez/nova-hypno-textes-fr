@@ -1,9 +1,9 @@
 ---
-title: "Arrêter de Fumer, Enfin et Pour de Bon"
+title: "Arrêter de Fumer, Autrement"
 title1: "Arrêter de Fumer,"
-title2: "Enfin et Pour de Bon"
+title2: "Autrement"
 subtitle: "Comprendre la dépendance au tabac, et des pistes pour aborder l'arrêt autrement."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Au programme"}
@@ -24,7 +24,7 @@ Comprendre ce que la cigarette fait vraiment, pourquoi la volonté seule ne suff
 :::
 
 ::: {.card .medecin title="Avant de commencer"}
-**Ce guide propose des pistes de réflexion.** Il ne remplace ni un avis médical ni un suivi psychologique ou psychiatrique. Pour arrêter de fumer, vous pouvez aussi être accompagné(e) par votre médecin, un tabacologue, ou Tabac info service (39 89) [à vérifier : numéro]{.verif}. En cas de détresse, appelez le 3114.
+**Ce guide propose des pistes de réflexion.** Il ne remplace ni un avis médical ni un suivi psychologique ou psychiatrique. Pour arrêter de fumer, vous pouvez aussi être accompagné(e) par votre médecin, un tabacologue, ou Tabac info service (39 89, du lundi au samedi). En cas de détresse, appelez le 3114.
 :::
 
 ::: {.page kicker="Introduction"}
@@ -69,7 +69,7 @@ Mais voici le piège : avec le temps, le cerveau devient plus sensible à la nic
 
 ### La dépendance psychologique : souvent plus tenace
 
-Les symptômes physiques du sevrage sont surtout marqués dans les premiers jours [à vérifier : « 3 à 5 jours »]{.verif}. Ce qui dure, c'est la dépendance psychologique. Au fil des années, le cerveau a associé la cigarette à des dizaines de contextes : le café du matin, la pause après le déjeuner, la fin d'une journée difficile, la conversation entre collègues, l'attente devant une porte. Ces associations sont ancrées dans la partie automatique du cerveau, celle qui gère les réflexes, les habitudes, les réponses émotionnelles.
+Les symptômes physiques du sevrage sont surtout marqués dans les premiers jours, puis ils s'estompent sur quelques semaines. Ce qui dure, c'est la dépendance psychologique. Au fil des années, le cerveau a associé la cigarette à des dizaines de contextes : le café du matin, la pause après le déjeuner, la fin d'une journée difficile, la conversation entre collègues, l'attente devant une porte. Ces associations sont ancrées dans la partie automatique du cerveau, celle qui gère les réflexes, les habitudes, les réponses émotionnelles.
 
 C'est pourquoi, même des mois après l'arrêt, l'odeur du café ou un verre de vin peut déclencher une envie intense. Pas parce que vous manquez de volonté, mais parce que votre cerveau a enregistré un signal conditionné.
 
@@ -144,7 +144,7 @@ L'hypnose n'est pas de la magie. C'est un état de concentration et de réceptiv
 
 ### Qu'est-ce que l'état hypnotique ?
 
-C'est un état naturel que vous connaissez déjà : quand vous êtes absorbé dans un film, un livre, ou une tâche qui vous captive. L'esprit devient plus réceptif, la critique consciente s'atténue. En imagerie cérébrale, une équipe de Stanford a observé pendant l'hypnose une activité diminuée dans le cortex cingulaire antérieur dorsal, une zone liée à la gestion des conflits mentaux (Jiang et al., 2017) [à vérifier]{.verif}.
+C'est un état naturel que vous connaissez déjà : quand vous êtes absorbé dans un film, un livre, ou une tâche qui vous captive. L'esprit devient plus réceptif, la critique consciente s'atténue. En imagerie cérébrale, une équipe de Stanford a observé, chez des personnes très réceptives à l'hypnose et pendant l'hypnose, une activité diminuée dans le cortex cingulaire antérieur dorsal, une zone liée à la détection de ce qui est important (Jiang et al., *Cerebral Cortex*, 2016-2017). Cette étude ne porte pas sur le tabac.
 
 ### Ce que dit la recherche sur l'arrêt du tabac
 
@@ -202,12 +202,12 @@ Choisissez une date précise dans les 14 jours. Dites-le à une personne, notez-
 | Fumez-vous plus le matin ? | Non | Oui | | |
 | Fumez-vous même malade ? | Non | Oui | | |
 
-**Interprétation** [à vérifier : seuils]{.verif} :
+**Interprétation** (grille de la Haute Autorité de santé, 2014, d'après Heatherton et al., 1991) :
 
-- Score 0 à 2 : dépendance faible.
-- Score 3 à 4 : dépendance modérée.
-- Score 5 à 7 : dépendance forte, consultation d'un tabacologue conseillée.
-- Score 8 à 10 : dépendance très forte, consultation médicale indispensable.
+- Score 0 à 2 : pas de dépendance.
+- Score 3 à 4 : dépendance faible.
+- Score 5 à 6 : dépendance moyenne.
+- Score 7 à 10 : dépendance forte ou très forte ; l'avis d'un médecin ou d'un tabacologue est conseillé avant d'arrêter.
 
 ::: {.chap}
 ## Quand consulter ? *Ce que l'hypnothérapie peut faire pour vous* {num="06"}
@@ -227,7 +227,7 @@ Votre score de Fagerström est élevé (5 ou plus), si vous avez un trouble psyc
 
 ### À quoi s'attendre
 
-Un accompagnement pour l'arrêt du tabac se déroule souvent sur quelques séances (de 1 à 3, ou de 3 à 5 selon les personnes) [à confirmer : nombre de séances]{.verif}. La première séance comprend un temps d'échange approfondi (anamnèse) et une hypnose personnalisée. Les séances suivantes consolident et travaillent sur des résistances ou des situations difficiles.
+Un accompagnement pour l'arrêt du tabac se déroule souvent sur quelques séances ; le nombre varie selon les personnes. La première séance comprend un temps d'échange approfondi (anamnèse) et une hypnose personnalisée. Les séances suivantes consolident et travaillent sur des résistances ou des situations difficiles.
 
 Je ne peux pas vous promettre de résultat. Mon engagement : si après 2 ou 3 séances rien n'a bougé pour vous, je vous le dis franchement, et je ne vous propose pas de continuer.
 
@@ -272,6 +272,9 @@ Si vous préférez en parler directement, je vous propose un échange de 15 minu
 :::
 ::: {.box label="Téléphone"}
 06 49 35 80 89
+:::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
 :::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris

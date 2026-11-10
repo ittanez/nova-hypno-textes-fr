@@ -70,7 +70,7 @@ serve(async (req) => {
               </p>
 
               <p style="font-size: 16px; line-height: 1.7; color: #333; margin: 0 0 20px 0;">
-                Merci pour votre confiance. Voici votre guide gratuit de 19 pages pour
+                Merci pour votre confiance. Voici votre guide gratuit de 12 pages pour
                 <strong>comprendre vos émotions au travail</strong> avant que votre corps
                 décide à votre place.
               </p>
@@ -131,7 +131,7 @@ serve(async (req) => {
               <p style="font-size: 15px; line-height: 1.7; color: #555;">
                 À très bientôt,<br>
                 <strong style="color: #233C67;">Alain Zenatti — NovaHypnose</strong><br>
-                <span style="font-size: 13px; color: #888;">Maître Praticien en Hypnose Ericksonienne — Paris 4e</span><br>
+                <span style="font-size: 13px; color: #888;">Hypnothérapeute — Paris 4e et visio, partout en France</span><br>
                 <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none; font-size: 13px;">novahypnose.fr</a>
               </p>
             </div>

@@ -121,14 +121,14 @@ const GuideEbook: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Vous tenez. Mais jusqu'à quand ?</title>
-        <meta name="description" content="Guide gratuit de 19 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne." />
+        <meta name="description" content="Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-emotions-travail" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-emotions-travail#book",
           "name": "Vous tenez. Mais jusqu'à quand ?",
-          "description": "Guide pratique de 19 pages pour comprendre ses émotions au travail, avec des pratiques basées sur l'hypnose ericksonienne, par Alain Zenatti.",
+          "description": "Guide pratique de 12 pages pour comprendre ses émotions au travail, avec des pratiques basées sur l'hypnose ericksonienne, par Alain Zenatti.",
           "url": "https://novahypnose.fr/guide-emotions-travail", "inLanguage": "fr-FR",
           "bookFormat": "https://schema.org/EBook", "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
@@ -173,7 +173,7 @@ const GuideEbook: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · 19 pages</div>
+              <div className="tag">Guide gratuit · 12 pages</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Vous tenez.<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--amber)', fontWeight: 400 }}>Mais jusqu'à quand ?</em>
@@ -190,7 +190,7 @@ const GuideEbook: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="/images/couverture-guide.webp"
+                src="/images/couverture-guide-emotions-travail.webp"
                 alt="Guide Vous tenez. Mais jusqu'à quand ?"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
@@ -256,7 +256,7 @@ const GuideEbook: React.FC = () => {
           <div className="container" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que contient le guide</div>
-              <h2 className="section-title">19 pages pour comprendre<br />ce qui se passe <em>en vous.</em></h2>
+              <h2 className="section-title">12 pages pour comprendre<br />ce qui se passe <em>en vous.</em></h2>
               <div style={{ width: '48px', height: '2px', background: 'var(--amber)', marginTop: '24px', boxShadow: '3px 3px 0 rgba(242,161,46,.25)' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -287,7 +287,7 @@ const GuideEbook: React.FC = () => {
                 <div>
                   <p style={{ fontFamily: 'var(--f-serif)', fontWeight: 500, color: 'var(--texte)', fontSize: '15px', marginBottom: '2px' }}>Alain Zenatti</p>
                   <p style={{ color: 'var(--gris)', fontSize: '12px', lineHeight: 1.5 }}>
-                    Maître Praticien en Hypnose Ericksonienne et Auto-Hypnose<br />Praticien en Communication Relationnelle (approche Jacques Salomé) · NovaHypnose · Paris 4e
+                    Hypnothérapeute<br />Praticien en Communication Relationnelle (approche Jacques Salomé) · NovaHypnose · Paris 4e et visio, partout en France
                   </p>
                 </div>
               </div>
@@ -301,7 +301,7 @@ const GuideEbook: React.FC = () => {
             <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
           </p>
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e et visio, partout en France
             <br />Conformément au RGPD — Désabonnement libre à tout moment.
           </p>
         </footer>

@@ -163,22 +163,22 @@ const AutohypnoseGratitude: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-0">
               <div className="p-8 md:p-12">
                 <span className="inline-block text-[11px] font-medium tracking-widest uppercase text-nova-orange mb-4">
-                  Ebook gratuit &middot; 37 pages &middot; 9 protocoles
+                  Ebook gratuit &middot; 19 pages &middot; 8 protocoles
                 </span>
 
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
                   Allez plus loin avec le guide<br />
-                  <span className="text-nova-orange italic">L'Autohypnose au Quotidien</span>
+                  <span className="text-nova-orange italic">Reprenez la main sur votre bien-être</span>
                 </h2>
 
                 <p className="text-white/75 text-[1rem] leading-relaxed mb-6">
-                  Ce script n'est qu'un aperçu. Le guide complet contient 9 protocoles testés — stress,
+                  Ce script n'est qu'un aperçu. Le guide complet contient 8 protocoles — stress,
                   confiance, sommeil, phobies, gestion des émotions — expliqués étape par étape.
                 </p>
 
                 <ul className="space-y-2 mb-8">
                   {[
-                    '37 pages de contenu pratique immédiatement applicable',
+                    '19 pages de contenu pratique',
                     'Méthode NovaHypnose, testée sur 1 000+ clients',
                     'Reçu gratuitement par email en quelques minutes',
                   ].map((item) => (
@@ -200,8 +200,8 @@ const AutohypnoseGratitude: React.FC = () => {
 
               <div className="hidden md:flex items-center justify-center px-8 py-8">
                 <img
-                  src="/images/ebookautohypnose.webp"
-                  alt="Guide L'Autohypnose au Quotidien — 37 pages, 9 protocoles"
+                  src="/images/couverture-guide-autohypnose.webp"
+                  alt="Guide Reprenez la main sur votre bien-être — 19 pages, 8 protocoles"
                   className="w-[180px] rounded-xl shadow-2xl -rotate-3 hover:rotate-0 transition-transform duration-500"
                   loading="lazy"
                 />

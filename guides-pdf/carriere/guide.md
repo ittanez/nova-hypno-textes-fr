@@ -3,7 +3,7 @@ title: "Levez les Freins qui Bloquent Votre Carrière"
 title1: "Levez les Freins"
 title2: "qui Bloquent Votre Carrière"
 subtitle: "Comprendre ce qui freine votre évolution, et des pistes concrètes pour avancer."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Au programme"}
@@ -46,10 +46,10 @@ Ces blocages ne sont pas de la paresse ou un manque d'ambition. Ce sont souvent 
 des personnes présenteraient des signes du syndrome de l'imposteur, selon l'outil de mesure (synthèse de 62 études, Bravata et al., 2020)
 :::
 ::: {.stat v="15-20 %"}
-des adultes seraient des procrastinateurs chroniques (Steel, 2007) [à vérifier]{.verif}
+des adultes seraient des procrastinateurs chroniques (communiqué de l'Université de Calgary sur l'étude de Steel, 2007)
 :::
-::: {.stat v="44 %"}
-des salariés français déclarent une détresse psychologique élevée (Baromètre Qualisocial-Ipsos, 2024) [à vérifier]{.verif}
+::: {.stat v="25 %"}
+des salariés français jugent leur santé mentale mauvaise ou très mauvaise (baromètre Qualisocial-Ipsos, décembre 2024, 3 000 salariés)
 :::
 :::
 
@@ -161,7 +161,7 @@ Ce mécanisme est pertinent ici : moins de rumination auto-critique, plus d'acc�
 
 Dès 1971, le médecin britannique John Hartland a formalisé une technique de suggestion hypnotique visant à renforcer la confiance, l'autonomie et le sentiment de compétence : la procédure de « renforcement du moi », depuis enseignée en hypnothérapie clinique.
 
-Une étude menée auprès de 52 étudiants de l'Université de Colombie-Britannique a observé, chez les sujets réceptifs à l'hypnose, une amélioration du concept de soi après quatre séances avec cette technique. Les auteurs notent eux-mêmes une limite importante : l'absence de groupe témoin avec placebo, ce qui limite la portée des conclusions (Stafrace & Evans, 2004 ; Lavertue et al., 2002) [à vérifier : détails de l'étude]{.verif}.
+Une étude de Lavertue, Kumar et Pekala (2002) a comparé une hypnose de renforcement du moi à une relaxation progressive : les participants des deux groupes ont rapporté une amélioration de l'estime de soi et de la dépression. On ne peut donc pas attribuer ce progrès à l'hypnose elle-même.
 
 ::: {.card .limite title="Honnêteté scientifique"}
 Il n'existe pas, à ce jour, de grand essai contrôlé randomisé testant spécifiquement « l'hypnose contre le syndrome de l'imposteur » ou « contre l'auto-sabotage ». Ce chapitre s'appuie sur trois éléments distincts : le mécanisme cérébral général de l'hypnose (Spiegel et al.), une technique de renforcement de la confiance utilisée depuis plus de 50 ans en clinique (Hartland), et des études de taille modeste sur cette technique, dont les auteurs signalent eux-mêmes les limites. C'est un socle raisonnable, pas une preuve définitive.
@@ -282,6 +282,9 @@ Si vous préférez en parler directement, je vous propose un échange de 15 minu
 ::: {.box label="Téléphone"}
 06 49 35 80 89
 :::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
+:::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris
 :::
@@ -309,9 +312,8 @@ Alain Zenatti
 - Jiang H., White M. P., Greicius M. D., Waelde L. C., Spiegel D. (2017), *Brain Activity and Functional Connectivity Associated with Hypnosis*, *Cerebral Cortex* 27(8):4083-4093.
 - Lavertue N. E., Kumar V. K., Pekala R. J. (2002), *The Effectiveness of a Hypnotic Ego-Strengthening Procedure for Improving Self-Esteem and Depression*, *Australian Journal of Clinical and Experimental Hypnosis* 30(1):1-23.
 - Neff K. D. (2003), *Self-Compassion: An Alternative Conceptualization of a Healthy Attitude Toward Oneself*, *Self and Identity* 2(2):85-101 ; Neff K. D. (2023), *Annual Review of Psychology* 74:193-218.
-- Stafrace S. P., Evans B. J. (2004), *Self-Esteem, Hypnosis, and Ego-Enhancement*, *Australian Journal of Clinical and Experimental Hypnosis* 32(1):1-35.
 - Steel P. (2007), *The Nature of Procrastination*, *Psychological Bulletin* 133(1):65-94.
-- Baromètre Qualisocial-Ipsos (2024), détresse psychologique des salariés en France [à vérifier]{.verif}.
+- Ipsos, baromètre Qualisocial (enquête du 3 au 9 décembre 2024, 3 000 salariés), santé mentale des salariés en France.
 - Young V. (2011), *The Secret Thoughts of Successful Women*, Crown Business.
 :::
 
