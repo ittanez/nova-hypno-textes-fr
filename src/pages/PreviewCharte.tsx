@@ -100,8 +100,8 @@ function useCountUp(target: number, trigger: boolean, duration = 1200): number {
   return value;
 }
 
-// YouTube Short de présentation (le même que sur la page Resalib)
-const ABOUT_VIDEO_ID = 'H9PYB1nW3co';
+// YouTube Short de présentation (« Présentation Alain Zenatti », remplacé le 10/11/2026)
+const ABOUT_VIDEO_ID = 'XKP-pjYFs6s';
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
