@@ -22,7 +22,7 @@ const HypnoseTabacParis = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hypnose arrêt du tabac à Paris",
-    "description": "Arrêtez de fumer par l'hypnose ericksonienne. Cabinet Paris 4ème ou visio partout en France. Alain Zenatti, Maître Praticien en Hypnose Ericksonienne.",
+    "description": "Arrêtez de fumer par l'hypnose ericksonienne. Cabinet Paris 4ème ou visio partout en France. Alain Zenatti, hypnothérapeute.",
     "url": "https://novahypnose.fr/hypnose-arret-tabac-paris",
     "provider": { "@id": "https://novahypnose.fr/#person" },
     "areaServed": [
@@ -78,7 +78,7 @@ const HypnoseTabacParis = () => {
         <meta property="og:image" content="https://novahypnose.fr/images/og-alain-zenatti.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Alain Zenatti, Maître Praticien en Hypnose Ericksonienne – Cabinet NovaHypnose Paris 4ème – Hypnose arrêt du tabac" />
+        <meta property="og:image:alt" content="Alain Zenatti, hypnothérapeute – Cabinet NovaHypnose Paris 4ème – Hypnose arrêt du tabac" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hypnose arrêt du tabac, Paris 4e et visio | NovaHypnose" />
         <meta name="twitter:description" content="Arrêter de fumer avec l'hypnose à Paris 4e ou en visio : agir sur les automatismes liés à la cigarette. 90 € la séance. Alain Zenatti." />
