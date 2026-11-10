@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Le Sommeil, Votre Allié Secret — Alain Zenatti</title>
+<style>
+@font-face { font-family: "EB Garamond"; src: url("../../public/fonts/eb-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "EB Garamond"; src: url("../../public/fonts/eb-garamond-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "DM Sans"; src: url("../../public/fonts/dm-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+
+:root {
+  --amber: #F2A12E; --amber-2: #F5BC60; --amber-text: #975D09;
+  --cobalt: #2B4BA0; --encre: #1C2B4A; --gris: #566B8E;
+  --lin: #F0ECE3; --lin-2: #F7F3EA; --paper: #FFFFFF;
+  --serif: "EB Garamond", Georgia, serif; --sans: "DM Sans", system-ui, sans-serif;
+}
+@page { size: A4; margin: 18mm 19mm 21mm 19mm;
+  @bottom-left   { content: "NovaHypnose · Alain Zenatti"; font: 8pt "DM Sans", sans-serif; color: #566B8E; }
+  @bottom-right  { content: counter(page); font: 8pt "DM Sans", sans-serif; color: #566B8E; } }
+@page cover { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: var(--sans); font-size: 9.6pt; line-height: 1.52; color: var(--encre); background: var(--paper); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--encre); margin: 0; }
+p { margin: 0 0 2.6mm; }
+strong { font-weight: 400; color: var(--cobalt); }
+.card.medecin strong, .card.attention strong { color: var(--encre); background: linear-gradient(transparent 62%, rgba(242,161,46,.45) 62%); }
+.cta strong { color: #fff; }
+a { color: var(--cobalt); text-decoration: none; border-bottom: 1px solid rgba(43,75,160,.35); }
+ul, ol { margin: 0 0 3mm; padding-left: 5mm; }
+li { margin-bottom: 1.2mm; }
+li::marker { color: var(--amber); }
+.verif { background: #FFE3A6; color: #6B4306; font-size: 8.4pt; padding: .2mm 1.2mm; border-radius: 1mm; white-space: nowrap; }
+
+/* ---------- couverture ---------- */
+.cover { page: cover; position: relative; width: 210mm; height: 297mm; background: var(--lin-2); overflow: hidden; page-break-after: always; }
+.blob { position: absolute; border-radius: 50% 46% 54% 48% / 52% 44% 56% 48%; }
+.blob.a { width: 150mm; height: 118mm; top: -34mm; right: -42mm; background: #E8CFAE; }
+.blob.b { width: 120mm; height: 96mm; bottom: -22mm; left: -38mm; background: #B9BBCB; }
+.blob.c { width: 34mm; height: 34mm; top: 128mm; right: 24mm; background: var(--amber); opacity: .85; }
+.cover .inner { position: absolute; left: 22mm; right: 22mm; top: 76mm; }
+.cover .tag { font-size: 9pt; letter-spacing: .22em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 7mm; }
+.cover h1 { font-size: 50pt; line-height: .98; letter-spacing: -.015em; margin-bottom: 7mm; }
+.cover h1 em { color: var(--cobalt); font-style: italic; }
+.cover .sub { font-family: var(--serif); font-size: 15pt; line-height: 1.35; color: var(--encre); max-width: 120mm; }
+.cover .author { position: absolute; left: 22mm; right: 22mm; bottom: 24mm; display: flex; align-items: center; gap: 6mm; }
+.cover .author img { width: 27mm; height: 27mm; border-radius: 50%; object-fit: cover; object-position: 50% 24%; box-shadow: 3mm 3mm 0 rgba(242,161,46,.28); }
+.cover .author .n { font-family: var(--serif); font-size: 15pt; margin-bottom: .6mm; }
+.cover .author .r { font-size: 8.4pt; color: var(--gris); line-height: 1.45; }
+.cover .relecture { position: absolute; left: 22mm; right: 22mm; bottom: 10mm; font-size: 7.6pt; color: #6B4306; }
+
+/* ---------- pages ---------- */
+.page { page-break-before: always; }
+.chap { page-break-before: always; }
+.kicker { font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 2.6mm; }
+.chap .num { font-family: var(--serif); font-size: 48pt; line-height: .85; color: var(--amber); margin-bottom: 2mm; }
+.chap h2 { font-size: 25pt; line-height: 1.04; letter-spacing: -.01em; margin-bottom: 3.5mm; }
+.chap h2 em { color: var(--cobalt); font-style: italic; }
+.lead { font-family: var(--serif); font-size: 12.4pt; line-height: 1.4; color: var(--encre); margin-bottom: 4.5mm; max-width: 150mm; }
+h3 { break-after: avoid; font-size: 14.2pt; line-height: 1.15; margin: 4.6mm 0 2mm; color: var(--cobalt); }
+.pb { page-break-before: always; }
+.rule { width: 14mm; height: 1.4mm; background: var(--amber); margin: 0 0 6mm; border-radius: 1mm; }
+
+.card { border-radius: 4mm; padding: 3.8mm 5mm; margin: 3.4mm 0 4mm; page-break-inside: avoid; }
+.card .t { font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1.8mm; }
+.card p:last-child { margin-bottom: 0; }
+.card.retenir { background: var(--lin-2); border-left: 1.6mm solid var(--cobalt); }
+.card.retenir .t { color: var(--cobalt); }
+.card.attention { background: #FFF4DD; border-left: 1.6mm solid var(--amber); }
+.card.attention .t { color: var(--amber-text); }
+.card.medecin { background: #fff; border: .5mm solid var(--amber); }
+.card.medecin .t { color: var(--amber-text); }
+.card.limite { background: var(--lin-2); border: .3mm solid #D9D2C3; }
+.card.limite .t { color: var(--gris); }
+.quote { font-family: var(--serif); font-style: italic; font-size: 13pt; line-height: 1.36; color: var(--cobalt); margin: 3.6mm 0 4mm 0; padding-left: 5mm; border-left: 1.2mm solid var(--amber); page-break-inside: avoid; }
+.quote small { display: block; margin-top: 1.8mm; font-family: var(--sans); font-style: normal; font-size: 8.4pt; color: var(--gris); }
+
+.stats { display: flex; gap: 4mm; margin: 5mm 0 4mm; }
+.stat { flex: 1; background: var(--lin-2); border-radius: 4mm; padding: 5mm 4mm; page-break-inside: avoid; }
+.stat .v { font-family: var(--serif); font-size: 30pt; line-height: 1; color: var(--cobalt); margin-bottom: 2mm; }
+.stat .l { font-size: 8.4pt; line-height: 1.4; color: var(--encre); }
+
+.fen { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.6pt; }
+.fen td { padding: 2.2mm 3mm; border-bottom: .3mm solid #E4DDCF; vertical-align: top; }
+.fen td:first-child { width: 34mm; font-family: var(--serif); font-size: 13pt; color: var(--cobalt); }
+
+.ritual { width: 100%; border-collapse: separate; border-spacing: 0 1.6mm; margin: 2mm 0 4mm; font-size: 9.2pt; page-break-inside: avoid; }
+.ritual td { background: var(--lin-2); padding: 3.2mm 4mm; vertical-align: top; }
+.ritual td:first-child { width: 22mm; border-radius: 3mm 0 0 3mm; font-family: var(--serif); font-size: 14pt; color: var(--cobalt); white-space: nowrap; }
+.ritual td:nth-child(2) { width: 38mm; font-weight: 400; color: var(--cobalt); }
+.ritual td:last-child { border-radius: 0 3mm 3mm 0; }
+.ritual tr { page-break-inside: avoid; }
+
+.toc { list-style: none; padding: 0; margin: 5mm 0 7mm; }
+.toc li { display: flex; gap: 5mm; align-items: baseline; padding: 2.6mm 0; border-bottom: .3mm solid #E4DDCF; margin: 0; }
+.toc .n { font-family: var(--serif); font-size: 18pt; color: var(--amber); width: 12mm; }
+.toc .tt { font-family: var(--serif); font-size: 15pt; }
+
+/* ---------- appel final ---------- */
+.cta { background: var(--cobalt); color: #fff; border-radius: 6mm; padding: 6.4mm 7mm; margin: 4mm 0; page-break-inside: avoid; }
+.cta h3 { color: #fff; margin: 0 0 2.4mm; font-size: 18pt; }
+.cta p { color: #fff; }
+.cta .btn { display: inline-block; background: #fff; color: var(--encre); border-radius: 999px; padding: 3mm 7mm; font-weight: 400; border: 0; margin-top: 2mm; }
+.cta .url { font-size: 8.6pt; color: #D6DDF2; margin-top: 3mm; word-break: break-all; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 3mm; page-break-inside: avoid; }
+.contact div { background: var(--lin-2); border-radius: 3mm; padding: 3.6mm 4.4mm; font-size: 9.4pt; line-height: 1.5; }
+.contact b { display: block; font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; color: var(--amber-text); font-weight: 400; margin-bottom: 1mm; }
+.src { font-size: 9pt; line-height: 1.5; }
+.src li { margin-bottom: 2mm; }
+.sig { page-break-inside: avoid; margin-top: 4mm; font-family: var(--serif); font-size: 13pt; }
+.sig small { display: block; font-family: var(--sans); font-size: 8.6pt; color: var(--gris); }
+</style>
+</head>
+<body>
+
+<!-- ============ COUVERTURE ============ -->
+<section class="cover">
+  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+  <div class="inner">
+    <div class="tag">Guide complet</div>
+    <h1>Le Sommeil,<br><em>Votre Allié Secret</em></h1>
+    <p class="sub">Comprendre votre sommeil, et des pistes concrètes pour retrouver des nuits plus reposantes.</p>
+  </div>
+  <div class="author">
+    <img src="../assets/portrait.jpg" alt="">
+    <div>
+      <div class="n">Alain Zenatti</div>
+      <div class="r">Hypnothérapeute<br>NovaHypnose · Paris 4e · novahypnose.fr</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AU PROGRAMME ============ -->
+<section class="page">
+  <div class="kicker">Au programme</div>
+  <h2 style="font-size:26pt; margin-bottom:3mm;">Six chapitres, <em style="color:var(--cobalt)">une idée simple</em></h2>
+  <div class="rule"></div>
+  <p class="lead">Mieux comprendre ce qui se passe quand vous dormez, repérer ce qui perturbe vos nuits, et essayer des gestes concrets dès ce soir.</p>
+  <ul class="toc">
+    <li><span class="n">01</span><span class="tt">Pourquoi dormons-nous ?</span></li>
+    <li><span class="n">02</span><span class="tt">L'architecture du sommeil</span></li>
+    <li><span class="n">03</span><span class="tt">Les troubles du sommeil : comprendre pour mieux agir</span></li>
+    <li><span class="n">04</span><span class="tt">Ce que la recherche dit de l'hypnose et du sommeil</span></li>
+    <li><span class="n">05</span><span class="tt">Votre programme pratique</span></li>
+    <li><span class="n">06</span><span class="tt">Quand consulter, et ce qu'une séance peut apporter</span></li>
+  </ul>
+  <div class="card medecin">
+    <div class="t">Avant de commencer</div>
+    <p><strong>Ce guide propose des pistes de réflexion.</strong> Il ne remplace ni un avis médical ni un suivi psychologique ou psychiatrique. En cas de détresse, appelez le 3114 (numéro national de prévention du suicide).</p>
+  </div>
+</section>
+
+<!-- ============ INTRODUCTION ============ -->
+<section class="page">
+  <div class="kicker">Introduction</div>
+  <h2 style="font-size:30pt; line-height:1.05; margin-bottom:3mm;">Vous dormez mal, et vous n'êtes <em style="color:var(--cobalt)">pas seul(e)</em></h2>
+  <div class="rule"></div>
+  <p class="lead">Près d'un Français sur cinq dirait souffrir d'insomnie chronique (près de 20 % selon sante.fr).</p>
+  <p>Les nuits blanches, les réveils à 3 h du matin, la fatigue qui colle au réveil : ce guide est fait pour vous.</p>
+  <p>Le sommeil est sans doute la chose la plus naturelle du monde, et pourtant, pour des millions de personnes, il est devenu une lutte nocturne. On se couche épuisé, on fixe le plafond pendant des heures, on se réveille au milieu de la nuit avec l'esprit qui tourne à plein régime.</p>
+  <p>Ce guide vous montrera peut-être une autre image du sommeil : ce n'est pas une simple « coupure ». Pendant que vous dormez, votre cerveau se réorganise, votre corps se répare, vos émotions se régulent et vos souvenirs se consolident.</p>
+  <p>Des pistes existent, simples et accessibles à beaucoup de personnes. Ce guide vous en propose plusieurs. Il ne remplace pas un avis médical (voir le chapitre 6).</p>
+  <div class="stats">
+    <div class="stat"><div class="v">6 h 42</div><div class="l">durée moyenne de sommeil des adultes en France en 2017 (Baromètre de Santé publique France), sous le seuil de 7 h</div></div>
+    <div class="stat"><div class="v">1 sur 5</div><div class="l">Français qui souffrirait d'insomnie chronique (près de 20 %, sante.fr)</div></div>
+    <div class="stat"><div class="v">25 ans</div><div class="l">temps passé à dormir dans une vie de 75 ans, soit un tiers de la vie</div></div>
+  </div>
+</section>
+
+<!-- ============ CHAPITRE 1 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">01</div>
+  <h2>Pourquoi <em>dormons-nous ?</em></h2>
+  <p class="lead">Votre corps ne s'endort pas par hasard : deux mécanismes biologiques orchestrent votre sommeil chaque nuit. Le sommeil n'est pas un repos passif, c'est un état actif, finement régulé.</p>
+
+  <h3>Le mécanisme S, la pression de sommeil</h3>
+  <p>Dès le réveil, votre cerveau accumule de l'adénosine, un marqueur de fatigue qui s'accumule comme du sable dans un sablier. Plus vous restez éveillé, plus la pression monte. La caféine bloque les récepteurs de l'adénosine : c'est ce qui explique son effet éveillant, et le « coup de barre » quand elle se dissipe.</p>
+
+  <h3>Le mécanisme C, l'horloge biologique</h3>
+  <p>Une petite structure située au-dessus du croisement des nerfs optiques, le noyau supra-chiasmatique, règle votre horloge interne sur environ 24 h et la sécrétion de mélatonine. Quand la lumière baisse, la mélatonine est libérée et signale au corps qu'il est temps de dormir. La lumière bleue des écrans perturbe ce signal.</p>
+
+  <div class="quote">« Le sommeil est pour l'ensemble de l'homme ce que le remontage est à l'horloge grand-père. »<small>Catherine Dupuis</small></div>
+
+  <h3>Quand dormir ? Les fenêtres naturelles</h3>
+  <p>Votre corps est programmé pour être somnolent à des moments précis :</p>
+  <table class="fen">
+    <tr><td>23 h à 7 h</td><td>La fenêtre principale de sommeil nocturne, avec le plus de sommeil profond en début de nuit.</td></tr>
+    <tr><td>13 h à 14 h</td><td>La fenêtre de sieste naturelle. La vigilance baisse physiologiquement : c'est biologique, pas de la paresse.</td></tr>
+    <tr><td>10 h – 11 h 30<br>17 h – 20 h</td><td>Les pics d'énergie, idéaux pour l'activité physique ou le travail intense.</td></tr>
+  </table>
+  <div class="card retenir"><div class="t">À retenir</div><p>Plus vous vous couchez tard par rapport à votre heure habituelle, plus vous raccourcissez votre sommeil lent profond, le plus réparateur. C'est une question de quantité, mais aussi de rythme.</p></div>
+</section>
+
+<!-- ============ CHAPITRE 2 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">02</div>
+  <h2>L'architecture <em>du sommeil</em></h2>
+  <p class="lead">Chaque nuit, votre cerveau enchaîne 4 à 6 cycles d'environ 90 minutes, chacun avec des phases aux fonctions différentes.</p>
+
+  <h3>Le sommeil lent profond (N3), le grand réparateur</h3>
+  <p>C'est là que se joue l'essentiel de la récupération physique. Le corps y sécrète un pic d'hormone de croissance, qui apparaît au début du sommeil profond (Takahashi et al., 1968) et participe à la réparation des tissus.</p>
+
+  <div class="card retenir"><div class="t">Le système glymphatique</div>
+    <p>En 2013, des chercheurs de l'Université de Rochester ont montré, <strong>chez la souris</strong>, que le cerveau dispose d'un système de nettoyage plus actif pendant le sommeil : l'espace entre les cellules cérébrales s'élargit d'environ 60 %, ce qui facilite l'élimination de déchets, dont des protéines associées à la maladie d'Alzheimer (Xie et al., 2013, <em>Science</em>). Ces résultats portent sur l'animal : ils ne disent pas encore ce qui se passe chez l'humain.</p></div>
+  <p>Autres rôles attribués au sommeil profond : soutien du système immunitaire, régulation de la glycémie, consolidation de la mémoire.</p>
+
+  <div class="card attention"><div class="t">Attention : le sommeil profond est fragile</div>
+    <p>L'alcool, certains somnifères et le manque de sommeil chronique peuvent le réduire. On peut dormir 8 heures et se réveiller épuisé si la qualité n'y est pas.</p></div>
+
+  <h3>Le sommeil paradoxal (REM), le « thérapeute de nuit »</h3>
+  <p>Le corps est presque paralysé pendant que le cerveau est aussi actif qu'en éveil : c'est le temps des rêves. Le chercheur Matthew Walker (Université de Berkeley) propose que, pendant le REM, le cerveau retraite les souvenirs chargés d'émotion dans un contexte neurochimique pauvre en noradrénaline, ce qui en atténuerait la charge (Goldstein &amp; Walker, 2014). Le REM intervient aussi dans la consolidation de la mémoire procédurale (apprendre un instrument, un sport), dans la régulation émotionnelle et dans la créativité.</p>
+</section>
+
+<!-- ============ CHAPITRE 3 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">03</div>
+  <h2>Les troubles du sommeil : <em>comprendre pour mieux agir</em></h2>
+  <p class="lead">L'insomnie peut être le signe d'autre chose (stress, douleur, apnée, dépression), et elle peut aussi être un trouble à part entière quand elle s'installe. Comprendre ce qui l'entretient est la première étape.</p>
+  <p>Il existe un grand nombre de troubles du sommeil répertoriés, regroupés en sept grandes catégories dans la classification internationale (ICSD-3).</p>
+
+  <h3>L'insomnie</h3>
+  <p>Elle se manifeste par des difficultés d'endormissement, des réveils nocturnes, un réveil trop tôt ou un sommeil non réparateur. On parle d'insomnie chronique quand ces difficultés surviennent au moins 3 nuits par semaine depuis plus de 3 mois.</p>
+  <div class="card retenir"><div class="t">Chiffres-clés en France</div>
+    <p>15 à 20 % des adultes souffriraient d'insomnie chronique (Inserm) ;  plus d'un tiers des adultes dormiraient moins de 6 h par 24 h (Baromètre de Santé publique France 2017).</p></div>
+
+  <h3 class="pb">Les symptômes les plus fréquents</h3>
+  <ul>
+    <li>difficulté à s'endormir malgré la fatigue ;</li>
+    <li>réveils nocturnes avec impossibilité de se rendormir ;</li>
+    <li>fatigue au réveil malgré une nuit correcte ;</li>
+    <li>irritabilité, difficultés de concentration, baisse d'énergie en journée ;</li>
+    <li>anticipation anxieuse du coucher (« Vais-je encore mal dormir ce soir ? »).</li>
+  </ul>
+
+  <h3>Les principaux saboteurs</h3>
+  <ul>
+    <li><strong>La caféine</strong> agit pendant plusieurs heures : un café en début d'après-midi peut encore se faire sentir à minuit.</li>
+    <li><strong>L'alcool</strong> aide parfois à s'endormir, mais perturbe la qualité du sommeil, notamment le sommeil paradoxal.</li>
+    <li><strong>Les écrans le soir</strong> : la lumière bleue freine la mélatonine.</li>
+    <li><strong>Le stress et l'hyperactivité mentale</strong> : la rumination nocturne est un facteur important d'entretien de l'insomnie chronique.</li>
+  </ul>
+
+  <div class="card medecin"><div class="t">L'apnée du sommeil, l'ennemi invisible</div>
+    <p>Beaucoup de personnes en souffrent sans le savoir : de courtes pauses respiratoires provoquent des réveils à répétition. Signes d'alerte : ronflements forts, pauses respiratoires signalées par votre partenaire, réveils avec maux de tête, somnolence excessive malgré une longue nuit. Si vous vous reconnaissez, <strong>consultez un médecin ou un somnologue avant tout autre traitement.</strong></p></div>
+</section>
+
+<!-- ============ CHAPITRE 4 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">04</div>
+  <h2>Ce que la recherche dit <em>de l'hypnose et du sommeil</em></h2>
+  <p class="lead">Des études de laboratoire, avec enregistrement EEG, ont observé que des suggestions hypnotiques pouvaient augmenter le sommeil profond. Les résultats sont intéressants, mais ils portent sur de petits échantillons et sur des conditions précises.</p>
+
+  <h3>L'étude de Bâle (Cordi, Schlarb &amp; Rasch, <em>Sleep</em>, 2014)</h3>
+  <p>70 jeunes femmes en bonne santé ont fait une sieste de 90 minutes enregistrée en EEG haute densité. Avant de s'endormir, elles écoutaient soit un texte de suggestions hypnotiques invitant à dormir plus profondément, soit un texte neutre. Chez les personnes très suggestibles, le sommeil lent profond a augmenté de 81 % et le temps d'éveil a diminué de 67 % par rapport au texte neutre. Chez les personnes peu suggestibles, l'effet était moindre.</p>
+
+  <h3>L'étude de Besedovsky et coll. (<em>Communications Biology</em>, 2022)</h3>
+  <p>Chez 23 jeunes hommes en bonne santé, des suggestions hypnotiques données au début d'une sieste de 90 minutes ont fortement augmenté la sécrétion d'hormone de croissance (plus de 400 % de différence au pic, par rapport à la sieste témoin, d'après la presse qui relaie les auteurs), ont déplacé l'équilibre du système nerveux autonome vers une moindre prédominance du système sympathique, et, selon la presse spécialisée, ont allongé le sommeil profond de près de la moitié. Les participants avaient été sélectionnés pour leur suggestibilité moyenne à forte.</p>
+
+  <div class="card limite"><div class="t">Ce que ces études ne disent pas</div>
+    <ul style="margin-bottom:0">
+      <li>Elles portent sur <strong>une sieste</strong>, pas sur des nuits complètes.</li>
+      <li>Elles portent sur des adultes en bonne santé, <strong>pas sur des personnes souffrant d'insomnie chronique</strong>.</li>
+      <li>Les effets les plus nets concernent des personnes <strong>très suggestibles</strong> (environ 10 à 15 % de la population).</li>
+      <li>Elles ne prouvent pas qu'un suivi en cabinet améliore l'insomnie.</li>
+    </ul></div>
+
+  <div class="quote">« L'hypnose ne fait pas dormir : elle apprend au corps à retrouver lui-même son sommeil naturel. »<small>Alain Zenatti</small></div>
+
+  <h3 class="pb">Comment l'hypnose peut accompagner le sommeil</h3>
+  <p>Dans ma pratique, le travail porte sur :</p>
+  <ul>
+    <li>l'apaisement du mental la nuit (la rumination est un facteur important d'entretien de l'insomnie) ;</li>
+    <li>les croyances liées au sommeil (anxiété de performance, catastrophisation) ;</li>
+    <li>la relaxation et le relâchement du corps au moment du coucher.</li>
+  </ul>
+  <p>Ces pistes découlent de l'expérience clinique. Les deux études ci-dessus ne les démontrent pas directement.</p>
+  <p>Les effets les plus marqués ont été observés chez des personnes très suggestibles. Une évaluation en début d'accompagnement permet d'adapter l'approche à chacun.</p>
+</section>
+
+<!-- ============ CHAPITRE 5 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">05</div>
+  <h2>Votre programme <em>pratique</em></h2>
+  <p class="lead">Voici des actions concrètes que vous pouvez commencer dès ce soir. Elles ne remplacent pas un avis médical.</p>
+
+  <h3>Les fondations</h3>
+  <ul>
+    <li><strong>Heure de lever fixe.</strong> Levez-vous à la même heure tous les jours, y compris le week-end. C'est la règle la plus utile pour recaler votre horloge biologique.</li>
+    <li><strong>La température.</strong> Votre température corporelle doit baisser pour que vous vous endormiez. Un bain chaud 1 h à 1 h 30 avant de dormir aide souvent : la chaleur est suivie d'une baisse de température. Gardez la chambre à environ 18 °C.</li>
+    <li><strong>Pas d'écran après 21 h.</strong> La lumière bleue freine la mélatonine.</li>
+    <li><strong>Le lit sert au sommeil.</strong> Le cerveau apprend par association : séries au lit = lit associé à l'éveil.</li>
+    <li><strong>Caféine : stop après 14 h.</strong> Sa demi-vie est de plusieurs heures.</li>
+    <li><strong>Alcool : évitez-le avant de dormir.</strong> Il fragmente le sommeil.</li>
+    <li><strong>Le soir, mangez léger.</strong> Privilégiez les glucides complexes et évitez les repas lourds.</li>
+    <li><strong>Si vous n'êtes pas endormi après 20 minutes</strong>, levez-vous, allez dans une pièce peu éclairée, lisez quelque chose de calme, et ne retournez au lit que quand la somnolence revient.</li>
+  </ul>
+
+  <h3 class="pb">Le rituel du coucher en 5 étapes (45 minutes)</h3>
+  <table class="ritual">
+    <tr><td>21 h 15</td><td>Lumières douces</td><td>Tamisez les éclairages, éteignez les écrans ou passez en mode nuit.</td></tr>
+    <tr><td>21 h 30</td><td>Bain ou douche chaude</td><td>15 à 20 minutes.</td></tr>
+    <tr><td>21 h 50</td><td>Le « vide-tête »</td><td>Écrivez 3 choses pour demain et 3 préoccupations : les noter aide à les mettre de côté.</td></tr>
+    <tr><td>22 h</td><td>Respiration 4-6</td><td>Allongé, inspirez 4 secondes par le nez, expirez 6 secondes par la bouche, 10 fois. Une expiration plus longue favorise le passage en mode détente.</td></tr>
+    <tr><td>22 h 05</td><td>L'ancrage mental</td><td>Visualisez un endroit où vous vous sentez calme et en sécurité, avec tous vos sens.</td></tr>
+  </table>
+
+  <h3>Gérer la rumination nocturne</h3>
+  <p>Le flux de pensées qui s'enchaînent dès que la tête touche l'oreiller est un réflexe appris, qui peut se désapprendre.</p>
+  <ol>
+    <li><strong>La rivière des pensées.</strong> Imaginez une rivière lente. Chaque pensée est une feuille que vous posez sur l'eau et regardez s'éloigner.</li>
+    <li><strong>Le scan corporel descendant.</strong> Portez votre attention du sommet du crâne vers le front, les yeux, la mâchoire (souvent contractée), le cou, les épaules, puis plus bas. L'attention occupée par le corps interrompt le flux mental.</li>
+    <li><strong>La permission.</strong> « Je me donne la permission de simplement me reposer. Je n'ai pas besoin de dormir tout de suite. » Ce changement de posture réduit l'anxiété de performance.</li>
+  </ol>
+</section>
+
+<!-- ============ CHAPITRE 6 ============ -->
+<section class="chap">
+  <div class="kicker">Chapitre</div>
+  <div class="num">06</div>
+  <h2>Quand consulter, et ce qu'une séance <em>peut apporter</em></h2>
+
+  <div class="card medecin"><div class="t">Consultez un médecin en premier si vous suspectez</div>
+    <p>Des ronflements forts avec pauses respiratoires (apnée du sommeil), une somnolence excessive en journée, des jambes qui s'agitent la nuit, ou des comportements anormaux pendant le sommeil. Ces situations demandent un diagnostic médical.</p>
+    <p><strong>Ce guide propose des pistes de réflexion. Il ne remplace ni un avis médical ni un suivi psychologique ou psychiatrique. En cas de détresse, appelez le 3114 (numéro national de prévention du suicide).</strong></p></div>
+
+  <h3>Ce qu'une séance d'hypnothérapie peut apporter</h3>
+  <ul>
+    <li>comprendre ce qui entretient votre insomnie (anxiété, schémas de pensée, hypervigilance) ;</li>
+    <li>travailler sur les associations négatives avec le sommeil (peur du coucher, anxiété de performance) ;</li>
+    <li>créer des ancrages personnalisés, des repères de relaxation à activer le soir ;</li>
+    <li>apprendre un protocole d'auto-hypnose adapté à votre profil.</li>
+  </ul>
+
+  <h3>À quoi s'attendre</h3>
+  <p>Un accompagnement pour le sommeil se déroule souvent sur 3 à 5 séances. Je ne peux pas vous promettre de résultat. <strong>Mon engagement : si après 2 ou 3 séances rien n'a bougé pour vous, je vous le dis franchement, et je ne vous propose pas de continuer.</strong></p>
+  <p><strong>Tarif :</strong> première séance de 1 h 30, 90 €. Séances suivantes : 1 heure, 90 €.</p>
+  <p><strong>En présentiel à Paris 4e, ou en visioconférence depuis toute la France.</strong> En visio, il vous faut un endroit calme, un casque ou des écouteurs et une connexion stable. Ce qui compte, c'est la qualité de la voix, du rythme et des suggestions.</p>
+</section>
+
+<!-- ============ CONCLUSION ============ -->
+<section class="page">
+  <div class="kicker">Conclusion</div>
+  <h2 style="font-size:28pt; line-height:1.05; margin-bottom:3mm;">Votre sommeil peut s'améliorer, <em style="color:var(--cobalt)">dès ce soir</em></h2>
+  <div class="rule"></div>
+  <p class="lead">Vous pouvez commencer par un geste simple : une heure de lever fixe.</p>
+
+  <div class="card retenir"><div class="t">L'essentiel à retenir</div>
+    <ul style="margin-bottom:0">
+      <li>Le sommeil n'est pas du temps perdu : c'est un moment où le corps se répare, où le cerveau se réorganise et où les émotions se régulent.</li>
+      <li>L'insomnie chronique n'est pas une fatalité : elle a souvent des causes que l'on peut identifier, et des pistes existent.</li>
+      <li>L'hypnose est étudiée en laboratoire pour le sommeil, avec de premiers résultats prometteurs qui restent à confirmer.</li>
+      <li>La première règle : une heure de lever fixe, tous les jours.</li>
+    </ul></div>
+
+  <div class="quote">« Votre sommeil est là, quelque part en vous. Parfois il a juste besoin d'un peu d'aide pour revenir. »<small>Alain Zenatti</small></div>
+
+  <div class="cta">
+    <h3>Mettre des mots sur ce qui pèse sur vos nuits</h3>
+    <p>J'ai préparé 5 questions. Elles prennent 2 minutes. Vous obtenez tout de suite un décryptage personnalisé : ce qui ressort de vos réponses, et quelques pistes pour la suite. C'est gratuit, sans engagement, et vos réponses restent confidentielles.</p>
+    <a class="btn" href="https://novahypnose.fr/decryptage?utm_source=guide&utm_medium=pdf&utm_content=sommeil">Faire mon décryptage</a>
+    <div class="url">novahypnose.fr/decryptage</div>
+  </div>
+  <p>Si vous préférez en parler directement, je vous propose un échange de 15 minutes par téléphone, gratuit. On regarde ensemble si l'hypnose est adaptée à votre situation. Si elle ne l'est pas, je vous le dis.</p>
+
+  <div class="contact">
+    <div><b>Prendre rendez-vous</b><a href="https://resalib.fr/p/47325">resalib.fr/p/47325</a></div>
+    <div><b>Écrire sur WhatsApp</b><a href="https://novahypnose.fr/wa">novahypnose.fr/wa</a></div>
+    <div><b>Téléphone</b>06 49 35 80 89</div>
+    <div><b>Cabinet</b>16 rue Saint-Antoine, 75004 Paris<br><a href="https://novahypnose.fr">novahypnose.fr</a></div>
+  </div>
+  <div class="sig">Alain Zenatti<small>Hypnothérapeute</small></div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section class="page">
+  <div class="kicker">Sources et limites</div>
+  <h2 style="font-size:24pt; margin-bottom:3mm;">D'où viennent <em style="color:var(--cobalt)">les chiffres</em></h2>
+  <div class="rule"></div>
+  <h3 style="margin-top:2mm">Sources</h3>
+  <p style="font-size:9pt; color:var(--gris)">Les chiffres relayés par la presse spécialisée sont signalés comme tels.</p>
+  <ul class="src">
+    <li>Cordi M. J., Schlarb A. A., Rasch B. (2014), <em>Deepening sleep by hypnotic suggestion</em>, <em>Sleep</em> 37(6):1143-1152. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4015388">pmc.ncbi.nlm.nih.gov/articles/PMC4015388</a></li>
+    <li>Besedovsky L. et al. (2022), <em>Hypnotic enhancement of slow-wave sleep increases sleep-associated hormone secretion and reduces sympathetic predominance in healthy humans</em>, <em>Communications Biology</em> 5:747. <a href="https://oa-fund.ub.uni-muenchen.de/433/1/s42003-022-03643-y.pdf">article en accès libre</a></li>
+    <li>Xie L. et al. (2013), <em>Sleep drives metabolite clearance from the adult brain</em>, <em>Science</em> (chez la souris). <a href="https://www.polyu.edu.hk/cbs/rclcn/images/cdl_articles/X/Xie_et_al._2013.pdf">article</a></li>
+    <li>Santé publique France, Baromètre 2017, <em>BEH</em> n° 8-9 du 12 mars 2019 (moyenne d'environ 6 h 42). <a href="https://beh.santepubliquefrance.fr/beh/2019/8-9/index.html">sommaire du BEH</a></li>
+    <li>Insomnie chronique, près de 20 % de la population française : <a href="https://www.sante.fr/insomnie">sante.fr/insomnie</a></li>
+    <li>Besedovsky et coll. (2022), chiffres relayés par la presse spécialisée (23 jeunes hommes, hormone de croissance) : <a href="https://www.psypost.org/hypnotic-suggestion-may-enhance-slow-wave-sleep-and-increase-secretion-of-certain-hormones-study-finds/">PsyPost</a></li>
+    <li>Classification internationale des troubles du sommeil, 3<sup>e</sup> édition (sept grandes catégories) : <a href="https://pubmed.ncbi.nlm.nih.gov/25367475/">Sateia, <em>Chest</em>, 2014</a></li>
+    <li>Takahashi Y., Kipnis D. M., Daughaday W. H. (1968), <em>Growth hormone secretion during sleep</em>, <em>J Clin Invest</em> 47(9):2079-2090 (pic d'hormone de croissance au début du sommeil profond). <a href="https://pubmed.ncbi.nlm.nih.gov/5675428/">résumé</a></li>
+    <li>Goldstein A. N., Walker M. P. (2014), <em>The role of sleep in emotional brain processing</em>, <em>Annu Rev Clin Psychol</em> 10:679-708. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4286245">texte</a></li>
+    <li>Barnier A. J. (2020), répartition de la suggestibilité hypnotique (10 à 15 % de personnes très suggestibles). <a href="https://eprints-gro.gold.ac.uk/29296/1/Barnier%202020%20PSYCON.pdf">article</a></li>
+  </ul>
+  <div class="card limite"><div class="t">Limites</div>
+    <p>Ce guide propose des pistes de réflexion. Il ne remplace ni un avis médical ni un suivi psychologique ou psychiatrique. La recherche sur l'hypnose et le sommeil reste limitée : les études citées portent sur de petits échantillons, des siestes et des personnes très suggestibles, et ne sont pas des études sur l'insomnie chronique. Le guide le signale plutôt que de généraliser.</p></div>
+</section>
+
+</body>
+</html>

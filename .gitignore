@@ -56,3 +56,6 @@ src/nul
 
 # Skill symlinks generated locally by `npx skills add` (absolute paths, not portable)
 .claude/skills/
+
+# Guides PDF : HTML généré par guides-pdf/build.mjs
+guides-pdf/*/guide.html
