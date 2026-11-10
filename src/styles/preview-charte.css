@@ -313,6 +313,32 @@
   max-width: 360px;
   width: 100%;
 }
+/* Portrait d'Alain (colonne de droite du hero) */
+.cz .hero__shot {
+  position: relative; margin: 0; min-height: 560px; align-self: stretch;
+  border-radius: 28px; overflow: hidden;
+  box-shadow: 14px 14px 0 rgba(43,75,160,.28), 0 24px 50px rgba(28,43,74,.2);
+}
+.cz .hero__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+.cz .hero__cap {
+  position: absolute; left: 16px; bottom: 16px; padding: 10px 16px; border-radius: var(--r-pill);
+  background: rgba(240,236,227,.88); backdrop-filter: blur(14px);
+  font-size: 13px; font-weight: 500; letter-spacing: .04em; color: var(--texte);
+}
+
+/* Bandeau « La première séance » : à cheval sur la limite basse du hero */
+.cz .hero-band { position: relative; z-index: 6; margin-top: -34px; padding-bottom: 8px; }
+.cz .hero__sess {
+  display: grid; grid-template-columns: 1.25fr 2fr; gap: 28px 40px; align-items: center;
+  padding: 26px 34px; border-radius: 28px;
+  background: linear-gradient(155deg, rgba(255,255,255,.92) 0%, rgba(194,207,226,.7) 100%);
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 10px 10px 30px rgba(28,43,74,.16);
+}
+.cz .hero__sess-intro .hero__card-quote { font-size: 22px; margin: 10px 0 0; }
+.cz .hero__sess-infos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 32px; }
+.cz .hero__sess-infos .hero__card-row:nth-child(-n+2) { border-top: 0; }
+
 .cz .hero__card-label { font-family: var(--f-sans); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--cobalt); font-weight: 500; }
 .cz .hero__card-quote { font-family: var(--f-serif); font-style: italic; font-size: 23px; line-height: 1.35; color: var(--texte); margin: 18px 0 24px; }
 .cz .hero__card-row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid rgba(28,43,74,.1); font-size: 14px; }
@@ -798,6 +824,13 @@
 @media (max-width: 980px) {
   .cz .hero__container { grid-template-columns: 1fr; }
   .cz .hero__card { justify-self: start; }
+  /* Portrait en premier (on veut voir Alain dès l'arrivée), recadré sur le visage */
+  .cz .hero__shot { order: -1; min-height: 0; aspect-ratio: 16 / 11; max-width: 560px; width: 100%; justify-self: center; }
+  .cz .hero__shot img { object-position: 50% 18%; }
+  .cz .hero__sess { grid-template-columns: 1fr; padding: 22px 22px; }
+  .cz .hero__sess-infos { grid-template-columns: 1fr; }
+  .cz .hero__sess-infos .hero__card-row:nth-child(2) { border-top: 1px solid rgba(28,43,74,.1); }
+  .cz .hero-band { margin-top: -22px; }
 }
 @media (max-width: 900px) {
   .cz .cabinet__grid,
@@ -854,6 +887,7 @@
   .cz .hero__card { padding: 26px 24px; }
   .cz .hero__card-quote { font-size: 19px; margin: 14px 0 18px; }
   .cz .hero__card-row { padding: 10px 0; }
+  .cz .hero__sess-intro .hero__card-quote { font-size: 19px; margin: 8px 0 0; }
   /* Lisibilité mobile : labels passent en texte foncé (contraste AA).
      La carte mise en avant est sur fond cobalt : elle garde son texte clair,
      sans quoi le détail des séances devient illisible (bleu sombre sur bleu). */

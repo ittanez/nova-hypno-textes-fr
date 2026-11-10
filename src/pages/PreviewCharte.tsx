@@ -475,16 +475,37 @@ const PreviewCharte: React.FC = () => {
               </div>
             </div>
 
-            <aside className="hero__card">
+            <figure className="hero__shot">
+              <img
+                src="/images/alain-zenatti-hero-960.webp"
+                srcSet="/images/alain-zenatti-hero-520.webp 520w, /images/alain-zenatti-hero-960.webp 960w"
+                sizes="(max-width: 980px) 100vw, 480px"
+                alt="Portrait d'Alain Zenatti, hypnothérapeute à Paris"
+                width="960"
+                height="1286"
+                fetchPriority="high"
+              />
+              <figcaption className="hero__cap">Alain Zenatti · Hypnothérapeute</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        {/* Carte « La première séance » : sortie du hero pour laisser le portrait
+            respirer, elle chevauche sa limite basse (visible dès le 1er défilement). */}
+        <div className="container hero-band">
+          <aside className="hero__sess">
+            <div className="hero__sess-intro">
               <div className="hero__card-label">La première séance</div>
               <p className="hero__card-quote">« Un temps complet, pour entrer dans un véritable travail — sans précipitation. »</p>
+            </div>
+            <div className="hero__sess-infos">
               <div className="hero__card-row"><span>Durée</span><span>1h30</span></div>
               <div className="hero__card-row"><span>Tarif</span><span>90 €</span></div>
               <div className="hero__card-row"><span>Au cabinet</span><span>16 rue Saint-Antoine, Paris 4e</span></div>
               <div className="hero__card-row"><span>Ou en visio</span><span>Partout, depuis chez vous</span></div>
-            </aside>
-          </div>
-        </section>
+            </div>
+          </aside>
+        </div>
 
         {/* ── SLOGAN ── */}
         <section className="slogan reveal" id="slogan">
