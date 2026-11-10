@@ -53,3 +53,27 @@ describe('pages de téléchargement des guides', () => {
     expect(noLocation).toEqual(['emotions-travail']);
   });
 });
+
+describe('page /guides-gratuits', () => {
+  it('liste les 7 guides, avec leur lien, leur titre et leur nombre de pages', async () => {
+    const { default: GuidesGratuits } = await import('@/pages/GuidesGratuits');
+    const html = renderToStaticMarkup(
+      <MemoryRouter>
+        <GuidesGratuits />
+      </MemoryRouter>
+    );
+    for (const key of Object.keys(PDF_PAGES)) {
+      const c = GUIDE_LANDINGS[key];
+      expect(html).toContain(`href="/${c.slug}"`);
+      expect(html).toContain(`${c.pages} pages`);
+      expect(html).toContain(c.cover.src);
+    }
+    expect(html).toContain('utm_source=guides-gratuits');
+    expect(html).not.toMatch(/Maître Praticien|prouvée?|testée? sur/i);
+  });
+
+  it('GUIDE_LANDINGS_ORDER couvre exactement les 7 guides', async () => {
+    const { GUIDE_LANDINGS_ORDER } = await import('@/data/guideLandings');
+    expect([...GUIDE_LANDINGS_ORDER].sort()).toEqual(Object.keys(PDF_PAGES).sort());
+  });
+});

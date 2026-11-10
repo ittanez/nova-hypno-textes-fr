@@ -77,6 +77,7 @@ const AutohypnoseGratitude = lazy(() => import("@/pages/AutohypnoseGratitude"));
 
 // Guide sommeil (landing page isolée)
 const GuideSommeil = lazy(() => import("@/pages/GuideSommeil"));
+const GuidesGratuits = lazy(() => import("@/pages/GuidesGratuits"));
 const GuideSommeilMerci = lazy(() => import("@/pages/GuideSommeilMerci"));
 
 // Guide procrastination (landing page isolée)
@@ -259,6 +260,7 @@ function App() {
             <Route path="/guide-autohypnose" element={<GuideAutohypnose />} />
             <Route path="/guide-autohypnose/merci" element={<GuideAutohypnoseMerci />} />
             <Route path="/autohypnose-gratitude" element={<AutohypnoseGratitude />} />
+            <Route path="/guides-gratuits" element={<GuidesGratuits />} />
             <Route path="/guide-sommeil" element={<GuideSommeil />} />
             <Route path="/guide-sommeil/merci" element={<GuideSommeilMerci />} />
             <Route path="/guide-procrastination" element={<GuideProcrastination />} />

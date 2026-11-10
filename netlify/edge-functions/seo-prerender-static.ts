@@ -4072,18 +4072,18 @@ PAGES["/faq"] = {
 };
 
 PAGES["/guide-procrastination"] = {
-  title: "Guide gratuit : vaincre la procrastination par l'hypnose",
+  title: "Guide gratuit : Et si vous n'étiez pas paresseux ? | NovaHypnose",
   description:
-    "Guide gratuit de 14 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes.",
+    "Guide gratuit de 14 pages d'Alain Zenatti pour comprendre la procrastination : ce qui se passe dans le cerveau, les 7 visages de la procrastination et 2 protocoles d'auto-hypnose.",
   canonicalPath: "/guide-procrastination",
-  h1: "Libérez-vous de la procrastination",
+  h1: "Et si vous n'étiez pas paresseux ?",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "@id": `${SITE_URL}/guide-procrastination#book`,
-      "name": "Vaincre la Procrastination par l'Hypnose",
-      "description": "Guide pratique de 14 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
+      "name": "Et si vous n'étiez pas paresseux ?",
+      "description": "Guide pratique de 14 pages pour comprendre la procrastination, avec des stratégies concrètes et 2 protocoles d'auto-hypnose, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-procrastination`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
@@ -4099,27 +4099,25 @@ PAGES["/guide-procrastination"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 14 pages · 2 protocoles d'auto-hypnose.</strong> Passez à l'action aujourd'hui, arrêtez de remettre au lendemain — un guide pratique d'Alain Zenatti, hypnothérapeute à Paris 4ème, pour comprendre la procrastination et la désamorcer avec des protocoles concrets.</p>
+    <p><strong>Guide gratuit · 14 pages · 2 protocoles d'auto-hypnose.</strong> Comprendre ce qui se passe quand vous repoussez, et des pistes pour passer à l'action : un guide d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio, partout en France. Il propose des pistes de réflexion et ne promet aucun résultat.</p>
 
-    <h2>Ce que vous allez découvrir</h2>
+    <h2>Vous vous reconnaissez ?</h2>
     <ul>
-      <li><strong>Stratégies anti-procrastination</strong> — 2 protocoles d'auto-hypnose éprouvés pour passer à l'action immédiatement, même quand la motivation manque.</li>
-      <li><strong>100 % pratique et testé</strong> — chaque stratégie est expliquée étape par étape, validée auprès de 500+ clients.</li>
-      <li><strong>Spécial professionnels</strong> — conçu pour cadres et employés, techniques adaptées aux contraintes professionnelles et aux délais serrés.</li>
-      <li><strong>Méthode NovaHypnose</strong> — protocoles d'hypnose associés à la psychologie comportementale pour arrêter de remettre à demain.</li>
-      <li><strong>Base scientifique</strong> — fondée sur la neuropsychologie de la procrastination, de la motivation et de la discipline.</li>
-      <li><strong>Outils immédiats</strong> — exercices, checklist et protocoles hypnotiques à pratiquer dès ce soir.</li>
+      <li><strong>La peur de l'échec</strong> — ne pas commencer protège de l'échec, mais l'échec devient certain.</li>
+      <li><strong>Le perfectionnisme paralysant</strong> — attendre le moment idéal, les conditions parfaites.</li>
+      <li><strong>La surcharge cognitive</strong> — une montagne de tâches qui semble insurmontable : le cerveau choisit l'inaction comme protection.</li>
+      <li><strong>La procrastination numérique</strong> — défilement infini, notifications, séries en lecture automatique.</li>
     </ul>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Qu'est-ce que la procrastination ? Définitions et idées reçues</li>
+      <li>Qu'est-ce que la procrastination ?</li>
       <li>Ce qui se passe vraiment dans votre cerveau</li>
       <li>Les 7 visages de la procrastination</li>
-      <li>Les conséquences cachées, bien au-delà du travail</li>
+      <li>Les conséquences cachées</li>
       <li>Stratégies concrètes pour passer à l'action</li>
-      <li>Protocole n°1 — L'Ancrage de l'Action (auto-hypnose)</li>
-      <li>Protocole n°2 — La Ligne du Temps (auto-hypnose)</li>
+      <li>Protocole n° 1 : l'ancrage de l'action (auto-hypnose)</li>
+      <li>Protocole n° 2 : la ligne du temps (auto-hypnose)</li>
       <li>Et si la solution venait de votre inconscient ?</li>
       <li>L'hypnothérapie au service de votre liberté d'action</li>
       <li>Un premier pas avec Alain Zenatti</li>
@@ -4137,9 +4135,9 @@ PAGES["/guide-procrastination"] = {
 };
 
 PAGES["/guide-autohypnose"] = {
-  title: "Guide gratuit — L'Autohypnose au Quotidien | NovaHypnose",
+  title: "Guide gratuit : Reprenez la main sur votre bien-être | NovaHypnose",
   description:
-    "Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien.",
+    "Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'autohypnose pour le stress, la confiance, le sommeil, les peurs, les émotions et la concentration.",
   canonicalPath: "/guide-autohypnose",
   h1: "Reprenez la main sur votre bien-être",
   jsonLd: [
@@ -4164,30 +4162,26 @@ PAGES["/guide-autohypnose"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 19 pages · 8 protocoles.</strong> Le guide d'autohypnose d'Alain Zenatti pour les professionnels sous pression — des techniques prêtes à l'emploi dès ce soir, sans théorie abstraite.</p>
+    <p><strong>Guide gratuit · 19 pages · 8 protocoles.</strong> Le guide d'autohypnose d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio, partout en France, pour les professionnels sous pression. Il propose des exercices d'entraînement, ne promet aucun résultat et ne remplace ni un avis médical ni un suivi psychologique.</p>
 
-    <h2>Ce que vous allez découvrir</h2>
-    <ul>
-      <li><strong>8 protocoles complets</strong> — du sas de décompression 5 minutes au protocole de confiance approfondi.</li>
-      <li><strong>100 % pratique</strong> — chaque technique expliquée étape par étape, testée sur 1000+ clients.</li>
-      <li><strong>Spécial professionnels</strong> — techniques utilisables au bureau, adaptées aux contraintes pro.</li>
-      <li><strong>Méthode NovaHypnose</strong> — aperçu des protocoles utilisés en cabinet depuis 6 ans.</li>
-      <li><strong>Base scientifique</strong> — neuroplasticité, méta-analyses, validation clinique.</li>
-      <li><strong>Totalement autonome</strong> — guide complet d'installation et de dépannage pour pratiquer seul.</li>
-    </ul>
-
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Introduction — pourquoi l'autohypnose fonctionne (base scientifique)</li>
-      <li>Comprendre l'hypnose : 5 phases et 3 fusibles de sécurité</li>
-      <li>Stress &amp; anxiété : sas de décompression et ancre anti-stress</li>
-      <li>Confiance en soi : la forêt enchantée et les affirmations efficaces</li>
-      <li>Sommeil : décompte descendant et gestion des réveils nocturnes</li>
-      <li>Phobies : la double dissociation (technique PNL adaptée)</li>
-      <li>Gestion des émotions : changement d'état et protocole colère</li>
-      <li>Performance professionnelle : rayon de focus et préparation aux enjeux</li>
-      <li>Votre protocole personnel en 6 étapes</li>
-      <li>Bonus — 2 protocoles NovaHypnose détaillés</li>
+      <li>Pourquoi l'autohypnose ?</li>
+      <li>Les fondamentaux de l'autohypnose : qu'est-ce que l'hypnose, conscient et inconscient, les 5 phases d'une séance</li>
+      <li>Définir son intention et ses objectifs</li>
+      <li>Les fusibles de sécurité</li>
+      <li>Les techniques d'induction : fixation du regard, respiration 4-2-6, scan corporel</li>
+      <li>L'approfondissement de la transe</li>
+      <li>La phase de travail</li>
+      <li>Le réveil et le retour</li>
+      <li>Stress et anxiété : le sas de décompression et l'ancre anti-stress</li>
+      <li>Confiance en soi : la forêt enchantée de la confiance</li>
+      <li>Sommeil : le décompte descendant et les réveils nocturnes</li>
+      <li>Phobies : la double dissociation</li>
+      <li>Gestion des émotions : le changement d'état interne</li>
+      <li>Performance professionnelle : le rayon de focus et la préparation mentale</li>
+      <li>Construire votre protocole personnel</li>
+      <li>Suivre votre progression, et aller plus loin</li>
     </ol>
 
     <h2>Pages liées</h2>
@@ -4204,16 +4198,16 @@ PAGES["/guide-autohypnose"] = {
 PAGES["/guide-sommeil"] = {
   title: "Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose",
   description:
-    "Guide gratuit de 14 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin.",
+    "Guide gratuit de 14 pages d'Alain Zenatti : comprendre le sommeil, ce que la recherche dit de l'hypnose, et un programme pratique avec rituel du coucher. En complément d'un suivi médical si besoin.",
   canonicalPath: "/guide-sommeil",
-  h1: "Le sommeil, votre allié secret",
+  h1: "Le Sommeil, Votre Allié Secret",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "@id": `${SITE_URL}/guide-sommeil#book`,
       "name": "Le Sommeil, Votre Allié Secret",
-      "description": "Guide de 14 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
+      "description": "Guide de 14 pages sur le sommeil et l'hypnose : comprendre le sommeil, les troubles courants, ce que dit la recherche et un programme pratique, en complément d'un suivi médical.",
       "url": `${SITE_URL}/guide-sommeil`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
@@ -4229,15 +4223,16 @@ PAGES["/guide-sommeil"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 14 pages.</strong> 1 Français sur 5 souffre d'insomnie chronique et la durée moyenne de sommeil en semaine n'est que de 6h42. Ce guide d'Alain Zenatti explique comment l'hypnose agit sur le sommeil — avec des études montrant jusqu'à +81 % de sommeil profond (Sleep, 2014) — et propose un programme pratique de 30 jours.</p>
+    <p><strong>Guide gratuit · 14 pages.</strong> En 2008, 19 % des personnes de 16 ans et plus en France métropolitaine déclaraient une insomnie chronique avec retentissement en journée (Santé publique France, BEH 2012). Ce guide d'Alain Zenatti explique le sommeil, présente ce que la recherche dit de l'hypnose (avec ses limites) et propose un programme pratique, en complément d'un suivi médical.</p>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Pourquoi votre corps a besoin de dormir — les deux mécanismes biologiques qui orchestrent le sommeil</li>
-      <li>Ce qui se passe vraiment pendant la nuit — cycles, sommeil profond, sommeil paradoxal</li>
-      <li>Les 5 saboteurs silencieux de votre sommeil — caféine, alcool, écrans, température, rumination</li>
-      <li>Ce que la science dit sur l'hypnose — études EEG publiées dans Sleep et Nature</li>
-      <li>Un programme pratique de 30 jours — rituel du coucher en 5 étapes, techniques anti-rumination, hygiène du sommeil</li>
+      <li>Pourquoi dormons-nous ? — la pression de sommeil et l'horloge biologique</li>
+      <li>L'architecture du sommeil — sommeil lent profond et sommeil paradoxal</li>
+      <li>Les troubles du sommeil : comprendre pour mieux agir — l'insomnie et les principaux saboteurs</li>
+      <li>Ce que la recherche dit de l'hypnose et du sommeil — l'étude de Bâle (2014) et celle de Besedovsky et coll. (2022), avec leurs limites</li>
+      <li>Votre programme pratique — les fondations, le rituel du coucher en 5 étapes, la rumination nocturne</li>
+      <li>Quand consulter, et ce qu'une séance peut apporter</li>
     </ol>
 
     <h2>Pages liées</h2>
@@ -4251,10 +4246,48 @@ PAGES["/guide-sommeil"] = {
     `,
 };
 
+PAGES["/guides-gratuits"] = {
+  title: "Guides gratuits d'hypnose : sommeil, tabac, stress, colère | NovaHypnose",
+  description:
+    "7 guides gratuits d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio : sommeil, arrêt du tabac, procrastination, colère, carrière, émotions au travail et autohypnose. PDF reçu par email.",
+  canonicalPath: "/guides-gratuits",
+  h1: "Guides gratuits d'hypnose",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/guides-gratuits#page`,
+      "name": "Guides gratuits d'hypnose",
+      "url": `${SITE_URL}/guides-gratuits`,
+      "inLanguage": "fr-FR",
+      "author": { "@id": `${SITE_URL}/#person` },
+    },
+    breadcrumbLd([
+      { name: "Accueil", path: "/" },
+      { name: "Guides gratuits", path: "/guides-gratuits" },
+    ]),
+  ],
+  content: `
+    <p><strong>7 guides gratuits au format PDF</strong>, écrits par Alain Zenatti, hypnothérapeute à Paris 4e et en visio, partout en France. Vous recevez le guide par email en quelques minutes. Ces guides proposent des pistes de réflexion et d'entraînement : ils ne promettent aucun résultat et ne remplacent ni un avis médical ni un suivi psychologique.</p>
+
+    <ul>
+      <li><a href="${SITE_URL}/guide-sommeil">Le Sommeil, Votre Allié Secret</a> (14 pages) : comprendre votre sommeil, ce que dit la recherche sur l'hypnose, et un programme pratique avec rituel du coucher.</li>
+      <li><a href="${SITE_URL}/guide-autohypnose">Reprenez la main sur votre bien-être</a> (19 pages) : les fondamentaux de l'autohypnose et 8 protocoles.</li>
+      <li><a href="${SITE_URL}/guide-procrastination">Et si vous n'étiez pas paresseux ?</a> (14 pages) : les 7 visages de la procrastination, des stratégies concrètes et 2 protocoles d'auto-hypnose.</li>
+      <li><a href="${SITE_URL}/guide-emotions-travail">Vous tenez. Mais jusqu'à quand ?</a> (12 pages) : ce que vos émotions au travail essaient de vous dire, et 3 pratiques simples.</li>
+      <li><a href="${SITE_URL}/guide-colere">La Colère, Enfin Apprivoisée</a> (12 pages) : ce qui se passe dans le cerveau quand la colère monte, et un programme pour la désamorcer.</li>
+      <li><a href="${SITE_URL}/guide-carriere">Levez les Freins qui Bloquent Votre Carrière</a> (12 pages) : syndrome de l'imposteur, auto-sabotage, et des pistes concrètes.</li>
+      <li><a href="${SITE_URL}/guide-arret-tabac">Arrêter de Fumer, Autrement</a> (12 pages) : comprendre la dépendance au tabac et préparer votre arrêt.</li>
+    </ul>
+
+    <p>Vous ne savez pas par lequel commencer ? <a href="${SITE_URL}/decryptage">Faites le décryptage en 5 questions</a> (2 minutes, gratuit, sans engagement).</p>
+  `,
+};
+
 PAGES["/guide-emotions-travail"] = {
   title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ?",
   description:
-    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec trois pratiques simples et une approche d'hypnose ericksonienne.",
   canonicalPath: "/guide-emotions-travail",
   h1: "Vous tenez. Mais jusqu'à quand ?",
   jsonLd: [
@@ -4279,18 +4312,18 @@ PAGES["/guide-emotions-travail"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 12 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce n'est pas de la faiblesse : ce sont des signaux d'alarme de votre système nerveux. Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à sa place.</p>
+    <p><strong>Guide gratuit · 12 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à votre place. Il propose des pistes de réflexion et ne remplace pas un avis médical.</p>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Non, vous n'êtes pas « trop sensible » — pourquoi cette étiquette efface la vraie cause de l'épuisement</li>
-      <li>Ce que vos émotions signalent vraiment — décoder les 5 émotions les plus incomprises au travail</li>
-      <li>Pourquoi les combattre aggrave tout — l'effet rebond de la suppression émotionnelle</li>
-      <li>Les croyances qui vous maintiennent coincé — 4 croyances limitantes et leurs recadrages</li>
-      <li>La communication relationnelle — la méthode ESPERE de Jacques Salomé</li>
-      <li>Comment l'hypnose aide là où la volonté échoue</li>
-      <li>3 pratiques simples dès maintenant — respiration, scan corporel, mini-visualisation</li>
-      <li>Et si vous alliez plus loin ? Un échange gratuit de 30 minutes, sans engagement</li>
+      <li>Non, vous n'êtes pas « trop sensible »</li>
+      <li>Ce que vos émotions signalent vraiment — irritabilité, larmes inattendues, colère froide, vide intérieur, hypervigilance</li>
+      <li>Pourquoi les combattre aggrave tout</li>
+      <li>Les croyances qui vous maintiennent coincé</li>
+      <li>Ce que la communication relationnelle change concrètement</li>
+      <li>Comment l'hypnose aide là où la volonté seule ne suffit pas</li>
+      <li>Trois pratiques simples dès maintenant</li>
+      <li>Et si vous alliez plus loin ? Un échange téléphonique gratuit de 15 minutes, sans engagement</li>
     </ol>
 
     <h2>Pages liées</h2>
@@ -4307,19 +4340,20 @@ PAGES["/guide-emotions-travail"] = {
 PAGES["/guide-colere"] = {
   title: "Guide gratuit — La Colère, Enfin Apprivoisée | NovaHypnose",
   description:
-    "Guide gratuit d'Alain Zenatti pour apaiser la colère et l'irritabilité : comprendre vos déclencheurs et un protocole d'auto-hypnose pratique.",
+    "Guide gratuit de 12 pages d'Alain Zenatti pour comprendre la colère et l'irritabilité : ce qui se passe dans le cerveau, ce que dit la recherche sur l'hypnose et un programme pratique.",
   canonicalPath: "/guide-colere",
-  h1: "La colère, enfin apprivoisée",
+  h1: "La Colère, Enfin Apprivoisée",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "@id": `${SITE_URL}/guide-colere#book`,
       "name": "La Colère, Enfin Apprivoisée",
-      "description": "Guide pratique pour apaiser la colère et l'irritabilité chronique grâce à l'hypnose. Comprendre les déclencheurs et installer de nouvelles réponses automatiques, par Alain Zenatti.",
+      "description": "Guide pratique de 12 pages pour comprendre la colère et l'irritabilité : le cerveau, les profils de la colère, ce que dit la recherche sur l'hypnose et des outils concrets, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-colere`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 12,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4331,7 +4365,7 @@ PAGES["/guide-colere"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit.</strong> Explosions soudaines regrettées aussitôt, irritabilité chronique, réactions disproportionnées, tension dans les relations : ce guide d'Alain Zenatti aide à comprendre ce que la colère essaie de signaler et propose une technique d'auto-hypnose pour reprendre la main avant l'explosion.</p>
+    <p><strong>Guide gratuit · 12 pages.</strong> Explosions soudaines regrettées aussitôt, irritabilité chronique, réactions disproportionnées, tension dans les relations : ce guide d'Alain Zenatti aide à comprendre ce que la colère essaie de signaler et propose un programme pratique pour la désamorcer au quotidien.</p>
 
     <h2>Ce que vous reconnaissez peut-être</h2>
     <ul>
@@ -4341,13 +4375,14 @@ PAGES["/guide-colere"] = {
       <li><strong>Tension relationnelle</strong> — vos proches marchent sur des œufs face à cette colère qui s'exprime sans filtre.</li>
     </ul>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Pourquoi la colère explose avant que vous ne puissiez réagir</li>
-      <li>Ce que votre colère essaie de vous dire</li>
-      <li>Les déclencheurs invisibles de l'irritabilité chronique</li>
-      <li>La technique du recul — reprendre la main avant l'explosion (protocole d'auto-hypnose)</li>
-      <li>Sortir du cycle culpabilité — rechute</li>
+      <li>Pourquoi ressentez-vous de la colère ? Ce qui se passe dans votre cerveau</li>
+      <li>Les 3 profils de la colère</li>
+      <li>Pourquoi « se contrôler » ne suffit pas, et pourquoi c'est normal</li>
+      <li>Ce que la science dit de l'hypnose et de la régulation émotionnelle</li>
+      <li>Votre programme pratique : désamorcer la colère au quotidien</li>
+      <li>Quand consulter ? Ce que l'hypnothérapie peut faire pour vous</li>
     </ol>
 
     <h2>Pages liées</h2>
@@ -4362,21 +4397,22 @@ PAGES["/guide-colere"] = {
 };
 
 PAGES["/guide-carriere"] = {
-  title: "Guide gratuit — Ma Carrière, Enfin Débloquée | NovaHypnose",
+  title: "Guide gratuit — Levez les Freins qui Bloquent Votre Carrière | NovaHypnose",
   description:
-    "Guide gratuit d'Alain Zenatti pour lever les blocages professionnels : syndrome de l'imposteur, auto-sabotage, stagnation et protocole pratique.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre ce qui freine votre évolution (syndrome de l'imposteur, auto-sabotage) et des pistes concrètes pour avancer.",
   canonicalPath: "/guide-carriere",
-  h1: "Ma carrière, enfin débloquée",
+  h1: "Levez les Freins qui Bloquent Votre Carrière",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "@id": `${SITE_URL}/guide-carriere#book`,
-      "name": "Ma Carrière, Enfin Débloquée",
-      "description": "Guide pratique pour lever les blocages professionnels grâce à l'hypnose. Syndrome de l'imposteur, auto-sabotage, stagnation, et un protocole pour passer à l'action, par Alain Zenatti.",
+      "name": "Levez les Freins qui Bloquent Votre Carrière",
+      "description": "Guide pratique de 12 pages pour comprendre ce qui freine l'évolution professionnelle : syndrome de l'imposteur, auto-sabotage, croyances, et des pistes concrètes, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-carriere`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 12,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4388,7 +4424,7 @@ PAGES["/guide-carriere"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit.</strong> Syndrome de l'imposteur, auto-sabotage récurrent, stagnation professionnelle, blocage à la décision : ce guide d'Alain Zenatti explore les croyances inconscientes qui freinent une carrière malgré de réelles compétences, et propose un protocole d'auto-hypnose pour oser la prochaine étape.</p>
+    <p><strong>Guide gratuit · 12 pages.</strong> Syndrome de l'imposteur, auto-sabotage récurrent, stagnation professionnelle, blocage à la décision : ce guide d'Alain Zenatti explore ce qui freine une carrière malgré de réelles compétences, et propose des pistes concrètes pour avancer.</p>
 
     <h2>Ce que vous reconnaissez peut-être</h2>
     <ul>
@@ -4398,13 +4434,14 @@ PAGES["/guide-carriere"] = {
       <li><strong>Blocage à la décision</strong> — vous analysez indéfiniment sans jamais trancher, paralysé par la peur de faire le mauvais choix.</li>
     </ul>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Pourquoi vous restez bloqué malgré vos compétences</li>
-      <li>Le syndrome de l'imposteur — d'où il vient vraiment</li>
-      <li>Reconnaître l'auto-sabotage avant qu'il n'agisse</li>
-      <li>La technique de l'ancrage de légitimité (protocole d'auto-hypnose)</li>
-      <li>Oser la prochaine étape — demander, postuler, négocier, se lancer</li>
+      <li>Pourquoi ces blocages ne sont pas rationnels</li>
+      <li>Les 3 profils des freins de carrière</li>
+      <li>Pourquoi « avoir confiance » ou « positiver » ne suffit pas</li>
+      <li>Ce que la science dit de l'hypnose et de la confiance en soi (avec les limites des études)</li>
+      <li>Votre programme pratique : désamorcer les freins inconscients</li>
+      <li>Quand consulter ? Ce que l'hypnothérapie peut faire pour vous</li>
     </ol>
 
     <h2>Pages liées</h2>
@@ -4419,21 +4456,22 @@ PAGES["/guide-carriere"] = {
 };
 
 PAGES["/guide-arret-tabac"] = {
-  title: "Guide gratuit : arrêt du tabac, liberté retrouvée",
+  title: "Guide gratuit : Arrêter de Fumer, Autrement | NovaHypnose",
   description:
-    "Guide gratuit sur l'arrêt du tabac par l'hypnose, par Alain Zenatti. Comprendre la dépendance, éviter les rechutes, et un programme pratique de 30 jours.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose et l'arrêt du tabac, et un programme pour préparer votre arrêt.",
   canonicalPath: "/guide-arret-tabac",
-  h1: "Arrêt du tabac, votre liberté retrouvée",
+  h1: "Arrêter de Fumer, Autrement",
   jsonLd: [
     {
       "@context": "https://schema.org",
       "@type": "Book",
       "@id": `${SITE_URL}/guide-arret-tabac#book`,
-      "name": "Arrêt du Tabac, Votre Liberté Retrouvée",
-      "description": "Guide pratique sur l'arrêt du tabac et l'hypnose. Programme pratique de 30 jours pour arrêter de fumer durablement, sans lutte de volonté.",
+      "name": "Arrêter de Fumer, Autrement",
+      "description": "Guide pratique de 12 pages sur la dépendance au tabac et l'hypnose : comprendre la dépendance, ce que dit la recherche et des pistes pour préparer l'arrêt, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-arret-tabac`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
+      "numberOfPages": 12,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4445,15 +4483,16 @@ PAGES["/guide-arret-tabac"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit.</strong> 73 % des fumeurs déclarent vouloir arrêter (Santé publique France), avec en moyenne 5 à 7 tentatives avant un arrêt définitif. Ce guide d'Alain Zenatti explique la mécanique de la dépendance et propose un programme pratique de 30 jours pour arrêter de fumer durablement.</p>
+    <p><strong>Guide gratuit · 12 pages.</strong> Comprendre la dépendance au tabac, et des pistes pour aborder l'arrêt autrement que par la seule volonté : un guide d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio, partout en France. Il peut se lire en complément de l'accompagnement d'un médecin ou d'un tabacologue (Tabac info service : 39 89).</p>
 
-    <h2>Sommaire détaillé</h2>
+    <h2>Sommaire</h2>
     <ol>
-      <li>Pourquoi il est si difficile d'arrêter seul — dépendance physique et dépendance psychologique</li>
-      <li>Ce qui se passe vraiment dans votre cerveau — nicotine, dopamine, circuits de récompense</li>
-      <li>Les 5 pièges qui font rechuter — stress, habitudes sociales, peur de grossir, ennui, environnement</li>
-      <li>Ce que l'hypnose change concrètement — dissocier le geste, l'envie et l'identité de fumeur</li>
-      <li>Un programme pratique pour les 30 premiers jours — rituel de substitution, auto-hypnose guidée, gestion du manque</li>
+      <li>Pourquoi fumez-vous vraiment ? La science de la dépendance</li>
+      <li>Les 3 profils du fumeur</li>
+      <li>Pourquoi la volonté seule ne suffit pas, et pourquoi c'est normal</li>
+      <li>Ce que la recherche dit de l'hypnose et de l'arrêt du tabac (avec ses limites)</li>
+      <li>Votre programme pratique : préparer votre arrêt</li>
+      <li>Quand consulter ? Ce que l'hypnothérapie peut faire pour vous</li>
     </ol>
 
     <h2>Pages liées</h2>

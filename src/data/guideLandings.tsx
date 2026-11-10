@@ -27,6 +27,8 @@ export interface GuideLandingConfig {
   schemaDescription: string;
   /** Nombre de pages du PDF (affiché et injecté dans les données structurées). */
   pages: number;
+  /** Une phrase pour la page qui regroupe tous les guides (/guides-gratuits). */
+  blurb: string;
   tag: string;
   titleTop: string;
   titleEm: string;
@@ -56,6 +58,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide de 14 pages sur le sommeil et l'hypnose : comprendre le sommeil, les troubles courants, ce que dit la recherche et un programme pratique, en complément d'un suivi médical.",
     pages: 14,
+    blurb: "Comprendre votre sommeil, ce que dit la recherche sur l'hypnose, et un programme pratique avec rituel du coucher.",
     tag: 'Guide gratuit · 14 pages',
     titleTop: 'Le Sommeil,',
     titleEm: 'Votre Allié Secret',
@@ -123,6 +126,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique de 14 pages pour comprendre la procrastination, avec des stratégies concrètes et 2 protocoles d'auto-hypnose, par Alain Zenatti.",
     pages: 14,
+    blurb: "Les 7 visages de la procrastination, des stratégies concrètes et 2 protocoles d'auto-hypnose.",
     tag: 'Guide gratuit · 14 pages · 2 protocoles',
     titleTop: "Et si vous n'étiez pas",
     titleEm: 'paresseux ?',
@@ -185,6 +189,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique de 12 pages sur la dépendance au tabac et l'hypnose : comprendre la dépendance, ce que dit la recherche et des pistes pour préparer l'arrêt, par Alain Zenatti.",
     pages: 12,
+    blurb: "Comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose, et préparer votre arrêt.",
     tag: 'Guide gratuit · 12 pages',
     titleTop: 'Arrêter de Fumer,',
     titleEm: 'Autrement',
@@ -240,6 +245,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre la colère et l'irritabilité : le cerveau, les profils de la colère, ce que dit la recherche sur l'hypnose et des outils concrets, par Alain Zenatti.",
     pages: 12,
+    blurb: "Ce qui se passe dans le cerveau quand la colère monte, et un programme pour la désamorcer au quotidien.",
     tag: 'Guide gratuit · 12 pages',
     titleTop: 'La Colère,',
     titleEm: 'Enfin Apprivoisée',
@@ -295,6 +301,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre ce qui freine l'évolution professionnelle : syndrome de l'imposteur, auto-sabotage, croyances, et des pistes concrètes, par Alain Zenatti.",
     pages: 12,
+    blurb: "Syndrome de l'imposteur, auto-sabotage : comprendre ce qui freine votre évolution, et des pistes concrètes.",
     tag: 'Guide gratuit · 12 pages',
     titleTop: 'Levez les Freins',
     titleEm: 'qui Bloquent Votre Carrière',
@@ -350,6 +357,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre ses émotions au travail, avec trois pratiques simples et une approche d'hypnose ericksonienne, par Alain Zenatti.",
     pages: 12,
+    blurb: "Irritabilité, épuisement, larmes inattendues : ce que vos émotions au travail essaient de vous dire, et 3 pratiques simples.",
     tag: 'Guide gratuit · 12 pages',
     titleTop: 'Vous tenez.',
     titleEm: "Mais jusqu'à quand ?",
@@ -412,6 +420,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     schemaDescription:
       "Guide pratique d'autohypnose en 19 pages : les fondamentaux, des techniques d'induction et 8 protocoles pour le stress, la confiance, le sommeil, les peurs, les émotions et la performance professionnelle.",
     pages: 19,
+    blurb: "Les fondamentaux de l'autohypnose et 8 protocoles : stress, confiance, sommeil, peurs, émotions, concentration.",
     tag: 'Guide gratuit · 19 pages · 8 protocoles',
     titleTop: 'Reprenez la main',
     titleEm: 'sur votre bien-être',
@@ -470,3 +479,14 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     ],
   },
 };
+
+/** Ordre d'affichage sur la page /guides-gratuits. */
+export const GUIDE_LANDINGS_ORDER = [
+  'sommeil',
+  'autohypnose',
+  'procrastination',
+  'emotions-travail',
+  'colere',
+  'carriere',
+  'tabac',
+] as const;
