@@ -3,7 +3,7 @@ title: "Vous tenez. Mais jusqu'à quand ?"
 title1: "Vous tenez."
 title2: "Mais jusqu'à quand ?"
 subtitle: "Ce que vos émotions au travail essaient vraiment de vous dire, et comment arrêter de les combattre."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Au programme"}
@@ -326,6 +326,9 @@ Si vous préférez en parler directement, je vous propose un échange téléphon
 :::
 ::: {.box label="Téléphone"}
 06 49 35 80 89
+:::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
 :::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris

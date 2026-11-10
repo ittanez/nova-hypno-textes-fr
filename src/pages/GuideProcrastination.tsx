@@ -160,14 +160,14 @@ const GuideProcrastination: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit : vaincre la procrastination par l'hypnose</title>
-        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
+        <meta name="description" content="Guide gratuit de 14 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-procrastination" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-procrastination#book",
           "name": "Vaincre la Procrastination par l'Hypnose",
-          "description": "Guide pratique de 17 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
+          "description": "Guide pratique de 14 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
           "url": "https://novahypnose.fr/guide-procrastination", "inLanguage": "fr-FR",
           "bookFormat": "https://schema.org/EBook", "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
@@ -212,7 +212,7 @@ const GuideProcrastination: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · 17 pages · 2 protocoles</div>
+              <div className="tag">Guide gratuit · 14 pages · 2 protocoles</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Libérez-vous de la<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--amber)', fontWeight: 400 }}>procrastination</em>
@@ -229,7 +229,7 @@ const GuideProcrastination: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="/images/couverture-ebook-procrastination.webp"
+                src="/images/couverture-guide-procrastination.webp"
                 alt="Guide hypnose procrastination - Alain Zenatti"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
@@ -261,7 +261,7 @@ const GuideProcrastination: React.FC = () => {
           <div className="container">
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">17 pages, 2 protocoles <em>éprouvés.</em></h2>
+              <h2 className="section-title">14 pages, 2 protocoles <em>à essayer.</em></h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {benefits.map((b, i) => (
@@ -335,7 +335,7 @@ const GuideProcrastination: React.FC = () => {
               <div>
                 <h4 style={{ fontFamily: 'var(--f-serif)', fontSize: '26px', fontWeight: 400, color: 'var(--texte)', marginBottom: '4px' }}>Alain Zenatti</h4>
                 <p style={{ color: 'var(--amber)', fontWeight: 500, fontSize: '13px', letterSpacing: '.05em', marginBottom: '20px' }}>
-                  Hypnothérapeute · Maître Praticien en Hypnose Ericksonienne
+                  Hypnothérapeute
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
                   {[
@@ -364,7 +364,7 @@ const GuideProcrastination: React.FC = () => {
             <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
           </p>
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e et visio, partout en France
             <br />Conformément au RGPD — Désabonnement libre à tout moment.
           </p>
         </footer>

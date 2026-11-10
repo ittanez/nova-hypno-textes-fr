@@ -250,14 +250,14 @@ const LandingProfessionnels: React.FC = () => {
           <h2 className="sp-h2">Pas encore prêt pour un appel ? Commencez ici.</h2>
           <div style={{background:'var(--paper, #F5F2EB)', borderRadius: 16, padding:'36px 40px', display:'flex', gap: 40, alignItems:'center', flexWrap:'wrap'}}>
             <img
-              src="/images/couverture-guide.webp"
+              src="/images/couverture-guide-emotions-travail.webp"
               alt="Guide gratuit — Vous tenez. Mais jusqu'à quand ?"
               style={{width: 160, borderRadius: 8, boxShadow:'0 8px 32px rgba(0,0,0,.15)', flexShrink: 0}}
               loading="lazy"
             />
             <div style={{flex: 1, minWidth: 240}}>
               <p style={{fontFamily:'var(--f-serif)', fontSize:'1.05rem', color:'var(--texte)', marginBottom: 12}}>
-                J'ai écrit un guide de 19 pages pour les professionnels qui sentent que quelque chose ne va plus — mais qui ne savent pas encore exactement ce qui se passe en eux.
+                J'ai écrit un guide de 12 pages pour les professionnels qui sentent que quelque chose ne va plus — mais qui ne savent pas encore exactement ce qui se passe en eux.
               </p>
               <p style={{fontSize:'.88rem', color:'var(--gris)', marginBottom: 20}}>
                 Des repères concrets pour comprendre vos émotions au travail, identifier ce que votre corps essaie de vous dire, et trois pratiques simples applicables dès ce soir.

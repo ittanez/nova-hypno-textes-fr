@@ -134,16 +134,16 @@ const GuideSommeil: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose</title>
-        <meta name="description" content="Guide gratuit de 17 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin." />
+        <meta name="description" content="Guide gratuit de 14 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-sommeil" />
         <script type="application/ld+json">{safeJSONStringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-sommeil#book",
           "name": "Le Sommeil, Votre Allié Secret",
-          "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
+          "description": "Guide de 14 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
           "url": "https://novahypnose.fr/guide-sommeil", "inLanguage": "fr-FR",
-          "bookFormat": "https://schema.org/EBook", "numberOfPages": 17, "isAccessibleForFree": true,
+          "bookFormat": "https://schema.org/EBook", "numberOfPages": 14, "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
           "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
@@ -186,7 +186,7 @@ const GuideSommeil: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · PDF · 17 pages</div>
+              <div className="tag">Guide gratuit · PDF · 14 pages</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Le Sommeil,<br />
                 <em style={{ fontStyle: 'italic', color: 'var(--cobalt)', fontWeight: 400 }}>Votre Allié Secret</em>
@@ -203,8 +203,8 @@ const GuideSommeil: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="/images/EBOOKSOMMEIL.webp"
-                alt="Guide Le Sommeil, Votre Allié Secret — 17 pages"
+                src="/images/couverture-guide-sommeil.webp"
+                alt="Guide Le Sommeil, Votre Allié Secret — 14 pages"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotate(0deg)')}
@@ -249,7 +249,7 @@ const GuideSommeil: React.FC = () => {
           <div className="container" style={{ maxWidth: '780px', margin: '0 auto' }}>
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">17 pages pour retrouver<br />un sommeil <em>profond et réparateur.</em></h2>
+              <h2 className="section-title">14 pages pour retrouver<br />un sommeil <em>profond et réparateur.</em></h2>
               <div style={{ width: '48px', height: '2px', background: 'var(--amber)', marginTop: '24px', boxShadow: '3px 3px 0 rgba(242,161,46,.25)' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -280,7 +280,7 @@ const GuideSommeil: React.FC = () => {
                 <div>
                   <p style={{ fontFamily: 'var(--f-serif)', fontWeight: 500, color: 'var(--texte)', fontSize: '15px', marginBottom: '2px' }}>Alain Zenatti</p>
                   <p style={{ color: 'var(--gris)', fontSize: '12px', lineHeight: 1.5 }}>
-                    Hypnothérapeute certifié · Maître Praticien en Hypnose Ericksonienne<br />NovaHypnose · Paris 4e
+                    Hypnothérapeute<br />NovaHypnose · Paris 4e et visio, partout en France
                   </p>
                 </div>
               </div>
@@ -294,7 +294,7 @@ const GuideSommeil: React.FC = () => {
             <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
           </p>
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e et visio, partout en France
             <br />Conformément au RGPD — Désabonnement libre à tout moment.
           </p>
         </footer>

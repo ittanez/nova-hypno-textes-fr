@@ -1,9 +1,9 @@
 ---
-title: "Et si tu n'étais pas paresseux ?"
-title1: "Et si tu n'étais pas"
+title: "Et si vous n'étiez pas paresseux ?"
+title1: "Et si vous n'étiez pas"
 title2: "paresseux ?"
 subtitle: "Comprendre la procrastination, et des pistes concrètes pour passer à l'action."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Au programme"}
@@ -72,7 +72,7 @@ Le chercheur Timothy Pychyl (Université Carleton, Canada) la définit comme un 
 
 ### Trois idées reçues à effacer
 
-- **« Les procrastinateurs sont paresseux. »** C'est la confusion la plus fréquente. Pour le psychologue Joseph Ferrari, les procrastinateurs ne sont pas paresseux : ils sont occupés à faire autre chose [à vérifier : formulation]{.verif}. On peut nettoyer toute sa maison et répondre à des dizaines d'emails secondaires, tout en évitant la tâche principale.
+- **« Les procrastinateurs sont paresseux. »** C'est la confusion la plus fréquente. Pour le psychologue Joseph Ferrari, la procrastination chronique est une stratégie d'évitement et non de la paresse : ces personnes s'activent beaucoup, mais sur autre chose (Ferrari, entretien *The Art of Manliness*, épisode 931). On peut nettoyer toute sa maison et répondre à des dizaines d'emails secondaires, tout en évitant la tâche principale.
 - **« C'est juste un problème d'organisation. »** La procrastination est souvent un problème émotionnel : une manière d'éviter des émotions désagréables (peur, ennui, anxiété). Les agendas colorés et les listes de tâches n'atteignent pas toujours cette racine.
 - **« Tout le monde procrastine, c'est normal. »** Environ 20 % des adultes se décriraient comme des procrastinateurs chroniques, pour qui ce comportement devient une source de souffrance durable (Ferrari).
 
@@ -128,7 +128,7 @@ La procrastination n'a pas un seul visage. Elle prend des formes différentes se
 | Visage | Ce qui le déclenche | Ce qui se cache derrière |
 |---|---|---|
 | 1. La peur de l'échec | « Et si je fais de mon mieux et que ce n'est pas suffisant ? » | Ne pas commencer protège de l'échec, mais l'échec devient certain. |
-| 2. Le perfectionnisme paralysant | Attendre le moment idéal, les conditions parfaites. | Une faible tolérance à l'inconfort émotionnel (68 % des procrastinateurs chroniques, étude de 2023 [à vérifier]{.verif}). |
+| 2. Le perfectionnisme paralysant | Attendre le moment idéal, les conditions parfaites. | Une faible tolérance à l'inconfort émotionnel (un point que les recherches sur la procrastination soulignent régulièrement). |
 | 3. La peur de la réussite | « Si je réussis, qu'attend-on de moi ensuite ? » | Une peur inconsciente du succès freine l'action de manière invisible. |
 | 4. La recherche de contrôle | « C'est moi qui décide quand je le fais. » | Une façon de reprendre le pouvoir sur des obligations subies. |
 | 5. La surcharge cognitive | Une montagne de tâches qui semble insurmontable. | Le cerveau choisit l'inaction comme protection. |
@@ -149,7 +149,7 @@ Bien au-delà du travail : des effets qui s'infiltrent partout, souvent en silen
 
 ### Sur la santé mentale
 
-Le cycle de la procrastination peut devenir une boucle : on reporte, soulagement, culpabilité, stress, on reporte encore. Ce cycle entretient l'anxiété et peut éroder l'estime de soi. Une étude longitudinale de l'Université de Sheffield relierait la procrastination à une baisse du bien-être sur 10 ans [à vérifier]{.verif}.
+Le cycle de la procrastination peut devenir une boucle : on reporte, soulagement, culpabilité, stress, on reporte encore. Ce cycle entretient l'anxiété et peut éroder l'estime de soi. Une étude en trois vagues, espacées d'un mois, relie la procrastination à des problèmes de santé de façon indirecte, par le stress (Sirois, *British Journal of Health Psychology*, 2023).
 
 ### Sur les relations
 
@@ -175,7 +175,7 @@ En attendant de travailler sur les racines de votre procrastination, voici des s
 
 - **La règle des 2 minutes.** Si une tâche prend moins de 2 minutes, faites-la tout de suite (méthode GTD, David Allen).
 - **La technique des 5 minutes.** Engagez-vous à travailler 5 minutes seulement. Souvent, vous continuerez bien au-delà.
-- **Nommer l'émotion pour la réduire.** Nommer précisément l'émotion ressentie en réduirait l'intensité, en diminuant l'activation de l'amygdale (Matthew Lieberman, UCLA ; l'ampleur de « 40 % » citée jusqu'ici est [à vérifier]{.verif}).
+- **Nommer l'émotion pour la réduire.** Nommer précisément l'émotion ressentie en réduirait l'intensité, en diminuant l'activation de l'amygdale (Lieberman et al., *Psychological Science*, 2007).
 - **Découper l'Himalaya en collines.** « Rédiger mon rapport » devient « ouvrir le document et écrire le titre ». Ce découpage réduit la charge cognitive.
 - **La méthode Pomodoro.** 25 minutes de concentration, puis 5 minutes de pause.
 
@@ -353,6 +353,9 @@ Si vous préférez en parler directement, je vous propose un échange de 15 minu
 :::
 ::: {.box label="Téléphone"}
 06 49 35 80 89
+:::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
 :::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris

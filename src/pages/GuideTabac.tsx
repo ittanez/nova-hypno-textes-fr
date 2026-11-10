@@ -206,7 +206,7 @@ const GuideTabac: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="/images/ebook-tabac.png"
+                src="/images/couverture-guide-tabac.webp"
                 alt="Guide Arrêt du Tabac, Votre Liberté Retrouvée"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
@@ -283,7 +283,7 @@ const GuideTabac: React.FC = () => {
                 <div>
                   <p style={{ fontFamily: 'var(--f-serif)', fontWeight: 500, color: 'var(--texte)', fontSize: '15px', marginBottom: '2px' }}>Alain Zenatti</p>
                   <p style={{ color: 'var(--gris)', fontSize: '12px', lineHeight: 1.5 }}>
-                    Hypnothérapeute certifié · Maître Praticien en Hypnose Ericksonienne<br />NovaHypnose · Paris 4e
+                    Hypnothérapeute<br />NovaHypnose · Paris 4e et visio, partout en France
                   </p>
                 </div>
               </div>
@@ -297,7 +297,7 @@ const GuideTabac: React.FC = () => {
             <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
           </p>
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e et visio, partout en France
             <br />Conformément au RGPD — Désabonnement libre à tout moment.
           </p>
         </footer>

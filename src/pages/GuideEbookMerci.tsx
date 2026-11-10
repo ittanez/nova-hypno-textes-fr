@@ -150,7 +150,7 @@ const GuideEbookMerci: React.FC = () => {
               />
               <div>
                 <p style={{ fontFamily: 'var(--f-serif)', fontWeight: 500, color: 'var(--texte)', fontSize: '16px', marginBottom: '2px' }}>Alain Zenatti</p>
-                <p style={{ fontSize: '13px', color: 'var(--gris)', marginBottom: '6px' }}>Maître Praticien en Hypnose Ericksonienne</p>
+                <p style={{ fontSize: '13px', color: 'var(--gris)', marginBottom: '6px' }}>Hypnothérapeute</p>
                 <p style={{ fontFamily: 'var(--f-serif)', fontStyle: 'italic', fontSize: '14px', color: 'var(--cobalt)' }}>
                   « Mon rôle n'est pas de vous faire changer — c'est de vous aider à redevenir vous-même. »
                 </p>

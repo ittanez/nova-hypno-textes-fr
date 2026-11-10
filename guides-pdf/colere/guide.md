@@ -3,7 +3,7 @@ title: "La Colère, Enfin Apprivoisée"
 title1: "La Colère,"
 title2: "Enfin Apprivoisée"
 subtitle: "Comprendre cette émotion, et des outils concrets pour la traverser autrement."
-relecture: true
+relecture: false
 ---
 
 ::: {.page kicker="Au programme"}
@@ -43,17 +43,14 @@ Ce guide n'est pas là pour vous apprendre à « vous calmer » : vous avez sans
 
 ::: stats
 ::: {.stat v="22 %"}
-des personnes dans le monde déclarent avoir ressenti de la colère la veille (Gallup, 2026) [à vérifier]{.verif}
+des salariés dans le monde déclarent avoir ressenti beaucoup de colère la veille (Gallup, *State of the Global Workplace*, 2026 ; 15 % en Europe)
 :::
 ::: {.stat v="7,3 %"}
 prévalence du trouble explosif intermittent sur la vie entière, aux États-Unis (Kessler et al., 2006)
 :::
-::: {.stat v="1 sur 3"}
-salariés français a déjà observé ou subi des violences verbales au travail (ADP, 2022) [à vérifier]{.verif}
-:::
 :::
 
-Ces chiffres ne disent pas la même chose : le premier est un instantané émotionnel mondial, le deuxième une prévalence clinique américaine, le troisième un constat français en contexte professionnel. Ce qu'ils ont en commun : la colère mal régulée n'est ni rare, ni marginale, ni honteuse.
+Ces chiffres ne disent pas la même chose : le premier est un instantané émotionnel des salariés dans le monde, le second une prévalence clinique américaine. Ce qu'ils montrent ensemble : la colère mal régulée n'est ni rare, ni marginale, ni honteuse.
 
 La bonne nouvelle : la colère n'est pas un trait de caractère gravé dans le marbre. C'est largement une réaction apprise, et ce qui s'apprend peut se réapprendre.
 
@@ -157,7 +154,7 @@ Moins d'inquiétude, plus de connexion corps-cerveau, moins d'auto-jugement : c'
 
 ### Ce que montrent les études sur hypnose, stress et détresse
 
-Une méta-analyse de cinq essais contrôlés randomisés a évalué l'effet d'une approche combinant hypnose et pleine conscience sur la détresse psychologique. Comparée à des groupes témoins, elle montre un effet large sur la réduction de la détresse psychologique et du stress [à vérifier : référence exacte]{.verif}.
+Une revue systématique de cinq essais contrôlés randomisés a évalué une approche combinant hypnose et pleine conscience (Padilla et al., *Behavioral Sciences*, 2026). Sur trois essais, l'effet sur la détresse psychologique est moyen (g = 0,61), mais l'intervalle de confiance est très large (de 0,10 à 1,12) : le résultat reste incertain.
 
 La colère chronique et le stress partagent une bonne partie de leur circuiterie physiologique. Ces résultats ne prouvent pas directement l'efficacité de l'hypnose sur la colère, mais ils rendent l'hypothèse plausible.
 
@@ -179,7 +176,7 @@ Avant l'explosion ou le repli, le corps prévient : mâchoire qui se serre, chal
 
 ### Étape 2 : utiliser la fenêtre physiologique
 
-Sur le plan hormonal, le pic d'adrénaline retombe en quelques minutes, mais ses effets peuvent se prolonger 20 à 60 minutes ; le cortisol a une demi-vie d'environ 60 à 90 minutes [à vérifier]{.verif}. Concrètement : la réaction physiologique de la colère ne s'éteint pas instantanément, mais elle décroît vite si vous ne la relancez pas par la rumination ou la confrontation immédiate.
+Sur le plan hormonal, le pic d'adrénaline retombe en quelques minutes, mais ses effets peuvent se prolonger 20 à 60 minutes ; le cortisol a une demi-vie plasmatique d'environ 60 à 90 minutes (valeurs de référence en physiologie ; elles varient selon les personnes). Concrètement : la réaction physiologique de la colère ne s'éteint pas instantanément, mais elle décroît vite si vous ne la relancez pas par la rumination ou la confrontation immédiate.
 
 - Sortez de la pièce ou changez de position si possible, sans claquer la porte : « J'ai besoin d'une pause, je reviens vers toi. »
 - Ne prenez aucune décision, n'envoyez aucun message, tant que le pic n'est pas redescendu.
@@ -287,6 +284,9 @@ Si vous préférez en parler directement, je vous propose un échange de 15 minu
 ::: {.box label="Téléphone"}
 06 49 35 80 89
 :::
+::: {.box label="E-mail"}
+[contact@novahypnose.fr](mailto:contact@novahypnose.fr)
+:::
 ::: {.box label="Cabinet"}
 16 rue Saint-Antoine, 75004 Paris
 :::
@@ -307,14 +307,13 @@ Alain Zenatti
 ::: src
 - Beck R., Fernandez E. (1998), *Cognitive-Behavioral Therapy in the Treatment of Anger: A Meta-Analysis*, *Cognitive Therapy and Research* 22:63-74.
 - Bushman B. J. (2002), *Does Venting Anger Feed or Extinguish the Flame?*, *Personality and Social Psychology Bulletin* 28:724-731.
-- Gallup (2026), *State of the Global Workplace* [à vérifier]{.verif}.
+- Gallup (2026), *State of the Global Workplace: 2026 Report* (données 2025, publié en avril 2026).
 - Goleman D. (1995), *Emotional Intelligence*, Bantam Books.
 - Jiang H., White M. P., Greicius M. D., Waelde L. C., Spiegel D. (2017), *Brain Activity and Functional Connectivity Associated with Hypnosis*, *Cerebral Cortex* 27(8):4083-4093.
 - Kessler R. C. et al. (2006), *The Prevalence and Correlates of DSM-IV Intermittent Explosive Disorder in the National Comorbidity Survey Replication*, *Archives of General Psychiatry* 63(6):669-678.
-- ADP Research (2022), *People at Work* [à vérifier]{.verif}.
 - Salomé J., méthode ESPERE®.
 - Spielberger C. D. (1988, 1999), State-Trait Anger Expression Inventory (STAXI, STAXI-2).
-- *Effect of Mindful Hypnotherapy on Psychological Distress: A Systematic Review and Meta-Analysis* [à vérifier : référence complète]{.verif}.
+- Padilla V. J., Muñiz V., Scheffrahn K., Elkins G. (2026), *Effect of Mindful Hypnotherapy on Psychological Distress: A Systematic Review and Meta-Analysis*, *Behavioral Sciences* 16(1):107, doi:10.3390/bs16010107.
 :::
 
 ::: {.card .limite title="Limites"}

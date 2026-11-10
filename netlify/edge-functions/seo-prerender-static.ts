@@ -4074,7 +4074,7 @@ PAGES["/faq"] = {
 PAGES["/guide-procrastination"] = {
   title: "Guide gratuit : vaincre la procrastination par l'hypnose",
   description:
-    "Guide gratuit de 17 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes.",
+    "Guide gratuit de 14 pages d'Alain Zenatti pour sortir de la procrastination : 2 protocoles d'auto-hypnose guidés et stratégies concrètes.",
   canonicalPath: "/guide-procrastination",
   h1: "Libérez-vous de la procrastination",
   jsonLd: [
@@ -4083,11 +4083,11 @@ PAGES["/guide-procrastination"] = {
       "@type": "Book",
       "@id": `${SITE_URL}/guide-procrastination#book`,
       "name": "Vaincre la Procrastination par l'Hypnose",
-      "description": "Guide pratique de 17 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
+      "description": "Guide pratique de 14 pages pour arrêter de procrastiner grâce à l'hypnose, avec 2 protocoles d'auto-hypnose guidés, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-procrastination`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
-      "numberOfPages": 17,
+      "numberOfPages": 14,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4099,7 +4099,7 @@ PAGES["/guide-procrastination"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 17 pages · 2 protocoles d'auto-hypnose.</strong> Passez à l'action aujourd'hui, arrêtez de remettre au lendemain — un guide pratique d'Alain Zenatti, hypnothérapeute à Paris 4ème, pour comprendre la procrastination et la désamorcer avec des protocoles concrets.</p>
+    <p><strong>Guide gratuit · 14 pages · 2 protocoles d'auto-hypnose.</strong> Passez à l'action aujourd'hui, arrêtez de remettre au lendemain — un guide pratique d'Alain Zenatti, hypnothérapeute à Paris 4ème, pour comprendre la procrastination et la désamorcer avec des protocoles concrets.</p>
 
     <h2>Ce que vous allez découvrir</h2>
     <ul>
@@ -4139,7 +4139,7 @@ PAGES["/guide-procrastination"] = {
 PAGES["/guide-autohypnose"] = {
   title: "Guide gratuit — L'Autohypnose au Quotidien | NovaHypnose",
   description:
-    "Guide gratuit de 37 pages d'Alain Zenatti : 9 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien.",
+    "Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien.",
   canonicalPath: "/guide-autohypnose",
   h1: "Reprenez la main sur votre bien-être",
   jsonLd: [
@@ -4148,11 +4148,11 @@ PAGES["/guide-autohypnose"] = {
       "@type": "Book",
       "@id": `${SITE_URL}/guide-autohypnose#book`,
       "name": "L'Autohypnose au Quotidien",
-      "description": "Guide pratique d'auto-hypnose en 37 pages : 9 protocoles pour gérer le stress, retrouver confiance et améliorer son bien-être au quotidien.",
+      "description": "Guide pratique d'auto-hypnose en 19 pages : 8 protocoles pour gérer le stress, retrouver confiance et améliorer son bien-être au quotidien.",
       "url": `${SITE_URL}/guide-autohypnose`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
-      "numberOfPages": 37,
+      "numberOfPages": 19,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4164,11 +4164,11 @@ PAGES["/guide-autohypnose"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 37 pages · 9 protocoles.</strong> Le guide d'autohypnose d'Alain Zenatti pour les professionnels sous pression — des techniques prêtes à l'emploi dès ce soir, sans théorie abstraite.</p>
+    <p><strong>Guide gratuit · 19 pages · 8 protocoles.</strong> Le guide d'autohypnose d'Alain Zenatti pour les professionnels sous pression — des techniques prêtes à l'emploi dès ce soir, sans théorie abstraite.</p>
 
     <h2>Ce que vous allez découvrir</h2>
     <ul>
-      <li><strong>9 protocoles complets</strong> — du sas de décompression 5 minutes au protocole de confiance approfondi.</li>
+      <li><strong>8 protocoles complets</strong> — du sas de décompression 5 minutes au protocole de confiance approfondi.</li>
       <li><strong>100 % pratique</strong> — chaque technique expliquée étape par étape, testée sur 1000+ clients.</li>
       <li><strong>Spécial professionnels</strong> — techniques utilisables au bureau, adaptées aux contraintes pro.</li>
       <li><strong>Méthode NovaHypnose</strong> — aperçu des protocoles utilisés en cabinet depuis 6 ans.</li>
@@ -4204,7 +4204,7 @@ PAGES["/guide-autohypnose"] = {
 PAGES["/guide-sommeil"] = {
   title: "Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose",
   description:
-    "Guide gratuit de 17 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin.",
+    "Guide gratuit de 14 pages d'Alain Zenatti : un programme de 30 jours d'auto-hypnose pour un sommeil plus réparateur, avec un suivi médical si besoin.",
   canonicalPath: "/guide-sommeil",
   h1: "Le sommeil, votre allié secret",
   jsonLd: [
@@ -4213,11 +4213,11 @@ PAGES["/guide-sommeil"] = {
       "@type": "Book",
       "@id": `${SITE_URL}/guide-sommeil#book`,
       "name": "Le Sommeil, Votre Allié Secret",
-      "description": "Guide de 17 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
+      "description": "Guide de 14 pages sur le sommeil et l'hypnose. Programme pratique de 30 jours pour retrouver un sommeil plus réparateur, en complément d'un suivi médical.",
       "url": `${SITE_URL}/guide-sommeil`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
-      "numberOfPages": 17,
+      "numberOfPages": 14,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4229,7 +4229,7 @@ PAGES["/guide-sommeil"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 17 pages.</strong> 1 Français sur 5 souffre d'insomnie chronique et la durée moyenne de sommeil en semaine n'est que de 6h42. Ce guide d'Alain Zenatti explique comment l'hypnose agit sur le sommeil — avec des études montrant jusqu'à +81 % de sommeil profond (Sleep, 2014) — et propose un programme pratique de 30 jours.</p>
+    <p><strong>Guide gratuit · 14 pages.</strong> 1 Français sur 5 souffre d'insomnie chronique et la durée moyenne de sommeil en semaine n'est que de 6h42. Ce guide d'Alain Zenatti explique comment l'hypnose agit sur le sommeil — avec des études montrant jusqu'à +81 % de sommeil profond (Sleep, 2014) — et propose un programme pratique de 30 jours.</p>
 
     <h2>Sommaire détaillé</h2>
     <ol>
@@ -4254,7 +4254,7 @@ PAGES["/guide-sommeil"] = {
 PAGES["/guide-emotions-travail"] = {
   title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ?",
   description:
-    "Guide gratuit de 19 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec des pratiques d'hypnose ericksonienne.",
   canonicalPath: "/guide-emotions-travail",
   h1: "Vous tenez. Mais jusqu'à quand ?",
   jsonLd: [
@@ -4263,11 +4263,11 @@ PAGES["/guide-emotions-travail"] = {
       "@type": "Book",
       "@id": `${SITE_URL}/guide-emotions-travail#book`,
       "name": "Vous tenez. Mais jusqu'à quand ?",
-      "description": "Guide pratique de 19 pages pour comprendre ses émotions au travail, avec des pratiques basées sur l'hypnose ericksonienne, par Alain Zenatti.",
+      "description": "Guide pratique de 12 pages pour comprendre ses émotions au travail, avec des pratiques basées sur l'hypnose ericksonienne, par Alain Zenatti.",
       "url": `${SITE_URL}/guide-emotions-travail`,
       "inLanguage": "fr-FR",
       "bookFormat": "https://schema.org/EBook",
-      "numberOfPages": 19,
+      "numberOfPages": 12,
       "isAccessibleForFree": true,
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#localbusiness` },
@@ -4279,7 +4279,7 @@ PAGES["/guide-emotions-travail"] = {
     ]),
   ],
   content: `
-    <p><strong>Guide gratuit · 19 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce n'est pas de la faiblesse : ce sont des signaux d'alarme de votre système nerveux. Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à sa place.</p>
+    <p><strong>Guide gratuit · 12 pages.</strong> Vous vous sentez épuisé même après avoir dormi, irritable pour un rien, ou vous tenez en réunion mais quelque chose lâche une fois seul ? Ce n'est pas de la faiblesse : ce sont des signaux d'alarme de votre système nerveux. Ce guide d'Alain Zenatti aide à comprendre ses émotions au travail avant que le corps ne décide à sa place.</p>
 
     <h2>Sommaire détaillé</h2>
     <ol>

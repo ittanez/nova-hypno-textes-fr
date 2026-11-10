@@ -114,7 +114,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
 };
 
 const benefits = [
-  { icon: Target, title: '9 protocoles complets', desc: "Prêts à utiliser dès ce soir. Du sas de décompression 5 min au protocole de confiance approfondi." },
+  { icon: Target, title: '8 protocoles complets', desc: "Prêts à utiliser dès ce soir. Du sas de décompression 5 min au protocole de confiance approfondi." },
   { icon: CheckCircle, title: '100% pratique', desc: "Pas de théorie abstraite. Chaque technique est expliquée étape par étape, testée sur 1000+ clients." },
   { icon: Briefcase, title: 'Spécial professionnels', desc: "Conçu pour cadres/employés. Techniques utilisables au bureau, adaptées aux contraintes pro." },
   { icon: Brain, title: 'Méthode NovaHypnose', desc: "Aperçu exclusif de mes protocoles propriétaires, utilisés en cabinet depuis 6 ans." },
@@ -167,16 +167,16 @@ const GuideAutohypnose: React.FC = () => {
     <>
       <Helmet>
         <title>Guide gratuit : L'Autohypnose au Quotidien | NovaHypnose</title>
-        <meta name="description" content="Guide gratuit de 37 pages d'Alain Zenatti : 9 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien." />
+        <meta name="description" content="Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'auto-hypnose pour gérer le stress, la confiance et le sommeil au quotidien." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://novahypnose.fr/guide-autohypnose" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org", "@type": "Book",
           "@id": "https://novahypnose.fr/guide-autohypnose#book",
           "name": "L'Autohypnose au Quotidien",
-          "description": "Guide pratique d'auto-hypnose en 37 pages : 9 protocoles pour gérer le stress, retrouver confiance et améliorer son bien-être au quotidien.",
+          "description": "Guide pratique d'auto-hypnose en 19 pages : 8 protocoles pour gérer le stress, retrouver confiance et améliorer son bien-être au quotidien.",
           "url": "https://novahypnose.fr/guide-autohypnose", "inLanguage": "fr-FR",
-          "bookFormat": "https://schema.org/EBook", "numberOfPages": 37, "isAccessibleForFree": true,
+          "bookFormat": "https://schema.org/EBook", "numberOfPages": 19, "isAccessibleForFree": true,
           "author": { "@id": "https://novahypnose.fr/#person" },
           "publisher": { "@id": "https://novahypnose.fr/#localbusiness" },
           "image": "https://novahypnose.fr/images/og-alain-zenatti.jpg",
@@ -220,7 +220,7 @@ const GuideAutohypnose: React.FC = () => {
 
           <div className="container hero__container">
             <div className="reveal hero__panel" style={{ transitionDelay: '.1s' }}>
-              <div className="tag">Guide gratuit · 37 pages · 9 protocoles</div>
+              <div className="tag">Guide gratuit · 19 pages · 8 protocoles</div>
               <h1 style={{ fontFamily: 'var(--f-serif)', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 300, lineHeight: 1.08, color: 'var(--texte)', margin: '0 0 16px', letterSpacing: '-0.02em' }}>
                 Reprenez la main<br />
                 sur votre <em style={{ fontStyle: 'italic', color: 'var(--cobalt)', fontWeight: 400 }}>bien-être</em>
@@ -237,8 +237,8 @@ const GuideAutohypnose: React.FC = () => {
 
             <div className="reveal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', transitionDelay: '.3s' }}>
               <img
-                src="/images/ebookautohypnose.webp"
-                alt="Guide L'Autohypnose au Quotidien — 37 pages, 9 protocoles"
+                src="/images/couverture-guide-autohypnose.webp"
+                alt="Guide Reprenez la main sur votre bien-être — 19 pages, 8 protocoles"
                 style={{ width: 'clamp(220px, 28vw, 340px)', borderRadius: '16px', boxShadow: '12px 12px 0 rgba(28,43,74,.18)', transform: 'rotate(-2deg)', transition: 'transform 0.5s' }}
                 loading="eager"
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotate(0deg)')}
@@ -269,7 +269,7 @@ const GuideAutohypnose: React.FC = () => {
           <div className="container">
             <div className="reveal" style={{ marginBottom: '40px' }}>
               <div className="section-tag">Ce que vous allez découvrir</div>
-              <h2 className="section-title">37 pages, 9 protocoles <em>prêts à l'emploi.</em></h2>
+              <h2 className="section-title">19 pages, 8 protocoles <em>prêts à l'emploi.</em></h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {benefits.map((b, i) => (
@@ -343,7 +343,7 @@ const GuideAutohypnose: React.FC = () => {
               <div>
                 <h4 style={{ fontFamily: 'var(--f-serif)', fontSize: '26px', fontWeight: 400, color: 'var(--texte)', marginBottom: '4px' }}>Alain Zenatti</h4>
                 <p style={{ color: 'var(--amber)', fontWeight: 500, fontSize: '13px', letterSpacing: '.05em', marginBottom: '20px' }}>
-                  Hypnothérapeute · Maître Praticien en Hypnose Ericksonienne
+                  Hypnothérapeute
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
                   {[
@@ -372,7 +372,7 @@ const GuideAutohypnose: React.FC = () => {
             <MapPin size={11} /> 16 rue Saint-Antoine, 75004 Paris
           </p>
           <p style={{ margin: 0 }}>
-            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e
+            &copy; {new Date().getFullYear()} NovaHypnose · Alain Zenatti · Hypnothérapeute Paris 4e et visio, partout en France
             <br />Conformément au RGPD — Désabonnement libre à tout moment.
           </p>
         </footer>
