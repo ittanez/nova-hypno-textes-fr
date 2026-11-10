@@ -1,9 +1,32 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
-
 const GUIDE_PDF_URL = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/pdf/REPRENEZ_LA_MAIN_COMPLET.pdf'
+
+const ALLOWED_ORIGINS = [
+  'https://novahypnose.fr',
+  'https://www.novahypnose.fr',
+  'http://localhost:5173',
+  'http://localhost:4173',
+]
+
+function getCorsHeaders(req: Request) {
+  const origin = req.headers.get('origin') || ''
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0]
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  }
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+function sanitizeString(str: string, maxLength = 100): string {
+  return str.replace(/<[^>]*>/g, '').trim().slice(0, maxLength)
+}
 
 serve(async (req) => {
   const corsHeaders = getCorsHeaders(req)
@@ -38,7 +61,6 @@ serve(async (req) => {
 
     console.log('Envoi du guide autohypnose à:', email, '— Prénom:', prenomSafe)
 
-    // Envoyer l'email avec le lien du guide au lead
     const emailRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -49,7 +71,7 @@ serve(async (req) => {
         from: 'Alain Zenatti - NovaHypnose <contact@updates.novahypnose.fr>',
         to: [email],
         bcc: ['a.zenatti@gmail.com'],
-        subject: '\u{1F381} Votre guide "Reprenez la main sur votre bien-être" est prêt',
+        subject: '🎁 Votre guide "Reprenez la main sur votre bien-être" est prêt',
         html: `
           <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; background: #ffffff;">
 
@@ -70,18 +92,18 @@ serve(async (req) => {
               </p>
 
               <p style="font-size: 16px; line-height: 1.7; color: #333; margin: 0 0 20px 0;">
-                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 19 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, sans vous prendre plus de 30 minutes par jour.
+                Merci pour votre confiance. Je sais à quel point il peut être difficile de trouver du temps pour soi quand on est sous pression. Ce guide de 19 pages est conçu pour vous accompagner, <strong>étape par étape</strong>, à votre rythme.
               </p>
 
               <p style="font-size: 15px; line-height: 1.7; color: #555; margin: 0 0 24px 0;">
-                Pas besoin d'expérience en hypnose\u{00A0}: ces techniques sont conçues pour les débutants et s'intègrent facilement à votre routine.
+                Pas besoin d'expérience en hypnose : ces techniques sont conçues pour les débutants et s'intègrent facilement à votre routine.
               </p>
 
               <!-- CTA Button -->
               <div style="text-align: center; margin: 32px 0;">
                 <a href="${GUIDE_PDF_URL}"
                    style="display: inline-block; padding: 16px 40px; background: #F37336; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 16px; font-weight: 600; letter-spacing: 0.3px;">
-                  \u{1F4E5} Accéder à mon guide gratuit maintenant
+                  📥 Accéder à mon guide gratuit maintenant
                 </a>
                 <p style="margin: 10px 0 0 0; font-size: 13px; color: #888;">
                   8 protocoles à pratiquer chez vous
@@ -98,61 +120,37 @@ serve(async (req) => {
               <!-- Ce que vous allez découvrir -->
               <div style="background: #f0f4fa; padding: 24px; border-left: 4px solid #4470AD; border-radius: 0 8px 8px 0; margin: 28px 0;">
                 <p style="margin: 0 0 12px 0; color: #233C67; font-weight: 600; font-size: 15px;">
-                  Ce que vous allez découvrir\u{00A0}:
+                  Ce que vous allez découvrir :
                 </p>
                 <ul style="margin: 0; padding: 0 0 0 20px; color: #555;">
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>8 protocoles complets</strong> \u{2192} Pour vous sentir plus calme dès la première séance
+                    <strong>8 protocoles complets</strong> → Des exercices à pratiquer chez vous, à votre rythme
                   </li>
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>Gestion du stress et des émotions</strong> \u{2192} Pour aborder vos journées avec sérénité
+                    <strong>Gestion du stress et des émotions</strong> → Pour aborder vos journées avec plus de recul
                   </li>
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>Techniques de confiance en soi</strong> \u{2192} Pour enfin oser prendre la parole en public
+                    <strong>Techniques de confiance en soi</strong> → Pour préparer les situations qui vous inquiètent, comme prendre la parole
                   </li>
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>Amélioration du sommeil</strong> \u{2192} Pour des nuits réparatrices, même après une journée chargée
+                    <strong>Sommeil</strong> → Des pistes pour mieux aborder la nuit
                   </li>
                   <li style="margin: 10px 0; line-height: 1.6;">
-                    <strong>2 protocoles NovaHypnose exclusifs</strong> \u{2192} « Le Socle inébranlable » et « L'Étincelle intérieure », réservés à mes lecteurs
+                    <strong>Un journal de suivi</strong> → Pour observer votre progression séance après séance
                   </li>
                 </ul>
-              </div>
-
-              <!-- Preuve sociale -->
-              <div style="background: #fafafa; border-radius: 10px; padding: 20px 24px; margin: 28px 0; border-left: 3px solid #F37336;">
-                <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #555; font-style: italic;">
-                  « Grâce à ces techniques, 85% de mes clients réduisent leur stress en 4 séances. Et le meilleur\u{00A0}? Vous pouvez commencer dès ce soir, chez vous, sans matériel. »
-                </p>
-              </div>
-
-              <!-- Offre appel gratuit -->
-              <div style="background: #fff8f0; border: 1px solid #F37336; border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
-                <p style="margin: 0 0 8px 0; font-size: 17px; font-weight: 600; color: #233C67;">
-                  Envie d'aller plus loin\u{00A0}?
-                </p>
-                <p style="margin: 0 0 16px 0; font-size: 15px; color: #555; line-height: 1.6;">
-                  Réservez dès maintenant votre <strong>séance découverte gratuite de 30 minutes</strong> — et découvrez comment adapter ces protocoles à <strong>votre</strong> situation.
-                </p>
-                <a href="https://calendly.com/zenatti/rdvtelephonique"
-                   style="display: inline-block; padding: 14px 32px; background: #233C67; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
-                  \u{1F4C5} Réserver mon créneau gratuit
-                </a>
-                <p style="margin: 12px 0 0 0; font-size: 13px; color: #888;">
-                  Places limitées — Sans engagement.
-                </p>
               </div>
 
               <!-- Formation Paris -->
               <div style="background: linear-gradient(135deg, #233C67 0%, #4470AD 100%); border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
                 <p style="margin: 0 0 8px 0; font-size: 17px; font-weight: 600; color: #ffffff;">
-                  🎓 Prochaine formation à Paris
+                  🎓 Formation à l'autohypnose
                 </p>
-                <p style="margin: 0 0 16px 0; font-size: 22px; color: #ffffff; font-weight: 700;">
-                  12 avril 2025
+                <p style="margin: 0 0 16px 0; font-size: 20px; color: #ffffff; font-weight: 700;">
+                  Au cabinet, à Paris 4e
                 </p>
                 <p style="margin: 0 0 16px 0; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6;">
-                  Apprenez l'autohypnose en présentiel.<br>
+                  Jusqu'à 6 personnes. Pour un groupe plus large (jusqu'à 12 personnes, une entreprise par exemple), sur devis.<br>
                   Tous les détails sur le site.
                 </p>
                 <a href="https://novahypnose.fr/autohypnose"
@@ -164,21 +162,23 @@ serve(async (req) => {
               <!-- WhatsApp -->
               <div style="background: #f0faf0; border: 1px solid #25D366; border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
                 <p style="margin: 0 0 12px 0; font-size: 15px; color: #555; line-height: 1.7;">
-                  Besoin d'aide pour appliquer un protocole\u{00A0}? Envoyez-moi un message sur WhatsApp — je vous réponds <strong>personnellement sous 24h</strong>.
+                  Vous vous demandez si vous êtes &laquo;&nbsp;hypnotisable&nbsp;&raquo;, comment pratiquer au quotidien… ou même ce qu'un accompagnement en cabinet pourrait vous apporter&nbsp;?<br><br>
+                  Je suis là pour en parler — sans engagement, sur WhatsApp.
                 </p>
-                <a href="https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20sur%20le%20guide%20autohypnose"
+                <a href="https://novahypnose.fr/wa"
                    style="display: inline-block; padding: 14px 28px; background: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
-                  \u{1F4F2} Discuter avec Alain sur WhatsApp
+                  📱 Discuter avec Alain sur WhatsApp
                 </a>
               </div>
 
               <p style="font-size: 15px; line-height: 1.7; color: #555;">
                 À très bientôt,<br>
                 <strong style="color: #233C67;">Alain Zenatti — NovaHypnose</strong><br>
-                <span style="font-size: 13px; color: #888;">Hypnothérapeute</span><br>
-                <span style="font-size: 13px; color: #888;">\u{1F4CD} 16 rue Saint-Antoine, 75004 Paris</span><br>
-                <span style="font-size: 13px; color: #888;">\u{1F4DE} 06 49 35 80 89</span><br>
-                <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none; font-size: 13px;">\u{1F310} novahypnose.fr</a>
+                <span style="font-size: 13px; color: #888;">Hypnothérapeute — Paris 4e et visio, partout en France</span><br>
+                <span style="font-size: 13px; color: #888;">📍 16 rue Saint-Antoine, 75004 Paris</span><br>
+                <span style="font-size: 13px; color: #888;">📞 06 49 35 80 89</span><br>
+                <span style="font-size: 13px; color: #888;">✉️ contact@novahypnose.fr</span><br>
+                <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none; font-size: 13px;">🌐 novahypnose.fr</a>
               </p>
             </div>
 
@@ -186,7 +186,7 @@ serve(async (req) => {
             <hr style="border: none; border-top: 1px solid #eee; margin: 0 30px;">
             <div style="padding: 20px 30px; text-align: center; color: #999; font-size: 12px;">
               <p style="margin: 10px 0 0 0; font-size: 11px; color: #bbb;">
-                Vous recevez cet email car vous avez téléchargé le guide « L'Autohypnose au Quotidien ».<br>
+                Vous recevez cet email car vous avez téléchargé le guide « Reprenez la main sur votre bien-être ».<br>
                 Conformément au RGPD, vous pouvez vous désabonner à tout moment.
               </p>
             </div>
