@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Mail from 'lucide-react/dist/esm/icons/mail';
 import Clock from 'lucide-react/dist/esm/icons/clock';
 import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import GuideDecryptageBloc from '@/components/GuideDecryptageBloc';
 import '@/styles/preview-charte.css';
 
 /* ─────────────────────────────────────────────
@@ -139,6 +140,9 @@ const GuideEbookMerci: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* ═══════════ DÉCRYPTAGE ═══════════ */}
+        <GuideDecryptageBloc guide="emotions-travail" />
 
         {/* ═══════════ MINI FOOTER ═══════════ */}
         <footer style={{ background: 'var(--cobalt-2)', color: 'rgba(240,236,227,.5)', fontSize: '12px', textAlign: 'center', padding: '20px 16px' }}>
