@@ -346,6 +346,10 @@
   function = "seo-prerender-static"
 
 [[edge_functions]]
+  path = "/guides-gratuits"
+  function = "seo-prerender-static"
+
+[[edge_functions]]
   path = "/guide-emotions-travail"
   function = "seo-prerender-static"
 

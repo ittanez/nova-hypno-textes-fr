@@ -46,6 +46,7 @@ export const KNOWN_PATHS = new Set<string>([
   "/guide-procrastination",
   "/guide-procrastination/merci",
   "/guide-sommeil",
+  "/guides-gratuits",
   "/guide-sommeil/merci",
   "/hypnose-acrophobie-paris",
   "/hypnose-addiction-sucre-paris",

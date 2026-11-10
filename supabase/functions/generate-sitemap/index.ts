@@ -81,6 +81,7 @@ serve(async (req) => {
       { loc: '/hypnose-en-ligne',              lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.8' },
       // Landing pages Google Ads (public/*.html) : volontairement exclues, noindex
       // Guides gratuits (lead magnets) + quiz
+      { loc: '/guides-gratuits',               lastmod: '2026-11-10', changefreq: 'monthly', priority: '0.7' },
       { loc: '/guide-autohypnose',             lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
       { loc: '/guide-sommeil',                 lastmod: '2026-07-11', changefreq: 'monthly', priority: '0.6' },
       { loc: '/guide-procrastination',         lastmod: '2026-07-12', changefreq: 'monthly', priority: '0.6' },
