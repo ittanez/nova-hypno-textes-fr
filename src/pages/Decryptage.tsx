@@ -65,8 +65,16 @@ function q1FromEncart(state: unknown): string | null {
   return QUESTIONS[0].options.some((o) => o.value === v) ? v : null;
 }
 
+/** Source de la visite (?utm_source=guide&utm_medium=merci&utm_content=sommeil). */
+function sourceFromUrl(search: string): { utmSource: string; utmMedium: string; utmContent: string } {
+  const params = new URLSearchParams(search);
+  const clean = (k: string) => (params.get(k) ?? '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 60);
+  return { utmSource: clean('utm_source'), utmMedium: clean('utm_medium'), utmContent: clean('utm_content') };
+}
+
 const Decryptage = () => {
   const location = useLocation();
+  const [source] = useState(() => sourceFromUrl(location.search));
   const [q1Initial] = useState(() => q1FromEncart(location.state));
   const [step, setStep] = useState<Step>(q1Initial ? 'questions' : 'intro');
   const [index, setIndex] = useState(q1Initial ? 1 : 0);
@@ -179,6 +187,7 @@ const Decryptage = () => {
             autreTexte: answers.q1 === 'autre' ? autreTexte.trim() : '',
             message: message.trim(),
             consentVersion: CONSENT_VERSION,
+            ...source,
           },
         });
         if (error) throw error;

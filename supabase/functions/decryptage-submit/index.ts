@@ -82,6 +82,12 @@ serve(async (req) => {
   const autreTexte = sanitizeString(String(body.autreTexte ?? ""), MAX_AUTRE).trim();
   const message = sanitizeString(String(body.message ?? ""), MAX_MESSAGE).trim();
   const answers = body.answers;
+  // Source de la visite : minuscules, [a-z0-9_-], 60 caractères max.
+  const cleanSource = (v: unknown) =>
+    String(v ?? "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 60) || null;
+  const utmSource = cleanSource(body.utmSource);
+  const utmMedium = cleanSource(body.utmMedium);
+  const utmContent = cleanSource(body.utmContent);
 
   if (!isValidEmail(email)) return fail(400, "Email invalide");
   if (!prenom) return fail(400, "Prénom manquant");
@@ -111,6 +117,9 @@ serve(async (req) => {
     repere,
     consent_version: CONSENT_VERSION,
     consent_at: new Date().toISOString(),
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_content: utmContent,
   });
   if (dbError) {
     // On envoie quand même les emails : la personne attend sa copie.

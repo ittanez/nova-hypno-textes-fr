@@ -9,6 +9,7 @@ import { getPopularArticles } from '@/lib/services/blog/articleService';
 import { Article } from '@/lib/types/blog';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import GuideDecryptageBloc from '@/components/GuideDecryptageBloc';
 import '@/styles/preview-charte.css';
 
 /* ─────────────────────────────────────────────
@@ -108,6 +109,9 @@ const GuideCarriereMerci: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* ═══════════ DÉCRYPTAGE ═══════════ */}
+        <GuideDecryptageBloc guide="carriere" />
 
         {/* ═══════════ ARTICLES DU BLOG ═══════════ */}
         {articles.length > 0 && (
