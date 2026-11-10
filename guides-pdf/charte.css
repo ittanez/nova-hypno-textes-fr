@@ -1,0 +1,114 @@
+/* Charte des guides PDF NovaHypnose (couleurs et polices du site).
+   Utilisée par template.html ; voir README.md. */
+@font-face { font-family: "EB Garamond"; src: url("../public/fonts/eb-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "EB Garamond"; src: url("../public/fonts/eb-garamond-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "DM Sans"; src: url("../public/fonts/dm-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+
+:root {
+  --amber: #F2A12E; --amber-text: #975D09;
+  --cobalt: #2B4BA0; --encre: #1C2B4A; --gris: #566B8E;
+  --lin: #F0ECE3; --lin-2: #F7F3EA; --paper: #FFFFFF;
+  --serif: "EB Garamond", Georgia, serif; --sans: "DM Sans", system-ui, sans-serif;
+}
+@page { size: A4; margin: 18mm 19mm 21mm 19mm;
+  @bottom-left  { content: "NovaHypnose · Alain Zenatti"; font: 8pt "DM Sans", sans-serif; color: #566B8E; }
+  @bottom-right { content: counter(page); font: 8pt "DM Sans", sans-serif; color: #566B8E; } }
+@page cover { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: var(--sans); font-size: 9.4pt; line-height: 1.5; color: var(--encre); background: var(--paper); }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; color: var(--encre); margin: 0; break-after: avoid; }
+p { margin: 0 0 2.3mm; }
+strong { font-weight: 400; color: var(--cobalt); }
+a { color: var(--cobalt); text-decoration: none; border-bottom: 1px solid rgba(43,75,160,.35); }
+ul, ol { margin: 0 0 3mm; padding-left: 5mm; }
+li { margin-bottom: 1.2mm; }
+li::marker { color: var(--amber); }
+h3 { font-size: 13.6pt; line-height: 1.15; margin: 3.8mm 0 1.6mm; color: var(--cobalt); }
+h4 { font-size: 11.5pt; margin: 3.4mm 0 1.6mm; color: var(--encre); }
+hr { border: 0; border-top: 1px solid #E4DDCF; margin: 4mm 0; }
+
+/* ---------- couverture ---------- */
+.cover { page: cover; position: relative; width: 210mm; height: 297mm; background: var(--lin-2); overflow: hidden; page-break-after: always; }
+.blob { position: absolute; border-radius: 50% 46% 54% 48% / 52% 44% 56% 48%; }
+.blob.a { width: 150mm; height: 118mm; top: -34mm; right: -42mm; background: #E8CFAE; }
+.blob.b { width: 120mm; height: 96mm; bottom: -22mm; left: -38mm; background: #B9BBCB; }
+.blob.c { width: 34mm; height: 34mm; top: 128mm; right: 24mm; background: var(--amber); opacity: .85; }
+.cover .inner { position: absolute; left: 22mm; right: 22mm; top: 76mm; }
+.cover .tag { font-size: 9pt; letter-spacing: .22em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 7mm; }
+.cover h1 { font-size: 48pt; line-height: .98; letter-spacing: -.015em; margin-bottom: 7mm; }
+.cover h1 em { color: var(--cobalt); font-style: italic; display: block; }
+.cover .sub { font-family: var(--serif); font-size: 15pt; line-height: 1.35; max-width: 125mm; }
+.cover .author { position: absolute; left: 22mm; right: 22mm; bottom: 24mm; display: flex; align-items: center; gap: 6mm; }
+.cover .author img { width: 27mm; height: 27mm; border-radius: 50%; object-fit: cover; object-position: 50% 24%; box-shadow: 3mm 3mm 0 rgba(242,161,46,.28); }
+.cover .author .n { font-family: var(--serif); font-size: 15pt; margin-bottom: .6mm; }
+.cover .author .r { font-size: 8.4pt; color: var(--gris); line-height: 1.45; }
+.relecture { position: absolute; left: 22mm; right: 22mm; bottom: 10mm; font-size: 7.6pt; color: #6B4306; }
+.verif { background: #FFE3A6; color: #6B4306; font-size: 8.4pt; padding: .2mm 1.2mm; border-radius: 1mm; white-space: nowrap; }
+
+/* ---------- pages et chapitres ---------- */
+.chap, .page { break-before: page; break-inside: avoid; break-after: avoid; }
+.chap.cont { break-before: auto; margin-top: 9mm; }
+.chap::before, .page::before { display: block; font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 2.4mm; }
+.chap::before { content: "Chapitre"; }
+.chap.sect::before { content: "Section"; }
+.page::before { content: attr(data-kicker); }
+.chap h2::before { content: attr(data-num); display: block; font-family: var(--serif); font-size: 48pt; line-height: .85; color: var(--amber); margin-bottom: 2mm; }
+.chap h2, .page h2 { font-size: 25pt; line-height: 1.05; letter-spacing: -.01em; margin-bottom: 3.5mm; }
+.page h2 { font-size: 27pt; }
+.page h2::after { content: ""; display: block; width: 14mm; height: 1.4mm; background: var(--amber); border-radius: 1mm; margin-top: 3.5mm; }
+h2 em { color: var(--cobalt); font-style: italic; }
+.lead p, p.lead { font-family: var(--serif); font-size: 12.4pt; line-height: 1.4; margin-bottom: 4.5mm; max-width: 150mm; }
+.brk { break-before: page; }
+
+/* ---------- encadrés ---------- */
+.card { border-radius: 4mm; padding: 3.8mm 5mm; margin: 3.4mm 0 4mm; break-inside: avoid; }
+.card::before { content: attr(title); display: block; font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1.8mm; }
+.card > :last-child { margin-bottom: 0; }
+.card.retenir { background: var(--lin-2); border-left: 1.6mm solid var(--cobalt); }
+.card.retenir::before { color: var(--cobalt); }
+.card.attention { background: #FFF4DD; border-left: 1.6mm solid var(--amber); }
+.card.attention::before { color: var(--amber-text); }
+.card.medecin { background: #fff; border: .5mm solid var(--amber); }
+.card.medecin::before { color: var(--amber-text); }
+.card.medecin strong, .card.attention strong { color: var(--encre); background: linear-gradient(transparent 62%, rgba(242,161,46,.45) 62%); }
+.card.limite { background: var(--lin-2); border: .3mm solid #D9D2C3; }
+.card.limite::before { color: var(--gris); }
+.quote { font-family: var(--serif); font-style: italic; font-size: 13pt; line-height: 1.36; color: var(--cobalt); margin: 3.6mm 0 4mm; padding-left: 5mm; border-left: 1.2mm solid var(--amber); break-inside: avoid; }
+.quote p { margin: 0; }
+.quote .by { display: block; margin-top: 1.8mm; font-family: var(--sans); font-style: normal; font-size: 8.4pt; color: var(--gris); }
+blockquote { margin: 3.4mm 0 4mm; padding: 0 0 0 5mm; border-left: 1.2mm solid var(--amber); font-family: var(--serif); font-style: italic; font-size: 12.4pt; color: var(--cobalt); break-inside: avoid; }
+blockquote p { margin: 0 0 1.4mm; }
+
+.stats { display: flex; gap: 4mm; margin: 5mm 0 4mm; }
+.stat { flex: 1; background: var(--lin-2); border-radius: 4mm; padding: 5mm 4mm; break-inside: avoid; font-size: 8.4pt; line-height: 1.4; }
+.stat::before { content: attr(data-v); display: block; font-family: var(--serif); font-size: 28pt; line-height: 1; color: var(--cobalt); margin-bottom: 2mm; }
+.stat p { margin: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.2pt; break-inside: avoid; }
+th { text-align: left; font-family: var(--serif); font-weight: 400; font-size: 11pt; color: var(--cobalt); padding: 2mm 3mm; border-bottom: .5mm solid var(--amber); }
+td { padding: 2.2mm 3mm; border-bottom: .3mm solid #E4DDCF; vertical-align: top; }
+.ritual table { border-collapse: separate; border-spacing: 0 1.6mm; }
+.ritual td { background: var(--lin-2); border: 0; padding: 3mm 4mm; }
+.ritual td:first-child { font-family: var(--serif); font-size: 13pt; color: var(--cobalt); white-space: nowrap; border-radius: 3mm 0 0 3mm; width: 22mm; }
+.ritual td:last-child { border-radius: 0 3mm 3mm 0; }
+.ritual th { display: none; }
+
+.toc { margin: 5mm 0 7mm; padding: 0; list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; display: flex; gap: 5mm; align-items: baseline; padding: 2.6mm 0; border-bottom: .3mm solid #E4DDCF; margin: 0; font-family: var(--serif); font-size: 15pt; }
+.toc li::before { content: counter(toc, decimal-leading-zero); font-size: 18pt; color: var(--amber); width: 12mm; }
+
+/* ---------- appel final ---------- */
+.cta { background: var(--cobalt); color: #fff; border-radius: 6mm; padding: 6.4mm 7mm; margin: 4mm 0; break-inside: avoid; }
+.cta h3 { color: #fff; margin: 0 0 2.4mm; font-size: 18pt; }
+.cta p, .cta strong { color: #fff; }
+.cta a.btn { display: inline-block; background: #fff; color: var(--encre); border-radius: 999px; padding: 3mm 7mm; border: 0; margin-top: 2mm; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 3mm; break-inside: avoid; }
+.contact .box { background: var(--lin-2); border-radius: 3mm; padding: 3.6mm 4.4mm; font-size: 9.4pt; line-height: 1.5; }
+.contact .box::before { content: attr(data-label); display: block; font-size: 8pt; letter-spacing: .18em; text-transform: uppercase; color: var(--amber-text); margin-bottom: 1mm; }
+.contact .box p { margin: 0; }
+.sig { break-inside: avoid; margin-top: 4mm; font-family: var(--serif); font-size: 13pt; }
+.sig p { margin: 0; }
+.sig .role { display: block; font-family: var(--sans); font-size: 8.6pt; color: var(--gris); }
+.src { font-size: 9pt; line-height: 1.5; }
+.src li { margin-bottom: 2mm; }
