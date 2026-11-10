@@ -3,7 +3,7 @@ import { getCorsHeaders, isValidEmail, sanitizeString } from "../_shared/cors.ts
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 
-// URL du PDF hébergé sur Supabase Storage (à adapter)
+// URL du PDF hébergé sur Supabase Storage
 const GUIDE_PDF_URL = 'https://akrlyzmfszumibwgocae.supabase.co/storage/v1/object/public/images/guide-emotions-travail.pdf'
 
 serve(async (req) => {
@@ -91,37 +91,24 @@ serve(async (req) => {
                 <ul style="margin: 0; padding: 0 0 0 20px; color: #555;">
                   <li style="margin: 8px 0; line-height: 1.6;">Pourquoi « tenir » vous épuise plus que le travail lui-même</li>
                   <li style="margin: 8px 0; line-height: 1.6;">Les 5 émotions les plus incomprises au travail</li>
-                  <li style="margin: 8px 0; line-height: 1.6;">3 pratiques simples applicables dès ce soir</li>
-                  <li style="margin: 8px 0; line-height: 1.6;">Comment l'hypnose aide là où la volonté échoue</li>
+                  <li style="margin: 8px 0; line-height: 1.6;">3 pratiques simples à essayer dès ce soir</li>
+                  <li style="margin: 8px 0; line-height: 1.6;">Comment l'hypnose peut aider là où la volonté seule ne suffit pas</li>
                 </ul>
               </div>
 
               <p style="font-size: 16px; line-height: 1.7; color: #333; margin: 0 0 20px 0;">
-                Prenez le temps de le lire calmement — il est conçu pour être lu en 20 minutes.
+                Prenez le temps de le lire calmement, à votre rythme.
               </p>
-
-              <!-- Offre appel gratuit -->
-              <div style="background: #fff8f0; border: 1px solid #F37336; border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
-                <p style="margin: 0 0 8px 0; font-size: 17px; font-weight: 600; color: #233C67;">
-                  Envie d'en parler ?
-                </p>
-                <p style="margin: 0 0 16px 0; font-size: 15px; color: #555; line-height: 1.6;">
-                  Je vous propose un échange gratuit de 30 minutes<br>pour faire le point — sans engagement.
-                </p>
-                <a href="https://calendly.com/zenatti/rdvtelephonique"
-                   style="display: inline-block; padding: 12px 28px; background: #233C67; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600;">
-                  Réserver un créneau gratuit
-                </a>
-              </div>
 
               <!-- WhatsApp -->
               <div style="background: #f0faf0; border: 1px solid #25D366; border-radius: 10px; padding: 24px; text-align: center; margin: 28px 0;">
                 <p style="margin: 0 0 12px 0; font-size: 15px; color: #555; line-height: 1.7;">
-                  Parfois, mettre des mots sur ce que l'on vit est le premier pas pour arrêter de se battre contre soi-même. Si vous préférez la spontanéité d'un échange par message plutôt qu'un rendez-vous formel, ma porte WhatsApp est ouverte.
+                  Vous vous demandez si vous êtes &laquo;&nbsp;hypnotisable&nbsp;&raquo;, comment pratiquer au quotidien… ou même ce qu'un accompagnement en cabinet pourrait vous apporter ?<br><br>
+                  Je suis là pour en parler — sans engagement, sur WhatsApp.
                 </p>
-                <a href="https://wa.me/33649358089?text=Bonjour%20Alain%2C%20j%27ai%20une%20question%20"
+                <a href="https://novahypnose.fr/wa"
                    style="display: inline-block; padding: 14px 28px; background: #25D366; color: #ffffff; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600;">
-                  Discuter avec Alain sur WhatsApp
+                  📱 Discuter avec Alain sur WhatsApp
                 </a>
                 <p style="margin: 12px 0 0 0; font-size: 13px; color: #888; line-height: 1.5;">
                   Je réponds personnellement dès que je quitte mon cabinet.
@@ -143,6 +130,7 @@ serve(async (req) => {
                 <strong>Alain Zenatti — NovaHypnose</strong><br>
                 16 rue Saint-Antoine, 75004 Paris<br>
                 <a href="tel:0649358089" style="color: #4470AD; text-decoration: none;">06 49 35 80 89</a> ·
+                <a href="mailto:contact@novahypnose.fr" style="color: #4470AD; text-decoration: none;">contact@novahypnose.fr</a> ·
                 <a href="https://novahypnose.fr" style="color: #4470AD; text-decoration: none;">novahypnose.fr</a>
               </p>
               <p style="margin: 10px 0 0 0; font-size: 11px; color: #bbb;">
