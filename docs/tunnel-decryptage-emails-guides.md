@@ -9,9 +9,9 @@ Règles : vouvoiement, aucune promesse de résultat, « pistes » et jamais de d
 | Séquence | Email | Pourquoi là |
 |---|---|---|
 | Sommeil, Procrastination, Tabac, Colère, Carrière | **E2** (J+3) : bloc complet avec bouton | Ces E2 n'ont aucun bouton : ils invitent seulement à répondre |
-| Sommeil, Tabac, Colère, Carrière | **E4** (J+14, « dernier email ») : ligne secondaire sous le bouton Resalib | Sortie douce pour qui n'est pas prêt à réserver une séance |
-| Procrastination | **E3** (template 95, « dernière question honnête ») : ligne secondaire sous le bouton | C'est elle qui porte « ceci est mon dernier email » |
-| Autohypnose | **E4** (J+7, template 83) : ligne secondaire sous le bouton Resalib | L'E2 demande une réponse « OUI / PAS ENCORE » : un bouton la diluerait |
+| Sommeil, Tabac, Colère, Carrière | **E4** (J+14, « dernier email ») : bouton secondaire sous le bouton Resalib | Sortie douce pour qui n'est pas prêt à réserver une séance |
+| Procrastination | **E3** (template 95, « dernière question honnête ») : bouton secondaire sous le bouton | C'est elle qui porte « ceci est mon dernier email » |
+| Autohypnose | **E4** (J+7, template 83) : bouton secondaire sous le bouton Resalib | L'E2 demande une réponse « OUI / PAS ENCORE » : un bouton la diluerait |
 | Émotions au travail | aucun (guide envoyé par Resend, pas de séquence) | La page merci est son seul point d'entrée |
 
 Procrastination : ne pas ajouter le bloc à l'E3 tant que l'ordre E3/E4 et le délai ne sont pas corrigés dans l'automation.
@@ -46,14 +46,20 @@ Suite, identique pour tous :
 >
 > **[ Faire mon décryptage ]**  → lien E2 du guide
 
-## Ligne secondaire E4 (et E3 procrastination), sous le bouton principal
+## Bouton secondaire E4 (et E3 procrastination), sous le bouton principal
 
-Selon le guide, à placer juste après le bouton « Prendre rendez-vous » (ou « Me contacter sur WhatsApp ») :
+Version validée le 10/11/2026 : un **bouton secondaire** et non un simple lien (le lien gris, petit, était trop discret sur le test). Le bouton principal (Prendre rendez-vous / WhatsApp) reste dominant.
 
-> Pas prêt(e) pour une séance ? Vous pouvez aussi commencer par un décryptage en 5 questions : 2 minutes, gratuit, sans engagement.
-> [ Faire mon décryptage ] → lien E4 du guide
+À placer juste après le bouton « Prendre rendez-vous » (ou « Me contacter sur WhatsApp ») :
 
-Pour l'autohypnose, même ligne, après le bouton « Prendre rendez-vous sur Resalib » et avant « Si vous avez une question avant de vous lancer ».
+> Pas prêt(e) pour une séance ? Vous pouvez aussi commencer par un décryptage en 5 questions, gratuit et sans engagement.
+> **[ Faire mon décryptage (2 min) ]** → lien E4 du guide
+
+Style du bouton : « outline », fond blanc, bordure et texte de la même couleur que le bouton principal (rose), même largeur que lui. Phrase au-dessus : gris foncé (pas gris clair), taille de texte normale.
+
+Pour l'autohypnose, même bloc, après le bouton « Prendre rendez-vous sur Resalib » et avant « Si vous avez une question avant de vous lancer ».
+
+Suivi : les volumes sont trop faibles pour un test A/B. Regarder le nombre de clics sur ce bouton dans Brevo après 4 à 6 semaines.
 
 ## Avant de coller dans Brevo
 
