@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Mail from 'lucide-react/dist/esm/icons/mail';
@@ -16,10 +16,28 @@ const GuideEbookMerci: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prenom = (location.state as { prenom?: string })?.prenom || '';
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!location.state) { navigate('/guide-emotions-travail', { replace: true }); }
   }, [location.state, navigate]);
+
+  // Révèle les blocs .reveal au scroll (comme les autres pages de la charte).
+  // Sans ce script, le texte d'accompagnement reste invisible (opacity: 0).
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const els = root.querySelectorAll<HTMLElement>('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      }),
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [location.state]);
 
   if (!location.state) return null;
 
@@ -31,7 +49,7 @@ const GuideEbookMerci: React.FC = () => {
         <link rel="canonical" href="https://novahypnose.fr/guide-emotions-travail-merci" />
       </Helmet>
 
-      <div className="cz">
+      <div className="cz" ref={rootRef}>
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
           <defs>
             <filter id="riso-full-em">
