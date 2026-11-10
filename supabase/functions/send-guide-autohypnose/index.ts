@@ -96,7 +96,7 @@ serve(async (req) => {
               </p>
 
               <p style="font-size: 15px; line-height: 1.7; color: #555; margin: 0 0 24px 0;">
-                Pas besoin d'expérience en hypnose : ces techniques sont conçues pour les débutants et s'intègrent facilement à votre routine.
+                Pas besoin d'expérience en hypnose\u00A0: ces techniques sont conçues pour les débutants et s'intègrent facilement à votre routine.
               </p>
 
               <!-- CTA Button -->
@@ -120,7 +120,7 @@ serve(async (req) => {
               <!-- Ce que vous allez découvrir -->
               <div style="background: #f0f4fa; padding: 24px; border-left: 4px solid #4470AD; border-radius: 0 8px 8px 0; margin: 28px 0;">
                 <p style="margin: 0 0 12px 0; color: #233C67; font-weight: 600; font-size: 15px;">
-                  Ce que vous allez découvrir :
+                  Ce que vous allez découvrir\u00A0:
                 </p>
                 <ul style="margin: 0; padding: 0 0 0 20px; color: #555;">
                   <li style="margin: 10px 0; line-height: 1.6;">
