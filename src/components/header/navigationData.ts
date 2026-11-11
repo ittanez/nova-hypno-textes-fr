@@ -53,6 +53,7 @@ export const accompagnementsLinks: NavLink[] = [
   { name: 'Applications de l\'hypnose', href: '/#applications' },
   { name: 'Déroulement d\'une séance', href: '/#sessions' },
   { name: 'Formation auto-hypnose', href: '/autohypnose' },
+  { name: 'Guides gratuits', href: '/guides-gratuits' },
 ];
 
 export const infosPratiquesLinks: NavLink[] = [
