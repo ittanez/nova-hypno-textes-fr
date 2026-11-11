@@ -1,5 +1,6 @@
 import { looksAutomated, withVaryUA } from "./lib/ua.ts";
 import { PRERENDER_EXTRA, PRERENDER_ANSWER } from "./lib/prerender-extra.generated.ts";
+import { siteFooterHtml } from "./lib/site-links.ts";
 import type { Context } from "https://edge.netlify.com";
 import { allFormations, formationCycles } from "../../src/data/formations.ts";
 
@@ -186,10 +187,7 @@ function htmlShell(page: PageData): string {
     <p>Email : <a href="mailto:contact@novahypnose.fr">contact@novahypnose.fr</a></p>
     <a class="cta" href="https://www.resalib.fr/praticien/47325-alain-zenatti-hypnotherapeute-paris">Réserver une séance</a>
   </div>
-  <footer>
-    <p><a href="${SITE_URL}">NovaHypnose</a> — Hypnothérapeute Paris 4 | Alain Zenatti</p>
-    <p><a href="${SITE_URL}/mentions-legales">Mentions légales</a></p>
-  </footer>
+  ${siteFooterHtml(SITE_URL, page.canonicalPath)}
 </body>
 </html>`;
 }
@@ -4072,9 +4070,9 @@ PAGES["/faq"] = {
 };
 
 PAGES["/guide-procrastination"] = {
-  title: "Guide gratuit : Et si vous n'étiez pas paresseux ? | NovaHypnose",
+  title: "Guide gratuit : Et si vous n'étiez pas paresseux ?",
   description:
-    "Guide gratuit de 14 pages d'Alain Zenatti pour comprendre la procrastination : ce qui se passe dans le cerveau, les 7 visages de la procrastination et 2 protocoles d'auto-hypnose.",
+    "Guide gratuit de 14 pages d'Alain Zenatti sur la procrastination : ce qui se passe dans le cerveau, ses 7 visages et 2 protocoles d'auto-hypnose.",
   canonicalPath: "/guide-procrastination",
   h1: "Et si vous n'étiez pas paresseux ?",
   jsonLd: [
@@ -4135,7 +4133,7 @@ PAGES["/guide-procrastination"] = {
 };
 
 PAGES["/guide-autohypnose"] = {
-  title: "Guide gratuit : Reprenez la main sur votre bien-être | NovaHypnose",
+  title: "Guide gratuit : Reprenez la main sur votre bien-être",
   description:
     "Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'autohypnose pour le stress, la confiance, le sommeil, les peurs, les émotions et la concentration.",
   canonicalPath: "/guide-autohypnose",
@@ -4198,7 +4196,7 @@ PAGES["/guide-autohypnose"] = {
 PAGES["/guide-sommeil"] = {
   title: "Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose",
   description:
-    "Guide gratuit de 14 pages d'Alain Zenatti : comprendre le sommeil, ce que la recherche dit de l'hypnose, et un programme pratique avec rituel du coucher. En complément d'un suivi médical si besoin.",
+    "Guide gratuit de 14 pages d'Alain Zenatti : comprendre le sommeil, ce que la recherche dit de l'hypnose, et un programme pratique avec rituel du coucher.",
   canonicalPath: "/guide-sommeil",
   h1: "Le Sommeil, Votre Allié Secret",
   jsonLd: [
@@ -4247,9 +4245,9 @@ PAGES["/guide-sommeil"] = {
 };
 
 PAGES["/guides-gratuits"] = {
-  title: "Guides gratuits d'hypnose : sommeil, tabac, stress, colère | NovaHypnose",
+  title: "Guides gratuits d'hypnose : sommeil, tabac, stress, colère",
   description:
-    "7 guides gratuits d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio : sommeil, arrêt du tabac, procrastination, colère, carrière, émotions au travail et autohypnose. PDF reçu par email.",
+    "7 guides gratuits d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio : sommeil, tabac, procrastination, colère, carrière, émotions, autohypnose.",
   canonicalPath: "/guides-gratuits",
   h1: "Guides gratuits d'hypnose",
   jsonLd: [
@@ -4287,7 +4285,7 @@ PAGES["/guides-gratuits"] = {
 PAGES["/guide-emotions-travail"] = {
   title: "Guide gratuit — Vous tenez. Mais jusqu'à quand ?",
   description:
-    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec trois pratiques simples et une approche d'hypnose ericksonienne.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : irritabilité, épuisement et émotions au travail, avec trois pratiques simples et l'hypnose ericksonienne.",
   canonicalPath: "/guide-emotions-travail",
   h1: "Vous tenez. Mais jusqu'à quand ?",
   jsonLd: [
@@ -4340,7 +4338,7 @@ PAGES["/guide-emotions-travail"] = {
 PAGES["/guide-colere"] = {
   title: "Guide gratuit — La Colère, Enfin Apprivoisée | NovaHypnose",
   description:
-    "Guide gratuit de 12 pages d'Alain Zenatti pour comprendre la colère et l'irritabilité : ce qui se passe dans le cerveau, ce que dit la recherche sur l'hypnose et un programme pratique.",
+    "Guide gratuit de 12 pages d'Alain Zenatti sur la colère et l'irritabilité : ce qui se passe dans le cerveau, ce que dit la recherche, un programme pratique.",
   canonicalPath: "/guide-colere",
   h1: "La Colère, Enfin Apprivoisée",
   jsonLd: [
@@ -4397,9 +4395,9 @@ PAGES["/guide-colere"] = {
 };
 
 PAGES["/guide-carriere"] = {
-  title: "Guide gratuit — Levez les Freins qui Bloquent Votre Carrière | NovaHypnose",
+  title: "Guide gratuit — Levez les Freins qui Bloquent Votre Carrière",
   description:
-    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre ce qui freine votre évolution (syndrome de l'imposteur, auto-sabotage) et des pistes concrètes pour avancer.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre ce qui freine votre évolution (syndrome de l'imposteur, auto-sabotage) et des pistes pour avancer.",
   canonicalPath: "/guide-carriere",
   h1: "Levez les Freins qui Bloquent Votre Carrière",
   jsonLd: [
@@ -4458,7 +4456,7 @@ PAGES["/guide-carriere"] = {
 PAGES["/guide-arret-tabac"] = {
   title: "Guide gratuit : Arrêter de Fumer, Autrement | NovaHypnose",
   description:
-    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose et l'arrêt du tabac, et un programme pour préparer votre arrêt.",
+    "Guide gratuit de 12 pages d'Alain Zenatti : comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose, et un programme pour préparer l'arrêt.",
   canonicalPath: "/guide-arret-tabac",
   h1: "Arrêter de Fumer, Autrement",
   jsonLd: [

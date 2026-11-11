@@ -1,4 +1,5 @@
 import { looksAutomated, withVaryUA } from "./lib/ua.ts";
+import { siteFooterHtml } from "./lib/site-links.ts";
 import type { Context } from "https://edge.netlify.com";
 
 // ─── Configuration ─────────────────────────────────────────────────────────
@@ -111,24 +112,50 @@ function safeJsonLd(data: unknown): string {
 
 // Coupe à la limite d'un mot, sans « ... » : le titre reste lisible dans Google
 // (le suffixe « | NovaHypnose » est ajouté après, voir fullTitle).
+// (Même logique que truncateTitle dans src/components/blog/SEOHead.tsx : à garder alignées.)
+const TITLE_DANGLING = /(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que|avec|pour|sur|dans|par|ou|ce|se|ne|sa|ma|son|mon|on|l'on|sans|comment|quand))+$/iu;
+// Mots qui ouvrent un complément : si le titre est coupé juste avant, ce qui précède se lit seul.
+const TITLE_OPENERS = new Set(["pour", "avec", "grâce", "en", "à", "au", "aux", "par", "dans", "chez", "sur", "selon", "face"]);
+const MIN_CLAUSE_TITLE = 24;
+
 function truncateTitle(title: string, maxLength = 46): string {
   if (title.length <= maxLength) return title;
-  const cut = title.substring(0, maxLength + 1);
-  const lastSpace = cut.lastIndexOf(" ");
-  const base = lastSpace > 20 ? cut.substring(0, lastSpace) : title.substring(0, maxLength);
-  // Évite de finir sur un mot-outil (« comprendre l'envie de »).
-  return base
-    .replace(/(\s+(de|du|des|la|le|les|l'|d'|et|à|en|un|une|qui|que|avec|pour|sur|dans|par|ou))+$/iu, "")
-    .replace(/[\s:;,.\-–—]+$/u, "");
+  const head = title.substring(0, maxLength + 1);
+  const lastSpace = head.lastIndexOf(" ");
+  const wordCut = lastSpace > 20 ? head.substring(0, lastSpace) : title.substring(0, maxLength);
+  const base = wordCut.replace(TITLE_DANGLING, "").replace(/[\s:;,.\-–—]+$/u, "");
+
+  // 1) La coupe au mot tombe à un endroit naturel (fin de proposition) : on la garde.
+  const next = title.substring(wordCut.length).trim();
+  const nextWord = next.split(/\s+/)[0].toLowerCase();
+  if (base === wordCut && (/^[,:;?!)–—]/.test(next) || /\)$/.test(base) || TITLE_OPENERS.has(nextWord))) return base;
+
+  // 2) Sinon on enlève la proposition entamée (« … : ce qui marche, ce qui ne ») en
+  //    coupant à la dernière virgule ou parenthèse, s'il reste au moins deux mots
+  //    après les deux-points.
+  const colon = head.lastIndexOf(" : ");
+  const comma = Math.max(head.lastIndexOf(", "), head.lastIndexOf(" ("), head.lastIndexOf(" – "), head.lastIndexOf(" — "));
+  if (comma > colon && comma >= MIN_CLAUSE_TITLE) {
+    const question = head.lastIndexOf(" ? ");
+    const tail = title.substring(Math.max(colon, question) < 0 ? 0 : Math.max(colon, question) + 3, comma).trim();
+    if (tail.split(/\s+/).length >= 2) return title.substring(0, comma).trim();
+  }
+  // 3) Sinon le sujet seul (avant les deux-points), s'il est assez long pour se suffire.
+  if (colon >= MIN_CLAUSE_TITLE) return title.substring(0, colon).trim();
+  // 4) À défaut, la coupe au mot.
+  return base;
 }
 
 // Titre de page ≤ 60 caractères : avec le suffixe de marque si ça tient, sinon sans
-// suffixe (le titre de l'article reste entier), sinon coupé à la limite d'un mot.
+// suffixe (le titre de l'article reste entier), sinon coupé proprement (et le suffixe
+// revient si la coupe a libéré la place).
 function buildTitle(title: string, maxTotal = 60): string {
   const withBrand = `${title} | ${SITE_NAME}`;
   if (withBrand.length <= maxTotal) return withBrand;
   if (title.length <= maxTotal) return title;
-  return truncateTitle(title, maxTotal);
+  const cut = truncateTitle(title, maxTotal);
+  const cutWithBrand = `${cut} | ${SITE_NAME}`;
+  return cutWithBrand.length <= maxTotal ? cutWithBrand : cut;
 }
 
 // Description de page ≤ 155 caractères, coupée à la limite d'un mot.
@@ -496,10 +523,7 @@ function htmlShell(options: {
   <main>
     ${body}
   </main>
-  <footer>
-    <p><a href="${SITE_URL}">NovaHypnose</a> - Hypnothérapeute Paris 4 | Alain Zenatti</p>
-    <p><a href="${SITE_URL}/mentions-legales">Mentions légales</a></p>
-  </footer>
+  ${siteFooterHtml(SITE_URL, new URL(canonicalUrl).pathname)}
 </body>
 </html>`;
 }
