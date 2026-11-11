@@ -52,7 +52,7 @@ Attention :
 
 ## 6. Points ouverts
 
-- Utm du bloc Décryptage de la copie 165 (Procrastination) : la décision était `utm_content=email4-procrastination`, alors que cet e-mail est maintenant le 3e de la séquence (voir `docs/tunnel-decryptage-emails-guides.md`). À trancher.
+- Utm du bloc Décryptage de la copie 165 (Procrastination) : la décision initiale était `utm_content=email4-procrastination`, alors que cet e-mail est maintenant le 3e de la séquence (voir `docs/tunnel-decryptage-emails-guides.md`, qui indique `email3-procrastination`). Décision d'Alain le 11/11/2026 : on ne change rien dans Brevo. La valeur réellement présente dans la copie 165 n'a pas été relue ; elle n'a d'effet que sur l'étiquette de suivi des clics, pas sur l'envoi.
 - L'objet et l'ordre E3 / E4 de Procrastination n'ont pas été testés sur un vrai parcours.
 - E2 Colère : il évoque « la technique de respiration » alors que l'E1 propose la « Fenêtre physiologique » (relevé de l'audit, non corrigé).
 - Autohypnose : les liens de désinscription des anciens E2 et E3 étaient `{{ unsubscribe_marketing}}` ; les copies utilisent `{{ unsubscribe }}`. Seul un envoi de test confirme que le lien fonctionne.
