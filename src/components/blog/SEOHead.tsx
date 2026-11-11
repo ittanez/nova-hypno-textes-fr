@@ -46,18 +46,46 @@ const SEOHead = ({
     "à", "a", "au", "aux", "de", "du", "des", "d'", "l'", "la", "le", "les", "un", "une",
     "et", "ou", "en", "pour", "par", "sur", "sous", "dans", "avec", "sans", "vers", "chez",
     "que", "qui", "ce", "se", "ne", "est", "son", "sa", "ses", "votre", "vos", "notre",
+    "ma", "mon", "on", "l'on", "comment", "quand",
   ]);
+  // Mots qui ouvrent un complément : coupé juste avant, le titre se lit seul.
+  const TITLE_OPENERS = new Set(["pour", "avec", "grâce", "en", "à", "au", "aux", "par", "dans", "chez", "sur", "selon", "face"]);
+  // Longueur minimale d'un titre coupé à une ponctuation (il doit encore dire le sujet).
+  const MIN_CLAUSE_TITLE = 24;
 
+  // Même logique que truncateTitle dans netlify/edge-functions/seo-prerender.ts.
   const truncateTitle = (raw: string, maxLength: number = MAX_TITLE): string => {
     const text = raw.trim();
     if (text.length <= maxLength) return text;
-    const words = text.slice(0, maxLength + 1).split(/\s+/);
-    // Le dernier mot est peut-être coupé : on le retire sauf si le texte tombait pile sur un espace
-    if (text[maxLength] !== " ") words.pop();
+    const head = text.slice(0, maxLength + 1);
+    const lastSpace = head.lastIndexOf(" ");
+    const wordCut = lastSpace > 20 ? head.slice(0, lastSpace) : text.slice(0, maxLength);
+    const words = wordCut.split(/\s+/);
     while (words.length > 1 && DANGLING_WORDS.has(words[words.length - 1].toLowerCase())) {
       words.pop();
     }
-    return words.join(" ").replace(/[\s,;:\-–—]+$/, "");
+    const base = words.join(" ").replace(/[\s,;:.\-–—]+$/, "");
+
+    // 1) La coupe au mot tombe à un endroit naturel (fin de proposition) : on la garde.
+    const next = text.slice(wordCut.length).trim();
+    const nextWord = next.split(/\s+/)[0].toLowerCase();
+    if (base === wordCut && (/^[,:;?!)–—]/.test(next) || /\)$/.test(base) || TITLE_OPENERS.has(nextWord))) {
+      return base;
+    }
+    // 2) Sinon on enlève la proposition entamée (« … : ce qui marche, ce qui ne ») en
+    //    coupant à la dernière virgule ou parenthèse, s'il reste au moins deux mots
+    //    après les deux-points.
+    const colon = head.lastIndexOf(" : ");
+    const comma = Math.max(head.lastIndexOf(", "), head.lastIndexOf(" ("), head.lastIndexOf(" – "), head.lastIndexOf(" — "));
+    if (comma > colon && comma >= MIN_CLAUSE_TITLE) {
+      const start = Math.max(colon, head.lastIndexOf(" ? "));
+      const tail = text.slice(start < 0 ? 0 : start + 3, comma).trim();
+      if (tail.split(/\s+/).length >= 2) return text.slice(0, comma).trim();
+    }
+    // 3) Sinon le sujet seul (avant les deux-points), s'il est assez long pour se suffire.
+    if (colon >= MIN_CLAUSE_TITLE) return text.slice(0, colon).trim();
+    // 4) À défaut, la coupe au mot.
+    return base;
   };
 
   const baseTitle = truncateTitle(title);

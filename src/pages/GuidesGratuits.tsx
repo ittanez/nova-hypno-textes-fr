@@ -42,10 +42,10 @@ const GuidesGratuits: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Guides gratuits d'hypnose : sommeil, tabac, stress, colère | NovaHypnose</title>
+        <title>Guides gratuits d'hypnose : sommeil, tabac, stress, colère</title>
         <meta
           name="description"
-          content="7 guides gratuits d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio : sommeil, arrêt du tabac, procrastination, colère, carrière, émotions au travail et autohypnose. PDF reçu par email."
+          content="7 guides gratuits d'Alain Zenatti, hypnothérapeute à Paris 4e et en visio : sommeil, tabac, procrastination, colère, carrière, émotions, autohypnose."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={URL} />

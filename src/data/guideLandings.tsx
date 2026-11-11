@@ -53,7 +53,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     zenMark: 'nuit',
     metaTitle: 'Guide gratuit — Le Sommeil, Votre Allié Secret | NovaHypnose',
     metaDescription:
-      "Guide gratuit de 14 pages d'Alain Zenatti : comprendre le sommeil, ce que la recherche dit de l'hypnose, et un programme pratique avec rituel du coucher. En complément d'un suivi médical si besoin.",
+      "Guide gratuit de 14 pages d'Alain Zenatti : comprendre le sommeil, ce que la recherche dit de l'hypnose, et un programme pratique avec rituel du coucher.",
     schemaName: 'Le Sommeil, Votre Allié Secret',
     schemaDescription:
       "Guide de 14 pages sur le sommeil et l'hypnose : comprendre le sommeil, les troubles courants, ce que dit la recherche et un programme pratique, en complément d'un suivi médical.",
@@ -119,9 +119,9 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
   procrastination: {
     slug: 'guide-procrastination',
     zenMark: 'agir',
-    metaTitle: "Guide gratuit : Et si vous n'étiez pas paresseux ? | NovaHypnose",
+    metaTitle: "Guide gratuit : Et si vous n'étiez pas paresseux ?",
     metaDescription:
-      "Guide gratuit de 14 pages d'Alain Zenatti pour comprendre la procrastination : ce qui se passe dans le cerveau, les 7 visages de la procrastination et 2 protocoles d'auto-hypnose.",
+      "Guide gratuit de 14 pages d'Alain Zenatti sur la procrastination : ce qui se passe dans le cerveau, ses 7 visages et 2 protocoles d'auto-hypnose.",
     schemaName: "Et si vous n'étiez pas paresseux ?",
     schemaDescription:
       "Guide pratique de 14 pages pour comprendre la procrastination, avec des stratégies concrètes et 2 protocoles d'auto-hypnose, par Alain Zenatti.",
@@ -184,7 +184,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     zenMark: 'libre',
     metaTitle: 'Guide gratuit : Arrêter de Fumer, Autrement | NovaHypnose',
     metaDescription:
-      "Guide gratuit de 12 pages d'Alain Zenatti : comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose et l'arrêt du tabac, et un programme pour préparer votre arrêt.",
+      "Guide gratuit de 12 pages d'Alain Zenatti : comprendre la dépendance au tabac, ce que dit la recherche sur l'hypnose, et un programme pour préparer l'arrêt.",
     schemaName: 'Arrêter de Fumer, Autrement',
     schemaDescription:
       "Guide pratique de 12 pages sur la dépendance au tabac et l'hypnose : comprendre la dépendance, ce que dit la recherche et des pistes pour préparer l'arrêt, par Alain Zenatti.",
@@ -240,7 +240,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     zenMark: 'apaisée',
     metaTitle: 'Guide gratuit — La Colère, Enfin Apprivoisée | NovaHypnose',
     metaDescription:
-      "Guide gratuit de 12 pages d'Alain Zenatti pour comprendre la colère et l'irritabilité : ce qui se passe dans le cerveau, ce que dit la recherche sur l'hypnose et un programme pratique.",
+      "Guide gratuit de 12 pages d'Alain Zenatti sur la colère et l'irritabilité : ce qui se passe dans le cerveau, ce que dit la recherche, un programme pratique.",
     schemaName: 'La Colère, Enfin Apprivoisée',
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre la colère et l'irritabilité : le cerveau, les profils de la colère, ce que dit la recherche sur l'hypnose et des outils concrets, par Alain Zenatti.",
@@ -294,9 +294,9 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
   carriere: {
     slug: 'guide-carriere',
     zenMark: 'élan',
-    metaTitle: 'Guide gratuit — Levez les Freins qui Bloquent Votre Carrière | NovaHypnose',
+    metaTitle: 'Guide gratuit — Levez les Freins qui Bloquent Votre Carrière',
     metaDescription:
-      "Guide gratuit de 12 pages d'Alain Zenatti : comprendre ce qui freine votre évolution (syndrome de l'imposteur, auto-sabotage) et des pistes concrètes pour avancer.",
+      "Guide gratuit de 12 pages d'Alain Zenatti : comprendre ce qui freine votre évolution (syndrome de l'imposteur, auto-sabotage) et des pistes pour avancer.",
     schemaName: 'Levez les Freins qui Bloquent Votre Carrière',
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre ce qui freine l'évolution professionnelle : syndrome de l'imposteur, auto-sabotage, croyances, et des pistes concrètes, par Alain Zenatti.",
@@ -352,7 +352,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     zenMark: 'tenir',
     metaTitle: "Guide gratuit — Vous tenez. Mais jusqu'à quand ? | NovaHypnose",
     metaDescription:
-      "Guide gratuit de 12 pages d'Alain Zenatti : comprendre irritabilité, épuisement et émotions au travail, avec trois pratiques simples et une approche d'hypnose ericksonienne.",
+      "Guide gratuit de 12 pages d'Alain Zenatti : irritabilité, épuisement et émotions au travail, avec trois pratiques simples et l'hypnose ericksonienne.",
     schemaName: "Vous tenez. Mais jusqu'à quand ?",
     schemaDescription:
       "Guide pratique de 12 pages pour comprendre ses émotions au travail, avec trois pratiques simples et une approche d'hypnose ericksonienne, par Alain Zenatti.",
@@ -413,7 +413,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
   autohypnose: {
     slug: 'guide-autohypnose',
     zenMark: 'soi',
-    metaTitle: 'Guide gratuit : Reprenez la main sur votre bien-être | NovaHypnose',
+    metaTitle: 'Guide gratuit : Reprenez la main sur votre bien-être',
     metaDescription:
       "Guide gratuit de 19 pages d'Alain Zenatti : 8 protocoles d'autohypnose pour le stress, la confiance, le sommeil, les peurs, les émotions et la concentration.",
     schemaName: 'Reprenez la main sur votre bien-être',
