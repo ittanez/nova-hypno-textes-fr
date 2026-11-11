@@ -411,6 +411,7 @@ const PreviewCharte: React.FC = () => {
                 <div className="nav__dropdown-menu">
                   <a href="/blog" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Blog ↗</a>
                   <a href="/autohypnose" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Auto-hypnose ↗</a>
+                  <Link to="/guides-gratuits" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Guides gratuits</Link>
                   <a href="https://hypno-balade.novahypnose.fr/" target="_blank" rel="noopener noreferrer" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>Hypno-balade ↗</a>
                   <a href="https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share" target="_blank" rel="noopener noreferrer nofollow" onClick={() => { setNavOpen(false); setOpenDropdown(null); }}>NovaRespire ↗</a>
                 </div>
@@ -1093,6 +1094,8 @@ const PreviewCharte: React.FC = () => {
               <Link to="/contact">Contact</Link>
               <span className="foot__sep">·</span>
               <Link to="/faq">FAQ</Link>
+              <span className="foot__sep">·</span>
+              <Link to="/guides-gratuits">Guides gratuits</Link>
               <span className="foot__sep">·</span>
               <a href="/mentions-legales">Mentions légales</a>
               <span className="foot__sep">·</span>

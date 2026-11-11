@@ -28,6 +28,7 @@ interface CzLayoutProps {
 const DEFAULT_NAV_LINKS: NavLink[] = [
   { label: 'Accueil', href: '/' },
   { label: 'Auto-hypnose', href: '/autohypnose' },
+  { label: 'Guides gratuits', href: '/guides-gratuits' },
   { label: 'Articles', href: '/blog' },
   { label: 'Hypno-balade', href: 'https://hypno-balade.novahypnose.fr/', external: true },
   { label: 'NovaRespire', href: 'https://play.google.com/store/apps/details?id=com.novahypnose.novarespire&pcampaignid=web_share', external: true },
@@ -215,6 +216,8 @@ const CzLayout: React.FC<CzLayoutProps> = ({
             <Link to="/contact">Contact</Link>
             <span className="foot__sep">·</span>
             <Link to="/faq">FAQ</Link>
+            <span className="foot__sep">·</span>
+            <Link to="/guides-gratuits">Guides gratuits</Link>
             <span className="foot__sep">·</span>
             <Link to="/mentions-legales">Mentions légales</Link>
             <span className="foot__sep">·</span>
