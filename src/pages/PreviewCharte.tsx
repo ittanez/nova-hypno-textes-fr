@@ -102,6 +102,20 @@ function useCountUp(target: number, trigger: boolean, duration = 1200): number {
 
 // YouTube Short de présentation (« Présentation Alain Zenatti », remplacé le 10/11/2026)
 const ABOUT_VIDEO_ID = 'XKP-pjYFs6s';
+// Vidéo « Déroulé d'une séance d'hypnose » (41 s, 16:9, publiée le 12/11/2026)
+const SESSION_VIDEO_ID = 'Bt03RNtJ13U';
+const sessionVideoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: "Déroulé d'une séance d'hypnose",
+  description: "Alain Zenatti, hypnothérapeute à Paris 4e, explique en 41 secondes comment se déroule une séance d'hypnose.",
+  thumbnailUrl: `https://i.ytimg.com/vi/${SESSION_VIDEO_ID}/maxresdefault.jpg`,
+  uploadDate: '2026-11-12T03:37:31-08:00',
+  duration: 'PT41S',
+  embedUrl: `https://www.youtube.com/embed/${SESSION_VIDEO_ID}`,
+  contentUrl: `https://www.youtube.com/watch?v=${SESSION_VIDEO_ID}`,
+  author: { '@type': 'Person', name: 'Alain Zenatti' },
+};
 
 const PreviewCharte: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -114,6 +128,7 @@ const PreviewCharte: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [sessionVideoPlaying, setSessionVideoPlaying] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
 
   // Contact form
@@ -242,7 +257,7 @@ const PreviewCharte: React.FC = () => {
   // data-schema permet au cleanup de retrouver et supprimer les balises au démontage,
   // évitant les doublons en StrictMode ou lors d'une navigation aller-retour.
   useEffect(() => {
-    const schemas = [websiteSchema, localBusinessSchema, visioServiceSchema, personSchema, faqSchema, breadcrumbSchema];
+    const schemas = [websiteSchema, localBusinessSchema, visioServiceSchema, personSchema, faqSchema, breadcrumbSchema, sessionVideoSchema];
     let idleId: number | null = null;
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
@@ -819,6 +834,41 @@ const PreviewCharte: React.FC = () => {
                 ))}
               </div>
             </div>
+
+            {/* Vidéo 16:9 : vignette seule, lecteur YouTube inséré au clic (Core Web Vitals). */}
+            <figure className="about__video about__video--wide reveal d-1">
+              {sessionVideoPlaying ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${SESSION_VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
+                  title="Vidéo : déroulé d'une séance d'hypnose avec Alain Zenatti"
+                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  type="button"
+                  className="about__video-facade"
+                  aria-label="Lire la vidéo : déroulé d'une séance d'hypnose"
+                  onClick={() => {
+                    setSessionVideoPlaying(true);
+                    trackVideoPlay(SESSION_VIDEO_ID, 'sessions');
+                  }}
+                >
+                  <img
+                    src={`https://i.ytimg.com/vi/${SESSION_VIDEO_ID}/sddefault.jpg`}
+                    alt=""
+                    width="640"
+                    height="480"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.remove(); }}
+                  />
+                  <span className="about__video-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
+                  </span>
+                </button>
+              )}
+              <figcaption>Une séance expliquée en 41 secondes</figcaption>
+            </figure>
 
             <div className="seances__steps reveal d-1">
               {[
