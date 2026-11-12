@@ -476,6 +476,13 @@
 @media (max-width: 900px) {
   .cz .about__video { width: min(72vw, 280px); }
 }
+/* Variante horizontale (16:9), centrée — section « Déroulé d'une séance » */
+.cz .about__video--wide { width: min(100%, 680px); margin: 0 auto 56px; }
+.cz .about__video--wide .about__video-facade,
+.cz .about__video--wide iframe { aspect-ratio: 16 / 9; }
+@media (max-width: 900px) {
+  .cz .about__video--wide { width: 100%; margin-bottom: 40px; }
+}
 
 /* ── Mon approche ericksonienne (sous-bloc À propos) ───────────── */
 .cz .about__approche {
