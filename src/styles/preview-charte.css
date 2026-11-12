@@ -1182,3 +1182,16 @@
   display: inline;
   color: rgba(240, 236, 227, 0.85);
 }
+
+/* Vidéos migrées vers LazyYouTube : même cadre riso que l'ancienne façade */
+.cz .about__video .lazy-yt-frame {
+  aspect-ratio: 9 / 16; border-radius: 28px;
+  background: var(--cobalt-2); box-shadow: 8px 8px 0 rgba(43,75,160,.28);
+}
+.cz .about__video--wide .lazy-yt-frame { aspect-ratio: 16 / 9; }
+.cz .about__video .lazy-yt-overlay { background: transparent; }
+.cz .about__video .lazy-yt-hint { display: none; }
+.cz .about__video .lazy-yt-play {
+  background: var(--amber); color: var(--cobalt-2);
+  box-shadow: 5px 5px 0 rgba(242,161,46,.45);
+}

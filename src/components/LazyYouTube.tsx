@@ -11,13 +11,17 @@ interface LazyYouTubeProps {
   aspect?: 'portrait' | 'landscape';
   /** Lance le lecteur immédiatement, sans vignette (ex. dans une modale ouverte par un clic). */
   autoStart?: boolean;
+  /** Classes du cadre (défaut : coins arrondis, fond noir). Permet à une page de le styler. */
+  frameClassName?: string;
+  /** Appelé au moment où le lecteur est demandé (suivi analytics). */
+  onPlay?: () => void;
 }
 
 // Vignette de remplacement neutre, affichée tant que la section n'est pas visible
 const PLACEHOLDER =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjMyNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+';
 
-const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '', aspect = 'portrait', autoStart = false }) => {
+const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '', aspect = 'portrait', autoStart = false, frameClassName = 'rounded-lg bg-black', onPlay }) => {
   const id = extractYouTubeId(videoId);
   const [isLoaded, setIsLoaded] = useState(autoStart);
   const [isVisible, setIsVisible] = useState(false);
@@ -64,12 +68,15 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
 
   return (
     <div ref={thumbnailRef} className={`relative ${className}`}>
-      <div className={`relative w-full ${aspectClass} overflow-hidden rounded-lg bg-black`}>
+      <div className={`relative w-full ${aspectClass} overflow-hidden ${frameClassName}`}>
         {!isLoaded ? (
           <button
             type="button"
             className="group absolute inset-0 w-full h-full cursor-pointer"
-            onClick={() => setIsLoaded(true)}
+            onClick={() => {
+              setIsLoaded(true);
+              onPlay?.();
+            }}
             aria-label={`Lire la vidéo : ${title}`}
           >
             <img
@@ -80,12 +87,12 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
               onLoad={handleThumbnailLoad}
               onError={handleThumbnailError}
             />
-            <span className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
-              <span className="bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform">
+            <span className="lazy-yt-overlay absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
+              <span className="lazy-yt-play bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform">
                 <Play className="text-white" size={32} fill="currentColor" aria-hidden="true" />
               </span>
             </span>
-            <span className="absolute bottom-4 left-4 text-white text-sm bg-black/60 px-2 py-1 rounded">
+            <span className="lazy-yt-hint absolute bottom-4 left-4 text-white text-sm bg-black/60 px-2 py-1 rounded">
               Cliquez pour charger la vidéo
             </span>
           </button>
