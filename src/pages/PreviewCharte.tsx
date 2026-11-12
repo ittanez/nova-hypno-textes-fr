@@ -9,6 +9,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import '@/styles/preview-charte.css';
+import LazyYouTube from '@/components/LazyYouTube';
 import { testimonials } from '@/data/testimonials';
 import { safeJSONStringify } from '@/lib/seo-utils';
 import { localBusinessSchema, personSchema, faqSchema, breadcrumbSchema, websiteSchema, visioServiceSchema } from '@/data/schemaOrg';
@@ -127,8 +128,6 @@ const PreviewCharte: React.FC = () => {
   const statRating = useCountUp(5, statsInView);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [navOpen, setNavOpen] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState(false);
-  const [sessionVideoPlaying, setSessionVideoPlaying] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<'decouvrir' | 'accompagnement' | 'ressources' | null>(null);
 
   // Contact form
@@ -588,40 +587,16 @@ const PreviewCharte: React.FC = () => {
                   Prendre rendez-vous <span className="arrow">→</span>
                 </a>
               </div>
-
-              {/* Vidéo (YouTube Short) : seule la vignette est chargée ; le lecteur,
-                  lourd, n'est inséré qu'au clic pour préserver les Core Web Vitals. */}
+              {/* Vidéo (YouTube Short) : vignette seule, lecteur inséré au clic (Core Web Vitals). */}
               <figure className="about__video reveal d-15">
-                {videoPlaying ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${ABOUT_VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
-                    title="Vidéo de présentation d'Alain Zenatti, hypnothérapeute à Paris"
-                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                    allowFullScreen
-                  />
-                ) : (
-                  <button
-                    type="button"
-                    className="about__video-facade"
-                    aria-label="Lire la vidéo de présentation d'Alain Zenatti"
-                    onClick={() => {
-                      setVideoPlaying(true);
-                      trackVideoPlay(ABOUT_VIDEO_ID, 'about');
-                    }}
-                  >
-                    <img
-                      src={`https://i.ytimg.com/vi/${ABOUT_VIDEO_ID}/hqdefault.jpg`}
-                      alt=""
-                      width="480"
-                      height="360"
-                      loading="lazy"
-                      onError={(e) => { e.currentTarget.remove(); }}
-                    />
-                    <span className="about__video-play" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
-                    </span>
-                  </button>
-                )}
+                <LazyYouTube
+                  videoId={ABOUT_VIDEO_ID}
+                  title="Vidéo de présentation d'Alain Zenatti, hypnothérapeute à Paris"
+                  aspect="portrait"
+                  frameClassName="lazy-yt-frame"
+                  className="w-full"
+                  onPlay={() => trackVideoPlay(ABOUT_VIDEO_ID, 'about')}
+                />
                 <figcaption>Me découvrir en vidéo</figcaption>
               </figure>
             </div>
@@ -834,39 +809,16 @@ const PreviewCharte: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            {/* Vidéo 16:9 : vignette seule, lecteur YouTube inséré au clic (Core Web Vitals). */}
+            {/* Vidéo 16:9 : vignette seule, lecteur inséré au clic (Core Web Vitals). */}
             <figure className="about__video about__video--wide reveal d-1">
-              {sessionVideoPlaying ? (
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${SESSION_VIDEO_ID}?autoplay=1&playsinline=1&rel=0`}
-                  title="Vidéo : déroulé d'une séance d'hypnose avec Alain Zenatti"
-                  allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                  allowFullScreen
-                />
-              ) : (
-                <button
-                  type="button"
-                  className="about__video-facade"
-                  aria-label="Lire la vidéo : déroulé d'une séance d'hypnose"
-                  onClick={() => {
-                    setSessionVideoPlaying(true);
-                    trackVideoPlay(SESSION_VIDEO_ID, 'sessions');
-                  }}
-                >
-                  <img
-                    src={`https://i.ytimg.com/vi/${SESSION_VIDEO_ID}/sddefault.jpg`}
-                    alt=""
-                    width="640"
-                    height="480"
-                    loading="lazy"
-                    onError={(e) => { e.currentTarget.remove(); }}
-                  />
-                  <span className="about__video-play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
-                  </span>
-                </button>
-              )}
+              <LazyYouTube
+                videoId={SESSION_VIDEO_ID}
+                title="Vidéo : déroulé d'une séance d'hypnose avec Alain Zenatti"
+                aspect="landscape"
+                frameClassName="lazy-yt-frame"
+                className="w-full"
+                onPlay={() => trackVideoPlay(SESSION_VIDEO_ID, 'sessions')}
+              />
               <figcaption>Une séance expliquée en 41 secondes</figcaption>
             </figure>
 

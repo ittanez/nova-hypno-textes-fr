@@ -31,6 +31,7 @@ import BookOpen from 'lucide-react/dist/esm/icons/book-open';
 import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
 import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import ContentLayout from '@/components/layout/ContentLayout';
+import LazyYouTube from '@/components/LazyYouTube';
 
 const Maquette = () => {
   const { openResalibPopup } = useResalibPopup();
@@ -1261,15 +1262,12 @@ const Maquette = () => {
             >
               <X size={24} />
             </button>
-            <div className="relative pt-[56.25%]">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/4VRNBAoAcAE?autoplay=1"
-                title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
+            <LazyYouTube
+              videoId="4VRNBAoAcAE"
+              title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
+              aspect="landscape"
+              autoStart
+            />
           </div>
         </div>
       )}
