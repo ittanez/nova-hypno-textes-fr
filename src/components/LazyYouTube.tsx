@@ -1,15 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Play from 'lucide-react/dist/esm/icons/play';
+import { extractYouTubeId } from '@/lib/youtube';
 
 interface LazyYouTubeProps {
+  /** Identifiant YouTube, ou URL complète (watch?v=, youtu.be/, /embed/, /shorts/). */
   videoId: string;
   title: string;
   className?: string;
+  /** Format du lecteur : vertical (Shorts, par défaut) ou horizontal 16:9. */
+  aspect?: 'portrait' | 'landscape';
 }
 
-const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = "" }) => {
+// Vignette de remplacement neutre, affichée tant que la section n'est pas visible
+const PLACEHOLDER =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjMyNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+';
+
+const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '', aspect = 'portrait' }) => {
+  const id = extractYouTubeId(videoId);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  // Repli de miniature : passe à true une seule fois (pas de boucle si hqdefault échoue aussi)
+  const [useFallback, setUseFallback] = useState(false);
   const thumbnailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,7 +31,8 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = "
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      // Charger la vignette un peu avant qu'elle n'entre à l'écran : pas d'écran vide au défilement
+      { threshold: 0.1, rootMargin: '200px 0px' }
     );
 
     if (thumbnailRef.current) {
@@ -30,45 +42,61 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = "
     return () => observer.disconnect();
   }, []);
 
-  const loadVideo = () => {
-    setIsLoaded(true);
+  // sddefault (640×480) : bon compromis poids / netteté (maxresdefault pèse 122 Ko de plus)
+  const thumbnailUrl = useFallback
+    ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
+    : `https://img.youtube.com/vi/${id}/sddefault.jpg`;
+
+  // YouTube renvoie une image grise de 120 px de large quand la vignette demandée n'existe pas
+  const handleThumbnailLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (!useFallback && e.currentTarget.naturalWidth <= 120) {
+      setUseFallback(true);
+    }
   };
 
-  // Utiliser mqdefault (320x180) au lieu de maxresdefault (1280x720) pour économiser 122 KiB
-  // Si l'image est trop petite, on peut utiliser sddefault (640x480) pour un bon compromis
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
+  const handleThumbnailError = () => {
+    if (!useFallback) setUseFallback(true);
+  };
+
+  const aspectClass = aspect === 'landscape' ? 'aspect-video' : 'aspect-[9/16]';
 
   return (
     <div ref={thumbnailRef} className={`relative ${className}`}>
-      {!isLoaded ? (
-        <div 
-          className="relative cursor-pointer group"
-          onClick={loadVideo}
-        >
-          <img
-            src={isVisible ? thumbnailUrl : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjMyNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+'}
-            alt={title}
-            className="w-full aspect-[9/16] object-cover rounded-lg"
-            loading="lazy"
+      <div className={`relative w-full ${aspectClass} overflow-hidden rounded-lg bg-black`}>
+        {!isLoaded ? (
+          <button
+            type="button"
+            className="group absolute inset-0 w-full h-full cursor-pointer"
+            onClick={() => setIsLoaded(true)}
+            aria-label={`Lire la vidéo : ${title}`}
+          >
+            <img
+              src={isVisible ? thumbnailUrl : PLACEHOLDER}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              onLoad={handleThumbnailLoad}
+              onError={handleThumbnailError}
+            />
+            <span className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition">
+              <span className="bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform">
+                <Play className="text-white" size={32} fill="currentColor" aria-hidden="true" />
+              </span>
+            </span>
+            <span className="absolute bottom-4 left-4 text-white text-sm bg-black/60 px-2 py-1 rounded">
+              Cliquez pour charger la vidéo
+            </span>
+          </button>
+        ) : (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+            title={title}
+            className="absolute inset-0 w-full h-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-lg group-hover:bg-opacity-60 transition">
-            <div className="bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform">
-              <Play className="text-white" size={32} fill="currentColor" />
-            </div>
-          </div>
-          <div className="absolute bottom-4 left-4 text-white text-sm bg-black bg-opacity-60 px-2 py-1 rounded">
-            Cliquez pour charger la vidéo
-          </div>
-        </div>
-      ) : (
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-          title={title}
-          className="w-full aspect-[9/16] rounded-lg"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      )}
+        )}
+      </div>
     </div>
   );
 };
