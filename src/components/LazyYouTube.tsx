@@ -9,15 +9,17 @@ interface LazyYouTubeProps {
   className?: string;
   /** Format du lecteur : vertical (Shorts, par défaut) ou horizontal 16:9. */
   aspect?: 'portrait' | 'landscape';
+  /** Lance le lecteur immédiatement, sans vignette (ex. dans une modale ouverte par un clic). */
+  autoStart?: boolean;
 }
 
 // Vignette de remplacement neutre, affichée tant que la section n'est pas visible
 const PLACEHOLDER =
   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjMyNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+';
 
-const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '', aspect = 'portrait' }) => {
+const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '', aspect = 'portrait', autoStart = false }) => {
   const id = extractYouTubeId(videoId);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(autoStart);
   const [isVisible, setIsVisible] = useState(false);
   // Repli de miniature : passe à true une seule fois (pas de boucle si hqdefault échoue aussi)
   const [useFallback, setUseFallback] = useState(false);

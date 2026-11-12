@@ -5,6 +5,7 @@
 
 import React from 'react';
 import X from 'lucide-react/dist/esm/icons/x';
+import LazyYouTube from '@/components/LazyYouTube';
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -42,27 +43,14 @@ const VideoModal: React.FC<VideoModalProps> = ({
           <X size={24} />
         </button>
 
-        {isShort ? (
-          // YouTube Shorts - format vertical 9:16
-          <iframe
-            className="w-full h-full"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-            title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        ) : (
-          // Vidéo standard - format horizontal 16:9
-          <div className="relative pt-[56.25%]">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-              title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        )}
+        {/* Lecteur partagé : Shorts (9:16) ou vidéo standard (16:9), lancé à l'ouverture de la modale */}
+        <LazyYouTube
+          videoId={videoId}
+          title="Présentation d'Alain Zenatti - Hypnothérapeute Paris"
+          aspect={isShort ? 'portrait' : 'landscape'}
+          autoStart
+          className={isShort ? 'w-full h-full' : 'w-full'}
+        />
       </div>
     </div>
   );
