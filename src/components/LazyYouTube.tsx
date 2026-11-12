@@ -25,8 +25,8 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
   const id = extractYouTubeId(videoId);
   const [isLoaded, setIsLoaded] = useState(autoStart);
   const [isVisible, setIsVisible] = useState(false);
-  // Repli de miniature : passe à true une seule fois (pas de boucle si hqdefault échoue aussi)
-  const [useFallback, setUseFallback] = useState(false);
+  // Étape de la vignette : avance quand une source échoue ou est grise (jamais en arrière, pas de boucle)
+  const [thumbStep, setThumbStep] = useState(0);
   const thumbnailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,21 +48,23 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
     return () => observer.disconnect();
   }, []);
 
-  // sddefault (640×480) : bon compromis poids / netteté (maxresdefault pèse 122 Ko de plus)
-  const thumbnailUrl = useFallback
-    ? `https://img.youtube.com/vi/${id}/hqdefault.jpg`
-    : `https://img.youtube.com/vi/${id}/sddefault.jpg`;
+  // sddefault (640×480) d'abord : bon compromis poids / netteté (maxresdefault pèse 122 Ko de plus).
+  // Si l'hôte img.youtube.com est bloqué, on tente i.ytimg.com ; sinon on affiche un cadre titré.
+  const thumbnailSources = [
+    `https://img.youtube.com/vi/${id}/sddefault.jpg`,
+    `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+  ];
+  const thumbnailUrl = thumbnailSources[Math.min(thumbStep, thumbnailSources.length - 1)];
+  const thumbFailed = thumbStep >= thumbnailSources.length;
+
+  const nextThumbnail = () => setThumbStep((s) => (s < thumbnailSources.length ? s + 1 : s));
 
   // YouTube renvoie une image grise de 120 px de large quand la vignette demandée n'existe pas
   const handleThumbnailLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    if (!useFallback && e.currentTarget.naturalWidth <= 120) {
-      setUseFallback(true);
-    }
+    if (e.currentTarget.naturalWidth <= 120) nextThumbnail();
   };
 
-  const handleThumbnailError = () => {
-    if (!useFallback) setUseFallback(true);
-  };
+  const handleThumbnailError = () => nextThumbnail();
 
   const aspectClass = aspect === 'landscape' ? 'aspect-video' : 'aspect-[9/16]';
 
@@ -82,7 +84,7 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
             <img
               src={isVisible ? thumbnailUrl : PLACEHOLDER}
               alt={title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className={`absolute inset-0 w-full h-full object-cover ${thumbFailed ? 'hidden' : ''}`}
               loading="lazy"
               onLoad={handleThumbnailLoad}
               onError={handleThumbnailError}
@@ -92,6 +94,11 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
                 <Play className="text-white" size={32} fill="currentColor" aria-hidden="true" />
               </span>
             </span>
+            {thumbFailed && (
+              <span className="absolute inset-x-4 top-1/3 text-center text-white text-base font-medium">
+                {title}
+              </span>
+            )}
             <span className="lazy-yt-hint absolute bottom-4 left-4 text-white text-sm bg-black/60 px-2 py-1 rounded">
               Cliquez pour charger la vidéo
             </span>
