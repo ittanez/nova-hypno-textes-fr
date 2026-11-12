@@ -27,6 +27,8 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
   const [isVisible, setIsVisible] = useState(false);
   // Étape de la vignette : avance quand une source échoue ou est grise (jamais en arrière, pas de boucle)
   const [thumbStep, setThumbStep] = useState(0);
+  // Vrai seulement quand la vraie vignette est affichée : tant que ce n'est pas le cas, on montre le cadre titré
+  const [thumbLoaded, setThumbLoaded] = useState(false);
   const thumbnailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -55,13 +57,18 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
     `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
   ];
   const thumbnailUrl = thumbnailSources[Math.min(thumbStep, thumbnailSources.length - 1)];
-  const thumbFailed = thumbStep >= thumbnailSources.length;
 
-  const nextThumbnail = () => setThumbStep((s) => (s < thumbnailSources.length ? s + 1 : s));
+  const nextThumbnail = () => {
+    setThumbLoaded(false);
+    setThumbStep((s) => (s < thumbnailSources.length ? s + 1 : s));
+  };
 
   // YouTube renvoie une image grise de 120 px de large quand la vignette demandée n'existe pas
   const handleThumbnailLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    // Ignorer le chargement de la vignette neutre (data URI) affichée avant que la section soit visible
+    if (!e.currentTarget.src.startsWith('http')) return;
     if (e.currentTarget.naturalWidth <= 120) nextThumbnail();
+    else setThumbLoaded(true);
   };
 
   const handleThumbnailError = () => nextThumbnail();
@@ -83,8 +90,11 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
           >
             <img
               src={isVisible ? thumbnailUrl : PLACEHOLDER}
-              alt={title}
-              className={`absolute inset-0 w-full h-full object-cover ${thumbFailed ? 'hidden' : ''}`}
+              // alt vide : le bouton porte déjà le libellé ; une image en échec n'affiche ainsi jamais de texte sur fond blanc
+              alt=""
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                thumbLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
               loading="lazy"
               onLoad={handleThumbnailLoad}
               onError={handleThumbnailError}
@@ -94,7 +104,7 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({ videoId, title, className = '
                 <Play className="text-white" size={32} fill="currentColor" aria-hidden="true" />
               </span>
             </span>
-            {thumbFailed && (
+            {!thumbLoaded && (
               <span className="absolute inset-x-4 top-1/3 text-center text-white text-base font-medium">
                 {title}
               </span>
