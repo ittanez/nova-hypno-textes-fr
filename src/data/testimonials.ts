@@ -2,6 +2,13 @@ import { Testimonial } from "../types/testimonial";
 
 export const testimonials: Testimonial[] = [
   {
+    name: "William Amor",
+    date: "13 novembre 2026",
+    text: "Pour ma première expérience avec l'hypnose, l'accompagnement d'Alain fut pour moi rassurant et bienveillant. Je me suis senti appaisé et serein. Son écoute fut attentive et lui a permis de déterminer les points à travailler pour me libérer de tensions et d'angoisses. Les séances avec Alain m'ont permis de retrouver une énergie constructives. Je recommande assurément ce praticien",
+    rating: 5,
+    source: 'Google'
+  },
+  {
     name: "Sylvie Kourkine",
     date: "Il y a 21 minutes",
     text: "Alain Zenatti est à l'écoute et très professionnel. Un entretien approfondi lui a permis de faire une analyse précise de ma demande et de mon mal être. Pour moi, dès la première séance un changement s'est produit tout en douceur.",
