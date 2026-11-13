@@ -253,7 +253,7 @@ export const GUIDE_LANDINGS: Record<string, GuideLandingConfig> = {
     cover: { src: '/images/couverture-guide-colere.webp', alt: 'Guide La Colère, Enfin Apprivoisée — 12 pages' },
     askLocation: true,
     video: {
-      id: 'OGSa3lG-xE4',
+      id: 'UaHAoUowYhs',
       title: "Quelqu'un s'énerve devant vous : une tempête, et un phare",
       text: 'Deux tempêtes, c\'est trop : votre respiration peut devenir le phare. Un repère simple pour garder votre calme.',
     },
