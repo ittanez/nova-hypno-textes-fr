@@ -193,6 +193,15 @@ export const localBusinessSchema = {
   "review": [
     {
       "@type": "Review",
+      "@id": "https://novahypnose.fr/#review-12",
+      "author": { "@type": "Person", "name": "William Amor" },
+      "datePublished": "2026-11-13",
+      "reviewRating": { "@type": "Rating", "@id": "https://novahypnose.fr/#rating-12", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+      "itemReviewed": { "@id": "https://novahypnose.fr/#localbusiness" },
+      "reviewBody": "Pour ma première expérience avec l'hypnose, l'accompagnement d'Alain fut pour moi rassurant et bienveillant. Je me suis senti appaisé et serein. Son écoute fut attentive et lui a permis de déterminer les points à travailler pour me libérer de tensions et d'angoisses. Les séances avec Alain m'ont permis de retrouver une énergie constructives. Je recommande assurément ce praticien"
+    },
+    {
+      "@type": "Review",
       "@id": "https://novahypnose.fr/#review-11",
       "author": { "@type": "Person", "name": "Sylvie Kourkine" },
       "datePublished": "2026-08-06",

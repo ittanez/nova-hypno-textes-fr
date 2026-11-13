@@ -238,7 +238,7 @@ const localBusinessLd = {
     "@type": "AggregateRating",
     ratingValue: "5",
     bestRating: "5",
-    reviewCount: "26",
+    reviewCount: "27",
   },
   sameAs: BUSINESS_SAME_AS,
 };
@@ -382,7 +382,7 @@ export const PAGES: Record<string, PageData> = {
       <li><strong>Visio</strong> : <a href="${SITE_URL}/hypnose-en-ligne">séances en visioconférence</a> partout en France et pour les francophones à l'étranger, même déroulement et même tarif qu'au cabinet</li>
       <li><strong>Tarifs</strong> : 90 € la séance (cabinet ou visio), 140 € à domicile (Paris, arrondissements 1 à 4 et 9 à 11) — <a href="${SITE_URL}/tarifs">détail des tarifs</a></li>
       <li><strong>Horaires</strong> : du lundi au vendredi, 11h-20h30</li>
-      <li><strong>Avis</strong> : 5/5 sur Google (26 avis) et 5/5 sur Resalib (23 avis) — <a href="${SITE_URL}/avis">lire les témoignages</a></li>
+      <li><strong>Avis</strong> : 5/5 sur Google (27 avis) et 5/5 sur Resalib (23 avis) — <a href="${SITE_URL}/avis">lire les témoignages</a></li>
       <li><strong>Public</strong> : adultes uniquement</li>
       <li><strong>Contact</strong> : 06 49 35 80 89 · contact@novahypnose.fr — <a href="${SITE_URL}/contact">page contact</a></li>
     </ul>
@@ -404,7 +404,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>9 certificats de formation</strong> en hypnose (École Psynapse, MHD Formation)</li>
       <li><strong>Premiers changements souvent dans les 3 à 5 premières séances</strong> — le nombre de séances varie selon chacun</li>
-      <li><strong>Note 5/5</strong> — 26 avis Google et 23 avis Resalib</li>
+      <li><strong>Note 5/5</strong> — 27 avis Google et 23 avis Resalib</li>
       <li><strong>Approche personnalisée</strong> — Chaque séance est adaptée à votre situation</li>
       <li><strong>Cabinet Paris 4ème</strong> — Métro Saint-Paul ou Bastille</li>
     </ul>
@@ -501,7 +501,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>1h30</strong> pour la première séance, entretien compris</li>
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le stress</h2>
@@ -598,7 +598,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>2 à 4 séances</strong> comme repère, variable selon chacun</li>
       <li><strong>1h30</strong> pour la première séance, entretien compris</li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les phobies</h2>
@@ -707,7 +707,7 @@ export const PAGES: Record<string, PageData> = {
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>0 médicament</strong> nécessaire — une solution 100% naturelle</li>
       <li>Amélioration souvent visible <strong>dès la première séance</strong></li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et le sommeil</h2>
@@ -907,7 +907,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> selon votre histoire et votre fonctionnement</li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les émotions</h2>
@@ -1013,7 +1013,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> — sans jugement, adapté à votre histoire</li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et les blocages</h2>
@@ -1117,7 +1117,7 @@ export const PAGES: Record<string, PageData> = {
     <ul>
       <li><strong>3 à 5 séances</strong> comme repère pour les premiers changements, variable selon chacun</li>
       <li><strong>100% personnalisé</strong> selon vos objectifs et votre histoire</li>
-      <li><strong>Note 5/5</strong> sur Google (26 avis) et Resalib (23 avis)</li>
+      <li><strong>Note 5/5</strong> sur Google (27 avis) et Resalib (23 avis)</li>
     </ul>
 
     <h2>Questions fréquentes sur l'hypnose et la confiance en soi</h2>
@@ -1386,7 +1386,7 @@ export const PAGES: Record<string, PageData> = {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5",
-          "reviewCount": "26",
+          "reviewCount": "27",
           "bestRating": "5"
         }
       }
@@ -1493,7 +1493,7 @@ export const PAGES: Record<string, PageData> = {
     <p>Un appel découverte gratuit, sans engagement. On fait le point sur votre situation, je vous explique comment l'accompagnement fonctionne, et on voit ensemble si c'est le bon chemin pour vous.</p>
 
     <h2>Pourquoi me faire confiance</h2>
-    <p><strong>Alain Zenatti</strong>, hypnothérapeute formé à l'hypnose ericksonienne et à l'auto-hypnose, praticien en communication relationnelle (approche Jacques Salomé). Note 5/5 sur Google (26 avis) et Resalib (23 avis).</p>
+    <p><strong>Alain Zenatti</strong>, hypnothérapeute formé à l'hypnose ericksonienne et à l'auto-hypnose, praticien en communication relationnelle (approche Jacques Salomé). Note 5/5 sur Google (27 avis) et Resalib (23 avis).</p>
 
     <a class="cta" href="https://calendly.com/zenatti/rdvtelephonique">Réserver un appel découverte gratuit</a>
     `,
